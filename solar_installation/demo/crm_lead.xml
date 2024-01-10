@@ -45,7 +45,19 @@
     </record>
     <record id="crm_lead_15" model="crm.lead">
         <field name="name">Website Visitor #177's New Lead</field>
-        <field name="description">&lt;p&gt;Helpdesk Bot: Here we go, help is on the way!&lt;br&gt;Helpdesk Bot: First, what is the nature of your issue?&lt;br&gt;Visitor #177: Equipment(s) is not working&lt;br&gt;Helpdesk Bot: Please select which equipment is not working.&lt;br&gt;Visitor #177: ACDB&lt;br&gt;Helpdesk Bot: Please mention serial number of the ACDB&lt;br&gt;Visitor #177: 44&lt;br&gt;Helpdesk Bot: Please mention your invoice number&lt;br&gt;Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.&lt;br&gt;&lt;/p&gt;</field>
+        <field name="description"><![CDATA[ <p>
+            Helpdesk Bot: Here we go, help is on the way!<br />
+            Helpdesk Bot: First, what is the nature of your issue?<br />
+            Visitor #177: Equipment(s) is not working<br />
+            Helpdesk Bot: Please select which equipment is not working.<br />
+            Visitor #177: ACDB<br />
+            Helpdesk Bot: Please mention serial number of the ACDB<br />
+            Visitor #177: 44<br />
+            Helpdesk Bot: Please mention your invoice number<br />
+            Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.<br />
+        </p>
+        ]]>
+        </field>
         <field name="stage_id" ref="crm.stage_lead1" />
     </record>
     <record id="crm_lead_16" model="crm.lead">

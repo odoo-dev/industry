@@ -104,7 +104,7 @@
         <field name="arch" type="xml">
             <form create="false" duplicate="false">
                 <sheet>
-                    <h1 invisible="context.get('studio') or context.get('default_x_project_task_id')">
+                    <h1 invisible="context.get('default_x_project_task_id')">
                         <field name="x_project_task_id"/>
                     </h1>
                     <group>
@@ -112,7 +112,7 @@
                             <field name="x_many2one_field_6" string="Customer " domain="[]"/>
                             <field name="x_many2one_field_5" string="Sales Order No."/>
                             <field name="x_handover_performed_by" string="Handover Performed By"/>
-                            <field name="x_many2one_field_10" string="Task " domain="[(&quot;project_id.task_ids&quot;, &quot;ilike&quot;, &quot;Solar Installation&quot;)]"/>
+                            <field name="x_many2one_field_10" string="Task " domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
                             <field name="x_many2many_field" widget="many2many_tags" string="Task Assignees"/>
                             <field widget="file" invisible="1" name="x_installation_images_filename"/>
                         </group>
@@ -129,12 +129,12 @@
                         <page string="Images">
                             <group>
                                 <group>
-                                    <field widget="image" name="x_binary_field_4" options="{&quot;zoom&quot;:true,&quot;size&quot;:[0,90]}" string="Image 1"/>
+                                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" string="Image 1"/>
                                     <field widget="file" invisible="1" name="x_binary_field_filename"/>
-                                    <field widget="image" name="x_image_2" options="{&quot;size&quot;:[0,90],&quot;zoom&quot;:true}" string="Image 2"/>
+                                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" string="Image 2"/>
                                 </group>
                                 <group>
-                                    <field widget="image" name="x_image_3" options="{&quot;size&quot;:[0,90],&quot;zoom&quot;:true}" string="Image 3"/>
+                                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" string="Image 3"/>
                                 </group>
                             </group>
                         </page>
@@ -142,7 +142,7 @@
                     <separator/>
                     <group>
                         <group>
-                            <field widget="signature" name="x_customer_signature" string="Customer Signature" options="{&quot;size&quot;:[0,90]}"/>
+                            <field widget="signature" name="x_customer_signature" string="Customer Signature" options="{'size':[0,90]}"/>
                         </group>
                     </group>
                 </sheet>
@@ -166,14 +166,14 @@
                     <field name="x_many2one_field_6" string="Customer " domain="[]"/>
                     <field name="x_many2one_field_9" string="kW plan"/>
                     <field name="x_many2one_field_5" string="Sales Order No."/>
-                    <field name="x_many2one_field_10" string="Task " domain="[(&quot;project_id.task_ids&quot;, &quot;ilike&quot;, &quot;Solar Installation&quot;)]"/>
+                    <field name="x_many2one_field_10" string="Task " domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
                     <field name="x_many2many_field" widget="many2many_tags" string="Task Assignees"/>
                     <field name="x_commencement_date_time" string="Commencement Date &amp; Time"/>
                     <field name="x_completion_date_time" string="Completion Date &amp; Time"/>
-                    <field widget="image" name="x_binary_field_4" options="{&quot;zoom&quot;:true,&quot;size&quot;:[0,90]}" string="Image 1"/>
+                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" string="Image 1"/>
                     <field widget="file" invisible="1" name="x_binary_field_filename"/>
-                    <field widget="image" name="x_image_2" options="{&quot;size&quot;:[0,90],&quot;zoom&quot;:true}" string="Image 2"/>
-                    <field widget="image" name="x_image_3" options="{&quot;size&quot;:[0,90],&quot;zoom&quot;:true}" string="Image 3"/>
+                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" string="Image 2"/>
+                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" string="Image 3"/>
                     <field name="x_handover_performed_by" string="Handover Performed By"/>
                 </xpath>
                 <xpath expr="//field[@name='x_comments']" position="attributes">
@@ -182,7 +182,7 @@
                 </xpath>
                 <xpath expr="//field[@name='x_comments']" position="after">
                     <field name="x_html_field" string="Declaration" force_save="True" readonly="1"/>
-                    <field widget="signature" name="x_customer_signature" string="Customer Signature" options="{&quot;size&quot;:[0,90]}"/>
+                    <field widget="signature" name="x_customer_signature" string="Customer Signature" options="{'size':[0,90]}"/>
                     <field widget="file" invisible="1" name="x_installation_images_filename"/>
                 </xpath>
             </data>

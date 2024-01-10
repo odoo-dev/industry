@@ -6,7 +6,6 @@
         <field name="city">Prescott</field>
         <field name="zip">86313</field>
         <field name="country_id" ref="base.us" />
-        <field name="date_localization">2023-08-08</field>
         <field name="is_company" eval="True" />
         <field name="state_id" ref="base.state_us_3"/>
         <field name="team_id" ref="sales_team.team_sales_department" />
@@ -16,7 +15,6 @@
         <field name="city">Prescott</field>
         <field name="zip">86313</field>
         <field name="country_id" ref="base.us" />
-        <field name="date_localization">2023-08-08</field>
         <field name="is_company" eval="True" />
         <field name="state_id" ref="base.state_us_3"/>
         <field name="team_id" ref="sales_team.team_sales_department" />
@@ -32,7 +30,6 @@
         <field name="city">Prescott</field>
         <field name="zip">86313</field>
         <field name="country_id" ref="base.us" />
-        <field name="date_localization">2023-08-08</field>
         <field name="is_company" eval="True" />
         <field name="state_id" ref="base.state_us_3"/>
         <field name="team_id" ref="sales_team.team_sales_department" />
@@ -92,7 +89,6 @@
         <field name="city">Stanford</field>
         <field name="zip">94305</field>
         <field name="country_id" ref="base.us" />
-        <field name="date_localization">2023-08-08</field>
         <field name="is_company" eval="True" />
         <field name="state_id" ref="base.state_us_5"/>
         <field name="team_id" ref="sales_team.team_sales_department" />

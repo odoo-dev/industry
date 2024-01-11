@@ -2,7 +2,6 @@
 <odoo>
     <record id="industry_fsm_report.report_custom_x_project_task_worksheet_template_1" model="ir.ui.view">
         <field name="name">x_project_task_worksheet_template_1</field>
-        <field name="key">gen_key.02d2b7</field>
         <field name="type">qweb</field>
         <field name="arch" type="xml">
             <t t-name="x_project_task_worksheet_template_1">
@@ -24,7 +23,6 @@
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='email_cc']" position="after">
-                    <field name="x_many2one_field_13" invisible="1"/>
                     <field name="product_id"/>
                     <field name="lot_id"/>
                 </xpath>
@@ -92,7 +90,7 @@
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='removal_date']" position="after">
-                    <field name="x_warranty_date" string="Warranty Date"/>
+                    <field name="x_warranty_date" />
                 </xpath>
             </data>
         </field>
@@ -109,19 +107,18 @@
                     </h1>
                     <group>
                         <group>
-                            <field name="x_many2one_field_6" string="Customer " domain="[]"/>
-                            <field name="x_many2one_field_5" string="Sales Order No."/>
-                            <field name="x_handover_performed_by" string="Handover Performed By"/>
-                            <field name="x_many2one_field_10" string="Task " domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
-                            <field name="x_many2many_field" widget="many2many_tags" string="Task Assignees"/>
-                            <field widget="file" invisible="1" name="x_installation_images_filename"/>
+                            <field name="x_many2one_field_6" domain="[]"/>
+                            <field name="x_many2one_field_5" />
+                            <field name="x_handover_performed_by" />
+                            <field name="x_many2one_field_10"  domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
+                            <field name="x_many2many_field" widget="many2many_tags" />
                         </group>
                         <group name="group_93">
-                            <field name="x_date" string="Date"/>
-                            <field name="x_commencement_date_time" string="Commencement Date &amp; Time"/>
-                            <field name="x_completion_date_time" string="Completion Date &amp; Time"/>
-                            <field name="x_many2one_field_9" string="kW plan"/>
-                            <field name="x_html_field" string="Declaration" force_save="True" readonly="1"/>
+                            <field name="x_date" />
+                            <field name="x_commencement_date_time" />
+                            <field name="x_completion_date_time" />
+                            <field name="x_many2one_field_9" />
+                            <field name="x_html_field" force_save="True" readonly="1"/>
                             <field name="x_comments" string="Remarks"/>
                         </group>
                     </group>
@@ -129,12 +126,12 @@
                         <page string="Images">
                             <group>
                                 <group>
-                                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" string="Image 1"/>
-                                    <field widget="file" invisible="1" name="x_binary_field_filename"/>
-                                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" string="Image 2"/>
+                                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" />
+                                    
+                                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" />
                                 </group>
                                 <group>
-                                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" string="Image 3"/>
+                                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" />
                                 </group>
                             </group>
                         </page>
@@ -162,28 +159,26 @@
                 <xpath expr="//field[@name='x_comments']" position="before">
                     <group name="group_93">
             </group>
-                    <field name="x_date" string="Date"/>
+                    <field name="x_date" />
                     <field name="x_many2one_field_6" string="Customer " domain="[]"/>
-                    <field name="x_many2one_field_9" string="kW plan"/>
+                    <field name="x_many2one_field_9" />
                     <field name="x_many2one_field_5" string="Sales Order No."/>
                     <field name="x_many2one_field_10" string="Task " domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
-                    <field name="x_many2many_field" widget="many2many_tags" string="Task Assignees"/>
-                    <field name="x_commencement_date_time" string="Commencement Date &amp; Time"/>
-                    <field name="x_completion_date_time" string="Completion Date &amp; Time"/>
-                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" string="Image 1"/>
-                    <field widget="file" invisible="1" name="x_binary_field_filename"/>
-                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" string="Image 2"/>
-                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" string="Image 3"/>
-                    <field name="x_handover_performed_by" string="Handover Performed By"/>
+                    <field name="x_many2many_field" widget="many2many_tags" />
+                    <field name="x_commencement_date_time" />
+                    <field name="x_completion_date_time" />
+                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" />
+                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" />
+                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" />
+                    <field name="x_handover_performed_by" />
                 </xpath>
                 <xpath expr="//field[@name='x_comments']" position="attributes">
                     <attribute name="placeholder"/>
                     <attribute name="string">Remarks</attribute>
                 </xpath>
                 <xpath expr="//field[@name='x_comments']" position="after">
-                    <field name="x_html_field" string="Declaration" force_save="True" readonly="1"/>
+                    <field name="x_html_field" force_save="True" readonly="1"/>
                     <field widget="signature" name="x_customer_signature" string="Customer Signature" options="{'size':[0,90]}"/>
-                    <field widget="file" invisible="1" name="x_installation_images_filename"/>
                 </xpath>
             </data>
         </field>

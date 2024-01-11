@@ -29,24 +29,6 @@
         <field name="sequence">2</field>
         <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
     </record>
-    <record id="im_livechat.chatbot_script_welcome_step_dispatch_answer_documentation" model="chatbot.script.answer">
-        <field name="name">I am looking for your documentation</field>
-        <field name="script_step_id" ref="im_livechat.chatbot_script_welcome_step_dispatch"/>
-        <field name="redirect_link">/</field>
-        <field name="sequence">2</field>
-        <field name="chatbot_script_id" ref="im_livechat.chatbot_script_welcome_bot"/>
-    </record>
-    <record id="im_livechat.chatbot_script_welcome_step_dispatch_answer_just_looking" model="chatbot.script.answer">
-        <field name="name">I am just looking around</field>
-        <field name="script_step_id" ref="im_livechat.chatbot_script_welcome_step_dispatch"/>
-        <field name="sequence">3</field>
-        <field name="chatbot_script_id" ref="im_livechat.chatbot_script_welcome_bot"/>
-    </record>
-    <record id="im_livechat.chatbot_script_welcome_step_dispatch_answer_pricing" model="chatbot.script.answer">
-        <field name="name">I have a pricing question</field>
-        <field name="script_step_id" ref="im_livechat.chatbot_script_welcome_step_dispatch"/>
-        <field name="chatbot_script_id" ref="im_livechat.chatbot_script_welcome_bot"/>
-    </record>
     <record id="website_helpdesk_livechat.chatbot_script_helpdesk_step_dispatch_answer_administrative" model="chatbot.script.answer">
         <field name="name">Equipment(s) is not working</field>
         <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_dispatch"/>

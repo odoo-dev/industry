@@ -70,9 +70,4 @@
         <field name="sequence">5</field>
         <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
     </record>
-    <record id="website_helpdesk_livechat.chatbot_script_helpdesk_step_welcome" model="chatbot.script.step">
-        <field name="message">Here we go, help is on the way!</field>
-        <field name="sequence">1</field>
-        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
-    </record>
 </odoo>

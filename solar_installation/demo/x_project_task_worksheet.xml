@@ -4,8 +4,8 @@
         <field name="x_name">S00020 - Solar installation charge (2 kW-Off grid)</field>
         <field name="x_comments"><![CDATA[ <p>Done installation properly</p>]]></field>
         <field name="x_project_task_id" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_20')])]).id"/>
-        <field name="x_completion_date_time" eval="datetime.now()"/>
-        <field name="x_date" eval="datetime.now()"/>
+        <field name="x_completion_date_time" eval="(datetime.now() - relativedelta(days=5, hours=1))"/>
+        <field name="x_date" eval="(datetime.now() - relativedelta(days=5))"/>
         <field name="x_html_field"><![CDATA[ <p>I agree that all information detailed above is correct.</p>]]></field>
         <field name="x_customer_signature" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/2-x_customer_signature"/>
         <field name="x_many2one_field_6" ref="res_partner_23"/>
@@ -13,7 +13,7 @@
         <field name="x_image_2" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/2-x_image_2"/>
         <field name="x_many2one_field_5" ref="sale_order_20"/>
         <field name="x_many2one_field_9" ref="sale_order_template_3"/>
-        <field name="x_commencement_date_time" eval="datetime.now()"/>
+        <field name="x_commencement_date_time" eval="(datetime.now() - relativedelta(days=5, seconds=40))"/>
         <field name="x_binary_field_4" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/2-x_binary_field_4"/>
         <field name="x_many2one_field_10" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_20')])]).id"/>
     </record>
@@ -21,8 +21,8 @@
         <field name="x_name">S00023 - Solar installation charge</field>
         <field name="x_comments"><![CDATA[ <p>No issue faced during installation.</p>]]></field>
         <field name="x_project_task_id" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_23')])]).id"/>
-        <field name="x_completion_date_time" eval="datetime.now()"/>
-        <field name="x_date" eval="datetime.now()"/>
+        <field name="x_completion_date_time" eval="(datetime.now() - relativedelta(days=6, hours=4))"/>
+        <field name="x_date" eval="(datetime.now() - relativedelta(days=6))"/>
         <field name="x_html_field"><![CDATA[ <p>I agree that all information detailed above is correct.</p>]]></field>
         <field name="x_customer_signature" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/3-x_customer_signature"/>
         <field name="x_many2one_field_6" ref="res_partner_16"/>
@@ -30,7 +30,7 @@
         <field name="x_image_2" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/3-x_image_2"/>
         <field name="x_many2one_field_5" ref="sale_order_23"/>
         <field name="x_many2one_field_9" ref="sale_order_template_2"/>
-        <field name="x_commencement_date_time" eval="datetime.now()"/>
+        <field name="x_commencement_date_time" eval="(datetime.now() - relativedelta(days=6, seconds=1600))"/>
         <field name="x_binary_field_4" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/3-x_binary_field_4"/>
         <field name="x_many2one_field_10" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_23')])]).id"/>
     </record>
@@ -50,23 +50,23 @@
         <field name="x_name">S00025 - Solar installation charge (2 kW-Off grid)</field>
         <field name="x_comments"><![CDATA[ <p>Done installation without problem.</p>]]></field>
         <field name="x_project_task_id" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_25')])]).id"/>
-        <field name="x_completion_date_time" eval="datetime.now()"/>
-        <field name="x_date">2023-10-10</field>
+        <field name="x_completion_date_time" eval="(datetime.now() - relativedelta(days=4, hours=3))"/>
+        <field name="x_date" eval="(datetime.now() - relativedelta(days=4))"/>
         <field name="x_html_field"><![CDATA[ <p>I agree that all information detailed above is correct.</p>]]></field>
         <field name="x_customer_signature" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/5-x_customer_signature"/>
         <field name="x_many2one_field_6" ref="res_partner_36"/>
         <field name="x_image_2" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/5-x_image_2"/>
         <field name="x_many2one_field_5" ref="sale_order_25"/>
         <field name="x_many2one_field_9" ref="sale_order_template_3"/>
-        <field name="x_commencement_date_time" eval="datetime.now()"/>
+        <field name="x_commencement_date_time" eval="(datetime.now() - relativedelta(days=4, seconds=1100))"/>
         <field name="x_binary_field_4" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/5-x_binary_field_4"/>
         <field name="x_many2one_field_10" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_25')])]).id"/>
     </record>
     <record id="x_project_task_worksheet_template_1_6" model="x_project_task_worksheet_template_1">
         <field name="x_name">S00026 - Solar installation charge (2 kW-Off grid)</field>
         <field name="x_project_task_id" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_26')])]).id"/>
-        <field name="x_completion_date_time" eval="datetime.now()"/>
-        <field name="x_date">2023-10-19</field>
+        <field name="x_completion_date_time" eval="(datetime.now() - relativedelta(days=3, hours=2))"/>
+        <field name="x_date" eval="(datetime.now() - relativedelta(days=3))"/>
         <field name="x_html_field"><![CDATA[ <p>I agree that all information detailed above is correct.</p>]]></field>
         <field name="x_customer_signature" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/6-x_customer_signature"/>
         <field name="x_many2one_field_6" ref="res_partner_47"/>
@@ -74,15 +74,15 @@
         <field name="x_image_2" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/6-x_image_2"/>
         <field name="x_many2one_field_5" ref="sale_order_26"/>
         <field name="x_many2one_field_9" ref="sale_order_template_3"/>
-        <field name="x_commencement_date_time" eval="datetime.now()"/>
+        <field name="x_commencement_date_time" eval="(datetime.now() - relativedelta(days=3, seconds=1000))"/>
         <field name="x_binary_field_4" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/6-x_binary_field_4"/>
         <field name="x_many2one_field_10" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_26')])]).id"/>
     </record>
     <record id="x_project_task_worksheet_template_1_7" model="x_project_task_worksheet_template_1">
         <field name="x_name">S00027 - Solar installation charge (2 kW-Off grid)</field>
         <field name="x_project_task_id" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_27')])]).id"/>
-        <field name="x_completion_date_time" eval="datetime.now()"/>
-        <field name="x_date">2023-10-20</field>
+        <field name="x_completion_date_time" eval="(datetime.now() - relativedelta(days=4, hours=5))"/>
+        <field name="x_date" eval="(datetime.now() - relativedelta(days=4))"/>
         <field name="x_html_field"><![CDATA[ <p>I agree that all information detailed above is correct.</p>]]></field>
         <field name="x_customer_signature" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/7-x_customer_signature"/>
         <field name="x_many2one_field_6" ref="res_partner_49"/>
@@ -90,7 +90,7 @@
         <field name="x_image_2" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/7-x_image_2"/>
         <field name="x_many2one_field_5" ref="sale_order_27"/>
         <field name="x_many2one_field_9" ref="sale_order_template_3"/>
-        <field name="x_commencement_date_time" eval="datetime.now()"/>
+        <field name="x_commencement_date_time" eval="(datetime.now() - relativedelta(days=4, seconds=1800))"/>
         <field name="x_binary_field_4" type="base64" file="solar_installation/static/src/binary/x_project_task_worksheet_template_1/7-x_binary_field_4"/>
         <field name="x_many2one_field_10" model="project.task" eval="obj().search([('sale_order_id', 'in', [ref('sale_order_27')])]).id"/>
     </record>

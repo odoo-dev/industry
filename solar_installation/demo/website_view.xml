@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <record id="solar_installation.homepage" model="ir.ui.view">
+    <record id="homepage" model="ir.ui.view">
         <field name="name">Home</field>
         <field name="key">solar_installation.homepage</field>
         <field name="type">qweb</field>
@@ -14,13 +14,12 @@
                             <span class="s_parallax_bg oe_img_bg o_bg_img_center" style="background-image: url(/web/image/solar_installation.ir_attachment_752); background-position: 50% 0px;" data-original-id="573" data-original-src="/web/image/573-e596bdcc/landing%208.jpg" data-mimetype="image/webp" data-resize-width="640"/>
                             <div class="container">
                                 <div class="row s_nb_column_fixed">
-                                    <div class="col-lg-6 jumbotron rounded o_cc o_cc1 pt32 pb32 o_colored_level" data-name="Box" style="">
+                                    <div class="col-lg-6 jumbotron rounded o_cc o_cc1 pt32 pb32 o_colored_level" data-name="Box">
                                         <h1>
                                             <font style="font-size: 62px;">Solar Installation </font>
-                                            <br/>
                                         </h1>
                                         <p class="lead">Quick installation with attractive budget</p>
-                                        <a class="mb-2 btn btn-primary" href="/get-a-quote" data-bs-original-title="" title="" aria-describedby="popover399440">Get a Quote</a>
+                                        <a class="mb-2 btn btn-primary" href="/get-a-quote" data-bs-original-title="" aria-describedby="popover399440">Get a Quote</a>
                                     </div>
                                 </div>
                             </div>
@@ -29,12 +28,6 @@
                             <div class="container-fluid">
                                 <div class="row s_nb_column_fixed o_grid_mode" style="--grid-item-padding-y: 0px; --grid-item-padding-x: 0px;" data-row-count="2">
                                     <div class="o_grid_item g-col-lg-12 g-height-2 col-lg-12 o_colored_level" style="grid-area: 1 / 1 / 3 / 13; z-index: 1;">
-                                        <p>
-                                            <br/>
-                                        </p>
-                                        <p style="text-align: center;">
-                                            <br/>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +37,7 @@
             </t>
         </field>
     </record>
-    <record id="solar_installation.contactus" model="ir.ui.view">
+    <record id="contactus" model="ir.ui.view">
         <field name="name">Contact Us</field>
         <field name="key">solar_installation.contactus</field>
         <field name="type">qweb</field>
@@ -53,7 +46,7 @@
             <t name="Contact Us" t-name="website.contactus">
                 <t t-call="website.layout">
                     <t t-set="logged_partner" t-value="request.env['website.visitor']._get_visitor_from_request().partner_id"/>
-                    <t t-set="contactus_form_values" t-value="{'email_to': res_company.email,'name': request.params.get('name', ''),                                 'phone': request.params.get('phone', ''),                                 'email_from': request.params.get('email_from', ''),                                 'company': request.params.get('company', ''),                                 'subject': request.params.get('subject', ''),                         }"/>
+                    <t t-set="contactus_form_values" t-value="{'email_to': res_company.email, 'name': request.params.get('name', ''), 'phone': request.params.get('phone', ''), 'email_from': request.params.get('email_from', ''), 'company': request.params.get('company', ''), 'subject': request.params.get('subject', ''), }"/>
                     <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values"/>
                     <div id="wrap" class="oe_structure oe_empty">
                         <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1" data-name="Title">
@@ -66,58 +59,58 @@
                         <section class="s_text_block pt40 pb40 o_colored_level" data-snippet="s_text_block" data-name="Text" style="background-image: none;">
                             <div class="s_allow_columns container">
                                 <div class="row">
-                                    <div class="col-lg-8 mt-4 mt-lg-0 o_colored_level" style="">
+                                    <div class="col-lg-8 mt-4 mt-lg-0 o_colored_level">
                                         <p>
-                                        Contact us about anything related to our company or services.<br/>
-                                        We'll do our best to get back to you as soon as possible.
+                                            Contact us about anything related to our company or services.<br/>
+                                            We'll do our best to get back to you as soon as possible.
                                         </p>
-                                        <section class="s_website_form" data-vcss="001" data-snippet="s_website_form" data-name="Form" style="">
+                                        <section class="s_website_form" data-vcss="001" data-snippet="s_website_form" data-name="Form" >
                                             <div class="container">
                                                 <form id="contactus_form" action="/website/form/" method="post" enctype="multipart/form-data" data-mark="*" data-model_name="crm.lead" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-pre-fill="true">
                                                     <div class="s_website_form_rows row s_col_no_bgcolor">
-                                                        <div class="s_website_form_field mb-3 col-12  s_website_form_required" data-type="char" data-name="Field">
+                                                        <div class="s_website_form_field mb-3 col-12    s_website_form_required" data-type="char" data-name="Field">
                                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="oeog4idoyw7r">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-contact_name">
                                                                     <span class="s_website_form_label_content">Your Name</span>
                                                                 </label>
                                                                 <div class="col-sm">
-                                                                    <input type="text" class="form-control s_website_form_input" name="contact_name" required="1" data-fill-with="name" id="oeog4idoyw7r"/>
+                                                                    <input type="text" class="form-control s_website_form_input" name="contact_name" required="1" data-fill-with="name" id="input-contact_name"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12" data-type="tel" data-name="Field">
                                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="o04p2lvxh4zpx">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-mobile">
                                                                     <span class="s_website_form_label_content">Mobile</span>
                                                                 </label>
                                                                 <div class="col-sm">
-                                                                    <input type="tel" class="form-control s_website_form_input" name="mobile" value="" placeholder="" id="o04p2lvxh4zpx" data-fill-with="phone"/>
+                                                                    <input type="tel" class="form-control s_website_form_input" name="mobile" id="input-mobile" data-fill-with="phone"/>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div data-visibility-condition="" data-visibility-between="" style="" class="s_website_form_field mb-3 col-12" data-type="email" data-name="Field">
+                                                        <div data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12" data-type="email" data-name="Field">
                                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="ox8k5o0tlsli">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-email">
                                                                     <span class="s_website_form_label_content">Your Email</span>
                                                                 </label>
                                                                 <div class="col-sm">
-                                                                    <input type="email" class="form-control s_website_form_input" name="email_from" value="" placeholder="" id="ox8k5o0tlsli" data-fill-with="email"/>
+                                                                    <input type="email" class="form-control s_website_form_input" name="email_from" id="input-email" data-fill-with="email"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12 s_website_form_model_required" data-type="char" data-name="Field">
                                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="o6pgjfglvt5">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-requirement">
                                                                     <span class="s_website_form_label_content">Requirement</span>
                                                                 </label>
                                                                 <div class="col-sm">
-                                                                    <input type="text" class="form-control s_website_form_input" name="name" required="true" value="" placeholder="" id="o6pgjfglvt5" data-fill-with="undefined"/>
+                                                                    <input type="text" class="form-control s_website_form_input" name="name" required="true" id="input-requirement" data-fill-with="undefined"/>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="s_website_form_field mb-3 col-12 s_website_form_dnone" data-name="Field">
+                                                        <div class="s_website_form_field mb-3 col-12        s_website_form_dnone" data-name="Field">
                                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px">
                                                                     <span class="s_website_form_label_content"/>
                                                                 </label>
                                                                 <div class="col-sm">
@@ -125,9 +118,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="s_website_form_field mb-3 col-12 s_website_form_dnone" data-name="Field">
+                                                        <div class="s_website_form_field mb-3 col-12        s_website_form_dnone" data-name="Field">
                                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px">
                                                                     <span class="s_website_form_label_content"/>
                                                                 </label>
                                                                 <div class="col-sm">
@@ -135,9 +128,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="mb-0 py-2 col-12 s_website_form_submit" data-name="Submit Button">
+                                                        <div class="mb-0 py-2 col-12 s_website_form_submit" data-name="Submit Button" >
                                                             <div style="width: 200px;" class="s_website_form_label"/>
-                                                            <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send" data-bs-original-title="" title="" aria-describedby="popover876763">Submit</a>
+                                                            <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send" data-bs-original-title="" aria-describedby="popover876763">Submit</a>
                                                             <span id="s_website_form_result"/>
                                                         </div>
                                                     </div>
@@ -145,7 +138,7 @@
                                             </div>
                                         </section>
                                     </div>
-                                    <div class="mt-4 mt-lg-0 o_colored_level pt64 col-lg-4" style="">
+                                    <div class="mt-4 mt-lg-0 o_colored_level pt64 col-lg-4">
                                         <ul class="list-unstyled mb-0 ps-2">
                                             <li>
                                                 <strong>Sun Power Solar Services</strong>
@@ -161,7 +154,7 @@
                                             <li>
                                                 <i class="fa fa-1x fa-fw fa-envelope me-2"/>
                                                 <span>
-                                                    <span style="color: rgb(55, 65, 81);font-size: 14px;font-style: normal;font-weight: 400;background-color: rgb(255, 255, 255)">info@industry-solar-installation.odoo.com</span>
+                                                    <span style="color: rgb(55, 65, 81);font-size: 14px;font-style: normal;font-weight: 400;background-color: rgb(255, 255, 255)">info@yourcompany.example.com</span>
                                                 </span>
                                             </li>
                                         </ul>
@@ -174,9 +167,9 @@
             </t>
         </field>
     </record>
-    <record id="solar_installation.contactus_form" model="ir.ui.view">
+    <record id="contactus_form" model="ir.ui.view">
         <field name="name">Contact Form (Opportunity)</field>
-        <field name="inherit_id" ref="solar_installation.contactus"/>
+        <field name="inherit_id" ref="contactus"/>
         <field name="key">solar_installation.contactus_form</field>
         <field name="mode">extension</field>
         <field name="type">qweb</field>
@@ -184,7 +177,7 @@
         <field name="arch" type="xml">
             <data name="Contact Form (Opportunity)" inherit_id="website.contactus">
                 <xpath expr="//t[@t-set='contactus_form_values']" position="after">
-                    <t t-set="contactus_form_values" t-value="dict(contactus_form_values, **{ 'contact_name': request.params.get('contact_name', ''),                                         'partner_name': request.params.get('partner_name', ''),                                         'description': request.params.get('description', ''),                                 })"/>
+                    <t t-set="contactus_form_values" t-value="dict(contactus_form_values, **{'contact_name': request.params.get('contact_name', '')'partner_name': request.params.get('partner_name', '')'description': request.params.get('description', ''), })"/>
                 </xpath>
             </data>
         </field>
@@ -203,7 +196,7 @@
                         <section class="s_text_block pt40 pb16" data-snippet="s_text_block" data-name="Text" style="background-image: none;">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-2 pt24 pb24 o_colored_level" style="">
+                                    <div class="col-lg-2 pt24 pb24 o_colored_level">
                                         <h5 class="mb-3">Useful Links</h5>
                                         <ul class="list-unstyled">
                                             <li>
@@ -216,10 +209,7 @@
                                     </div>
                                     <div class="col-lg-5 pt24 pb24 o_colored_level">
                                         <h5 class="mb-3">About us</h5>
-                                        <p>We are a team of passionate people whose goal is to improve everyone's life through disruptive products. We build great products to solve your business problems.
-                                            <br/>
-                                            <br/>
-                                        </p>
+                                        <p>We are a team of passionate people whose goal is to improve everyone's life through disruptive products. We build great products to solve your business problems.</p>
                                     </div>
                                     <div id="connect" class="col-lg-4 offset-lg-1 pt24 pb24 o_colored_level">
                                         <h5 class="mb-3">Connect with us</h5>
@@ -239,7 +229,7 @@
                                             <li>
                                                 <i class="fa fa-phone fa-fw me-2"/>
                                                 <span class="o_force_ltr">
-                                                    <a href="tel:+1(079)400-5001" data-bs-original-title="" title="">+1 (079) 400-5001</a>
+                                                    <a href="tel:+1(079)400-5001" data-bs-original-title="">+1 (079) 400-5001</a>
                                                 </span>
                                             </li>
                                         </ul>
@@ -277,12 +267,12 @@
         <field name="arch" type="xml">
             <data inherit_id="website.layout">
                 <xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
-                    <span class="o_footer_copyright_name me-2">Copyright ©&amp;nbsp;Sun Power Solar Services</span>
+                    <span class="o_footer_copyright_name me-2">Copyright ©&amp; Sun Power Solar Services</span>
                 </xpath>
             </data>
         </field>
     </record>
-    <record id="solar_installation.get_a_quote" model="ir.ui.view">
+    <record id="get_a_quote" model="ir.ui.view">
         <field name="name">Get a Quote</field>
         <field name="key">solar_installation.get-a-quote</field>
         <field name="type">qweb</field>
@@ -295,59 +285,59 @@
                             <div class="container">
                                 <form action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-pre-fill="true" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-model_name="crm.lead">
                                     <div class="s_website_form_rows row s_col_no_bgcolor">
-                                        <div class="s_website_form_field mb-3 col-12" data-type="char" data-name="Field">
+                                        <div class="s_website_form_field mb-3 col-12" data-type="char" data-name="Field" data-visibility-condition="" data-visibility-between="">
                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="oaypavmq04k">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-name">
                                                     <span class="s_website_form_label_content">Your Name</span>
                                                 </label>
                                                 <div class="col-sm">
-                                                    <input type="text" class="form-control s_website_form_input" name="contact_name" data-fill-with="name" id="oaypavmq04k"/>
+                                                    <input type="text" class="form-control s_website_form_input" name="contact_name" data-fill-with="name" id="input-name"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="s_website_form_field mb-3 col-12" data-type="tel" data-name="Field">
                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="oizxav7t6m4">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-phone">
                                                     <span class="s_website_form_label_content">Phone Number</span>
                                                 </label>
                                                 <div class="col-sm">
-                                                    <input type="tel" class="form-control s_website_form_input" name="phone" data-fill-with="phone" id="oizxav7t6m4"/>
+                                                    <input type="tel" class="form-control s_website_form_input" name="phone" data-fill-with="phone" id="input-phone"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="email" data-name="Field" style="" data-visibility-condition="" data-visibility-between="">
+                                        <div class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="email" data-name="Field"  data-visibility-condition="" data-visibility-between="">
                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="opfrl8zaor6o">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-email">
                                                     <span class="s_website_form_label_content">Your Email</span>
                                                     <span class="s_website_form_mark"> *</span>
                                                 </label>
                                                 <div class="col-sm">
-                                                    <input type="email" class="form-control s_website_form_input" name="email_from" data-fill-with="email" id="opfrl8zaor6o" required=""/>
+                                                    <input type="email" class="form-control s_website_form_input" name="email_from" data-fill-with="email" id="input-email" required=""/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="s_website_form_field mb-3 col-12" data-type="char" data-name="Field" style="" data-visibility-condition="" data-visibility-between="">
+                                        <div class="s_website_form_field mb-3 col-12" data-type="char" data-name="Field"  data-visibility-condition="" data-visibility-between="">
                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="otpmhaegd7fh">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-company">
                                                     <span class="s_website_form_label_content">Your Company</span>
                                                 </label>
                                                 <div class="col-sm">
-                                                    <input type="text" class="form-control s_website_form_input" name="partner_name" data-fill-with="commercial_company_name" id="otpmhaegd7fh"/>
+                                                    <input type="text" class="form-control s_website_form_input" name="partner_name" data-fill-with="commercial_company_name" id="input-company"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div style="" data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12 s_website_form_model_required" data-type="char" data-name="Field">
+                                        <div  data-visibility-condition="" data-visibility-between="" class="s_website_form_field mb-3 col-12 s_website_form_model_required" data-type="char" data-name="Field">
                                             <div class="row s_col_no_resize s_col_no_bgcolor">
-                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="o0nsqdbb0j9h">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="input-requirement">
                                                     <span class="s_website_form_label_content">Your Requirement</span>
                                                     <span class="s_website_form_mark"> *</span>
                                                 </label>
                                                 <div class="col-sm">
-                                                    <input type="text" class="form-control s_website_form_input" name="name" required="true" value="" placeholder="I want to install 2 kW solar system" id="o0nsqdbb0j9h" data-fill-with="undefined"/>
+                                                    <input type="text" class="form-control s_website_form_input" name="name" required="true"  placeholder="I want to install 2 kW solar system" id="input-requirement" data-fill-with="undefined"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-0 py-2 col-12 s_website_form_submit" data-name="Submit Button">
+                                        <div class="mb-0 py-2 col-12 s_website_form_submit" data-name="Submit Button" >
                                             <div style="width: 200px;" class="s_website_form_label"/>
                                             <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send o_default_snippet_text">Submit</a>
                                             <span id="s_website_form_result"/>
@@ -374,7 +364,7 @@
                     <div class="oe_structure" id="oe_structure_website_helpdesk_team_3">
                         <section class="s_text_block pt40 pb40 o_colored_level" data-snippet="s_text_block" data-name="Text" style="background-image: none;">
                             <div class="s_allow_columns container">
-                                <p>Mail to&amp;nbsp;</p>
+                                <p>Mail to&amp; </p>
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
@@ -384,10 +374,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p class="o_default_snippet_text"/>
-                                <p class="o_default_snippet_text">
-                                    <br/>
-                                </p>
                             </div>
                         </section>
                     </div>

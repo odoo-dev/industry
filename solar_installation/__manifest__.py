@@ -11,7 +11,6 @@ ensuring the efficient installation of solar panels and associated equipment.
         'account_followup', 
         'appointment_crm', 
         'helpdesk_fsm',
-        'helpdesk_stock',
         'helpdesk_account',
         'helpdesk_repair',
         'industry_fsm_sale_report', 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <function model="sale.order" name="action_confirm">
+    <function name="action_confirm" model="sale.order">
         <value eval="[
             ref('sale_order_20'),
             ref('sale_order_23'),

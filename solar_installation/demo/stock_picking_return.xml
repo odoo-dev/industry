@@ -10,14 +10,14 @@
         <value eval="ref('stock_return_picking_values')"/>
     </function>
 
-    <function model="stock.move" name="_action_cancel">
+    <function name="_action_cancel" model="stock.move">
         <value model="stock.move" eval="obj().search([
             ('picking_id', '=', obj().env.ref('solar_installation.sale_order_27').picking_ids.filtered(lambda x: x.picking_type_code == 'incoming').id),
             ('product_id', '!=', ref('product_product_10'))
         ]).ids"/>
     </function>
     
-    <function model="stock.move" name="unlink">
+    <function name="unlink" model="stock.move">
         <value model="stock.move" eval="obj().search([
             ('picking_id', '=', obj().env.ref('solar_installation.sale_order_27').picking_ids.filtered(lambda x: x.picking_type_code == 'incoming').id),
             ('product_id', '!=', ref('product_product_10'))

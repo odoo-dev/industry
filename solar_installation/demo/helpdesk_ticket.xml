@@ -9,23 +9,22 @@
         <field name="partner_id" ref="res_partner_45"/>
         <field name="description"><![CDATA[ 
             <p>
-                Please contact me on: <strong>abc@test.com</strong><br />
-                <br />
-                Helpdesk Bot: Here we go, help is on the way!<br />
-                Helpdesk Bot: First, what is the nature of your issue?<br />
-                Visitor #178: Equipment(s) is not working<br />
-                Helpdesk Bot: Please select which equipment is not working.<br />
-                Visitor #178: ACDB<br />
-                Helpdesk Bot: Please mention serial number of the ACDB<br />
-                Visitor #178: 111<br />
-                Helpdesk Bot: description<br />
-                Visitor #178: test 1<br />
-                Helpdesk Bot: email address<br />
-                Visitor #178: abc@test.com<br />
-                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.<br />
+                Please contact me on: <strong>abc@test.com</strong><br/>
+                <br/>
+                Helpdesk Bot: Here we go, help is on the way!<br/>
+                Helpdesk Bot: First, what is the nature of your issue?<br/>
+                Visitor #178: Equipment(s) is not working<br/>
+                Helpdesk Bot: Please select which equipment is not working.<br/>
+                Visitor #178: ACDB<br/>
+                Helpdesk Bot: Please mention serial number of the ACDB<br/>
+                Visitor #178: 111<br/>
+                Helpdesk Bot: description<br/>
+                Visitor #178: test 1<br/>
+                Helpdesk Bot: email address<br/>
+                Visitor #178: abc@test.com<br/>
+                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.
             </p>
         ]]></field>
-        <field name="use_product_repairs" eval="True"/>
     </record>
     <record id="helpdesk_ticket_8" model="helpdesk.ticket">
         <field name="name">Mehul Vyas's Ticket</field>
@@ -33,7 +32,6 @@
         <field name="x_related_field_1" ref="product_product_18"/>
         <field name="company_id" ref="base.main_company"/>
         <field name="product_id" ref="product_product_10"/>
-        <field name="partner_phone">+91</field>
         <field name="tracking">serial</field>
         <field name="team_id" ref="helpdesk.helpdesk_team1"/>
         <field name="ticket_ref">08</field>
@@ -42,19 +40,18 @@
         <field name="lot_id" ref="stock_lot_9"/>
         <field name="description"><![CDATA[
             <p>
-                Helpdesk Bot: Here we go, help is on the way!<br />
-                Helpdesk Bot: First, what is the nature of your issue?<br />
-                Mehul Vyas: Equipment(s) is not working<br />
-                Helpdesk Bot: Please select which equipment is not working.<br />
-                Mehul Vyas: ACDB<br />
-                Helpdesk Bot: Please mention serial number of the ACDB<br />
-                Mehul Vyas: 56<br />
-                Helpdesk Bot: Please mention your invoice number<br />
-                Mehul Vyas: INV/2023/00003<br />
-                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.<br />
+                Helpdesk Bot: Here we go, help is on the way!<br/>
+                Helpdesk Bot: First, what is the nature of your issue?<br/>
+                Mehul Vyas: Equipment(s) is not working<br/>
+                Helpdesk Bot: Please select which equipment is not working.<br/>
+                Mehul Vyas: ACDB<br/>
+                Helpdesk Bot: Please mention serial number of the ACDB<br/>
+                Mehul Vyas: 56<br/>
+                Helpdesk Bot: Please mention your invoice number<br/>
+                Mehul Vyas: INV/2023/00003<br/>
+                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.
             </p>
         ]]></field>
-        <field name="use_product_repairs" eval="True"/>
     </record>
     <record id="helpdesk_ticket_11" model="helpdesk.ticket">
         <field name="name">Website Visitor #200's Ticket</field>
@@ -62,7 +59,6 @@
         <field name="x_related_field_1" ref="product_product_18"/>
         <field name="company_id" ref="base.main_company"/>
         <field name="product_id" ref="product_product_10"/>
-        <field name="partner_phone">+91</field>
         <field name="tracking">serial</field>
         <field name="team_id" ref="helpdesk.helpdesk_team1"/>
         <field name="ticket_ref">11</field>
@@ -71,21 +67,20 @@
         <field name="lot_id" ref="stock_lot_11"/>
         <field name="description"><![CDATA[ 
             <p>
-                Please contact me on: <strong>peter@example.com</strong><br />
-                <br />
-                Helpdesk Bot: Here we go, help is on the way!<br />
-                Helpdesk Bot: First, what is the nature of your issue?<br />
-                Visitor #200: Equipment(s) is not working<br />
-                Helpdesk Bot: Please select which equipment is not working.<br />
-                Visitor #200: ACDB<br />
-                Helpdesk Bot: Please mention serial number of the ACDB<br />
-                Visitor #200: 58<br />
-                Helpdesk Bot: Please provide your email address.<br />
-                Visitor #200: peter@example.com<br />
-                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.<br />
+                Please contact me on: <strong>peter@example.com</strong><br/>
+                <br/>
+                Helpdesk Bot: Here we go, help is on the way!<br/>
+                Helpdesk Bot: First, what is the nature of your issue?<br/>
+                Visitor #200: Equipment(s) is not working<br/>
+                Helpdesk Bot: Please select which equipment is not working.<br/>
+                Visitor #200: ACDB<br/>
+                Helpdesk Bot: Please mention serial number of the ACDB<br/>
+                Visitor #200: 58<br/>
+                Helpdesk Bot: Please provide your email address.<br/>
+                Visitor #200: peter@example.com<br/>
+                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.
             </p>
         ]]></field>
-        <field name="use_product_repairs" eval="True"/>
     </record>
     <record id="helpdesk_ticket_7" model="helpdesk.ticket">
         <field name="name">raj sharma's Ticket</field>
@@ -104,23 +99,23 @@
         <field name="total_response_hours">5.074</field>
         <field name="first_response_hours">5.074</field>
         <field name="lot_id" ref="stock_lot_8"/>
-        <field name="description"><![CDATA[ 
-            <p>
-                Helpdesk Bot: Here we go, help is on the way!<br />
-                Helpdesk Bot: First, what is the nature of your issue?<br />
-                raj sharma: Equipment(s) is not working<br />
-                Helpdesk Bot: Please select which equipment is not working.<br />
-                raj sharma: ACDB<br />
-                Helpdesk Bot: Please mention serial number of the ACDB<br />
-                raj sharma: 55<br />
-                Helpdesk Bot: Please mention your invoice number<br />
-                raj sharma: INV/2023/00004<br />
-                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.<br />
-            </p>
-        ]]></field>
-        <field name="use_product_repairs" eval="True"/>
+        <field name="description">
+            <![CDATA[ 
+                <p>
+                    Helpdesk Bot: Here we go, help is on the way!<br />
+                    Helpdesk Bot: First, what is the nature of your issue?<br />
+                    raj sharma: Equipment(s) is not working<br />
+                    Helpdesk Bot: Please select which equipment is not working.<br />
+                    raj sharma: ACDB<br />
+                    Helpdesk Bot: Please mention serial number of the ACDB<br />
+                    raj sharma: 55<br />
+                    Helpdesk Bot: Please mention your invoice number<br />
+                    raj sharma: INV/2023/00004<br />
+                    Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.
+                </p>
+            ]]>
+        </field>
         <field name="close_date" eval="datetime.now()"/>
-        <field name="message_is_follower" eval="True"/>
     </record>
     <record id="helpdesk_ticket_9" model="helpdesk.ticket">
         <field name="name">Website Visitor #177's Ticket</field>
@@ -131,22 +126,21 @@
         <field name="partner_id" ref="res_partner_44"/>
         <field name="description"><![CDATA[ 
             <p>
-                Please contact me on: <strong>mog@example.com</strong><br />
-                <br />
-                Helpdesk Bot: Here we go, help is on the way!<br />
-                Helpdesk Bot: First, what is the nature of your issue?<br />
-                Visitor #177: Equipment(s) is not working<br />
-                Helpdesk Bot: Please select which equipment is not working.<br />
-                Visitor #177: ACDB<br />
-                Helpdesk Bot: Please mention serial number of the ACDB<br />
-                Visitor #177: sadasd<br />
-                Helpdesk Bot: description<br />
-                Visitor #177: here you go<br />
-                Helpdesk Bot: email address<br />
-                Visitor #177: mog@example.com<br />
-                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.<br />
+                Please contact me on: <strong>mog@example.com</strong><br/>
+                <br/>
+                Helpdesk Bot: Here we go, help is on the way!<br/>
+                Helpdesk Bot: First, what is the nature of your issue?<br/>
+                Visitor #177: Equipment(s) is not working<br/>
+                Helpdesk Bot: Please select which equipment is not working.<br/>
+                Visitor #177: ACDB<br/>
+                Helpdesk Bot: Please mention serial number of the ACDB<br/>
+                Visitor #177: sadasd<br/>
+                Helpdesk Bot: description<br/>
+                Visitor #177: here you go<br/>
+                Helpdesk Bot: email address<br/>
+                Visitor #177: mog@example.com<br/>
+                Helpdesk Bot: OK, I just created a ticket for you. You should receive an email confirmation very soon.
             </p>
         ]]></field>
-        <field name="use_product_repairs" eval="True"/>
     </record>
 </odoo>

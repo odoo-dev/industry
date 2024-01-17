@@ -47,5 +47,4 @@
             ).invoice_ids.ids
         "/>
     </function>
-
 </odoo>

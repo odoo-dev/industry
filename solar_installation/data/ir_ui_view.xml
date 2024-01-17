@@ -9,48 +9,30 @@
                     <div class="row" style="page-break-inside: avoid">
                         <div class="col-6" style="page-break-inside: avoid">
                             <div class="row mb-3" style="page-break-inside: avoid">
-                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">
-                                    Customer</div>
-                                <div string="Customer"
-                                     t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'"
-                                     t-field="worksheet.x_many2one_field_6"/>
+                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">Customer</div>
+                                <div string="Customer" t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'" t-field="worksheet.x_customer"/>
                             </div>
                             <div class="row mb-3" style="page-break-inside: avoid">
-                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">
-                                    Sales Order No.</div>
-                                <div string="Sales Order No."
-                                     t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'"
-                                     t-field="worksheet.x_many2one_field_5"/>
+                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">Sales Order No.</div>
+                                <div string="Sales Order No." t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'" t-field="worksheet.x_sales_order_no"/>
                             </div>
                             <div class="row mb-3" style="page-break-inside: avoid">
-                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">
-                                    Task</div>
-                                <div string="Task"
-                                     t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'"
-                                     t-field="worksheet.x_many2one_field_10"/>
+                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">Task</div>
+                                <div string="Task" t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'" t-field="worksheet.x_task"/>
                             </div>
                         </div>
                         <div class="col-6" style="page-break-inside: avoid">
                             <div class="row mb-3" style="page-break-inside: avoid">
-                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">
-                                    kW plan</div>
-                                <div string="kW plan"
-                                     t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'"
-                                     t-field="worksheet.x_many2one_field_9"/>
+                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">kW plan</div>
+                                <div string="kW plan" t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'" t-field="worksheet.x_kw_plan"/>
                             </div>
                             <div class="row mb-3" style="page-break-inside: avoid">
-                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">
-                                    Date</div>
-                                <div string="Date"
-                                     t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'"
-                                     t-field="worksheet.x_date"/>
+                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">Date</div>
+                                <div string="Date" t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'" t-field="worksheet.x_date"/>
                             </div>
                             <div class="row mb-3" style="page-break-inside: avoid">
-                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">
-                                    Completion Date &amp; Time</div>
-                                <div string="Completion Date &amp; Time"
-                                     t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'"
-                                     t-field="worksheet.x_completion_date_time"/>
+                                <div t-att-class="('col-5' if report_type == 'pdf' else 'col-lg-5 col-12') + ' font-weight-bold'">Completion Date &amp; Time</div>
+                                <div string="Completion Date &amp; Time" t-att-class="'col-7' if report_type == 'pdf' else 'col-lg-7 col-12'" t-field="worksheet.x_completion_date_time"/>
                             </div>
                         </div>
                     </div>
@@ -75,7 +57,7 @@
                     <field name="x_related_field_128"/>
                 </xpath>
                 <xpath expr="//field[@name='lot_id']" position="after">
-                    <field name="x_related_field_8"/>
+                    <field name="x_warranty_end_date"/>
                 </xpath>
             </data>
         </field>
@@ -90,7 +72,7 @@
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='opportunity_id']" position="after">
-                    <field name="x_related_field_96" force_save="False"/>
+                    <field name="x_opp_stage" force_save="False"/>
                 </xpath>
             </data>
         </field>
@@ -122,18 +104,18 @@
                     </h1>
                     <group>
                         <group>
-                            <field name="x_many2one_field_6" domain="[]"/>
-                            <field name="x_many2one_field_5" />
+                            <field name="x_customer"/>
+                            <field name="x_sales_order_no" />
                             <field name="x_handover_performed_by" />
-                            <field name="x_many2one_field_10"  domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
-                            <field name="x_many2many_field" widget="many2many_tags" />
+                            <field name="x_task" domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
+                            <field name="x_task_assignees" widget="many2many_tags" />
                         </group>
                         <group name="group_93">
                             <field name="x_date" />
                             <field name="x_commencement_date_time" />
                             <field name="x_completion_date_time" />
-                            <field name="x_many2one_field_9" />
-                            <field name="x_html_field" force_save="True" readonly="1"/>
+                            <field name="x_kw_plan" />
+                            <field name="x_declaration" force_save="True" readonly="1"/>
                             <field name="x_comments" string="Remarks"/>
                         </group>
                     </group>
@@ -141,8 +123,7 @@
                         <page string="Images">
                             <group>
                                 <group>
-                                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" />
-                                    
+                                    <field widget="image" name="x_image_1" options="{'zoom':true,'size':[0,90]}" />
                                     <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" />
                                 </group>
                                 <group>
@@ -172,17 +153,15 @@
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='x_comments']" position="before">
-                    <group name="group_93">
-            </group>
                     <field name="x_date" />
-                    <field name="x_many2one_field_6" domain="[]"/>
-                    <field name="x_many2one_field_9" />
-                    <field name="x_many2one_field_5" />
-                    <field name="x_many2one_field_10" domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
-                    <field name="x_many2many_field" widget="many2many_tags" />
+                    <field name="x_customer"/>
+                    <field name="x_kw_plan" />
+                    <field name="x_sales_order_no" />
+                    <field name="x_task" domain="[('project_id.task_ids', 'ilike', 'Solar Installation')]"/>
+                    <field name="x_task_assignees" widget="many2many_tags" />
                     <field name="x_commencement_date_time" />
                     <field name="x_completion_date_time" />
-                    <field widget="image" name="x_binary_field_4" options="{'zoom':true,'size':[0,90]}" />
+                    <field widget="image" name="x_image_1" options="{'zoom':true,'size':[0,90]}" />
                     <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}" />
                     <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}" />
                     <field name="x_handover_performed_by" />
@@ -192,7 +171,7 @@
                     <attribute name="string">Remarks</attribute>
                 </xpath>
                 <xpath expr="//field[@name='x_comments']" position="after">
-                    <field name="x_html_field" force_save="True" readonly="1"/>
+                    <field name="x_declaration" force_save="True" readonly="1"/>
                     <field widget="signature" name="x_customer_signature" options="{'size':[0,90]}"/>
                 </xpath>
             </data>

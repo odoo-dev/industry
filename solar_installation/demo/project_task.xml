@@ -12,7 +12,4 @@
         <field name="project_id" ref="project_project_1" />
         <field name="stage_id" ref="hr_timesheet.internal_project_default_stage" />
     </record>
-    <record id="project_task_33" model="project.task">
-        <field name="name">Welcome Firoz mardhani!</field>
-        </record>
 </odoo>

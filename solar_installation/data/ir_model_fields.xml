@@ -37,7 +37,7 @@
         <field name="ttype">datetime</field>
     </record>
     <record id="new_html_default_wor_html" model="ir.model.fields">
-        <field name="name">x_html_field</field>
+        <field name="name">x_declaration</field>
         <field name="field_description">Declaration</field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="ttype">html</field>
@@ -55,13 +55,13 @@
         <field name="ttype">binary</field>
     </record>
     <record id="new_image_default_wo_binary_field_4" model="ir.model.fields">
-        <field name="name">x_binary_field_4</field>
+        <field name="name">x_image_1</field>
         <field name="field_description">Image 1</field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="ttype">binary</field>
     </record>
     <record id="new_many2many_defaul_many2many" model="ir.model.fields">
-        <field name="name">x_many2many_field</field>
+        <field name="name">x_task_assignees</field>
         <field name="field_description">Task Assignees</field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="relation">res.users</field>
@@ -76,28 +76,28 @@
         <field name="ttype">many2one</field>
     </record>
     <record id="new_many2one_kw_plan" model="ir.model.fields">
-        <field name="name">x_many2one_field_9</field>
+        <field name="name">x_kw_plan</field>
         <field name="field_description">kW plan</field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="relation">sale.order.template</field>
         <field name="ttype">many2one</field>
     </record>
     <record id="new_many2one_sale_order_no" model="ir.model.fields">
-        <field name="name">x_many2one_field_5</field>
+        <field name="name">x_sales_order_no</field>
         <field name="field_description">Sales Order No.</field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="relation">sale.order</field>
         <field name="ttype">many2one</field>
     </record>
     <record id="x_many2one_customer" model="ir.model.fields">
-        <field name="name">x_many2one_field_6</field>
+        <field name="name">x_customer</field>
         <field name="field_description">Customer </field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="relation">res.partner</field>
         <field name="ttype">many2one</field>
     </record>
     <record id="x_many2one_field_task" model="ir.model.fields">
-        <field name="name">x_many2one_field_10</field>
+        <field name="name">x_task</field>
         <field name="field_description">Task </field>
         <field name="model_id" ref="industry_fsm_report.x_project_task_worksheet_template_1_ir_model_1" />
         <field name="relation">project.task</field>
@@ -139,7 +139,7 @@
         <field name="ttype">datetime</field>
     </record>
     <record id="x_related_field_warranty_end_date" model="ir.model.fields">
-        <field name="name">x_related_field_8</field>
+        <field name="name">x_warranty_end_date</field>
         <field name="field_description">Warranty End Date</field>
         <field name="model_id" ref="helpdesk.model_helpdesk_ticket" />
         <field name="related">lot_id.x_warranty_date</field>
@@ -161,7 +161,7 @@
         <field name="ttype">date</field>
     </record>
     <record id="new_related_field_related_field_96" model="ir.model.fields">
-        <field name="name">x_related_field_96</field>
+        <field name="name">x_opp_stage</field>
         <field name="field_description">Opp. Stage</field>
         <field name="model_id" ref="sale.model_sale_order" />
         <field name="related">opportunity_id.stage_id</field>

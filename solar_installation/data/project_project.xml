@@ -16,7 +16,7 @@
     </record>
 
     <function name="write" model="project.project">
-        <value eval="[ref('project_project_4')]" />
-        <value eval="{'is_fsm': True}" />
+        <value eval="[ref('project_project_4')]"/>
+        <value eval="{'is_fsm': True}"/>
     </function>
 </odoo>

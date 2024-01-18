@@ -5,20 +5,6 @@
         <field name="product_tmpl_id" ref="product_template_6"/>
         <field name="price">17.45</field>
     </record>
-    <record id="product_supplierinfo_10" model="product.supplierinfo">
-        <field name="partner_id" ref="res_partner_14"/>
-        <field name="product_tmpl_id" ref="product_template_16"/>
-        <field name="price">3.3</field>
-    </record>
-    <record id="product_supplierinfo_11" model="product.supplierinfo">
-        <field name="partner_id" ref="res_partner_14"/>
-        <field name="product_tmpl_id" ref="product_template_13"/>
-        <field name="price">32.0</field>
-    </record>
-    <record id="product_supplierinfo_12" model="product.supplierinfo">
-        <field name="partner_id" ref="res_partner_14"/>
-        <field name="product_tmpl_id" ref="product_template_23"/>
-    </record>
     <record id="product_supplierinfo_2" model="product.supplierinfo">
         <field name="partner_id" ref="res_partner_15"/>
         <field name="product_tmpl_id" ref="product_template_7"/>
@@ -59,5 +45,19 @@
         <field name="partner_id" ref="res_partner_15"/>
         <field name="product_tmpl_id" ref="product_template_9"/>
         <field name="price">1380.0</field>
+    </record>
+    <record id="product_supplierinfo_10" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_14"/>
+        <field name="product_tmpl_id" ref="product_template_16"/>
+        <field name="price">3.3</field>
+    </record>
+    <record id="product_supplierinfo_11" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_14"/>
+        <field name="product_tmpl_id" ref="product_template_13"/>
+        <field name="price">32.0</field>
+    </record>
+    <record id="product_supplierinfo_12" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_14"/>
+        <field name="product_tmpl_id" ref="product_template_23"/>
     </record>
 </odoo>

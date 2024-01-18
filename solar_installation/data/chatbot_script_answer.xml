@@ -1,5 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
+    <record id="chatbot_script_answer_8" model="chatbot.script.answer">
+        <field name="name">Battery</field>
+        <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_technical_serial"/>
+        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
+    </record>
+    <record id="chatbot_script_answer_9" model="chatbot.script.answer">
+        <field name="name">Charge Controller</field>
+        <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_technical_serial"/>
+        <field name="sequence">2</field>
+        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
+    </record>
     <record id="chatbot_script_answer_10" model="chatbot.script.answer">
         <field name="name">DCDB</field>
         <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_technical_serial"/>
@@ -16,17 +27,6 @@
         <field name="name">ACDB</field>
         <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_technical_serial"/>
         <field name="sequence">5</field>
-        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
-    </record>
-    <record id="chatbot_script_answer_8" model="chatbot.script.answer">
-        <field name="name">Battery</field>
-        <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_technical_serial"/>
-        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
-    </record>
-    <record id="chatbot_script_answer_9" model="chatbot.script.answer">
-        <field name="name">Charge Controller</field>
-        <field name="script_step_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_step_technical_serial"/>
-        <field name="sequence">2</field>
         <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
     </record>
     <record id="website_helpdesk_livechat.chatbot_script_helpdesk_step_dispatch_answer_administrative" model="chatbot.script.answer">

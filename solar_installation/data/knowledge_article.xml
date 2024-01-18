@@ -8,7 +8,8 @@
         <field name="is_article_visible_by_everyone" eval="True"/>
         <field name="is_locked" eval="True"/>
         <field name="body">
-            <![CDATA[<h1>Solar Installation</h1>
+            <![CDATA[
+                <h1>Solar Installation</h1>
                 <p>
                     This setup is for companies providing solar equipment and its installation service. Usually residential customer places order from 1 kW to 10 kW while others up to 100 kW. Solar panels and other equipment are installed at customer
                     site based on kW capacity.

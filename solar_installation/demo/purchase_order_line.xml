@@ -5,26 +5,6 @@
         <field name="product_qty">30.0</field>
         <field name="order_id" ref="purchase_order_1"/>
     </record>
-    <record id="purchase_order_line_10" model="purchase.order.line">
-        <field name="product_id" ref="product_product_11"/>
-        <field name="product_qty">30.0</field>
-        <field name="order_id" ref="purchase_order_2"/>
-    </record>
-    <record id="purchase_order_line_11" model="purchase.order.line">
-        <field name="product_id" ref="product_product_16"/>
-        <field name="product_qty">600.0</field>
-        <field name="order_id" ref="purchase_order_2"/>
-    </record>
-    <record id="purchase_order_line_12" model="purchase.order.line">
-        <field name="product_id" ref="product_product_13"/>
-        <field name="product_qty">30.0</field>
-        <field name="order_id" ref="purchase_order_2"/>
-    </record>
-    <record id="purchase_order_line_13" model="purchase.order.line">
-        <field name="product_id" ref="product_product_6"/>
-        <field name="product_qty">150.0</field>
-        <field name="order_id" ref="purchase_order_3"/>
-    </record>
     <record id="purchase_order_line_2" model="purchase.order.line">
         <field name="product_id" ref="product_product_8"/>
         <field name="product_qty">30.0</field>
@@ -61,5 +41,25 @@
         <field name="product_uom" ref="uom.product_uom_meter"/>
         <field name="product_qty">3000.0</field>
         <field name="order_id" ref="purchase_order_2"/>
+    </record>
+    <record id="purchase_order_line_10" model="purchase.order.line">
+        <field name="product_id" ref="product_product_11"/>
+        <field name="product_qty">30.0</field>
+        <field name="order_id" ref="purchase_order_2"/>
+    </record>
+    <record id="purchase_order_line_11" model="purchase.order.line">
+        <field name="product_id" ref="product_product_16"/>
+        <field name="product_qty">600.0</field>
+        <field name="order_id" ref="purchase_order_2"/>
+    </record>
+    <record id="purchase_order_line_12" model="purchase.order.line">
+        <field name="product_id" ref="product_product_13"/>
+        <field name="product_qty">30.0</field>
+        <field name="order_id" ref="purchase_order_2"/>
+    </record>
+    <record id="purchase_order_line_13" model="purchase.order.line">
+        <field name="product_id" ref="product_product_6"/>
+        <field name="product_qty">150.0</field>
+        <field name="order_id" ref="purchase_order_3"/>
     </record>
 </odoo>

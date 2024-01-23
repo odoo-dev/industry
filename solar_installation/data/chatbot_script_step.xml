@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odoo>
+<odoo noupdate="1">
     <record id="chatbot_script_step_28" model="chatbot.script.step">
         <field name="message">Please mention serial number of the Charge Controller</field>
         <field name="step_type">question_selection</field>
@@ -26,19 +26,6 @@
         <field name="step_type">question_selection</field>
         <field name="triggering_answer_ids" eval="[(6, 0, [ref('chatbot_script_answer_12')])]"/>
         <field name="sequence">9</field>
-        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
-    </record>
-    <record id="chatbot_script_step_40" model="chatbot.script.step">
-        <field name="message">OK, I just created a ticket for you. You should receive an email confirmation very soon.</field>
-        <field name="step_type">create_ticket</field>
-        <field name="sequence">22</field>
-        <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
-        <field name="helpdesk_team_id" ref="helpdesk.helpdesk_team1"/>
-    </record>
-    <record id="chatbot_script_step_42" model="chatbot.script.step">
-        <field name="message">Please provide your email address.</field>
-        <field name="step_type">question_email</field>
-        <field name="sequence">21</field>
         <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
     </record>
     <record id="website_helpdesk_livechat.chatbot_script_helpdesk_step_administrative_customer_ref" model="chatbot.script.step">

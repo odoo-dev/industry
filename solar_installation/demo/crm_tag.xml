@@ -27,7 +27,4 @@
     <record id="crm_tag_10" model="crm.tag">
         <field name="name">2 kW</field>
     </record>
-    <record id="appointment_crm.appointment_crm_tag" model="crm.tag">
-        <field name="name">Appointment</field>
-    </record>
 </odoo>

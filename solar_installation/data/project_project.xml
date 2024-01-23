@@ -11,8 +11,7 @@
         <field name="analytic_account_id" ref="account_analytic_account_4"/>
         <field name="stage_id" ref="project.project_project_stage_0"/>
         <field name="type_ids" eval="[(6, 0, [ref('project_task_type_14'), ref('project_task_type_16'), ref('project_task_type_17'), ref('project_task_type_46'), ref('project_task_type_47')])]"/>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
-        <field name="timesheet_product_id" ref="sale_timesheet.time_product"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
     </record>
 
     <function name="write" model="project.project">

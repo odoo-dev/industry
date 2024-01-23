@@ -7,12 +7,12 @@
         <field name="service_tracking">task_global_project</field>
         <field name="detailed_type">service</field>
         <field name="categ_id" ref="product_category_4"/>
-        <field name="list_price" eval="False"/>
+        <field name="list_price">0.00</field>
     </record>
     <record id="product_template_5" model="product.template" context="{'create_product_product': False}">
         <field name="name">Solar installation charge (1 kW-Off grid)</field>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/5-image_1920"/>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="service_type">timesheet</field>
         <field name="service_tracking">task_global_project</field>
         <field name="detailed_type">service</field>
@@ -125,7 +125,7 @@
     <record id="product_template_18" model="product.template" context="{'create_product_product': False}">
         <field name="name">Solar installation charge (2 kW-Off grid)</field>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/18-image_1920"/>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="service_type">timesheet</field>
         <field name="service_tracking">task_global_project</field>
         <field name="detailed_type">service</field>
@@ -135,7 +135,7 @@
     </record>
     <record id="product_template_19" model="product.template" context="{'create_product_product': False}">
         <field name="name">Solar installation charge (5 kW-Off grid)</field>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/19-image_1920"/>
         <field name="service_type">timesheet</field>
         <field name="service_tracking">task_global_project</field>
@@ -146,7 +146,7 @@
     </record>
     <record id="product_template_20" model="product.template" context="{'create_product_product': False}">
         <field name="name">Solar installation charge (1 kW-On grid)</field>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/20-image_1920"/>
         <field name="service_type">timesheet</field>
         <field name="service_tracking">task_global_project</field>
@@ -157,7 +157,7 @@
     </record>
     <record id="product_template_21" model="product.template" context="{'create_product_product': False}">
         <field name="name">Solar installation charge (2 kW-On grid)</field>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/21-image_1920"/>
         <field name="service_type">timesheet</field>
         <field name="service_tracking">task_global_project</field>
@@ -168,7 +168,7 @@
     </record>
     <record id="product_template_22" model="product.template" context="{'create_product_product': False}">
         <field name="name">Solar installation charge (5 kW-On grid)</field>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/22-image_1920"/>
         <field name="service_type">timesheet</field>
         <field name="service_tracking">task_global_project</field>
@@ -199,7 +199,7 @@
     <record id="industry_fsm_sale.field_service_product_product_template" model="product.template" context="{'create_product_product': False}">
         <field name="name">Field Service</field>
         <field name="image_1920" type="base64" file="solar_installation/static/src/binary/product_template/2-image_1920"/>
-        <field name="worksheet_template_id" ref="industry_fsm_report.fsm_worksheet_template"/>
+        <field name="worksheet_template_id" ref="fsm_worksheet_template"/>
         <field name="uom_po_id" ref="uom.product_uom_hour"/>
         <field name="service_type">timesheet</field>
         <field name="uom_id" ref="uom.product_uom_hour"/>

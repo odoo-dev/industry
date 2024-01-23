@@ -8,7 +8,6 @@
         <field name="country_id" ref="base.us"/>
         <field name="is_company" eval="True"/>
         <field name="state_id" ref="base.state_us_5"/>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
     </record>
     <record id="res_partner_10" model="res.partner">
         <field name="name">Mitchell Mike</field>
@@ -18,7 +17,6 @@
         <field name="country_id" ref="base.us"/>
         <field name="is_company" eval="True"/>
         <field name="state_id" ref="base.state_us_3"/>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
     </record>
     <record id="res_partner_11" model="res.partner">
         <field name="name">Justin Parker</field>
@@ -27,7 +25,6 @@
         <field name="country_id" ref="base.us"/>
         <field name="is_company" eval="True"/>
         <field name="state_id" ref="base.state_us_3"/>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
     </record>
     <record id="res_partner_14" model="res.partner">
         <field name="name">Solar Mounts LLC</field>
@@ -42,7 +39,6 @@
         <field name="country_id" ref="base.us"/>
         <field name="is_company" eval="True"/>
         <field name="state_id" ref="base.state_us_3"/>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
     </record>
     <record id="res_partner_17" model="res.partner">
         <field name="name">Alice Parker</field>
@@ -70,8 +66,7 @@
     <record id="res_partner_36" model="res.partner">
         <field name="name">Mehul Vyas</field>
         <field name="email">mehul@example.com</field>
-        <field name="phone">+91</field>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="phone">+916666655555</field>
     </record>
     <record id="res_partner_44" model="res.partner">
         <field name="name">mog@example.com</field>
@@ -84,17 +79,11 @@
     <record id="res_partner_47" model="res.partner">
         <field name="name">Michale Ford</field>
         <field name="email">michael@example.com</field>
-        <field name="phone">+91</field>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="phone">+917777788888</field>
     </record>
     <record id="res_partner_49" model="res.partner">
         <field name="name">Peter Parker</field>
         <field name="email">peter@example.com</field>
-        <field name="phone">+91</field>
-        <field name="team_id" ref="sales_team.team_sales_department"/>
-    </record>
-    <record id="res_partner_50" model="res.partner">
-        <field name="name">peter@example.com</field>
-        <field name="email">peter@example.com</field>
+        <field name="phone">+919999966666</field>
     </record>
 </odoo>

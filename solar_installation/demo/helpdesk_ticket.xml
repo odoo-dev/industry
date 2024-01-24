@@ -3,7 +3,6 @@
     <record id="helpdesk_ticket_7" model="helpdesk.ticket">
         <field name="name">raj sharma's Ticket</field>
         <field name="stage_id" ref="helpdesk.stage_solved"/>
-        <field name="x_related_field_1" ref="product_product_5"/>
         <field name="answered_customer_message_count">1</field>
         <field name="product_id" ref="product_product_10"/>
         <field name="tracking">serial</field>
@@ -37,7 +36,6 @@
     <record id="helpdesk_ticket_8" model="helpdesk.ticket">
         <field name="name">Mehul Vyas's Ticket</field>
         <field name="stage_id" ref="helpdesk.stage_new"/>
-        <field name="x_related_field_1" ref="product_product_18"/>
         <field name="product_id" ref="product_product_10"/>
         <field name="tracking">serial</field>
         <field name="ticket_ref">08</field>
@@ -119,7 +117,6 @@
     <record id="helpdesk_ticket_11" model="helpdesk.ticket">
         <field name="name">Website Visitor #200's Ticket</field>
         <field name="stage_id" ref="helpdesk.stage_in_progress"/>
-        <field name="x_related_field_1" ref="product_product_18"/>
         <field name="product_id" ref="product_product_10"/>
         <field name="tracking">serial</field>
         <field name="ticket_ref">11</field>

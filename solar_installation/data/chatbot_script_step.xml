@@ -57,4 +57,10 @@
         <field name="sequence">5</field>
         <field name="chatbot_script_id" ref="website_helpdesk_livechat.chatbot_script_helpdesk_bot"/>
     </record>
+    <record id="website_helpdesk_livechat.chatbot_script_helpdesk_step_ticket" model="chatbot.script.step">
+        <field name="helpdesk_team_id" ref="helpdesk.helpdesk_team1"/>
+    </record>
+    <record id="website_helpdesk_livechat.chatbot_script_helpdesk_bot" model="chatbot.script">
+        <field name="script_step_ids" eval="[(3, ref('website_helpdesk_livechat.chatbot_script_helpdesk_step_administrative_issue'))]"/>
+    </record>
 </odoo>

@@ -2,12 +2,10 @@
 <odoo noupdate="1">
     <record id="project_task_1" model="project.task">
         <field name="name">Training</field>
-        <!-- <field name="analytic_account_id" ref="account_analytic_account_1"/> -->
         <field name="project_id" ref="project_project_1"/>
     </record>
     <record id="project_task_2" model="project.task">
         <field name="name">Meeting</field>
-        <!-- <field name="analytic_account_id" ref="account_analytic_account_1"/> -->
         <field name="project_id" ref="project_project_1"/>
     </record>
 </odoo>

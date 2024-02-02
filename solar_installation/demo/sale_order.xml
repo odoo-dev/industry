@@ -5,7 +5,6 @@
         <field name="partner_id" ref="res_partner_23"/>
         <field name="sale_order_template_id" ref="sale_order_template_3"/>
         <field name="tag_ids" eval="[(6, 0, [ref('crm_tag_3'), ref('crm_tag_8'), ref('crm_tag_10')])]"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_10"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>
@@ -15,7 +14,6 @@
         <field name="partner_id" ref="res_partner_23"/>
         <field name="sale_order_template_id" ref="sale_order_template_3"/>
         <field name="tag_ids" eval="[(6, 0, [ref('crm_tag_3'), ref('crm_tag_8'), ref('crm_tag_10')])]"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_10"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>
@@ -25,7 +23,6 @@
         <field name="partner_id" ref="res_partner_23"/>
         <field name="sale_order_template_id" ref="sale_order_template_3"/>
         <field name="tag_ids" eval="[(6, 0, [ref('crm_tag_3'), ref('crm_tag_8'), ref('crm_tag_10')])]"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_10"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>
@@ -34,7 +31,6 @@
         <field name="origin">Need to install 1 kW solar system's opportunity</field>
         <field name="partner_id" ref="res_partner_16"/>
         <field name="sale_order_template_id" ref="sale_order_template_2"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_12"/>
         <field name="user_id" ref="base.user_admin"/>
     </record>
@@ -42,7 +38,6 @@
         <field name="origin">Want to install 1 kW solar system</field>
         <field name="partner_id" ref="res_partner_25"/>
         <field name="sale_order_template_id" ref="sale_order_template_2"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_13"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>
@@ -52,7 +47,6 @@
         <field name="partner_id" ref="res_partner_36"/>
         <field name="sale_order_template_id" ref="sale_order_template_3"/>
         <field name="tag_ids" eval="[(6, 0, [ref('crm_tag_3'), ref('crm_tag_10')])]"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_14"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>
@@ -61,7 +55,6 @@
         <field name="origin">I want to install 2 kW solar system</field>
         <field name="partner_id" ref="res_partner_47"/>
         <field name="sale_order_template_id" ref="sale_order_template_3"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_16"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>
@@ -70,7 +63,6 @@
         <field name="origin">I want 2 kW installation at my home</field>
         <field name="partner_id" ref="res_partner_49"/>
         <field name="sale_order_template_id" ref="sale_order_template_3"/>
-        <field name="x_opp_stage" ref="crm.stage_lead4"/>
         <field name="opportunity_id" ref="crm_lead_17"/>
         <field name="medium_id" ref="utm.utm_medium_website"/>
         <field name="user_id" ref="base.user_admin"/>

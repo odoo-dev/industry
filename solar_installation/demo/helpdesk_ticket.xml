@@ -1,17 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odoo>
+<odoo noupdate="1">
     <record id="helpdesk_ticket_7" model="helpdesk.ticket">
-        <field name="name">raj sharma's Ticket</field>
+        <field name="name">Raj Sharma's Ticket</field>
         <field name="stage_id" ref="helpdesk.stage_solved"/>
         <field name="answered_customer_message_count">1</field>
         <field name="product_id" ref="product_product_10"/>
-        <field name="tracking">serial</field>
         <field name="avg_response_hours">5.074</field>
         <field name="team_id" ref="helpdesk.helpdesk_team1"/>
         <field name="ticket_ref">07</field>
-        <field name="x_warranty_end_date" eval="(datetime.now() - relativedelta(days=2, hours=1))"/>
         <field name="partner_id" ref="res_partner_25"/>
-        <field name="fold" eval="True"/>
         <field name="total_response_hours">5.074</field>
         <field name="first_response_hours">5.074</field>
         <field name="lot_id" ref="stock_lot_8"/>
@@ -37,9 +34,7 @@
         <field name="name">Mehul Vyas's Ticket</field>
         <field name="stage_id" ref="helpdesk.stage_new"/>
         <field name="product_id" ref="product_product_10"/>
-        <field name="tracking">serial</field>
         <field name="ticket_ref">08</field>
-        <field name="x_warranty_end_date" eval="(datetime.now() - relativedelta(days=5, hours=1))"/>
         <field name="team_id" ref="helpdesk.helpdesk_team1"/>
         <field name="partner_id" ref="res_partner_36"/>
         <field name="lot_id" ref="stock_lot_9"/>
@@ -118,9 +113,7 @@
         <field name="name">Website Visitor #200's Ticket</field>
         <field name="stage_id" ref="helpdesk.stage_in_progress"/>
         <field name="product_id" ref="product_product_10"/>
-        <field name="tracking">serial</field>
         <field name="ticket_ref">11</field>
-        <field name="x_warranty_end_date" eval="(datetime.now() - relativedelta(days=3, hours=1))"/>
         <field name="partner_id" ref="res_partner_49"/>
         <field name="lot_id" ref="stock_lot_11"/>
         <field name="description">

@@ -45,9 +45,9 @@
         <field name="stage_id" ref="crm.stage_lead4"/>
     </record>
     <record id="crm_lead_14" model="crm.lead">
-        <field name="name">i want to install 2 kW solar system at my home</field>
+        <field name="name">I want to install a 2 kW solar system at my home</field>
         <field name="partner_id" ref="res_partner_36"/>
-        <field name="phone">+911111122222</field>
+        <field name="phone">+91 1111122222</field>
         <field name="tag_ids" eval="[(6, 0, [ref('crm_tag_3'), ref('crm_tag_10')])]"/>
         <field name="expected_revenue">7000.0</field>
         <field name="medium_id" ref="utm.utm_medium_website"/>

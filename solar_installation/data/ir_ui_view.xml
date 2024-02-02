@@ -123,11 +123,11 @@
                         <page string="Images">
                             <group>
                                 <group>
-                                    <field widget="image" name="x_image_1" options="{'zoom':true,'size':[0,90]}"/>
-                                    <field widget="image" name="x_image_2" options="{'size':[0,90],'zoom':true}"/>
+                                    <field widget="image" name="x_image_1" options="{'zoom':true, 'size':[0,90]}"/>
+                                    <field widget="image" name="x_image_2" options="{'size':[0,90], 'zoom':true}"/>
                                 </group>
                                 <group>
-                                    <field widget="image" name="x_image_3" options="{'size':[0,90],'zoom':true}"/>
+                                    <field widget="image" name="x_image_3" options="{'size':[0,90], 'zoom':true}"/>
                                 </group>
                             </group>
                         </page>
@@ -135,7 +135,7 @@
                     <separator/>
                     <group>
                         <group>
-                            <field widget="signature" name="x_customer_signature" options="{'size':[0,90]}"/>
+                            <field widget="signature" name="x_customer_signature" options="{'size': [0,90]}"/>
                         </group>
                     </group>
                 </sheet>
@@ -172,7 +172,7 @@
                 </xpath>
                 <xpath expr="//field[@name='x_comments']" position="after">
                     <field name="x_declaration" force_save="True" readonly="1"/>
-                    <field widget="signature" name="x_customer_signature" options="{'size':[0,90]}"/>
+                    <field widget="signature" name="x_customer_signature" options="{'size': [0,90]}"/>
                 </xpath>
             </data>
         </field>

@@ -38,7 +38,7 @@
     <function name="create_returns" model="stock.return.picking">
         <value eval="ref('stock_return_picking_values_1')"/>
     </function>
-    <function name="button_validate" model="stock.picking">
+    <function name="button_validate" model="stock.picking" context="{'skip_sms': True}">
         <value model="stock.picking" eval="(obj().env.ref('solar_installation.sale_order_27')).picking_ids.ids"/>
     </function>
 </odoo>

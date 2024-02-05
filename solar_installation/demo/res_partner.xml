@@ -47,16 +47,13 @@
     <record id="res_partner_23" model="res.partner">
         <field name="name">Charles Wood</field>
         <field name="email">charleswood@example.com</field>
-        <field name="mobile">+91</field>
         <field name="city">Prescott</field>
         <field name="country_id" ref="base.us"/>
         <field name="state_id" ref="base.state_us_3"/>
-        <field name="mobile">+91</field>
     </record>
     <record id="res_partner_25" model="res.partner">
         <field name="name">Raj Sharma</field>
         <field name="email">raj2@example.com</field>
-        <field name="mobile">+91</field>
     </record>
     <record id="res_partner_32" model="res.partner">
         <field name="name">Raj Sharma</field>

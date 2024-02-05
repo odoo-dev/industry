@@ -59,6 +59,5 @@
     <record id="product_supplierinfo_12" model="product.supplierinfo">
         <field name="partner_id" ref="res_partner_14"/>
         <field name="product_tmpl_id" model="product.product" eval="obj().env.ref('solar_installation.product_product_23').product_tmpl_id.id"/>
-
     </record>
 </odoo>

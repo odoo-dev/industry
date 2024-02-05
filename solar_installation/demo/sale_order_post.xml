@@ -35,12 +35,12 @@
     <function name="action_post" model="account.move">
         <value model="sale.order" eval="
             (
-                    obj().env.ref('solar_installation.sale_order_20') +
-                    obj().env.ref('solar_installation.sale_order_23') +
-                    obj().env.ref('solar_installation.sale_order_24') +
-                    obj().env.ref('solar_installation.sale_order_25') +
-                    obj().env.ref('solar_installation.sale_order_26') +
-                    obj().env.ref('solar_installation.sale_order_27')
+                obj().env.ref('solar_installation.sale_order_20') +
+                obj().env.ref('solar_installation.sale_order_23') +
+                obj().env.ref('solar_installation.sale_order_24') +
+                obj().env.ref('solar_installation.sale_order_25') +
+                obj().env.ref('solar_installation.sale_order_26') +
+                obj().env.ref('solar_installation.sale_order_27')
             ).invoice_ids.ids
         "/>
     </function>

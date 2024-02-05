@@ -27,6 +27,7 @@ ensuring the efficient installation of solar panels and associated equipment.
         'website_livechat',
     ],
     'data': [
+        'data/res_config_settings.xml',
         'data/helpdesk_config.xml',
         'data/ir_attachment_pre.xml',
         'data/ir_model.xml',
@@ -35,6 +36,7 @@ ensuring the efficient installation of solar panels and associated equipment.
         'data/ir_actions_act_window.xml',
         'data/ir_model_access.xml',
         'data/ir_rule.xml',
+        'data/ir_default.xml',
         'data/project_task_type.xml',
         'data/product_category.xml',
         'data/worksheet_template.xml',

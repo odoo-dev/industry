@@ -15,13 +15,13 @@
                 </p>
                 <h1>Work Flows</h1>
                 <h2><span style="font-size: 18px;">Flow 1: Website Form -&gt; CRM -&gt; Sales -&gt; Accounting -&gt; Field Service </span></h2>
-                <p>Open website Contact us form</p>
+                <p>Open website Request a quote form</p>
                 <p>
                     Potential customer fills up the <strong><font class="text-o-color-5"><span style="font-weight: normal;">Contact us</span></font></strong> form and Submit it, in <font class="text-o-color-5">CRM</font> <strong><font style="color: rgb(107, 165, 74);">opportunity is created</font></strong><font style="color: rgb(181, 214, 165);">.</font>
                 </p>
                 <p>CRM Stages</p>
                 <p>
-                    Sales Person is assigned and <strong><font style="color: rgb(107, 165, 74);">Opportunity is moved</font></strong> <strong><font style="color: rgb(107, 165, 74);">to Qualified stage</font></strong>. Sales Person follows up with customers through Activities like Calls, Meetings, etc. If the customer agrees, a site survey is planned and Opportunity is moved to the Site Survey stage. At the time of Sales Order confirmation, Opportunity will be moved to Won stage
+                    Sales Person is assigned and <strong><font style="color: rgb(107, 165, 74);">Opportunity is moved</font></strong> <strong><font style="color: rgb(107, 165, 74);">to Qualified stage</font></strong>. Sales Person follows up with customers through Activities like Calls, Meetings, etc. If the customer agrees the quotation, a site survey is planned and Opportunity is moved to the Site Survey stage. At the time of Sales Order confirmation, Opportunity will be moved to Won stage
                     <font style="color: rgb(165, 74, 123);"><strong>(</strong></font><strong><font style="color: rgb(165, 74, 123);">Automated Action)</font></strong>.
                 </p>
                 <p>

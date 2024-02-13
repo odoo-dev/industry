@@ -79,6 +79,8 @@ ensuring the efficient installation of solar panels and associated equipment.
         'demo/website_menu.xml',
         'demo/website_theme_apply.xml',
         'demo/helpdesk_ticket.xml',
+        'demo/repair_order.xml',
+        'demo/repair_order_confirm.xml',
         'demo/stock_picking_return.xml',
         'demo/ir_attachment_post.xml',
         'demo/x_project_task_worksheet.xml',

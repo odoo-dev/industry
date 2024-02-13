@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <odoo>
     <function name="button_confirm" model="purchase.order">
         <value eval="[
@@ -60,9 +60,9 @@
     </function>
     <function name="write" model="stock.move.line">
         <value model="stock.move.line" eval="obj().search([
-        ('product_id', '=', ref('solar_installation.product_product_7')),
+        ('product_id', '=', ref('product_product_7')),
         ('picking_id', '=', obj().env.ref('solar_installation.purchase_order_1').picking_ids.id)])[7].id"/>
-        <value model="stock.lot" eval="{'lot_id': ref('solar_installation.stock_lot_73'), 'lot_name': obj().env.ref('solar_installation.stock_lot_73').name}"/>
+        <value model="stock.lot" eval="{'lot_id': ref('stock_lot_73'), 'lot_name': obj().env.ref('solar_installation.stock_lot_73').name}"/>
     </function>
     <function name="write" model="stock.move.line">
         <value model="stock.move.line" eval="obj().search([
@@ -72,7 +72,7 @@
     </function>
     <function name="write" model="stock.move.line">
         <value model="stock.move.line" eval="obj().search([
-        ('product_id', '=', ref('solar_installation.product_product_7')),
+        ('product_id', '=', ref('product_product_7')),
         ('picking_id', '=', obj().env.ref('solar_installation.purchase_order_1').picking_ids.id)])[9].id"/>
         <value model="stock.lot" eval="{'lot_id': ref('stock_lot_75'), 'lot_name': obj().env.ref('solar_installation.stock_lot_75').name}"/>
     </function>
@@ -90,9 +90,9 @@
     </function>
     <function name="write" model="stock.move.line">
         <value model="stock.move.line" eval="obj().search([
-        ('product_id', '=', ref('solar_installation.product_product_7')),
+        ('product_id', '=', ref('product_product_7')),
         ('picking_id', '=', obj().env.ref('solar_installation.purchase_order_1').picking_ids.id)])[12].id"/>
-        <value model="stock.lot" eval="{'lot_id': ref('solar_installation.stock_lot_78'), 'lot_name': obj().env.ref('solar_installation.stock_lot_78').name}"/>
+        <value model="stock.lot" eval="{'lot_id': ref('stock_lot_78'), 'lot_name': obj().env.ref('solar_installation.stock_lot_78').name}"/>
     </function>
     <function name="write" model="stock.move.line">
         <value model="stock.move.line" eval="obj().search([

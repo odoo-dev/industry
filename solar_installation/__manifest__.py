@@ -9,7 +9,6 @@ ensuring the efficient installation of solar panels and associated equipment.
 """,
     'depends': [
         'account_followup', 
-        'appointment_crm', 
         'helpdesk_fsm',
         'helpdesk_account',
         'helpdesk_repair',
@@ -21,7 +20,6 @@ ensuring the efficient installation of solar panels and associated equipment.
         'sale_crm', 
         'sale_purchase', 
         'stock_landed_costs', 
-        'website_appointment', 
         'website_crm', 
         'website_helpdesk_knowledge', 
         'website_livechat',

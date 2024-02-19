@@ -53,26 +53,8 @@
                     <field name="product_id"/>
                     <field name="lot_id"/>
                 </xpath>
-                <xpath expr="//field[@name='tracking']" position="after">
-                    <field name="x_related_field_128"/>
-                </xpath>
                 <xpath expr="//field[@name='lot_id']" position="after">
                     <field name="x_warranty_end_date"/>
-                </xpath>
-            </data>
-        </field>
-    </record>
-    <record id="sale_ord_form" model="ir.ui.view">
-        <field name="name">sale.order.form.customization</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form"/>
-        <field name="mode">extension</field>
-        <field name="priority">160</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <data>
-                <xpath expr="//field[@name='opportunity_id']" position="after">
-                    <field name="x_opp_stage"/>
                 </xpath>
             </data>
         </field>

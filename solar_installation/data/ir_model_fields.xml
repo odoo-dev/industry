@@ -119,28 +119,12 @@
         <field name="relation">project.task</field>
         <field name="ttype">many2one</field>
     </record>
-    <record id="new_related_field_he_128" model="ir.model.fields">
-        <field name="name">x_related_field_128</field>
-        <field name="field_description">New Related Field </field>
-        <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
-        <field name="related">lot_id.x_warranty_end_date</field>
-        <field name="ttype">date</field>
-    </record>
     <record id="x_related_field_warranty_end_date" model="ir.model.fields">
         <field name="name">x_warranty_end_date</field>
         <field name="field_description">Warranty End Date</field>
         <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
         <field name="related">lot_id.x_warranty_date</field>
         <field name="ttype">date</field>
-    </record>
-    <record id="new_related_field_related_field_96" model="ir.model.fields">
-        <field name="name">x_opp_stage</field>
-        <field name="field_description">Opp. Stage</field>
-        <field name="model_id" ref="sale.model_sale_order"/>
-        <field name="related">opportunity_id.stage_id</field>
-        <field name="relation">crm.stage</field>
-        <field name="tracking">1</field>
-        <field name="ttype">many2one</field>
     </record>
     <record id="new_signature_defaul_customer_signature" model="ir.model.fields">
         <field name="name">x_customer_signature</field>

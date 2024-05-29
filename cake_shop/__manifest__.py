@@ -29,6 +29,7 @@ This setup is for bakery shop companies selling to consumers. Bakery are busines
         'data/res_config_settings.xml',
     ],
     'demo': [
+        'demo/product_product.xml',
         'demo/ir_attachment.xml',
         'demo/mrp_order_point.xml',
         'demo/mrp_order_point_order.xml',

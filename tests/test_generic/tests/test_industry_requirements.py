@@ -1,11 +1,11 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import sys
-
+import os
 from odoo.tests.common import tagged
-from odoo.tools import cloc
-
-from .industry_case import IndustryCase
+from odoo.tools import cloc, file_open
+from .industry_case import IndustryCase, get_industry_path
+import json
 
 
 @tagged('post_install', '-at_install')
@@ -33,6 +33,55 @@ class TestEnv(IndustryCase):
             self.assertTrue(
                 demo_provider.is_published, "Payment provider demo should be published in demo"
             )
+
+    def test_dependencies(self):
+        installed_apps = (
+            self.env["ir.module.module"]
+            .search([("state", "=", "installed"), ("application", "=", True)])
+            .mapped('name')
+        )
+        knowledge_article_path = (
+            f"{get_industry_path()}/{self.installed_modules[0]}/data/knowledge_article.xml"
+        )
+        template_path = f"{get_industry_path()}tests/test_generic/tests/templater.json"
+        templates = {}
+
+        try:
+            with file_open(template_path, mode='r') as file:
+                templates = json.load(file)
+        except Exception as e:
+            print(f"Error loading templater.py: {e}")
+            return
+        for app_name in installed_apps:
+            try:
+                if not os.path.exists(knowledge_article_path):
+                    print(f"Warning: knowledge_article.xml not found for module '{app_name}'")
+                    continue
+
+                with file_open(knowledge_article_path, 'r') as file:
+                    content = file.read()
+
+                if f'id="article_{app_name}"' in content:
+                    continue
+                body_content = templates.get(app_name, "")
+                new_article = f"""
+                <record id="article_{app_name}" model="knowledge.article">
+                    <field name="name">{app_name}</field>
+                    <field name="category">workspace</field>
+                    <field name="is_article_visible_by_everyone" eval="True"/>
+                    <field name="body">{body_content}</field>
+                </record>
+                """
+
+                # Append new article before the closing </odoo> tag
+                content = content.replace('</odoo>', f'{new_article}</odoo>')
+
+                # Write back to the file
+                with open(knowledge_article_path, 'w', encoding='utf-8') as file:
+                    file.write(content)
+
+            except Exception as e:
+                print(f"Error processing knowledge_article.xml for module '{app_name}': {e}")
 
     def test_knowledge_article_notification(self):
         for module in self.installed_modules:

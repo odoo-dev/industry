@@ -6,6 +6,7 @@ from odoo.tests.common import tagged
 from odoo.tools import cloc, file_open
 from .industry_case import IndustryCase, get_industry_path
 import json
+import textwrap
 
 
 @tagged('post_install', '-at_install')
@@ -40,48 +41,79 @@ class TestEnv(IndustryCase):
             .search([("state", "=", "installed"), ("application", "=", True)])
             .mapped('name')
         )
-        knowledge_article_path = (
-            f"{get_industry_path()}/{self.installed_modules[0]}/data/knowledge_article.xml"
-        )
-        template_path = f"{get_industry_path()}tests/test_generic/tests/templater.json"
-        templates = {}
+
+        base_path = get_industry_path()
+        template_path = f"{base_path}tests/test_generic/tests/templater.json"
 
         try:
             with file_open(template_path, mode='r') as file:
                 templates = json.load(file)
         except Exception as e:
-            print(f"Error loading templater.py: {e}")
+            print(f"Error loading templater.json: {e}")
             return
+
+        knowledge_article_path = (
+            f"{base_path}/{self.installed_modules[0]}/data/knowledge_article.xml"
+        )
+        favorite_article_path = (
+            f"{base_path}/{self.installed_modules[0]}/data/knowledge_article_favorite.xml"
+        )
+
+        try:
+            if os.path.exists(knowledge_article_path):
+                with file_open(knowledge_article_path, 'r') as file:
+                    knowledge_content = file.read()
+            else:
+                print(f"Warning: knowledge_article.xml not found")
+                return
+
+            if os.path.exists(favorite_article_path):
+                with file_open(favorite_article_path, 'r') as file:
+                    favorite_content = file.read()
+            else:
+                print(f"Warning: knowledge_favorite_article.xml not found")
+                return
+        except Exception as e:
+            print(f"Error opening files: {e}")
+            return
+
         for app_name in installed_apps:
             try:
-                if not os.path.exists(knowledge_article_path):
-                    print(f"Warning: knowledge_article.xml not found for module '{app_name}'")
-                    continue
+                if f'id="article_{app_name}"' not in knowledge_content:
+                    body_content = templates.get(app_name, "")
+                    new_article = f"""
+                    <record id="article_{app_name}" model="knowledge.article">
+                        <field name="name">{app_name}</field>
+                        <field name="category">workspace</field>
+                        <field name="is_article_visible_by_everyone" eval="True"/>
+                        <field name="body">{body_content}</field>
+                    </record>
+                    """
+                    knowledge_content = knowledge_content.replace(
+                        '</odoo>', f'{textwrap.dedent(new_article)}</odoo>'
+                    )
 
-                with file_open(knowledge_article_path, 'r') as file:
-                    content = file.read()
-
-                if f'id="article_{app_name}"' in content:
-                    continue
-                body_content = templates.get(app_name, "")
-                new_article = f"""
-                <record id="article_{app_name}" model="knowledge.article">
-                    <field name="name">{app_name}</field>
-                    <field name="category">workspace</field>
-                    <field name="is_article_visible_by_everyone" eval="True"/>
-                    <field name="body">{body_content}</field>
-                </record>
-                """
-
-                # Append new article before the closing </odoo> tag
-                content = content.replace('</odoo>', f'{new_article}</odoo>')
-
-                # Write back to the file
-                with open(knowledge_article_path, 'w', encoding='utf-8') as file:
-                    file.write(content)
+                if f'id="knowledge_favorite_{app_name}"' not in favorite_content:
+                    favorite_record = f"""
+                    <record id="knowledge_favorite_{app_name}" model="knowledge.article.favorite">
+                        <field name="article_id" ref="article_{app_name}"/>
+                        <field name="user_id" ref="base.user_admin"/>
+                    </record>
+                    """
+                    favorite_content = favorite_content.replace(
+                        '</odoo>', f'{textwrap.dedent(favorite_record)}</odoo>'
+                    )
 
             except Exception as e:
-                print(f"Error processing knowledge_article.xml for module '{app_name}': {e}")
+                print(f"Error processing module '{app_name}': {e}")
+
+        try:
+            with open(knowledge_article_path, 'w', encoding='utf-8') as file:
+                file.write(knowledge_content)
+            with open(favorite_article_path, 'w', encoding='utf-8') as file:
+                file.write(favorite_content)
+        except Exception as e:
+            print(f"Error writing files: {e}")
 
     def test_knowledge_article_notification(self):
         for module in self.installed_modules:

@@ -4,4 +4,74 @@
         <field name="article_id" ref="knowledge_article_1"/>
         <field name="user_id" ref="base.user_admin"/>
     </record>
+
+<record id="knowledge_favorite_sale_management" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_sale_management"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_account" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_account"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_crm" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_crm"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_website" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_website"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_stock" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_stock"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_purchase" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_purchase"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_point_of_sale" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_point_of_sale"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_website_sale" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_website_sale"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_web_studio" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_web_studio"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_knowledge" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_knowledge"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_mail" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_mail"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_contacts" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_contacts"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_calendar" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_calendar"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
+
+<record id="knowledge_favorite_survey" model="knowledge.article.favorite">
+    <field name="article_id" ref="article_survey"/>
+    <field name="user_id" ref="base.user_admin"/>
+</record>
 </odoo>

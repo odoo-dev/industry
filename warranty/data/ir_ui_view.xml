@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="product_template_form_view_warranty" model="ir.ui.view">
+    <field name="name">Odoo Studio: product.template.product.form customization</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="model">product.template</field>
+    <field name="mode">extension</field>
+    <field name="priority">160</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_tooltip']" position="after">
+            <field name="x_warranty_id" options="{'create_name_field': 'x_name'}" required="True"/>
+        </xpath>
+    </field>
+  </record>
+  <!-- <record id="studio_customization.odoo_studio_project__2afe3556-7e79-46ba-82f3-234b162c35b1" model="ir.ui.view">
+    <field name="name">Odoo Studio: project.task.form customization</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="model">project.task</field>
+    <field name="mode">extension</field>
+    <field name="priority">1000</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="Products" name="studio_page_2sk_1i4khli41">
+            <group name="studio_group_2sk">
+              <group name="studio_group_2sk_left">
+                <field name="x_studio_lot">
+                  <tree string="Lots/Serial Numbers" multi_edit="1">
+                    <field name="name" decoration-bf="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field optional="show" name="x_studio_warranty_status"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="last_delivery_partner_id" optional="hide" string="Transfer to"/>
+                    <field name="lot_properties" optional="hide"/>
+                    <field name="product_qty" optional="hide"/>
+                  </tree>
+                  <form string="Lots/Serial Numbers">
+                    <sheet name="studio_sheet_bb5ce3">
+                      <field name="company_id" invisible="1"/>
+                      <field name="display_complete" invisible="1"/>
+                      <div class="oe_button_box" name="button_box" invisible="not display_complete">
+                        <button class="oe_stat_button" name="action_view_so" type="object" icon="fa-pencil-square-o" help="Sale Orders" invisible="sale_order_count == 0 or not display_complete">
+                          <div class="o_field_widget o_stat_info" name="studio_div_2bd6a9">
+                            <span class="o_stat_value">
+                              <field name="sale_order_count" widget="statinfo" nolabel="1" class="mr4"/>
+                            </span>
+                            <span class="o_stat_text">Sales</span>
+                          </div>
+                        </button>
+                        <button class="oe_stat_button" name="action_lot_open_transfers" type="object" icon="fa-truck" help="Transfers" invisible="delivery_count == 0">
+                          <field name="delivery_count" widget="statinfo" string="Transfers"/>
+                        </button>
+                        <button name="action_lot_open_quants" icon="fa-arrows" class="oe_stat_button" type="object">
+                          <div class="o_stat_info" name="studio_div_68515d">
+                            <span class="o_stat_text">Location</span>
+                          </div>
+                        </button>
+                        <button name="433" icon="oi-arrow-up" class="oe_stat_button" type="action">
+                          <div class="o_stat_info" name="studio_div_c8ba84">
+                            <span class="o_stat_text">Traceability</span>
+                          </div>
+                        </button>
+                      </div>
+                      <div class="oe_title" name="studio_div_30ef35">
+                        <label for="name"/>
+                        <h1>
+                          <field name="name" placeholder="e.g. LOT/0001/20121"/>
+                        </h1>
+                      </div>
+                      <group name="main_group">
+                        <group name="studio_group_427f70">
+                          <field name="product_id" context="{'default_is_storable': True, 'default_tracking': 'lot'}" readonly="context.get('set_product_readonly', False)" force_save="1" help="Product this lot/serial number contains. You cannot change it anymore if it has already been moved."/>
+                          <label for="product_qty" invisible="not display_complete"/>
+                          <div class="o_row" invisible="not display_complete" name="studio_div_65e949">
+                            <field name="product_qty"/>
+                            <field name="product_uom_id" groups="uom.group_uom"/>
+                          </div>
+                          <field name="ref"/>
+                          <field name="company_id" groups="base.group_multi_company"/>
+                          <field name="location_id" invisible="not location_id" groups="stock.group_stock_manager"/>
+                          <field name="last_delivery_partner_id" invisible="not last_delivery_partner_id" groups="stock.group_stock_manager"/>
+                        </group>
+                        <group name="studio_group_cbc847"/>
+                        <field name="lot_properties" nolabel="1" columns="2" hideAddButton="1"/>
+                      </group>
+                      <group name="studio_group_6f7450">
+                        <field name="sale_order_ids" widget="many2many" readonly="True" invisible="not sale_order_ids or display_complete">
+                          <tree>
+                            <field name="name" readonly="state != 'draft'"/>
+                            <field name="partner_id" readonly="state in ['cancel', 'sale']"/>
+                            <field name="date_order" readonly="state in ['cancel', 'sale']"/>
+                            <field name="state" column_invisible="True"/>
+                          </tree>
+                        </field>
+                      </group>
+                      <notebook invisible="not display_complete" name="studio_notebook_cbbaab">
+                        <page string="Description" name="description">
+                          <field name="note"/>
+                        </page>
+                      </notebook>
+                    </sheet>
+                  </form>
+                </field>
+              </group>
+              <group name="studio_group_2sk_right"/>
+            </group>
+          </page>
+        </xpath>
+    </field>
+  </record> -->
+  <!-- <record id="studio_customization.odoo_studio_sale_sub_53c4cbb7-9d72-4071-afa0-0eee1b31f764" model="ir.ui.view">
+    <field name="inherit_id" ref="sale_subscription.sale_subscription_primary_form_view"/>
+    <field name="mode">extension</field>
+    <field name="model">sale.order</field>
+    <field name="name">Odoo Studio: sale.subscription.order.primary.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@name='order_lines']/field[@name='order_line']//field[@name='name']" position="after">
+            <field optional="show" name="x_studio_serial_number" invisible="recurring_invoice != True"/>
+        </xpath>
+    </field>
+  </record> -->
+  <record id="open_view_all_tasks_list_view" model="ir.ui.view">
+    <field name="name">List all warranty tasks</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.open_view_all_tasks_list_view"/>
+    <field name="mode">extension</field>
+    <field name="priority">160</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="x_lot_ids" optional="show"/>
+        </xpath>
+    </field>
+  </record>
+  <record id="view_partner_form_warranty" model="ir.ui.view">
+    <field name="name">res.partner.form warranty</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="mode">extension</field>
+    <field name="priority">160</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_view_sale_order']" position="after">
+            <button name="%(lots_customer_view)d" class="oe_stat_button" icon="fa-align-justify" type="action">
+                <field name="x_x_customer_id_stock_lot_count" widget="statinfo"/>
+            </button>
+        </xpath>
+    </field>
+  </record>
+  <record id="view_production_lot_tree_warranty" model="ir.ui.view">
+    <field name="name">stock.production.lot.tree warranty</field>
+    <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+    <field name="model">stock.lot</field>
+    <field name="mode">extension</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_id']" position="after">
+            <xpath expr="//field[@name='ref']" position="move"/>
+            <field name="last_delivery_partner_id" optional="show"/>
+            <field name="location_id" optional="show"/>
+            <field name="sale_order_ids" optional="show"/>
+            <field name="x_warranty_status" optional="show"/>
+            <field name="x_warranty_end_date" optional="show" readonly="True"/>
+        </xpath>
+        <xpath expr="//field[@name='create_date']" position="attributes">
+            <attribute name="optional">hide</attribute>
+        </xpath>
+        <xpath expr="//field[@name='activity_ids']" position="attributes">
+            <attribute name="optional">hide</attribute>
+        </xpath>
+        <xpath expr="//field[@name='ref']" position="attributes">
+            <attribute name="optional">hide</attribute>
+        </xpath>
+    </field>
+  </record>
+</odoo>

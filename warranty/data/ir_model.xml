@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="x_warranty" model="ir.model">
+        <field name="name">Warranty</field>
+        <field name="model">x_warranty</field>
+    </record>
+</odoo>

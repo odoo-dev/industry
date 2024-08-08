@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="lots_customer_view" model="ir.actions.act_window">
+    <field name="context">{'search_default_last_delivery_partner_id': active_id,'default_last_delivery_partner_id': active_id}</field>
+    <field name="domain">[('last_delivery_partner_id', '=', active_id)]</field>
+    <field name="name">Lots</field>
+    <field name="res_model">stock.lot</field>
+  </record>
+</odoo>

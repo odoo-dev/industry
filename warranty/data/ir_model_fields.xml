@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="x_warranty_name" model="ir.model.fields">
+      <field name="name">x_warranty_name</field>
+      <field name="field_description">Name</field>
+      <field name="model_id" ref="x_warranty"/>
+      <field name="ttype">char</field>
+    </record>
+    <record id="x_warranty_months" model="ir.model.fields">
+      <field name="name">x_warranty_months</field>
+      <field name="field_description">Coverage (months)</field>
+      <field name="model_id" ref="x_warranty"/>
+      <field name="ttype">integer</field>
+    </record>
+    <record id="x_warranty_id" model="ir.model.fields">
+      <field name="name">x_warranty_id</field>
+      <field name="field_description">Coverage</field>
+      <field name="model_id" ref="product.model_product_template"/>
+      <field name="ttype">many2one</field>
+      <field name="relation">x_warranty</field>
+    </record>
+  <record id="x_lot_ids" model="ir.model.fields">
+    <field name="name">x_lot_ids</field>
+    <field name="field_description">Serial Numbers</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="ttype">many2many</field>
+    <field name="relation">stock.lot</field>
+  </record>
+  <record id="x_warranty_status" model="ir.model.fields">
+    <field name="name">x_warranty_status</field>
+    <field name="field_description">Warranty Status</field>
+    <field name="model_id" ref="stock.model_stock_lot"/>
+    <field name="ttype">selection</field>
+    <field name="selection">[('no', 'No warranty'), ('under', 'Under warranty'), ('expired', 'Warranty expired')]</field>
+  </record>
+  <!-- <record id="studio_customization.new_related_field_sa_43965ffd-1e2f-4eb9-aedb-b0f935d8dcf5" model="ir.model.fields">
+    <field name="name">x_studio_serial_number</field>
+    <field name="related">product_id.lot_properties_definition</field>
+    <field name="ttype">properties_definition</field>
+    <field name="field_description">Serial Number</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record> -->
+  <record id="x_x_customer_id_stock_lot_count" model="ir.model.fields">
+    <field name="name">x_x_customer_id_stock_lot_count</field>
+    <field name="field_description">Customer count</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="ttype">integer</field>
+    <!-- If performances are poor, maybe this should be implemented instead:
+
+all_partners = self.with_context(active_test=False).search_fetch([('id', 'child_of', self.ids)], ['parent_id'],)
+stock_lot_groups = self.env['stock.lot']._read_group(domain=[('partner_id', 'in', all_partners.ids)], groupby=['partner_id'], aggregates=['__count'])
+self_ids = set(self._ids)
+self.stock_lot_count = 0
+for partner, count in stock_lot_groups:
+    while partner:
+        if partner.id in self_ids:
+            partner.stock_lot_count += count
+        partner = partner.parent_id -->
+    <field name="compute"><![CDATA[
+for record in self:
+    record['x_x_customer_id_stock_lot_count'] = self.env['stock.lot'].search_count([('last_delivery_partner_id', '=', record.id)])
+]]></field>
+    <!-- <field name="selectable" eval="False"/> -->
+    <field name="store" eval="False"/>
+  </record>
+  <record id="x_warranty_end_date" model="ir.model.fields">
+    <field name="name">x_warranty_end_date</field>
+    <field name="field_description">Warranty End Date</field>
+    <field name="model_id" ref="stock.model_stock_lot"/>
+    <field name="ttype">date</field>
+  </record>
+</odoo>

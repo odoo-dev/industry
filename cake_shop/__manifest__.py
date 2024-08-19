@@ -42,5 +42,6 @@ This setup is for bakery shop companies selling to consumers. Bakery are busines
         'demo/payment_provider_demo_post.xml',
     ],
     'license': 'OPL-1',
+    'post_init_hook': '_post_init_hook',
     'images': ['images/main.png'],
 }

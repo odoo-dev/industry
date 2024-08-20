@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+        <data noupdate="1">
+<template id="knowledge_article_test">
+        <h1>Construction Industry</h1>
+        <p>This industry is tailor-made for construction businesses that excel in
+                managing construction projects. It encompasses the crucial stages of
+                project conceptualization, accurate quotation(s), seamless project
+                kick-off, meticulous planning, streamlined (re)supply, flawless
+                execution, effective collaboration with third parties, meticulous
+                budget follow-up, prompt invoicing, and exceptional customer
+                service.</p>
+        <p>Odoo empowers you to effortlessly and efficiently manage every aspect of
+                your construction projects, ensuring unparalleled success and client
+                satisfaction thanks its suite of integrated applications.</p>   
+</template>
+</data>
+</odoo>

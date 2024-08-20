@@ -1,17 +1,11 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-from odoo.api import Environment, SUPERUSER_ID
-from odoo.tools.translate import _lt
 
 def _generate_construction_articles(env):
-    user = env.user.with_context(lang="fr_FR") 
+    user = env.user
     render_ctx = {'object': user}
     body = env['ir.qweb']._render(
-        'knowledge.knowledge_article_user_onboarding',
+        'construction.construction_knowledge',
         render_ctx,
-        minimal_qcontext=True,
-        raise_if_not_found=False
+        raise_if_not_found=False,
     )
     if body:
         article_data = {
@@ -19,15 +13,15 @@ def _generate_construction_articles(env):
                 'partner_id': user.partner_id.id,
                 'permission': 'write',
             })],
-            'body': _lt(body),
-            'icon': "👋",
+            'body': body,
+            'icon': "👷‍♂️",
+            "cover_image_position" : 81.79,
             'internal_permission': 'none',
             'is_article_visible_by_everyone': True,
-            'favorite_ids': [(0, 0, {
-                'sequence': 0,
-                'user_id': user.id,
-            })],
-            'name': "welcome",
+            'name': "Construction",
         }
-        print(article_data)
-        env['knowledge.article'].sudo().create(article_data)
+        print(user.partner_id.id)
+        article_record = env.ref('construction.knowledge_article_35')
+        if article_record:
+            article_record.sudo().write(article_data)
+            

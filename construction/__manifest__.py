@@ -37,6 +37,7 @@ focusing on accurate quoting, efficient planning, seamless execution, and excell
         'data/mail_message.xml',
         'data/mail_activity_type.xml',
         'data/hr_job.xml',
+        'data/knowledge_test.xml',
     ],
     'demo': [
         'demo/documents_folder.xml',
@@ -64,6 +65,7 @@ focusing on accurate quoting, efficient planning, seamless execution, and excell
         'demo/planning_recurrency.xml',
         'demo/planning_slot.xml',
     ],
+    'post_init_hook' : '_generate_construction_articles',
     'license': 'OPL-1',
     'images': ['images/main.png'],
 }

@@ -10,7 +10,7 @@
         <field name="body" model="knowledge.article" eval="
             '&lt;br>Hey! Need help?&lt;/br>
              &lt;br>Checkout this &lt;a href=\''
-             + obj().env.ref('industry_real_estate.knowledge_article_3').article_url.replace(obj().get_base_url(), '')
+             + obj().env.ref('industry_real_estate.welcome_article').article_url.replace(obj().get_base_url(), '')
              + '\'>article&lt;/a>&lt;/br>'"/>
     </record>
 </odoo>

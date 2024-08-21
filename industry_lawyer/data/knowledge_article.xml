@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <template id="welcome_article_body">
+    <template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
         <h1>Lawyer firms</h1>
         <p>This setup is for lawyers firms. They represent their clients and defend their interest during juridical procedures. </p>
         <p>Lawyers have open / public consultations for people to reach out and get advice on their situation. </p>

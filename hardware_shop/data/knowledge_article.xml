@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <odoo>
-    <template id="welcome_article_body">
+    <template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
         <p>
             <font class="text-black"></font><span style="font-size: 48px;"><font class="text-800">Hardware Shop</font></span>
         </p>

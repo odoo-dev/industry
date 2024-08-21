@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <template id="welcome_article_body">
+    <template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
 
         <h1 style="margin-bottom: 0px;">Pharmacy Retail</h1>
         <p style="margin-bottom: 0px;">This setup is for pharmacy retail companies that purchase and sell products. They maintain the stock lot wise and also manage the expiry of the lots.</p>

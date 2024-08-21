@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <template id="welcome_article_body">
+    <template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
 
         <div class="o_knowledge_behavior_anchor o_knowledge_behavior_type_toc" data-oe-protected="true">
             <div class="o_knowledge_toc_content">

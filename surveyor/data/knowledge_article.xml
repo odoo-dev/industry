@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <template id="welcome_article_body">
+    <template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
 
 <h1>Surveyor</h1>
 <p>This setup is for surveyors that sell services like land measurement &amp; mapping, planning permission, mediation counsel, etc to private customers as well as companies (architect, notary, real estate, …).</p>

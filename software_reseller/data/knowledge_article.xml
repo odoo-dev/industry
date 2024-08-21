@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <template id="welcome_article_body">
+    <template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
 
         &lt;h1 &gt;
         &lt;span style="font-size: 36px;"&gt;Software Resellers,&amp;nbsp;IT Services&lt;/span&gt;&lt;br&gt;&lt;/h1&gt;

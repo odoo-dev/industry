@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-<template id="welcome_article_body">
+<template id="welcome_article_body"> 
+    <field name="module">__cloc_exclude__</field>
         <h1>Construction Industry</h1>
         <p>This industry is tailor-made for construction businesses that excel in
                 managing construction projects. It encompasses the crucial stages of

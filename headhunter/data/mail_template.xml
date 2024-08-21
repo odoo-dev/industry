@@ -48,27 +48,27 @@
                             <div style="font-size: 13px; margin: 0px; padding: 0px;"> We just
                                 reviewed your resume, and it caught our attention. As we think you
                                 might be great for the position, your application has been short
-                                listed for a call or an interview. <br><br>
+                                listed for a call or an interview.  <br/> <br/>
                                 <div style="padding: 16px 8px 16px 8px;">
                                     <a style="border-style:solid;box-sizing:border-box;transition-property:none;transition-delay:0s;transition-timing-function:ease;transition-duration:0s;transition-behavior:normal;font-size:13px;border-left-color:#714b67;border-bottom-color:#714b67;border-right-color:#714b67;border-top-color:#714b67;border-left-width:1px;border-bottom-width:1px;border-right-width:1px;border-top-width:1px;background-color:#714b67;user-select:none;cursor:pointer;vertical-align:middle;text-align:center;line-height:1.5;font-weight:500;display:inline-block;color:#ffffff;text-decoration: none; padding: 8px 16px; border-radius: 5px;"
                                         t-att-href="env['ir.config_parameter'].sudo().get_param('web.base.url') + '/book/First_interview'" yclass="btn btn-primary btn-sm">
                                         Schedule my Interview </a>
                                 </div>
-                                <t t-if="object.user_id"> You will soon be contacted by:<br>
+                                <t t-if="object.user_id"> You will soon be contacted by: <br/>
                                     <strong t-out="object.user_id.name or ''"
                                         style="box-sizing:border-box;font-weight:bolder;">Mitchell
-                                    Admin</strong><br>
+                                    Admin</strong> <br/>
                                         <span>Email: <t t-out="object.user_id.email or ''">
-                                    admin@yourcompany.example.com</t></span><br>
+                                    admin@yourcompany.example.com</t></span> <br/>
                                         <span>Phone: <t t-out="object.user_id.phone or ''">+1
-                                    650-123-4567</t></span> <br><br>
+                                    650-123-4567</t></span>  <br/> <br/>
                                 </t>
-                                See you soon, <div style="font-size: 11px; color: grey;"> -- <br>
+                                See you soon, <div style="font-size: 11px; color: grey;"> --  <br/>
                                 The HR Team <t
                                         t-if="'website_url' in object.job_id and hasattr(object.job_id, 'website_url') and object.job_id.website_url">
                                 Discover <a href="/jobs"
                                             style="box-sizing:border-box;text-decoration:none;color:#717188;">all
-                                our jobs</a>.<br>
+                                our jobs</a>. <br/>
                                     </t>
                                 </div> <hr
                                     width="97%"
@@ -78,29 +78,29 @@
                                     <strong style="box-sizing:border-box;font-weight:bolder;">What
                                 is the next step?</strong>
                                 </h3> The
-                                next step is either a call or a meeting in our offices.&nbsp;<br>
+                                next step is either a call or a meeting in our offices.  <br/>
                                 Feel free to <strong
                                     style="box-sizing:border-box;font-weight:bolder;">contact us if
                                 you want a faster feedback</strong> or if you don't get news from us
-                                quickly enough (just reply to this email). <br>
+                                quickly enough (just reply to this email).  <br/>
                                 <hr width="97%"
                                     style="box-sizing: border-box; height: 1px; opacity: 0.25; color: #374151; background-color: #cccccc; border: medium none; clear: both; display: block; font-size: 0px; min-height: 1px; line-height: 0; margin: 17px 0px 16px;">
                                 <t t-set="location" t-value="''"></t> <t
                                     t-if="object.job_id.address_id.name">
                                     <strong t-out="object.job_id.address_id.name or ''"
                                         style="box-sizing:border-box;font-weight:bolder;">Teksa SpA</strong>
-                                    <br>
+                                     <br/>
                                 </t> <t
                                     t-if="object.job_id.address_id.street">
                                     <t t-out="object.job_id.address_id.street or ''">Puerto Madero
                                 9710</t>
-                                    <br>
+                                     <br/>
                                     <t t-set="location" t-value="object.job_id.address_id.street"></t>
                                 </t> <t
                                     t-if="object.job_id.address_id.street2">
                                     <t t-out="object.job_id.address_id.street2 or ''">Of A15,
                                 Santiago (RM)</t>
-                                    <br>
+                                     <br/>
                                     <t t-set="location"
                                         t-value="'%s, %s' % (location, object.job_id.address_id.street2)"></t>
                                 </t> <t
@@ -118,21 +118,21 @@
                                     <t t-out="object.job_id.address_id.zip or ''">98450</t>
                                     <t t-set="location"
                                         t-value="'%s, %s' % (location, object.job_id.address_id.zip)"></t>
-                                </t> <br>
+                                </t>  <br/>
                                 <t t-if="object.job_id.address_id.country_id.name">
                                     <t t-out="object.job_id.address_id.country_id.name or ''">
                                 Argentina</t>
-                                    <br>
+                                     <br/>
                                     <t t-set="location"
                                         t-value="'%s, %s' % (location, object.job_id.address_id.country_id.name)"></t>
-                                </t> <br>
+                                </t>  <br/>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <p style="margin:0px 0 16px 0;box-sizing:border-box;">
-                <br>
+                 <br/>
             </p>
             ]]>
         </field>

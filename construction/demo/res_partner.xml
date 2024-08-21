@@ -57,7 +57,7 @@
         <field name="image_1920" type="base64" file="construction/static/src/binary/res_partner/16-image_1920"/>
         <field name="comment">
             <![CDATA[
-            <p>Image by&nbsp;<a href="https://www.freepik.com/" target="_blank">Freepik</a><br></p>
+            <p>Image by <a href="https://www.freepik.com/" target="_blank">Freepik</a> <br/></p>
                 ]]>
         </field>
     </record>
@@ -68,7 +68,7 @@
         <field name="image_1920" type="base64" file="construction/static/src/binary/res_partner/17-image_1920"/>
         <field name="comment">
             <![CDATA[
-            <p>Image by&nbsp;<a href="https://www.freepik.com/" target="_blank">Freepik</a><br></p>
+            <p>Image by <a href="https://www.freepik.com/" target="_blank">Freepik</a> <br/></p>
                 ]]>
             </field>
     </record>
@@ -79,7 +79,7 @@
         <field name="image_1920" type="base64" file="construction/static/src/binary/res_partner/19-image_1920"/>
         <field name="comment">
             <![CDATA[
-            <p>Image by&nbsp;<a href="https://www.freepik.com/" target="_blank">Freepik</a><br></p>
+            <p>Image by <a href="https://www.freepik.com/" target="_blank">Freepik</a> <br/></p>
                 ]]>
         </field>
     </record>

@@ -10,9 +10,9 @@
             <![CDATA[
                 <p>Other Information:<br/>
                 ___________<br/>
-                <br>
-                    Subject : I want to know if this one is still available<br>
-                <br>
+                 <br/>
+                    Subject : I want to know if this one is still available <br/>
+                 <br/>
                 </p>
             ]]>
         </field>
@@ -36,11 +36,11 @@
         <field name="x_property_id" ref="account_analytic_account_21" />
         <field name="description">
             <![CDATA[
-                <p>Other Information:<br>
-                ___________<br>
-                <br>
-                Subject : I want to visit this one! <br>
-                <br>
+                <p>Other Information: <br/>
+                ___________ <br/>
+                 <br/>
+                Subject : I want to visit this one!  <br/>
+                 <br/>
                 </p>
             ]]>
         </field>

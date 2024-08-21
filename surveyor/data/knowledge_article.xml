@@ -1,18 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <record id="knowledge_article_3" model="knowledge.article" context="{'skip_check_member_access': True}">
-        <field name="cover_image_position">92.01000000000006</field>
-        <field name="cover_image_id" ref="knowledge_cover_8"/>
-        <field name="parent_path">3/</field>
-        <field name="internal_permission">write</field>
-        <field name="is_locked">True</field>
-        <field name="is_article_visible_by_everyone" eval="True"/>
-        <field name="sequence">3</field>
-        <field name="name">Surveyor</field>
-        <field name="icon">📐</field>
-        <field name="body"><![CDATA[
+    <template id="welcome_article_body">
+
 <h1>Surveyor</h1>
-<p>This setup is for surveyors that sell services like land measurement & mapping, planning permission, mediation counsel, etc to private customers as well as companies (architect, notary, real estate, …).</p>
+<p>This setup is for surveyors that sell services like land measurement &amp; mapping, planning permission, mediation counsel, etc to private customers as well as companies (architect, notary, real estate, …).</p>
 <p><br /></p>
 <p>They need a website to collect new leads and give access to produced documents.</p>
 <p><br /></p>
@@ -25,7 +16,7 @@
         <a href="#" data-oe-nodeid="3" class="oe_unremovable o_no_link_popover d-block o_knowledge_toc_link o_knowledge_toc_link_depth_2">From the website</a>
         <a href="#" data-oe-nodeid="4" class="oe_unremovable o_no_link_popover d-block o_knowledge_toc_link o_knowledge_toc_link_depth_2">Surveyor meets the client</a>
         <a href="#" data-oe-nodeid="5" class="oe_unremovable o_no_link_popover d-block o_knowledge_toc_link o_knowledge_toc_link_depth_2">(From a phone call)</a>
-        <a href="#" data-oe-nodeid="6" class="oe_unremovable o_no_link_popover d-block o_knowledge_toc_link o_knowledge_toc_link_depth_1">Flow 2: Buy & deliver services</a>
+        <a href="#" data-oe-nodeid="6" class="oe_unremovable o_no_link_popover d-block o_knowledge_toc_link o_knowledge_toc_link_depth_1">Flow 2: Buy &amp; deliver services</a>
     </div>
 </div>
 <p><br /></p>
@@ -38,15 +29,25 @@
 <p>From the CRM, schedule a call or a meeting. Based on the client’s need, you can create a quotation using the quotation templates.</p>
 <h3>(From a phone call)</h3>
 <p>Quicker flow where the surveyor can directly create and send a quote to the lead.</p>
-<h2>Flow 2: Buy & deliver services</h2>
+<h2>Flow 2: Buy &amp; deliver services</h2>
 <p>When the quote is signed by the customer, a dedicated project is created with all the services listed in the quotation as a task.</p>
 <p>In Planning, the surveyor can allocate the task to each employee (himself, topographer or drawer).</p>
 <p>
-    In all cases, a surveyor will deliver documents. Therefore an integration with Documents is enabled to easily share the created documents and gather them if needed. To this intent a share link (share & upload) can be generated for each
+    In all cases, a surveyor will deliver documents. Therefore an integration with Documents is enabled to easily share the created documents and gather them if needed. To this intent a share link (share &amp; upload) can be generated for each
     project sub-workspace so that the customer has direct access to it.
 </p>
 <p>Once the final documents are delivered to the customer, the surveyor can send the final invoice potentially adapting the hours spent on each service.<br /></p>
-]]>
-</field>
+    </template>
+    <record id="welcome_article" model="knowledge.article" context="{'skip_check_member_access': True}">
+        <field name="cover_image_position">92.01000000000006</field>
+        <field name="cover_image_id" ref="knowledge_cover_8"/>
+        <field name="parent_path">3/</field>
+        <field name="internal_permission">write</field>
+        <field name="is_locked">True</field>
+        <field name="is_article_visible_by_everyone" eval="True"/>
+        <field name="sequence">3</field>
+        <field name="name">Surveyor</field>
+        <field name="icon">📐</field>
+        <field name="body"><![CDATA[]]></field>
     </record>
 </odoo>

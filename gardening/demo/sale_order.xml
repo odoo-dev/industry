@@ -4,6 +4,5 @@
     <field name="partner_id" ref="res_partner_9"/>
     <field name="user_id" ref="base.user_admin"/>
     <field name="opportunity_id" ref="crm_lead_5"/>
-    <field name="analytic_account_id" ref="account_analytic_account_11"/>
   </record>
 </odoo>

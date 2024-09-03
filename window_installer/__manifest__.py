@@ -44,6 +44,7 @@ focusing on accurate quoting, efficient planning, seamless execution, and excell
         'demo/fleet_cars_data.xml',
         'demo/fleet_vehicle.xml',
         'demo/account_analytic_account.xml',
+        'demo/project_project.xml',
         'demo/crm_lead.xml',
         'demo/sale_order.xml',
         'demo/sale_order_confirm.xml',

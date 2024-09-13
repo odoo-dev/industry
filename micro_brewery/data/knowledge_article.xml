@@ -172,7 +172,7 @@
     <i class="o_editor_banner_icon mb-3 fst-normal">🎉</i>
     <div class="w-100 ms-3" data-oe-protected="false">
         <p>You completed that demo use case! There are millions of other ways to adapt your Odoo setup to fit your business needs. </p>
-        <p>Discover more about Odoo by diving into our <a href="https://www.odoo.com/documentation/17.0/">documentation</a> and <a href="https://www.odoo.com/fr_FR/slides/getting-started-15">academy</a> , and feel free to <a href="https://www.odoo.com/fr_FR/appointment?filter_appointment_type_ids=%5B123,%20124,%2043%5D">request a demo</a> if you need help! <br/></p>
+        <p>Discover more about Odoo by diving into our <widget name="documentation_link" path="/documentation/" icon="fa-book"/> and <widget name="documentation_link" path="/fr_FR/slides/getting-started-15" icon="fa-play"/>, and feel free to <widget name="documentation_link" path="/fr_FR/appointment?filter_appointment_type_ids=%5B123,%20124,%2043%5D" icon="fa-envelope"/> if you need help! <br/></p>
     </div>
 </div>
 <p> <br/></p>

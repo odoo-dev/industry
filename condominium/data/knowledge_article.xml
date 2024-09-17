@@ -113,7 +113,7 @@
                 forget to define an email alias and share it with the owners. Thereby, they will easily send requests that will be centralized in a single point as tickets. This eases the follow-up and the invoicing in case the time spent is not
                 covered by the service fees.
             </p>
-            <p><a href="https://www.odoo.com/documentation/17.0/applications/services/helpdesk/overview/getting_started.html" class="btn btn-outline-primary btn-sm">🎓 Helpdesk</a><br/></p>
+            <p><a href="https://www.odoo.com/documentation/master/applications/services/helpdesk/overview/getting_started.html" class="btn btn-outline-primary btn-sm">🎓 Helpdesk</a><br/></p>
             <h2>Fairly split the costs ⚖️</h2>
             <p>Each owner has to pay recurring fees:</p>
             <ul>

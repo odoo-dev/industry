@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.product_public_category_1" model="product.public.category">
+        <field name="parent_path">1/</field>
+        <field name="name">Sodas</field>
+        <field name="sequence">10000</field>
+    </record>
+    <record id="studio_customization.product_public_category_2" model="product.public.category">
+        <field name="parent_path">2/</field>
+        <field name="name">Spirits</field>
+        <field name="sequence">10005</field>
+    </record>
+    <record id="studio_customization.product_public_category_3" model="product.public.category">
+        <field name="parent_path">3/</field>
+        <field name="name">Wines</field>
+        <field name="sequence">10010</field>
+    </record>
+    <record id="studio_customization.product_public_category_4" model="product.public.category">
+        <field name="parent_path">4/</field>
+        <field name="name">Beers</field>
+        <field name="sequence">10015</field>
+    </record>
+</odoo>

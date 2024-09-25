@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.purchase_order_line_1" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">5.0</field>
+        <field name="product_id" ref="studio_customization.product_product_6"/>
+        <field name="order_id" ref="studio_customization.purchase_order_1"/>
+        <field name="state">purchase</field>
+        <field name="date_planned">2024-09-19 11:46:21</field>
+        <field name="partner_id" ref="studio_customization.res_partner_19"/>
+        <field name="name">Mobius I.P.A. - 24x33cl</field>
+        <field name="product_uom_qty">5.0</field>
+        <field name="price_unit">19.99</field>
+    </record>
+    <record id="studio_customization.purchase_order_line_2" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">3.0</field>
+        <field name="product_id" ref="studio_customization.product_product_6"/>
+        <field name="order_id" ref="studio_customization.purchase_order_2"/>
+        <field name="state">purchase</field>
+        <field name="location_final_id" ref="stock.stock_location_stock"/>
+        <field name="date_planned">2024-09-19 12:00:00</field>
+        <field name="partner_id" ref="studio_customization.res_partner_19"/>
+        <field name="propagate_cancel" eval="False"/>
+        <field name="name">Mobius Blanche - 24x33cl</field>
+        <field name="product_uom_qty">3.0</field>
+        <field name="price_unit">19.99</field>
+    </record>
+    <record id="studio_customization.purchase_order_line_3" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">4.0</field>
+        <field name="product_id" ref="studio_customization.product_product_6"/>
+        <field name="order_id" ref="studio_customization.purchase_order_3"/>
+        <field name="state">purchase</field>
+        <field name="date_planned">2024-09-21 09:28:55</field>
+        <field name="partner_id" ref="studio_customization.res_partner_19"/>
+        <field name="name">Mobius Blanche - 24x33cl</field>
+        <field name="product_uom_qty">4.0</field>
+        <field name="price_unit">19.99</field>
+    </record>
+    <record id="studio_customization.purchase_order_line_4" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">40.0</field>
+        <field name="product_id" ref="studio_customization.product_product_48"/>
+        <field name="order_id" ref="studio_customization.purchase_order_4"/>
+        <field name="state">purchase</field>
+        <field name="date_planned">2024-09-24 15:56:01</field>
+        <field name="partner_id" ref="studio_customization.res_partner_39"/>
+        <field name="name">Jack Daniels 70cl</field>
+        <field name="product_uom_qty">40.0</field>
+        <field name="price_unit">10.0</field>
+    </record>
+    <record id="studio_customization.purchase_order_line_5" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">10.0</field>
+        <field name="product_id" ref="studio_customization.product_product_36"/>
+        <field name="order_id" ref="studio_customization.purchase_order_5"/>
+        <field name="state">purchase</field>
+        <field name="date_planned">2024-09-24 16:15:46</field>
+        <field name="partner_id" ref="studio_customization.res_partner_40"/>
+        <field name="name">Mobius IPA 24x33cl </field>
+        <field name="product_uom_qty">10.0</field>
+        <field name="price_unit">18.99</field>
+    </record>
+    <record id="studio_customization.purchase_order_line_6" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">10.0</field>
+        <field name="product_id" ref="studio_customization.product_product_36"/>
+        <field name="order_id" ref="studio_customization.purchase_order_6"/>
+        <field name="state">purchase</field>
+        <field name="location_final_id" ref="stock.stock_location_stock"/>
+        <field name="date_planned">2024-09-24 16:45:39</field>
+        <field name="partner_id" ref="studio_customization.res_partner_40"/>
+        <field name="propagate_cancel" eval="False"/>
+        <field name="name">Mobius IPA 24x33cl </field>
+        <field name="product_uom_qty">10.0</field>
+        <field name="price_unit">18.99</field>
+    </record>
+    <record id="studio_customization.purchase_order_line_7" model="purchase.order.line">
+        <field name="product_uom" ref="uom.product_uom_unit"/>
+        <field name="product_qty">4.0</field>
+        <field name="product_id" ref="studio_customization.product_product_44"/>
+        <field name="order_id" ref="studio_customization.purchase_order_7"/>
+        <field name="state">purchase</field>
+        <field name="location_final_id" ref="stock.stock_location_stock"/>
+        <field name="date_planned">2024-09-24 17:27:46</field>
+        <field name="partner_id" ref="studio_customization.res_partner_38"/>
+        <field name="propagate_cancel" eval="False"/>
+        <field name="name">Cava Brut Il Lusio - Josep Masachs 6x75cl</field>
+        <field name="product_uom_qty">4.0</field>
+        <field name="price_unit">25.0</field>
+    </record>
+</odoo>

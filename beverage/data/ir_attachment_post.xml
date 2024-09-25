@@ -1,0 +1,729 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.ir_attachment_1072" model="ir.attachment">
+        <field name="name">unsplash_7dpHzyA7rb8_beverages.jpg</field>
+        <field name="url">/unsplash/7dpHzyA7rb8/beverages.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="access_token">88aacae3-21c5-427e-9c19-6f6a596ce656</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_1073" model="ir.attachment">
+        <field name="name">unsplash_r4UGyzh_8Ik_beers.jpg</field>
+        <field name="url">/unsplash/r4UGyzh_8Ik/beers.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="access_token">9e3f4c75-52e7-484c-b37f-8c9c8862875c</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_1074" model="ir.attachment">
+        <field name="name">unsplash_y2Vw5Tgtk5s_wines.jpg</field>
+        <field name="url">/unsplash/y2Vw5Tgtk5s/wines.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="access_token">60fce367-14b8-4897-840a-aabc0aff4e65</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_1075" model="ir.attachment">
+        <field name="name">unsplash_y2Vw5Tgtk5s_wines.webp</field>
+        <field name="url">/unsplash/y2Vw5Tgtk5s/1075/wines.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="access_token">60fce367-14b8-4897-840a-aabc0aff4e65</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_1076" model="ir.attachment">
+        <field name="name">unsplash_r4UGyzh_8Ik_beers.webp</field>
+        <field name="url">/unsplash/r4UGyzh_8Ik/1076/beers.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="access_token">9e3f4c75-52e7-484c-b37f-8c9c8862875c</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_1077" model="ir.attachment">
+        <field name="name">unsplash_7dpHzyA7rb8_beverages.webp</field>
+        <field name="url">/unsplash/7dpHzyA7rb8/1077/beverages.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="access_token">88aacae3-21c5-427e-9c19-6f6a596ce656</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_716" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_01.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/01.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_01</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_717" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_02.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/02.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_02</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_718" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_03.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/03.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_03</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_719" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_04.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/04.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_04</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_720" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_05.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/05.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_05</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_721" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_06.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/06.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_06</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_722" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_07.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/07.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_07</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_723" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_08.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/08.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_08</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_724" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_09.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/09.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_09</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_725" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_10.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/10.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_10</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_726" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_11.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/11.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_11</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_727" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_12.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/12.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_12</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_728" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_13.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/13.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_13</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_729" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_14.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/14.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_14</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_730" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_15.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/15.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_15</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_731" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_16.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/16.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_16</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_732" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_17.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/17.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_17</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_733" model="ir.attachment">
+        <field name="name">theme_bistro.background_img_18.jpg</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/18.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_img_18</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_734" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_01.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/03.gif</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_01</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_735" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_02.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/07.gif</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_02</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_736" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_03.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/04.gif</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_03</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_737" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_05.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/05.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_05</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_738" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_06.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/06.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_06</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_739" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_07.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/01.gif</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_07</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_740" model="ir.attachment">
+        <field name="name">theme_bistro.background_pattern_08.gif</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/patterns/02.gif</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">theme_bistro.bg_pattern_08</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_741" model="ir.attachment">
+        <field name="name">website.library_image_02</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/06.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_02</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_742" model="ir.attachment">
+        <field name="name">website.library_image_03</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/05.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_03</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_743" model="ir.attachment">
+        <field name="name">website.library_image_05</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/11.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_05</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_744" model="ir.attachment">
+        <field name="name">website.library_image_08</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/04.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_08</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_745" model="ir.attachment">
+        <field name="name">website.library_image_10</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/07.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_10</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_746" model="ir.attachment">
+        <field name="name">website.library_image_13</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/10.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_13</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_747" model="ir.attachment">
+        <field name="name">website.library_image_14</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/15.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_14</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_748" model="ir.attachment">
+        <field name="name">website.library_image_16</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/08.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.library_image_16</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_749" model="ir.attachment">
+        <field name="name">website.s_banner_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/02.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_banner_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_750" model="ir.attachment">
+        <field name="name">website.s_banner_default_image_2</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/20.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_banner_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_751" model="ir.attachment">
+        <field name="name">website.s_banner_default_image_3</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/21.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_banner_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_752" model="ir.attachment">
+        <field name="name">website.s_carousel_default_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/18.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_carousel_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_753" model="ir.attachment">
+        <field name="name">website.s_carousel_default_image_2</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/05.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_carousel_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_754" model="ir.attachment">
+        <field name="name">website.s_carousel_default_image_3</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/07.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_carousel_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_755" model="ir.attachment">
+        <field name="name">website.s_company_team_default_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/company_team_01.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_company_team_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_756" model="ir.attachment">
+        <field name="name">website.s_company_team_default_image_2</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/company_team_02.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_company_team_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_757" model="ir.attachment">
+        <field name="name">website.s_company_team_default_image_3</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/company_team_03.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_company_team_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_758" model="ir.attachment">
+        <field name="name">website.s_company_team_default_image_4</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/company_team_04.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_company_team_image_4</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_759" model="ir.attachment">
+        <field name="name">website.s_cover_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/17.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_cover_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_760" model="ir.attachment">
+        <field name="name">website.s_image_text_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/image_text.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_image_text_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_761" model="ir.attachment">
+        <field name="name">website.s_masonry_block_default_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/09.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_masonry_block_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_762" model="ir.attachment">
+        <field name="name">website.s_media_list_default_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/media_list_01.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_media_list_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_763" model="ir.attachment">
+        <field name="name">website.s_media_list_default_image_2</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/media_list_02.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_media_list_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_764" model="ir.attachment">
+        <field name="name">website.s_media_list_default_image_3</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/media_list_03.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_media_list_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_765" model="ir.attachment">
+        <field name="name">website.s_parallax_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/16.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_parallax_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_766" model="ir.attachment">
+        <field name="name">website.s_picture_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/picture.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_picture_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_767" model="ir.attachment">
+        <field name="name">website.s_product_catalog_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/16.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_product_catalog_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_768" model="ir.attachment">
+        <field name="name">website.s_quotes_carousel_demo_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/backgrounds/19.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_quotes_carousel_demo_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_769" model="ir.attachment">
+        <field name="name">website.s_reference_default_image_6</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/reference_06.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_reference_default_image_6</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_770" model="ir.attachment">
+        <field name="name">website.s_reference_default_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/reference_01.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_reference_demo_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_771" model="ir.attachment">
+        <field name="name">website.s_reference_default_image_2</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/reference_02.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_reference_demo_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_772" model="ir.attachment">
+        <field name="name">website.s_reference_default_image_3</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/reference_03.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_reference_demo_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_773" model="ir.attachment">
+        <field name="name">website.s_reference_default_image_4</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/reference_04.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_reference_demo_image_4</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_774" model="ir.attachment">
+        <field name="name">website.s_reference_default_image_5</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/reference_05.png</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_reference_demo_image_5</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_775" model="ir.attachment">
+        <field name="name">website.s_text_image_default_image</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/text_image.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_text_image_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_776" model="ir.attachment">
+        <field name="name">website.s_three_columns_default_image_1</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/three_columns_01.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_three_columns_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_777" model="ir.attachment">
+        <field name="name">website.s_three_columns_default_image_2</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/three_columns_02.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_three_columns_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.ir_attachment_778" model="ir.attachment">
+        <field name="name">website.s_three_columns_default_image_3</field>
+        <field name="type">url</field>
+        <field name="url">/theme_bistro/static/src/img/content/three_columns_03.jpg</field>
+        <field name="res_model">ir.ui.view</field>
+        <field name="key">website.s_three_columns_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_02" model="ir.attachment">
+        <field name="name">website.library_image_02</field>
+        <field name="key">website.library_image_02</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_03" model="ir.attachment">
+        <field name="name">website.library_image_03</field>
+        <field name="key">website.library_image_03</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_05" model="ir.attachment">
+        <field name="name">website.library_image_05</field>
+        <field name="key">website.library_image_05</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_08" model="ir.attachment">
+        <field name="name">website.library_image_08</field>
+        <field name="key">website.library_image_08</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_10" model="ir.attachment">
+        <field name="name">website.library_image_10</field>
+        <field name="key">website.library_image_10</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_13" model="ir.attachment">
+        <field name="name">website.library_image_13</field>
+        <field name="key">website.library_image_13</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_14" model="ir.attachment">
+        <field name="name">website.library_image_14</field>
+        <field name="key">website.library_image_14</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_library_image_16" model="ir.attachment">
+        <field name="name">website.library_image_16</field>
+        <field name="key">website.library_image_16</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_banner_default_image" model="ir.attachment">
+        <field name="name">website.s_banner_default_image</field>
+        <field name="key">website.s_banner_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_banner_default_image_2" model="ir.attachment">
+        <field name="name">website.s_banner_default_image_2</field>
+        <field name="key">website.s_banner_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_banner_default_image_3" model="ir.attachment">
+        <field name="name">website.s_banner_default_image_3</field>
+        <field name="key">website.s_banner_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_carousel_default_image_1" model="ir.attachment">
+        <field name="name">website.s_carousel_default_image_1</field>
+        <field name="key">website.s_carousel_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_carousel_default_image_2" model="ir.attachment">
+        <field name="name">website.s_carousel_default_image_2</field>
+        <field name="key">website.s_carousel_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_carousel_default_image_3" model="ir.attachment">
+        <field name="name">website.s_carousel_default_image_3</field>
+        <field name="key">website.s_carousel_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_cover_default_image" model="ir.attachment">
+        <field name="name">website.s_cover_default_image</field>
+        <field name="key">website.s_cover_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_image_text_default_image" model="ir.attachment">
+        <field name="name">website.s_image_text_default_image</field>
+        <field name="key">website.s_image_text_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_masonry_block_default_image_1" model="ir.attachment">
+        <field name="name">website.s_masonry_block_default_image_1</field>
+        <field name="key">website.s_masonry_block_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_media_list_default_image_1" model="ir.attachment">
+        <field name="name">website.s_media_list_default_image_1</field>
+        <field name="key">website.s_media_list_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_media_list_default_image_2" model="ir.attachment">
+        <field name="name">website.s_media_list_default_image_2</field>
+        <field name="key">website.s_media_list_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_media_list_default_image_3" model="ir.attachment">
+        <field name="name">website.s_media_list_default_image_3</field>
+        <field name="key">website.s_media_list_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_parallax_default_image" model="ir.attachment">
+        <field name="name">website.s_parallax_default_image</field>
+        <field name="key">website.s_parallax_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_picture_default_image" model="ir.attachment">
+        <field name="name">website.s_picture_default_image</field>
+        <field name="key">website.s_picture_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_catalog_default_image" model="ir.attachment">
+        <field name="name">website.s_product_catalog_default_image</field>
+        <field name="key">website.s_product_catalog_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_list_default_image_1" model="ir.attachment">
+        <field name="name">website.s_product_list_default_image_1</field>
+        <field name="key">website.s_product_list_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_list_default_image_2" model="ir.attachment">
+        <field name="name">website.s_product_list_default_image_2</field>
+        <field name="key">website.s_product_list_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_list_default_image_3" model="ir.attachment">
+        <field name="name">website.s_product_list_default_image_3</field>
+        <field name="key">website.s_product_list_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_list_default_image_4" model="ir.attachment">
+        <field name="name">website.s_product_list_default_image_4</field>
+        <field name="key">website.s_product_list_default_image_4</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_list_default_image_5" model="ir.attachment">
+        <field name="name">website.s_product_list_default_image_5</field>
+        <field name="key">website.s_product_list_default_image_5</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_product_list_default_image_6" model="ir.attachment">
+        <field name="name">website.s_product_list_default_image_6</field>
+        <field name="key">website.s_product_list_default_image_6</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_quotes_carousel_demo_image_0" model="ir.attachment">
+        <field name="name">website.s_quotes_carousel_demo_image_0</field>
+        <field name="key">website.s_quotes_carousel_demo_image_0</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_quotes_carousel_demo_image_1" model="ir.attachment">
+        <field name="name">website.s_quotes_carousel_demo_image_1</field>
+        <field name="key">website.s_quotes_carousel_demo_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_quotes_carousel_demo_image_2" model="ir.attachment">
+        <field name="name">website.s_quotes_carousel_demo_image_2</field>
+        <field name="key">website.s_quotes_carousel_demo_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_text_image_default_image" model="ir.attachment">
+        <field name="name">website.s_text_image_default_image</field>
+        <field name="key">website.s_text_image_default_image</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_three_columns_default_image_1" model="ir.attachment">
+        <field name="name">website.s_three_columns_default_image_1</field>
+        <field name="key">website.s_three_columns_default_image_1</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_three_columns_default_image_2" model="ir.attachment">
+        <field name="name">website.s_three_columns_default_image_2</field>
+        <field name="key">website.s_three_columns_default_image_2</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+    <record id="studio_customization.configurator_1_s_three_columns_default_image_3" model="ir.attachment">
+        <field name="name">website.s_three_columns_default_image_3</field>
+        <field name="key">website.s_three_columns_default_image_3</field>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+</odoo>

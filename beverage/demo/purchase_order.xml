@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.purchase_order_1" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-18 11:47:00</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-18 11:46:21</field>
+        <field name="date_approve">2024-09-18 11:46:55</field>
+        <field name="date_calendar_start">2024-09-18 11:46:55</field>
+        <field name="amount_untaxed">99.95</field>
+        <field name="date_planned">2024-09-19 11:46:21</field>
+        <field name="partner_id" ref="studio_customization.res_partner_19"/>
+        <field name="amount_total_cc">143.44</field>
+    </record>
+    <record id="studio_customization.purchase_order_2" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-18 13:55:46</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-18 12:00:00</field>
+        <field name="date_approve">2024-09-18 13:55:44</field>
+        <field name="date_calendar_start">2024-09-18 13:55:44</field>
+        <field name="amount_untaxed">59.97</field>
+        <field name="date_planned">2024-09-19 12:00:00</field>
+        <field name="partner_id" ref="studio_customization.res_partner_19"/>
+        <field name="amount_total_cc">86.06</field>
+    </record>
+    <record id="studio_customization.purchase_order_3" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-20 09:29:28</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-20 09:28:55</field>
+        <field name="date_approve">2024-09-20 09:29:24</field>
+        <field name="date_calendar_start">2024-09-20 09:29:24</field>
+        <field name="amount_untaxed">79.96</field>
+        <field name="date_planned">2024-09-21 09:28:55</field>
+        <field name="partner_id" ref="studio_customization.res_partner_19"/>
+        <field name="amount_total_cc">114.75</field>
+    </record>
+    <record id="studio_customization.purchase_order_4" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-23 16:44:48</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-23 15:56:01</field>
+        <field name="date_approve">2024-09-23 15:56:31</field>
+        <field name="date_calendar_start">2024-09-23 15:56:31</field>
+        <field name="amount_untaxed">400.0</field>
+        <field name="date_planned">2024-09-24 15:56:01</field>
+        <field name="partner_id" ref="studio_customization.res_partner_39"/>
+        <field name="amount_total_cc">484.0</field>
+    </record>
+    <record id="studio_customization.purchase_order_5" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-23 16:16:05</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-23 16:15:46</field>
+        <field name="date_approve">2024-09-23 16:16:03</field>
+        <field name="date_calendar_start">2024-09-23 16:16:03</field>
+        <field name="amount_untaxed">189.9</field>
+        <field name="date_planned">2024-09-24 16:15:46</field>
+        <field name="partner_id" ref="studio_customization.res_partner_40"/>
+        <field name="amount_total_cc">274.78</field>
+    </record>
+    <record id="studio_customization.purchase_order_6" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-23 16:45:50</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-23 16:45:39</field>
+        <field name="date_approve">2024-09-23 16:45:47</field>
+        <field name="date_calendar_start">2024-09-23 16:45:47</field>
+        <field name="amount_untaxed">189.9</field>
+        <field name="date_planned">2024-09-24 16:45:39</field>
+        <field name="partner_id" ref="studio_customization.res_partner_40"/>
+        <field name="amount_total_cc">274.78</field>
+    </record>
+    <record id="studio_customization.purchase_order_7" model="purchase.order">
+        <field name="picking_type_id" ref="stock.picking_type_in"/>
+        <field name="effective_date">2024-09-23 17:27:58</field>
+        <field name="receipt_status">full</field>
+        <field name="state">purchase</field>
+        <field name="date_order">2024-09-23 17:27:46</field>
+        <field name="date_approve">2024-09-23 17:27:54</field>
+        <field name="date_calendar_start">2024-09-23 17:27:54</field>
+        <field name="amount_untaxed">100.0</field>
+        <field name="date_planned">2024-09-24 17:27:46</field>
+        <field name="partner_id" ref="studio_customization.res_partner_38"/>
+        <field name="amount_total_cc">121.0</field>
+    </record>
+</odoo>

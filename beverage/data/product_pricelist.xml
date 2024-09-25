@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.product_pricelist_1" model="product.pricelist">
+        <field name="website_id" eval="False"/>
+        <field name="name">Default</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="studio_customization.product_pricelist_2" model="product.pricelist">
+        <field name="website_id" eval="False"/>
+        <field name="name">B2B</field>
+        <field name="sequence">11</field>
+    </record>
+</odoo>

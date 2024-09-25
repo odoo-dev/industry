@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.product_template_attribute_line_1" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_1')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_6"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_10" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_54"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_11" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_13')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_57"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_13" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_57"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_14" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_14')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_51"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_15" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_51"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_16" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_8')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_11"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_51"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_17" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_7')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_11"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_54"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_18" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_7')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_11"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_57"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_19" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_17')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_6"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_2" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_1')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_7"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_20" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_17')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_7"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_25" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_2')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_59"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_26" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_12')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_59"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_27" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_59"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_28" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_17')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_59"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_29" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_2')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_60"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_30" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_12')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_60"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_31" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_60"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_32" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_17')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_60"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_33" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_3')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_61"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_34" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_12')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_61"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_35" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_61"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_36" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_17')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_61"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_37" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_3')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_62"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_38" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_12')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_62"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_39" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_62"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_4" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_12')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_7"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_40" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_17')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">13</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_62"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_41" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_10')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_63"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_42" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_63"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_43" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_63"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_44" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_10')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_64"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_45" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_64"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_46" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_64"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_47" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_11')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_65"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_48" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_65"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_49" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_65"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_5" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_7"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_50" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_11')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_66"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_51" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_66"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_52" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_66"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_53" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_22')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_67"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_54" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_67"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_55" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_67"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_56" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_22')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_68"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_57" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_68"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_58" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_68"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_59" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_9')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_69"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_6" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_12')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_6"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_60" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_69"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_61" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_69"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_62" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_9')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_70"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_63" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_70"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_64" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_70"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_65" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_23')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_71"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_66" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_18')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">11</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_71"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_67" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_16')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_71"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_7" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_15')])]"/>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">12</field>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_6"/>
+    </record>
+    <record id="studio_customization.product_template_attribute_line_8" model="product.template.attribute.line" context="{'create_product_product': False}">
+        <field name="value_ids" eval="[(6, 0, [ref('studio_customization.product_attribute_value_13')])]"/>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="value_count">1</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_54"/>
+    </record>
+</odoo>

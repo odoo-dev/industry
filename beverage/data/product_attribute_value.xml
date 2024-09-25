@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.product_attribute_value_1" model="product.attribute.value">
+        <field name="html_color">#f4f3c7</field>
+        <field name="color">8</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="name">White</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_10" model="product.attribute.value">
+        <field name="html_color">#c41c4f</field>
+        <field name="color">10</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="sequence">1</field>
+        <field name="name">Red</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_11" model="product.attribute.value">
+        <field name="html_color">#ffdbfe</field>
+        <field name="color">1</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="sequence">2</field>
+        <field name="name">Rose</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_12" model="product.attribute.value">
+        <field name="color">8</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="name">Mobius</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_13" model="product.attribute.value">
+        <field name="color">1</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">1</field>
+        <field name="name">Spa</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_14" model="product.attribute.value">
+        <field name="color">6</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="sequence">2</field>
+        <field name="name">Coca-cola</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_15" model="product.attribute.value">
+        <field name="color">3</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="name">Yes</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_16" model="product.attribute.value">
+        <field name="color">11</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_13"/>
+        <field name="sequence">1</field>
+        <field name="name">No</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_17" model="product.attribute.value">
+        <field name="color">3</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="name">+16</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_18" model="product.attribute.value">
+        <field name="color">10</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_8"/>
+        <field name="sequence">1</field>
+        <field name="name">+18</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_2" model="product.attribute.value">
+        <field name="html_color">#fbe46f</field>
+        <field name="color">8</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="name">Blond</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_22" model="product.attribute.value">
+        <field name="html_color">#fdff8a</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="sequence">3</field>
+        <field name="name">Bubbles</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_23" model="product.attribute.value">
+        <field name="color">3</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="name">Jack Daniels</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_24" model="product.attribute.value">
+        <field name="color">8</field>
+        <field name="attribute_id" ref="product_barcodelookup.product_attribute_lookup_6"/>
+        <field name="name">Brussels beer project</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_3" model="product.attribute.value">
+        <field name="html_color">#9e6400</field>
+        <field name="color">5</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="name">Brown</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_4" model="product.attribute.value">
+        <field name="html_color">#3b1c02</field>
+        <field name="color">6</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="name">Stout</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_5" model="product.attribute.value">
+        <field name="html_color">#d77c14</field>
+        <field name="color">10</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_10"/>
+        <field name="name">Amber</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_7" model="product.attribute.value">
+        <field name="color">11</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_11"/>
+        <field name="name">Water</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_8" model="product.attribute.value">
+        <field name="color">9</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_11"/>
+        <field name="name">Soda</field>
+    </record>
+    <record id="studio_customization.product_attribute_value_9" model="product.attribute.value">
+        <field name="html_color">#f6ffd6</field>
+        <field name="color">5</field>
+        <field name="attribute_id" ref="studio_customization.product_attribute_12"/>
+        <field name="name">White</field>
+    </record>
+</odoo>

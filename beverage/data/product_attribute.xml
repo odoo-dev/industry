@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.product_attribute_10" model="product.attribute">
+        <field name="display_type">color</field>
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('studio_customization.product_template_6'), ref('studio_customization.product_template_7'), ref('studio_customization.product_template_59'), ref('studio_customization.product_template_60'), ref('studio_customization.product_template_61'), ref('studio_customization.product_template_62')])]"/>
+        <field name="name">Beer type</field>
+    </record>
+    <record id="studio_customization.product_attribute_11" model="product.attribute">
+        <field name="create_variant">no_variant</field>
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('studio_customization.product_template_51'), ref('studio_customization.product_template_54'), ref('studio_customization.product_template_57')])]"/>
+        <field name="name">Soda type</field>
+    </record>
+    <record id="studio_customization.product_attribute_12" model="product.attribute">
+        <field name="display_type">color</field>
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('studio_customization.product_template_67'), ref('studio_customization.product_template_68'), ref('studio_customization.product_template_69'), ref('studio_customization.product_template_70'), ref('studio_customization.product_template_63'), ref('studio_customization.product_template_64'), ref('studio_customization.product_template_65'), ref('studio_customization.product_template_66')])]"/>
+        <field name="name">Wine type</field>
+    </record>
+    <record id="studio_customization.product_attribute_13" model="product.attribute">
+        <field name="create_variant">no_variant</field>
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('studio_customization.product_template_67'), ref('studio_customization.product_template_68'), ref('studio_customization.product_template_51'), ref('studio_customization.product_template_69'), ref('studio_customization.product_template_70'), ref('studio_customization.product_template_71'), ref('studio_customization.product_template_63'), ref('studio_customization.product_template_64'), ref('studio_customization.product_template_6'), ref('studio_customization.product_template_7'), ref('studio_customization.product_template_59'), ref('studio_customization.product_template_60'), ref('studio_customization.product_template_61'), ref('studio_customization.product_template_62'), ref('studio_customization.product_template_65'), ref('studio_customization.product_template_66'), ref('studio_customization.product_template_54'), ref('studio_customization.product_template_57')])]"/>
+        <field name="name">Local Brand</field>
+    </record>
+    <record id="product_barcodelookup.product_attribute_lookup_6" model="product.attribute">
+        <field name="create_variant">no_variant</field>
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('studio_customization.product_template_51'), ref('studio_customization.product_template_71'), ref('studio_customization.product_template_6'), ref('studio_customization.product_template_7'), ref('studio_customization.product_template_59'), ref('studio_customization.product_template_60'), ref('studio_customization.product_template_61'), ref('studio_customization.product_template_62'), ref('studio_customization.product_template_54'), ref('studio_customization.product_template_57')])]"/>
+        <field name="name">Brand</field>
+    </record>
+    <record id="product_barcodelookup.product_attribute_lookup_8" model="product.attribute">
+        <field name="create_variant">no_variant</field>
+        <field name="display_type">select</field>
+        <field name="product_tmpl_ids" eval="[(6, 0, [ref('studio_customization.product_template_67'), ref('studio_customization.product_template_68'), ref('studio_customization.product_template_69'), ref('studio_customization.product_template_70'), ref('studio_customization.product_template_71'), ref('studio_customization.product_template_63'), ref('studio_customization.product_template_64'), ref('studio_customization.product_template_6'), ref('studio_customization.product_template_7'), ref('studio_customization.product_template_59'), ref('studio_customization.product_template_60'), ref('studio_customization.product_template_61'), ref('studio_customization.product_template_62'), ref('studio_customization.product_template_65'), ref('studio_customization.product_template_66')])]"/>
+        <field name="name">Age limit</field>
+    </record>
+</odoo>

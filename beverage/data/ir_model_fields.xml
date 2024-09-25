@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.new_checkbox_bill_of_43688684-6f47-4c2d-8e5c-5b315cb982a5" model="ir.model.fields">
+        <field name="ttype">boolean</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">New CheckBox</field>
+        <field name="model">mrp.bom</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="name">x_studio_boolean_field_7q5_1i82lf3nj</field>
+        <field name="on_delete" eval="False"/>
+    </record>
+    <record id="studio_customization.new_checkbox_bill_of_a8a3f45a-2758-42d1-b928-f6483c848aed" model="ir.model.fields">
+        <field name="ttype">boolean</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Auto-production</field>
+        <field name="model">mrp.bom</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="name">x_studio_auto_production</field>
+        <field name="on_delete" eval="False"/>
+    </record>
+    <record id="studio_customization.new_checkbox_bill_of_cea41e6c-d23a-49ba-a3fe-2fff23cebc8d" model="ir.model.fields">
+        <field name="ttype">boolean</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Inverted BOM</field>
+        <field name="model">mrp.bom</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="name">x_studio_inverted_bom</field>
+        <field name="on_delete" eval="False"/>
+    </record>
+    <record id="studio_customization.new_integer_product_0a368c52-61ad-47ed-bce5-2ee0b8fe3b5a" model="ir.model.fields">
+        <field name="ttype">integer</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Contains</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_quantity_by_deposit_product</field>
+        <field name="on_delete" eval="False"/>
+    </record>
+    <record id="studio_customization.new_many2one_bill_of_930953e9-fc68-479e-8930-5228202bf295" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Parent product</field>
+        <field name="model">mrp.bom</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="name">x_studio_parent_product</field>
+        <field name="relation">product.template</field>
+    </record>
+    <record id="studio_customization.new_many2one_minimum_1c351420-777c-429b-a64f-b478bb5cc3bf" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Parent product</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+        <field name="name">x_studio_parent_product_1</field>
+        <field name="relation">product.template</field>
+    </record>
+    <record id="studio_customization.new_many2one_minimum_7a298334-7e17-48ef-a722-bef9da188cfb" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Parent product</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+        <field name="name">x_studio_parent_product</field>
+        <field name="relation">product.template</field>
+    </record>
+    <record id="studio_customization.new_many2one_product_6472fca6-512d-44c1-b981-014315facd0b" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Empty deposit product</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_deposit_product</field>
+        <field name="relation">product.template</field>
+    </record>
+    <record id="studio_customization.new_many2one_product_76032120-39d2-4474-98d7-123e900a3d46" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Unit sale product</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_unit_sale_product</field>
+        <field name="relation">product.product</field>
+    </record>
+    <record id="studio_customization.new_many2one_product_f2d0c7b8-eb9a-424c-8ea1-5871cbb556e9" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="copied" eval="True"/>
+        <field name="field_description">Deposit product</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_deposit_product_1</field>
+        <field name="relation">product.template</field>
+    </record>
+    <record id="studio_customization.new_one2many_product_3f9ffe1f-7510-42d1-b2cc-59a0f4be9b74" model="ir.model.fields">
+        <field name="ttype">one2many</field>
+        <field name="field_description">New One2Many</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_one2many_field_2lq_1i82k4pp8</field>
+        <field name="on_delete" eval="False"/>
+        <field name="relation">product.template</field>
+        <field name="relation_field">x_studio_unit_sale_product</field>
+    </record>
+    <record id="studio_customization.new_related_field_pr_45c6931e-2aef-4408-8b94-4cb2b439b1c5" model="ir.model.fields">
+        <field name="related">x_studio_deposit_product_1</field>
+        <field name="ttype">many2one</field>
+        <field name="field_description">New Related Field</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_related_field_5cr_1i87f971e</field>
+        <field name="readonly" eval="True"/>
+        <field name="relation">product.template</field>
+        <field name="store" eval="False"/>
+    </record>
+    <record id="studio_customization.new_related_field_pr_462555c4-8f26-4bdc-9c77-c18a22d34635" model="ir.model.fields">
+        <field name="related">x_studio_deposit_product_1.taxes_id.id</field>
+        <field name="ttype">integer</field>
+        <field name="field_description">New Related Field</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_related_field_739_1i87f45ub</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="False"/>
+    </record>
+    <record id="studio_customization.new_related_field_pr_9d64d00f-058c-402a-ac6e-99373f93f2b3" model="ir.model.fields">
+        <field name="related">x_studio_deposit_product_1.taxes_id.amount</field>
+        <field name="ttype">float</field>
+        <field name="field_description">New Related Field</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_related_field_pv_1i87f2t31</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="False"/>
+        <field name="tracking">100</field>
+    </record>
+    <record id="studio_customization.new_related_field_pr_cb8a0272-74d7-4475-952d-d69a43ec2f96" model="ir.model.fields">
+        <field name="related">x_studio_deposit_product_1.taxes_id</field>
+        <field name="ttype">many2many</field>
+        <field name="field_description">New Related Field</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_related_field_4ni_1i87fc9h5</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="relation">account.tax</field>
+        <field name="relation_table">x_account_tax_product_template_rel_1</field>
+        <field name="store" eval="False"/>
+    </record>
+    <record id="studio_customization.new_related_field_pr_ccd5286f-bea3-4fb3-b5e8-72f1f9093484" model="ir.model.fields">
+        <field name="related">x_studio_deposit_product_1.taxes_id</field>
+        <field name="ttype">many2many</field>
+        <field name="field_description">New Related Field</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_related_field_2n6_1i87f0dq8</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="relation">account.tax</field>
+        <field name="relation_table">x_account_tax_product_template_rel</field>
+        <field name="store" eval="False"/>
+    </record>
+    <record id="studio_customization.new_related_field_pr_d14038fb-8e67-4079-a783-475675082ce1" model="ir.model.fields">
+        <field name="related">x_studio_unit_sale_product</field>
+        <field name="ttype">many2one</field>
+        <field name="field_description">New Related Field</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_studio_related_field_11_1i82k6f6e</field>
+        <field name="readonly" eval="True"/>
+        <field name="relation">product.template</field>
+        <field name="store" eval="False"/>
+    </record>
+</odoo>

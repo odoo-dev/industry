@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="base.main_partner" model="res.partner">
+        <field name="phone">+1 650-691-3277</field>
+        <field name="is_published" eval="True"/>
+        <field name="vat">BE0477472701</field>
+        <field name="country_id" ref="base.be"/>
+        <field name="company_registry">0477472701</field>
+        <field name="peppol_eas">0208</field>
+        <field name="image_1920" type="base64" file="studio_customization/static/src/binary/res_partner/1-image_1920"/>
+        <field name="email">boje@odoo.com</field>
+        <field name="email_normalized">boje@odoo.com</field>
+        <field name="name">beverages-distributor</field>
+        <field name="zip">1160</field>
+        <field name="contact_address_complete">1160 Belgium</field>
+        <field name="calendar_last_notif_ack">2024-09-12 12:45:31</field>
+        <field name="ubl_cii_format">ubl_bis3</field>
+        <field name="commercial_company_name">beverages-distributor</field>
+        <field name="partner_gid">3</field>
+        <field name="is_company" eval="True"/>
+        <field name="phone_sanitized">+16506913277</field>
+        <field name="peppol_endpoint">0477472701</field>
+        <field name="partner_share" eval="True"/>
+        <field name="website">http://odoo.com</field>
+        <field name="tz" eval="False"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="base.partner_admin" model="res.partner">
+        <field name="phone">+32</field>
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="country_id" ref="base.be"/>
+        <field name="peppol_eas">0208</field>
+        <field name="email">boje@odoo.com</field>
+        <field name="email_normalized">boje@odoo.com</field>
+        <field name="name">Jean Boonen (boje)</field>
+        <field name="city">Wavre</field>
+        <field name="street">Rue de la source 15</field>
+        <field name="zip">1300</field>
+        <field name="contact_address_complete">Rue de la source 15, 1300 Wavre, Belgium</field>
+        <field name="calendar_last_notif_ack">2024-09-12 12:45:31</field>
+        <field name="ubl_cii_format">ubl_bis3</field>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_19" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">My Soft Vendor</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:05:50</field>
+        <field name="commercial_company_name">My Soft Vendor</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_20" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">john.smith@email.com</field>
+        <field name="email_normalized">john.smith@email.com</field>
+        <field name="name">Gratin BXL</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:14:02</field>
+        <field name="commercial_company_name">Gratin BXL</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_21" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">emily.johnson@email.com</field>
+        <field name="email_normalized">emily.johnson@email.com</field>
+        <field name="name">Le Petit Bistro</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:17:43</field>
+        <field name="commercial_company_name">Le Petit Bistro</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_22" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">david.lee@email.com</field>
+        <field name="email_normalized">david.lee@email.com</field>
+        <field name="name">Grand Plaza Hotel</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:18:02</field>
+        <field name="commercial_company_name">Grand Plaza Hotel</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_23" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">sarah.davis@email.com</field>
+        <field name="email_normalized">sarah.davis@email.com</field>
+        <field name="name">QuickStop Marts</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:18:30</field>
+        <field name="commercial_company_name">QuickStop Marts</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_24" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">mike.brown@email.com</field>
+        <field name="email_normalized">mike.brown@email.com</field>
+        <field name="name">The Tipsy Barrel</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:18:52</field>
+        <field name="commercial_company_name">The Tipsy Barrel</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_25" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">jessica.martinez@email.com</field>
+        <field name="email_normalized">jessica.martinez@email.com</field>
+        <field name="name">O'Malley's Taverns</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:19:06</field>
+        <field name="commercial_company_name">O'Malley's Taverns</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_26" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">amanda.white@email.com</field>
+        <field name="email_normalized">amanda.white@email.com</field>
+        <field name="name">Soundwave Arena</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:19:28</field>
+        <field name="commercial_company_name">Soundwave Arena</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_27" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">tom.wilson@email.com</field>
+        <field name="email_normalized">tom.wilson@email.com</field>
+        <field name="name">Greenfield University</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:19:47</field>
+        <field name="commercial_company_name">Greenfield University</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_28" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">chris.taylor@email.com</field>
+        <field name="email_normalized">chris.taylor@email.com</field>
+        <field name="name">Gourmet Gatherings</field>
+        <field name="calendar_last_notif_ack">2024-09-17 11:20:16</field>
+        <field name="commercial_company_name">Gourmet Gatherings</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="customer_rank">1</field>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_29" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Chris Taylor</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:33:52</field>
+        <field name="parent_id" ref="studio_customization.res_partner_28"/>
+        <field name="commercial_company_name">Gourmet Gatherings</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_30" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">David Lee</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:34:04</field>
+        <field name="parent_id" ref="studio_customization.res_partner_22"/>
+        <field name="commercial_company_name">Grand Plaza Hotel</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_31" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">John Smith</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:34:16</field>
+        <field name="parent_id" ref="studio_customization.res_partner_20"/>
+        <field name="commercial_company_name">Gratin BXL</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_32" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Tom Wilson</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:34:26</field>
+        <field name="parent_id" ref="studio_customization.res_partner_27"/>
+        <field name="commercial_company_name">Greenfield University</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_33" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Emily Johnson</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:34:45</field>
+        <field name="parent_id" ref="studio_customization.res_partner_21"/>
+        <field name="commercial_company_name">Le Petit Bistro</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_34" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Jessica Martinez</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:35:00</field>
+        <field name="parent_id" ref="studio_customization.res_partner_25"/>
+        <field name="commercial_company_name">O'Malley's Taverns</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_35" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Sarah Davis</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:35:09</field>
+        <field name="parent_id" ref="studio_customization.res_partner_23"/>
+        <field name="commercial_company_name">QuickStop Marts</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_36" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Amanda White</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:35:19</field>
+        <field name="parent_id" ref="studio_customization.res_partner_26"/>
+        <field name="commercial_company_name">Soundwave Arena</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_37" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">Mike Brown</field>
+        <field name="calendar_last_notif_ack">2024-09-20 08:35:30</field>
+        <field name="parent_id" ref="studio_customization.res_partner_24"/>
+        <field name="commercial_company_name">The Tipsy Barrel</field>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_38" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">My Wine Vendor</field>
+        <field name="calendar_last_notif_ack">2024-09-20 15:17:57</field>
+        <field name="commercial_company_name">My Wine Vendor</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_39" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">My Spirits Vendor</field>
+        <field name="calendar_last_notif_ack">2024-09-20 15:18:04</field>
+        <field name="commercial_company_name">My Spirits Vendor</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_40" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="name">My Beer Vendor</field>
+        <field name="calendar_last_notif_ack">2024-09-20 15:18:12</field>
+        <field name="commercial_company_name">My Beer Vendor</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+    <record id="studio_customization.res_partner_41" model="res.partner">
+        <field name="property_stock_customer" ref="stock.stock_location_customers"/>
+        <field name="email">boje+test123@odoo.com</field>
+        <field name="email_normalized">boje+test123@odoo.com</field>
+        <field name="name">Industries</field>
+        <field name="calendar_last_notif_ack">2024-09-23 09:15:37</field>
+        <field name="commercial_company_name">Industries</field>
+        <field name="is_company" eval="True"/>
+        <field name="partner_share" eval="True"/>
+        <field name="property_stock_supplier" ref="stock.stock_location_suppliers"/>
+        <field name="category_id" eval="[(6, 0, [])]"/>
+    </record>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="product.product_category_all" model="product.category">
+        <field name="name">All</field>
+    </record>
+    <record id="delivery.product_category_deliveries" model="product.category">
+        <field name="name">Deliveries</field>
+        <field name="parent_id" ref="product.product_category_all"/>
+    </record>
+    <record id="studio_customization.product_category_11" model="product.category">
+        <field name="name">Drinks &amp; Food</field>
+    </record>
+    <record id="studio_customization.product_category_12" model="product.category">
+        <field name="name">Sodas</field>
+        <field name="parent_id" ref="studio_customization.product_category_11"/>
+    </record>
+    <record id="studio_customization.product_category_13" model="product.category">
+        <field name="name">Spirits</field>
+        <field name="parent_id" ref="studio_customization.product_category_11"/>
+    </record>
+    <record id="studio_customization.product_category_14" model="product.category">
+        <field name="name">Wines</field>
+        <field name="parent_id" ref="studio_customization.product_category_11"/>
+    </record>
+    <record id="studio_customization.product_category_7" model="product.category">
+        <field name="name">Deposit</field>
+    </record>
+    <record id="studio_customization.product_category_9" model="product.category">
+        <field name="name">Beers</field>
+        <field name="parent_id" ref="studio_customization.product_category_11"/>
+    </record>
+    <record id="product.product_category_1" model="product.category">
+        <field name="name">Saleable</field>
+        <field name="parent_id" ref="product.product_category_all"/>
+    </record>
+    <record id="point_of_sale.product_category_pos" model="product.category">
+        <field name="name">PoS</field>
+        <field name="parent_id" ref="product.product_category_1"/>
+    </record>
+    <record id="product.cat_expense" model="product.category">
+        <field name="name">Expenses</field>
+        <field name="parent_id" ref="product.product_category_all"/>
+    </record>
+</odoo>

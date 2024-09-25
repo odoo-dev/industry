@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.auto_production_546f1c72-e39f-4f35-a60d-d7ce922809a4" model="base.automation">
+        <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.update_state_6f3ebb6a-12bc-462b-87e4-71d5d7a8715a')])]"/>
+        <field name="trigger">on_state_set</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('mrp.field_mrp_production__state')])]"/>
+        <field name="filter_domain">[('state', '=', 'confirmed')]</field>
+        <field name="filter_pre_domain">[("bom_id.x_studio_auto_production", "=", True)]</field>
+    </record>
+    <record id="studio_customization.bom_automation_ecb08e09-7c89-49e4-91ff-70eeb78991d8" model="base.automation">
+        <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.execute_code_9f1bcf56-a7d4-4f1b-b82b-97bcacece564')])]"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('studio_customization.new_many2one_product_6472fca6-512d-44c1-b981-014315facd0b'), ref('studio_customization.new_integer_product_0a368c52-61ad-47ed-bce5-2ee0b8fe3b5a'), ref('studio_customization.new_many2one_product_76032120-39d2-4474-98d7-123e900a3d46')])]"/>
+    </record>
+    <record id="studio_customization.update_sales_taxes_31ab46ed-11d2-4bbe-aed4-e18198e42bd5" model="base.automation">
+        <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.execute_code_d6dd4860-4e84-403a-8d17-208920cd3e7c')])]"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('studio_customization.new_many2one_product_f2d0c7b8-eb9a-424c-8ea1-5871cbb556e9')])]"/>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.new_integer_product_3c221a54-a323-4746-8a6e-dc4e23014635" model="ir.default">
+        <field name="field_id" ref="studio_customization.new_integer_product_0a368c52-61ad-47ed-bce5-2ee0b8fe3b5a"/>
+        <field name="json_value">"1"</field>
+    </record>
+</odoo>

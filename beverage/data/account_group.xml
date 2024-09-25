@@ -1,0 +1,1748 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="account.1_be_group_1" model="account.group">
+        <field name="name">Equity, Provisions for Liabilities and Charges and Amounts Payable After More Than One Year</field>
+        <field name="code_prefix_start">1</field>
+        <field name="code_prefix_end">1</field>
+    </record>
+    <record id="account.1_be_group_10" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Capital</field>
+        <field name="code_prefix_start">10</field>
+        <field name="code_prefix_end">10</field>
+    </record>
+    <record id="account.1_be_group_11" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Contribution Excluding Capital</field>
+        <field name="code_prefix_start">11</field>
+        <field name="code_prefix_end">11</field>
+    </record>
+    <record id="account.1_be_group_110" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_11"/>
+        <field name="name">Contribution Available Excluding Capital</field>
+        <field name="code_prefix_start">110</field>
+        <field name="code_prefix_end">110</field>
+    </record>
+    <record id="account.1_be_group_111" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_11"/>
+        <field name="name">Contribution Not Available Excluding Capital</field>
+        <field name="code_prefix_start">111</field>
+        <field name="code_prefix_end">111</field>
+    </record>
+    <record id="account.1_be_group_12" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Revaluation Surpluses</field>
+        <field name="code_prefix_start">12</field>
+        <field name="code_prefix_end">12</field>
+    </record>
+    <record id="account.1_be_group_120" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_12"/>
+        <field name="name">Revaluation Surpluses on Intangible Fixed Assets</field>
+        <field name="code_prefix_start">120</field>
+        <field name="code_prefix_end">120</field>
+    </record>
+    <record id="account.1_be_group_121" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_12"/>
+        <field name="name">Revaluation Surpluses on Tangible Fixed Assets</field>
+        <field name="code_prefix_start">121</field>
+        <field name="code_prefix_end">121</field>
+    </record>
+    <record id="account.1_be_group_122" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_12"/>
+        <field name="name">Revaluation Surpluses on Financial Fixed Assets</field>
+        <field name="code_prefix_start">122</field>
+        <field name="code_prefix_end">122</field>
+    </record>
+    <record id="account.1_be_group_123" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_12"/>
+        <field name="name">Revaluation Surpluses on Stocks</field>
+        <field name="code_prefix_start">123</field>
+        <field name="code_prefix_end">123</field>
+    </record>
+    <record id="account.1_be_group_124" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_12"/>
+        <field name="name">Decrease in Amounts Written Down on Current Investments</field>
+        <field name="code_prefix_start">124</field>
+        <field name="code_prefix_end">124</field>
+    </record>
+    <record id="account.1_be_group_13" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Reserves</field>
+        <field name="code_prefix_start">13</field>
+        <field name="code_prefix_end">13</field>
+    </record>
+    <record id="account.1_be_group_130" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_13"/>
+        <field name="name">Legal Reserve</field>
+        <field name="code_prefix_start">130</field>
+        <field name="code_prefix_end">130</field>
+    </record>
+    <record id="account.1_be_group_131" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_13"/>
+        <field name="name">Other Reserves Not Available</field>
+        <field name="code_prefix_start">131</field>
+        <field name="code_prefix_end">131</field>
+    </record>
+    <record id="account.1_be_group_132" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_13"/>
+        <field name="name">Untaxed Reserves</field>
+        <field name="code_prefix_start">132</field>
+        <field name="code_prefix_end">132</field>
+    </record>
+    <record id="account.1_be_group_133" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_13"/>
+        <field name="name">Available Reserves</field>
+        <field name="code_prefix_start">133</field>
+        <field name="code_prefix_end">133</field>
+    </record>
+    <record id="account.1_be_group_14" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Profit (Loss) Brought Forward (-)</field>
+        <field name="code_prefix_start">14</field>
+        <field name="code_prefix_end">14</field>
+    </record>
+    <record id="account.1_be_group_15" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Investment Grants</field>
+        <field name="code_prefix_start">15</field>
+        <field name="code_prefix_end">15</field>
+    </record>
+    <record id="account.1_be_group_16" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Provisions and Deferred Taxes</field>
+        <field name="code_prefix_start">16</field>
+        <field name="code_prefix_end">16</field>
+    </record>
+    <record id="account.1_be_group_160" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_16"/>
+        <field name="name">Provisions for Pensions and Similar Obligations</field>
+        <field name="code_prefix_start">160</field>
+        <field name="code_prefix_end">160</field>
+    </record>
+    <record id="account.1_be_group_161" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_16"/>
+        <field name="name">Provisions for Taxation</field>
+        <field name="code_prefix_start">161</field>
+        <field name="code_prefix_end">161</field>
+    </record>
+    <record id="account.1_be_group_162" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_16"/>
+        <field name="name">Provisions for Major Repairs and Maintenance</field>
+        <field name="code_prefix_start">162</field>
+        <field name="code_prefix_end">162</field>
+    </record>
+    <record id="account.1_be_group_163" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_16"/>
+        <field name="name">Provisions for Environmental Obligations</field>
+        <field name="code_prefix_start">163</field>
+        <field name="code_prefix_end">163</field>
+    </record>
+    <record id="account.1_be_group_164" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_16"/>
+        <field name="name">Provisions for Other Liabilities and Charges</field>
+        <field name="code_prefix_start">164</field>
+        <field name="code_prefix_end">165</field>
+    </record>
+    <record id="account.1_be_group_168" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_16"/>
+        <field name="name">Deferred Taxes</field>
+        <field name="code_prefix_start">168</field>
+        <field name="code_prefix_end">168</field>
+    </record>
+    <record id="account.1_be_group_17" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Amounts Payable After More Than One Year</field>
+        <field name="code_prefix_start">17</field>
+        <field name="code_prefix_end">17</field>
+    </record>
+    <record id="account.1_be_group_170" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Subordinated Loans (&gt; 1 Year)</field>
+        <field name="code_prefix_start">170</field>
+        <field name="code_prefix_end">170</field>
+    </record>
+    <record id="account.1_be_group_171" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Unsubordinated Debentures (&gt; 1 Year)</field>
+        <field name="code_prefix_start">171</field>
+        <field name="code_prefix_end">171</field>
+    </record>
+    <record id="account.1_be_group_172" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Leasing and Other Similar Obligations (&gt; 1 Year)</field>
+        <field name="code_prefix_start">172</field>
+        <field name="code_prefix_end">172</field>
+    </record>
+    <record id="account.1_be_group_173" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Credit Institutions (&gt; 1 Year)</field>
+        <field name="code_prefix_start">173</field>
+        <field name="code_prefix_end">173</field>
+    </record>
+    <record id="account.1_be_group_174" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Other Loans (&gt; 1 Year)</field>
+        <field name="code_prefix_start">174</field>
+        <field name="code_prefix_end">174</field>
+    </record>
+    <record id="account.1_be_group_175" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Trade Debts (&gt; 1 Year)</field>
+        <field name="code_prefix_start">175</field>
+        <field name="code_prefix_end">175</field>
+    </record>
+    <record id="account.1_be_group_176" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Advance Payments on Contract in Progress (&gt; 1 Year)</field>
+        <field name="code_prefix_start">176</field>
+        <field name="code_prefix_end">176</field>
+    </record>
+    <record id="account.1_be_group_178" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Guarantees Received in Cash (&gt; 1 Year)</field>
+        <field name="code_prefix_start">178</field>
+        <field name="code_prefix_end">178</field>
+    </record>
+    <record id="account.1_be_group_179" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_17"/>
+        <field name="name">Other Amounts Payable (&gt; 1 Year)</field>
+        <field name="code_prefix_start">179</field>
+        <field name="code_prefix_end">179</field>
+    </record>
+    <record id="account.1_be_group_19" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_1"/>
+        <field name="name">Advance to Associates on the Sharing Out of the Assets (-)</field>
+        <field name="code_prefix_start">19</field>
+        <field name="code_prefix_end">19</field>
+    </record>
+    <record id="account.1_be_group_2" model="account.group">
+        <field name="name">Formation Expenses, Fixed Assets and Amounts Receivable After More Than One Year</field>
+        <field name="code_prefix_start">2</field>
+        <field name="code_prefix_end">2</field>
+    </record>
+    <record id="account.1_be_group_20" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Formation Expenses</field>
+        <field name="code_prefix_start">20</field>
+        <field name="code_prefix_end">20</field>
+    </record>
+    <record id="account.1_be_group_200" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_20"/>
+        <field name="name">Formation Expenses</field>
+        <field name="code_prefix_start">200</field>
+        <field name="code_prefix_end">200</field>
+    </record>
+    <record id="account.1_be_group_201" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_20"/>
+        <field name="name">Loan Issue Expenses</field>
+        <field name="code_prefix_start">201</field>
+        <field name="code_prefix_end">201</field>
+    </record>
+    <record id="account.1_be_group_202" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_20"/>
+        <field name="name">Other Formation Expenses</field>
+        <field name="code_prefix_start">202</field>
+        <field name="code_prefix_end">202</field>
+    </record>
+    <record id="account.1_be_group_204" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_20"/>
+        <field name="name">Restructuring Costs</field>
+        <field name="code_prefix_start">204</field>
+        <field name="code_prefix_end">204</field>
+    </record>
+    <record id="account.1_be_group_21" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Intangible Fixed Assets</field>
+        <field name="code_prefix_start">21</field>
+        <field name="code_prefix_end">21</field>
+    </record>
+    <record id="account.1_be_group_210" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_21"/>
+        <field name="name">Research and Development Costs</field>
+        <field name="code_prefix_start">210</field>
+        <field name="code_prefix_end">210</field>
+    </record>
+    <record id="account.1_be_group_211" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_21"/>
+        <field name="name">Concessions, Patents, Licences, Know-How, Brands and Similar Rights</field>
+        <field name="code_prefix_start">211</field>
+        <field name="code_prefix_end">211</field>
+    </record>
+    <record id="account.1_be_group_212" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_21"/>
+        <field name="name">Goodwill</field>
+        <field name="code_prefix_start">212</field>
+        <field name="code_prefix_end">212</field>
+    </record>
+    <record id="account.1_be_group_213" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_21"/>
+        <field name="name">Advance Payments for Intangible Fixed Assets</field>
+        <field name="code_prefix_start">213</field>
+        <field name="code_prefix_end">213</field>
+    </record>
+    <record id="account.1_be_group_22" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Land and Buildings</field>
+        <field name="code_prefix_start">22</field>
+        <field name="code_prefix_end">22</field>
+    </record>
+    <record id="account.1_be_group_220" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_22"/>
+        <field name="name">Land</field>
+        <field name="code_prefix_start">220</field>
+        <field name="code_prefix_end">220</field>
+    </record>
+    <record id="account.1_be_group_221" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_22"/>
+        <field name="name">Buildings</field>
+        <field name="code_prefix_start">221</field>
+        <field name="code_prefix_end">221</field>
+    </record>
+    <record id="account.1_be_group_222" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_22"/>
+        <field name="name">Developed Land</field>
+        <field name="code_prefix_start">222</field>
+        <field name="code_prefix_end">222</field>
+    </record>
+    <record id="account.1_be_group_223" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_22"/>
+        <field name="name">Other Rights to Immovable Property</field>
+        <field name="code_prefix_start">223</field>
+        <field name="code_prefix_end">223</field>
+    </record>
+    <record id="account.1_be_group_23" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Plant, Machinery and Equipment</field>
+        <field name="code_prefix_start">23</field>
+        <field name="code_prefix_end">23</field>
+    </record>
+    <record id="account.1_be_group_24" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Furniture and Vehicles</field>
+        <field name="code_prefix_start">24</field>
+        <field name="code_prefix_end">24</field>
+    </record>
+    <record id="account.1_be_group_25" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Fixed Assets in Leasing or Other Similar Rights</field>
+        <field name="code_prefix_start">25</field>
+        <field name="code_prefix_end">25</field>
+    </record>
+    <record id="account.1_be_group_250" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_25"/>
+        <field name="name">Land and Buildings in Leasing or Other Similar Rights</field>
+        <field name="code_prefix_start">250</field>
+        <field name="code_prefix_end">250</field>
+    </record>
+    <record id="account.1_be_group_251" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_25"/>
+        <field name="name">Plant, Machinery and Equipment in Leasing or Other Similar Rights</field>
+        <field name="code_prefix_start">251</field>
+        <field name="code_prefix_end">251</field>
+    </record>
+    <record id="account.1_be_group_252" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_25"/>
+        <field name="name">Furniture and Vehicles in Leasing or Other Similar Rights</field>
+        <field name="code_prefix_start">252</field>
+        <field name="code_prefix_end">252</field>
+    </record>
+    <record id="account.1_be_group_26" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Other Tangible Fixed Assets</field>
+        <field name="code_prefix_start">26</field>
+        <field name="code_prefix_end">26</field>
+    </record>
+    <record id="account.1_be_group_27" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Tangible Fixed Assets Under Construction and Advance Payments</field>
+        <field name="code_prefix_start">27</field>
+        <field name="code_prefix_end">27</field>
+    </record>
+    <record id="account.1_be_group_28" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Financial Fixed Assets</field>
+        <field name="code_prefix_start">28</field>
+        <field name="code_prefix_end">28</field>
+    </record>
+    <record id="account.1_be_group_280" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Participating Interests in Affiliated Enterprises</field>
+        <field name="code_prefix_start">280</field>
+        <field name="code_prefix_end">280</field>
+    </record>
+    <record id="account.1_be_group_281" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Amounts Receivable From Affiliated Enterprises</field>
+        <field name="code_prefix_start">281</field>
+        <field name="code_prefix_end">281</field>
+    </record>
+    <record id="account.1_be_group_282" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Participating Interests in Other Enterprises Linked by Participating Interests</field>
+        <field name="code_prefix_start">282</field>
+        <field name="code_prefix_end">282</field>
+    </record>
+    <record id="account.1_be_group_283" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Amounts Receivable From Other Enterprises Linked by Participating Interests</field>
+        <field name="code_prefix_start">283</field>
+        <field name="code_prefix_end">283</field>
+    </record>
+    <record id="account.1_be_group_284" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Other Shares</field>
+        <field name="code_prefix_start">284</field>
+        <field name="code_prefix_end">284</field>
+    </record>
+    <record id="account.1_be_group_285" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Other Amounts Receivable</field>
+        <field name="code_prefix_start">285</field>
+        <field name="code_prefix_end">285</field>
+    </record>
+    <record id="account.1_be_group_288" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_28"/>
+        <field name="name">Cash Guarantees Paid</field>
+        <field name="code_prefix_start">288</field>
+        <field name="code_prefix_end">288</field>
+    </record>
+    <record id="account.1_be_group_29" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_2"/>
+        <field name="name">Amounts Receivable After More Than One Year</field>
+        <field name="code_prefix_start">29</field>
+        <field name="code_prefix_end">29</field>
+    </record>
+    <record id="account.1_be_group_290" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_29"/>
+        <field name="name">Trade Debtors (&gt; 1 Year)</field>
+        <field name="code_prefix_start">290</field>
+        <field name="code_prefix_end">290</field>
+    </record>
+    <record id="account.1_be_group_291" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_29"/>
+        <field name="name">Other Amounts Receivable (&gt; 1 Year)</field>
+        <field name="code_prefix_start">291</field>
+        <field name="code_prefix_end">291</field>
+    </record>
+    <record id="account.1_be_group_3" model="account.group">
+        <field name="name">Stocks and Contracts in Progress</field>
+        <field name="code_prefix_start">3</field>
+        <field name="code_prefix_end">3</field>
+    </record>
+    <record id="account.1_be_group_30" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Raw Materials</field>
+        <field name="code_prefix_start">30</field>
+        <field name="code_prefix_end">30</field>
+    </record>
+    <record id="account.1_be_group_300" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_30"/>
+        <field name="name">Raw Materials - Acquisition Value</field>
+        <field name="code_prefix_start">300</field>
+        <field name="code_prefix_end">300</field>
+    </record>
+    <record id="account.1_be_group_309" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_30"/>
+        <field name="name">Raw Materials - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">309</field>
+        <field name="code_prefix_end">309</field>
+    </record>
+    <record id="account.1_be_group_31" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Consumables</field>
+        <field name="code_prefix_start">31</field>
+        <field name="code_prefix_end">31</field>
+    </record>
+    <record id="account.1_be_group_310" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_31"/>
+        <field name="name">Consumables - Acquisition Value</field>
+        <field name="code_prefix_start">310</field>
+        <field name="code_prefix_end">310</field>
+    </record>
+    <record id="account.1_be_group_319" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_31"/>
+        <field name="name">Consumables - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">319</field>
+        <field name="code_prefix_end">319</field>
+    </record>
+    <record id="account.1_be_group_32" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Work in Progress</field>
+        <field name="code_prefix_start">32</field>
+        <field name="code_prefix_end">32</field>
+    </record>
+    <record id="account.1_be_group_320" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_32"/>
+        <field name="name">Work in Progress - Acquisition Value</field>
+        <field name="code_prefix_start">320</field>
+        <field name="code_prefix_end">320</field>
+    </record>
+    <record id="account.1_be_group_329" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_32"/>
+        <field name="name">Work in Progress - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">329</field>
+        <field name="code_prefix_end">329</field>
+    </record>
+    <record id="account.1_be_group_33" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Finished Goods</field>
+        <field name="code_prefix_start">33</field>
+        <field name="code_prefix_end">33</field>
+    </record>
+    <record id="account.1_be_group_330" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_33"/>
+        <field name="name">Finished Goods - Acquisition Value</field>
+        <field name="code_prefix_start">330</field>
+        <field name="code_prefix_end">330</field>
+    </record>
+    <record id="account.1_be_group_339" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_33"/>
+        <field name="name">Finished Goods - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">339</field>
+        <field name="code_prefix_end">339</field>
+    </record>
+    <record id="account.1_be_group_34" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Goods Purchased for Resale</field>
+        <field name="code_prefix_start">34</field>
+        <field name="code_prefix_end">34</field>
+    </record>
+    <record id="account.1_be_group_340" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_34"/>
+        <field name="name">Goods Purchased for Resale - Acquisition Value</field>
+        <field name="code_prefix_start">340</field>
+        <field name="code_prefix_end">340</field>
+    </record>
+    <record id="account.1_be_group_349" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_34"/>
+        <field name="name">Goods Purchased for Resale - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">349</field>
+        <field name="code_prefix_end">349</field>
+    </record>
+    <record id="account.1_be_group_35" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Immovable Property Intended for Sale</field>
+        <field name="code_prefix_start">35</field>
+        <field name="code_prefix_end">35</field>
+    </record>
+    <record id="account.1_be_group_350" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_35"/>
+        <field name="name">Immovable Property Intended for Sale - Acquisition Value</field>
+        <field name="code_prefix_start">350</field>
+        <field name="code_prefix_end">350</field>
+    </record>
+    <record id="account.1_be_group_359" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_35"/>
+        <field name="name">Immovable Property Intended for Sale - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">359</field>
+        <field name="code_prefix_end">359</field>
+    </record>
+    <record id="account.1_be_group_36" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Advance Payments on Purchases for Stocks</field>
+        <field name="code_prefix_start">36</field>
+        <field name="code_prefix_end">36</field>
+    </record>
+    <record id="account.1_be_group_360" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_36"/>
+        <field name="name">Advance Payments on Purchases for Stocks - Advance Payments</field>
+        <field name="code_prefix_start">360</field>
+        <field name="code_prefix_end">360</field>
+    </record>
+    <record id="account.1_be_group_369" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_36"/>
+        <field name="name">Advance Payments on Purchases for Stocks - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">369</field>
+        <field name="code_prefix_end">369</field>
+    </record>
+    <record id="account.1_be_group_37" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_3"/>
+        <field name="name">Contracts in Progress</field>
+        <field name="code_prefix_start">37</field>
+        <field name="code_prefix_end">37</field>
+    </record>
+    <record id="account.1_be_group_370" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_37"/>
+        <field name="name">Contracts in Progress - Acquisition Value</field>
+        <field name="code_prefix_start">370</field>
+        <field name="code_prefix_end">370</field>
+    </record>
+    <record id="account.1_be_group_371" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_37"/>
+        <field name="name">Contracts in Progress - Profit Recognized</field>
+        <field name="code_prefix_start">371</field>
+        <field name="code_prefix_end">371</field>
+    </record>
+    <record id="account.1_be_group_379" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_37"/>
+        <field name="name">Contracts in Progress - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">379</field>
+        <field name="code_prefix_end">379</field>
+    </record>
+    <record id="account.1_be_group_4" model="account.group">
+        <field name="name">Amounts Receivable Within One Year</field>
+        <field name="code_prefix_start">4</field>
+        <field name="code_prefix_end">4</field>
+    </record>
+    <record id="account.1_be_group_40" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Trade Debtors</field>
+        <field name="code_prefix_start">40</field>
+        <field name="code_prefix_end">40</field>
+    </record>
+    <record id="account.1_be_group_400" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_40"/>
+        <field name="name">Customers</field>
+        <field name="code_prefix_start">400</field>
+        <field name="code_prefix_end">400</field>
+    </record>
+    <record id="account.1_be_group_401" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_40"/>
+        <field name="name">Trade Debtors - Bills Receivable</field>
+        <field name="code_prefix_start">401</field>
+        <field name="code_prefix_end">401</field>
+    </record>
+    <record id="account.1_be_group_404" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_40"/>
+        <field name="name">Trade Debtors - Income Receivable</field>
+        <field name="code_prefix_start">404</field>
+        <field name="code_prefix_end">404</field>
+    </record>
+    <record id="account.1_be_group_406" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_40"/>
+        <field name="name">Trade Debtors - Advance Payments</field>
+        <field name="code_prefix_start">406</field>
+        <field name="code_prefix_end">406</field>
+    </record>
+    <record id="account.1_be_group_407" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_40"/>
+        <field name="name">Trade Debtors - Doubtful Amounts Receivable</field>
+        <field name="code_prefix_start">407</field>
+        <field name="code_prefix_end">407</field>
+    </record>
+    <record id="account.1_be_group_409" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_40"/>
+        <field name="name">Trade Debtors - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">409</field>
+        <field name="code_prefix_end">409</field>
+    </record>
+    <record id="account.1_be_group_41" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Other Amounts Receivable</field>
+        <field name="code_prefix_start">41</field>
+        <field name="code_prefix_end">41</field>
+    </record>
+    <record id="account.1_be_group_410" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Called Up Capital or Contribution, Unpaid</field>
+        <field name="code_prefix_start">410</field>
+        <field name="code_prefix_end">410</field>
+    </record>
+    <record id="account.1_be_group_411" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">VAT Recoverable</field>
+        <field name="code_prefix_start">411</field>
+        <field name="code_prefix_end">411</field>
+    </record>
+    <record id="account.1_be_group_412" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Taxes and Withholding Taxed to Be Recovered</field>
+        <field name="code_prefix_start">412</field>
+        <field name="code_prefix_end">412</field>
+    </record>
+    <record id="account.1_be_group_414" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Income Receivable</field>
+        <field name="code_prefix_start">414</field>
+        <field name="code_prefix_end">414</field>
+    </record>
+    <record id="account.1_be_group_416" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Sundry Amounts Receivable</field>
+        <field name="code_prefix_start">416</field>
+        <field name="code_prefix_end">416</field>
+    </record>
+    <record id="account.1_be_group_417" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Sundry Amounts Receivable - Doubtful Amounts Receivable</field>
+        <field name="code_prefix_start">417</field>
+        <field name="code_prefix_end">417</field>
+    </record>
+    <record id="account.1_be_group_418" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Sundry Amounts Receivable - Cash Guarantees Paid</field>
+        <field name="code_prefix_start">418</field>
+        <field name="code_prefix_end">418</field>
+    </record>
+    <record id="account.1_be_group_419" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_41"/>
+        <field name="name">Sundry Amounts Receivable - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">419</field>
+        <field name="code_prefix_end">419</field>
+    </record>
+    <record id="account.1_be_group_42" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Current Portion of Amounts Payable After More Than One Year Falling Due Within One Year</field>
+        <field name="code_prefix_start">42</field>
+        <field name="code_prefix_end">42</field>
+    </record>
+    <record id="account.1_be_group_420" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Subordinated Loans (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">420</field>
+        <field name="code_prefix_end">420</field>
+    </record>
+    <record id="account.1_be_group_421" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Unsubordinated Debentures (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">421</field>
+        <field name="code_prefix_end">421</field>
+    </record>
+    <record id="account.1_be_group_422" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Leasing and Other Similar Obligations (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">422</field>
+        <field name="code_prefix_end">422</field>
+    </record>
+    <record id="account.1_be_group_423" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Credit Institutions (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">423</field>
+        <field name="code_prefix_end">423</field>
+    </record>
+    <record id="account.1_be_group_424" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Other Loans (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">424</field>
+        <field name="code_prefix_end">424</field>
+    </record>
+    <record id="account.1_be_group_425" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Trade Debts (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">425</field>
+        <field name="code_prefix_end">425</field>
+    </record>
+    <record id="account.1_be_group_426" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Advance Payments on Contract in Progress (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">426</field>
+        <field name="code_prefix_end">426</field>
+    </record>
+    <record id="account.1_be_group_428" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Guarantees Received in Cash (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">428</field>
+        <field name="code_prefix_end">428</field>
+    </record>
+    <record id="account.1_be_group_429" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_42"/>
+        <field name="name">Other Amounts Payable (&gt; 1 Year Falling Due &lt; 1 Year)</field>
+        <field name="code_prefix_start">429</field>
+        <field name="code_prefix_end">429</field>
+    </record>
+    <record id="account.1_be_group_43" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Financial Debts</field>
+        <field name="code_prefix_start">43</field>
+        <field name="code_prefix_end">43</field>
+    </record>
+    <record id="account.1_be_group_430" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_43"/>
+        <field name="name">Credit Institutions - Fixed Term Loans</field>
+        <field name="code_prefix_start">430</field>
+        <field name="code_prefix_end">430</field>
+    </record>
+    <record id="account.1_be_group_431" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_43"/>
+        <field name="name">Credit Institutions - Promissory Notes</field>
+        <field name="code_prefix_start">431</field>
+        <field name="code_prefix_end">431</field>
+    </record>
+    <record id="account.1_be_group_432" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_43"/>
+        <field name="name">Credit Institutions - Bank Acceptances</field>
+        <field name="code_prefix_start">432</field>
+        <field name="code_prefix_end">432</field>
+    </record>
+    <record id="account.1_be_group_433" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_43"/>
+        <field name="name">Credit Institutions - Current Account Payable</field>
+        <field name="code_prefix_start">433</field>
+        <field name="code_prefix_end">433</field>
+    </record>
+    <record id="account.1_be_group_439" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_43"/>
+        <field name="name">Other Loans</field>
+        <field name="code_prefix_start">439</field>
+        <field name="code_prefix_end">439</field>
+    </record>
+    <record id="account.1_be_group_44" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Trade Debts</field>
+        <field name="code_prefix_start">44</field>
+        <field name="code_prefix_end">44</field>
+    </record>
+    <record id="account.1_be_group_440" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_44"/>
+        <field name="name">Suppliers</field>
+        <field name="code_prefix_start">440</field>
+        <field name="code_prefix_end">440</field>
+    </record>
+    <record id="account.1_be_group_441" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_44"/>
+        <field name="name">Bills of Exchange Payable</field>
+        <field name="code_prefix_start">441</field>
+        <field name="code_prefix_end">441</field>
+    </record>
+    <record id="account.1_be_group_444" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_44"/>
+        <field name="name">Invoices to Be Received</field>
+        <field name="code_prefix_start">444</field>
+        <field name="code_prefix_end">444</field>
+    </record>
+    <record id="account.1_be_group_45" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Taxes, Remuneration and Social Security</field>
+        <field name="code_prefix_start">45</field>
+        <field name="code_prefix_end">45</field>
+    </record>
+    <record id="account.1_be_group_450" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">Estimated Taxes Payable</field>
+        <field name="code_prefix_start">450</field>
+        <field name="code_prefix_end">450</field>
+    </record>
+    <record id="account.1_be_group_451" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">VAT Payable</field>
+        <field name="code_prefix_start">451</field>
+        <field name="code_prefix_end">451</field>
+    </record>
+    <record id="account.1_be_group_452" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">Taxes Payable</field>
+        <field name="code_prefix_start">452</field>
+        <field name="code_prefix_end">452</field>
+    </record>
+    <record id="account.1_be_group_453" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">Taxes Withheld</field>
+        <field name="code_prefix_start">453</field>
+        <field name="code_prefix_end">453</field>
+    </record>
+    <record id="account.1_be_group_454" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">National Social Security Office</field>
+        <field name="code_prefix_start">454</field>
+        <field name="code_prefix_end">454</field>
+    </record>
+    <record id="account.1_be_group_455" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">Remuneration</field>
+        <field name="code_prefix_start">455</field>
+        <field name="code_prefix_end">455</field>
+    </record>
+    <record id="account.1_be_group_456" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">Holiday Pay</field>
+        <field name="code_prefix_start">456</field>
+        <field name="code_prefix_end">456</field>
+    </record>
+    <record id="account.1_be_group_459" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_45"/>
+        <field name="name">Other Social Obligations</field>
+        <field name="code_prefix_start">459</field>
+        <field name="code_prefix_end">459</field>
+    </record>
+    <record id="account.1_be_group_46" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Advances on Contracts in Progress</field>
+        <field name="code_prefix_start">46</field>
+        <field name="code_prefix_end">46</field>
+    </record>
+    <record id="account.1_be_group_47" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Debt From Appropriation Result</field>
+        <field name="code_prefix_start">47</field>
+        <field name="code_prefix_end">47</field>
+    </record>
+    <record id="account.1_be_group_470" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_47"/>
+        <field name="name">Dividends and Director's Fees Relating to Prior Financial Periods</field>
+        <field name="code_prefix_start">470</field>
+        <field name="code_prefix_end">470</field>
+    </record>
+    <record id="account.1_be_group_471" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_47"/>
+        <field name="name">Dividends - Current Financial Period</field>
+        <field name="code_prefix_start">471</field>
+        <field name="code_prefix_end">471</field>
+    </record>
+    <record id="account.1_be_group_472" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_47"/>
+        <field name="name">Director's Fees - Current Financial Period</field>
+        <field name="code_prefix_start">472</field>
+        <field name="code_prefix_end">472</field>
+    </record>
+    <record id="account.1_be_group_473" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_47"/>
+        <field name="name">Other Beneficiaries</field>
+        <field name="code_prefix_start">473</field>
+        <field name="code_prefix_end">473</field>
+    </record>
+    <record id="account.1_be_group_48" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Miscellaneous Amounts Payable</field>
+        <field name="code_prefix_start">48</field>
+        <field name="code_prefix_end">48</field>
+    </record>
+    <record id="account.1_be_group_480" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_48"/>
+        <field name="name">Debentures and Matured Coupons</field>
+        <field name="code_prefix_start">480</field>
+        <field name="code_prefix_end">480</field>
+    </record>
+    <record id="account.1_be_group_488" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_48"/>
+        <field name="name">Guarantees Received in Cash</field>
+        <field name="code_prefix_start">488</field>
+        <field name="code_prefix_end">488</field>
+    </record>
+    <record id="account.1_be_group_489" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_48"/>
+        <field name="name">Sundry Amounts Payable</field>
+        <field name="code_prefix_start">489</field>
+        <field name="code_prefix_end">489</field>
+    </record>
+    <record id="account.1_be_group_49" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_4"/>
+        <field name="name">Accruals and Deferred Income</field>
+        <field name="code_prefix_start">49</field>
+        <field name="code_prefix_end">49</field>
+    </record>
+    <record id="account.1_be_group_490" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_49"/>
+        <field name="name">Deferred Charges</field>
+        <field name="code_prefix_start">490</field>
+        <field name="code_prefix_end">490</field>
+    </record>
+    <record id="account.1_be_group_491" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_49"/>
+        <field name="name">Accrued Income</field>
+        <field name="code_prefix_start">491</field>
+        <field name="code_prefix_end">491</field>
+    </record>
+    <record id="account.1_be_group_492" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_49"/>
+        <field name="name">Accrued Charges</field>
+        <field name="code_prefix_start">492</field>
+        <field name="code_prefix_end">492</field>
+    </record>
+    <record id="account.1_be_group_493" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_49"/>
+        <field name="name">Deferred Income</field>
+        <field name="code_prefix_start">493</field>
+        <field name="code_prefix_end">493</field>
+    </record>
+    <record id="account.1_be_group_499" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_49"/>
+        <field name="name">Suspense Accounts</field>
+        <field name="code_prefix_start">499</field>
+        <field name="code_prefix_end">499</field>
+    </record>
+    <record id="account.1_be_group_5" model="account.group">
+        <field name="name">Current Investments and Cash at Bank and in Hand</field>
+        <field name="code_prefix_start">5</field>
+        <field name="code_prefix_end">5</field>
+    </record>
+    <record id="account.1_be_group_50" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Own Shares</field>
+        <field name="code_prefix_start">50</field>
+        <field name="code_prefix_end">50</field>
+    </record>
+    <record id="account.1_be_group_51" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Shares and Current Investments Other Than Fixed Income Investments</field>
+        <field name="code_prefix_start">51</field>
+        <field name="code_prefix_end">51</field>
+    </record>
+    <record id="account.1_be_group_510" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_51"/>
+        <field name="name">Shares and Current Investments Other Than Fixed Income Investments - Acquisition Value</field>
+        <field name="code_prefix_start">510</field>
+        <field name="code_prefix_end">510</field>
+    </record>
+    <record id="account.1_be_group_511" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_51"/>
+        <field name="name">Shares and Current Investments Other Than Fixed Income Investments - Uncalled Amounts (-)</field>
+        <field name="code_prefix_start">511</field>
+        <field name="code_prefix_end">511</field>
+    </record>
+    <record id="account.1_be_group_519" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_51"/>
+        <field name="name">Shares and Current Investments Other Than Fixed Income Investments - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">519</field>
+        <field name="code_prefix_end">519</field>
+    </record>
+    <record id="account.1_be_group_52" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Fixed-Income Securities</field>
+        <field name="code_prefix_start">52</field>
+        <field name="code_prefix_end">52</field>
+    </record>
+    <record id="account.1_be_group_520" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_52"/>
+        <field name="name">Fixed-Income Securities - Acquisition Value</field>
+        <field name="code_prefix_start">520</field>
+        <field name="code_prefix_end">520</field>
+    </record>
+    <record id="account.1_be_group_529" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_52"/>
+        <field name="name">Fixed-Income Securities - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">529</field>
+        <field name="code_prefix_end">529</field>
+    </record>
+    <record id="account.1_be_group_53" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Fixed Term Deposits</field>
+        <field name="code_prefix_start">53</field>
+        <field name="code_prefix_end">53</field>
+    </record>
+    <record id="account.1_be_group_530" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_53"/>
+        <field name="name">Fixed Term Deposit Over One Year</field>
+        <field name="code_prefix_start">530</field>
+        <field name="code_prefix_end">530</field>
+    </record>
+    <record id="account.1_be_group_531" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_53"/>
+        <field name="name">Fixed Term Deposit Between One Month and One Year</field>
+        <field name="code_prefix_start">531</field>
+        <field name="code_prefix_end">531</field>
+    </record>
+    <record id="account.1_be_group_532" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_53"/>
+        <field name="name">Fixed Term Deposit Up to One Month</field>
+        <field name="code_prefix_start">532</field>
+        <field name="code_prefix_end">532</field>
+    </record>
+    <record id="account.1_be_group_539" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_53"/>
+        <field name="name">Fixed Term Deposits - Amounts Written Down Recorded (-)</field>
+        <field name="code_prefix_start">539</field>
+        <field name="code_prefix_end">539</field>
+    </record>
+    <record id="account.1_be_group_54" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Receivable Securities Fallen Due</field>
+        <field name="code_prefix_start">54</field>
+        <field name="code_prefix_end">54</field>
+    </record>
+    <record id="account.1_be_group_55" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Cash at Bank - Credit Institutions</field>
+        <field name="code_prefix_start">55</field>
+        <field name="code_prefix_end">55</field>
+    </record>
+    <record id="account.1_be_group_550" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_55"/>
+        <field name="name">Cash at Bank - Credit Institutions</field>
+        <field name="code_prefix_start">550</field>
+        <field name="code_prefix_end">559</field>
+    </record>
+    <record id="account.1_be_group_57" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Cash in Hand</field>
+        <field name="code_prefix_start">57</field>
+        <field name="code_prefix_end">57</field>
+    </record>
+    <record id="account.1_be_group_570" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_57"/>
+        <field name="name">Cash in Hand - Cash</field>
+        <field name="code_prefix_start">570</field>
+        <field name="code_prefix_end">577</field>
+    </record>
+    <record id="account.1_be_group_578" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_57"/>
+        <field name="name">Cash in Hand - Stamps</field>
+        <field name="code_prefix_start">578</field>
+        <field name="code_prefix_end">578</field>
+    </record>
+    <record id="account.1_be_group_58" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_5"/>
+        <field name="name">Internal Transfers of Funds</field>
+        <field name="code_prefix_start">58</field>
+        <field name="code_prefix_end">58</field>
+    </record>
+    <record id="account.1_be_group_6" model="account.group">
+        <field name="name">Expenses</field>
+        <field name="code_prefix_start">6</field>
+        <field name="code_prefix_end">6</field>
+    </record>
+    <record id="account.1_be_group_60" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Goods for Resale, Raw Materials and Consumables</field>
+        <field name="code_prefix_start">60</field>
+        <field name="code_prefix_end">60</field>
+    </record>
+    <record id="account.1_be_group_600" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Purchases of Raw Materials</field>
+        <field name="code_prefix_start">600</field>
+        <field name="code_prefix_end">600</field>
+    </record>
+    <record id="account.1_be_group_601" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Purchases of Consumables</field>
+        <field name="code_prefix_start">601</field>
+        <field name="code_prefix_end">601</field>
+    </record>
+    <record id="account.1_be_group_602" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Purchases of Services, Works and Studies</field>
+        <field name="code_prefix_start">602</field>
+        <field name="code_prefix_end">602</field>
+    </record>
+    <record id="account.1_be_group_603" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Subcontracting</field>
+        <field name="code_prefix_start">603</field>
+        <field name="code_prefix_end">603</field>
+    </record>
+    <record id="account.1_be_group_604" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Purchases of Goods for Resale</field>
+        <field name="code_prefix_start">604</field>
+        <field name="code_prefix_end">604</field>
+    </record>
+    <record id="account.1_be_group_605" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Purchases of Immovable Property for Resale</field>
+        <field name="code_prefix_start">605</field>
+        <field name="code_prefix_end">605</field>
+    </record>
+    <record id="account.1_be_group_608" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Discounts, Allowance and Rebates Received (-)</field>
+        <field name="code_prefix_start">608</field>
+        <field name="code_prefix_end">608</field>
+    </record>
+    <record id="account.1_be_group_609" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_60"/>
+        <field name="name">Decrease (Increase) in Stocks</field>
+        <field name="code_prefix_start">609</field>
+        <field name="code_prefix_end">609</field>
+    </record>
+    <record id="account.1_be_group_61" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Services and Other Goods</field>
+        <field name="code_prefix_start">61</field>
+        <field name="code_prefix_end">61</field>
+    </record>
+    <record id="account.1_be_group_617" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_61"/>
+        <field name="name">Costs of Hired Temporary Staff and Persons Placed at the Enterprise's Disposal</field>
+        <field name="code_prefix_start">617</field>
+        <field name="code_prefix_end">617</field>
+    </record>
+    <record id="account.1_be_group_618" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_61"/>
+        <field name="name">Remuneration, Premiums for Extra Statutory Insurance, Pensions of Directors, Managers or Active Partners Which Are Not Allowed Following the Contract</field>
+        <field name="code_prefix_start">618</field>
+        <field name="code_prefix_end">618</field>
+    </record>
+    <record id="account.1_be_group_62" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Remuneration, Social Security Costs and Pensions</field>
+        <field name="code_prefix_start">62</field>
+        <field name="code_prefix_end">62</field>
+    </record>
+    <record id="account.1_be_group_620" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_62"/>
+        <field name="name">Remuneration and Direct Social Benefits</field>
+        <field name="code_prefix_start">620</field>
+        <field name="code_prefix_end">620</field>
+    </record>
+    <record id="account.1_be_group_621" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_62"/>
+        <field name="name">Employers' Contribution for Social Security</field>
+        <field name="code_prefix_start">621</field>
+        <field name="code_prefix_end">621</field>
+    </record>
+    <record id="account.1_be_group_622" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_62"/>
+        <field name="name">Employers' Premiums for Extra Statutory Insurance</field>
+        <field name="code_prefix_start">622</field>
+        <field name="code_prefix_end">622</field>
+    </record>
+    <record id="account.1_be_group_623" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_62"/>
+        <field name="name">Other Personnel Costs</field>
+        <field name="code_prefix_start">623</field>
+        <field name="code_prefix_end">623</field>
+    </record>
+    <record id="account.1_be_group_624" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_62"/>
+        <field name="name">Retirement and Survivors' Pensions</field>
+        <field name="code_prefix_start">624</field>
+        <field name="code_prefix_end">624</field>
+    </record>
+    <record id="account.1_be_group_63" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Depreciation, Amounts Written Off and Provisions for Risks and Charges</field>
+        <field name="code_prefix_start">63</field>
+        <field name="code_prefix_end">63</field>
+    </record>
+    <record id="account.1_be_group_630" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Depreciation, Amounts Written Off and Provisions for Risks</field>
+        <field name="code_prefix_start">630</field>
+        <field name="code_prefix_end">630</field>
+    </record>
+    <record id="account.1_be_group_631" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Amounts Written Off Stocks</field>
+        <field name="code_prefix_start">631</field>
+        <field name="code_prefix_end">631</field>
+    </record>
+    <record id="account.1_be_group_632" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Amounts Written Off Contracts in Progress</field>
+        <field name="code_prefix_start">632</field>
+        <field name="code_prefix_end">632</field>
+    </record>
+    <record id="account.1_be_group_633" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Amounts Written Off Trade Debtors (&gt; 1 Year)</field>
+        <field name="code_prefix_start">633</field>
+        <field name="code_prefix_end">633</field>
+    </record>
+    <record id="account.1_be_group_634" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Amounts Written Off Trade Debtors</field>
+        <field name="code_prefix_start">634</field>
+        <field name="code_prefix_end">634</field>
+    </record>
+    <record id="account.1_be_group_635" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Provisions for Pensions and Similar Obligations</field>
+        <field name="code_prefix_start">635</field>
+        <field name="code_prefix_end">635</field>
+    </record>
+    <record id="account.1_be_group_636" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Provisions for Major Repairs and Maintenance</field>
+        <field name="code_prefix_start">636</field>
+        <field name="code_prefix_end">636</field>
+    </record>
+    <record id="account.1_be_group_637" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Provisions for Environmental Obligations</field>
+        <field name="code_prefix_start">637</field>
+        <field name="code_prefix_end">637</field>
+    </record>
+    <record id="account.1_be_group_638" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_63"/>
+        <field name="name">Provisions for Other Risks and Charges</field>
+        <field name="code_prefix_start">638</field>
+        <field name="code_prefix_end">638</field>
+    </record>
+    <record id="account.1_be_group_64" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Other Operating Charges</field>
+        <field name="code_prefix_start">64</field>
+        <field name="code_prefix_end">64</field>
+    </record>
+    <record id="account.1_be_group_640" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_64"/>
+        <field name="name">Taxes Related to Operation</field>
+        <field name="code_prefix_start">640</field>
+        <field name="code_prefix_end">640</field>
+    </record>
+    <record id="account.1_be_group_641" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_64"/>
+        <field name="name">Loss on Ordinary Disposal of Tangible Fixed Assets</field>
+        <field name="code_prefix_start">641</field>
+        <field name="code_prefix_end">641</field>
+    </record>
+    <record id="account.1_be_group_642" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_64"/>
+        <field name="name">Loss on Ordinary Disposal of Trade Debtors</field>
+        <field name="code_prefix_start">642</field>
+        <field name="code_prefix_end">642</field>
+    </record>
+    <record id="account.1_be_group_643" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_64"/>
+        <field name="name">Miscellaneous Operating Charges</field>
+        <field name="code_prefix_start">643</field>
+        <field name="code_prefix_end">648</field>
+    </record>
+    <record id="account.1_be_group_649" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_64"/>
+        <field name="name">Operating Charges Carried to Assets as Restructuring Costs (-)</field>
+        <field name="code_prefix_start">649</field>
+        <field name="code_prefix_end">649</field>
+    </record>
+    <record id="account.1_be_group_65" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Financial Charges</field>
+        <field name="code_prefix_start">65</field>
+        <field name="code_prefix_end">65</field>
+    </record>
+    <record id="account.1_be_group_650" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Debt Charges</field>
+        <field name="code_prefix_start">650</field>
+        <field name="code_prefix_end">650</field>
+    </record>
+    <record id="account.1_be_group_651" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Amounts Written Off Current Assets</field>
+        <field name="code_prefix_start">651</field>
+        <field name="code_prefix_end">651</field>
+    </record>
+    <record id="account.1_be_group_652" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Capital Losses on Disposal of Current Assets</field>
+        <field name="code_prefix_start">652</field>
+        <field name="code_prefix_end">652</field>
+    </record>
+    <record id="account.1_be_group_653" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Discount Costs on Amounts Receivable</field>
+        <field name="code_prefix_start">653</field>
+        <field name="code_prefix_end">653</field>
+    </record>
+    <record id="account.1_be_group_654" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Exchange Differences</field>
+        <field name="code_prefix_start">654</field>
+        <field name="code_prefix_end">654</field>
+    </record>
+    <record id="account.1_be_group_655" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Foreign Currency Translation Differences</field>
+        <field name="code_prefix_start">655</field>
+        <field name="code_prefix_end">655</field>
+    </record>
+    <record id="account.1_be_group_656" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Provisions of a Financial Nature</field>
+        <field name="code_prefix_start">656</field>
+        <field name="code_prefix_end">656</field>
+    </record>
+    <record id="account.1_be_group_657" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Miscellaneous Financial Charges</field>
+        <field name="code_prefix_start">657</field>
+        <field name="code_prefix_end">658</field>
+    </record>
+    <record id="account.1_be_group_659" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_65"/>
+        <field name="name">Financial Charges Carried to Assets as Restructuring Costs (-)</field>
+        <field name="code_prefix_start">659</field>
+        <field name="code_prefix_end">659</field>
+    </record>
+    <record id="account.1_be_group_66" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Non-Recurring Operating or Financial Charges</field>
+        <field name="code_prefix_start">66</field>
+        <field name="code_prefix_end">66</field>
+    </record>
+    <record id="account.1_be_group_660" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Non-Recurring Depreciation of and Amounts Written Off</field>
+        <field name="code_prefix_start">660</field>
+        <field name="code_prefix_end">660</field>
+    </record>
+    <record id="account.1_be_group_661" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Amounts Written Off Financial Fixed Assets</field>
+        <field name="code_prefix_start">661</field>
+        <field name="code_prefix_end">661</field>
+    </record>
+    <record id="account.1_be_group_662" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Provisions for Non-Recurring Liabilities and Charges</field>
+        <field name="code_prefix_start">662</field>
+        <field name="code_prefix_end">662</field>
+    </record>
+    <record id="account.1_be_group_663" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Capital Losses on Disposal of Fixed Assets</field>
+        <field name="code_prefix_start">663</field>
+        <field name="code_prefix_end">663</field>
+    </record>
+    <record id="account.1_be_group_664" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Other Non-Recurring Operating Charges</field>
+        <field name="code_prefix_start">664</field>
+        <field name="code_prefix_end">667</field>
+    </record>
+    <record id="account.1_be_group_668" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Other Non-Recurring Financial Charges</field>
+        <field name="code_prefix_start">668</field>
+        <field name="code_prefix_end">668</field>
+    </record>
+    <record id="account.1_be_group_669" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_66"/>
+        <field name="name">Non-Recurring Charges Carried to Assets as Restructuring Costs (-)</field>
+        <field name="code_prefix_start">669</field>
+        <field name="code_prefix_end">669</field>
+    </record>
+    <record id="account.1_be_group_67" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Income Taxes</field>
+        <field name="code_prefix_start">67</field>
+        <field name="code_prefix_end">67</field>
+    </record>
+    <record id="account.1_be_group_670" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_67"/>
+        <field name="name">Belgian Income Taxes on the Result of the Current Period</field>
+        <field name="code_prefix_start">670</field>
+        <field name="code_prefix_end">670</field>
+    </record>
+    <record id="account.1_be_group_671" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_67"/>
+        <field name="name">Belgian Income Taxes on the Result of Prior Periods</field>
+        <field name="code_prefix_start">671</field>
+        <field name="code_prefix_end">671</field>
+    </record>
+    <record id="account.1_be_group_672" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_67"/>
+        <field name="name">Foreign Income Taxes on the Result of the Current Period</field>
+        <field name="code_prefix_start">672</field>
+        <field name="code_prefix_end">672</field>
+    </record>
+    <record id="account.1_be_group_673" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_67"/>
+        <field name="name">Foreign Income Taxes on the Result of Prior Periods</field>
+        <field name="code_prefix_start">673</field>
+        <field name="code_prefix_end">673</field>
+    </record>
+    <record id="account.1_be_group_68" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Transfer to Deferred Taxes and Untaxed Reserves</field>
+        <field name="code_prefix_start">68</field>
+        <field name="code_prefix_end">68</field>
+    </record>
+    <record id="account.1_be_group_680" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_68"/>
+        <field name="name">Transfer to Deferred Taxes</field>
+        <field name="code_prefix_start">680</field>
+        <field name="code_prefix_end">680</field>
+    </record>
+    <record id="account.1_be_group_689" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_68"/>
+        <field name="name">Transfer to Untaxed Reserves</field>
+        <field name="code_prefix_start">689</field>
+        <field name="code_prefix_end">689</field>
+    </record>
+    <record id="account.1_be_group_69" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_6"/>
+        <field name="name">Appropriation Account</field>
+        <field name="code_prefix_start">69</field>
+        <field name="code_prefix_end">69</field>
+    </record>
+    <record id="account.1_be_group_690" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Loss of the Preceding Period Brought Forward</field>
+        <field name="code_prefix_start">690</field>
+        <field name="code_prefix_end">690</field>
+    </record>
+    <record id="account.1_be_group_691" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Appropriations to Contribution</field>
+        <field name="code_prefix_start">691</field>
+        <field name="code_prefix_end">691</field>
+    </record>
+    <record id="account.1_be_group_692" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Appropriations to Reserves</field>
+        <field name="code_prefix_start">692</field>
+        <field name="code_prefix_end">692</field>
+    </record>
+    <record id="account.1_be_group_693" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Profits to Be Carried Forward</field>
+        <field name="code_prefix_start">693</field>
+        <field name="code_prefix_end">693</field>
+    </record>
+    <record id="account.1_be_group_694" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Compensation for Contributions</field>
+        <field name="code_prefix_start">694</field>
+        <field name="code_prefix_end">694</field>
+    </record>
+    <record id="account.1_be_group_695" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Directors' or Managers' Entitlements</field>
+        <field name="code_prefix_start">695</field>
+        <field name="code_prefix_end">695</field>
+    </record>
+    <record id="account.1_be_group_696" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Employees' Entitlements</field>
+        <field name="code_prefix_start">696</field>
+        <field name="code_prefix_end">696</field>
+    </record>
+    <record id="account.1_be_group_697" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_69"/>
+        <field name="name">Other Beneficiaries' Entitlements</field>
+        <field name="code_prefix_start">697</field>
+        <field name="code_prefix_end">697</field>
+    </record>
+    <record id="account.1_be_group_7" model="account.group">
+        <field name="name">Income</field>
+        <field name="code_prefix_start">7</field>
+        <field name="code_prefix_end">7</field>
+    </record>
+    <record id="account.1_be_group_70" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Turnover</field>
+        <field name="code_prefix_start">70</field>
+        <field name="code_prefix_end">70</field>
+    </record>
+    <record id="account.1_be_group_700" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_70"/>
+        <field name="name">Sales and Services Rendered</field>
+        <field name="code_prefix_start">700</field>
+        <field name="code_prefix_end">707</field>
+    </record>
+    <record id="account.1_be_group_708" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_70"/>
+        <field name="name">Discounts, Allowances and Rebates Allowed (-)</field>
+        <field name="code_prefix_start">708</field>
+        <field name="code_prefix_end">708</field>
+    </record>
+    <record id="account.1_be_group_71" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Increase (Decrease) in Stocks of Finished Goods and Work and Contracts in Progress</field>
+        <field name="code_prefix_start">71</field>
+        <field name="code_prefix_end">71</field>
+    </record>
+    <record id="account.1_be_group_712" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_71"/>
+        <field name="name">Increase (Decrease) in Stocks of Work in Progress</field>
+        <field name="code_prefix_start">712</field>
+        <field name="code_prefix_end">712</field>
+    </record>
+    <record id="account.1_be_group_713" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_71"/>
+        <field name="name">Increase (Decrease) in Stocks of Finished Goods</field>
+        <field name="code_prefix_start">713</field>
+        <field name="code_prefix_end">713</field>
+    </record>
+    <record id="account.1_be_group_715" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_71"/>
+        <field name="name">Increase (Decrease) in Stocks of Immovable Property Constructed for Resale</field>
+        <field name="code_prefix_start">715</field>
+        <field name="code_prefix_end">715</field>
+    </record>
+    <record id="account.1_be_group_717" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_71"/>
+        <field name="name">Increase (Decrease) in Contracts in Progress</field>
+        <field name="code_prefix_start">717</field>
+        <field name="code_prefix_end">717</field>
+    </record>
+    <record id="account.1_be_group_72" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Produced Fixed Assets</field>
+        <field name="code_prefix_start">72</field>
+        <field name="code_prefix_end">72</field>
+    </record>
+    <record id="account.1_be_group_74" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Other Operating Income</field>
+        <field name="code_prefix_start">74</field>
+        <field name="code_prefix_end">74</field>
+    </record>
+    <record id="account.1_be_group_740" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_74"/>
+        <field name="name">Operating Subsidies and Compensatory Amounts</field>
+        <field name="code_prefix_start">740</field>
+        <field name="code_prefix_end">740</field>
+    </record>
+    <record id="account.1_be_group_741" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_74"/>
+        <field name="name">Capital Profits on Ordinary Disposal of Tangible Fixed Assets</field>
+        <field name="code_prefix_start">741</field>
+        <field name="code_prefix_end">741</field>
+    </record>
+    <record id="account.1_be_group_742" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_74"/>
+        <field name="name">Capital Profits on Disposal of Trade Debtors</field>
+        <field name="code_prefix_start">742</field>
+        <field name="code_prefix_end">742</field>
+    </record>
+    <record id="account.1_be_group_743" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_74"/>
+        <field name="name">Miscellaneous Operating Income</field>
+        <field name="code_prefix_start">743</field>
+        <field name="code_prefix_end">749</field>
+    </record>
+    <record id="account.1_be_group_75" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Financial Income</field>
+        <field name="code_prefix_start">75</field>
+        <field name="code_prefix_end">75</field>
+    </record>
+    <record id="account.1_be_group_750" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Income From Financial Fixed Assets</field>
+        <field name="code_prefix_start">750</field>
+        <field name="code_prefix_end">750</field>
+    </record>
+    <record id="account.1_be_group_751" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Income From Current Assets</field>
+        <field name="code_prefix_start">751</field>
+        <field name="code_prefix_end">751</field>
+    </record>
+    <record id="account.1_be_group_752" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Capital Profits on Disposal of Current Assets</field>
+        <field name="code_prefix_start">752</field>
+        <field name="code_prefix_end">752</field>
+    </record>
+    <record id="account.1_be_group_753" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Capital and Interest Subsidies</field>
+        <field name="code_prefix_start">753</field>
+        <field name="code_prefix_end">753</field>
+    </record>
+    <record id="account.1_be_group_754" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Exchange Differences</field>
+        <field name="code_prefix_start">754</field>
+        <field name="code_prefix_end">754</field>
+    </record>
+    <record id="account.1_be_group_755" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Foreign Currency Translation Differences</field>
+        <field name="code_prefix_start">755</field>
+        <field name="code_prefix_end">755</field>
+    </record>
+    <record id="account.1_be_group_756" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_75"/>
+        <field name="name">Miscellaneous Financial Income</field>
+        <field name="code_prefix_start">756</field>
+        <field name="code_prefix_end">759</field>
+    </record>
+    <record id="account.1_be_group_76" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Non-Recurring Operating or Financial Expenses</field>
+        <field name="code_prefix_start">76</field>
+        <field name="code_prefix_end">76</field>
+    </record>
+    <record id="account.1_be_group_760" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_76"/>
+        <field name="name">Write-Back of Depreciation and of Amounts Written Off</field>
+        <field name="code_prefix_start">760</field>
+        <field name="code_prefix_end">760</field>
+    </record>
+    <record id="account.1_be_group_761" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_76"/>
+        <field name="name">Write-Back of Amounts Written Down Financial Fixed Assets</field>
+        <field name="code_prefix_start">761</field>
+        <field name="code_prefix_end">761</field>
+    </record>
+    <record id="account.1_be_group_762" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_76"/>
+        <field name="name">Write-Back of Provisions for Non-Recurring Liabilities and Charges</field>
+        <field name="code_prefix_start">762</field>
+        <field name="code_prefix_end">762</field>
+    </record>
+    <record id="account.1_be_group_763" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_76"/>
+        <field name="name">Capital Profits on Disposal of Fixed Assets</field>
+        <field name="code_prefix_start">763</field>
+        <field name="code_prefix_end">763</field>
+    </record>
+    <record id="account.1_be_group_764" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_76"/>
+        <field name="name">Other Non-Recurring Operating Income</field>
+        <field name="code_prefix_start">764</field>
+        <field name="code_prefix_end">768</field>
+    </record>
+    <record id="account.1_be_group_769" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_76"/>
+        <field name="name">Other Non-Recurring Financial Income</field>
+        <field name="code_prefix_start">769</field>
+        <field name="code_prefix_end">769</field>
+    </record>
+    <record id="account.1_be_group_77" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Adjustment of Income Taxes and Write-Back of Tax Provisions</field>
+        <field name="code_prefix_start">77</field>
+        <field name="code_prefix_end">77</field>
+    </record>
+    <record id="account.1_be_group_771" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_77"/>
+        <field name="name">Adjustment of Belgian Income Taxes</field>
+        <field name="code_prefix_start">771</field>
+        <field name="code_prefix_end">771</field>
+    </record>
+    <record id="account.1_be_group_773" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_77"/>
+        <field name="name">Adjustment of Foreign Income Taxes</field>
+        <field name="code_prefix_start">773</field>
+        <field name="code_prefix_end">773</field>
+    </record>
+    <record id="account.1_be_group_78" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Transfer From Deferred Taxes and Untaxed Reserves</field>
+        <field name="code_prefix_start">78</field>
+        <field name="code_prefix_end">78</field>
+    </record>
+    <record id="account.1_be_group_780" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_78"/>
+        <field name="name">Transfer From Deferred Taxes</field>
+        <field name="code_prefix_start">780</field>
+        <field name="code_prefix_end">780</field>
+    </record>
+    <record id="account.1_be_group_789" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_78"/>
+        <field name="name">Transfer From Untaxed Reserves</field>
+        <field name="code_prefix_start">789</field>
+        <field name="code_prefix_end">789</field>
+    </record>
+    <record id="account.1_be_group_79" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_7"/>
+        <field name="name">Appropriation Account</field>
+        <field name="code_prefix_start">79</field>
+        <field name="code_prefix_end">79</field>
+    </record>
+    <record id="account.1_be_group_790" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_79"/>
+        <field name="name">Profit From the Preceding Period Brought Forward</field>
+        <field name="code_prefix_start">790</field>
+        <field name="code_prefix_end">790</field>
+    </record>
+    <record id="account.1_be_group_791" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_79"/>
+        <field name="name">Withdrawals From Contributions</field>
+        <field name="code_prefix_start">791</field>
+        <field name="code_prefix_end">791</field>
+    </record>
+    <record id="account.1_be_group_792" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_79"/>
+        <field name="name">Withdrawals From Reserves</field>
+        <field name="code_prefix_start">792</field>
+        <field name="code_prefix_end">792</field>
+    </record>
+    <record id="account.1_be_group_793" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_79"/>
+        <field name="name">Losses to Be Carried Forward</field>
+        <field name="code_prefix_start">793</field>
+        <field name="code_prefix_end">793</field>
+    </record>
+    <record id="account.1_be_group_794" model="account.group">
+        <field name="parent_id" ref="account.1_be_group_79"/>
+        <field name="name">Shareholders' (or Owners') Contribution in Respect of Losses</field>
+        <field name="code_prefix_start">794</field>
+        <field name="code_prefix_end">794</field>
+    </record>
+</odoo>

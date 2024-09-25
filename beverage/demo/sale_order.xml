@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="studio_customization.sale_order_1" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_28"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="amount_unpaid">43.56</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-17 11:37:10</field>
+    </record>
+    <record id="studio_customization.sale_order_10" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_22"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:42:32</field>
+        <field name="amount_unpaid">112.5</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:35:24</field>
+    </record>
+    <record id="studio_customization.sale_order_11" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_27"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:43:02</field>
+        <field name="amount_unpaid">46.88</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:42:55</field>
+    </record>
+    <record id="studio_customization.sale_order_12" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_27"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:44:24</field>
+        <field name="amount_unpaid">18.75</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:44:16</field>
+    </record>
+    <record id="studio_customization.sale_order_13" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_23"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:46:09</field>
+        <field name="amount_unpaid">84.38</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:46:05</field>
+    </record>
+    <record id="studio_customization.sale_order_14" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_25"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:46:53</field>
+        <field name="access_token">37bbfc52-2ef5-473a-ace3-8dadd1fe3f3f</field>
+        <field name="amount_unpaid">75.0</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:46:44</field>
+    </record>
+    <record id="studio_customization.sale_order_15" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_26"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:49:13</field>
+        <field name="access_token">48fc0fff-8d9f-4cde-876b-c907d3fa402d</field>
+        <field name="amount_unpaid">75.0</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:49:08</field>
+    </record>
+    <record id="studio_customization.sale_order_16" model="sale.order">
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="access_token">22e47f7e-d4db-4913-936c-26acbf47c446</field>
+        <field name="amount_unpaid">250.32</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="delivery_status">pending</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 15:08:37</field>
+    </record>
+    <record id="studio_customization.sale_order_17" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_22"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="prepayment_percent">1.0</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 14:09:21</field>
+    </record>
+    <record id="studio_customization.sale_order_18" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_41"/>
+        <field name="access_token">d85a509d-b5df-40d7-b555-3beb544a9985</field>
+        <field name="amount_unpaid">125.16</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 09:23:26</field>
+    </record>
+    <record id="studio_customization.sale_order_19" model="sale.order">
+        <field name="partner_id" ref="base.public_partner"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_2"/>
+        <field name="access_token">0f3b76c3-6f7e-4ee1-a07e-d2ec109f59e8</field>
+        <field name="amount_unpaid">56.52</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 10:35:09</field>
+    </record>
+    <record id="studio_customization.sale_order_2" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_28"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-18 11:48:37</field>
+        <field name="amount_unpaid">3.13</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-18 11:47:52</field>
+    </record>
+    <record id="studio_customization.sale_order_20" model="sale.order">
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="access_token">069b048d-e853-416c-9eab-710f33e52f9d</field>
+        <field name="amount_unpaid">125.16</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 15:08:42</field>
+    </record>
+    <record id="studio_customization.sale_order_21" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_22"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 16:44:40</field>
+        <field name="amount_unpaid">21.88</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 16:16:54</field>
+    </record>
+    <record id="studio_customization.sale_order_22" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_22"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 16:25:05</field>
+        <field name="amount_unpaid">9.38</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 16:23:17</field>
+    </record>
+    <record id="studio_customization.sale_order_23" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_27"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 16:46:35</field>
+        <field name="amount_unpaid">12.5</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 16:46:24</field>
+    </record>
+    <record id="studio_customization.sale_order_24" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_20"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:15:05</field>
+        <field name="amount_unpaid">65.63</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 16:58:51</field>
+    </record>
+    <record id="studio_customization.sale_order_25" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_27"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:15:05</field>
+        <field name="amount_unpaid">78.13</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 17:03:56</field>
+    </record>
+    <record id="studio_customization.sale_order_26" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_25"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:15:05</field>
+        <field name="amount_unpaid">218.75</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 17:08:37</field>
+    </record>
+    <record id="studio_customization.sale_order_27" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_27"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:18:44</field>
+        <field name="amount_unpaid">9.38</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 17:16:25</field>
+    </record>
+    <record id="studio_customization.sale_order_28" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_21"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:18:36</field>
+        <field name="amount_unpaid">81.25</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 17:18:31</field>
+    </record>
+    <record id="studio_customization.sale_order_29" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_20"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:19:18</field>
+        <field name="amount_unpaid">150.0</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 17:19:15</field>
+    </record>
+    <record id="studio_customization.sale_order_3" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_28"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-18 13:48:37</field>
+        <field name="amount_unpaid">187.74</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-18 13:48:08</field>
+    </record>
+    <record id="studio_customization.sale_order_30" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_22"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-23 17:28:16</field>
+        <field name="amount_unpaid">14.52</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-23 17:28:12</field>
+    </record>
+    <record id="studio_customization.sale_order_4" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_22"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-18 13:50:34</field>
+        <field name="amount_unpaid">87.5</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-18 13:49:45</field>
+    </record>
+    <record id="studio_customization.sale_order_5" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_20"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-18 13:56:32</field>
+        <field name="amount_unpaid">143.6</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-18 13:54:28</field>
+    </record>
+    <record id="studio_customization.sale_order_6" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_20"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="effective_date">2024-09-20 09:08:54</field>
+        <field name="amount_unpaid">59.38</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">full</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:07:40</field>
+    </record>
+    <record id="studio_customization.sale_order_7" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_28"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="amount_unpaid">3.13</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">pending</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:11:18</field>
+    </record>
+    <record id="studio_customization.sale_order_8" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_20"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="amount_unpaid">3.13</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">pending</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:13:28</field>
+    </record>
+    <record id="studio_customization.sale_order_9" model="sale.order">
+        <field name="partner_id" ref="studio_customization.res_partner_28"/>
+        <field name="pricelist_id" ref="studio_customization.product_pricelist_1"/>
+        <field name="amount_unpaid">3.13</field>
+        <field name="state">sale</field>
+        <field name="prepayment_percent">1.0</field>
+        <field name="delivery_status">pending</field>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_order">2024-09-20 09:29:46</field>
+    </record>
+</odoo>

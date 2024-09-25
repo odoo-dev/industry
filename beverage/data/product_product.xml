@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="delivery.product_product_delivery" model="product.product">
+        <field name="default_code">Delivery_007</field>
+        <field name="product_tmpl_id" ref="delivery.product_product_delivery_product_template"/>
+    </record>
+    <record id="studio_customization.product_product_30" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_51"/>
+    </record>
+    <record id="studio_customization.product_product_31" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_53"/>
+    </record>
+    <record id="studio_customization.product_product_32" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_54"/>
+    </record>
+    <record id="studio_customization.product_product_33" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_55"/>
+    </record>
+    <record id="studio_customization.product_product_34" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_56"/>
+    </record>
+    <record id="studio_customization.product_product_35" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_57"/>
+    </record>
+    <record id="studio_customization.product_product_36" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_30')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_59"/>
+    </record>
+    <record id="studio_customization.product_product_37" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_35')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_60"/>
+    </record>
+    <record id="studio_customization.product_product_38" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_40')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_61"/>
+    </record>
+    <record id="studio_customization.product_product_39" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_45')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_62"/>
+    </record>
+    <record id="studio_customization.product_product_40" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_46')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_63"/>
+    </record>
+    <record id="studio_customization.product_product_41" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_49')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_64"/>
+    </record>
+    <record id="studio_customization.product_product_42" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_55')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_65"/>
+    </record>
+    <record id="studio_customization.product_product_43" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_59')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_66"/>
+    </record>
+    <record id="studio_customization.product_product_44" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_63')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_67"/>
+    </record>
+    <record id="studio_customization.product_product_45" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_75')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_68"/>
+    </record>
+    <record id="studio_customization.product_product_46" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_70')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_69"/>
+    </record>
+    <record id="studio_customization.product_product_47" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_74')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_70"/>
+    </record>
+    <record id="studio_customization.product_product_48" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_71"/>
+    </record>
+    <record id="studio_customization.product_product_49" model="product.product">
+        <field name="default_code">Delivery_008</field>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_72"/>
+    </record>
+    <record id="studio_customization.product_product_6" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_1')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_6"/>
+    </record>
+    <record id="studio_customization.product_product_7" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_template_attribute_value_ids" eval="[(6, 0, [ref('studio_customization.product_template_attribute_value_2')])]"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_7"/>
+    </record>
+    <record id="studio_customization.product_product_9" model="product.product">
+        <field name="base_unit_count" eval="False"/>
+        <field name="product_tmpl_id" ref="studio_customization.product_template_9"/>
+    </record>
+    <record id="point_of_sale.product_product_tip" model="product.product">
+        <field name="default_code">TIPS</field>
+        <field name="weight">0.01</field>
+        <field name="product_tmpl_id" ref="point_of_sale.product_product_tip_product_template"/>
+    </record>
+    <record id="pos_sale.default_downpayment_product" model="product.product">
+        <field name="product_tmpl_id" ref="pos_sale.default_downpayment_product_product_template"/>
+    </record>
+</odoo>

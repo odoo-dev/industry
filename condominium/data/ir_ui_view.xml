@@ -62,7 +62,6 @@
                 <field name="x_sequence" widget="handle"/>
                 <field name="x_name"/>
                 <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
-                <field name="x_ratio" optional="show" sum="Sum of Ratio"/>
             </list>
         </field>
     </record>
@@ -89,7 +88,6 @@
                     </div>
                     <group>
                         <group>
-                            <field name="x_condominium"/>
                             <field name="x_studio_company_id" groups="base.group_no_one" options="{'no_create': True}"/>
                             <span class="fw-bold">Address</span>
                             <div class="o_address_format">
@@ -103,7 +101,6 @@
                         </group>
                         <group>
                             <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
-                            <field name="x_ratio"/>
                         </group>
                     </group>
                     <group>
@@ -161,24 +158,19 @@
     </record>
     <record id="default_list_view_properties" model="ir.ui.view">
         <field name="name">Default list view for x_properties</field>
-        <field name="model">x_properties</field>
+        <field name="model">account.analytic.account</field>
         <field name="type">list</field>
         <field name="active" eval="True"/>
         <field name="arch" type="xml">
             <list>
                 <field name="x_sequence" widget="handle"/>
-                <field name="x_name"/>
-                <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
-                <field name="x_building" optional="show"/>
-                <field name="x_type" optional="show"/>
-                <field name="x_owner" optional="show"/>
-                <field name="x_ratio" optional="show" sum="Sum of Ratio"/>
+                <field name="name"/>
             </list>
         </field>
     </record>
     <record id="default_form_view_properties" model="ir.ui.view">
         <field name="name">Default form view for x_properties</field>
-        <field name="model">x_properties</field>
+        <field name="model">account.analytic.account</field>
         <field name="type">form</field>
         <field name="active" eval="True"/>
         <field name="arch" type="xml">
@@ -190,28 +182,24 @@
                             <field widget="statinfo" name="x_x_parent_x_properties_count" string="Properties"/>
                         </button>
                     </div>
-                    <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+                    <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="active"/>
                     <field class="oe_avatar" widget="image" name="x_image"/>
                     <div class="oe_title">
                         <h1>
-                            <field name="x_name" required="1" placeholder="Name..."/>
+                            <field name="name" required="1" placeholder="Name..."/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="x_condominium"/>
-                            <field name="x_studio_company_id" groups="base.group_no_one" options="{'no_create': True}" on_change="1"/>
-                            <field name="x_building" options="{'create_name_field': 'x_name', 'no_create': true}" required="True"/>
-                            <field name="x_type" options="{'create_name_field': 'x_name'}" required="True"/>
+                            <field name="company_id" groups="base.group_no_one" options="{'no_create': True}" on_change="1"/>
+                            <field name="x_building" options="{'create_name_field': 'name', 'no_create': true}" required="True"/>
                             <field name="x_owner" string="Owner" required="True"/>
                             <field name="x_tenant"/>
                         </group>
                         <group>
-                            <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
-                            <field name="x_parent" options="{'create_name_field': 'x_name', 'no_create': true}"/>
+                            <field name="x_parent" options="{'create_name_field': 'name', 'no_create': true}"/>
                             <field name="x_floor"/>
                             <field name="x_area"/>
-                            <field name="x_ratio"/>
                         </group>
                     </group>
                     <group>
@@ -223,17 +211,13 @@
         </field>
     </record>
     <record id="default_search_view_properties" model="ir.ui.view">
-        <field name="model">x_properties</field>
+        <field name="model">account.analytic.account</field>
         <field name="name">Default search view for x_properties</field>
         <field name="type">search</field>
         <field name="active" eval="True"/>
         <field name="arch" type="xml">
             <search>
-                <field name="x_name"/>
-                <field name="x_tag_ids"/>
-                <separator/>
-                <filter string="Archived" name="archived_x_properties" domain="[['x_active', '=', False]]"/>
-                <separator/>
+                <field name="name"/>
             </search>
         </field>
     </record>
@@ -279,7 +263,6 @@
                     <t t-name="card">
                         <field name="x_name" />
                         <field name="x_tag_ids" display="full"/>
-                        <field name="x_ratio" display="full"/>
                     </t>
                 </templates>
             </kanban>
@@ -332,26 +315,6 @@
             </search>
         </field>
     </record>
-    <record id="default_kanban_view_properties" model="ir.ui.view">
-        <field name="model">x_properties</field>
-        <field name="active" eval="True"/>
-        <field name="name">kanban view for properties</field>
-        <field name="priority">99</field>
-        <field name="type">kanban</field>
-        <field name="arch" type="xml">
-            <kanban>
-                <templates>
-                    <t t-name="card">
-                        <field name="x_name" />
-                        <field name="x_tag_ids" display="full"/>
-                        <field name="x_type" display="full"/>
-                        <field name="x_ratio" display="full"/>
-                        <field name="x_owner" widget="many2one_avatar"/>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
     <record id="res_partner_form_view" model="ir.ui.view">
         <field name="name">Condominium form view</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
@@ -384,7 +347,6 @@
                     <group>
                         <group>
                             <field name="x_properties" widget="many2many_tags" force_save="1" readonly="True"/>
-                            <field name="x_ratio" options="{'human_readable': false}"/>
                             <field name="x_condominiums" widget="many2many_tags"/>
                             <field name="x_companies" widget="many2many_tags"/>
                         </group>
@@ -412,18 +374,76 @@
             </xpath>
         </field>
     </record>
-    <record id="res_partner_list_view" model="ir.ui.view">
-        <field name="name">Condominium list view</field>
-        <field name="inherit_id" ref="base.view_partner_tree"/>
-        <field name="mode">extension</field>
-        <field name="model">res.partner</field>
-        <field name="priority">160</field>
-        <field name="active" eval="True"/>
-        <field name="type">list</field>
+    <record id="default_list_view_fo_4b0695d8-e44f-4dea-ba24-97e3a87680f1" model="ir.ui.view" context="{'studio': True}">
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='company_id']" position="after">
-                <field name="x_ratio" optional="show" sum="Sum of Ratio"/>
-            </xpath>
+          <list>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            <field name="x_studio_company_id" groups="base.group_multi_company"/>
+          </list>
         </field>
-    </record>
+        <field name="model">x_ratios</field>
+        <field name="name">Default list view for x_ratios</field>
+        <field name="type">list</field>
+      </record>
+      <record id="default_form_view_fo_8c2be510-bad6-4e59-9ebc-227f6fd5dfcf" model="ir.ui.view" context="{'studio': True}">
+        <field name="arch" type="xml">
+          <form>
+            <header/>
+            <sheet string="Ratios">
+              <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+              <field name="x_active" invisible="1"/>
+              <div class="oe_title">
+                <h1>
+                  <field name="x_name" required="1" placeholder="Name..."/>
+                </h1>
+              </div>
+              <group name="studio_group_ae54a3">
+                <group name="studio_group_ae54a3_left">
+                  <field name="x_studio_company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                </group>
+                <group name="studio_group_ae54a3_right"/>
+              </group>
+            </sheet>
+            <chatter/>
+          </form>
+        </field>
+        <field name="model">x_ratios</field>
+        <field name="name">Default form view for x_ratios</field>
+        <field name="type">form</field>
+      </record>
+      <record id="default_search_view__d10333b4-05e4-4233-8be4-0a73769e2580" model="ir.ui.view" context="{'studio': True}">
+        <field name="arch" type="xml">
+          <search>
+            <field name="x_name"/>
+            <separator/>
+            <filter string="Archived" name="archived_x_ratios" domain="[['x_active', '=', False]]"/>
+            <separator/>
+          </search>
+        </field>
+        <field name="model">x_ratios</field>
+        <field name="name">Default search view for x_ratios</field>
+        <field name="type">search</field>
+      </record>
+      <record id="odoo_studio_default__b5d6716b-302a-410e-a95a-59ce797b4b01" model="ir.ui.view" context="{'studio': True}">
+        <field name="arch" type="xml">
+          <data>
+            <xpath expr="//field[@name='x_name']" position="replace"/>
+            <xpath expr="//group[@name='studio_group_ae54a3_left']" position="inside">
+              <field name="x_studio_property" options="{&quot;create_name_field&quot;:&quot;x_name&quot;,&quot;no_create&quot;:true}"/>
+              <field name="x_studio_pricelist" options="{&quot;no_create&quot;:true}"/>
+            </xpath>
+            <xpath expr="//group[@name='studio_group_ae54a3_right']" position="inside">
+              <field name="x_studio_ratio"/>
+              <xpath expr="//field[@name='x_studio_company_id']" position="move"/>
+            </xpath>
+          </data>
+        </field>
+        <field name="inherit_id" ref="default_form_view_fo_8c2be510-bad6-4e59-9ebc-227f6fd5dfcf"/>
+        <field name="mode">extension</field>
+        <field name="model">x_ratios</field>
+        <field name="name">Odoo Studio: Default form view for x_ratios customization</field>
+        <field name="priority">99</field>
+        <field name="type">form</field>
+      </record>
 </odoo>

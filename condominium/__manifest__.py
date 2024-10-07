@@ -49,6 +49,7 @@ Moreover, the business is legally regulated in lots of countries under different
         'data/x_buildings_tag.xml',
         'data/x_properties_types.xml',
         'data/x_properties_tag.xml',
+        'data/x_ratios.xml'
         'data/knowledge_tour.xml',
     ],
     'demo': [

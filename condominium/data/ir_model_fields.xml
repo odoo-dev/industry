@@ -72,62 +72,44 @@
         <field name="field_description">Color</field>
         <field name="model_id" ref="model_buildings_tags"/>
     </record>
-    <record id="description_properties" model="ir.model.fields">
-        <field name="name">x_name</field>
-        <field name="ttype">char</field>
-        <field name="copied" eval="True"/>
-        <field name="field_description">Description</field>
-        <field name="model_id" ref="model_properties"/>
-        <field name="required" eval="True"/>
-        <field name="tracking">1</field>
-        <field name="translate" eval="True"/>
-    </record>
-    <record id="active_properties" model="ir.model.fields">
-        <field name="name">x_active</field>
-        <field name="ttype">boolean</field>
-        <field name="copied" eval="True"/>
-        <field name="field_description">Active</field>
-        <field name="model_id" ref="model_properties"/>
-        <field name="tracking">1</field>
-    </record>
-    <record id="company_properties" model="ir.model.fields">
-        <field name="name">x_studio_company_id</field>
-        <field name="ttype">many2one</field>
-        <field name="copied" eval="True"/>
-        <field name="field_description">Company</field>
-        <field name="model_id" ref="model_properties"/>
-        <field name="relation">res.company</field>
-        <field name="tracking">1</field>
-    </record>
     <record id="notes_properties" model="ir.model.fields">
         <field name="name">x_notes</field>
         <field name="ttype">html</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Notes</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
     </record>
     <record id="image_properties" model="ir.model.fields">
         <field name="name">x_image</field>
         <field name="ttype">binary</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Image</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
     </record>
     <record id="sequence_properties" model="ir.model.fields">
         <field name="name">x_sequence</field>
         <field name="ttype">integer</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Sequence</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
     </record>
     <record id="tags_properties" model="ir.model.fields">
-        <field name="name">x_tag_ids</field>
         <field name="ttype">many2many</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Tags</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model">account.analytic.account</field>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
+        <field name="name">x_studio_tags</field>
+        <field name="on_delete" eval="False"/>
         <field name="relation">x_properties_tag</field>
-        <field name="relation_table">x_properties_tag_rel</field>
+        <field name="relation_table">x_account_analytic_account_x_properties_tag_rel</field>
+    </record>
+    <record id="property_id_field" model="ir.model.fields">
+        <field name="name">x_property_id</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="field_description">Property</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">account.analytic.account</field>
     </record>
     <record id="name_properties_tags" model="ir.model.fields">
         <field name="name">x_name</field>
@@ -136,22 +118,6 @@
         <field name="field_description">Name</field>
         <field name="model_id" ref="model_properties_tags"/>
         <field name="required" eval="True"/>
-    </record>
-    <record id="color_properties_tag" model="ir.model.fields">
-        <field name="name">x_color</field>
-        <field name="ttype">integer</field>
-        <field name="copied" eval="True"/>
-        <field name="field_description">Color</field>
-        <field name="model_id" ref="model_properties_tags"/>
-    </record>
-    <record id="building_condominium" model="ir.model.fields">
-        <field name="name">x_condominium</field>
-        <field name="ttype">many2one</field>
-        <field name="related">x_studio_company_id.partner_id</field>
-        <field name="field_description">Condominium</field>
-        <field name="model_id" ref="model_buildings"/>
-        <field name="readonly" eval="True"/>
-        <field name="relation">res.partner</field>
     </record>
     <record id="street" model="ir.model.fields">
         <field name="name">x_street</field>
@@ -200,9 +166,9 @@
     <record id="property_condominium" model="ir.model.fields">
         <field name="name">x_condominium</field>
         <field name="ttype">many2one</field>
-        <field name="related">x_studio_company_id.partner_id</field>
+        <field name="related">partner_id</field>
         <field name="field_description">Condominium</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
         <field name="readonly" eval="True"/>
         <field name="relation">res.partner</field>
     </record>
@@ -211,7 +177,7 @@
         <field name="ttype">many2one</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Building</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
         <field name="relation">x_buildings</field>
     </record>
     <record id="owner" model="ir.model.fields">
@@ -219,7 +185,7 @@
         <field name="ttype">many2one</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Owner</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
         <field name="relation">res.partner</field>
     </record>
     <record id="tenant" model="ir.model.fields">
@@ -227,7 +193,7 @@
         <field name="ttype">many2one</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Tenant</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
         <field name="relation">res.partner</field>
     </record>
     <record id="parent" model="ir.model.fields">
@@ -235,29 +201,29 @@
         <field name="ttype">many2one</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Parent</field>
-        <field name="model_id" ref="model_properties"/>
-        <field name="relation">x_properties</field>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
+        <field name="relation">account.analytic.account</field>
     </record>
     <record id="floor" model="ir.model.fields">
         <field name="name">x_floor</field>
         <field name="ttype">char</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Floor</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
     </record>
     <record id="area" model="ir.model.fields">
         <field name="name">x_area</field>
         <field name="ttype">float</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Area</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
     </record>
     <record id="ratio" model="ir.model.fields">
         <field name="name">x_ratio</field>
         <field name="ttype">float</field>
         <field name="copied" eval="True"/>
         <field name="field_description">Ratio</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
     </record>
     <record id="description_property_types" model="ir.model.fields">
         <field name="name">x_name</field>
@@ -284,14 +250,6 @@
         <field name="field_description">Sequence</field>
         <field name="model_id" ref="model_properties_types"/>
     </record>
-    <record id="type" model="ir.model.fields">
-        <field name="name">x_type</field>
-        <field name="ttype">many2one</field>
-        <field name="copied" eval="True"/>
-        <field name="field_description">Type</field>
-        <field name="model_id" ref="model_properties"/>
-        <field name="relation">x_properties_types</field>
-    </record>
     <record id="parent_count" model="ir.model.fields">
         <field name="name">x_x_parent_x_properties_count</field>
         <field name="compute"><![CDATA[
@@ -300,7 +258,7 @@ for record in self:
 ]]></field>
         <field name="ttype">integer</field>
         <field name="field_description">Parent count</field>
-        <field name="model_id" ref="model_properties"/>
+        <field name="model_id" ref="analytic.model_account_analytic_account"/>
         <field name="selectable" eval="False"/>
         <field name="store" eval="False"/>
     </record>
@@ -340,42 +298,6 @@ for record in self:
         <field name="selectable" eval="False"/>
         <field name="store" eval="False"/>
     </record>
-    <record id="property_owner" model="ir.model.fields">
-        <field name="name">x_properties</field>
-        <field name="ttype">one2many</field>
-        <field name="field_description">Properties</field>
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="relation">x_properties</field>
-        <field name="relation_field">x_owner</field>
-    </record>
-    <record id="properties_condominium_ids" model="ir.model.fields">
-        <field name="name">x_condominiums</field>
-        <field name="compute"><![CDATA[
-for record in self:
-    record['x_condominiums'] = [(6, 0, record.x_properties.x_condominium.ids)]
-]]></field>
-        <field name="ttype">many2many</field>
-        <field name="depends">x_properties, x_properties.x_condominium</field>
-        <field name="field_description">Properties Condominiums</field>
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="readonly" eval="True"/>
-        <field name="relation">res.partner</field>
-        <field name="relation_table">x_res_partner_res_partner_rel</field>
-    </record>
-    <record id="partner_company_ids" model="ir.model.fields">
-        <field name="name">x_companies</field>
-        <field name="compute"><![CDATA[
-for record in self: 
-    record['x_companies'] = [(6, 0, record.x_properties.x_condominium.ref_company_ids.ids)]
-]]></field>
-        <field name="ttype">many2many</field>
-        <field name="depends">x_properties, x_properties.x_condominium</field>
-        <field name="field_description">Partner's Companies</field>
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="readonly" eval="True"/>
-        <field name="relation">res.company</field>
-        <field name="relation_table">x_res_company_res_partner_rel</field>
-    </record>
     <record id="vendor_ids" model="ir.model.fields">
         <field name="name">x_vendors</field>
         <field name="ttype">many2many</field>
@@ -410,28 +332,6 @@ for record in self:
         <field name="relation">res.company</field>
         <field name="relation_table">x_res_company_res_partner_rel_1</field>
     </record>
-    <record id="condominium_properties_ids" model="ir.model.fields">
-        <field name="name">x_condominium_properties</field>
-        <field name="ttype">one2many</field>
-        <field name="field_description">Condominium Properties</field>
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="relation">x_properties</field>
-        <field name="relation_field">x_condominium</field>
-    </record>
-    <record id="partner_ratio" model="ir.model.fields">
-        <field name="name">x_ratio</field>
-        <field name="compute"><![CDATA[
-for record in self:
-    record['x_ratio'] = sum(record.x_properties.mapped('x_ratio'))
-]]></field>
-        <field name="ttype">float</field>
-        <field name="depends">x_properties, x_properties.x_ratio</field>
-        <field name="field_description">Ratio</field>
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="readonly" eval="True"/>
-        <field name="selectable" eval="False"/>
-        <field name="store" eval="False"/>
-    </record>
     <record id="owner_count" model="ir.model.fields">
         <field name="name">x_x_owner_x_properties_count</field>
         <field name="compute"><![CDATA[
@@ -443,35 +343,6 @@ for record in self:
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="selectable" eval="False"/>
         <field name="store" eval="False"/>
-    </record>
-    <record id="building_properties_ids" model="ir.model.fields">
-        <field name="name">x_properties</field>
-        <field name="ttype">one2many</field>
-        <field name="field_description">Properties</field>
-        <field name="model_id" ref="model_buildings"/>
-        <field name="relation">x_properties</field>
-        <field name="relation_field">x_building</field>
-    </record>
-    <record id="building_ratio" model="ir.model.fields">
-        <field name="name">x_ratio</field>
-        <field name="compute"><![CDATA[
-for record in self:
-    record['x_ratio'] = sum(record.x_properties.mapped('x_ratio'))
-]]></field>
-        <field name="ttype">float</field>
-        <field name="depends">x_properties</field>
-        <field name="field_description">Ratio</field>
-        <field name="model_id" ref="model_buildings"/>
-        <field name="readonly" eval="True"/>
-        <field name="selectable" eval="False"/>
-        <field name="store" eval="False"/>
-    </record>
-    <record id="property_id_field" model="ir.model.fields">
-        <field name="name">x_property_id</field>
-        <field name="model_id" ref="sale.model_sale_order"/>
-        <field name="field_description">Property</field>
-        <field name="ttype">many2one</field>
-        <field name="relation">x_properties</field>
     </record>
     <record id="source_sales_order_field" model="ir.model.fields">
         <field name="name">x_source_sales_order</field>
@@ -491,6 +362,15 @@ for record in self:
         <field name="ttype">integer</field>
         <field name="selectable" eval="False"/>
         <field name="store" eval="False"/>
+    </record>
+        <record id="properties_condominium_ids" model="ir.model.fields">
+        <field name="name">x_condominiums</field>
+        <field name="ttype">many2many</field>
+        <field name="field_description">Properties Condominiums</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="readonly" eval="True"/>
+        <field name="relation">res.partner</field>
+        <field name="relation_table">x_res_partner_res_partner_rel</field>
     </record>
     <record id="related_condominium_ids" model="ir.model.fields">
         <field name="name">x_condominiums_ids</field>

@@ -44,4 +44,21 @@ for picking in records:
 ]]>
         </field>
     </record>
+    <record id="inventory_price_update" model="ir.actions.server">
+        <field name="code"><![CDATA[if not record.description_pickingin:
+    record['description_pickingin'] = f'[{record.list_price}]'
+start = record.description_pickingin.find('[')
+end = record.description_pickingin.find(']')
+
+if start != -1 and end != -1:
+    record['description_pickingin'] = record.description_pickingin[:start+1] + str(record.list_price) + record.description_pickingin[end:]
+else:
+    record['description_pickingin'] = f'[{record.list_price}]'
+    ]]></field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="state">code</field>
+        <field name="name">Execute Code</field>
+        <field name="usage">base_automation</field>
+        <field name="base_automation_id" ref="update_inventory_description"/>
+      </record>
 </odoo>

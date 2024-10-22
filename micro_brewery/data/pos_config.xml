@@ -4,7 +4,7 @@
         <field name="name">Shop</field>
         <field name="down_payment_product_id" ref="pos_sale.default_downpayment_product"/>
         <field name="limit_categories" eval="1"/>
-        <field name="iface_available_categ_ids" eval="[(6, 0, [ref('pos_category_3')])]"/>
+        <field name="iface_available_categ_ids" eval="[Command.link(ref('pos_category_1')), Command.link(ref('pos_category_2')), Command.link(ref('pos_category_3')), Command.link(ref('pos_category_4')), Command.link(ref('pos_category_5')), Command.link(ref('pos_category_6')), Command.link(ref('pos_category_7')), Command.link(ref('pos_category_8')), Command.link(ref('pos_category_9')), Command.link(ref('pos_category_10'))]"/>
         <field name="active" eval="True"/>
     </record>
     <record id="pos_config_main_bar_micro_brewery" model="pos.config">

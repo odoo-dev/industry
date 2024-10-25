@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="execute_code_36f223ed-616f-435c-9094-c72654ef9a49" model="ir.actions.server" >
+    <field name="code"><![CDATA[linked_department = record.x_studio_department
+if linked_department:
+    linked_department.write({
+        'manager_id': record.x_studio_employe.id,
+    })
+else:
+    new_department = env['hr.department'].create({
+        'name': record.x_name,
+        'manager_id': record.x_studio_employe.id,})
+    record['x_studio_department'] = new_department
+]]></field>
+    <field name="model_id" ref="faculty_model"/>
+    <field name="state">code</field>
+    <field name="name">Execute Code</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="execute_code_ee0356bc-3c40-4cbb-aa3c-ca31d82d9216" model="ir.actions.server" >
+    <field name="code"><![CDATA[linked_department = record.x_studio_organisation
+parent = record.x_studio_parent_department if record.x_studio_parent_department else record.x_studio_faculty
+if linked_department:
+    linked_department.write({
+        'manager_id': record.x_studio_responsible.id,
+        'parent_id':parent.id,
+    })
+else:
+    new_department = env['hr.department'].create({
+        'name': record.x_name,
+        'manager_id': record.x_studio_responsible.id,
+                'parent_id':parent.id,
+    })
+    record['x_studio_organisation'] = new_department
+]]></field>
+    <field name="model_id" ref="department_model"/>
+    <field name="state">code</field>
+    <field name="name">Execute Code</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="execute_code_8417d50c-03e6-40fe-8cba-b9672e5a740e" model="ir.actions.server" >
+    <field name="code"><![CDATA[employee_vals = {
+    'name': record.x_name, 
+    'work_email': record.x_studio_email,
+    'work_phone': record.x_studio_phone,  
+    'user_id': record.x_studio_contact.id, 
+    'image_1920': record.x_studio_image,  
+    'active': record.x_active, 
+    'x_studio_professor': record.id,
+    'department_id': record.x_studio_department_1.x_studio_organisation.id,
+}
+related_employee = record.x_studio_contact
+
+if related_employee:
+    related_employee.write(employee_vals)
+else:
+    new_employee = env['hr.employee'].create(employee_vals)]]></field>
+    <field name="model_id" ref="professor_model"/>
+    <field name="state">code</field>
+    <field name="name">Execute Code</field>
+    <field name="usage">base_automation</field>
+  </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="documents_hr_recruitment.document_recruitment_folder" model="documents.document" forcecreate="1">
+    <field name="name">Recruitment</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">6UF3Js6pTHS0tPd8y5Hx0A</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+  <record id="documents_spreadsheet.document_spreadsheet_folder" model="documents.document" forcecreate="1">
+    <field name="name">Spreadsheet</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">FZh4HkXbT4KTV3JLgW0_Yg</field>
+    <field name="access_internal">edit</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+  <record id="documents_product.document_product_folder" model="documents.document" forcecreate="1">
+    <field name="name">Products</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">eCM_c7-vTQ6_94c2W-9d0g</field>
+    <field name="access_internal">view</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+  <record id="documents_hr.document_hr_folder" model="documents.document" forcecreate="1">
+    <field name="name">HR</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">23k-CYdHRr6577wyFaXx8w</field>
+    <field name="access_internal">view</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+  <record id="documents.document_support_folder" model="documents.document" forcecreate="1">
+    <field name="name">Support</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">9s6Lwe8pR-aSZ5QrGgPibA</field>
+  </record>
+  <record id="documents.document_marketing_folder" model="documents.document" forcecreate="1">
+    <field name="name">Marketing</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">AlPvgyznQROQ5gGZOqweoA</field>
+    <field name="access_internal">edit</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+  <record id="documents.document_finance_folder" model="documents.document" forcecreate="1">
+    <field name="name">Finance</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">pu9H8pE9QOm5uHdiIZ2L3g</field>
+    <field name="access_internal">edit</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+  <record id="documents.document_internal_folder" model="documents.document" forcecreate="1">
+    <field name="name">Internal</field>
+    <field name="type">folder</field>
+    <field name="owner_id" ref="base.user_root"/>
+    <field name="document_token">KCtcYuhlQT6ktef3exqxiQ</field>
+    <field name="access_internal">view</field>
+    <field name="is_pinned_folder" eval="True"/>
+  </record>
+</odoo>

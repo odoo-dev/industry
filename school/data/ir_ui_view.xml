@@ -1,0 +1,1588 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="default_list_view_fo_02df6cab-a2ab-4219-ba5b-1be9b477677b" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+        <field name="x_studio_partner_id"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+        <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+      </list>
+    </field>
+    <field name="model">x_university</field>
+    <field name="name">Default list view for x_university</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_a1e80065-fe3d-44f4-8fda-e9fac3756888" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="university">
+          <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_ef0294">
+            <group name="studio_group_ef0294_left">
+              <field name="x_studio_partner_id"/>
+              <field name="x_studio_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+              <field name="x_studio_partner_email" widget="email"/>
+              <field name="x_studio_date"/>
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_ef0294_right">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+              <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Details" name="lines">
+              <field name="x_university_line_ids_7dd8d"/>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+    <field name="model">x_university</field>
+    <field name="name">Default form view for x_university</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__9c104e90-1ce9-4cd6-85fe-74c20bd6dcd0" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_partner_id" operator="child_of"/>
+        <field name="x_studio_user_id"/>
+        <field name="x_studio_tag_ids"/>
+        <filter string="My university" name="my_x_university" domain="[['x_studio_user_id', '=', uid]]"/>
+        <separator/>
+        <filter date="x_studio_date" name="studio_filter_date" string="Date"/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_university" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_studio_partner_id'}" domain="[]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_university</field>
+    <field name="name">Default search view for x_university</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_calendar_vie_b0679b04-4a31-4581-a4a3-c469427d3cee" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <calendar date_start="x_studio_date" create_name_field="x_name"/>
+    </field>
+    <field name="model">x_university</field>
+    <field name="name">Default calendar view for x_university</field>
+    <field name="type">calendar</field>
+  </record>
+  <record id="default_gantt_view_f_0bcc8552-f4d4-4130-899f-53aa3ab50ca2" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_university</field>
+    <field name="name">Default gantt view for x_university</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_map_view_for_117861c1-7dd9-464a-8ddb-07b17c18587f" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <map res_partner="x_studio_partner_id">
+        <field name="x_studio_partner_id" string="Partner"/>
+      </map>
+    </field>
+    <field name="model">x_university</field>
+    <field name="name">Default map view for x_university</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_4c53a8d0-dc43-412d-87de-d23e043181ed" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_university_line_0eb59</field>
+    <field name="name">Default list view for x_university_line_0eb59</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_b9998990-60c5-4068-ae2f-525f128acd16" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="university_line">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_84ec66">
+            <group name="studio_group_84ec66_left"/>
+            <group name="studio_group_84ec66_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_university_line_0eb59</field>
+    <field name="name">Default form view for x_university_line_0eb59</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__c62658f5-e880-40d2-80e5-a3c22a8b8d14" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_university_line_0eb59</field>
+    <field name="name">Default search view for x_university_line_0eb59</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_a390b85b-f25f-4af8-92a6-51c86d0b474c" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_name"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_university_tag</field>
+    <field name="name">Default list view for x_university_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_484be8f1-a92d-40a5-8198-2f5b5ee00408" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="university Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_373260">
+            <group name="studio_group_373260_left"/>
+            <group name="studio_group_373260_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_university_tag</field>
+    <field name="name">Default form view for x_university_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__fb4dfa8c-7653-45a0-b4f5-c27a212711f7" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_university_tag</field>
+    <field name="name">Default search view for x_university_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_e9203e97-2f90-4e28-a5df-7c994f2b3ede" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+        <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+      </list>
+    </field>
+    <field name="model">x_professor</field>
+    <field name="name">Default list view for x_professor</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_39f227ae-574b-448b-8602-2c7b340396c4" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Professor">
+          <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+          <field name="x_active" invisible="1"/>
+          <field class="oe_avatar" widget="image" name="x_studio_image"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_e13b6e">
+            <group name="studio_group_e13b6e_left">
+              <field name="x_studio_date"/>
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_e13b6e_right">
+              <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_professor</field>
+    <field name="name">Default form view for x_professor</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__2594662c-f271-4319-804b-52cab65eddfe" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_tag_ids"/>
+        <separator/>
+        <filter date="x_studio_date" name="studio_filter_date" string="Date"/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_professor" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_studio_contact'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_professor</field>
+    <field name="name">Default search view for x_professor</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_calendar_vie_5f62ee59-d811-4a19-9a55-c34fba0d88ea" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <calendar date_start="x_studio_date" create_name_field="x_name"/>
+    </field>
+    <field name="model">x_professor</field>
+    <field name="name">Default calendar view for x_professor</field>
+    <field name="type">calendar</field>
+  </record>
+  <record id="default_gantt_view_f_8cb83993-727f-41f8-84eb-0795c8325a7a" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_professor</field>
+    <field name="name">Default gantt view for x_professor</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_map_view_for_874d50a5-75ca-4447-80bd-e3c04892f43b" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <map res_partner="x_studio_contact">
+        <field name="x_studio_contact" string="Partner"/>
+      </map>
+    </field>
+    <field name="model">x_professor</field>
+    <field name="name">Default map view for x_professor</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_248cb71f-46d6-4244-8980-2cd90720f907" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_name"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_professor_tag</field>
+    <field name="name">Default list view for x_professor_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_95139fc9-be1c-421d-8e36-40c6c3e67179" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Professor Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_246268">
+            <group name="studio_group_246268_left"/>
+            <group name="studio_group_246268_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_professor_tag</field>
+    <field name="name">Default form view for x_professor_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__0cd0ad3b-7512-4042-b060-334d89fc9ce6" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_professor_tag</field>
+    <field name="name">Default search view for x_professor_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_1ac867bf-4fc0-4155-b8a2-077a57577f2e" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_academic_years</field>
+    <field name="name">Default list view for x_academic_years</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_81cb804f-43d4-41a9-913c-57460ed51c0f" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Academic Years">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_430c47">
+            <group name="studio_group_430c47_left">
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_430c47_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_academic_years</field>
+    <field name="name">Default form view for x_academic_years</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__5d21f1a2-105e-4751-ab71-db45139785b2" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+      </search>
+    </field>
+    <field name="model">x_academic_years</field>
+    <field name="name">Default search view for x_academic_years</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_gantt_view_f_bd23c70c-6b44-43ae-b506-46b57e4cb0df" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_academic_years</field>
+    <field name="name">Default gantt view for x_academic_years</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_list_view_fo_4eecfe5b-8a23-46d8-8bb0-73194aa43175" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_semester</field>
+    <field name="name">Default list view for x_semester</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_50ccc123-e080-481e-941a-762efc9f4cf1" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Semester">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_b30f84">
+            <group name="studio_group_b30f84_left">
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_b30f84_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_semester</field>
+    <field name="name">Default form view for x_semester</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__8e372d88-5687-4391-aebf-c4e928ed17f1" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+      </search>
+    </field>
+    <field name="model">x_semester</field>
+    <field name="name">Default search view for x_semester</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_gantt_view_f_2118af66-5789-4999-9b7f-d837a9b156c8" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_semester</field>
+    <field name="name">Default gantt view for x_semester</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_list_view_fo_6f964b08-a600-4d38-838e-801bea8deeda" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_partner_id"/>
+      </list>
+    </field>
+    <field name="model">x_students</field>
+    <field name="name">Default list view for x_students</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_430e0f58-c5b7-4d6e-bc9d-4dfdb15df98b" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Students">
+          <field class="oe_avatar" widget="image" name="x_studio_image"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_2739a9">
+            <group name="studio_group_2739a9_left">
+              <field name="x_studio_partner_id"/>
+              <field name="x_studio_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+              <field name="x_studio_partner_email" widget="email"/>
+              <field name="x_studio_date"/>
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_2739a9_right"/>
+          </group>
+          <notebook>
+            <page string="Details" name="lines">
+              <field name="x_students_line_ids_949b7"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_students</field>
+    <field name="name">Default form view for x_students</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__0d08dabe-de9c-4881-84f1-629a124bfcb0" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_partner_id" operator="child_of"/>
+        <separator/>
+        <filter date="x_studio_date" name="studio_filter_date" string="Date"/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_studio_partner_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_students</field>
+    <field name="name">Default search view for x_students</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_calendar_vie_5bbc847d-af17-4d2b-b42f-c0343f1d8f4e" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <calendar date_start="x_studio_date" create_name_field="x_name"/>
+    </field>
+    <field name="model">x_students</field>
+    <field name="name">Default calendar view for x_students</field>
+    <field name="type">calendar</field>
+  </record>
+  <record id="default_gantt_view_f_97fb857c-c1c2-4466-9f8d-4a196ed017ea" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_students</field>
+    <field name="name">Default gantt view for x_students</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_map_view_for_c6ef25a3-bf52-4df4-a8b5-d92d815f9b87" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <map res_partner="x_studio_partner_id">
+        <field name="x_studio_partner_id" string="Partner"/>
+      </map>
+    </field>
+    <field name="model">x_students</field>
+    <field name="name">Default map view for x_students</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_cb41fd0a-a275-4ff9-a104-ac000ed53301" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_students_line_31915</field>
+    <field name="name">Default list view for x_students_line_31915</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_9a6acea5-d787-4bf7-93bb-43d12781167d" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="students_line">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_597a17">
+            <group name="studio_group_597a17_left"/>
+            <group name="studio_group_597a17_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_students_line_31915</field>
+    <field name="name">Default form view for x_students_line_31915</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__a1ada8c6-f6ff-4ca9-a6fd-dba61d637dc5" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_students_line_31915</field>
+    <field name="name">Default search view for x_students_line_31915</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_160952b0-1160-4f91-898d-681b8a59c47d" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+      </list>
+    </field>
+    <field name="model">x_faculty</field>
+    <field name="name">Default list view for x_faculty</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_108cc7fb-e158-45dc-8614-f9fb12ee200c" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Faculty">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_5d3975">
+            <group name="studio_group_5d3975_left">
+              <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </group>
+            <group name="studio_group_5d3975_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_faculty</field>
+    <field name="name">Default form view for x_faculty</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__b4186a70-6e62-45fa-91ec-96f7f00339ff" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_tag_ids"/>
+      </search>
+    </field>
+    <field name="model">x_faculty</field>
+    <field name="name">Default search view for x_faculty</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_25208457-1025-431b-afb9-5e2e285a0e69" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_name"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_faculty_tag</field>
+    <field name="name">Default list view for x_faculty_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_6d092927-1c0e-4af3-856c-1a35c33beae5" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Faculty Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_16c24a">
+            <group name="studio_group_16c24a_left"/>
+            <group name="studio_group_16c24a_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_faculty_tag</field>
+    <field name="name">Default form view for x_faculty_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__adf88c4d-d6e5-4db5-b2bc-44563dae5c8d" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_faculty_tag</field>
+    <field name="name">Default search view for x_faculty_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_745d318d-ce03-4966-9b69-765c479cb68f" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </list>
+    </field>
+    <field name="model">x_batch</field>
+    <field name="name">Default list view for x_batch</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_e617a268-59d3-4c44-bbad-ba4ddcbe1ebe" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Batch">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_35b76f">
+            <group name="studio_group_35b76f_left">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+            <group name="studio_group_35b76f_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_batch</field>
+    <field name="name">Default form view for x_batch</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__5db52f20-0e9b-4b00-a562-648cbe0434ba" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Batch" name="my_x_batch" domain="[['x_studio_user_id', '=', uid]]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_batch</field>
+    <field name="name">Default search view for x_batch</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_90d199a8-6efa-4f8f-a4ff-191360921cd3" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </list>
+    </field>
+    <field name="model">x_exam</field>
+    <field name="name">Default list view for x_exam</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_60c2c519-443f-46a1-95c8-f43ada577026" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Exam">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_d4c4bd">
+            <group name="studio_group_d4c4bd_left">
+              <field name="x_studio_date"/>
+            </group>
+            <group name="studio_group_d4c4bd_right">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_exam</field>
+    <field name="name">Default form view for x_exam</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__68d4dd1a-aee6-49af-886b-3d4b52c95e16" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Exam" name="my_x_exam" domain="[['x_studio_user_id', '=', uid]]"/>
+        <separator/>
+        <filter date="x_studio_date" name="studio_filter_date" string="Date"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_exam</field>
+    <field name="name">Default search view for x_exam</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_calendar_vie_27bd27b0-0a1a-4b2a-85cb-60daeb367bb6" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <calendar date_start="x_studio_date" create_name_field="x_name"/>
+    </field>
+    <field name="model">x_exam</field>
+    <field name="name">Default calendar view for x_exam</field>
+    <field name="type">calendar</field>
+  </record>
+  <record id="default_form_view_fo_f8ef4bde-ddc6-4dd2-ac94-ce7fbd9eb84e" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Exam Results">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_28c054">
+            <group name="studio_group_28c054_left">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+            <group name="studio_group_28c054_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_exam_results</field>
+    <field name="name">Default form view for x_exam_results</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__b3989a30-26f1-4da8-939c-c7a3b75e915e" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Exam Results" name="my_x_exam_results" domain="[['x_studio_user_id', '=', uid]]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_exam_results</field>
+    <field name="name">Default search view for x_exam_results</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_1f08217d-1726-4e1a-93de-ce90b6fb7277" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_exam_types</field>
+    <field name="name">Default list view for x_exam_types</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_606520cc-798c-4bbf-b7eb-259405e90fe6" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Exam Types">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_873a77">
+            <group name="studio_group_873a77_left"/>
+            <group name="studio_group_873a77_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_exam_types</field>
+    <field name="name">Default form view for x_exam_types</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__58ac1d7a-0372-4b35-89c3-04e28277d2d1" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_exam_types</field>
+    <field name="name">Default search view for x_exam_types</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_5310bdba-7af5-4257-93f4-963196af614a" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </list>
+    </field>
+    <field name="model">x_department</field>
+    <field name="name">Default list view for x_department</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_2ae3dfcc-032b-4984-a2e9-5e00050bf5a6" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Department">
+          <field class="oe_avatar" widget="image" name="x_studio_image"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_4f41d7">
+            <group name="studio_group_4f41d7_left">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+            <group name="studio_group_4f41d7_right"/>
+          </group>
+          <group>
+            <field name="x_studio_notes" placeholder="Type down your notes here..." nolabel="1" colspan="2"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_department</field>
+    <field name="name">Default form view for x_department</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__c16a451f-7ae9-4985-a587-f284bd691918" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Department" name="my_x_department" domain="[['x_studio_user_id', '=', uid]]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_department</field>
+    <field name="name">Default search view for x_department</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_c2e6cf97-0b63-449a-adde-f2ea2c48d297" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_subject</field>
+    <field name="name">Default list view for x_subject</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_d7ed7847-a7b4-4c10-aaa8-2c25b53c95fc" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Subject">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_f7d623">
+            <group name="studio_group_f7d623_left"/>
+            <group name="studio_group_f7d623_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_subject</field>
+    <field name="name">Default form view for x_subject</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__ce36287d-ba7c-4141-a4d0-3d4bb519d3c3" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_subject</field>
+    <field name="name">Default search view for x_subject</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_7e71438b-ff15-4166-86a1-4d673a9a8ab3" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_syllabus</field>
+    <field name="name">Default list view for x_syllabus</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_8ca7e018-468c-4eb1-8568-6e970f13274d" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Syllabus">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_895446">
+            <group name="studio_group_895446_left"/>
+            <group name="studio_group_895446_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_syllabus</field>
+    <field name="name">Default form view for x_syllabus</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__ab8944f0-bfcd-4506-a8eb-2a6f3afc84d5" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_syllabus</field>
+    <field name="name">Default search view for x_syllabus</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_a9ad1c70-f328-45d6-8cac-1326bbc04384" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_attendance</field>
+    <field name="name">Default list view for x_attendance</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_5e31bb79-0e57-4281-84c5-c1d084889437" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Attendance">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_b08e9b">
+            <group name="studio_group_b08e9b_left"/>
+            <group name="studio_group_b08e9b_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_attendance</field>
+    <field name="name">Default form view for x_attendance</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__bb57e277-20ef-41d3-8d87-384e069d5ede" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_attendance</field>
+    <field name="name">Default search view for x_attendance</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_5704c65e-6e98-496a-8930-7670b1f85cbc" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </list>
+    </field>
+    <field name="model">x_course</field>
+    <field name="name">Default list view for x_course</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_1cfa5e39-e78a-4ae8-90e8-25102ca0194c" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Course">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_a9a537">
+            <group name="studio_group_a9a537_left">
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_a9a537_right">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_course</field>
+    <field name="name">Default form view for x_course</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__e9fb49e6-a8ad-44b0-a0c1-d2c0f6085c1e" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Course" name="my_x_course" domain="[['x_studio_user_id', '=', uid]]"/>
+        <separator/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_course</field>
+    <field name="name">Default search view for x_course</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_gantt_view_f_c9a0eb91-affd-4263-afe9-29e01871c8bc" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_course</field>
+    <field name="name">Default gantt view for x_course</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="odoo_studio_default__a44358f0-7747-4563-a5cb-25252fc5f0ff" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_f7d623_left']" position="inside">
+          <field name="x_studio_course" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_syllabus" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_planned_date"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_f7d623_right']" position="inside">
+          <field name="x_studio_professor"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_d7ed7847-a7b4-4c10-aaa8-2c25b53c95fc"/>
+    <field name="mode">extension</field>
+    <field name="model">x_subject</field>
+    <field name="active" eval="True" />
+    <field name="name">Odoo Studio: Default form view for x_subject customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__f4e6b4d0-0fdf-47e9-be82-0761de759732" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_895446_left']" position="inside">
+          <field name="x_studio_document"/>
+          <field name="x_studio_course" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_895446_right']" position="inside">
+          <field name="x_studio_details"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_8ca7e018-468c-4eb1-8568-6e970f13274d"/>
+    <field name="mode">extension</field>
+    <field name="model">x_syllabus</field>
+    <field name="active" eval="True" />
+    <field name="name">Odoo Studio: Default form view for x_syllabus customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__246a6a54-8429-49a7-a611-2fe2d338d7f5" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="replace">
+          <field name="x_studio_semester" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_prerequisite" widget="many2many_tags"/>
+          <field name="x_studio_date_range" widget="daterange" options="{&quot;end_date_field&quot;:&quot;x_studio_dates&quot;}"/>
+          <field name="x_studio_professor" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_a9a537']" position="after">
+          <notebook name="studio_notebook_12u_1iauoepfh">
+            <page string="Subjects" name="studio_page_12u">
+              <field name="x_studio_subject">
+                <list>
+                  <field name="x_name"/>
+                  <field optional="show" name="x_studio_date"/>
+                </list>
+              </field>
+            </page>
+            <page string="Exams" name="studio_page_1mo_1iauof4t8">
+              <field name="x_studio_one2many_field_6i1_1iaur4m8n"/>
+            </page>
+            <page string="Additional information" name="studio_page_3vp_1iav0lqup">
+              <group name="studio_group_3vp">
+                <group name="studio_group_3vp_left">
+                  <field name="x_studio_day"/>
+                  <field name="x_studio_to" widget="float_time"/>
+                  <field name="x_studio_from" widget="float_time"/>
+                </group>
+                <group name="studio_group_3vp_right"/>
+              </group>
+            </page>
+          </notebook>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_1cfa5e39-e78a-4ae8-90e8-25102ca0194c"/>
+    <field name="mode">extension</field>
+    <field name="model">x_course</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_course customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__0bb9a61f-5d07-414d-9b35-7224454b2e4d" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_b08e9b_left']" position="inside">
+          <field name="x_studio_academic_year" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_batch" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_subject_of_the_course" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_b08e9b_right']" position="inside">
+          <field name="x_studio_date"/>
+          <field name="x_studio_professor" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_course" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_5e31bb79-0e57-4281-84c5-c1d084889437"/>
+    <field name="mode">extension</field>
+    <field name="model">x_attendance</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_attendance customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__4ad06531-1ff2-445f-a9ad-2161b8c0cc8d" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_date_start']" position="replace">
+          <field name="x_studio_phone"/>
+          <field name="x_studio_email"/>
+          <field name="x_studio_office"/>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_date']" position="replace">
+          <field name="x_studio_contact"/>
+        </xpath>
+        <xpath expr="//widget[@name='web_ribbon']" position="before">
+          <div name="button_box" class="oe_button_box">
+            <button class="oe_stat_button" icon="fa-diamond" type="action" name="%(employe_fa4a98bd-f1c7-45a2-9787-a4c82e61a869)d">
+              <field widget="statinfo" name="x_x_studio_professor_hr_employee_count" string="Employe"/>
+            </button>
+          </div>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_tag_ids']" position="after">
+          <field name="x_studio_faculty" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_department_1" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_assistant"/>
+          <field name="x_studio_referant" options="{'create_name_field': 'x_name'}" invisible="x_studio_assistant != True"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_e13b6e']" position="after">
+          <field name="x_studio_courses"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_39f227ae-574b-448b-8602-2c7b340396c4"/>
+    <field name="mode">extension</field>
+    <field name="model">x_professor</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_professor customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__5b877e25-82fa-414b-b95c-6352d89734ce" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="replace">
+          <notebook name="studio_notebook_37u_1iaupq91b">
+            <page string="Student Information" name="studio_page_37u">
+              <group name="studio_group_37u">
+                <group name="studio_group_37u_left">
+                  <field name="x_studio_academic_year" options="{'create_name_field': 'x_name'}"/>
+                  <field name="x_studio_admission_date"/>
+                </group>
+                <group name="studio_group_37u_right">
+                  <field name="x_studio_department" options="{'create_name_field': 'x_name'}"/>
+                  <field name="x_studio_semester" options="{'create_name_field': 'x_name'}"/>
+                </group>
+              </group>
+            </page>
+            <page string="Personal Information" name="studio_page_9b8_1iauptvfl">
+              <group name="studio_group_9b8">
+                <group name="studio_group_9b8_left">
+                  <field name="x_studio_birth_date_1"/>
+                  <field name="x_studio_gender"/>
+                </group>
+                <group name="studio_group_9b8_right"/>
+              </group>
+            </page>
+            <page string="Courses" name="studio_page_r8_1iauqku45"/>
+          </notebook>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_image']" position="before">
+          <div name="button_box" class="oe_button_box">
+            <button class="oe_stat_button" icon="fa-book" type="action" name="school.documents_b6a43387-745e-4109-80b3-c7bebdaa247a">
+              <field widget="statinfo" name="x_x_studio_student_x_document_count" string="Documents"/>
+            </button>
+          </div>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_2739a9_right']" position="inside">
+          <field name="x_studio_many2many_field_24a_1iauqu2kk" string="Batches" widget="many2many_tags">
+            <list>
+              <field name="x_name"/>
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </list>
+          </field>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_430e0f58-c5b7-4d6e-bc9d-4dfdb15df98b"/>
+    <field name="mode">extension</field>
+    <field name="model">x_students</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_students customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__a7cf72d3-aae5-492e-9493-4e2749113dd6" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="after">
+          <field name="x_studio_exam" options="{'create_name_field': 'x_name'}"/>
+          <field widget="file" filename="x_studio_exam_content_filename" name="x_studio_exam_content"/>
+          <field name="x_studio_course" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_academic_year" options="{'create_name_field': 'x_name'}"/>
+          <field widget="file" invisible="True" name="x_studio_exam_content_filename"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_60c2c519-443f-46a1-95c8-f43ada577026"/>
+    <field name="mode">extension</field>
+    <field name="model">x_exam</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_exam customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_list_view_fo_a34ddc37-cf9b-41fa-a62f-a053670af8db" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </list>
+    </field>
+    <field name="model">x_course_attendance</field>
+    <field name="name">Default list view for x_course_attendance</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_4eb62e90-944d-48c0-b00c-b72f2b7b6861" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Course Attendance">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_a80828">
+            <group name="studio_group_a80828_left">
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}"/>
+              <field name="x_studio_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_a80828_right">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_course_attendance</field>
+    <field name="name">Default form view for x_course_attendance</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__0641dd57-4db0-43dd-a051-2fc9b7031dc5" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Course Attendance" name="my_x_course_attendance" domain="[['x_studio_user_id', '=', uid]]"/>
+        <separator/>
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="End Date"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_course_attendance</field>
+    <field name="name">Default search view for x_course_attendance</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_gantt_view_f_9a73d258-9b4e-426c-9e31-7645b834f418" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop"/>
+    </field>
+    <field name="model">x_course_attendance</field>
+    <field name="name">Default gantt view for x_course_attendance</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="odoo_studio_default__1372d338-22eb-4520-8b7d-a36fa745be68" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="after">
+          <field name="x_studio_academic_year" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_batch" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_first_session_exam" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_second_session_exam" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_4eb62e90-944d-48c0-b00c-b72f2b7b6861"/>
+    <field name="mode">extension</field>
+    <field name="model">x_course_attendance</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_course_attendance customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__55f68a9d-5fc2-4e61-8e75-7e5181895645" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_5d3975_right']" position="inside">
+          <field name="x_studio_employe"/>
+          <field name="x_studio_university" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_department" options="{'create_name_field': 'complete_name'}" force_save="1" readonly="True" invisible="True"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_108cc7fb-e158-45dc-8614-f9fb12ee200c"/>
+    <field name="mode">extension</field>
+    <field name="model">x_faculty</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_faculty customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__f7805c7f-056b-45b6-983c-4089ea575583" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/group[not(@name)][1]" position="replace">
+          <field name="x_studio_one2many_field_3k3_1iaupn2db"/>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_user_id']" position="replace">
+          <field name="x_studio_faculty" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_image']" position="before">
+          <div name="button_box" class="oe_button_box">
+            <button class="oe_stat_button" icon="fa-diamond" type="action" name="school.professor_2be6ce61-2027-4391-a1a5-8289880d563e">
+              <field widget="statinfo" name="x_x_studio_department_x_professor_count" string="Professor"/>
+            </button>
+            <button class="oe_stat_button" icon="fa-book" type="action" name="school.students_bd360cf7-91d5-47de-937d-20e2d0954416">
+              <field widget="statinfo" name="x_x_studio_department_x_students_count" string="Students"/>
+            </button>
+          </div>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_4f41d7_left']" position="inside">
+          <field name="x_studio_responsible" required="True"/>
+          <field name="x_studio_parent_department" options="{'create_name_field': 'complete_name'}"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_4f41d7_right']" position="inside">
+          <field name="x_studio_organisation" options="{'create_name_field': 'complete_name'}" force_save="1" readonly="True" invisible="True"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_2ae3dfcc-032b-4984-a2e9-5e00050bf5a6"/>
+    <field name="mode">extension</field>
+    <field name="model">x_department</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_department customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_list_view_fo_339b34f2-8536-4387-96a2-62d328694a46" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_studio_student" options="{'create_name_field': 'x_name'}"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_document</field>
+    <field name="name">Default list view for x_document</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_48678e61-81ef-4533-80c2-afc88d93e0fb" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Document">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_166940">
+            <group name="studio_group_166940_left">
+              <field name="x_studio_student" widget="many2one_avatar_user"/>
+            </group>
+            <group name="studio_group_166940_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_document</field>
+    <field name="name">Default form view for x_document</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__3f4a34cb-82f6-4c5c-af64-75e9b6b92d20" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_student"/>
+        <filter string="My Document" name="my_x_document" domain="[['x_studio_student', '=', uid]]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_student'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_document</field>
+    <field name="name">Default search view for x_document</field>
+    <field name="type">search</field>
+  </record>
+  <record id="odoo_studio_default__141646ca-63c0-498c-9d61-71cfde5077c3" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_166940_right']" position="inside">
+          <field widget="file" filename="x_studio_document_filename" name="x_studio_document"/>
+          <field widget="file" invisible="True" name="x_studio_document_filename"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_48678e61-81ef-4533-80c2-afc88d93e0fb"/>
+    <field name="mode">extension</field>
+    <field name="model">x_document</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_document customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__ade58c2d-7af1-4f3b-9887-2bc0d8aba87c" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_35b76f']" position="after">
+          <notebook name="studio_notebook_2nd_1iauqok82">
+            <page string="Students" name="studio_page_57r_1iauqpmv2">
+              <field name="x_studio_many2many_field_18v_1iauqt8ei"/>
+            </page>
+            <page string="Course" name="studio_page_784_1iav2t2de">
+              <field name="x_studio_many2many_field_7ku_1iav2tl3m"/>
+            </page>
+          </notebook>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_e617a268-59d3-4c44-bbad-ba4ddcbe1ebe"/>
+    <field name="mode">extension</field>
+    <field name="model">x_batch</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_batch customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__1cd7108e-fd54-403c-b947-dd0b135ff79a" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_28c054_right']" position="inside">
+          <field name="x_studio_exam" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_max_value"/>
+          <field name="x_studio_value"/>
+          <field name="x_studio_student" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_f8ef4bde-ddc6-4dd2-ac94-ce7fbd9eb84e"/>
+    <field name="mode">extension</field>
+    <field name="model">x_exam_results</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_exam_results customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__85cf70e5-22c6-4d6d-9077-906b7ce45630" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_b30f84_right']" position="inside">
+          <field name="x_studio_academic_year" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_50ccc123-e080-481e-941a-762efc9f4cf1"/>
+    <field name="mode">extension</field>
+    <field name="model">x_semester</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_semester customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_hr_emplo_11b0ff38-d91b-40fd-b37c-49703272c2ad" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='category_ids']" position="after">
+          <field name="x_studio_professor" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="mode">extension</field>
+    <field name="model">hr.employee</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: hr.employee.form customization</field>
+    <field name="priority">10000</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_hr_candi_126f1bb4-fc52-4144-8047-d45d08411fd3" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//button[@name='create_employee_from_candidate']" position="replace"/>
+        <xpath expr="//button[@name='action_manual_send_for_digitization']" position="after">
+          <button string="Create Student" name="hr_recruitment.action_candidate_send_mail" type="action"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="hr_recruitment.hr_candidate_view_form"/>
+    <field name="mode">extension</field>
+    <field name="model">hr.candidate</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: hr.candidate.view.form customization</field>
+    <field name="priority">160</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_jobs_rec_7206a2c5-7136-4a6a-921f-31ab3ac88a53" model="ir.ui.view" >
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='job_id']" position="replace"/>
+        <xpath expr="//field[@name='categ_ids']" position="after">
+          <field name="x_studio_department" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_studio_academic_year" options="{'create_name_field': 'x_name'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+    <field name="mode">extension</field>
+    <field name="model">hr.applicant</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Jobs - Recruitment Form customization</field>
+    <field name="priority">500</field>
+    <field name="type">form</field>
+  </record>
+</odoo>

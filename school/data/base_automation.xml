@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="create_hr_department_be0b1028-f276-433d-89f4-0e2fd435de0a" model="base.automation" >
+    <field name="model_id" ref="department_model"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('execute_code_ee0356bc-3c40-4cbb-aa3c-ca31d82d9216')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">Create HR department</field>
+  </record>
+  <record id="create_faculty_0bc091d2-e16d-48f2-b5a8-e63dadd6fe1f" model="base.automation" >
+    <field name="model_id" ref="faculty_model"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('execute_code_36f223ed-616f-435c-9094-c72654ef9a49')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">Create Faculty</field>
+  </record>
+  <record id="create_employe_361fd092-bbec-46ee-99d2-e76f5945f2c2" model="base.automation" >
+    <field name="model_id" ref="professor_model"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('execute_code_8417d50c-03e6-40fe-8cba-b9672e5a740e')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">Create Employe</field>
+  </record>
+</odoo>

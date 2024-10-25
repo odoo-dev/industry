@@ -1,0 +1,1444 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="description_universi_1bd1768a-6113-4f59-b90e-00b76c9c0434" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="tracking">1</field>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="active_university_b3204731-7038-4590-96de-618f83e45a27" model="ir.model.fields" >
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Active</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+  </record>
+  <record id="responsible_universi_077ace95-782a-4fd4-abc8-015917252034" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+    <field name="tracking">1</field>
+  </record>
+  <record id="contact_university_3bdaf5b9-b409-4534-b2a2-a12193be9d4c" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_partner_id</field>
+    <field name="relation">res.partner</field>
+    <field name="tracking">1</field>
+  </record>
+  <record id="phone_university_2663724f-8d4d-422e-9f5b-b0bb74389ce6" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="related">x_studio_partner_id.phone</field>
+    <field name="field_description">Phone</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_partner_phone</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">2</field>
+  </record>
+  <record id="email_university_f6a1dca8-dfbe-4452-8527-50aad6ff53c6" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="related">x_studio_partner_id.email</field>
+    <field name="field_description">Email</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_partner_email</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+  </record>
+  <record id="date_university_2fc5795f-488e-4d9b-b333-df5fca5a6600" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="end_date_university_4ea77956-0e7e-4710-beaa-b487ab274ce6" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_universit_f4fbb029-ce14-491f-bc2b-f681bd6c94b1" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="sequence_university_5cd2f9ac-320e-4558-8cdf-74f35eb3a00b" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="university_line_be8fda5e-9109-4d55-b428-e0e220d629eb" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">X University</field>
+    
+    <field name="model_id" ref="university_line_e52a07dc-589d-4493-9b74-2aa4237702ef"/>
+    <field name="name">x_university_id</field>
+    <field name="relation">x_university</field>
+  </record>
+  <record id="new_lines_university_1847514d-a1c6-41d5-a69d-cf938d5e2f32" model="ir.model.fields" >
+    <field name="ttype">one2many</field>
+    <field name="field_description">New Lines</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_university_line_ids_7dd8d</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_university_line_0eb59</field>
+    <field name="relation_field">x_university_id</field>
+  </record>
+  <record id="tags_university_f2136d5a-a729-4010-b1e8-1a8d3076ce53" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tags</field>
+    
+    <field name="model_id" ref="university_model"/>
+    <field name="name">x_studio_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_university_tag</field>
+    <field name="relation_table">x_university_tag_rel</field>
+  </record>
+  <record id="sequence_university__cc2f8e96-0207-4660-a714-ddc36c703fa1" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    
+    <field name="model_id" ref="university_line_e52a07dc-589d-4493-9b74-2aa4237702ef"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_universi_463b0d69-e60a-45bc-9952-32b3242f2cce" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="university_line_e52a07dc-589d-4493-9b74-2aa4237702ef"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="name_university_tags_e46c1dab-5fcb-470a-bb16-5eddfa0e6d09" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    
+    <field name="model_id" ref="university_tags"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="color_university_tag_d82a5120-39b9-4685-a2e1-67a125dd49c1" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+    
+    <field name="model_id" ref="university_tags"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_professo_fa5febac-ef3c-435e-aa77-16f76e0b5601" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="active_professor_93045ac9-1f05-46f9-aea8-241c1e1f2f36" model="ir.model.fields" >
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Active</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="date_professor_1a42c83d-f830-4539-a1fa-0641fc6c74ae" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="end_date_professor_96c6711f-fee2-4c2b-abbe-dfa7cc5a70d6" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_professor_2e3e9059-e89d-4805-b90b-13a83d4d5769" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="image_professor_81cd8274-f638-4903-8a36-366fb56b0753" model="ir.model.fields" >
+    <field name="ttype">binary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Image</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_image</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="sequence_professor_fe0309f5-b57a-4930-b740-4a2e57eec849" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="tags_professor_2f90322a-0cb3-4182-afb6-53208cce30ab" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tags</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_professor_tag</field>
+    <field name="relation_table">x_professor_tag_rel</field>
+  </record>
+  <record id="name_professor_tags_fd931f99-b2ca-436d-870d-e9484110448c" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    
+    <field name="model_id" ref="professor_tags"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="color_professor_tags_75e55b2e-f747-43e0-b595-63933a07fde4" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+    
+    <field name="model_id" ref="professor_tags"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+
+  <record id="description_academic_d73633ce-3aa2-4545-82f2-9de40037da64" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="academic_years_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="end_date_academic_ye_6f8440d8-2656-43eb-9656-fa1acc09fd6d" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="academic_years_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_academic__a9818c67-c846-4b26-8007-77d99e2ac063" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="academic_years_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_semester_301a2bc3-9935-4a17-8a32-6f2ce1d15113" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="semester_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="end_date_semester_5c3dbeb2-9022-4825-a65f-76829bd84570" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="semester_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_semester_ed449bf0-1b55-45d5-929c-3dade9dc7e5a" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="semester_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_students_b31ab13c-1eba-478e-ac49-732b76590b13" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="contact_students_0e617c52-692a-42d3-aedc-121ac7ec8cf5" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_partner_id</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="phone_students_6b849f19-5339-4db5-824b-04c0743c7b7d" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="related">x_studio_partner_id.phone</field>
+    <field name="field_description">Phone</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_partner_phone</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="email_students_31c3ae87-48b0-40d1-8b7b-cdac1f4102bc" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="related">x_studio_partner_id.email</field>
+    <field name="field_description">Email</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_partner_email</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="date_students_601236d6-3b96-45a2-a578-d23e4e2b66d6" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="end_date_students_e1f3df7a-7787-4c87-94f3-fbc4c3e6dce7" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_students_5d010a2d-424a-42a2-89b1-960c51468ea6" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="image_students_d7bfb51d-f4f8-4eb3-84c9-0b12f23e7257" model="ir.model.fields" >
+    <field name="ttype">binary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Image</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_image</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="students_line_5db91821-9c6e-435c-954f-fead572dffdf" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">X Students</field>
+    
+    <field name="model_id" ref="students_line_05c42131-8fdf-4a39-9855-3b472843a37f"/>
+    <field name="name">x_students_id</field>
+    <field name="relation">x_students</field>
+  </record>
+  <record id="new_lines_students_b5f7f5fb-0499-4d70-95fc-4ea0fb36b063" model="ir.model.fields" >
+    <field name="ttype">one2many</field>
+    <field name="field_description">New Lines</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_students_line_ids_949b7</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_students_line_31915</field>
+    <field name="relation_field">x_students_id</field>
+  </record>
+  <record id="sequence_students_li_a52e227d-a8d2-4dd5-acfe-b1d3dd300d07" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    
+    <field name="model_id" ref="students_line_05c42131-8fdf-4a39-9855-3b472843a37f"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_students_60e71da2-7343-42dd-b83e-3bd701dbf2ef" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="students_line_05c42131-8fdf-4a39-9855-3b472843a37f"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="description_faculty_3044f3dc-cbf4-4b6f-aa71-d143ebcb3515" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="tags_faculty_e6517df1-efe7-42ac-8604-9db797eee135" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tags</field>
+    
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">x_studio_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_faculty_tag</field>
+    <field name="relation_table">x_faculty_tag_rel</field>
+  </record>
+  <record id="name_faculty_tags_3d2f584d-bb0c-4420-9c9e-87f601089a5c" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    
+    <field name="model_id" ref="faculty_tags"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="color_faculty_tags_78465402-84dc-47da-862f-b20e54c74cb3" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+    
+    <field name="model_id" ref="faculty_tags"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_batch_948754fa-3b84-4407-9163-b25128ab87eb" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="batch_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_batch_c4d7619a-496a-4daa-8504-5f18ab3949c4" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="batch_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="description_exam_02aaa7ec-5b50-4242-a6a5-66f94dd65b4a" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_exam_cbcd3428-2931-4f28-b59c-41d5aff7df78" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="date_exam_de268aef-3182-4c06-bfcb-f85d91e28d4f" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_exam_res_b494ff04-87f9-4f6f-a91c-f89a8d03b7b2" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_exam_res_a16d1064-9816-49cd-8945-eb747518d36b" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="description_exam_typ_39261798-79a2-4c08-a878-48341bb1ba02" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="exam_types_dc7723bc-1cbd-4b50-9f56-328ba1743e77"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="description_departme_b4a0290f-4bd7-4081-a79d-f0ab17159774" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_departme_92243d7b-e559-4bab-ac8e-7b3a9a7d6b2c" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="notes_department_a41517af-95b0-45a1-a8ff-030aba5e1b2c" model="ir.model.fields" >
+    <field name="ttype">html</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Notes</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_notes</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="image_department_bd647a09-8aa4-49d4-986d-6a44c3601cff" model="ir.model.fields" >
+    <field name="ttype">binary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Image</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_image</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_subject_0a8380e9-94e1-4861-96ea-a4e2589ed9b0" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="description_syllabus_b053211e-f194-48cf-8244-9dde7e684110" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="syllabus_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="description_attendan_8c1a85db-e71f-4428-9d68-b16c909dd5cd" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="description_course_3aae404b-fed9-4662-9809-5f16f4456b8d" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_course_7454ec59-b750-4dd6-98be-64a61f39b8c6" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="end_date_course_5db8ebd8-aad1-4bbe-8e78-f8aeff172aa2" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_course_8a04bf42-6fa8-494e-bd08-cdf17f47e2d3" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_subject_aacbc0c9-5791-43a7-a6d5-0912ee852ea0" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Course</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_studio_course</field>
+    <field name="relation">x_course</field>
+  </record>
+  <record id="new_many2one_subject_26f641a1-77fd-4795-b2ee-b062d0b8102f" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Syllabus</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_studio_syllabus</field>
+    <field name="relation">x_syllabus</field>
+  </record>
+  <record id="new_date_subject_927bdb7a-f2f7-47e5-81b2-d80d572bf069" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">New Date</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_studio_date_field_8uk_1iaunjdi1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_datetime_subject_77f3ba20-7038-4dcb-ab90-6ff10cf9065b" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Planned Date</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_studio_planned_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_subject_9582b0e8-8335-473f-b378-95545ca04f60" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Professor</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_studio_professor</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_many2one_syllabu_a47d8a25-9907-4914-81b7-a42a5a3f3157" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Document</field>
+    
+    <field name="model_id" ref="syllabus_model"/>
+    <field name="name">x_studio_document</field>
+    <field name="relation">documents.document</field>
+  </record>
+  <record id="new_many2one_syllabu_84caecde-19d7-44c7-bba8-4e2e3feb3944" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Course</field>
+    
+    <field name="model_id" ref="syllabus_model"/>
+    <field name="name">x_studio_course</field>
+    <field name="relation">x_course</field>
+  </record>
+  <record id="new_multine_text_syl_ebb1fe89-d9f9-4b0b-aff4-c7572164bcb0" model="ir.model.fields" >
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Details</field>
+    
+    <field name="model_id" ref="syllabus_model"/>
+    <field name="name">x_studio_details</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_one2many_course_e9172b68-c4ac-42d9-9533-33fbaa8b0fa3" model="ir.model.fields" >
+    <field name="ttype">one2many</field>
+    <field name="field_description">Subject</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_subject</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_subject</field>
+    <field name="relation_field">x_studio_course</field>
+  </record>
+  <record id="new_many2one_attenda_1766e972-3907-42d0-89fb-c8f20592185b" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Academic Year</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_studio_academic_year</field>
+    <field name="relation">x_academic_years</field>
+  </record>
+  <record id="new_many2one_attenda_677e1c4b-19ae-42d3-96c6-0cd8d54f2fd5" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Batch</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_studio_batch</field>
+    <field name="relation">x_batch</field>
+  </record>
+  <record id="new_many2one_attenda_aaf66fc2-06dc-48f3-96c2-e24d135ebb99" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Subject of the Course</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_studio_subject_of_the_course</field>
+    <field name="relation">x_subject</field>
+  </record>
+  <record id="new_date_attendance_5a60f706-aed6-4482-9fc0-cb7c17d188b0" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_attenda_11a23af7-9c6b-4142-a40a-92d7edd19505" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Professor</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_studio_professor</field>
+    <field name="relation">x_professor</field>
+  </record>
+  <record id="new_many2one_profess_f71b3b90-7e7f-4ad4-8c2f-aa7ffc43efe1" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Faculty</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_faculty</field>
+    <field name="relation">x_faculty</field>
+  </record>
+  <record id="new_many2one_course_fc128afe-a426-46e4-8399-e767ec21ad8f" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Professor</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_professor</field>
+    <field name="relation">x_professor</field>
+  </record>
+  <record id="new_one2many_profess_44f662f9-1766-4253-b191-dbc958dfb411" model="ir.model.fields" >
+    <field name="ttype">one2many</field>
+    <field name="field_description">Courses</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_courses</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_course</field>
+    <field name="relation_field">x_studio_professor</field>
+  </record>
+  <record id="new_date_course_dadc7b35-90c9-46bc-bc30-691777b58f02" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Dates</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_dates</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_related_field_su_aacf0d43-fd16-4e2f-8165-e6edc8e30baa" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="related">x_studio_planned_date</field>
+    <field name="field_description">Date</field>
+    
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_many2one_exam_3a6cf7f7-e864-4133-9c80-665cf0a1aa7a" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Exam</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_exam</field>
+    <field name="relation">x_course</field>
+  </record>
+  <record id="new_many2one_attenda_69ab6fd0-9b15-4845-9751-0872beda74b3" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">course</field>
+    
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">x_studio_course</field>
+    <field name="relation">x_course</field>
+  </record>
+  <record id="new_file_exam_b9f61e40-a1ea-4531-a28f-779c0c3445cb" model="ir.model.fields" >
+    <field name="ttype">binary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Exam content</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_exam_content</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="filename_for_x_studi_6b96cdcd-9845-476d-bb14-94e1fbaca943" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Filename for x_studio_binary_field_7e8_1iaup6uo0</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_exam_content_filename</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_exam_851f144c-d45c-4c46-9f58-a96fc053a75c" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">course</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_course</field>
+    <field name="relation">x_course</field>
+  </record>
+  <record id="description_course_a_c0cc1f72-1b3e-4d00-b212-1634a93d1e69" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_course_a_7fb5c2b5-b2e6-4148-a1fa-41fdc5bb04dd" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="end_date_course_atte_39da9587-b346-4557-85a4-5801602b04d3" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_course_at_1c082067-0849-431c-82ca-816025ca2096" model="ir.model.fields" >
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_course__0b9c181c-6d70-4433-bee2-792522aaba3c" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Academic Year</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_academic_year</field>
+    <field name="relation">x_academic_years</field>
+  </record>
+  <record id="new_many2one_course__832c598c-2d03-49df-a861-e4f06d78210a" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Batch</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_batch</field>
+    <field name="relation">x_batch</field>
+  </record>
+  <record id="new_many2one_course__adf23f48-fa39-4348-b7c7-f5b192fcbc24" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">First Session Exam</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_first_session_exam</field>
+    <field name="relation">x_exam</field>
+  </record>
+  <record id="new_many2one_course__d8dcf743-738e-4d13-ac02-6227e57908b3" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Second Session Exam</field>
+    
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">x_studio_second_session_exam</field>
+    <field name="relation">x_exam</field>
+  </record>
+  <record id="new_many2one_faculty_39f5a370-0eb4-44b6-a8ad-ea295504df92" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">University</field>
+    
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">x_studio_university</field>
+    <field name="relation">x_university</field>
+  </record>
+  <record id="new_many2one_profess_9d9a2b22-8ae3-4c51-9eba-4f16532d90d0" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Department</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_department_1</field>
+    <field name="relation">x_department</field>
+  </record>
+  <record id="new_one2many_departm_45872e8e-5da9-467b-9cda-a4beab19d88e" model="ir.model.fields" >
+    <field name="ttype">one2many</field>
+    <field name="field_description">New One2Many</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_one2many_field_3k3_1iaupn2db</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_professor</field>
+    <field name="relation_field">x_studio_department_1</field>
+  </record>
+  <record id="new_many2one_student_96b32e03-c65b-4840-844f-0e6de6de6cc2" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Academic Year</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_academic_year</field>
+    <field name="relation">x_academic_years</field>
+  </record>
+  <record id="new_date_students_cb02618c-79cf-4731-9f86-6fb89c4b5c1b" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Admission Date</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_admission_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_student_c8e7bb23-566c-4ebb-9f0f-cb7453afe016" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Student Department</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_department</field>
+    <field name="relation">x_department</field>
+  </record>
+  <record id="new_many2one_student_7f293a2f-7c90-489b-ae08-a0468b8fa0b3" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Semester</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_semester</field>
+    <field name="relation">x_semester</field>
+  </record>
+  <record id="new_many2one_student_1b1daa9f-caf4-43ac-8387-26042ce45f55" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Batch</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_batch</field>
+    <field name="relation">x_batch</field>
+  </record>
+  <record id="description_document_705a6b99-3320-4006-8fb0-4ce1cbecec36" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    
+    <field name="model_id" ref="document_model"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="new_file_document_7c00a33d-9078-4296-9ccb-0608a8717cb2" model="ir.model.fields" >
+    <field name="ttype">binary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">document</field>
+    
+    <field name="model_id" ref="document_model"/>
+    <field name="name">x_studio_document</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="filename_for_x_studi_bc6b200b-6c44-47ae-92ee-5b8d666988ef" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Filename for x_studio_binary_field_6c5_1iauq1vte</field>
+    
+    <field name="model_id" ref="document_model"/>
+    <field name="name">x_studio_document_filename</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_students_31690872-ece6-4c1a-ae03-9c58cc61848b" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Birth Date</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_birth_date_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_selection_studen_bc498c04-0041-40d2-835f-5098c3e8f9d2" model="ir.model.fields" >
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Gender</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_gender</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('Male', 'Male'), ('Female', 'Female'), ('Other', 'Other')]</field>
+  </record>
+  <record id="new_many2many_batch_38dd5678-fd56-4700-a416-7f91b826adb3" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    
+    <field name="model_id" ref="batch_model"/>
+    <field name="name">x_studio_many2many_field_18v_1iauqt8ei</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_students</field>
+    <field name="relation_table">x_x_batch_x_students_rel</field>
+  </record>
+  <record id="new_many2many_studen_1e37ce51-ac2b-4797-aa07-741bd45d307c" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Batches</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_studio_many2many_field_24a_1iauqu2kk</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_batch</field>
+    <field name="relation_table">x_x_batch_x_students_rel</field>
+  </record>
+  <record id="new_many2many_course_77d178c9-95c2-445c-8506-8a5894a01211" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Prerequisite</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_prerequisite</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_course</field>
+    <field name="relation_table">x_x_course_x_course_rel</field>
+  </record>
+  <record id="new_one2many_course_6cac3049-fafe-4416-bc31-6a41c8a510a8" model="ir.model.fields" >
+    <field name="ttype">one2many</field>
+    <field name="field_description">New One2Many</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_one2many_field_6i1_1iaur4m8n</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_exam</field>
+    <field name="relation_field">x_studio_exam</field>
+  </record>
+  <record id="new_many2one_exam_re_e48b63c4-4dba-4caa-9673-8f88aca35974" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Exam</field>
+    
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">x_studio_exam</field>
+    <field name="relation">x_exam</field>
+  </record>
+  <record id="new_integer_exam_res_f11c3dd8-eda6-41ec-b20e-041fb0b929ca" model="ir.model.fields" >
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Max value</field>
+    
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">x_studio_max_value</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_decimal_exam_res_94daa7ba-6eaa-461e-a1f9-1b7692dc0a87" model="ir.model.fields" >
+    <field name="ttype">float</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Value</field>
+    
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">x_studio_value</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_exam_re_3b37ad3e-ca59-4eb2-aab4-3957fd050a05" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Student</field>
+    
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">x_studio_student</field>
+    <field name="relation">x_students</field>
+  </record>
+  <record id="new_selection_course_20b11440-4ffc-474a-907b-f77ba5f65ab1" model="ir.model.fields" >
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Day</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_day</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('Monday', 'Monday'), ('Tuesday', 'Tuesday'), ('Wednesday', 'Wednesday'), ('Thursday', 'Thursday'), ('Friday', 'Friday'), ('Saturday', 'Saturday'), ('Sunday', 'Sunday')]</field>
+  </record>
+  <record id="new_decimal_course_173d57cb-1b54-48c7-b97a-9dedd54cd4fb" model="ir.model.fields" >
+    <field name="ttype">float</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">From</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_from</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_decimal_course_a2d0d801-956c-4927-900f-d3345f50fa7d" model="ir.model.fields" >
+    <field name="ttype">float</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">To</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_to</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_exam_0787fa49-b57f-4ddd-a772-eb3e8db03aef" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Academic Year</field>
+    
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">x_studio_academic_year</field>
+    <field name="relation">x_academic_years</field>
+  </record>
+  <record id="new_many2one_documen_55b90421-c34a-45ed-81fa-0beed93cec04" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Student</field>
+    
+    <field name="model_id" ref="document_model"/>
+    <field name="name">x_studio_student</field>
+    <field name="relation">x_students</field>
+  </record>
+  <record id="student_count_studen_0233fc91-b508-403b-aa3b-5207d1fabeab" model="ir.model.fields" >
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_studio_student_x_document_count'] = self.env['x_document'].search_count([('x_studio_student', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">Student count</field>
+    
+    <field name="model_id" ref="students_model"/>
+    <field name="name">x_x_studio_student_x_document_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_many2one_semeste_27ec9426-c350-4115-83e0-4a0e123673e8" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Academic Year</field>
+    
+    <field name="model_id" ref="semester_model"/>
+    <field name="name">x_studio_academic_year</field>
+    <field name="relation">x_academic_years</field>
+  </record>
+    <record id="new_many2one_course_d16d1959-b60c-416c-9eec-a5556de5f63e" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Semester</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_semester</field>
+    <field name="relation">x_semester</field>
+  </record>
+  <record id="new_date_course_349a44e4-6fac-4563-94e2-6e93c5a9b833" model="ir.model.fields" >
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date Range</field>
+    
+    <field name="model_id" ref="course_model"/>
+    <field name="name">x_studio_date_range</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2many_batch_cc872ffa-5f21-42b1-be97-14f45b55f940" model="ir.model.fields" >
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    
+    <field name="model_id" ref="batch_model"/>
+    <field name="name">x_studio_many2many_field_7ku_1iav2tl3m</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_course</field>
+    <field name="relation_table">x_x_batch_x_course_rel</field>
+  </record>
+  <record id="new_many2one_profess_7f43cbe4-0ab2-4a41-ba73-21d9f9bd5dbf" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_contact</field>
+    <field name="relation">hr.employee</field>
+  </record>
+  <record id="new_related_field_pr_aa659333-499c-4120-ba0f-8a5193cd4d2b" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="related">x_studio_contact.phone</field>
+    <field name="field_description">Phone</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_phone</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="tracking">2</field>
+  </record>
+  <record id="new_related_field_pr_ae40c194-1750-407c-9d37-6030d05d15eb" model="ir.model.fields" >
+    <field name="ttype">char</field>
+    <field name="related">x_studio_contact.email</field>
+    <field name="field_description">Email</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_email</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_related_field_pr_66fadf25-d782-4df9-8265-7fbf3b4deac6" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="related">x_studio_contact.address_id</field>
+    <field name="field_description">Office</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_office</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.partner</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_many2one_departm_64acb5e0-6ae5-469e-944c-ff885cc3b5c0" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Organisation</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_organisation</field>
+    <field name="relation">hr.department</field>
+  </record>
+  <record id="new_many2one_departm_ed61d491-777b-4ad4-8db7-e8526b0fb3bc" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Parent Department</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_parent_department</field>
+    <field name="relation">hr.department</field>
+  </record>
+  <record id="new_many2one_departm_a8c3f218-d53d-49c1-ac9d-6e896469728b" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Faculty</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_faculty</field>
+    <field name="relation">x_faculty</field>
+  </record>
+  <record id="new_many2one_faculty_79e8b46f-24aa-4623-88aa-4e1a5ec2df56" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Faculty Department</field>
+    
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">x_studio_department</field>
+    <field name="relation">hr.department</field>
+  </record>
+  <record id="new_many2one_faculty_76eb9b13-1359-47f7-be76-2edc4f7eb818" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Employe</field>
+    
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">x_studio_employe</field>
+    <field name="relation">hr.employee</field>
+  </record>
+  <record id="department_count_dep_f6838aa3-8dee-4901-83d9-57788fc974fc" model="ir.model.fields" >
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_studio_department_x_professor_count'] = self.env['x_professor'].search_count([('x_studio_department_1', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">Department Profesor count</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_x_studio_department_x_professor_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="department_count_dep_c43d22fc-daf6-491e-be16-4f650bcccfa7" model="ir.model.fields" >
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_studio_department_x_students_count'] = self.env['x_students'].search_count([('x_studio_department', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">Department Student count</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_x_studio_department_x_students_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_many2one_departm_fcce822f-4137-418d-9209-c1cae0e9a7d5" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Department Responsible</field>
+    
+    <field name="model_id" ref="department_model"/>
+    <field name="name">x_studio_responsible</field>
+    <field name="relation">hr.employee</field>
+  </record>
+  <record id="new_many2one_employe_77d9c908-13b9-4635-88c7-0b8e6dd91a19" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Professor</field>
+    
+    <field name="model_id" ref="hr.model_hr_employee"/>
+    <field name="name">x_studio_professor</field>
+    <field name="relation">x_professor</field>
+  </record>
+  <record id="professor_count_prof_757cba5c-857f-4032-8250-1045c744feaf" model="ir.model.fields" >
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_studio_professor_hr_employee_count'] = self.env['hr.employee'].search_count([('x_studio_professor', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">Professor count</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_x_studio_professor_hr_employee_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_checkbox_profess_6de5e2f3-17d9-448a-8907-b02704d731f1" model="ir.model.fields" >
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Assistant</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_assistant</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_profess_8e171e93-c82a-42ad-a7ee-10881da68bbd" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Referant</field>
+    
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">x_studio_referant</field>
+    <field name="relation">x_professor</field>
+  </record>
+  <record id="new_many2one_applica_c73a44f6-8b8b-4513-b046-f461e83f6421" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">University Department</field>
+    
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">x_studio_department</field>
+    <field name="relation">x_department</field>
+  </record>
+  <record id="new_many2one_applica_64f418ea-66fc-4559-aec0-b92cf569214e" model="ir.model.fields" >
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Academic Year</field>
+    
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">x_studio_academic_year</field>
+    <field name="relation">x_academic_years</field>
+  </record>
+</odoo>

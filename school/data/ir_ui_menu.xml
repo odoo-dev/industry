@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="university_56b55741-9bf6-4174-bfc7-3027765c99da" model="ir.ui.menu" >
+    <field name="name">university</field>
+    <field name="web_icon">fa fa-mortar-board,#00CEB3,#FFFFFF</field>
+  </record>
+  <record id="university_universit_fe188b0b-c62e-4f8c-8bb5-fee0f3b636ab" model="ir.ui.menu" >
+    <field name="action" ref="university_502c513d-89d2-4ece-81f8-b5c74ebb19e3"/>
+    <field name="name">university</field>
+    <field name="parent_id" ref="university_56b55741-9bf6-4174-bfc7-3027765c99da"/>
+    <field name="sequence">1</field>
+  </record>
+  <record id="university_configura_0102cfd9-0115-4ae3-8268-c2960a0b588d" model="ir.ui.menu" >
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="university_56b55741-9bf6-4174-bfc7-3027765c99da"/>
+    <field name="sequence">3</field>
+  </record>
+  <record id="university_configura_d1a9acd2-c3b0-4350-92f7-fd905cec5846" model="ir.ui.menu" >
+    <field name="action" ref="university_tags_a47984c0-6df1-40df-a0ea-b1172f4527b4"/>
+    <field name="name">university Tags</field>
+    <field name="parent_id" ref="university_configura_0102cfd9-0115-4ae3-8268-c2960a0b588d"/>
+    <field name="sequence">4</field>
+  </record>
+  <record id="university_professor_04cf9586-9311-4b0e-b011-470abaed3fe4" model="ir.ui.menu" >
+    <field name="action" ref="professor_a220f292-1770-4538-b3c3-5c651d92a641"/>
+    <field name="name">Professor</field>
+    <field name="parent_id" ref="university_universit_fe188b0b-c62e-4f8c-8bb5-fee0f3b636ab"/>
+    <field name="sequence">3</field>
+  </record>
+  <record id="university_configura_0a06d353-8ad4-4df5-9da8-ed213791a531" model="ir.ui.menu" >
+    <field name="action" ref="professor_tags_8294d597-08b8-4ffc-b0f5-5514a3e56edf"/>
+    <field name="name">Professor Tags</field>
+    <field name="parent_id" ref="university_configura_0102cfd9-0115-4ae3-8268-c2960a0b588d"/>
+    <field name="sequence">5</field>
+  </record>
+  <record id="university_configura_abc1762b-ccc8-4d5e-a871-b4de2e6e8554" model="ir.ui.menu" >
+    <field name="action" ref="base.action_open_website"/>
+    <field name="active" eval="False"/>
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="university_56b55741-9bf6-4174-bfc7-3027765c99da"/>
+    <field name="sequence">103</field>
+  </record>
+  <record id="university_academic__1b814273-aa2c-488d-838d-0f02f54880bd" model="ir.ui.menu" >
+    <field name="action" ref="academic_years_5a7936a1-4d59-4f64-8d56-784ea7ee43e3"/>
+    <field name="name">Academic Years</field>
+    <field name="parent_id" ref="university_configura_0102cfd9-0115-4ae3-8268-c2960a0b588d"/>
+    <field name="sequence">3</field>
+  </record>
+  <record id="university_semester_641e3fe0-7d4e-4e28-93c7-bd96a311d66d" model="ir.ui.menu" >
+    <field name="action" ref="semester_369a3551-cfdc-4d8c-a971-f79eee1888ac"/>
+    <field name="name">Semester</field>
+    <field name="parent_id" ref="university_configura_0102cfd9-0115-4ae3-8268-c2960a0b588d"/>
+    <field name="sequence">2</field>
+  </record>
+  <record id="university_admission_10287392-ed8c-4efb-8a4b-77e1d2a58269" model="ir.ui.menu" >
+    <field name="action" ref="base.action_open_website"/>
+    <field name="name">Students</field>
+    <field name="parent_id" ref="university_56b55741-9bf6-4174-bfc7-3027765c99da"/>
+    <field name="sequence">6</field>
+  </record>
+  <record id="university_students_3e5df758-2636-4f05-9db4-b26d786ff860" model="ir.ui.menu" >
+    <field name="action" ref="students_8a0d4bb9-eb02-4082-901e-819da2d89c7a"/>
+    <field name="name">Students</field>
+    <field name="parent_id" ref="university_admission_10287392-ed8c-4efb-8a4b-77e1d2a58269"/>
+    <field name="sequence">3</field>
+  </record>
+  <record id="university_faculty_c23a8fa9-c3f7-4059-97ae-15e62eb6d27b" model="ir.ui.menu" >
+    <field name="action" ref="faculty_698d52fd-f99a-40ca-b794-ddb9b967ff15"/>
+    <field name="name">Faculty</field>
+    <field name="parent_id" ref="university_universit_fe188b0b-c62e-4f8c-8bb5-fee0f3b636ab"/>
+    <field name="sequence">1</field>
+  </record>
+  <record id="university_configura_11a12a7a-fdae-4a21-ab9d-a112b3c4437c" model="ir.ui.menu" >
+    <field name="action" ref="faculty_tags_f9b323f4-e05f-4813-a63f-904b43474113"/>
+    <field name="name">Faculty Tags</field>
+    <field name="parent_id" ref="university_configura_0102cfd9-0115-4ae3-8268-c2960a0b588d"/>
+    <field name="sequence">8</field>
+  </record>
+  <record id="university_batch_78dda57a-2bc7-4052-9aaa-e46034d0f024" model="ir.ui.menu" >
+    <field name="action" ref="batch_6d30dfba-20dc-4de5-8d4a-efe916970ef2"/>
+    <field name="name">Batch</field>
+    <field name="parent_id" ref="university_admission_10287392-ed8c-4efb-8a4b-77e1d2a58269"/>
+    <field name="sequence">4</field>
+  </record>
+  <record id="university_exams_097f2894-e61e-47d3-be1f-039dd2554249" model="ir.ui.menu" >
+    <field name="action" ref="base.action_open_website"/>
+    <field name="name">Exams</field>
+    <field name="parent_id" ref="university_56b55741-9bf6-4174-bfc7-3027765c99da"/>
+    <field name="sequence">5</field>
+  </record>
+  <record id="university_exam_31b5ad6e-1369-42f2-8680-c778a4ae5ae8" model="ir.ui.menu" >
+    <field name="action" ref="exam_b39bb754-b172-4ea7-b95d-35c5641768c7"/>
+    <field name="name">Exam</field>
+    <field name="parent_id" ref="university_exams_097f2894-e61e-47d3-be1f-039dd2554249"/>
+    <field name="sequence">1</field>
+  </record>
+  <record id="university_exam_resu_325b19ca-1750-48d7-bdee-ddaaebc19a60" model="ir.ui.menu" >
+    <field name="action" ref="exam_results_a9ed2cdc-bf32-421b-bfe5-9d06e5bf3960"/>
+    <field name="name">Exam Results</field>
+    <field name="parent_id" ref="university_exams_097f2894-e61e-47d3-be1f-039dd2554249"/>
+    <field name="sequence">3</field>
+  </record>
+  <record id="university_exam_type_af04d908-53a2-42ad-858b-71aada338fdf" model="ir.ui.menu" >
+    <field name="action" ref="exam_types_07088d69-ca1e-4b13-af5b-37ccec7713a1"/>
+    <field name="name">Exam Types</field>
+    <field name="parent_id" ref="university_exams_097f2894-e61e-47d3-be1f-039dd2554249"/>
+    <field name="sequence">4</field>
+  </record>
+  <record id="university_departmen_2e10e62e-db4d-43eb-ac9a-b25ff1771fa1" model="ir.ui.menu" >
+    <field name="action" ref="department_3347c45d-40ea-4279-83dc-d6ad962c3649"/>
+    <field name="name">Department</field>
+    <field name="parent_id" ref="university_universit_fe188b0b-c62e-4f8c-8bb5-fee0f3b636ab"/>
+    <field name="sequence">2</field>
+  </record>
+  <record id="university_document_f6cc1600-930c-424c-8d81-4ffc398c7d4c" model="ir.ui.menu" >
+    <field name="action" ref="document_b8006c7a-907c-487b-becd-5849027c888f"/>
+    <field name="name">Document</field>
+    <field name="parent_id" ref="university_admission_10287392-ed8c-4efb-8a4b-77e1d2a58269"/>
+    <field name="sequence">2</field>
+  </record>
+  <record id="university_courses_a8326164-ec18-4c88-81bb-1cc8bee8181e" model="ir.ui.menu" >
+    <field name="action" ref="base.action_open_website"/>
+    <field name="name">Courses</field>
+    <field name="parent_id" ref="university_56b55741-9bf6-4174-bfc7-3027765c99da"/>
+    <field name="sequence">7</field>
+  </record>
+  <record id="university_subject_dd717576-8f9f-4689-ab2e-8a96f195cff0" model="ir.ui.menu" >
+    <field name="action" ref="subject_ba43b437-a6e3-4f34-ac69-f1cbb613f889"/>
+    <field name="name">Subject</field>
+    <field name="parent_id" ref="university_courses_a8326164-ec18-4c88-81bb-1cc8bee8181e"/>
+    <field name="sequence">2</field>
+  </record>
+  <record id="university_syllabus_7ee7ce94-ae41-4144-adb2-921977552116" model="ir.ui.menu" >
+    <field name="action" ref="syllabus_37849f0b-f17c-4017-8a0c-0c0767e54a57"/>
+    <field name="name">Syllabus</field>
+    <field name="parent_id" ref="university_courses_a8326164-ec18-4c88-81bb-1cc8bee8181e"/>
+    <field name="sequence">3</field>
+  </record>
+  <record id="university_attendanc_31767b9a-5cec-4f5b-8157-a2050da52664" model="ir.ui.menu" >
+    <field name="action" ref="attendance_a7f93218-622a-4eda-8e0d-31f5ceea89cb"/>
+    <field name="name">Attendance</field>
+    <field name="parent_id" ref="university_courses_a8326164-ec18-4c88-81bb-1cc8bee8181e"/>
+    <field name="sequence">5</field>
+  </record>
+  <record id="university_course_94661fb5-4c61-4fe1-9425-1e11466ac913" model="ir.ui.menu" >
+    <field name="action" ref="course_6cf397ea-d408-4d4a-815f-2b3cd829814a"/>
+    <field name="name">Course</field>
+    <field name="parent_id" ref="university_courses_a8326164-ec18-4c88-81bb-1cc8bee8181e"/>
+    <field name="sequence">1</field>
+  </record>
+  <record id="university_course_at_619b9472-b977-4a88-9654-95b653e0e751" model="ir.ui.menu" >
+    <field name="action" ref="course_attendance_cc843513-8005-4292-94c7-57e409c7ecbe"/>
+    <field name="name">Course Attendance</field>
+    <field name="parent_id" ref="university_courses_a8326164-ec18-4c88-81bb-1cc8bee8181e"/>
+    <field name="sequence">6</field>
+  </record>
+</odoo>

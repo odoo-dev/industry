@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="university_model" model="ir.model" >
+    <field name="is_mail_thread" eval="True"/>
+    <field name="is_mail_activity" eval="True"/>
+    <field name="model">x_university</field>
+    <field name="name">university</field>
+  </record>
+  <record id="university_line_e52a07dc-589d-4493-9b74-2aa4237702ef" model="ir.model" >
+    <field name="model">x_university_line_0eb59</field>
+    <field name="name">university_line</field>
+  </record>
+  <record id="university_tags" model="ir.model" >
+    <field name="model">x_university_tag</field>
+    <field name="name">university Tags</field>
+  </record>
+  <record id="professor_model" model="ir.model" >
+    <field name="is_mail_thread" eval="True"/>
+    <field name="is_mail_activity" eval="True"/>
+    <field name="model">x_professor</field>
+    <field name="name">Professor</field>
+  </record>
+  <record id="professor_tags" model="ir.model" >
+    <field name="model">x_professor_tag</field>
+    <field name="name">Professor Tags</field>
+  </record>
+  <record id="academic_years_model" model="ir.model" >
+    <field name="model">x_academic_years</field>
+    <field name="name">Academic Years</field>
+  </record>
+  <record id="semester_model" model="ir.model" >
+    <field name="model">x_semester</field>
+    <field name="name">Semester</field>
+  </record>
+  <record id="students_model" model="ir.model" >
+    <field name="model">x_students</field>
+    <field name="name">Students</field>
+  </record>
+  <record id="students_line_05c42131-8fdf-4a39-9855-3b472843a37f" model="ir.model" >
+    <field name="model">x_students_line_31915</field>
+    <field name="name">students_line</field>
+  </record>
+  <record id="faculty_model" model="ir.model" >
+    <field name="model">x_faculty</field>
+    <field name="name">Faculty</field>
+  </record>
+  <record id="faculty_tags" model="ir.model" >
+    <field name="model">x_faculty_tag</field>
+    <field name="name">Faculty Tags</field>
+  </record>
+  <record id="batch_model" model="ir.model" >
+    <field name="model">x_batch</field>
+    <field name="name">Batch</field>
+  </record>
+  <record id="exam_model" model="ir.model" >
+    <field name="model">x_exam</field>
+    <field name="name">Exam</field>
+  </record>
+
+  <record id="exam_results_model" model="ir.model" >
+    <field name="model">x_exam_results</field>
+    <field name="name">Exam Results</field>
+  </record>
+  <record id="exam_types_dc7723bc-1cbd-4b50-9f56-328ba1743e77" model="ir.model" >
+    <field name="model">x_exam_types</field>
+    <field name="name">Exam Types</field>
+  </record>
+  <record id="department_model" model="ir.model" >
+    <field name="model">x_department</field>
+    <field name="name">Department</field>
+  </record>
+  <record id="subject_model" model="ir.model" >
+    <field name="model">x_subject</field>
+    <field name="name">Subject</field>
+  </record>
+  <record id="syllabus_model" model="ir.model" >
+    <field name="model">x_syllabus</field>
+    <field name="name">Syllabus</field>
+  </record>
+  <record id="attendance_model" model="ir.model" >
+    <field name="model">x_attendance</field>
+    <field name="name">Attendance</field>
+  </record>
+  <record id="course_model" model="ir.model" >
+    <field name="model">x_course</field>
+    <field name="name">Course</field>
+  </record>
+  <record id="course_attendance_model" model="ir.model" >
+    <field name="is_mail_thread" eval="True"/>
+    <field name="is_mail_activity" eval="True"/>
+    <field name="model">x_course_attendance</field>
+    <field name="name">Course Attendance</field>
+  </record>
+  <record id="document_model" model="ir.model" >
+    <field name="model">x_document</field>
+    <field name="name">Document</field>
+  </record>
+</odoo>

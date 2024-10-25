@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="welcome_article_body">
+        <head>
+            <title>University Management Module in Odoo</title>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; }
+                h1, h2, h3 { color: #333; }
+                .emoji { font-size: 1.5em; }
+                ul { margin-left: 20px; }
+                .tip { background-color: #f9f9f9; padding: 10px; border-left: 3px solid #2196F3; }
+                .note { font-style: italic; color: #555; }
+            </style>
+        </head>
+        <body>
+        
+        <h1><span class="emoji">🎓</span> University Management Module in Odoo</h1>
+        <p>Welcome to the <strong>Odoo University Management Module</strong>—your all-in-one toolkit for managing every aspect of university operations! This module is designed for admins, professors, and students alike, ensuring smooth workflows from admissions to attendance. Let's break down the functionality of each part, making sure you know how to get the most out of this module.</p>
+        
+        <hr />
+        
+        <h2><span class="emoji">🌟</span> Main Entities: The Core Structure of the Module</h2>
+        <p>Here are the main entities you'll be working with:</p>
+        <ul>
+            <li><strong>University</strong> <span class="emoji">🏛️</span></li>
+            <li><strong>Professors</strong> <span class="emoji">👩‍🏫</span></li>
+            <li><strong>Students</strong> <span class="emoji">👨‍🎓</span></li>
+            <li><strong>Courses</strong> <span class="emoji">📚</span></li>
+            <li><strong>Subjects</strong> <span class="emoji">📖</span></li>
+            <li><strong>Batches</strong> <span class="emoji">🗂️</span></li>
+            <li><strong>Departments</strong> <span class="emoji">🏢</span></li>
+            <li><strong>Academic Years &amp; Semesters</strong> <span class="emoji">📅</span></li>
+        </ul>
+        
+        <hr />
+        
+        <h2><span class="emoji">🏛️</span> University Management</h2>
+        <p>The University section serves as the hub for all other elements. Here, admins can configure and set up important details like:</p>
+        <ul>
+            <li><strong>University Details</strong>: Basic information about the university itself (e.g., name, contact information, etc.)</li>
+            <li><strong>Professors and Staff</strong>: The list of people working at the university, along with their roles and assignments.</li>
+            <li><strong>Student Management</strong>: Overview and detailed access to student profiles, grades, and documents.</li>
+            <li><strong>Tagging System</strong>: Use the tagging feature to assign colors, categorize departments, and label various elements easily.</li>
+        </ul>
+        <div class="tip"><strong>💡 Pro Tip:</strong> You can set up custom tags to manage departments, faculties, or even events!</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">👩‍🏫</span> Professors Management</h2>
+        <p>In the Professor's section, you get an extensive view of each professor's information:</p>
+        <ul>
+            <li><strong>Personal Details</strong>: Name, avatar, contact info, department, and faculty affiliation.</li>
+            <li><strong>Tag Assignments</strong>: Professors can be categorized by skills, subjects they teach, or by department. Tags make it easy to filter professors in the main list view.</li>
+            <li><strong>Course Assignment</strong>: See what courses or batches the professor is assigned to directly from their profile.</li>
+            <li><strong>Archived Status</strong>: Professors who are no longer teaching can be archived to keep records but exclude them from active lists.</li>
+        </ul>
+        <div class="tip"><strong>📅 Calendar View:</strong> Professors can view their schedules and upcoming exams in the Calendar view for easy planning.</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">👨‍🎓</span> Student Management</h2>
+        <p>This is the heart of the module for student data. Here’s everything included in the <strong>Students</strong> section:</p>
+        <ul>
+            <li><strong>Student Profiles</strong>: Personal details like avatar, name, and contact info.</li>
+            <li><strong>Batch and Academic Year</strong>: Assign each student to a batch and academic year to track their progress.</li>
+            <li><strong>Enrollment History</strong>: Easily access previous and current courses, grades, and other academic data.</li>
+            <li><strong>Document Handling</strong>: Attach documents related to a student, such as admission letters, certificates, or exam papers.</li>
+            <li><strong>Statistics Button</strong> <span class="emoji">📊</span>: Quickly access data on documents related to the student for easy file management.</li>
+        </ul>
+        <div class="tip note">✨ Notebook View: Use the multi-tab view to switch between student information, personal information, and course data without losing track.</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">📚</span> Course Management</h2>
+        <p>Courses are the main unit of learning in the University module, tying together students, professors, and subjects. Key features include:</p>
+        <ul>
+            <li><strong>Course Syllabus</strong> <span class="emoji">📘</span>: Easily attach course materials, including syllabus documents, for quick reference.</li>
+            <li><strong>Professor Assignment</strong> <span class="emoji">👩‍🏫</span>: Link professors to courses, which enables seamless scheduling and assignment viewing.</li>
+            <li><strong>Course Calendar</strong> <span class="emoji">📆</span>: Students and professors can both view upcoming classes, exams, and assignments.</li>
+            <li><strong>Date Ranges</strong> <span class="emoji">⏰</span>: Set start and end dates for courses, viewable in a Gantt view for better time management.</li>
+        </ul>
+        <div class="note">📝 Note: Professors can see which subjects fall under their responsibility and manage their lesson plans directly in this section.</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">🗂️</span> Batch and Department Management</h2>
+        <p><strong>Batches</strong> are used to group students by entry year, course, or specialization. <strong>Departments</strong> allow for categorization of faculties, enhancing administrative oversight.</p>
+        <ul>
+            <li><strong>Batch Assignment</strong>: Link students to their respective batches and ensure tracking of their academic progress over time.</li>
+            <li><strong>Department Overview</strong>: Each department can have assigned courses, professors, and tags.</li>
+            <li><strong>Grouping Options</strong>: Use the grouping filters to view students, professors, or subjects by department in both list and kanban views.</li>
+        </ul>
+        <div class="note">🏷️ Tags &amp; Colors: With color-coded tags, sorting through departments and faculties is visually intuitive.</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">📅</span> Academic Years &amp; Semesters</h2>
+        <p>Time tracking is crucial in any academic environment. The <strong>Academic Years</strong> and <strong>Semesters</strong> features allow for smooth management of university timelines.</p>
+        <ul>
+            <li><strong>Academic Year Setup</strong>: Define start and end dates for each academic year and semester.</li>
+            <li><strong>Filter by Semester</strong>: View courses, students, and exam schedules by semester, making it easy to manage short-term academic goals.</li>
+            <li><strong>Gantt View</strong>: Plan the entire academic year with the Gantt view, perfect for administrators who need an at-a-glance timeline.</li>
+        </ul>
+        <div class="note">🕑 Date Ranges in Filters: Each academic year and semester has filterable dates, so you can drill down into specific timeframes easily.</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">📖</span> Subject Management</h2>
+        <p>Each course has <strong>Subjects</strong> to structure the curriculum. This section offers:</p>
+        <ul>
+            <li><strong>Subject List</strong>: List view of all subjects with options to search and filter.</li>
+            <li><strong>Professor Assignment</strong>: Assign professors to specific subjects.</li>
+            <li><strong>Document Attachments</strong>: Add any documents like study guides, notes, and additional reading materials.</li>
+        </ul>
+        
+        <hr />
+        
+        <h2><span class="emoji">📝</span> Exam and Attendance Management</h2>
+        <p>Exams and attendance are seamlessly integrated into this module, ensuring comprehensive academic tracking.</p>
+        <ul>
+            <li><strong>Exam Management</strong>: Create exams and associate them with specific courses and academic years.</li>
+            <li><strong>Attendance Tracking</strong>: Monitor student attendance for each course.</li>
+            <li><strong>Exam Results</strong>: Record and view students’ exam results, with specific fields for grades, max marks, and attendance percentages.</li>
+            <li><strong>Calendar Integration</strong>: Exams are displayed on the calendar for easy scheduling.</li>
+        </ul>
+        
+        <hr />
+        
+        <h2><span class="emoji">💾</span> Document Management</h2>
+        <p>Keep important academic documents stored and organized within the module.</p>
+        <ul>
+            <li><strong>Attachment Feature</strong>: Attach documents to professors, students, and courses directly.</li>
+            <li><strong>Document Categorization</strong>: Label and categorize documents for easy access.</li>
+            <li><strong>Version Control</strong>: Ensure the latest documents are always accessible with simple updates.</li>
+        </ul>
+        
+        <hr />
+        
+        <h2><span class="emoji">🎉</span> Special Views and Filters</h2>
+        <p>This module includes several view options, such as:</p>
+        <ul>
+            <li><strong>Calendar View</strong> <span class="emoji">📆</span>: Ideal for visualizing schedules and deadlines.</li>
+            <li><strong>Gantt View</strong> <span class="emoji">📊</span>: Perfect for timeline-based data like course schedules and academic year planning.</li>
+            <li><strong>Map View</strong> <span class="emoji">🗺️</span>: Great for visualizing partner locations (useful if there are different university campuses).</li>
+            <li><strong>Search and Filter Options</strong> <span class="emoji">🔍</span>: Advanced filtering, such as filtering by academic year, batch, department, or tags, makes data retrieval quick and easy.</li>
+        </ul>
+        <div class="note">🌈 Color-Coded System: Colors for tags in many-to-many fields improve visual clarity in large lists.</div>
+        
+        <hr />
+        
+        <h2><span class="emoji">💡</span> Pro Tips for Maximizing This Module</h2>
+        <ul>
+            <li><strong>Calendar Integration</strong>: Sync university events with Google Calendar for even better scheduling.</li>
+            <li><strong>Set Up Alerts</strong>: Configure reminders for exams or document deadlines.</li>
+            <li><strong>Use the Tagging System</strong>: Tags can significantly simplify tracking by department, batch, or semester.</li>
+            <li><strong>Make Use of the Gantt View</strong>: For long-term planning, this view provides a bird’s-eye timeline.</li>
+        </ul>
+        
+        <p>This University Management Module truly covers all aspects of academic management, providing an efficient, user-friendly experience for everyone involved. With the combination of smart views, filters, and customized functionalities, navigating and managing university operations has never been easier.</p>
+        
+        <p><span class="emoji">👩‍🎓👨‍🎓</span> Go ahead, explore, and make the most out of this powerful module!</p>
+        
+        </body>
+    </template>
+
+    <record id="welcome_article" model="knowledge.article">
+        <field name="name">Odoo University</field>
+        <field name="icon"></field>
+        <field name="internal_permission">write</field>
+        <field name="cover_image_id" ref="knowledge_cover_0"/>
+        <field name="is_article_visible_by_everyone" eval="True"/>
+        <field name="is_locked" eval="True"/>
+        <field name="body"><![CDATA[]]>
+</field>
+    </record>
+</odoo>

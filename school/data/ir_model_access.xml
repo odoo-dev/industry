@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="university_group_sys_999aed43-b12c-40f7-931c-759df12727bc" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="university_model"/>
+    <field name="name">university group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="university_group_use_937a7828-f264-46a3-b40c-e188bce371af" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="university_model"/>
+    <field name="name">university group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="university_line_grou_9ae5b315-47ab-4e7f-a9e6-356190ec450c" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="university_line_e52a07dc-589d-4493-9b74-2aa4237702ef"/>
+    <field name="name">university_line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="university_line_grou_9eb70c61-bec7-4205-ade1-5af31e9d91d8" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="university_line_e52a07dc-589d-4493-9b74-2aa4237702ef"/>
+    <field name="name">university_line group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="university_tags_grou_62ac66b5-99bb-4cb9-b0a3-90f3b54e9f61" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="university_tags"/>
+    <field name="name">university Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="university_tags_grou_d4c63339-b4ee-463a-ac87-695d7b2788a3" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="university_tags"/>
+    <field name="name">university Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="professor_group_syst_b19d46ec-8b3f-4d18-9cfa-654bba961702" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">Professor group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="professor_group_user_df7f75ac-60ff-4480-8897-e87a7a8ce646" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="professor_model"/>
+    <field name="name">Professor group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="professor_tags_group_8f21811c-4168-4b39-b30d-a8aaa4e3b353" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="professor_tags"/>
+    <field name="name">Professor Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="professor_tags_group_436e02d5-3251-4695-b3c8-927685d3bb80" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="professor_tags"/>
+    <field name="name">Professor Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="academic_years_group_ca1a76c3-151c-455a-abae-5341b84fff22" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="academic_years_model"/>
+    <field name="name">Academic Years group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="academic_years_group_a3558dd4-aad0-4bad-ab89-b0827ae173b3" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="academic_years_model"/>
+    <field name="name">Academic Years group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="semester_group_syste_66e60f42-ebca-451b-aaf0-f4a30b0180d8" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="semester_model"/>
+    <field name="name">Semester group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="semester_group_user_62e819a3-b391-4c8b-bf79-5e53d44c2bac" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="semester_model"/>
+    <field name="name">Semester group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="students_group_syste_33ea6042-92e8-4787-b304-36c981aeda43" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="students_model"/>
+    <field name="name">Students group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="students_group_user_48cde432-c54a-4177-9959-59223c826b0f" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="students_model"/>
+    <field name="name">Students group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="students_line_group__1108a3a9-10c8-4351-8846-36cf358d57d8" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="students_line_05c42131-8fdf-4a39-9855-3b472843a37f"/>
+    <field name="name">students_line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="students_line_group__64828ef1-da0a-4d46-9747-6bf79c2df70b" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="students_line_05c42131-8fdf-4a39-9855-3b472843a37f"/>
+    <field name="name">students_line group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="faculty_group_system_cc837bf3-deac-47c1-8092-e8fa81abbf03" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">Faculty group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="faculty_group_user_1b0e7263-44e1-475f-bfb5-e633d4534339" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="faculty_model"/>
+    <field name="name">Faculty group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="faculty_tags_group_s_22fe5070-82e0-41be-9168-aead2afbde0d" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="faculty_tags"/>
+    <field name="name">Faculty Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="faculty_tags_group_u_f9f1cc75-3523-4517-8fad-908411ecb6e2" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="faculty_tags"/>
+    <field name="name">Faculty Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="batch_group_system_890b049a-27c3-466b-a53c-c77a6b565a07" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="batch_model"/>
+    <field name="name">Batch group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="batch_group_user_6f7f2bc4-b87e-4f05-88ad-e625ae8b8c06" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="batch_model"/>
+    <field name="name">Batch group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="exam_group_system_08e7713d-95cb-4a83-9f0e-6f2d6c9356bb" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">Exam group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="exam_group_user_a5d96d42-6778-4338-8d7f-cb6bcd6ee6a4" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="exam_model"/>
+    <field name="name">Exam group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="exam_results_group_s_a734498d-2de8-44d7-a8d9-f035a457ea7e" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">Exam Results group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="exam_results_group_u_b03d0f02-5124-40ff-a429-9092bf73ae61" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="exam_results_model"/>
+    <field name="name">Exam Results group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="exam_types_group_sys_74dfc895-fa78-416f-9c93-ef36222b7aa7" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="exam_types_dc7723bc-1cbd-4b50-9f56-328ba1743e77"/>
+    <field name="name">Exam Types group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="exam_types_group_use_c7ba4510-2813-4fd7-b2f2-73fbf4069fbc" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="exam_types_dc7723bc-1cbd-4b50-9f56-328ba1743e77"/>
+    <field name="name">Exam Types group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="department_group_sys_9ec9997c-45d7-413e-a1e7-16b1e14fda3a" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="department_model"/>
+    <field name="name">Department group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="department_group_use_bdef1ed4-c1be-452e-b45e-42cd60c62329" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="department_model"/>
+    <field name="name">Department group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="subject_group_system_df974104-bf3a-4528-8650-7141c4266323" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">Subject group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="subject_group_user_9d1e1d69-5a8f-4df3-a5dc-000cee63cfef" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="subject_model"/>
+    <field name="name">Subject group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="syllabus_group_syste_5a3c78c3-0ece-415a-8012-6b3065e46f5b" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="syllabus_model"/>
+    <field name="name">Syllabus group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="syllabus_group_user_fc4d7866-1d1e-4bf7-8c53-de67c1caceae" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="syllabus_model"/>
+    <field name="name">Syllabus group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="attendance_group_sys_65b6195e-7b06-4611-a084-226c406c71a4" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">Attendance group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="attendance_group_use_2da62e9e-d3ac-4cf2-b015-21731a75ade8" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="attendance_model"/>
+    <field name="name">Attendance group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="course_group_system_12c4a0aa-66e6-4def-80bb-5a90a14a3ca1" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="course_model"/>
+    <field name="name">Course group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="course_group_user_e7ade067-739f-4641-936d-a0c7355836da" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="course_model"/>
+    <field name="name">Course group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="course_attendance_gr_5aa135cd-13db-42eb-8644-f71613d3bf70" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">Course Attendance group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="course_attendance_gr_c3913933-2f3f-42dc-b5db-b377fa77a3d5" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="course_attendance_model"/>
+    <field name="name">Course Attendance group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="document_group_syste_8f27debe-bc4b-4a46-9e53-d0341d256e0f" model="ir.model.access" >
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="document_model"/>
+    <field name="name">Document group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="document_group_user_d73ac394-a792-4bb4-b854-8dcd4d63d675" model="ir.model.access" >
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="document_model"/>
+    <field name="name">Document group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+</odoo>

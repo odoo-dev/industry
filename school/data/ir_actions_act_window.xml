@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="university_502c513d-89d2-4ece-81f8-b5c74ebb19e3" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">university</field>
+    <field name="res_model">x_university</field>
+    <field name="view_mode">list,form,calendar,gantt,map</field>
+  </record>
+  <record id="university_tags_a47984c0-6df1-40df-a0ea-b1172f4527b4" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">university Tags</field>
+    <field name="res_model">x_university_tag</field>
+  </record>
+  <record id="professor_a220f292-1770-4538-b3c3-5c651d92a641" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Professor</field>
+    <field name="res_model">x_professor</field>
+    <field name="view_mode">list,form,calendar,gantt,map</field>
+  </record>
+  <record id="professor_tags_8294d597-08b8-4ffc-b0f5-5514a3e56edf" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Professor Tags</field>
+    <field name="res_model">x_professor_tag</field>
+  </record>
+  <record id="academic_years_5a7936a1-4d59-4f64-8d56-784ea7ee43e3" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Academic Years</field>
+    <field name="res_model">x_academic_years</field>
+    <field name="view_mode">list,form,gantt</field>
+  </record>
+  <record id="semester_369a3551-cfdc-4d8c-a971-f79eee1888ac" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Semester</field>
+    <field name="res_model">x_semester</field>
+    <field name="view_mode">list,form,gantt</field>
+  </record>
+  <record id="students_8a0d4bb9-eb02-4082-901e-819da2d89c7a" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Students</field>
+    <field name="res_model">x_students</field>
+    <field name="view_mode">list,form,calendar,gantt,map</field>
+  </record>
+  <record id="faculty_698d52fd-f99a-40ca-b794-ddb9b967ff15" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Faculty</field>
+    <field name="res_model">x_faculty</field>
+  </record>
+  <record id="faculty_tags_f9b323f4-e05f-4813-a63f-904b43474113" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Faculty Tags</field>
+    <field name="res_model">x_faculty_tag</field>
+  </record>
+  <record id="batch_6d30dfba-20dc-4de5-8d4a-efe916970ef2" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Batch</field>
+    <field name="res_model">x_batch</field>
+  </record>
+  <record id="exam_b39bb754-b172-4ea7-b95d-35c5641768c7" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Exam</field>
+    <field name="res_model">x_exam</field>
+    <field name="view_mode">list,form,calendar</field>
+  </record>
+  <record id="exam_results_a9ed2cdc-bf32-421b-bfe5-9d06e5bf3960" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Exam Results</field>
+    <field name="res_model">x_exam_results</field>
+  </record>
+  <record id="exam_types_07088d69-ca1e-4b13-af5b-37ccec7713a1" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Exam Types</field>
+    <field name="res_model">x_exam_types</field>
+  </record>
+  <record id="department_3347c45d-40ea-4279-83dc-d6ad962c3649" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Department</field>
+    <field name="res_model">x_department</field>
+  </record>
+  <record id="subject_ba43b437-a6e3-4f34-ac69-f1cbb613f889" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Subject</field>
+    <field name="res_model">x_subject</field>
+  </record>
+  <record id="syllabus_37849f0b-f17c-4017-8a0c-0c0767e54a57" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Syllabus</field>
+    <field name="res_model">x_syllabus</field>
+  </record>
+  <record id="attendance_a7f93218-622a-4eda-8e0d-31f5ceea89cb" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Attendance</field>
+    <field name="res_model">x_attendance</field>
+  </record>
+  <record id="course_6cf397ea-d408-4d4a-815f-2b3cd829814a" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Course</field>
+    <field name="res_model">x_course</field>
+    <field name="view_mode">list,form,gantt</field>
+  </record>
+  <record id="course_attendance_cc843513-8005-4292-94c7-57e409c7ecbe" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Course Attendance</field>
+    <field name="res_model">x_course_attendance</field>
+    <field name="view_mode">list,form,gantt</field>
+  </record>
+  <record id="document_b8006c7a-907c-487b-becd-5849027c888f" model="ir.actions.act_window" >
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Document</field>
+    <field name="res_model">x_document</field>
+  </record>
+  <record id="documents_b6a43387-745e-4109-80b3-c7bebdaa247a" model="ir.actions.act_window" >
+    <field name="context">{'search_default_x_studio_student': active_id,'default_x_studio_student': active_id}</field>
+    <field name="domain">[('x_studio_student', '=', active_id)]</field>
+    <field name="name">Documents</field>
+    <field name="res_model">x_document</field>
+  </record>
+  <record id="professor_2be6ce61-2027-4391-a1a5-8289880d563e" model="ir.actions.act_window" >
+    <field name="context">{'search_default_x_studio_department': active_id,'default_x_studio_department': active_id}</field>
+    <field name="domain">[('x_studio_department', '=', active_id)]</field>
+    <field name="name">Professor</field>
+    <field name="res_model">x_professor</field>
+  </record>
+  <record id="students_bd360cf7-91d5-47de-937d-20e2d0954416" model="ir.actions.act_window" >
+    <field name="context">{'search_default_x_studio_department': active_id,'default_x_studio_department': active_id}</field>
+    <field name="domain">[('x_studio_department', '=', active_id)]</field>
+    <field name="name">Students</field>
+    <field name="res_model">x_students</field>
+  </record>
+  <record id="employe_fa4a98bd-f1c7-45a2-9787-a4c82e61a869" model="ir.actions.act_window" >
+    <field name="context">{'search_default_x_studio_professor': active_id,'default_x_studio_professor': active_id}</field>
+    <field name="domain">[('x_studio_professor', '=', active_id)]</field>
+    <field name="name">Employe</field>
+    <field name="res_model">hr.employee</field>
+  </record>
+</odoo>

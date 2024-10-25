@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="active_university_d13f0071-ca0b-4f4d-8b27-8fb31a4138f7" model="ir.default" >
+    <field name="field_id" ref="active_university_b3204731-7038-4590-96de-618f83e45a27"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="sequence_university_b7301ff0-0d01-459c-a7e2-d64d246d8911" model="ir.default" >
+    <field name="field_id" ref="sequence_university_5cd2f9ac-320e-4558-8cdf-74f35eb3a00b"/>
+    <field name="json_value">10</field>
+  </record>
+  <record id="active_professor_35cb50fa-c01b-4f07-9bea-8a63183ecd31" model="ir.default" >
+    <field name="field_id" ref="active_professor_93045ac9-1f05-46f9-aea8-241c1e1f2f36"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="sequence_professor_31b7e3dc-9a85-4d41-ae1a-b56428b48605" model="ir.default" >
+    <field name="field_id" ref="sequence_professor_fe0309f5-b57a-4930-b740-4a2e57eec849"/>
+    <field name="json_value">10</field>
+  </record>
+  <record id="new_integer_exam_res_3ffac969-9096-4896-90b3-2c5d05e6925c" model="ir.default" >
+    <field name="field_id" ref="new_integer_exam_res_f11c3dd8-eda6-41ec-b20e-041fb0b929ca"/>
+    <field name="json_value">"0"</field>
+  </record>
+</odoo>

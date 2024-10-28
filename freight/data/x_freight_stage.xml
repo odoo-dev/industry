@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="x_freight_stage_1" model="x_freight_stage">
+    <field name="x_name">New</field>
+  </record>
+  <record id="x_freight_stage_2" model="x_freight_stage">
+    <field name="x_name">In Progress</field>
+  </record>
+  <record id="x_freight_stage_3" model="x_freight_stage">
+    <field name="x_name">Done</field>
+  </record>
+</odoo>

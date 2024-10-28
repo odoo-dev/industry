@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="product_from_service_43631a4f-f2b1-4327-9802-b3e913d7f2d3" model="base.automation">
+    <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('execute_code_6e4d3989-5602-476b-b396-4087a42c5f22')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">Product From Service</field>
+  </record>
+  <record id="product_from_route_6d6dde25-a483-4712-b8f8-2e9b79288019" model="base.automation">
+    <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('execute_code_0c5bf051-f459-400f-9208-d44b05b72322')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">Product From Route</field>
+  </record>
+  <record id="create_so_7af5a6fd-198c-48b5-b855-a6dd68b7cee1" model="base.automation">
+    <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('execute_code_0c5a3fd1-b71c-4f0b-81d5-533e94f243a6')])]"/>
+    <field name="trigger_field_ids" eval="[(6, 0, [ref('stage_freight_4db456ed-b04a-4626-80f6-3664a9ac4fb2')])]"/>
+    <field name="trigger">on_stage_set</field>
+    <field name="trg_field_ref" ref="x_freight_stage_3"/>
+    <field name="filter_domain">[('x_stage_id', '=', 3)]</field>
+    <field name="name">Create SO</field>
+  </record>
+</odoo>

@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="freight_group_system_603f74a6-b572-46b8-85b4-aad56733a892" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">Freight group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_group_user_9ce3cc18-54ad-46f8-b112-c67a26b84d62" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">Freight group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_stages_group_b7f59104-1a2b-4673-b1f9-945bc4fbb232" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_stages_e9ac1299-f54a-4900-9e9e-e2e9bb748ab2"/>
+    <field name="name">Freight Stages group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_stages_group_b924d956-b20f-42ce-9dd8-d7e7384cbaf5" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_stages_e9ac1299-f54a-4900-9e9e-e2e9bb748ab2"/>
+    <field name="name">Freight Stages group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_tags_group_s_6dbc52ed-ce21-4e93-a5e8-4c3b1d133d30" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_tags_8e66e5e6-07fd-4c29-a020-83da6fce43cf"/>
+    <field name="name">Freight Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_tags_group_u_0b1950a0-0d6a-4a5d-8df9-843b43fa6362" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_tags_8e66e5e6-07fd-4c29-a020-83da6fce43cf"/>
+    <field name="name">Freight Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_places_group_5747e038-b320-4bb3-9ad0-ecf47893bc0a" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">Freight Places group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_places_group_dcd60365-806c-41be-8e1d-b1944562e260" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">Freight Places group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_places_tags__e1717755-9008-494d-a231-93e6020bfe17" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_places_tags_beeb7e64-b639-4101-8f7f-bb782ae6ab7e"/>
+    <field name="name">Freight Places Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_places_tags__33c2a1b3-8e40-42fb-b51e-449123a2e0fa" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_places_tags_beeb7e64-b639-4101-8f7f-bb782ae6ab7e"/>
+    <field name="name">Freight Places Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="services_group_syste_571567ca-0552-4e4d-aca4-a13e98e6370e" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">Services group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="services_group_user_259ef6fa-9013-4fa6-9567-503f7f054346" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">Services group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="services_tags_group__73ff348e-efff-4f1f-aed2-4659e4d2a612" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="services_tags_b44c2c12-64fa-43b7-a7fd-15c186bef984"/>
+    <field name="name">Services Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="services_tags_group__ab71de5c-366c-4121-a117-e51ddd348d53" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="services_tags_b44c2c12-64fa-43b7-a7fd-15c186bef984"/>
+    <field name="name">Services Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_routes_group_472df8fe-0b22-401f-9fd5-b5b9738da5f1" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">Freight Routes group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_routes_group_112f7e2e-06d5-492a-982e-eb20c6f669c2" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">Freight Routes group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_steps_group__a0889e03-74fd-4e85-bafa-e64603f02ed6" model="ir.model.access">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">Freight Steps group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="freight_steps_group__735a7bd8-b93d-419d-8a75-83f3bf47efc9" model="ir.model.access">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">Freight Steps group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+</odoo>

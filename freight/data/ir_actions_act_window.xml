@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="freight_27c9cec6-f560-4cfb-a077-e9b13748ac52" model="ir.actions.act_window">
+
+    <field name="name">Freight</field>
+    <field name="res_model">x_freight</field>
+    <field name="view_mode">kanban,list,form,gantt,map</field>
+  </record>
+  <record id="freight_stages_8b5ca7a8-46c1-47f6-aab9-e3f118497418" model="ir.actions.act_window">
+
+    <field name="name">Freight Stages</field>
+    <field name="res_model">x_freight_stage</field>
+  </record>
+  <record id="freight_tags_5525a5f0-bd30-4d61-9f3b-042c0f917c00" model="ir.actions.act_window">
+
+    <field name="name">Freight Tags</field>
+    <field name="res_model">x_freight_tag</field>
+  </record>
+  <record id="freight_places_b8626be9-7b50-4761-b3f0-aa008d2ff6d7" model="ir.actions.act_window">
+
+    <field name="name">Freight Places</field>
+    <field name="res_model">x_freight_places</field>
+    <field name="view_mode">list,form,map</field>
+  </record>
+  <record id="freight_places_tags_50bce3ff-d163-423b-86d0-510758046d0a" model="ir.actions.act_window">
+
+    <field name="name">Freight Places Tags</field>
+    <field name="res_model">x_freight_places_tag</field>
+  </record>
+  <record id="services_a0ebc10a-573a-4389-9ee6-8ee4aff63768" model="ir.actions.act_window">
+
+    <field name="name">Services</field>
+    <field name="res_model">x_services</field>
+  </record>
+  <record id="services_tags_1021d11c-d504-46d5-a642-9248c8996922" model="ir.actions.act_window">
+
+    <field name="name">Services Tags</field>
+    <field name="res_model">x_services_tag</field>
+  </record>
+  <record id="freight_routes_063ed71e-0dd0-4d98-a7d7-28cad69227d8" model="ir.actions.act_window">
+
+    <field name="name">Freight Routes</field>
+    <field name="res_model">x_freight_routes</field>
+    <field name="view_mode">list,form,map</field>
+  </record>
+  <record id="freight_steps_77a4bb10-d0dd-420e-b30b-201d5c1c4d95" model="ir.actions.act_window">
+
+    <field name="name">Freight Steps</field>
+    <field name="res_model">x_freight_steps</field>
+  </record>
+</odoo>

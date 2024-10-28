@@ -1,0 +1,805 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="description_freight_30120fa1-36b2-4ecd-828a-f3296c901f0c" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Description</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="responsible_freight_e0d4801e-2026-4a23-8a91-a4d080a775d0" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="contact_freight_7bc3965a-0211-4d71-9ea7-682f2a6a595f" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_partner_id</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="phone_freight_596c9f2e-5cdc-4d2f-8d57-857ee2607c3f" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.phone</field>
+    <field name="field_description">Phone</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_partner_phone</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="email_freight_45484bf2-3065-4018-9d03-c7040c1004ab" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.email</field>
+    <field name="field_description">Email</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_partner_email</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="end_date_freight_be9696f1-3244-4585-89d1-c03e2ad8997c" model="ir.model.fields">
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">End Date</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="start_date_freight_8c92b959-60d6-4343-beaa-cb98eaef22cb" model="ir.model.fields">
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Start Date</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="sequence_freight_9792d65b-cfae-4ced-b878-5bf1e2462ee6" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="stage_freight_4db456ed-b04a-4626-80f6-3664a9ac4fb2" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Stage</field>
+    <field name="group_expand" eval="True"/>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_stage_id</field>
+    <field name="on_delete">restrict</field>
+    <field name="relation">x_freight_stage</field>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="high_priority_freigh_22dd2680-b447-43fc-838c-b864f9d89e4b" model="ir.model.fields">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">High Priority</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_priority</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="color_freight_ddaa9e02-cefa-401e-80ca-12dc0ff9a5c1" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="kanban_state_freight_d4e448b2-6b2d-46c9-b41a-9a85b25f05b5" model="ir.model.fields">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Kanban State</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_kanban_state</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('normal', 'In Progress'), ('done', 'Ready'), ('blocked', 'Blocked')]</field>
+  </record>
+  <record id="tags_freight_32dc7eaa-a31d-4180-846f-17854be72430" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tags</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_freight_tag</field>
+    <field name="relation_table">x_freight_tag_rel</field>
+  </record>
+  <record id="stage_name_freight_s_5a7f6d6e-d786-4818-b837-3cf0ff8fa3ee" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Stage Name</field>
+        <field name="model_id" ref="freight_stages_e9ac1299-f54a-4900-9e9e-e2e9bb748ab2"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="sequence_freight_sta_7d8f7a16-3592-4734-b78e-91ece98b8420" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+        <field name="model_id" ref="freight_stages_e9ac1299-f54a-4900-9e9e-e2e9bb748ab2"/>
+    <field name="name">x_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="name_freight_tags_06ca2cd0-249e-4362-8af2-4a70529e4c3f" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Tags Name</field>
+        <field name="model_id" ref="freight_tags_8e66e5e6-07fd-4c29-a020-83da6fce43cf"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="color_freight_tags_2dc61053-d365-4ccf-a6c2-1f6bc5848871" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+        <field name="model_id" ref="freight_tags_8e66e5e6-07fd-4c29-a020-83da6fce43cf"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_freight__353e551e-039b-4ac1-baa1-f06b1643447d" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Places Description</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="active_freight_place_d5a35a31-3c7a-47d1-8e61-e78f714143a0" model="ir.model.fields">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Active</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="contact_freight_plac_33b4c59d-7e34-420a-b39f-d9c3f6221f6b" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_partner_id</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="phone_freight_places_e235fa6b-a247-42e2-8d63-fb2b73326266" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.phone</field>
+    <field name="field_description">Phone</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_partner_phone</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">2</field>
+  </record>
+  <record id="email_freight_places_f5566470-9bda-4b93-9766-cd86bcf9d5f7" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.email</field>
+    <field name="field_description">Email</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_partner_email</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+  </record>
+  <record id="notes_freight_places_b321c4f5-63d1-46fd-afba-f8b998e75031" model="ir.model.fields">
+    <field name="ttype">html</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Notes</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_notes</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="tags_freight_places_1a09c6c1-64b1-4a3f-9349-06029f83e467" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tags</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_freight_places_tag</field>
+    <field name="relation_table">x_freight_places_tag_rel</field>
+  </record>
+  <record id="name_freight_places__85e75ea7-6701-487d-ae0c-29cca76d7660" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Places Tag Name</field>
+        <field name="model_id" ref="freight_places_tags_beeb7e64-b639-4101-8f7f-bb782ae6ab7e"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="color_freight_places_c4a96108-f7ab-40c5-87ff-e2a0dad80a3a" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+        <field name="model_id" ref="freight_places_tags_beeb7e64-b639-4101-8f7f-bb782ae6ab7e"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_services_1a1031cd-5f2a-4406-a0f8-d7089196aa69" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Service Name</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="active_services_ad4174d2-1d28-4994-a3f9-966e24aea69e" model="ir.model.fields">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Active</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="responsible_services_9e1c9c7d-22d1-4639-b312-f4974321be05" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="domain">[('share', '=', False)]</field>
+    <field name="field_description">Responsible</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_user_id</field>
+    <field name="relation">res.users</field>
+  </record>
+  <record id="notes_services_6a895e5a-c67b-48b3-809d-dcaefc9ba248" model="ir.model.fields">
+    <field name="ttype">html</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Notes</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_notes</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="tags_services_694bda1f-4ea9-46f9-adbc-023429bf7b39" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tags</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_services_tag</field>
+    <field name="relation_table">x_services_tag_rel</field>
+  </record>
+  <record id="name_services_tags_0431973a-ecda-4d7c-8c16-2f1a97fa348b" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Service Tag Name</field>
+        <field name="model_id" ref="services_tags_b44c2c12-64fa-43b7-a7fd-15c186bef984"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+  </record>
+  <record id="color_services_tags_01436301-0040-4468-9280-1fe8b36cfe3a" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Color</field>
+        <field name="model_id" ref="services_tags_b44c2c12-64fa-43b7-a7fd-15c186bef984"/>
+    <field name="name">x_color</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_freight__79255955-e90a-4bd7-87bd-08173bcd5974" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Route Name</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="active_freight_route_10de65b2-adda-4f4d-8e41-52aab18c1197" model="ir.model.fields">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Active</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="contact_freight_rout_f1d17912-6178-4cfc-b4bd-d3de56bda0c6" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_partner_id</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="phone_freight_routes_63d38bfe-a573-4715-aa00-752354ad822f" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.phone</field>
+    <field name="field_description">Phone</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_partner_phone</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="email_freight_routes_18bc8b51-a037-4cf2-9bd9-ed3bf237ae99" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.email</field>
+    <field name="field_description">Email</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_partner_email</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_freight__4c67f8d0-f5f7-43a5-b963-4abe3026ea1a" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Steps Description</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="translate" eval="True"/>
+  </record>
+  <record id="active_freight_steps_fe196857-e66a-4436-a16c-c2742715396e" model="ir.model.fields">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Active</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="currency_services_8bea5c2c-2ba6-40a1-acfe-27c39e00a16c" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Currency</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_currency_id</field>
+    <field name="relation">res.currency</field>
+  </record>
+  <record id="new_monetary_service_9ae283f9-8abc-4867-877b-f22d6c46ca05" model="ir.model.fields">
+    <field name="ttype">monetary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Price</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_price</field>
+    <field name="on_delete" eval="False"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_multine_text_ser_8ee59826-eb0f-4c64-b488-c12220f5ad2c" model="ir.model.fields">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Service Description</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_description</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_related_field_fr_42dd3fa8-7fb9-4fc7-9a4e-f6aba394305c" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_partner_id.contact_address</field>
+    <field name="field_description">Freight Adresse</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_adresse</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_selection_freigh_5b7f6ffe-9f0f-47dd-93b4-a8df86534a91" model="ir.model.fields">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Place Type</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_place_type</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('Airport', 'Airport'), ('Port', 'Port'), ('Warehouse', 'Warehouse'), ('Station', 'Station')]</field>
+  </record>
+  <record id="new_file_freight_pla_2da729a2-2fd7-46c7-be3a-985ac88e2625" model="ir.model.fields">
+    <field name="ttype">binary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Documents</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_documents</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="filename_for_x_studi_12e4ef84-f90d-4ef3-a914-49215f20a508" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Filename for x_binary_field_2up_1ib93klvq</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_documents_filename</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_service_f6752145-0641-4fbe-9841-e941dc4f3c0a" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Place</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_freight_place</field>
+    <field name="relation">x_freight_places</field>
+  </record>
+  <record id="new_one2many_freight_1bdcb079-5995-4d27-9647-eb48d9b19985" model="ir.model.fields">
+    <field name="ttype">one2many</field>
+    <field name="field_description">New One2Many</field>
+        <field name="model_id" ref="freight_places_e102042d-be55-430c-bf52-7cc2237b691d"/>
+    <field name="name">x_one2many_field_n5_1ib93mujr</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_services</field>
+    <field name="relation_field">x_freight_place</field>
+  </record>
+  <record id="new_many2one_freight_c9352c55-2af0-499a-9b16-666386969f11" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Origin</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_origin</field>
+    <field name="relation">x_freight_places</field>
+  </record>
+  <record id="new_related_field_fr_a1177fe6-e607-4506-ad0d-e9cd7a006964" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_origin.x_adresse</field>
+    <field name="field_description">Route Origin Adresse</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_adresse</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_many2one_freight_913935b8-6097-48ee-8c08-f063eaed749f" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Destination</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_destination</field>
+    <field name="relation">x_freight_places</field>
+  </record>
+  <record id="new_related_field_fr_f16a7984-a5d3-4d4d-ab35-5666549a2682" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="related">x_destination.x_adresse</field>
+    <field name="field_description">Route Adresse</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_adresse_1</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_integer_freight__7b651e5e-6bbb-49b7-a897-646135b3f788" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Distance</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_distance</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2many_freigh_15a5ca86-a6bd-4009-a686-9dd13f01712f" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">New Many2Many</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_many2many_field_7cb_1ib93rtdf</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_freight_routes</field>
+    <field name="relation_table">x_x_freight_routes_x_freight_routes_rel</field>
+  </record>
+  <record id="new_many2many_freigh_3a4d3726-e72e-4965-a346-e8b3b243e108" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sub Routes</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_sub_routes</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_freight_routes</field>
+    <field name="relation_table">x_x_freight_routes_x_freight_routes_rel_1</field>
+  </record>
+  <record id="new_integer_freight__2f38a777-0780-45d3-a1cc-e282a1fe0fbd" model="ir.model.fields">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Estimated Time</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_estimated_time_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="currency_freight_rou_4982a946-d027-482d-b0aa-5709a198609b" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Currency</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_currency_id</field>
+    <field name="relation">res.currency</field>
+  </record>
+  <record id="new_monetary_freight_0c3e48fe-b3b7-4ba7-8a16-d982df1f66fa" model="ir.model.fields">
+    <field name="compute"><![CDATA[sum = 0
+for record in self:
+    for line in record.x_sub_routes:
+        sum += line.x_cost
+    sum += record.x_route_cost
+record["x_route_cost"] = sum]]></field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_sub_routes</field>
+    <field name="field_description">Route Sum Cost</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_route_cost</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_selection_freigh_bf0b6cfe-7345-4c44-aa3e-9f96c601fc35" model="ir.model.fields">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Transport Type</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_transport_type</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('Place', 'Place'), ('Boat FCL', 'Boat FCL'), ('Boat LCL', 'Boat LCL'), ('Land FTL', 'Land FTL'), ('Land LTL', 'Land LTL')]</field>
+  </record>
+  <record id="new_multine_text_fre_54e587f4-373d-43d2-9050-f4bcd67accdb" model="ir.model.fields">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Route Description</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_description</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="currency_freight_abd8ccf9-fea9-47d3-bbc1-ef78fa815a72" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Currency</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_currency_id</field>
+    <field name="relation">res.currency</field>
+  </record>
+  <record id="new_monetary_freight_6465a435-eee8-4979-bc92-1d8f76eaccb1" model="ir.model.fields">
+    <field name="ttype">monetary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Value</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_value</field>
+    <field name="on_delete" eval="False"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_date_freight_ba94f959-7980-4e96-929c-14aa6281583e" model="ir.model.fields">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">ETA</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_eta</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_freight_b97de5e4-75eb-4eb3-9eb3-4a731263469f" model="ir.model.fields">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">ETD</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_etd</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_freight_ee38fde3-21ef-4731-b9a4-08fb0c82e7f6" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Route</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_route</field>
+    <field name="relation">x_freight_routes</field>
+  </record>
+  <record id="new_date_freight_ste_91388e22-74fa-40c9-8480-c2fce4b7a228" model="ir.model.fields">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">ETD</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_etd</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_freight_ste_b086efea-84df-415f-b47a-f2ad09012cd8" model="ir.model.fields">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">ATD</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_atd</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_freight_ste_b36892f2-e8eb-41eb-961e-192bf460023e" model="ir.model.fields">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">ETA</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_eta</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_freight_ste_15a4f85b-434f-4000-8340-2768955ba842" model="ir.model.fields">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">ATA</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_ata</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_text_freight_ste_9f5f58f2-d77d-4b42-844e-0e52d742ec93" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Voyage Number</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_voyage_number</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_text_freight_ste_ce96b03a-5dc2-4b56-b97a-7d19f76560ac" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Tracking number</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_tracking_number</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_text_freight_ste_268009a1-eca2-4e6d-b95f-3a198caab52e" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Shipping Line</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_shipping_line</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_text_freight_ste_2a63afe0-f856-43cf-96b0-7e811a4c72ad" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Current Place</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_current_place</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_text_freight_ste_bc34db44-1577-4abb-b6ca-3e5af06fb26b" model="ir.model.fields">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">State</field>
+        <field name="model_id" ref="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b"/>
+    <field name="name">x_state</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2many_freigh_aade36f9-84d1-4d60-8600-a4123ed9c122" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">New Many2Many</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_many2many_field_4gr_1ib94fu3v</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_freight_steps</field>
+    <field name="relation_table">x_x_freight_x_freight_steps_rel</field>
+  </record>
+  <record id="new_many2many_freigh_d28cdf52-a4fb-4de3-811c-55dc47110e3c" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Routes</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_many2many_field_843_1ib94g776</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_freight_routes</field>
+    <field name="relation_table">x_x_freight_x_freight_routes_rel</field>
+  </record>
+  <record id="new_many2many_freigh_a94a003d-9e79-4750-8f95-9d7f57d93301" model="ir.model.fields">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Freight Services</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_many2many_field_8qo_1ib94h17a</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_services</field>
+    <field name="relation_table">x_x_freight_x_services_rel</field>
+  </record>
+  <record id="new_related_field_se_a120393b-d225-4de5-bc57-cd2208eab986" model="ir.model.fields">
+    <field name="ttype">float</field>
+    <field name="related">x_currency_id.inverse_rate</field>
+    <field name="field_description">Rate</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_rate</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_monetary_service_eaa0eade-6fd2-492b-9310-ae79a55cf439" model="ir.model.fields">
+    <field name="compute"><![CDATA[for record in self:
+    record['x_converted_cost'] = record.x_price * record.x_rate]]></field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_price,x_rate</field>
+    <field name="field_description">Converted Cost</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_converted_cost</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_monetary_freight_a8b36f8b-1705-48eb-bda7-3384da33e6e2" model="ir.model.fields">
+    <field name="ttype">monetary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Price</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_price</field>
+    <field name="on_delete" eval="False"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_related_field_fr_10d54e2d-e0ac-485c-b7d4-d83ac0f049f5" model="ir.model.fields">
+    <field name="ttype">monetary</field>
+    <field name="related">x_route_cost</field>
+    <field name="field_description">Route Costs</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_cost</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_monetary_freight_1e844cbd-c637-46a1-b54f-9c1d9173f095" model="ir.model.fields">
+    <field name="compute"><![CDATA[sum = 0 
+for record in self:
+    for line in record.x_many2many_field_843_1ib94g776:
+        sum += line.x_cost_1
+record["x_value"] = sum
+    ]]></field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_many2many_field_843_1ib94g776</field>
+    <field name="field_description">Cost</field>
+        <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="name">x_cost</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_related_field_fr_cfa01951-f547-4137-9951-5f6c0f5b1b4e" model="ir.model.fields">
+    <field name="ttype">monetary</field>
+    <field name="related">x_cost</field>
+    <field name="field_description">Route Cost</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_cost_1</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+  <record id="new_many2one_service_856570b5-4221-4531-a86e-ccff00d4523a" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Related Product</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_related_product</field>
+    <field name="relation">product.template</field>
+  </record>
+  <record id="new_many2one_freight_663d2179-2532-4869-8528-ec9afb211a19" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Related Product</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_related_product</field>
+    <field name="relation">product.template</field>
+  </record>
+  <record id="new_related_field_fr_c43a5d6b-1570-49a3-a4e5-3b31ba229f06" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="related">x_related_product</field>
+    <field name="field_description">Related Route Product</field>
+        <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="name">x_related_product_1</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">product.template</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_related_field_se_d9a4994e-3c92-40db-81a4-c24606f84830" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="related">x_related_product</field>
+    <field name="field_description">Related Service Product</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_related_product_1</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">product.template</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="new_related_field_se_1bf7c5ce-07d5-4f16-8a35-712999b2efcb" model="ir.model.fields">
+    <field name="ttype">monetary</field>
+    <field name="related">x_converted_cost</field>
+    <field name="field_description">Cost</field>
+        <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="name">x_cost</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="currency_field">x_currency_id</field>
+  </record>
+</odoo>

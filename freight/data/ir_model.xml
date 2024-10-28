@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_freight</field>
+    <field name="name">Freight</field>
+  </record>
+  <record id="freight_stages_e9ac1299-f54a-4900-9e9e-e2e9bb748ab2" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_freight_stage</field>
+    <field name="name">Freight Stages</field>
+  </record>
+  <record id="freight_tags_8e66e5e6-07fd-4c29-a020-83da6fce43cf" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_freight_tag</field>
+    <field name="name">Freight Tags</field>
+  </record>
+  <record id="freight_places_e102042d-be55-430c-bf52-7cc2237b691d" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="is_mail_thread" eval="True"/>
+    <field name="is_mail_activity" eval="True"/>
+    <field name="model">x_freight_places</field>
+    <field name="name">Freight Places</field>
+  </record>
+  <record id="freight_places_tags_beeb7e64-b639-4101-8f7f-bb782ae6ab7e" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_freight_places_tag</field>
+    <field name="name">Freight Places Tags</field>
+  </record>
+  <record id="services_6160326a-3f25-40c8-ac81-b15bd7b49efc" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_services</field>
+    <field name="name">Services</field>
+  </record>
+  <record id="services_tags_b44c2c12-64fa-43b7-a7fd-15c186bef984" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_services_tag</field>
+    <field name="name">Services Tags</field>
+  </record>
+  <record id="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_freight_routes</field>
+    <field name="name">Freight Routes</field>
+  </record>
+  <record id="freight_steps_c765ace1-42d5-4f19-b539-2346437d381b" model="ir.model">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class user(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_freight_steps</field>
+    <field name="name">Freight Steps</field>
+  </record>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="freight_5700ea71-a64f-4fba-af85-75a50641e02c" model="ir.ui.menu">
+    <field name="name">Freight</field>
+    <field name="web_icon">fa fa-truck,#4dd0e1,#34495e</field>
+  </record>
+  <record id="freight_freight_28c554e9-85cb-4f13-9d9b-09d7a681e5b7" model="ir.ui.menu">
+    <field name="action" ref="freight_27c9cec6-f560-4cfb-a077-e9b13748ac52"/>
+    <field name="name">Freight</field>
+    <field name="parent_id" ref="freight_5700ea71-a64f-4fba-af85-75a50641e02c"/>
+  </record>
+  <record id="freight_configuratio_ff00cfd9-c4da-42cf-96a0-84646bb7ea2d" model="ir.ui.menu">
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="freight_5700ea71-a64f-4fba-af85-75a50641e02c"/>
+    <field name="sequence">100</field>
+  </record>
+  <record id="freight_configuratio_1e099689-2755-4c66-9f58-7d7bb4c5b83d" model="ir.ui.menu">
+    <field name="action" ref="freight_stages_8b5ca7a8-46c1-47f6-aab9-e3f118497418"/>
+    <field name="name">Freight Stages</field>
+    <field name="parent_id" ref="freight_configuratio_ff00cfd9-c4da-42cf-96a0-84646bb7ea2d"/>
+  </record>
+  <record id="freight_configuratio_10d7a503-6896-48ce-b3f2-900bfb0cc19c" model="ir.ui.menu">
+    <field name="action" ref="freight_tags_5525a5f0-bd30-4d61-9f3b-042c0f917c00"/>
+    <field name="name">Freight Tags</field>
+    <field name="parent_id" ref="freight_configuratio_ff00cfd9-c4da-42cf-96a0-84646bb7ea2d"/>
+  </record>
+  <record id="freight_freight_plac_c4a5d388-44dc-483f-a02d-c4aa554171dc" model="ir.ui.menu">
+    <field name="action" ref="freight_places_b8626be9-7b50-4761-b3f0-aa008d2ff6d7"/>
+    <field name="name">Freight Places</field>
+    <field name="parent_id" ref="freight_5700ea71-a64f-4fba-af85-75a50641e02c"/>
+    <field name="sequence">101</field>
+  </record>
+  <record id="freight_configuratio_83e3bb36-c9ee-4c94-a3e3-5d7c03fda543" model="ir.ui.menu">
+    <field name="action" ref="freight_places_tags_50bce3ff-d163-423b-86d0-510758046d0a"/>
+    <field name="name">Freight Places Tags</field>
+    <field name="parent_id" ref="freight_configuratio_ff00cfd9-c4da-42cf-96a0-84646bb7ea2d"/>
+  </record>
+  <record id="freight_services_e1f46ca6-b18d-4834-835b-fb6a093fbcbc" model="ir.ui.menu">
+    <field name="action" ref="services_a0ebc10a-573a-4389-9ee6-8ee4aff63768"/>
+    <field name="name">Services</field>
+    <field name="parent_id" ref="freight_5700ea71-a64f-4fba-af85-75a50641e02c"/>
+    <field name="sequence">102</field>
+  </record>
+  <record id="freight_configuratio_141b8f05-9288-4e3a-87d8-328886f0423a" model="ir.ui.menu">
+    <field name="action" ref="services_tags_1021d11c-d504-46d5-a642-9248c8996922"/>
+    <field name="name">Services Tags</field>
+    <field name="parent_id" ref="freight_configuratio_ff00cfd9-c4da-42cf-96a0-84646bb7ea2d"/>
+  </record>
+  <record id="freight_freight_rout_b27a880e-c440-467a-8942-5e24436a8425" model="ir.ui.menu">
+    <field name="action" ref="freight_routes_063ed71e-0dd0-4d98-a7d7-28cad69227d8"/>
+    <field name="name">Freight Routes</field>
+    <field name="parent_id" ref="freight_5700ea71-a64f-4fba-af85-75a50641e02c"/>
+    <field name="sequence">103</field>
+  </record>
+  <record id="freight_freight_step_5145a876-181b-4d59-b129-68d817ec7780" model="ir.ui.menu">
+    <field name="action" ref="freight_steps_77a4bb10-d0dd-420e-b30b-201d5c1c4d95"/>
+    <field name="name">Freight Steps</field>
+    <field name="parent_id" ref="freight_5700ea71-a64f-4fba-af85-75a50641e02c"/>
+    <field name="sequence">104</field>
+  </record>
+</odoo>

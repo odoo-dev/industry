@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="default_list_view_fo_7dba6952-76ad-4285-9f41-708289dde66f" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_partner_id"/>
+        <field name="x_user_id" widget="many2one_avatar_user"/>
+        <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_41e14453-db96-49fc-b365-60304421ad58" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <field name="x_stage_id" widget="statusbar" options="{'clickable': '1'}"/>
+        </header>
+        <sheet string="Freight">
+          <field name="x_kanban_state" widget="state_selection"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_f35dd2">
+            <group name="studio_group_f35dd2_left">
+              <field name="x_partner_id"/>
+              <field name="x_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+              <field name="x_partner_email" widget="email"/>
+              <field name="x_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_date_stop'}"/>
+              <field name="x_date_stop" invisible="1"/>
+            </group>
+            <group name="studio_group_f35dd2_right">
+              <field name="x_user_id" widget="many2one_avatar_user"/>
+              <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__8c39bb31-ff93-468a-9fd8-b30edffb6eea" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_partner_id" operator="child_of"/>
+        <field name="x_user_id"/>
+        <field name="x_tag_ids"/>
+        <filter string="My Freight" name="my_x_freight" domain="[['x_user_id', '=', uid]]"/>
+        <separator/>
+        <filter date="x_date_start" name="studio_filter_date_start" string="Start Date"/>
+        <filter date="x_date_stop" name="studio_filter_date_stop" string="End Date"/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_partner_id'}" domain="[]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_user_id'}" domain="[]"/>
+        <filter name="x_stage_id" string="Stage" context="{'group_by': 'x_stage_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_gantt_view_f_42bf8263-65b1-4a13-b8ce-7260c1c60d4b" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <gantt date_start="x_date_start" date_stop="x_date_stop"/>
+    </field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default gantt view for x_freight</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_kanban_view__46ce094b-c0f1-4768-8d20-9144a5b341b7" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <kanban default_group_by="x_stage_id" default_order="x_priority desc, x_sequence asc, id desc" highlight_color="x_color">
+        <field name="x_color"/>
+        <progressbar field="x_kanban_state" colors="{&quot;normal&quot;: &quot;200&quot;, &quot;done&quot;: &quot;success&quot;, &quot;blocked&quot;: &quot;danger&quot;}"/>
+        <templates>
+          <t t-name="menu">
+            <a t-if="widget.editable" role="menuitem" type="open" class="dropdown-item">Edit</a>
+            <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Delete</a>
+            <field widget="kanban_color_picker" name="x_color"/>
+          </t>
+          <t t-name="card" class="flex-row">
+            <main>
+              <div name="studio_auto_kanban_header" class="d-flex">
+                <field name="x_priority" widget="boolean_favorite" nolabel="1"/>
+                <field name="display_name" class="h5"/>
+              </div>
+              <div name="studio_auto_kanban_body">
+                <field name="x_tag_ids" options="{'color_field': 'x_color'}"/>
+              </div>
+              <footer>
+                <div class="ms-auto d-flex align-items-center">
+                  <field name="x_kanban_state" widget="state_selection"/>
+                  <field class="ms-1" name="x_user_id" widget="kanban.many2one_avatar_user"/>
+                </div>
+              </footer>
+            </main>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default kanban view for x_freight</field>
+    <field name="type">kanban</field>
+  </record>
+  <record id="default_map_view_for_2f0d809a-48ff-40f8-8b08-8614cda0b038" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <map res_partner="x_partner_id">
+        <field name="x_partner_id" string="Partner"/>
+      </map>
+    </field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default map view for x_freight</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_c5a85369-6cef-4d48-ae3e-7c535e597480" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_freight_stage</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight_stage</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_303d204b-380f-40ff-9deb-82eb4ffa28a7" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Freight Stages">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_7418f4">
+            <group name="studio_group_7418f4_left"/>
+            <group name="studio_group_7418f4_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight_stage</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight_stage</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__9b148985-1dda-4550-a736-e352af516c1b" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_freight_stage</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight_stage</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_73be276c-4c11-407e-8051-a3fba444d4de" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_name"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_freight_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_1b895f08-15a2-4dea-895c-9cff661543bb" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Freight Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_93e62f">
+            <group name="studio_group_93e62f_left"/>
+            <group name="studio_group_93e62f_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__eadf0166-3fc8-49f5-963f-f3be66733f96" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_freight_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_555e34e2-25a7-4251-b4f5-3873ea88ef45" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_partner_id"/>
+        <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+      </list>
+    </field>
+    <field name="model">x_freight_places</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight_places</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_50c9e855-5e33-42d2-ab02-0f9a28030b94" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Freight Places">
+          <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_8e9192">
+            <group name="studio_group_8e9192_left">
+              <field name="x_partner_id"/>
+              <field name="x_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+              <field name="x_partner_email" widget="email"/>
+            </group>
+            <group name="studio_group_8e9192_right">
+              <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </group>
+          </group>
+          <group>
+            <field name="x_notes" placeholder="Type down your notes here..." nolabel="1" colspan="2"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight_places</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight_places</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__c7bb8d34-47ba-4e35-948a-a0de13e6d343" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_partner_id" operator="child_of"/>
+        <field name="x_tag_ids"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_freight_places" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_partner_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_freight_places</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight_places</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_map_view_for_481c32b7-8d51-4651-9396-2ff55fb9a304" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <map res_partner="x_partner_id">
+        <field name="x_partner_id" string="Partner"/>
+      </map>
+    </field>
+    <field name="model">x_freight_places</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default map view for x_freight_places</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_f7488c10-c1e1-467d-8a3b-89dce197a4c7" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_name"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_freight_places_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight_places_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_c20e4ebd-eba1-4ff6-8f39-3b540581eb5d" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Freight Places Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_95637e">
+            <group name="studio_group_95637e_left"/>
+            <group name="studio_group_95637e_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight_places_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight_places_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__a98690bb-8f03-4bff-b1d3-2bc6f0c2206f" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_freight_places_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight_places_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_9ed732bc-39b5-4cbb-a596-c013d6ff08dc" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_user_id" widget="many2one_avatar_user"/>
+        <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+      </list>
+    </field>
+    <field name="model">x_services</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_services</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_3d23ffac-fa1f-4292-83d1-2280784ecb7e" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Services">
+          <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_fc9884">
+            <group name="studio_group_fc9884_left">
+              <field name="x_user_id" widget="many2one_avatar_user"/>
+              <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </group>
+            <group name="studio_group_fc9884_right"/>
+          </group>
+          <group>
+            <field name="x_notes" placeholder="Type down your notes here..." nolabel="1" colspan="2"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_services</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_services</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__b7faf9f8-a708-4db0-a917-3ed977735b02" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_user_id"/>
+        <field name="x_tag_ids"/>
+        <filter string="My Services" name="my_x_services" domain="[['x_user_id', '=', uid]]"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_services" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_services</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_services</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_e814e777-4685-4772-94e9-c0c79fa2d29e" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_name"/>
+        <field name="x_color" widget="color_picker"/>
+      </list>
+    </field>
+    <field name="model">x_services_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_services_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_c46c123e-6562-49f5-9671-9f942abbcade" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Services Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_4910de">
+            <group name="studio_group_4910de_left"/>
+            <group name="studio_group_4910de_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_services_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_services_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__726c70ba-7e44-4a7d-90d5-e41bf23da500" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_services_tag</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_services_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="odoo_default__f2986782-aa4e-4b29-acc5-f2396d69dbc4" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_partner_id']" position="after">
+          <field name="x_adresse"/>
+        </xpath>
+        <xpath expr="//field[@name='x_tag_ids']" position="after">
+          <field name="x_place_type"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_8e9192']" position="after">
+          <notebook name="studio_notebook_7ep_1ib93kbeu">
+            <page string="Documents" name="studio_page_7ep">
+              <group name="studio_group_7ep">
+                <field widget="file" filename="x_documents_filename" name="x_documents"/>
+                <field widget="file" invisible="True" name="x_documents_filename"/>
+              </group>
+            </page>
+            <page string="Services" name="studio_page_6ru_1ib93kvot">
+              <field name="x_one2many_field_n5_1ib93mujr"/>
+            </page>
+          </notebook>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]" position="after">
+          <chatter/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_50c9e855-5e33-42d2-ab02-0f9a28030b94"/>
+    <field name="mode">extension</field>
+    <field name="model">x_freight_places</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_freight_places customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_list_view_fo_c61fab84-a580-413a-861c-9b1e11646d5c" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+        <field name="x_partner_id"/>
+      </list>
+    </field>
+    <field name="model">x_freight_routes</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight_routes</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_58f1caea-7c85-4391-affd-128ceb884dae" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Freight Routes">
+          <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_0dfde4">
+            <group name="studio_group_0dfde4_left">
+              <field name="x_partner_id"/>
+              <field name="x_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+              <field name="x_partner_email" widget="email"/>
+            </group>
+            <group name="studio_group_0dfde4_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight_routes</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight_routes</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__94147f80-3bdb-47c5-bd0d-a72ea04ae48c" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_partner_id" operator="child_of"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_freight_routes" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_partner_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="model">x_freight_routes</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight_routes</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_map_view_for_292011ef-b2e8-44ad-8f9e-e4d60b5c0614" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <map res_partner="x_partner_id">
+        <field name="x_partner_id" string="Partner"/>
+      </map>
+    </field>
+    <field name="model">x_freight_routes</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default map view for x_freight_routes</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_374c63df-18cc-449f-8ae8-746b6be6a6a2" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <list>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_freight_steps</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default list view for x_freight_steps</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_b0aa1d26-ca80-4b50-a7cc-7a7f4a4273fb" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Freight Steps">
+          <widget name="web_ribbon" text="Archived" bg_color="text-bg-danger" invisible="x_active"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_9f9fe8">
+            <group name="studio_group_9f9fe8_left"/>
+            <group name="studio_group_9f9fe8_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_freight_steps</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default form view for x_freight_steps</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__13de9099-8c8d-4c9a-b486-ee0c65203efa" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_freight_steps" domain="[['x_active', '=', False]]"/>
+        <separator/>
+      </search>
+    </field>
+    <field name="model">x_freight_steps</field>
+    <field name="active" eval="True"/>
+    <field name="name">Default search view for x_freight_steps</field>
+    <field name="type">search</field>
+  </record>
+  <record id="odoo_default__ed69640b-da33-45c9-8e11-85bc369df23b" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_tag_ids']" position="after">
+          <field name="x_price"/>
+          <field name="x_currency_id"/>
+          <field name="x_rate"/>
+          <field name="x_converted_cost"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_fc9884_right']" position="inside">
+          <field name="x_description"/>
+          <field name="x_freight_place" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_related_product" invisible="True"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_3d23ffac-fa1f-4292-83d1-2280784ecb7e"/>
+    <field name="mode">extension</field>
+    <field name="model">x_services</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_services customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_default__aa9e9874-3855-47c9-a63c-cd4ec40b2360" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_partner_email']" position="after">
+          <field name="x_description"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_0dfde4_right']" position="inside">
+          <field name="x_origin" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_adresse"/>
+          <field name="x_destination" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_adresse_1"/>
+          <field name="x_distance"/>
+          <field name="x_estimated_time_1"/>
+          <field name="x_route_cost"/>
+          <field name="x_currency_id"/>
+          <field name="x_price"/>
+          <field name="x_transport_type"/>
+          <field name="x_related_product" invisible="True"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_0dfde4']" position="after">
+          <notebook name="studio_notebook_3hq_1ib93njrj">
+            <page string="Route" name="studio_page_3hq">
+              <field name="x_sub_routes">
+                <list>
+                  <field name="x_name"/>
+                  <field name="x_partner_id"/>
+                  <field optional="show" name="x_cost"/>
+                  <field name="x_currency_id"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_58f1caea-7c85-4391-affd-128ceb884dae"/>
+    <field name="mode">extension</field>
+    <field name="model">x_freight_routes</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_freight_routes customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_default__fd2b08a7-0591-4303-80c2-158a94da84c1" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/group[@name='studio_group_f35dd2']/group[@name='studio_group_f35dd2_right']/field[@name='x_tag_ids']" position="after">
+          <field name="x_cost"/>
+          <field name="x_value"/>
+          <field name="x_currency_id"/>
+          <field name="x_eta"/>
+          <field name="x_etd"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_f35dd2']" position="after">
+          <notebook name="studio_notebook_68b_1ib9431m0">
+            <page string="Routes" name="studio_page_68b">
+              <field name="x_many2many_field_843_1ib94g776">
+                <list>
+                  <field name="x_name"/>
+                  <field name="x_partner_id"/>
+                  <field optional="show" name="x_cost_1"/>
+                  <field name="x_currency_id"/>
+                  <field optional="show" name="x_related_product_1"/>
+                </list>
+              </field>
+            </page>
+            <page string="Tracking" name="studio_page_6j3_1ib94f5t1">
+              <field name="x_many2many_field_4gr_1ib94fu3v"/>
+            </page>
+            <page string="Services" name="studio_page_t9_1ib94gfrk">
+              <field name="x_many2many_field_8qo_1ib94h17a">
+                <list>
+                  <field name="x_name"/>
+                  <field name="x_user_id" widget="many2one_avatar_user"/>
+                  <field name="x_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+                  <field optional="show" name="x_related_product_1"/>
+                  <field optional="show" name="x_cost"/>
+                  <field name="x_currency_id"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_41e14453-db96-49fc-b365-60304421ad58"/>
+    <field name="mode">extension</field>
+    <field name="model">x_freight</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_freight customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_default__c5f2bc20-c4c2-4e38-9ebd-e4ec49d901a7" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_9f9fe8_left']" position="inside">
+          <field name="x_route" options="{'create_name_field': 'x_name'}"/>
+          <field name="x_etd"/>
+          <field name="x_atd"/>
+          <field name="x_eta"/>
+          <field name="x_ata"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_9f9fe8_right']" position="inside">
+          <field name="x_voyage_number"/>
+          <field name="x_tracking_number"/>
+          <field name="x_shipping_line"/>
+          <field name="x_current_place"/>
+          <field name="x_state"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_b0aa1d26-ca80-4b50-a7cc-7a7f4a4273fb"/>
+    <field name="mode">extension</field>
+    <field name="model">x_freight_steps</field>
+    <field name="active" eval="True"/>
+    <field name="name">Odoo Studio: Default form view for x_freight_steps customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+</odoo>

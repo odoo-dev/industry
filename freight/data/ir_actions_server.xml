@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="execute_code_6e4d3989-5602-476b-b396-4087a42c5f22" model="ir.actions.server">
+    <field name="code"><![CDATA[for record in records:
+    product_data = {
+        'name': record.x_name,
+        'type': 'service',
+        'list_price': record.x_converted_cost,
+        'standard_price': record.x_converted_cost,
+        'seller_ids': [(0, 0, {
+            'partner_id': record.x_user_id.id,
+            'min_qty': 1,
+            'price': record.x_converted_cost,
+            'delay':0,
+        })]
+    }
+    product = env['product.product'].search([('name', '=', record.x_name)], limit=1)
+    if product:
+        product.write(product_data)
+    else:
+        env['product.product'].create(product_data)
+    record["x_related_product"] = product.id
+
+]]></field>
+    <field name="model_id" ref="services_6160326a-3f25-40c8-ac81-b15bd7b49efc"/>
+    <field name="state">code</field>
+    <field name="name">Execute Code</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="execute_code_0c5bf051-f459-400f-9208-d44b05b72322" model="ir.actions.server">
+    <field name="code"><![CDATA[for record in records:
+    product_data = {
+        'name': record.x_name,
+        'type': 'service',
+        'list_price': record.x_route_cost,
+        'standard_price': record.x_price,
+        'description_sale': f"From {str(record.x_adresse)} to {str(record.x_adresse_1)}",
+    }
+
+    product = env['product.product'].search([('name', '=', record.x_name)], limit=1)
+    if product:
+        product.write(product_data)
+    else:
+        env['product.product'].create(product_data)
+    record["x_related_product"] = product.id
+]]></field>
+    <field name="model_id" ref="freight_routes_673b2353-6cd9-40b4-99d5-47cabf756e8a"/>
+    <field name="state">code</field>
+    <field name="name">Execute Code</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="execute_code_0c5a3fd1-b71c-4f0b-81d5-533e94f243a6" model="ir.actions.server">
+    <field name="code"><![CDATA[for record in records:
+    products = []
+    for line in record.x_many2many_field_843_1ib94g776:
+        if line.x_related_product_1:
+            products.append(
+                (0, 0, {
+                    'product_id': line.x_related_product_1.id,
+                    'product_uom_qty': 1,  # Quantity
+                    'price_unit': line.x_cost_1,  # Unit price for service
+                })
+            )
+    for line in record.x_many2many_field_8qo_1ib94h17a:
+        if line.x_related_product:
+            products.append(
+                (0, 0, {
+                    'product_id': line.x_related_product.id,
+                    'product_uom_qty': 1,  # Quantity
+                    'price_unit': line.x_cost,  # Unit price for service
+                })
+            )
+    if products:
+        sales_order_vals = {
+            'partner_id': record.x_partner_id.id,  # ID of the customer
+            'order_line': products, 
+        }
+
+        # Create sales order
+        env['sale.order'].create(sales_order_vals)
+]]></field>
+    <field name="model_id" ref="freight_9fe7715d-f7f7-4655-b094-9ee8ec69e481"/>
+    <field name="state">code</field>
+    <field name="name">Execute Code</field>
+    <field name="usage">base_automation</field>
+  </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="sequence_freight_9bcc399a-2aed-48de-951f-5e2ca058aaee" model="ir.default">
+    <field name="field_id" ref="sequence_freight_9792d65b-cfae-4ced-b878-5bf1e2462ee6"/>
+    <field name="json_value">10</field>
+  </record>
+  <record id="stage_freight_51d2efab-9d2f-417f-8397-150c1397e731" model="ir.default">
+    <field name="field_id" ref="stage_freight_4db456ed-b04a-4626-80f6-3664a9ac4fb2"/>
+    <field name="json_value">1</field>
+  </record>
+  <record id="active_freight_place_5cea9937-047d-45e4-ba45-6670c344728a" model="ir.default">
+    <field name="field_id" ref="active_freight_place_d5a35a31-3c7a-47d1-8e61-e78f714143a0"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="active_services_a6304883-6c0e-403d-aaf2-cf7edc3b3d0d" model="ir.default">
+    <field name="field_id" ref="active_services_ad4174d2-1d28-4994-a3f9-966e24aea69e"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="active_freight_route_7ab0b6de-ef51-4e14-95e4-fbf89c7a85dd" model="ir.default">
+    <field name="field_id" ref="active_freight_route_10de65b2-adda-4f4d-8e41-52aab18c1197"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="active_freight_steps_670d5d4b-2d4e-4e7e-98cc-352f655918d7" model="ir.default">
+    <field name="field_id" ref="active_freight_steps_fe196857-e66a-4436-a16c-c2742715396e"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="new_integer_freight__f2206022-2aad-4759-8dbe-009248697a7f" model="ir.default">
+    <field name="field_id" ref="new_integer_freight__7b651e5e-6bbb-49b7-a897-646135b3f788"/>
+    <field name="json_value">"0"</field>
+  </record>
+  <record id="new_integer_freight__0bd983e6-3289-46d3-9cce-6dbd22c7b86f" model="ir.default">
+    <field name="field_id" ref="new_integer_freight__2f38a777-0780-45d3-a1cc-e282a1fe0fbd"/>
+    <field name="json_value">"0"</field>
+  </record>
+</odoo>

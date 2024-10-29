@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="appointment_account_payment.default_booking_product_product_template" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+    <field name="image_1920" type="base64" file="guitarist/static/src/binary/product_template/2-image_1920"/>
+    <field name="name">Booking Fees</field>
+    <field name="list_price">50.0</field>
+    <field name="purchase_ok" eval="False"/>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+    <field name="website_sequence">10005</field>
+    <field name="base_unit_count">1.0</field>
+  </record>
+  <record id="event_product.product_product_event_product_template" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+    <field name="name">Event Registration</field>
+    <field name="service_tracking">event</field>
+    <field name="categ_id" ref="event_product.product_category_events"/>
+    <field name="list_price">30.0</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+    <field name="website_sequence">10010</field>
+    <field name="base_unit_count">1.0</field>
+  </record>
+  <record id="delivery.product_product_delivery_product_template" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+    <field name="name">Standard delivery</field>
+    <field name="sale_ok" eval="False"/>
+    <field name="categ_id" ref="delivery.product_category_deliveries"/>
+    <field name="list_price" eval="False"/>
+    <field name="purchase_ok" eval="False"/>
+    <field name="default_code">Delivery_007</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+    <field name="website_sequence">10000</field>
+    <field name="base_unit_count">1.0</field>
+  </record>
+    <!-- Product Category -->
+    <record id="product_category_tickets" model="product.category">
+        <field name="name">Concert Tickets</field>
+    </record>
+    <record id="product_category_goodies" model="product.category">
+        <field name="name">Guitarist Goodies</field>
+    </record>
+    
+    <!-- Ticket Products -->
+    <record id="product_template_ticket_standard" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Standard Concert Ticket</field>
+        <field name="type">service</field>
+        <field name="service_tracking">event</field>
+        <field name="invoice_policy">order</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">50.00</field>
+        <field name="standard_price">20.00</field>
+        <field name="categ_id" ref="product_category_tickets"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="description_sale">Enjoy a night of music with a standard concert ticket.</field>
+        <field name="description_purchase">Not for purchase.</field>
+    </record>
+
+    <record id="product_template_ticket_vip" model="product.template" context="{'create_product_product': False}">
+        <field name="name">VIP Concert Ticket</field>
+        <field name="type">service</field>
+        <field name="service_tracking">event</field>
+        <field name="invoice_policy">order</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">100.00</field>
+        <field name="standard_price">50.00</field>
+        <field name="categ_id" ref="product_category_tickets"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="description_sale">Experience the concert with VIP access and benefits.</field>
+        <field name="description_purchase">Not for purchase.</field>
+    </record>
+
+    <record id="product_template_ticket_backstage" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Backstage Pass</field>
+        <field name="type">service</field>
+        <field name="service_tracking">event</field>
+        <field name="invoice_policy">order</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">150.00</field>
+        <field name="standard_price">70.00</field>
+        <field name="categ_id" ref="product_category_tickets"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="description_sale">Access to backstage and meet the artist.</field>
+        <field name="description_purchase">Not for purchase.</field>
+    </record>
+
+    <record id="product_template_ticket_online" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Online Concert Access</field>
+        <field name="type">service</field>
+        <field name="service_tracking">event</field>
+        <field name="invoice_policy">order</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">20.00</field>
+        <field name="standard_price">10.00</field>
+        <field name="categ_id" ref="product_category_tickets"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">False</field>
+        <field name="description_sale">Live stream access to the concert.</field>
+        <field name="description_purchase">Not for purchase.</field>
+    </record>
+
+    <!-- Goodies Products -->
+    <record id="product_template_goodies_tshirt" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Concert T-shirt</field>
+        <field name="type">consu</field>
+        <field name="invoice_policy">delivery</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">25.00</field>
+        <field name="standard_price">10.00</field>
+        <field name="categ_id" ref="product_category_goodies"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">True</field>
+        <field name="description_sale">High-quality t-shirt with concert logo.</field>
+        <field name="description_purchase">Bulk purchase of concert t-shirts.</field>
+        <field name="image_1920" type="base64" file="guitarist/static/src/binary/product_template/thsirt.jpg"/>
+    </record>
+
+    <record id="product_template_goodies_hat" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Concert Hat</field>
+        <field name="type">consu</field>
+        <field name="invoice_policy">delivery</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">20.00</field>
+        <field name="standard_price">8.00</field>
+        <field name="categ_id" ref="product_category_goodies"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">True</field>
+        <field name="description_sale">Stylish hat with guitarist logo.</field>
+        <field name="description_purchase">Bulk purchase of concert hats.</field>
+        <field name="image_1920" type="base64" file="guitarist/static/src/binary/product_template/hat.jpg"/>
+    </record>
+
+    <record id="product_template_goodies_poster" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Signed Poster</field>
+        <field name="type">consu</field>
+        <field name="invoice_policy">delivery</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">15.00</field>
+        <field name="standard_price">5.00</field>
+        <field name="categ_id" ref="product_category_goodies"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">True</field>
+        <field name="description_sale">Limited edition signed concert poster.</field>
+        <field name="description_purchase">Bulk purchase of signed posters.</field>
+        <field name="image_1920" type="base64" file="guitarist/static/src/binary/product_template/poster.jpg"/>
+    </record>
+
+    <record id="product_template_goodies_guitar_pick" model="product.template" context="{'create_product_product': False}">
+        <field name="name">Custom Guitar Pick</field>
+        <field name="type">consu</field>
+        <field name="invoice_policy">delivery</field>
+        <field name="expense_policy">no</field>
+        <field name="list_price">10.00</field>
+        <field name="standard_price">3.00</field>
+        <field name="categ_id" ref="product_category_goodies"/>
+        <field name="sale_ok">True</field>
+        <field name="purchase_ok">True</field>
+        <field name="description_sale">Exclusive custom guitar pick with signature.</field>
+        <field name="description_purchase">Bulk purchase of custom guitar picks.</field>
+        <field name="image_1920" type="base64" file="guitarist/static/src/binary/product_template/pick.jpg"/>
+    </record>
+</odoo>

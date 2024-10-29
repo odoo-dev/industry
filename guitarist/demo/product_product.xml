@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <!-- Concert Tickets -->
+<record id="product_product_ticket_standard" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<record id="product_product_ticket_vip" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<record id="product_product_ticket_backstage" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<record id="product_product_ticket_online" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<!-- Goodies Products -->
+<record id="product_product_goodies_tshirt" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<record id="product_product_goodies_hat" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<record id="product_product_goodies_poster" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+<record id="product_product_goodies_guitar_pick" model="product.product" forcecreate="1">
+  <field name="is_published" eval="True"/>
+
+</record>
+
+</odoo>

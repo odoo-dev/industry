@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="sale_order_line_2" model="sale.order.line">
+        <field name="product_id" ref="product_product_goodies_tshirt"/>
+        <field name="order_id" ref="sale_order_2"/>
+    </record>
+    <record id="sale_order_line_3" model="sale.order.line">
+        <field name="product_id" ref="product_product_goodies_hat"/>
+        <field name="order_id" ref="sale_order_2"/>
+    </record>
+    <record id="sale_order_line_6" model="sale.order.line">
+        <field name="product_id" ref="product_product_ticket_standard"/>
+        <field name="product_uom_qty">2.0</field>
+        <field name="order_id" ref="sale_order_3"/>
+        <field name="event_id" ref="event_event_1"/>
+        <field name="event_ticket_id" ref="event_event_ticket_3"/>
+    </record>
+    <record id="sale_order_line_7" model="sale.order.line">
+        <field name="product_id" ref="product_product_ticket_standard"/>
+        <field name="product_uom_qty">10.0</field>
+        <field name="order_id" ref="sale_order_4"/>
+        <field name="event_id" ref="event_event_1"/>
+        <field name="event_ticket_id" ref="event_event_ticket_3"/>
+    </record>
+    <record id="sale_order_line_8" model="sale.order.line">
+        <field name="product_id" ref="product_product_ticket_vip"/>
+        <field name="order_id" ref="sale_order_4"/>
+        <field name="event_id" ref="event_event_1"/>
+        <field name="event_ticket_id" ref="event_event_ticket_4"/>
+    </record>
+</odoo>

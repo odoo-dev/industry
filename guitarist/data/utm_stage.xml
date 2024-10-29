@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="utm.default_utm_stage" model="utm.stage" forcecreate="1">
+    <field name="name">New</field>
+    <field name="sequence" eval="False"/>
+  </record>
+  <record id="utm_stage_2" model="utm.stage">
+    <field name="name">Running</field>
+  </record>
+  <record id="utm_stage_3" model="utm.stage">
+    <field name="name">Done</field>
+    <field name="sequence">2</field>
+  </record>
+</odoo>

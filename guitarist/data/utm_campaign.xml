@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="utm_campaign_1" model="utm.campaign">
+    <field name="title">Europe tournee</field>
+    <field name="name">Europe tournee</field>
+    <field name="stage_id" ref="utm_stage_2"/>
+  </record>
+  <record id="utm_campaign_2" model="utm.campaign">
+    <field name="title">America tour</field>
+    <field name="name">America tour</field>
+  </record>
+</odoo>

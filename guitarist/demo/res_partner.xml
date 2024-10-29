@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="base.main_partner" model="res.partner" forcecreate="1">
+    <field name="is_published" eval="True"/>
+    <field name="image_1920" type="base64" file="guitarist/static/src/binary/res_partner/1-image_1920"/>
+    <field name="name">singer</field>
+    <field name="country_id" ref="base.be"/>
+    <field name="email">singer@odoo.com</field>
+    <field name="is_company" eval="True"/>
+    <field name="partner_share" eval="True"/>
+    <field name="contact_address_complete">Belgium</field>
+  </record>
+  <record id="res_partner_16" model="res.partner" forcecreate="1">
+    <field name="is_published" eval="True"/>
+    <field name="image_1920" type="base64" file="guitarist/static/src/binary/res_partner/1-image_1920"/>
+    <field name="name">Shred Master</field>
+    <field name="country_id" ref="base.be"/>
+    <field name="email">shredmaster@odoo.com</field>
+    <field name="is_company" eval="False"/>
+    <field name="partner_share" eval="True"/>
+    <field name="contact_address_complete">Belgium</field>
+</record>
+
+<record id="res_partner_13" model="res.partner" forcecreate="1">
+    <field name="is_published" eval="True"/>
+    <field name="image_1920" type="base64" file="guitarist/static/src/binary/res_partner/12-image_1920"/>
+    <field name="name">Beat Blaster</field>
+    <field name="country_id" ref="base.be"/>
+    <field name="email">beatblaster@odoo.com</field>
+    <field name="is_company" eval="False"/>
+    <field name="partner_share" eval="True"/>
+    <field name="contact_address_complete">Belgium</field>
+</record>
+
+<record id="res_partner_7" model="res.partner" forcecreate="1">
+    <field name="is_published" eval="True"/>
+    <field name="image_1920" type="base64" file="guitarist/static/src/binary/res_partner/14-image_1920"/>
+    <field name="name">Bass Wizard</field>
+    <field name="country_id" ref="base.be"/>
+    <field name="email">basswizard@odoo.com</field>
+    <field name="is_company" eval="False"/>
+    <field name="partner_share" eval="True"/>
+    <field name="contact_address_complete">Belgium</field>
+</record>
+
+</odoo>

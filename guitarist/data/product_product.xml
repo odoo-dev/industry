@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="delivery.product_product_delivery" model="product.product" forcecreate="1">
+    <field name="default_code">Delivery_007</field>
+    <field name="product_tmpl_id" ref="delivery.product_product_delivery_product_template"/>
+  </record>
+  <record id="appointment_account_payment.default_booking_product" model="product.product" forcecreate="1">
+    <field name="product_tmpl_id" ref="appointment_account_payment.default_booking_product_product_template"/>
+  </record>
+  <record id="event_product.product_product_event" model="product.product" forcecreate="1">
+    <field name="product_tmpl_id" ref="event_product.product_product_event_product_template"/>
+    <field name="standard_price">10.0</field>
+  </record>
+  <!-- Concert Tickets -->
+<record id="product_product_ticket_standard" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_ticket_standard"/>
+  <field name="standard_price">20.00</field>
+</record>
+
+<record id="product_product_ticket_vip" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_ticket_vip"/>
+  <field name="standard_price">50.00</field>
+</record>
+
+<record id="product_product_ticket_backstage" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_ticket_backstage"/>
+  <field name="standard_price">70.00</field>
+</record>
+
+<record id="product_product_ticket_online" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_ticket_online"/>
+  <field name="standard_price">10.00</field>
+</record>
+
+<!-- Goodies Products -->
+<record id="product_product_goodies_tshirt" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_goodies_tshirt"/>
+  <field name="standard_price">10.00</field>
+</record>
+
+<record id="product_product_goodies_hat" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_goodies_hat"/>
+  <field name="standard_price">8.00</field>
+</record>
+
+<record id="product_product_goodies_poster" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_goodies_poster"/>
+  <field name="standard_price">5.00</field>
+</record>
+
+<record id="product_product_goodies_guitar_pick" model="product.product" forcecreate="1">
+  <field name="product_tmpl_id" ref="product_template_goodies_guitar_pick"/>
+  <field name="standard_price">3.00</field>
+</record>
+
+</odoo>

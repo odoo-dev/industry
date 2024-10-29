@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="social_post_3" model="social.post">
+    <field name="message"><![CDATA[🎸 Excited to announce our next live show! Join us for an unforgettable night of guitar solos, rhythm, and pure energy!]]></field>
+    <field name="facebook_message"><![CDATA[🎸 Join us live for an electrifying night of guitar solos and incredible vibes! See you there!]]></field>
+    <field name="instagram_message"><![CDATA[🎶 Can’t wait to rock the stage! Join us live for a night of music and memories! 🎸]]></field>
+    <field name="linkedin_message"><![CDATA[Our upcoming concert promises guitar solos and vibrant energy. Don’t miss this!]]></field>
+    <field name="twitter_message"><![CDATA[🎸 Can’t wait to hit the stage for our next live performance! Who’s ready to rock? #Concert]]></field>
+    <field name="push_notification_message"><![CDATA[Concert Alert! Join us live for a night of epic guitar solos and great vibes!]]></field>
+    <field name="utm_campaign_id" ref="utm_campaign_1"/>
+    <field name="create_uid" ref="base.user_admin"/>
+  </record>
+
+  <record id="social_post_2" model="social.post">
+    <field name="message"><![CDATA[🎤 Rocking the stage soon! Prepare for some unforgettable guitar moments and good vibes all night!]]></field>
+    <field name="facebook_message"><![CDATA[🎤 Ready for a night of pure rock? Join us for live guitar action and good vibes!]]></field>
+    <field name="instagram_message"><![CDATA[🔥 Counting down to a night of live music magic! Can’t wait to share it with you all! 🎸]]></field>
+    <field name="linkedin_message"><![CDATA[Looking forward to an incredible live music night. Join us for guitar and good vibes!]]></field>
+    <field name="twitter_message"><![CDATA[Counting down the hours to our next live show! Can’t wait to see you all! #LiveMusic]]></field>
+    <field name="push_notification_message"><![CDATA[Get ready for some guitar magic live on stage! Join us for a memorable night.]]></field>
+    <field name="utm_campaign_id" ref="utm_campaign_2"/>
+    <field name="create_uid" ref="base.user_admin"/>
+  </record>
+
+  <record id="social_post_1" model="social.post">
+    <field name="message"><![CDATA[🌟 Exciting news! We’re bringing the heat on stage soon – get ready for epic guitar solos and live music energy!]]></field>
+    <field name="facebook_message"><![CDATA[🌟 Join us for an unforgettable concert! Get ready for some amazing guitar solos and great energy!]]></field>
+    <field name="instagram_message"><![CDATA[🎸 Feeling pumped for our next show! Get ready for epic guitar solos!]]></field>
+    <field name="linkedin_message"><![CDATA[We’re back live soon! Ready to share some incredible guitar vibes on stage!]]></field>
+    <field name="twitter_message"><![CDATA[🌟 Counting down to an unforgettable night of guitar magic and live music!]]></field>
+    <field name="push_notification_message"><![CDATA[Concert Update: Don’t miss our next live show for unforgettable guitar solos and music vibes!]]></field>
+    <field name="push_notification_title">Concert Alert!</field>
+    <field name="create_uid" ref="base.user_admin"/>
+    <field name="state">posting</field>
+    <field name="media_ids" eval="[(6, 0, [ref('social_push_notifications.social_media_push_notifications')])]"/>
+  </record>
+</odoo>

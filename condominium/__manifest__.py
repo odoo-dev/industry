@@ -68,12 +68,14 @@ Moreover, the business is legally regulated in lots of countries under different
     'license': 'OPL-1',
     'assets': {
         'web.assets_backend': [
+            'condominium/static/src/js/acquisition.js',
             'condominium/static/src/js/my_tour.js',
         ]
     },
     'author': 'Odoo S.A.',
     "cloc_exclude": [
         "data/knowledge_article.xml",
+        "static/src/js/acquisition.js",
         "static/src/js/my_tour.js",
     ],
     'images': ['images/main.png'],

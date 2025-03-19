@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <function model="ir.module.module" name="_theme_load" context="{'apply_new_theme': True}">
+        <value model="ir.module.module" eval="obj().env['ir.module.module'].search([('name', '=', 'theme_orchid')]).ids"/>
+        <value model="ir.module.module" eval="obj().env.ref('website.default_website')"/>
+    </function>
+    <function model="web_editor.assets" name="make_scss_customization">
+        <value eval="'/website/static/src/scss/options/colors/user_color_palette.scss'"/>
+        <value eval="{'o-color-1': '#861D3D', 'o-color-2': '#003163','o-theme-font': 'Poppins', 'menu': 2, 'footer': 2, 'copyright': 2}"/>
+    </function>
+</odoo>

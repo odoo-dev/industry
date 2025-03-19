@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <template id="welcome_article_body">
+        <h1 class="oe-hint" data-oe-version="1.0">
+            <span class="display-4-fs">
+                <strong>Tattoo Shop</strong>
+            </span>
+            <br/>
+        </h1>
+        <p>
+            Welcome to the Odoo Tattoo Shop package! This guide will help you manage your Tattoo shop efficiently. 
+            Manage new opportunities, consent forms, your social media presence, and your bookings.
+        </p>
+        
+        <div data-embedded="tableOfContent"></div>
+        
+        <h2><span class="h1-fs">Basics</span></h2>
+        <hr/>
+        <p>Your Odoo Tattoo Shop package includes essential apps to streamline your operations:</p>
+        
+        <ul>
+            <li><strong>CRM App:</strong> Manage your leads and track ongoing tattoo projects.</li>
+            <li><strong>Sign App:</strong> Handle consent forms and important documents effortlessly.</li>
+            <li><strong>Website App:</strong> Showcase your work and attract new clients.</li>
+            <li><strong>Appointments App:</strong> Let customers book and manage appointments.</li>
+            <li><strong>Social Marketing App:</strong> Share your latest creations and engage with your audience.</li>
+            <li><strong>Purchase App:</strong> Restock supplies with ease.</li>
+            <li><strong>Activities:</strong> Manage your opportunities effectively.</li>
+        </ul>
+        
+        <div class="o_editor_banner user-select-none o_not_editable alert alert-warning pb-0 pt-3">
+            <i class="o_editor_banner_icon mb-3 fst-normal">⚠️</i>
+            <div class="w-100 px-3">
+                <p>If you want to easily discover every feature of this package, try downloading the Demo Data.</p>
+                <p>You can still do it by upgrading your package in Apps.</p>
+                <p>Just be careful—once demo data is uploaded, it cannot be easily deleted. You can restart a fresh database on 
+                    <a href="http://Odoo.com/trial">Odoo.com/trial</a>
+                </p>
+            </div>
+        </div>
+        
+        <h3>Customer Management 😊</h3>
+        <div>The CRM app is your central hub for:</div>
+        <ul>
+            <li>Managing new walk-ins, appointments, and customers.</li>
+            <li>Communicating with customers and artists, and managing reminders.</li>
+            <li>Sending and receiving signed customer consent forms.</li>
+            <li>Creating and confirming quotations.</li>
+            <li>Following up internally or externally through CRM activities.</li>
+        </ul>
+        
+        <div class="o_editor_banner user-select-none o_not_editable alert alert-info pb-0 pt-3">
+            <i class="o_editor_banner_icon mb-3 fst-normal">💡</i>
+            <div class="w-100 px-3">
+                <p><strong>Tags are linked to the website contact form.</strong></p>
+                <p>Create new tags to give customers more choices when requesting information.</p>
+            </div>
+        </div>
+        
+        <div>
+            <a href="https://www.odoo.com/documentation/18.0/applications/sales/crm.html" class="btn btn-outline-primary">🎓 CRM</a>
+        </div>
+        
+        <h3>Website Management 🌐</h3>
+        <div>Your website is great for:</div>
+        <ul>
+            <li>Showcasing artists and acquiring new opportunities.</li>
+            <li>Providing a way for visitors to book appointments.</li>
+            <li>Presenting a contact form for custom tattoo inquiries.</li>
+        </ul>
+        
+        <div class="o_editor_banner user-select-none o_not_editable alert alert-info pb-0 pt-3">
+            <i class="o_editor_banner_icon mb-3 fst-normal">💡</i>
+            <div class="w-100 px-3">
+                <div><strong>Boost your online presence</strong></div>
+                <p>Improving your website and getting external links boosts your search engine ranking.</p>
+                <p>Link your social media to generate clicks and leads!</p>
+            </div>
+        </div>
+        
+        <div>
+            <a href="https://www.odoo.com/documentation/18.0/applications/websites/website.html" class="btn btn-outline-primary">🎓 Website</a>
+        </div>
+        
+        <h3>Appointment Scheduling 📅</h3>
+        <div>Manage customer appointments through a website appointment form.</div>
+        <ul>
+            <li>Appointments create new opportunities.</li>
+            <li>View customer appointments in the calendar.</li>
+            <li>Set up new appointments on the go.</li>
+        </ul>
+        
+        <div>
+            <a href="https://www.odoo.com/documentation/18.0/applications/productivity/calendar.html" class="btn btn-outline-primary">🎓 Appointments</a>
+        </div>
+        
+        <h3>Social Marketing 💕</h3>
+        <ul>
+            <li>Engage with admirers of your work.</li>
+            <li>Schedule and post content to multiple channels in one click.</li>
+            <li>Create and track campaigns.</li>
+        </ul>
+        
+        <div>
+            <a href="https://www.odoo.com/documentation/18.0/applications/marketing/social_marketing.html" class="btn btn-outline-primary">🎓 Social Marketing</a>
+        </div>
+        
+        <h3>Sign ✍️</h3>
+        <ul>
+            <li>Manage consent forms and employment contracts in one place.</li>
+            <li>Automatically send consent forms to customers digitally.</li>
+        </ul>
+        
+        <div>
+            <a href="https://www.odoo.com/documentation/18.0/applications/productivity/sign.html" class="btn btn-outline-primary">🎓 Sign</a>
+        </div>
+        
+        <h3>Sales &amp; Invoicing 💶</h3>
+        <ul>
+            <li>Create quotations easily from opportunities.</li>
+            <li>Sell goods and services on the fly.</li>
+            <li>Get accurate sales reports.</li>
+        </ul>
+        
+        <div>
+            <a href="https://www.odoo.com/documentation/latest/applications/sales/sales.html" class="btn btn-outline-primary">🎓 Sales</a>
+        </div>
+        
+        <h1>Do You Want to Go Further?</h1>
+        <hr/>
+        <p>Odoo offers additional features to enhance your Tattoo Shop business:</p>
+        <ul>
+            <li><strong>Point of Sale:</strong> Instant payments.</li>
+            <li><strong>SMS Marketing:</strong> Send reminders to customers.</li>
+            <li><strong>Projects App:</strong> Manage multi-session tattoos.</li>
+        </ul>
+        
+        <div class="o_editor_banner user-select-none o_not_editable alert alert-info pb-0 pt-3">
+            <i class="o_editor_banner_icon mb-3 fst-normal">🚀</i>
+            <div class="w-100 px-3">
+                <p>Want to discuss your Odoo setup or explore more features?</p>
+                <p><a class="btn btn-primary" href="https://www.odoo.com/contactus">Reach us</a></p>
+            </div>
+        </div>
+    </template>
+
+
+    <record id="welcome_article" model="knowledge.article">
+        <field name="name">Tattoo Shop - Start here!</field>
+        <field name="sequence">18</field>
+        <field name="icon">👁️‍🗨️</field>
+        <field name="internal_permission">write</field>
+        <field name="is_article_visible_by_everyone" eval="True"/>
+        <field name="body">
+            <![CDATA[]]>
+        </field>
+    </record>
+</odoo>

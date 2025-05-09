@@ -11,7 +11,6 @@
               'sale_purchase_project',
               'social_push_notifications',
               'stock_dropshipping',
-              'website_partner',
               'website_sale_mass_mailing',
        ],
        'data': [
@@ -24,7 +23,6 @@
               'data/product_product.xml',
               'data/product_tag.xml',
               'data/stock_picking_type.xml',
-              # 'data/purchase_order.xml',
               'data/delivery_carrier.xml',
               'data/knowledge_article.xml',
               'data/knowledge_article_favorite.xml',
@@ -49,7 +47,6 @@
               'demo/purchase_order.xml',
               'demo/purchase_order_line.xml',
               'demo/purchase_order_post.xml',
-              # 'demo/stock_quant.xml',
               'demo/website_page.xml',
               'demo/website_menu.xml',
               'demo/ir_attachment_post.xml',

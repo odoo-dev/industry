@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~18.2+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 08:47+0000\n"
-"PO-Revision-Date: 2025-05-09 08:47+0000\n"
+"POT-Creation-Date: 2025-05-12 12:04+0000\n"
+"PO-Revision-Date: 2025-05-12 12:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -370,11 +370,6 @@ msgid "Crystal Grip"
 msgstr ""
 
 #. module: dropshipping
-#: model:res.partner.category,name:dropshipping.res_partner_category_6
-msgid "Demo User"
-msgstr ""
-
-#. module: dropshipping
 #: model_terms:ir.ui.view,arch_db:dropshipping.welcome_article_body
 msgid "Do You Want to Go Further?"
 msgstr ""
@@ -399,11 +394,6 @@ msgstr ""
 #. module: dropshipping
 #: model:product.template,name:dropshipping.product_template_4
 msgid "Eclipse Shell"
-msgstr ""
-
-#. module: dropshipping
-#: model:res.partner.category,name:dropshipping.res_partner_category_11
-msgid "Employee"
 msgstr ""
 
 #. module: dropshipping
@@ -873,16 +863,6 @@ msgstr ""
 #. module: dropshipping
 #: model:product.template,name:dropshipping.product_template_12
 msgid "Stealth Armor"
-msgstr ""
-
-#. module: dropshipping
-#: model:res.partner.category,name:dropshipping.res_partner_category_15
-msgid "Supplier"
-msgstr ""
-
-#. module: dropshipping
-#: model:res.partner.category,name:dropshipping.res_partner_category_12
-msgid "Technical User"
 msgstr ""
 
 #. module: dropshipping

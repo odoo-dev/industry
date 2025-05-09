@@ -7,7 +7,7 @@
     <field name="website_id" ref="website.default_website"/>
   </record>
   <record id="sale_order_2" model="sale.order">
-    <field name="partner_id" ref="res_partner_44"/>
+    <field name="partner_id" ref="res_partner_42"/>
     <field name="user_id" ref="base.user_admin"/>
     <field name="carrier_id" ref="delivery.free_delivery_carrier"/>
     <field name="website_id" ref="website.default_website"/>

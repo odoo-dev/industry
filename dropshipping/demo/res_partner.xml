@@ -12,17 +12,6 @@
   <record id="res_partner_39" model="res.partner">
     <field name="name">Crystal Case Company</field>
   </record>
-  <record id="res_partner_44" model="res.partner">
-    <field name="name">Demo User</field>
-    <field name="user_id" ref="base.user_admin"/>
-    <field name="country_id" ref="base.be"/>
-    <field name="street">Rue des Bourlottes 9</field>
-    <field name="street2">23</field>
-    <field name="zip">1367</field>
-    <field name="city">Ramillies</field>
-    <field name="email">demo@test.com</field>
-    <field name="company_id" ref="base.main_company"/>
-  </record>
   <record id="res_partner_42" model="res.partner">
     <field name="name">Demo User</field>
     <field name="user_id" ref="base.user_admin"/>
@@ -192,21 +181,6 @@
     <field name="zip">1367</field>
     <field name="city">Ramillies</field>
     <field name="email">david.miller@yourcompany.example.com</field>
-    <field name="company_id" ref="base.main_company"/>
-  </record>
-  <record id="res_partner_46" model="res.partner">
-    <field name="name">Demo User</field>
-    <field name="parent_id" ref="base.main_partner"/>
-    <field name="user_id" ref="base.user_admin"/>
-    <field name="vat">BE0477472701</field>
-    <field name="country_id" ref="base.be"/>
-    <field name="company_registry">0477472701</field>
-    <field name="type">invoice</field>
-    <field name="street">Rue des Bourlottes 9</field>
-    <field name="street2">23</field>
-    <field name="zip">1367</field>
-    <field name="city">Ramillies</field>
-    <field name="email">demo@test.com</field>
     <field name="company_id" ref="base.main_company"/>
   </record>
   <record id="res_partner_8" model="res.partner">

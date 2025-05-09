@@ -6,7 +6,6 @@
     <field name="logo" type="base64" file="dropshipping/static/description/icon.png"/>
     <field name="user_id" ref="base.public_user"/>
     <field name="favicon" type="base64" file="dropshipping/static/description/icon.png"/>
-    <field name="theme_id" ref="base.module_theme_buzzy"/>
     <field name="salesperson_id" ref="base.user_admin"/>
     <field name="cart_recovery_mail_template_id" eval="False"/>
     <field name="newsletter_id" ref="mass_mailing.mailing_list_data"/>

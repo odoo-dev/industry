@@ -8,3 +8,8 @@ class ResConfigSettings(models.TransientModel):
         string="Default Project for Dump Tasks",
         config_parameter='industry_automation.project_id'
     )
+
+    industry_automation_output_path = fields.Char(
+        string="Output Path for Saved Files",
+        config_parameter='industry_automation.output_path'
+    )

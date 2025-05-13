@@ -1,4 +1,4 @@
-<odoo>
+<!-- <odoo>
 	<record id="website_automation_menu" model="website.menu">
         <field name="name">Automation</field>
         <field name="url">/industry_automation/upload</field>
@@ -12,6 +12,18 @@
 					Upload DumpDB File
 				</h2>
 				<form action="/industry_automation/upload_file" method="post" enctype="multipart/form-data">
+					<div class="mb-3">
+                        <label class="form-label">Module Name</label>
+                        <input type="text" name="module_name" required="1" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Version</label>
+                        <input type="text" name="version" required="1" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <input type="text" name="category" required="1" class="form-control" />
+                    </div>
 					<div class="input-group mt-4">
 						<input type="file" name="db_file" required="1" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" />
 						<button class="btn btn-primary" type="submit" id="inputGroupFileAddon04">Upload</button>
@@ -29,6 +41,68 @@
 						<t t-esc="error_msg" />
 					</p>
 				</t>
+			</div>
+		</t>
+	</template>
+</odoo> -->
+
+
+<odoo>
+	<record id="website_automation_menu" model="website.menu">
+        <field name="name">Automation</field>
+        <field name="url">/industry_automation/upload</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+	
+	<template id="upload_template" name="Upload Dump File">
+		<t t-call="website.layout">
+			<div class="container mt-5 mb-5">
+				<div class="row justify-content-center">
+					<div class="col-md-8">
+						<div class="card shadow-lg rounded-4">
+							<!-- <div class="card-header bg-primary text-white text-center rounded-top-4">
+								<h3 class="mb-0 py-2">Upload DumpDB File</h3>
+							</div> -->
+							<div class="card-body p-4">
+								<form action="/industry_automation/upload_file" method="post" enctype="multipart/form-data">
+									<div class="mb-3">
+										<label class="form-label fw-bold">Module Name</label>
+										<input type="text" name="module_name" required="required" class="form-control rounded-3 shadow-sm" placeholder="e.g., my_module_name"/>
+									</div>
+									<div class="mb-3">
+										<label class="form-label fw-bold">Version</label>
+										<input type="text" name="version" required="required" class="form-control rounded-3 shadow-sm" placeholder="e.g., 1.0.0"/>
+									</div>
+									<div class="mb-3">
+										<label class="form-label fw-bold">Category</label>
+										<input type="text" name="category" required="required" class="form-control rounded-3 shadow-sm" placeholder="e.g., Accounting, Inventory"/>
+									</div>
+									<div class="mb-4">
+										<label class="form-label fw-bold">DumpDB File</label>
+										<input type="file" name="db_file" required="required" class="form-control rounded-3 shadow-sm" />
+									</div>
+									<div class="d-grid">
+										<button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">
+											<i class="fa fa-tasks me-2"></i> Create Task
+										</button>
+									</div>
+								</form>
+
+								<!-- Success or error feedback -->
+								<t t-if="success">
+									<div class="alert alert-success mt-4 rounded-3 shadow-sm">
+										File "<t t-esc="filename"/>" uploaded successfully and task created.
+									</div>
+								</t>
+								<t t-if="error">
+									<div class="alert alert-danger mt-4 rounded-3 shadow-sm">
+										<t t-esc="error_msg" />
+									</div>
+								</t>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</t>
 	</template>

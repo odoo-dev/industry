@@ -9,37 +9,58 @@ import re
 from xmlrpc.client import ServerProxy
 import psycopg2
 
-def export_module_zip(attachment):
+def export_module_zip(attachment, output_path, module_name, version, category):
     try:
         industry_name = attachment.name.split('.')[0]
+        output_path = f"{output_path}/{industry_name}"
+        os.makedirs(output_path, exist_ok=True)
+        breakpoint()
 
+        # fetch dump.zip from attachment
         temp_zip_file_path = extract_zip_file_to_temp(attachment)
         if not temp_zip_file_path:
             raise Exception("Failed to write zip file to temporary location.")
 
-        temp_sql_file_path = extract_sql_file_to_temp(attachment)
-        if not temp_sql_file_path:
-            raise Exception("No .sql file found in zip.")
+        # # fetch .sql file from attachment
+        # temp_sql_file_path = extract_sql_file_to_temp(attachment)
+        # if not temp_sql_file_path:
+        #     raise Exception("No .sql file found in zip.")
 
-        db_version = find_db_version(temp_sql_file_path)
-        if not db_version:
-            raise Exception("Could not determine DB version from SQL file.")
+        # # find dump DB version
+        # db_version = find_db_version(temp_sql_file_path)
+        # if not db_version:
+        #     raise Exception("Could not determine DB version from SQL file.")
 
+        # find server which version same as DB version 
+        db_version = '.'.join(version.split('.')[:2])
         matched_server = find_matched_server(db_version)
         if not matched_server:
             raise Exception(f"No running server found for version {db_version}.")
 
-        restore_db_name = f"{industry_name}_db"
+        # restore Database at matched version server
+        restore_db_name = f"{module_name}_db"
         port = matched_server['port']
         master_password = "hyif-nir4-qjf5"
         success = restore_db(port, master_password, restore_db_name, temp_zip_file_path)
         if not success:
             raise Exception("Database restore failed.")
 
+        # export module zip 
         login = "admin"
         password = "admin"
-        path_to_store = f"/home/odoo/Documents/{industry_name}_studio_customizations.zip"
+        path_to_store = f"{output_path}/studio_customizations.zip"
         export_studio_customizations(f"http://localhost:{port}", restore_db_name, login, password, path_to_store)
+
+        # extract module zip to extract_path
+        os.makedirs(output_path, exist_ok=True)
+        with zipfile.ZipFile(path_to_store, "r") as zip_ref:
+            zip_ref.extractall(output_path)
+
+        # clean module through script
+        module_path = f"{output_path}/studio_customization"
+        os.chdir(f"{output_path}")
+        os.system(f"PYTHONPATH=/home/odoo/odoo/community python3 /home/odoo/odoo/industry/industry_automation/cleanup_scripts/script.py -d {restore_db_name} -m {module_name} -c {category} -p {module_path} ")
+        print(">>> clean Up script executed")
 
 
     except Exception as e:
@@ -47,7 +68,7 @@ def export_module_zip(attachment):
 
     finally:
         delete_temp_file(temp_zip_file_path)
-        delete_temp_file(temp_sql_file_path)
+        # delete_temp_file(temp_sql_file_path)
 
 def extract_zip_file_to_temp(attachment):
     """

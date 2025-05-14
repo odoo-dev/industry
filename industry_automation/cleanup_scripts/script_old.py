@@ -2,7 +2,6 @@
 # To run
 # odoo folder => PYTHONPATH=./community python3 tutorials/industry_script/script.py -d <database_name> -m <module_name> -c <category_name> -p <module_path>
 
-import logging
 import sys
 from pathlib import Path
 import re
@@ -16,11 +15,9 @@ import odoo
 import odoo.tools.config
 from odoo import api, SUPERUSER_ID
 
-_logger = logging.getLogger(__name__)
-
 automated = {
     'author': 'Odoo S.A.',
-    'category': '',
+    'category': 'TODO',
     'images': ['images/main.png'],
     'license': 'OPL-1',
     'version': '1.0',
@@ -93,9 +90,8 @@ def setup_odoo_env(db_name):
         env = api.Environment(cr, SUPERUSER_ID, {})  # gives access to models and allows you to interact with the database using Python objects
         
         return cr, env
-    except Exception:
-        _logger.exception(f"Error while setting up Odoo environment for database '{db_name}'")
-        exit()
+    except Exception as e:
+        exit(f"Error while setting up Odoo environment for database '{db_name}': {e}")
 
 def main():
     cr = None
@@ -123,7 +119,6 @@ def main():
         if os.path.isdir(ind_name) and not ((len(sys.argv) > 9) and (sys.argv[9] == 'force')):
             exit("industry already exists, change name or delete previous try")
         directory = sys.argv[module_path_index]
-
         scss_content_list = []
         manifest_demo_file_list = []
         for root, dirs, files in os.walk(directory):
@@ -231,18 +226,18 @@ def main():
                         
                         unwanted_field_of_model = []
                         if model_name == 'sale.order.line':
-                            unwanted_field_of_model = ['product_uom_id', 'technical_price_unit', 'name']
-                        elif model_name == 'sale.order.template':
+                            unwanted_field_of_model = ['technical_price_unit', 'name']
+                        if model_name == 'sale.order.template':
                             unwanted_field_of_model = ['prepayment_percent']
-                        elif model_name == 'sign.item':
+                        if model_name == 'sign.item':
                             unwanted_field_of_model = ['transaction_id']
-                        elif model_name == 'pos.session':
+                        if model_name == 'pos.session':
                             unwanted_field_of_model = ['name', 'start', 'stop']
-                        elif model_name == 'sale.order':
+                        if model_name == 'sale.order':
                             unwanted_field_of_model = ['date_order', 'prepayment_percent', 'delivery_status', 'amount_unpaid']
-                        elif model_name == 'pos.config':
+                        if model_name == 'pos.config':
                             unwanted_field_of_model = ['uuid', 'last_data_change']
-                        elif model_name == 'crm.lead':
+                        if model_name == 'crm.lead':
                             unwanted_field_of_model = ['email_from', 'company_id', 'country_id', 'city', 'street', 'partner_name', 'contact_name', 'zip', 'reveal_id']
 
                         for unwanted_field in unwanted_field_of_model:
@@ -251,6 +246,8 @@ def main():
 
                             content = re.sub(pattern_regular, "", content)
                             content = re.sub(pattern_self_closing, "", content)
+                        
+
 
                         # Removing computed fields which is not inverse
                         model = env.get(model_name)
@@ -322,7 +319,7 @@ def main():
                                             'appointment_sms',
                                             'website_knowledge',
                                             'base_vat',
-                                            'product_barcodelookup',
+
                                             ]
                                         if k == 'depends' and (item in unwanted_depends or item.startswith('theme_')):
                                             continue
@@ -425,10 +422,13 @@ def main():
             if target_path.exists():
                 content = target_path.read_text(encoding='utf-8')
                 if "</odoo>" in content:
+                    # Inject before </odoo>
                     updated_content = content.replace("</odoo>", f"{new_function}\n</odoo>")
                 else:
+                    # No closing tag — append new content and fix
                     updated_content = content + "\n" + new_function + "\n</odoo>"
             else:
+                # File doesn't exist — write base structure with function(s)
                 updated_content = base_xml
 
             # Write back to file
@@ -448,7 +448,7 @@ def main():
             for record in reversed(sorted_records):
                 root_ir_attchment_post.insert(0, record)
 
-            new_content_ir_attachment_post = etree.tostring(root_ir_attchment_post, pretty_print = True, encoding="UTF-8", xml_declaration = True).decode("utf-8")
+            new_content_ir_attachment_post = etree.tostring(root_ir_attchment_post, pretty_print = True, encoding="utf-8", xml_declaration = True).decode("utf-8")
             path_ir_attachment_post.write_text(new_content_ir_attachment_post, encoding="utf-8")
 
         # Keeping only welcome article
@@ -474,7 +474,7 @@ def main():
                 else:
                     root_knowledge_article.remove(record)
 
-            new_knowledge_article = etree.tostring(root_knowledge_article, pretty_print=True, encoding="UTF-8", xml_declaration=True).decode("utf-8")
+            new_knowledge_article = etree.tostring(root_knowledge_article, pretty_print=True, encoding="utf-8", xml_declaration=True).decode("utf-8")
             path_knowledge_article.write_text(new_knowledge_article, encoding="utf-8")
 
         for file, content in mandatory_files.items():

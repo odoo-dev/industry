@@ -4,11 +4,10 @@
     'summary': 'Industry Automation Cleanup',
     'author': 'chirag Gami(chga)',
     'category': 'Automation',
-    'depends': ['base', 'project', 'website', 'sale_management'],
+    'depends': ['base', 'project', 'sale_management'],
     'license': 'LGPL-3',
     'data': [
-        'views/templates.xml',
-        'views/settings_view.xml',
+        'views/project_task_views.xml',
         'data/fetch_db_cron.xml',
         'security/ir.model.access.csv',
     ],

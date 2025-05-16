@@ -5,6 +5,12 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="process_task" string="Run Task" type="object"
+                        class="btn-primary"
+                        invisible="state != '01_in_progress'"
+                        help="For Run Task Immediately."/>
+            </xpath>
             <xpath expr="//div[@id='date_deadline_and_recurring_task']" position="after">
                 <field name="module_name"/>
                 <field name="version"/>

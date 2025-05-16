@@ -3,7 +3,7 @@
         <field name="name">Process New Tasks - Industry Automation</field>
         <field name="model_id" ref="model_project_task"/>
         <field name="state">code</field>
-        <field name="code">model.process_new_tasks()</field>
+        <field name="code">model.process_all_new_tasks()</field>
         <field name="interval_number">5</field>
         <field name="interval_type">hours</field>
         <field name="active">False</field>

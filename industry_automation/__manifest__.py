@@ -9,7 +9,6 @@
     'data': [
         'views/project_task_views.xml',
         'data/fetch_db_cron.xml',
-        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,

@@ -1,17 +1,337 @@
-#!/usr/bin/env python3
+import zipfile
+import os
+import tempfile
+import requests
+import logging
+import socket
+import shutil
+import argparse
 
-import sys
 from pathlib import Path
 import re
-import os
 from ast import literal_eval
-import shutil
 from lxml import etree
-import requests
 
+# Setup logger
+_logger = logging.getLogger(__name__)
+
+ # Map DB version to fixed port
+VERSION_PORT_MAP = {
+    'saas~18.1': 10001,
+    'saas~18.2': 10002,
+}
 BASE_URL = "http://localhost:"
-PASSWORD = "admin"
 LOGIN = "admin"
+PASSWORD = "admin"
+
+# ====================================================
+#              Export logic             
+# ====================================================
+
+class DumpTask:
+    def __init__(self, module_name, db_version, category, dump_path, destination_path, master_password):
+        self.module_name = module_name
+        self.db_version = db_version
+        self.category = category
+        self.dump_path = dump_path
+        self.destination_path = destination_path
+        self.master_password = master_password
+
+    def process_dump_task(self):
+        try:
+            # Extract industry name from the zip filename
+            industry_name = self.dump_path.split('/')[-1].split('.')[0]
+
+            # 2. Get the DB version (first two parts of semantic versioning, e.g., 16.0)
+            port = self.get_port_for_version()
+
+            # Check if the appropriate Odoo server is running on the correct port
+            if not self.is_port_open("localhost" , port):
+                _logger.error(f"No server is running on port {port} for DB version {self.db_version}.")
+                raise Exception(f"No server is running on port {port} for DB version {self.db_version}.")
+            _logger.info(f"Server found on port {port} for DB version {self.db_version}.")
+
+            # 3. Restore the DB using the dump file on the found port
+            restore_db_name = f"{self.module_name}_db"
+            success = self.restore_db(port, restore_db_name)
+            if not success:
+                _logger.error(f"Database '{restore_db_name}' Failed to restore  on port {port}.")
+                raise Exception(f"Database '{restore_db_name}' Failed to restore  on port {port}.")
+            _logger.info(f"Database '{restore_db_name}' restored successfully on port {port}.")
+
+            # 5. Prepare a temporary base directory for exporting and modifying files
+            base_temp_dir = os.path.join(tempfile.gettempdir(), industry_name)
+            os.makedirs(base_temp_dir, exist_ok=True)
+
+            # 6. Export the Studio customizations into a zip file
+            studio_zip_path = f"{base_temp_dir}/studio_customization.zip"
+            self.export_studio_customizations(port, restore_db_name, studio_zip_path)
+
+            # 7. Extract the studio zip for cleaning up
+            with zipfile.ZipFile(studio_zip_path, "r") as zip_ref:
+                zip_ref.extractall(base_temp_dir)
+
+            # 8. Run the external cleanup script to refactor the module
+            studio_extract_path = f"{base_temp_dir}/studio_customization"
+
+            try:
+                clean_module(self.module_name, self.category, restore_db_name, studio_extract_path, port, self.destination_path)
+                _logger.info("Module Clean Up successful")
+            except Exception as e:
+                raise Exception("Error while Running CleanUp Script")
+            
+            # delete temp directory
+            self.delete_temp_dir(base_temp_dir)
+
+            # drop restore DB
+            self.drop_db(restore_db_name, port)
+
+            
+        except Exception as e:
+           print(str(e))
+  
+    def get_port_for_version(self):
+        # Look up the port number mapped to the given DB version
+        port = VERSION_PORT_MAP.get(self.db_version)
+
+        # Raise an error if no port is found for the version
+        if not port:
+            _logger.error(f"No port mapped for DB version {self.db_version}")
+            raise Exception(f"No port mapped for DB version {self.db_version}")
+        return port
+    
+    def is_port_open(self, host: str, port: int, timeout: float = 1.0) -> bool:
+        """Check if a TCP port is open on the given host."""
+        
+        # Create a TCP socket using IPv4
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            # Set the timeout for the connection attempt
+            sock.settimeout(timeout)
+            try:
+                # Attempt to connect to the specified host and port
+                sock.connect((host, port))
+                return True
+            except (socket.timeout, ConnectionRefusedError):
+                # Return False if the connection times out or is refused
+                return False
+
+    def restore_db(self, port, db_name):
+        """
+        Restores the database from the given ZIP file to the Odoo server running on the specified port.
+
+        Args:
+            port (int): The port number of the Odoo server where the DB should be restored.
+            db_name (str): The name to assign to the restored database.
+            temp_zip_file_path (str): Path to the ZIP file containing the DB dump.
+
+        Returns:
+            bool: True if the database is restored and credentials are reset, False otherwise.
+        """
+        try:
+            # Open the ZIP file containing the database dump
+            with open(self.dump_path, 'rb') as backup_file:
+                # Send POST request to Odoo's database restore endpoint
+                response = requests.post(
+                    f'{BASE_URL}{port}/web/database/restore',
+                    data={
+                        'master_pwd': self.master_password,  # Master admin password
+                        'name': db_name,                # Target DB name
+                        'copy': True                    # Indicate it's a copy
+                    },
+                    files={
+                        'backup_file': ('tattoo.zip', backup_file, 'application/zip')
+                    }
+                )
+
+            # Check if the restore was successful (HTTP 200 OK or 302 Found)
+            if response.status_code in (200, 302):
+                # Reset login credentials for user ID 2
+                os.system(f"psql {db_name} -c \"UPDATE res_users SET login='{LOGIN}', password='{PASSWORD}' WHERE id=2;\"")
+                return True
+            else:
+                return False
+
+        except Exception:
+            raise Exception("Database Can't be Restore")
+
+    def drop_db(self, db_name, port):
+        response = requests.post(
+            f'{BASE_URL}{port}/web/database/drop',
+            data={
+                'master_pwd': self.master_password,  # Master admin password
+                'name': db_name,
+            },
+        )
+        response.raise_for_status()
+
+    def export_studio_customizations(self, port, db_name, studio_zip_path):
+        try:
+            session = requests.Session()
+            # Step 1: Authenticate via /web/session/authenticate (sets session cookie)
+            auth_payload = {
+                "jsonrpc": "2.0",
+                "method": "call",
+                "params": {
+                    "db": db_name,
+                    "login": LOGIN,
+                    "password": PASSWORD,
+                },
+                "id": 1
+            }
+            response = session.post(f"{BASE_URL}{port}/web/session/authenticate", json=auth_payload)
+            response.raise_for_status()
+
+            # Parse login result
+            result = response.json().get("result")
+            if not result or not result.get("uid"):
+                _logger.error("Authentication Failed")
+                raise Exception("Login failed.")
+            uid = result["uid"]
+            _logger.info("Authentication Successful")
+            
+            # Step 2: Ensure web_studio is installed
+            modules = self.check_web_studio_installed(port, db_name, uid)
+            if modules:
+                state = modules[0]['state']
+                model_id = modules[0]['id']
+                if state == "uninstalled":
+                    self.install_web_studio(port, db_name, uid, model_id)
+            else:
+                _logger.error("web_studio module not found in registry.")
+                raise Exception("web_studio module not found in registry.")
+
+            # Step 3: Call action_preset on studio.export.model
+            preset_payload = {
+                "jsonrpc": "2.0",
+                "method": "call",
+                "params": {
+                    "service": "object",
+                    "method": "execute_kw",
+                    "args": [
+                        db_name,
+                        uid,
+                        PASSWORD,
+                        "studio.export.model",
+                        "action_preset",
+                        [{}],
+                    ]
+                },
+                "id": 2
+            }
+            preset_resp = session.post(f"{BASE_URL}{port}/jsonrpc", json=preset_payload)
+            preset_resp.raise_for_status()
+
+            # Step 4: Create export wizard via RPC
+            wizard_payload = {
+                "jsonrpc": "2.0",
+                "method": "call",
+                "params": {
+                    "service": "object",
+                    "method": "execute_kw",
+                    "args": [
+                                db_name,
+                                uid,
+                                PASSWORD,
+                                "studio.export.wizard",
+                                "create",
+                                [{
+                                    "include_additional_data": True,
+                                    "include_demo_data": True
+                                }]
+                            ]
+                },
+                "id": 3
+            }
+
+            wizard_resp = session.post(f"{BASE_URL}{port}/jsonrpc", json=wizard_payload)
+            
+            wizard_resp.raise_for_status()
+            
+            if not wizard_resp.json()["result"]:
+                _logger.error("Export Wizard Failed to Create")
+                raise Exception("wizard id not found")
+            wizard_id = wizard_resp.json()["result"]
+
+            # Step 5: Call the export route (no token needed, session is authenticated)
+            export_url = f"{BASE_URL}{port}/web_studio/export?active_id={wizard_id}&token=dummytoken"
+            export_resp = session.get(export_url, stream=True)
+            
+
+            if export_resp.status_code == 200 and export_resp.headers['Content-Type'] == 'application/zip':
+                with open(studio_zip_path, "wb") as f:
+                    f.write(export_resp.content)
+            else:
+                _logger.error(f" Export failed: {export_resp.status_code} - {export_resp.text}")
+                raise Exception(f" Export failed: {export_resp.status_code} - {export_resp.text}")
+            
+        except Exception as e:
+            _logger.error("studio_customization Failed to Export")
+            raise Exception(str(e))
+    
+    def delete_temp_dir(self, dir_path):
+        """
+        Deletes a temporary directory and all its contents.
+        
+        :param dir_path: Full path to the directory.
+        """
+        if os.path.exists(dir_path) and os.path.isdir(dir_path):
+            shutil.rmtree(dir_path)
+
+    def check_web_studio_installed(self, port, db_name, uid):
+        # Prepare the JSON-RPC payload to search for the 'web_studio' module
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    db_name, uid, PASSWORD,
+                    "ir.module.module", "search_read",
+                    [[["name", "=", "web_studio"]]],
+                    {"fields": ["state"], "limit": 1}
+                ]
+            },
+            "id": 2
+        }
+
+        # Send the request to the server and parse the JSON response
+        response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
+        
+        # Return the list of matched module(s) with their state
+        if response["result"]:
+            return response["result"]
+
+    def install_web_studio(self, port, db_name, uid, module_id):
+        # Prepare JSON-RPC payload to install the module using button_immediate_install
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    db_name, uid, PASSWORD,
+                    "ir.module.module", "button_immediate_install",
+                    [module_id]
+                ]
+            },
+            "id": 4
+        }
+
+        # Send request to install the module
+        install_response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
+
+        # Log error if installation failed
+        if not install_response["result"]:
+            _logger.error("Module Studio can't install")
+        return install_response["result"]
+
+
+
+# ====================================================
+#              CleanUp logic             
+# ====================================================
 
 automated = {
     'author': 'Odoo S.A.',
@@ -120,29 +440,9 @@ def get_fields_info(db_name, port):
 
     return resp.json()["result"]
 
-def check_command(sys_argv):
-    if '-m' not in sys_argv or '-c' not in sys_argv or '-d' not in sys_argv or '-p' not in sys_argv or '--port' not in sys_argv:
-        exit("Missing required parameter: \n\nUsage: script.py -d <database_name> -m <module_name> -c <category_name> -p <module_path> --port <port>")
-
-    database_name_index = sys_argv.index('-d') + 1
-    module_name_index = sys_argv.index('-m') + 1
-    category_name_index = sys_argv.index('-c') + 1
-    module_path_index = sys_argv.index('-p') + 1
-    port_index = sys_argv.index('--port') + 1
-
-    ind_name = sys_argv[module_name_index]
-    ind_category = sys_argv[category_name_index]
-    db_name = sys_argv[database_name_index]
-    module_path = sys_argv[module_path_index]
-    port = sys_argv[port_index]
-
-    if os.path.isdir(ind_name) and not ((len(sys_argv) > 11) and (sys_argv[11] == 'force')):
-        exit("Industry already exists. Change name or delete the previous attempt, or add 'force' at the end overwrite.")
-
-    return (ind_name, ind_category, db_name, module_path, port)
-
 def get_etree_content(file_path):
     try:
+        # Read the xml file and convert into etree content
         content = file_path.read_text(encoding='utf-8')
         etree_content = etree.fromstring(content.encode("utf-8"))
         return etree_content
@@ -151,6 +451,7 @@ def get_etree_content(file_path):
 
 def write_etree_content(file_path, etree_content):
     try:
+        # Get etree content and convert to xml and write back to file
         content = etree.tostring(etree_content, pretty_print = True, encoding="UTF-8", xml_declaration = True).decode("utf-8")
         file_path.write_text(content, encoding="utf-8")
         return
@@ -164,47 +465,50 @@ def edit_xml_content(ind_name, content):
     # Replacing x_studio_ to x_
     x_studio = re.compile("x_studio_")
     content = x_studio.sub('x_', content)
-
+    # Remove context={'studio': True}
     context_studio = re.compile(" context=\"{'studio': True}\"")
     content = context_studio.sub('', content)
+    # Remove studio_customization.
     studio_mod = re.compile("studio_customization\.")
     content = studio_mod.sub('', content)
+    # Replace studio_customization/ with industry_name/
     studio_link = re.compile("studio_customization/")
     content = studio_link.sub(ind_name + '/', content)
-
+    # Remove forcecreate="1" if id start with base_module.
     pattern_base_module_forcecreate = re.compile(r'(<record\s+[^>]*id="base_module\.[^"]*"[^>]*?")\s+forcecreate="1"')
     content = pattern_base_module_forcecreate.sub(r"\1", content)
-
+    # Remove base_module.
     pattern_base_module = re.compile(r"base_module.")
     content = pattern_base_module.sub("", content)
-
+    # Replace res_users_ with base.user_admin
     pattern_res_users_7_res_partner = re.compile("res_users_\w+")
     content = pattern_res_users_7_res_partner.sub("base.user_admin", content)
-
+    # Add industry name in ir_ui_view function
     pattern_ir_ui_view = re.compile(r"obj\(\)\.env\.ref\(\'ir_ui_view_")
     content = pattern_ir_ui_view.sub(f"obj().env.ref('{ind_name}.ir_ui_view_", content)
-
+    # Change key of website.webpage with industry_name.homepage
     pattern_ir_ui_view_key = re.compile(r'(<field name="key">)website.homepage(</field>)')
     content = pattern_ir_ui_view_key.sub(rf'\1{ind_name}.homepage\2', content)
-
+    # Replace sub-domain with indutry related sub-domain
     pattern_href_url = re.compile(r'https://(?!www\.)([^/]+)\.odoo\.com')
     content = pattern_href_url.sub(f'https://{ind_name.replace("_", "-")}.odoo.com', content)
-
+    # If web url contain domain then remove
     pattern_url = re.compile(r'(<field name="url">)https://[^/]+(.*?</field>)')
     content = pattern_url.sub(r'\1\2', content)
-
+    # Remove field that have ref uom.
     pattern_product_uom_unit = re.compile(r'\s*<field[^>]*ref="uom.[^"]*"[^>]*\s*/>')
     content = pattern_product_uom_unit.sub('', content)
     
     return content
 
 def remove_computed_fields(fields_info_list, model_name, record, content):
+    # Get fields details related to particular model
     model_fields_info = list(filter(lambda x: x.get("model") == model_name, fields_info_list))
 
     fields_set_in_record = {
         field.get('name') for field in record.xpath('.//field')
     }
-
+    # Remove regular and self closing field if field have store false and readonly is true
     for field_name in fields_set_in_record:
         field_obj = None
         for field_info in model_fields_info:
@@ -225,6 +529,7 @@ def remove_computed_fields(fields_info_list, model_name, record, content):
     return content
 
 def remove_unwanted_fields(content, unwanted_fields):
+    # Remove field base on list pass
     for unwanted_field in unwanted_fields:
         pattern_regular = rf'\s*<field name="{unwanted_field}">.*?</field>'
         pattern_self_closing = rf'\s*<field name="{unwanted_field}"[^>]*\s*/>'
@@ -235,6 +540,7 @@ def remove_unwanted_fields(content, unwanted_fields):
     return content
 
 def remove_model_based_fields(model_name, content):
+    # remove some fields based on model
     unwanted_field_of_model = []
     if model_name == 'sale.order.line':
         unwanted_field_of_model = ['technical_price_unit', 'name']
@@ -299,14 +605,14 @@ def arrange_demo_files(destination_module_path, ind_name, manifest_demo_file_lis
         os.rename(old_file, new_file)
     except Exception as e:
         raise Exception(f"Error while renaming file: {e}")
-
+    # Remove duplicate record from manifest_demo_file_list, first occurance will be stored
     new_manifest_demo_file_list = []
     for file_list in manifest_demo_file_list:
         if file_list['file_name'] == "ir_ui_view.xml":
             file_list['file_name'] = "website_view.xml"
         if file_list['file_name'] not in new_manifest_demo_file_list:
             new_manifest_demo_file_list.append(file_list['file_name'])
-
+    # Added prefic demo/
     unique_manifest_demo_file_list = [ 'demo/' + file_name for file_name in new_manifest_demo_file_list ]
 
     try:
@@ -314,7 +620,7 @@ def arrange_demo_files(destination_module_path, ind_name, manifest_demo_file_lis
         manifest = literal_eval(manifest_path.read_text(encoding="utf-8"))
     except Exception as e:
         raise Exception(f"Unable to read manifest file: {e}")
-
+    # Replace manifest demo files with new list, as we read manifest file with literal_eval
     manifest['demo'] = unique_manifest_demo_file_list
     lines = ["{"]
     for key, value in manifest.items():
@@ -353,6 +659,7 @@ def arrange_demo_files(destination_module_path, ind_name, manifest_demo_file_lis
     return
 
 def write_scss_function(destination_module_path, scss_content_list):
+    # Convert the content of scss files to functions and write function website_theme_apply.xml file
     if scss_content_list:
         target_path = Path(destination_module_path + '/demo/' + 'website_theme_apply.xml')
         target_path.parent.mkdir(parents=True, exist_ok=True)
@@ -388,6 +695,7 @@ def write_scss_function(destination_module_path, scss_content_list):
     return
 
 def order_ir_attachment_post(destination_module_path):
+    # Order ir attachment record only if after ir_attachment_ contains number
     path_ir_attachment_post = Path(destination_module_path + '/demo/' + 'ir_attachment_post.xml')
     if path_ir_attachment_post.exists():
         root_ir_attachment_post = get_etree_content(path_ir_attachment_post)
@@ -417,6 +725,7 @@ def remove_unused_ir_attachment_post(destination_base_path, destination_module_p
             key_field = record.xpath(".//field[@name='key']")
             name_field = record.xpath(".//field[@name='name']")
             if key_field or name_field:
+                # check key text in ir_ui_view.xml file if not found store in list
                 if key_field:
                     key = key_field[0].text
                     file_name = record.xpath(".//field[@name='datas']")[0].get('file')
@@ -424,6 +733,7 @@ def remove_unused_ir_attachment_post(destination_base_path, destination_module_p
                         unused_ir_attachment_post_ids.append(record)
                         if file_name:
                             unused_files.append(file_name)
+                # check name text in ir_ui_view.xml file if not found store in list
                 elif name_field:
                     name = name_field[0].text
                     file_name = record.xpath(".//field[@name='datas']")[0].get('file')
@@ -433,7 +743,7 @@ def remove_unused_ir_attachment_post(destination_base_path, destination_module_p
                             unused_files.append(file_name)
             else:
                 unused_ir_attachment_post_ids.append(record)
-
+        # Remove record and delete file if not need in ir_ui_view.xml file
         for unused_ir_attachment_post_id in unused_ir_attachment_post_ids:
             root_ir_attachment_post.remove(unused_ir_attachment_post_id)
         for unused_file in unused_files:
@@ -446,6 +756,7 @@ def remove_unused_ir_attachment_post(destination_base_path, destination_module_p
     return
 
 def clean_knowledge_article(destination_module_path):
+    # Delete all record of knowledge article and kept only record which id ends with welcome_article
     path_knowledge_article = Path(destination_module_path + '/data/' + 'knowledge_article.xml')
     if path_knowledge_article.exists():
         root_knowledge_article = get_etree_content(path_knowledge_article)
@@ -470,6 +781,7 @@ def clean_knowledge_article(destination_module_path):
     return
 
 def remove_ondelete_false_field(destination_module_path):
+    # From ir_model_fields.xml remove field on_delete if type id not many2one or one2many
     path_ir_model_fields = Path(destination_module_path + '/data/' + 'ir_model_fields.xml')
     if path_ir_model_fields.exists():
         root_ir_model_field = get_etree_content(path_ir_model_fields)
@@ -492,7 +804,7 @@ def remove_ondelete_false_field(destination_module_path):
 
     return
     
-def main(ind_name, ind_category, db_name, module_path, port, destination_base_path):
+def clean_module(ind_name, ind_category, db_name, module_path, port, destination_base_path):
     Ind_name = re.sub(r'[_-]', ' ', ind_name)
     Ind_name = Ind_name.title()
     Ind_category = re.sub(r'[_-]', ' ', ind_category)
@@ -521,14 +833,14 @@ def main(ind_name, ind_category, db_name, module_path, port, destination_base_pa
                 content = remove_unwanted_fields(content, unwanted_fields)
 
                 xml_root = etree.fromstring(content.encode("utf-8"))
-
+                # Get all ref from all records
                 ref_name_list = list(set([
                     field.get('ref')
                     for record in xml_root.xpath("//record")
                     for field in record
                     if field.get('ref') and '.' not in field.get('ref')
                 ]))
-
+                # if demo files dont have record simply append
                 if current_dir.endswith('/demo/') and not xml_root.xpath("//record"):
                     manifest_demo_file_dict = {}
                     manifest_demo_file_dict['file_name'] = file_name
@@ -663,3 +975,35 @@ def main(ind_name, ind_category, db_name, module_path, port, destination_base_pa
         directory, _ = os.path.split(file)
         os.makedirs(destination_module_path + directory, exist_ok=True)
         Path(destination_module_path + file).write_text(content.format(ind_name=ind_name, Ind_name=Ind_name), encoding='UTF-8')
+
+
+
+# ====================================================
+#              Main Function         
+# ====================================================
+
+def main():
+    parser = argparse.ArgumentParser(description="Industry Automation Script")
+
+    parser.add_argument('--module_name', required=True, help="Name of the module")
+    parser.add_argument('--db_version', required=True, help="Database version")
+    parser.add_argument('--category', required=True, help="Module category")
+    parser.add_argument('--dump_path', required=True, help="Path to the dump zip file")
+    parser.add_argument('--destination_path', default="/home/odoo/Pictures/custom_modules", help="Path to save the cleaned module")
+    parser.add_argument('--master_password', required=True, help="Odoo master password")
+
+    args = parser.parse_args()
+
+    task = DumpTask(
+        module_name=args.module_name,
+        db_version=args.db_version,
+        category=args.category,
+        dump_path=args.dump_path,
+        destination_path=args.destination_path,
+        master_password=args.master_password,
+    )
+
+    task.process_dump_task()
+
+if __name__ == "__main__":
+    main()

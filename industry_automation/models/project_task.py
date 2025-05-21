@@ -9,6 +9,7 @@ import logging
 import socket
 import shutil
 from markupsafe import Markup
+from ..cleanup_scripts import script_old
 
 # Setup logger
 _logger = logging.getLogger(__name__)
@@ -28,17 +29,19 @@ PASSWORD = "admin"
 class ProjectTask(models.Model):
     _inherit = 'project.task'
 
-    module_name = fields.Char(string="Module Name")
-    version = fields.Char(string="Dump Database Version")
+    module_name = fields.Char(string="Module Name", required=True)
+    version = fields.Char(string="Dump Database Version", required=True)
     category = fields.Selection(
         selection=[
-            ('finance', 'Finance'),
-            ('hr', 'Human Resources'),
-            ('sales', 'Sales'),
-            ('inventory', 'Inventory'),
-            ('other', 'Other'),               
+            ('services', 'Services'),
+            ('retail', 'Retail'),
+            ('construction', 'Construction'),
+            ('hospitality', 'Hospitality'),
+            ('health_and_fitness', 'Health and Fitness'),
+            ('supply_chain', 'Supply Chain'),
         ],
-        string="Module Category"
+        string="Module Category",
+        required=True,
     )
 
     @api.model
@@ -62,14 +65,12 @@ class ProjectTask(models.Model):
         tasks = self.env['project.task'].sudo().search([
             ('project_id', '=', int(project_id)),
             ('stage_id', '=', stage.id),
-            ('state', '=', '01_in_progress')
+            ('state', '=', '01_in_progress'),
         ])
 
         # Step 4: Iterate through each matching task and call the custom 'process_task' method
         for task in tasks:
-            breakpoint()
             task.process_task()
-
 
     def process_task(self):
         # Get all attachments linked to the current task
@@ -85,7 +86,6 @@ class ProjectTask(models.Model):
 
                 # Call the method to export the zip file as a processed module  
                 self.export_module_zip(attachment, module_name, version, category)
-
 
     def export_module_zip(self, attachment, module_name, version, category):
         try:
@@ -133,13 +133,14 @@ class ProjectTask(models.Model):
 
             # 8. Run the external cleanup script to refactor the module
             studio_extract_path = f"{base_temp_dir}/studio_customization"
-            os.chdir(f"{base_temp_dir}")
+            # os.chdir(f"{base_temp_dir}")
             try:
-                script_path = "/home/odoo/odoo/industry/industry_automation/cleanup_scripts/script.py"
-                os.system(
-                    f"PYTHONPATH=/home/odoo/odoo/community python3 {script_path} "
-                    f"-d {restore_db_name} -m {module_name} -c {category} -p {studio_extract_path}"
-                )
+                # script_path = "/home/odoo/odoo/industry/industry_automation/cleanup_scripts/script.py"
+                # os.system(
+                #     f"PYTHONPATH=/home/odoo/odoo/community python3 {script_path} "
+                #     f"-d {restore_db_name} -m {module_name} -c {category} -p {studio_extract_path} --port {port}"
+                # )
+                script_old.main(module_name, category, restore_db_name, studio_extract_path, port, base_temp_dir)
                 _logger.info("Module Clean Up successful")
             except Exception as e:
                 raise Exception("Error while Running CleanUp Script")
@@ -159,7 +160,7 @@ class ProjectTask(models.Model):
                 raise Exception(f"{module_name}.zip not upload on an attachment")
 
             # 11. Cleanup temp directory after processing
-            self.delete_temp_dir(base_temp_dir)
+            # self.delete_temp_dir(base_temp_dir)
 
             # 12. Update task state to "03_approved"
             self.sudo().write({'state': '03_approved'})
@@ -180,7 +181,7 @@ class ProjectTask(models.Model):
                 message_type="notification",
                 subtype_xmlid="mail.mt_comment",
             )
-
+            self.drop_db(restore_db_name, port)
             _logger.info(f"studio_customization.zip and {module_name}.zip upload to task attachment successfully.")
 
         except Exception as e:
@@ -201,7 +202,6 @@ class ProjectTask(models.Model):
                 subtype_xmlid="mail.mt_comment",
             )
   
-
     def download_dump_from_attachment(self, attachment):
         """
         Decodes the base64-encoded attachment content and writes it to a temporary .zip file.
@@ -227,6 +227,30 @@ class ProjectTask(models.Model):
         except Exception as e:
             raise Exception("Failed to Download Dump DB file")
 
+    def get_port_for_version(self, db_version):
+        # Look up the port number mapped to the given DB version
+        port = VERSION_PORT_MAP.get(db_version)
+
+        # Raise an error if no port is found for the version
+        if not port:
+            _logger.error(f"No port mapped for DB version {db_version}")
+            raise Exception(f"No port mapped for DB version {db_version}")
+        return port
+    
+    def is_port_open(self, host: str, port: int, timeout: float = 1.0) -> bool:
+        """Check if a TCP port is open on the given host."""
+        
+        # Create a TCP socket using IPv4
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            # Set the timeout for the connection attempt
+            sock.settimeout(timeout)
+            try:
+                # Attempt to connect to the specified host and port
+                sock.connect((host, port))
+                return True
+            except (socket.timeout, ConnectionRefusedError):
+                # Return False if the connection times out or is refused
+                return False
 
     def restore_db(self, port, db_name, temp_zip_file_path):
         """
@@ -267,6 +291,24 @@ class ProjectTask(models.Model):
         except Exception:
             raise Exception("Database Can't be Restore")
 
+    def drop_db(self, db_name, port):
+        response = requests.post(
+            f'{BASE_URL}{port}/web/database/drop',
+            data={
+                'master_pwd': MASTER_PASSWORD,  # Master admin password
+                'name': db_name,
+            },
+        )
+        response.raise_for_status()
+
+    def delete_temp_file(self, file_path):
+        """
+        Deletes a temporary ZIP file after use.
+        
+        :param zip_path: Full path to the ZIP file.
+        """
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            os.remove(file_path)
 
     def export_studio_customizations(self, port, db_name, studio_zip_path):
         try:
@@ -290,41 +332,16 @@ class ProjectTask(models.Model):
             if not result or not result.get("uid"):
                 _logger.error("Authentication Failed")
                 raise Exception("Login failed.")
+            uid = result["uid"]
             _logger.info("Authentication Successful")
-
-            #  =======================================================================================================================================================
-            payload = {
-                "jsonrpc": "2.0",
-                "method": "call",
-                "params": {
-                    "service": "object",
-                    "method": "execute_kw",
-                    "args": [
-                        db_name,
-                        result["uid"],
-                        PASSWORD,
-                        "mail.mail",
-                        "fields_get",
-                        [{}],
-                        # {"attributes": ['type', 'ondelete']}
-                    ]
-                },
-                "id": 10
-            }
-            breakpoint()
-            response = session.post(f"{BASE_URL}{port}/jsonrpc", json=payload)
-            breakpoint()
-            fields = response.json()["result"]
-            breakpoint()
-
             
             # Step 2: Ensure web_studio is installed
-            modules = self.check_module_installed(port, db_name, result["uid"])
+            modules = self.check_web_studio_installed(port, db_name, uid)
             if modules:
                 state = modules[0]['state']
                 model_id = modules[0]['id']
                 if state == "uninstalled":
-                    self.install_module(port, db_name, result["uid"], model_id)
+                    self.install_web_studio(port, db_name, uid, model_id)
             else:
                 _logger.error("web_studio module not found in registry.")
                 raise Exception("web_studio module not found in registry.")
@@ -338,7 +355,7 @@ class ProjectTask(models.Model):
                     "method": "execute_kw",
                     "args": [
                         db_name,
-                        result["uid"],
+                        uid,
                         PASSWORD,
                         "studio.export.model",
                         "action_preset",
@@ -359,7 +376,7 @@ class ProjectTask(models.Model):
                     "method": "execute_kw",
                     "args": [
                                 db_name,
-                                result["uid"],
+                                uid,
                                 PASSWORD,
                                 "studio.export.wizard",
                                 "create",
@@ -393,98 +410,9 @@ class ProjectTask(models.Model):
                 _logger.error(f" Export failed: {export_resp.status_code} - {export_resp.text}")
                 raise Exception(f" Export failed: {export_resp.status_code} - {export_resp.text}")
             
-        except Exception:
+        except Exception as e:
             _logger.error("studio_customization Failed to Export")
-            _logger.exception("export_studio_customizations failed")
-
-
-    def delete_temp_file(self, file_path):
-        """
-        Deletes a temporary ZIP file after use.
-        
-        :param zip_path: Full path to the ZIP file.
-        """
-        if os.path.exists(file_path) and os.path.isfile(file_path):
-            os.remove(file_path)
-
-    def check_module_installed(self, port, db_name, uid):
-        # Prepare the JSON-RPC payload to search for the 'web_studio' module
-        payload = {
-            "jsonrpc": "2.0",
-            "method": "call",
-            "params": {
-                "service": "object",
-                "method": "execute_kw",
-                "args": [
-                    db_name, uid, PASSWORD,                      # Database, user ID, and password for authentication
-                    "ir.module.module", "search_read",           # Model and method to call
-                    [[["name", "=", "web_studio"]]],             # Domain to search for the 'web_studio' module
-                    {"fields": ["state"], "limit": 1}            # Retrieve only the 'state' field, limit to 1 result
-                ]
-            },
-            "id": 2
-        }
-
-        # Send the request to the server and parse the JSON response
-        response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
-        
-        # Return the list of matched module(s) with their state
-        if response["result"]:
-            return response["result"]
-
-
-    def install_module(self, port, db_name, uid, module_id):
-        # Prepare JSON-RPC payload to install the module using button_immediate_install
-        payload = {
-            "jsonrpc": "2.0",
-            "method": "call",
-            "params": {
-                "service": "object",
-                "method": "execute_kw",
-                "args": [
-                    db_name, uid, PASSWORD,                          # Database, user ID, and password for auth
-                    "ir.module.module", "button_immediate_install",  # Model and method to trigger installation
-                    [module_id]                                      # ID of the module to install
-                ]
-            },
-            "id": 4
-        }
-
-        # Send request to install the module
-        install_response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
-
-        # Log error if installation failed
-        if not install_response["result"]:
-            _logger.error("Module Studio can't install")
-        return install_response["result"]
-
-
-    def get_port_for_version(self, db_version):
-        # Look up the port number mapped to the given DB version
-        port = VERSION_PORT_MAP.get(db_version)
-
-        # Raise an error if no port is found for the version
-        if not port:
-            _logger.error(f"No port mapped for DB version {db_version}")
-            raise Exception(f"No port mapped for DB version {db_version}")
-        return port
-
-
-    def is_port_open(self, host: str, port: int, timeout: float = 1.0) -> bool:
-        """Check if a TCP port is open on the given host."""
-        
-        # Create a TCP socket using IPv4
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-            # Set the timeout for the connection attempt
-            sock.settimeout(timeout)
-            try:
-                # Attempt to connect to the specified host and port
-                sock.connect((host, port))
-                return True
-            except (socket.timeout, ConnectionRefusedError):
-                # Return False if the connection times out or is refused
-                return False
-
+            raise Exception(str(e))
 
     def compress_to_zip(self, dir_name, parent_dir):
         # Construct the full path to the module directory
@@ -503,7 +431,6 @@ class ProjectTask(models.Model):
 
         # Return the path to the created ZIP file
         return dir_zip_path
-
     
     def add_to_attachment(self, zip_path):
         try:
@@ -516,19 +443,18 @@ class ProjectTask(models.Model):
 
             # Create an attachment record in Odoo with the ZIP content
             attachment = self.env['ir.attachment'].sudo().create({
-                'name': file_name,                          # Name of the attachment
-                'datas': base64.b64encode(file_data),       # Base64-encoded file content
-                'res_model': 'project.task',                # Model to which the attachment is linked
-                'res_id': self.id,                          # Record ID of the model
-                'type': 'binary',                           # Type is binary since it's a file
-                'mimetype': 'application/zip',              # MIME type for ZIP files
+                'name': file_name,
+                'datas': base64.b64encode(file_data),
+                'res_model': 'project.task',
+                'res_id': self.id,
+                'type': 'binary',
+                'mimetype': 'application/zip',
             })
 
             # Return the created attachment record
             return attachment
         except Exception:
             return False
-
 
     def delete_temp_dir(self, dir_path):
         """
@@ -538,3 +464,64 @@ class ProjectTask(models.Model):
         """
         if os.path.exists(dir_path) and os.path.isdir(dir_path):
             shutil.rmtree(dir_path)
+
+    def check_web_studio_installed(self, port, db_name, uid):
+        # Prepare the JSON-RPC payload to search for the 'web_studio' module
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    db_name, uid, PASSWORD,
+                    "ir.module.module", "search_read",
+                    [[["name", "=", "web_studio"]]],
+                    {"fields": ["state"], "limit": 1}
+                ]
+            },
+            "id": 2
+        }
+
+        # Send the request to the server and parse the JSON response
+        response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
+        
+        # Return the list of matched module(s) with their state
+        if response["result"]:
+            return response["result"]
+
+    def install_web_studio(self, port, db_name, uid, module_id):
+        # Prepare JSON-RPC payload to install the module using button_immediate_install
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    db_name, uid, PASSWORD,
+                    "ir.module.module", "button_immediate_install",
+                    [module_id]
+                ]
+            },
+            "id": 4
+        }
+
+        # Send request to install the module
+        install_response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
+
+        # Log error if installation failed
+        if not install_response["result"]:
+            _logger.error("Module Studio can't install")
+        return install_response["result"]
+
+
+
+
+    
+
+    
+    
+
+
+    

@@ -389,7 +389,7 @@ msgstr "Чорний"
 #. module: micro_brewery
 #: model:sale.order.template.line,name:micro_brewery.sale_order_template_line_7
 msgid "Blond"
-msgstr ""
+msgstr "Світле"
 
 #. module: micro_brewery
 #: model:product.template,name:micro_brewery.product_template_20

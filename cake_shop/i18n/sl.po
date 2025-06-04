@@ -35,6 +35,8 @@ msgid ""
 "<span class=\"carousel-control-next-icon\"/>\n"
 "                                <span class=\"visually-hidden\">Next</span>"
 msgstr ""
+"<span class=\"carousel-control-next-icon\"/>\n"
+"                                <span class=\"visually-hidden\">Naslednji</span>"
 
 #. module: cake_shop
 #: model_terms:ir.ui.view,arch_db:cake_shop.homepage
@@ -42,6 +44,8 @@ msgid ""
 "<span class=\"carousel-control-prev-icon\"/>\n"
 "                                <span class=\"visually-hidden\">Previous</span>"
 msgstr ""
+"<span class=\"carousel-control-prev-icon\"/>\n"
+"                                <span class=\"visually-hidden\">Prejšnji</span>"
 
 #. module: cake_shop
 #: model_terms:ir.ui.view,arch_db:cake_shop.homepage
@@ -180,7 +184,7 @@ msgstr ""
 #. module: cake_shop
 #: model:product.template,name:cake_shop.product_product_58_product_template
 msgid "Chocolate Bar"
-msgstr ""
+msgstr "Čokoladna ploščica"
 
 #. module: cake_shop
 #: model_terms:ir.ui.view,arch_db:cake_shop.homepage
@@ -204,7 +208,7 @@ msgstr ""
 #. module: cake_shop
 #: model:product.template,name:cake_shop.product_product_57_product_template
 msgid "Egg"
-msgstr ""
+msgstr "Jajce"
 
 #. module: cake_shop
 #: model_terms:ir.ui.view,arch_db:cake_shop.homepage
@@ -282,7 +286,7 @@ msgstr ""
 #. module: cake_shop
 #: model_terms:ir.ui.view,arch_db:cake_shop.homepage
 msgid "This place is perfect for groups or a casual date night."
-msgstr ""
+msgstr "Ta kraj je idealen za skupine ali sproščen zmenek."
 
 #. module: cake_shop
 #: model:product.template,name:cake_shop.product_template_59

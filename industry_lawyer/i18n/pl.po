@@ -78,7 +78,7 @@ msgstr ""
 #. module: industry_lawyer
 #: model:product.template,name:industry_lawyer.product_product_5_product_template
 msgid "Consultation"
-msgstr ""
+msgstr "Konsultacja"
 
 #. module: industry_lawyer
 #: model_terms:ir.ui.view,arch_db:industry_lawyer.homepage

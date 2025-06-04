@@ -280,7 +280,7 @@ msgstr ""
 #. module: pharmacy_retail
 #: model:pos.category,name:pharmacy_retail.pos_category_5
 msgid "Pregnancy & Baby"
-msgstr ""
+msgstr "Gebelik ve Bebek"
 
 #. module: pharmacy_retail
 #: model:ir.model.fields,field_description:pharmacy_retail.new_text_contact__reg_pharma

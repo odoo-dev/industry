@@ -111,7 +111,7 @@ msgstr "<strong>Projectes  🌱️</strong>"
 #. module: gardening
 #: model_terms:ir.ui.view,arch_db:gardening.welcome_article_body
 msgid "<strong>Quotations💲</strong>"
-msgstr ""
+msgstr "<strong>Pressupostos💲</strong>"
 
 #. module: gardening
 #: model_terms:ir.ui.view,arch_db:gardening.welcome_article_body
@@ -613,7 +613,7 @@ msgstr ""
 #. module: gardening
 #: model_terms:ir.ui.view,arch_db:gardening.welcome_article_body
 msgid "The quotation in PDF format."
-msgstr ""
+msgstr "El pressupost en format PDF."
 
 #. module: gardening
 #: model_terms:ir.ui.view,arch_db:gardening.welcome_article_body

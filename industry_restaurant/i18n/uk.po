@@ -949,4 +949,4 @@ msgstr "надіслати запит на демо"
 #. module: industry_restaurant
 #: model_terms:ir.ui.view,arch_db:industry_restaurant.welcome_article_body
 msgid "🎓 Website"
-msgstr ""
+msgstr "🎓 Вебсайт"

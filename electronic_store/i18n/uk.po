@@ -67,6 +67,8 @@ msgid ""
 "<span class=\"carousel-control-next-icon\"/>\n"
 "                                        <span class=\"visually-hidden\">Next</span>"
 msgstr ""
+"<span class=\"carousel-control-next-icon\"/>\n"
+"                                        <span class=\"visually-hidden\">Далі</span>"
 
 #. module: electronic_store
 #: model_terms:ir.ui.view,arch_db:electronic_store.services
@@ -74,6 +76,8 @@ msgid ""
 "<span class=\"carousel-control-prev-icon\"/>\n"
 "                                        <span class=\"visually-hidden\">Previous</span>"
 msgstr ""
+"<span class=\"carousel-control-prev-icon\"/>\n"
+"                                        <span class=\"visually-hidden\">Назад</span>"
 
 #. module: electronic_store
 #: model_terms:ir.ui.view,arch_db:electronic_store.ir_ui_view_2816

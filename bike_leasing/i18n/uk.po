@@ -24,7 +24,7 @@ msgstr ""
 #. module: bike_leasing
 #: model:product.template,description_sale:bike_leasing.product_template_10
 msgid "24/7 assistance: help@qfr-bike-leasing.odoo.com"
-msgstr ""
+msgstr "Допомога 24/7: help@qfr-bike-leasing.odoo.com"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
@@ -32,6 +32,8 @@ msgid ""
 "<b class=\"o_default_snippet_text\">Our Partner</b>\n"
 "                                            <br/>"
 msgstr ""
+"<b class=\"o_default_snippet_text\">Наш партнер</b>\n"
+"                                            <br/>"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -49,6 +51,8 @@ msgid ""
 "<span class=\"o_footer_copyright_name me-2\">Copyright ©&amp;nbsp;QFR Bike "
 "Leasing</span>"
 msgstr ""
+"<span class=\"o_footer_copyright_name me-2\">Copyright ©&amp;nbsp;QFR Bike "
+"Leasing</span>"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.homepage
@@ -56,6 +60,8 @@ msgid ""
 "<strong class=\"o_default_snippet_text\">The best cargo bike</strong>\n"
 "                                            <br/>"
 msgstr ""
+"<strong class=\"o_default_snippet_text\">Найкращий вантажний велосипед</strong>\n"
+"                                            <br/>"
 
 #. module: bike_leasing
 #: model:product.attribute,name:bike_leasing.product_attribute_3
@@ -66,7 +72,7 @@ msgstr "Аксесуари"
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_1
 msgid "Anthracite"
-msgstr ""
+msgstr "Антрацит"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
@@ -76,6 +82,10 @@ msgid ""
 "high-quality chromoly steel. The engines are sourced from Shimano and Bosch,"
 " while the spoking of the bicycle wheels is handled in Brittany."
 msgstr ""
+"Близько 80% вартості велосипедів складають компоненти, виготовлені в Європі."
+" Рами ретельно зварюються вручну у Східній Європі з високоякісної "
+"хромомолібденової сталі. Двигуни постачаються від Shimano та Bosch, а спиці "
+"велосипедних коліс виготовляються в Бретані."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -83,6 +93,8 @@ msgid ""
 "As soon as the quotation is confirmed, a delivery is automatically created in the <strong><font class=\"text-o-color-1\">Inventory</font></strong> app. This is essential to track which bike is rent. During the delivery process, you will\n"
 "                have to fill the serial number of the bike."
 msgstr ""
+"Щойно комерційну пропозицію підтверджено, доставка автоматично створюється в модулі <strong><font class=\"text-o-color-1\">Склад</font></strong>. Це важливо для відстеження того, який велосипед орендовано. Під час процесу доставки\n"
+" вам потрібно буде вказати серійний номер велосипеда."
 
 #. module: bike_leasing
 #: model:product.template,name:bike_leasing.product_template_10
@@ -93,13 +105,13 @@ msgstr "Допомога"
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_7
 #: model:product.template,name:bike_leasing.product_template_7
 msgid "Bench"
-msgstr ""
+msgstr "Лавка"
 
 #. module: bike_leasing
 #: model:product.template,name:bike_leasing.product_template_6
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
 msgid "Bike 43"
-msgstr ""
+msgstr "Bike 43"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
@@ -111,26 +123,32 @@ msgid ""
 "primarily composed of hearing-impaired individuals—has developed an "
 "exceptional mechanic skills."
 msgstr ""
+"Bike 43 з гордістю збирає свої велосипеди в Брюсселі. З початку виробництва "
+"у 2016 році компанія співпрацює з адаптованим робочим місцем у Брюсселі, "
+"надаючи можливості працевлаштування та реінтеграції для людей з інвалідністю"
+" та соціально незахищених осіб. Під керівництвом Етьєна команда, що "
+"складається переважно з людей з вадами слуху, розвинула виняткові механічні "
+"навички."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Bike Leasing"
-msgstr ""
+msgstr "Оренда велосипедів"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Bike Leasing Industry"
-msgstr ""
+msgstr "Сфера оренди велосипедів"
 
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_6
 msgid "Bosh Carho Line (85NM)"
-msgstr ""
+msgstr "Вантажна лінія Bosh (85NM)"
 
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_3
 msgid "Broom Yellow"
-msgstr ""
+msgstr "Жовтий віник"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -140,7 +158,7 @@ msgstr "Бізнес-процеси"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
 msgid "Catalogue"
-msgstr ""
+msgstr "Каталог"
 
 #. module: bike_leasing
 #: model:product.attribute,name:bike_leasing.product_attribute_1
@@ -151,7 +169,7 @@ msgstr "Колір"
 #. module: bike_leasing
 #: model:base.automation,name:bike_leasing.base_automation_2
 msgid "Create Return Activity on Delivery"
-msgstr ""
+msgstr "Створити повернення товару під час доставки"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -161,7 +179,7 @@ msgstr "Клієнт"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Deliver the order in time 🚚"
-msgstr ""
+msgstr "Доставити замовлення вчасно 🚚"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -174,6 +192,8 @@ msgid ""
 "Display the different combinations of bikes on your <strong><font "
 "class=\"text-o-color-1\">eCommerce</font></strong>, such as:"
 msgstr ""
+"Покажіть різні комбінації велосипедів у вашій <strong><font class=\"text-o-"
+"color-1\">Електронній комерції</font></strong>, такі як:"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -184,6 +204,11 @@ msgid ""
 "                </strong>\n"
 "                app. All the emails sent to"
 msgstr ""
+"Протягом періоду оренди забезпечуйте п'ятизіркове обслуговування клієнтів, відповідаючи на запитання та надаючи допомогу своїм клієнтам через модуль\n"
+"                <strong>\n"
+"                        <font class=\"text-o-color-1\">Служби підтримки</font>\n"
+"                </strong>\n"
+"                . Усі листи надіслані"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -200,18 +225,20 @@ msgstr "Виконати код"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Extra services such as assistance, warranty extension, etc."
-msgstr ""
+msgstr "Додаткові послуги, такі як допомога, продовження гарантії тощо."
 
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_9
 #: model:product.template,name:bike_leasing.product_template_9
 msgid "Front Basket"
-msgstr ""
+msgstr "Передній кошик"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.homepage
 msgid "Get it from 90€/month&amp;nbsp;<span class=\"fa fa-angle-right ms-2\"/>"
 msgstr ""
+"Отримайте від 90 євро/місяць&amp;nbsp;<span class=\"fa fa-angle-right "
+"ms-2\"/>"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -226,6 +253,15 @@ msgid ""
 "                </strong>\n"
 "                app, you can easily manage all your preferred vendors and don't hesitate to set a warning to remind if there is a minimum amount to get free transport costs."
 msgstr ""
+"Якщо рівень запасів занадто низький, поповніть запаси матеріалів із модуля\n"
+"                <strong>\n"
+"                        <font class=\"text-o-color-1\">Купівлі</font>\n"
+"                </strong>\n"
+"                створивши замовлення на купівлю, пов’язане з потрібним постачальником. У модулі\n"
+"                <strong>\n"
+"                        <font class=\"text-o-color-1\">Контакти</font>\n"
+"                </strong>\n"
+"                , Ви можете легко керувати всіма своїми бажаними постачальниками та не соромтеся встановлювати попередження, щоб нагадати, чи є мінімальна сума для отримання безкоштовних транспортних витрат."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -240,7 +276,7 @@ msgstr "MRR"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Make your customers happy 🆘"
-msgstr ""
+msgstr "Зробіть ваших клієнтів щасливии 🆘"
 
 #. module: bike_leasing
 #: model:product.pricelist,name:bike_leasing.product_pricelist_2
@@ -254,12 +290,15 @@ msgid ""
 "the product. This is planned at the same date as the deadline of the rental "
 "contract."
 msgstr ""
+"Більше того, автоматично створюється завдання, яке нагадує вам про "
+"повернення товару. Це планується на ту саму дату, що й кінцевий термін дії "
+"договору оренди."
 
 #. module: bike_leasing
 #: model:product.attribute,name:bike_leasing.product_attribute_2
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Motor"
-msgstr ""
+msgstr "Мотор"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -273,6 +312,9 @@ msgid ""
 "your rentals, ensuring unparalleled success and client satisfaction thanks "
 "its suite of integrated applications.<br/>"
 msgstr ""
+"Odoo дозволяє вам легко та ефективно керувати кожним аспектом вашої оренди, "
+"забезпечуючи безпрецедентний успіх та задоволення клієнтів завдяки набору "
+"інтегрованих модулей.<br/>"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -281,6 +323,9 @@ msgid ""
 "<strong><font class=\"text-o-color-1\">Sales</font></strong> app by setting "
 "the following fields:"
 msgstr ""
+"Звичайно, ви також можете створити гарну та індивідуальну комерційну "
+"пропозицію в модулі <strong><font class=\"text-o-"
+"color-1\">Продажі</font></strong> встановивши додаткові поля:"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.homepage
@@ -292,11 +337,17 @@ msgid ""
 "inclusive approach with adapted workers in our Brussels-based assembly "
 "line.<br/>"
 msgstr ""
+"Наші велосипеди розроблені власними силами. Наші рами виготовляються вручну "
+"в Європі спеціалізованими та досвідченими майстрами. Потім наші велосипеди "
+"ретельно збираються в Брюсселі відповідно до найвищих стандартів якості. "
+"Місцеве виробництво спрямоване на обмеження впливу на матінку-землю. Ми "
+"також віримо в інклюзивний підхід з адаптованими працівниками на нашій "
+"складальній лінії в Брюсселі.<br/>"
 
 #. module: bike_leasing
 #: model:website.menu,name:bike_leasing.website_menu_13
 msgid "Partnership"
-msgstr ""
+msgstr "Партнерство"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -313,7 +364,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:bike_leasing.sale_order_custom_form_view
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Pricelist / Recurring"
-msgstr ""
+msgstr "Прайс-лист / Повторювання"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -323,12 +374,12 @@ msgstr "Товари"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Provide accurate online quotations 📝"
-msgstr ""
+msgstr "Надайте точні онлайн-котирування 📝"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Purchase to face the demand 🚲"
-msgstr ""
+msgstr "Купівля для задоволення попиту 🚲"
 
 #. module: bike_leasing
 #: model:product.pricelist,name:bike_leasing.product_pricelist_3
@@ -339,7 +390,7 @@ msgstr "Щоквартально"
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_8
 #: model:product.template,name:bike_leasing.product_template_8
 msgid "Rain Canopy"
-msgstr ""
+msgstr "Дощовик"
 
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_2
@@ -360,22 +411,22 @@ msgstr "Замовлення на продаж"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "Send effortless recurring invoices 🔁"
-msgstr ""
+msgstr "Надсилайте без зусиль періодичні рахунки-фактури 🔁"
 
 #. module: bike_leasing
 #: model:base.automation,name:bike_leasing.base_automation_1
 msgid "Set Recurring Plan from SO"
-msgstr ""
+msgstr "Встановіть повторюваний план із SO"
 
 #. module: bike_leasing
 #: model:base.automation,name:bike_leasing.base_automation_3
 msgid "Set Source SO on Recurring Invoice"
-msgstr ""
+msgstr "Встановіть джерело SO для періодичного рахунку-фактури"
 
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_5
 msgid "Shimano E6100 (65NM)"
-msgstr ""
+msgstr "Shimano E6100 (65NM)"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -390,7 +441,7 @@ msgstr "Почніть з клієнтом - з'ясуйте, чого вони 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.sale_order_custom_tree_view
 msgid "Sum of MRR"
-msgstr ""
+msgstr "Сума MRR"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -405,6 +456,10 @@ msgid ""
 " to the customer according to your preferred method: email, snail mail, "
 "e-invoicing, etc."
 msgstr ""
+"Завдяки функції автоматичної публікації, періодичні рахунки-фактури будуть "
+"автоматично генеруватися на основі замовлення на продаж. Тож вам просто "
+"потрібно надіслати їх клієнту бажаним способом: електронною поштою, "
+"звичайною поштою, електронним виставленням рахунків тощо."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
@@ -416,6 +471,12 @@ msgid ""
 "innovated its ecosystem of accessories, focusing on safety for children, "
 "convenience for families, and ease of assembly for mechanics."
 msgstr ""
+"Бачення місцевого виробництва було основоположним принципом Bike 43, що "
+"виділило її в галузі, що переважно базується в Азії. Цей стратегічний вибір "
+"дозволяє швидку ітерацію та постійне вдосконалення дизайну продукції. "
+"Компанія розробила понад 30 версій своїх рам та постійно впроваджує "
+"інновації в свою екосистему аксесуарів, зосереджуючись на безпеці для дітей,"
+" зручності для сімей та простоті складання для механіків."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -423,6 +484,8 @@ msgid ""
 "Thereby, the customer can configure its bike then get an accurate quote. On your side, this quote is created in the <strong><font class=\"text-o-color-1\">Sales</font></strong> app where you can discuss with the customer using the\n"
 "                chatter. It is really useful to define the terms of the renting contract such as the delivery date, the rent duration, etc."
 msgstr ""
+"Таким чином, клієнт може налаштувати свій велосипед, а потім отримати точну комерційну пропозицію. З вашого боку, ця цінова пропозиція створюється в модулі <strong><font class=\"text-o-color-1\">Продажі</font></strong> де ви можете обговорити це з клієнтом за допомогою\n"
+" чату. Дуже корисно визначити умови договору оренди, такі як дата поставки, термін оренди тощо."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -430,6 +493,8 @@ msgid ""
 "This can be sent by email to your customer who will be able to confirm it "
 "with a signature."
 msgstr ""
+"Це можна надіслати електронною поштою вашому клієнту, який зможе підтвердити"
+" це своїм підписом."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -438,6 +503,10 @@ msgid ""
 "term rental contracts. It covers all the crucial stages of the renting "
 "process, from lead acquisition to recurring invoicing."
 msgstr ""
+"Ця галузь спеціально створена для компаній з прокату велосипедів, які "
+"зосереджуються на довгострокових договорах оренди. Вона охоплює всі ключові "
+"етапи процесу оренди, від залучення потенційних клієнтів до періодичного "
+"виставлення рахунків."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
@@ -446,6 +515,9 @@ msgid ""
 "forefront of the movement to repatriate manufacturing, spurred by global "
 "logistical challenges and rising costs.<br/>"
 msgstr ""
+"Сьогодні нас визнають провидцями в галузі, оскільки ми були на передовій "
+"руху за репатріацію виробництва, стимульованого глобальними логістичними "
+"викликами та зростанням витрат.<br/>"
 
 #. module: bike_leasing
 #: model:product.attribute.value,name:bike_leasing.product_attribute_value_4
@@ -465,11 +537,13 @@ msgid ""
 "Use the variants and the optional products features to make sure that your customer will find the most suitable bike. Moreover, the customer can choose the recurring plan, i.e. Monthly, Quarterly or Yearly. The corresponding prices must\n"
 "                be defined in the three predefined \"selectable\" pricelists."
 msgstr ""
+"Використовуйте варіанти та додаткові функції продуктів, щоб ваш клієнт міг знайти найбільш підходящий велосипед. Крім того, клієнт може обрати періодичний план, тобто щомісячний, щоквартальний або річний. Відповідні ціни повинні бути \n"
+"визначені у трьох попередньо визначених прайс-листах."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.partnership
 msgid "Visit their website"
-msgstr ""
+msgstr "Відвідайте їхній веб-сайт"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.catalogue
@@ -488,22 +562,22 @@ msgstr "Щорічно"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "help@qfr-bike-leasing.odoo.com"
-msgstr ""
+msgstr "help@qfr-bike-leasing.odoo.com"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "will create a ticket that can be assigned to ensure the follow-up."
-msgstr ""
+msgstr "створить заявку, яку можна призначити для забезпечення подальших дій."
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "🎓 <font class=\"text-o-color-1\">eCommerce</font>"
-msgstr ""
+msgstr "🎓 <font class=\"text-o-color-1\">Електронна комерція</font>"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "🎓 Helpdesk"
-msgstr ""
+msgstr "🎓 Служба підтримки"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
@@ -513,7 +587,7 @@ msgstr "🎓 Склад"
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body
 msgid "🎓 Purchase"
-msgstr ""
+msgstr "🎓 Купівлі"
 
 #. module: bike_leasing
 #: model_terms:ir.ui.view,arch_db:bike_leasing.welcome_article_body

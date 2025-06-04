@@ -92,6 +92,8 @@ msgid ""
 "<span class=\"carousel-control-next-icon\"/>\n"
 "                                        <span class=\"visually-hidden\">Next</span>"
 msgstr ""
+"<span class=\"carousel-control-next-icon\"/>\n"
+"                                        <span class=\"visually-hidden\">Naslednji</span>"
 
 #. module: corporate_gifts
 #: model_terms:ir.ui.view,arch_db:corporate_gifts.services
@@ -99,6 +101,8 @@ msgid ""
 "<span class=\"carousel-control-prev-icon\"/>\n"
 "                                        <span class=\"visually-hidden\">Previous</span>"
 msgstr ""
+"<span class=\"carousel-control-prev-icon\"/>\n"
+"                                        <span class=\"visually-hidden\">Prejšnji</span>"
 
 #. module: corporate_gifts
 #: model_terms:ir.ui.view,arch_db:corporate_gifts.services
@@ -287,7 +291,7 @@ msgstr ""
 #. module: corporate_gifts
 #: model:sale.order.template.line,name:corporate_gifts.sale_order_template_line_3
 msgid "Customizations"
-msgstr ""
+msgstr "Prilagoditve"
 
 #. module: corporate_gifts
 #: model_terms:ir.ui.view,arch_db:corporate_gifts.homepage
@@ -341,7 +345,7 @@ msgstr ""
 #. module: corporate_gifts
 #: model:ir.actions.server,name:corporate_gifts.action_server_set_serigraphy_task
 msgid "Execute Code"
-msgstr ""
+msgstr "Izvedi kodo"
 
 #. module: corporate_gifts
 #: model_terms:ir.ui.view,arch_db:corporate_gifts.services

@@ -238,7 +238,7 @@ msgstr ""
 #. module: hair_salon
 #: model:product.template,name:hair_salon.product_template_12
 msgid "Free Product - Discount"
-msgstr ""
+msgstr "Brezplačen izdelek - popust"
 
 #. module: hair_salon
 #: model:product.template,name:hair_salon.product_template_13
@@ -376,7 +376,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hair_salon.about-us
 #: model_terms:ir.ui.view,arch_db:hair_salon.homepage
 msgid "Our Mission"
-msgstr ""
+msgstr "Naše poslanstvo"
 
 #. module: hair_salon
 #: model_terms:ir.ui.view,arch_db:hair_salon.services

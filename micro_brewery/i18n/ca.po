@@ -397,7 +397,7 @@ msgstr "Negre"
 #. module: micro_brewery
 #: model:sale.order.template.line,name:micro_brewery.sale_order_template_line_7
 msgid "Blond"
-msgstr ""
+msgstr "Rossa"
 
 #. module: micro_brewery
 #: model:product.template,name:micro_brewery.product_template_20
@@ -1299,7 +1299,7 @@ msgstr ""
 #. module: micro_brewery
 #: model_terms:ir.ui.view,arch_db:micro_brewery.welcome_article_body
 msgid "if you need help! <br/>"
-msgstr ""
+msgstr "si necessites ajuda! <br/>"
 
 #. module: micro_brewery
 #: model_terms:ir.ui.view,arch_db:micro_brewery.ir_ui_view_2543

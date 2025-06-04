@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Wil Odoo, 2024
-# Junko Augias, 2024
+# Junko Augias, 2025
 # 
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-04 18:57+0000\n"
 "PO-Revision-Date: 2024-09-08 02:45+0000\n"
-"Last-Translator: Junko Augias, 2024\n"
+"Last-Translator: Junko Augias, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -857,7 +857,7 @@ msgstr "第3に、関連するプロジェクトに\"設置\"タスクが作成�
 #: model_terms:ir.ui.view,arch_db:billboard_rental.welcome_article_body
 msgid ""
 "This industry module is designed to manage a company that rents Billboards."
-msgstr "この業界モジュールは、ビルボードをレンタルする会社を管理するために設計されています。"
+msgstr "このインダストリー(業種別ソリューション)モジュールは、ビルボードをレンタルする会社を管理するために設計されています。"
 
 #. module: billboard_rental
 #: model_terms:ir.ui.view,arch_db:billboard_rental.welcome_article_body

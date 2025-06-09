@@ -1,0 +1,29 @@
+<odoo>
+    <record id="action_store_custom_image" model="ir.actions.server">
+        <field name="name">Store Custom Image in Sale Order Line</field>
+        <field name="model_id" ref="base.model_ir_filters"/>
+        <field name="state">code</field>
+        <field name="website_published" eval="True"/>
+        <field name="website_path">add_custom_image</field>
+        <field name="code"><![CDATA[
+if not request or not request.params:
+    raise Exception("Missing request or parameters.")
+
+csrf_token = request.params.get('token')
+if not request.validate_csrf(csrf_token):
+    raise Exception("Invalid CSRF token.")
+
+image = request.params.get('image')
+line_id = request.params.get('line_id')
+
+if not image or not line_id:
+    raise Exception("Missing image or line_id.")
+    
+line = env['sale.order.line'].sudo().browse(int(line_id))
+if not line.exists():
+    raise Exception("Sale order line not found.")
+
+line.write({'x_custom_image': image})
+        ]]></field>
+    </record>
+</odoo>

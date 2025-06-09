@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_image" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='o_wsale_cta_wrapper']" position="before">
+            <div t-if="product.x_allow_image_uploads" class="input-group mb-3">
+                <label class="input-group-text btn btn-primary" for="custom_image">Upload Image</label>
+                <input type="text" class="form-control" placeholder="No file chosen" id="fileName" readonly="readonly" />
+                <input type="file" name="custom_image" class="d-none" id="custom_image" accept="image/*" />
+            </div>
+            <div id="o_wsale_errors" class="alert alert-danger d-none" role="alert"></div>
+            <script type="text/javascript" src="../image_upload_ecommerce/static/src/js/image_upload.js" />
+            <script>
+              window.csrf_token = "<t t-esc='request.csrf_token()'/>";
+            </script>
+        </xpath>
+    </template>
+</odoo>

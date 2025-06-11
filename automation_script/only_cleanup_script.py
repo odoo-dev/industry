@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
-./industry_automation.py   --module_name="veterinary"  --db_version="saas~18.1"   --category="design"   --dump_path="/home/odoo/Documents/DUMB DB/veterinary-industry.dump.zip"   --destination_path="/home/odoo/Pictures/custom_modules"  --master_password="wnqj-csb3-w822"
+step 1 - export dump file manually
+step 2 - restore database mannually
+step 3 - run odoo server with version same as db_version at any port 
+step 4 - run below command to run cleanup script with arguments
+
+python3 only_cleanup_script.py   --module_name="members_name" --category="category_name"  --studio_path="/path/to/studio_customization"   --destination_path="/home/odoo/Download" --db_name="restore_db_name" --port=port_number
+
+
 """
 
-import zipfile
 import os
-import tempfile
 import requests
 import logging
-import socket
 import shutil
 import argparse
 import sys
@@ -27,321 +31,9 @@ formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
 _logger.addHandler(handler)
 
- # Map DB version to fixed port
-VERSION_PORT_MAP = {
-    'saas~18.1': 10001,
-    'saas~18.2': 10002,
-    'saas~18.3': 10003,
-    'saas~18.4': 10004,
-}
 BASE_URL = "http://localhost:"
 LOGIN = "admin"
 PASSWORD = "admin" 
-
-# ====================================================
-#              Export logic             
-# ====================================================
-
-class ProcessDb:
-    def __init__(self, module_name, db_version, category, dump_path, destination_path, master_password):
-        self.module_name = module_name
-        self.db_version = db_version
-        self.category = category
-        self.dump_path = dump_path
-        self.destination_path = destination_path
-        self.master_password = master_password
-
-    def process_dump_task(self):
-        try:
-            # Setup destination path
-            self.destination_path = os.path.join(self.destination_path, self.module_name)
-
-            # 2. Get the DB version (first two parts of semantic versioning, e.g., 16.0)
-            port = self.get_port_for_version()
-
-            # Check if the appropriate Odoo server is running on the correct port
-            if not self.is_port_open("localhost" , port):
-                _logger.error(f"No server is running on port {port} for DB version {self.db_version}.")
-                raise Exception(f"No server is running on port {port} for DB version {self.db_version}.")
-            _logger.info(f"Server found on port {port} for DB version {self.db_version}.")
-
-            # 3. Restore the DB using the dump file on the found port
-            restore_db_name = f"{self.module_name}_db"
-            success = self.restore_db(port, restore_db_name)
-            if not success:
-                _logger.error(f"Database '{restore_db_name}' Failed to restore  on port {port}.")
-                raise Exception(f"Database '{restore_db_name}' Failed to restore  on port {port}.")
-            _logger.info(f"Database '{restore_db_name}' restored successfully on port {port}.")
-
-            # 5. Prepare a temporary base directory for exporting and modifying files
-            base_temp_dir = os.path.join(tempfile.gettempdir(), self.module_name)
-            os.makedirs(base_temp_dir, exist_ok=True)
-
-            # 6. Export the Studio customizations into a zip file
-            studio_zip_path = f"{base_temp_dir}/studio_customization.zip"
-            self.export_studio_customizations(port, restore_db_name, studio_zip_path)
-
-            # 7. Extract the studio zip for cleaning up
-            with zipfile.ZipFile(studio_zip_path, "r") as zip_ref:
-                zip_ref.extractall(self.destination_path)
-
-            # 8. Run the external cleanup script to refactor the module
-            studio_extract_path = f"{self.destination_path}/studio_customization"
-
-            try:
-                cleanModuleObj = CleanModule(self.module_name, self.category, restore_db_name, studio_extract_path, port, self.destination_path, self.db_version)
-                cleanModuleObj.clean()
-                _logger.info("Module Clean Up successful")
-            except Exception as e:
-                raise Exception("Error while Running CleanUp Script", str(e))
-            
-            # delete temp directory
-            self.delete_temp_dir(base_temp_dir)
-
-            # drop restore DB
-            self.drop_db(restore_db_name, port)
-
-            
-        except Exception as e:
-           raise Exception(str(e))
-  
-    def get_port_for_version(self):
-        # Look up the port number mapped to the given DB version
-        port = VERSION_PORT_MAP.get(self.db_version)
-
-        # Raise an error if no port is found for the version
-        if not port:
-            _logger.error(f"No port mapped for DB version {self.db_version}")
-            raise Exception(f"No port mapped for DB version {self.db_version}")
-        return port
-    
-    def is_port_open(self, host: str, port: int, timeout: float = 1.0) -> bool:
-        """Check if a TCP port is open on the given host."""
-        
-        # Create a TCP socket using IPv4
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-            # Set the timeout for the connection attempt
-            sock.settimeout(timeout)
-            try:
-                # Attempt to connect to the specified host and port
-                sock.connect((host, port))
-                return True
-            except (socket.timeout, ConnectionRefusedError):
-                # Return False if the connection times out or is refused
-                return False
-
-    def restore_db(self, port, db_name):
-        """
-        Restores the database from the given ZIP file to the Odoo server running on the specified port.
-
-        Args:
-            port (int): The port number of the Odoo server where the DB should be restored.
-            db_name (str): The name to assign to the restored database.
-            temp_zip_file_path (str): Path to the ZIP file containing the DB dump.
-
-        Returns:
-            bool: True if the database is restored and credentials are reset, False otherwise.
-        """
-        try:
-            # Open the ZIP file containing the database dump
-            with open(self.dump_path, 'rb') as backup_file:
-                # Send POST request to Odoo's database restore endpoint
-                response = requests.post(
-                    f'{BASE_URL}{port}/web/database/restore',
-                    data={
-                        'master_pwd': self.master_password,  # Master admin password
-                        'name': db_name,                # Target DB name
-                        'copy': True                    # Indicate it's a copy
-                    },
-                    files={
-                        'backup_file': ('industry_module.zip', backup_file, 'application/zip')
-                    }
-                )
-
-            # Check if the restore was successful (HTTP 200 OK or 302 Found)
-            if response.status_code in (200, 302):
-                # Reset login credentials for user ID 2
-                os.system(f"psql {db_name} -c \"UPDATE res_users SET login='{LOGIN}', password='{PASSWORD}' WHERE id=2;\"")
-                return True
-            else:
-                return False
-
-        except Exception:
-            raise Exception("Database Can't be Restore")
-
-    def drop_db(self, db_name, port):
-        response = requests.post(
-            f'{BASE_URL}{port}/web/database/drop',
-            data={
-                'master_pwd': self.master_password,  # Master admin password
-                'name': db_name,
-            },
-        )
-        response.raise_for_status()
-
-    def export_studio_customizations(self, port, db_name, studio_zip_path):
-        try:
-            session = requests.Session()
-            # Step 1: Authenticate via /web/session/authenticate (sets session cookie)
-            auth_payload = {
-                "jsonrpc": "2.0",
-                "method": "call",
-                "params": {
-                    "db": db_name,
-                    "login": LOGIN,
-                    "password": PASSWORD,
-                },
-                "id": 1
-            }
-            response = session.post(f"{BASE_URL}{port}/web/session/authenticate", json=auth_payload)
-            response.raise_for_status()
-
-            # Parse login result
-            result = response.json().get("result")
-            if not result or not result.get("uid"):
-                _logger.error("Authentication Failed")
-                raise Exception("Login failed.")
-            uid = result["uid"]
-            _logger.info("Authentication Successful")
-
-            # Step 2: Ensure web_studio is installed
-            modules = self.check_web_studio_installed(port, db_name, uid)
-            if modules:
-                state = modules[0]['state']
-                model_id = modules[0]['id']
-                if state == "uninstalled":
-                    self.install_web_studio(port, db_name, uid, model_id)
-            else:
-                _logger.error("web_studio module not found in registry.")
-                raise Exception("web_studio module not found in registry.")
-
-            # Step 3: Call action_preset on studio.export.model
-            preset_payload = {
-                "jsonrpc": "2.0",
-                "method": "call",
-                "params": {
-                    "service": "object",
-                    "method": "execute_kw",
-                    "args": [
-                        db_name,
-                        uid,
-                        PASSWORD,
-                        "studio.export.model",
-                        "action_preset",
-                        [{}],
-                    ]
-                },
-                "id": 2
-            }
-            preset_resp = session.post(f"{BASE_URL}{port}/jsonrpc", json=preset_payload)
-            preset_resp.raise_for_status()
-
-            # Step 4: Create export wizard via RPC
-            wizard_payload = {
-                "jsonrpc": "2.0",
-                "method": "call",
-                "params": {
-                    "service": "object",
-                    "method": "execute_kw",
-                    "args": [
-                                db_name,
-                                uid,
-                                PASSWORD,
-                                "studio.export.wizard",
-                                "create",
-                                [{
-                                    "include_additional_data": True,
-                                    "include_demo_data": True
-                                }]
-                            ]
-                },
-                "id": 3
-            }
-
-            wizard_resp = session.post(f"{BASE_URL}{port}/jsonrpc", json=wizard_payload)
-            
-            wizard_resp.raise_for_status()
-            
-            if not wizard_resp.json()["result"]:
-                _logger.error("Export Wizard Failed to Create")
-                raise Exception("wizard id not found")
-            wizard_id = wizard_resp.json()["result"]
-
-            # Step 5: Call the export route (no token needed, session is authenticated)
-            export_url = f"{BASE_URL}{port}/web_studio/export?active_id={wizard_id}&token=dummytoken"
-            export_resp = session.get(export_url, stream=True)
-            
-
-            if export_resp.status_code == 200 and export_resp.headers['Content-Type'] == 'application/zip':
-                with open(studio_zip_path, "wb") as f:
-                    f.write(export_resp.content)
-            else:
-                _logger.error(f" Export failed: {export_resp.status_code} - {export_resp.text}")
-                raise Exception(f" Export failed: {export_resp.status_code} - {export_resp.text}")
-            
-        except Exception as e:
-            _logger.error("studio_customization Failed to Export")
-            raise Exception(str(e))
-    
-    def delete_temp_dir(self, dir_path):
-        """
-        Deletes a temporary directory and all its contents.
-        
-        :param dir_path: Full path to the directory.
-        """
-        if os.path.exists(dir_path) and os.path.isdir(dir_path):
-            shutil.rmtree(dir_path)
-
-    def check_web_studio_installed(self, port, db_name, uid):
-        # Prepare the JSON-RPC payload to search for the 'web_studio' module
-        payload = {
-            "jsonrpc": "2.0",
-            "method": "call",
-            "params": {
-                "service": "object",
-                "method": "execute_kw",
-                "args": [
-                    db_name, uid, PASSWORD,
-                    "ir.module.module", "search_read",
-                    [[["name", "=", "web_studio"]]],
-                    {"fields": ["state"], "limit": 1}
-                ]
-            },
-            "id": 2
-        }
-
-        # Send the request to the server and parse the JSON response
-        response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
-        
-        # Return the list of matched module(s) with their state
-        if response["result"]:
-            return response["result"]
-        
-    def install_web_studio(self, port, db_name, uid, module_id):
-        # Prepare JSON-RPC payload to install the module using button_immediate_install
-        payload = {
-            "jsonrpc": "2.0",
-            "method": "call",
-            "params": {
-                "service": "object",
-                "method": "execute_kw",
-                "args": [
-                    db_name, uid, PASSWORD,
-                    "ir.module.module", "button_immediate_install",
-                    [module_id]
-                ]
-            },
-            "id": 4
-        }
-
-        # Send request to install the module
-        install_response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
-
-        # Log error if installation failed
-        if not install_response["result"]:
-            _logger.error("Module Studio can't install")
-        return install_response["result"]
-
 
 # ====================================================
 #              CleanUp logic             
@@ -349,8 +41,7 @@ class ProcessDb:
 
 
 class CleanModule:
-    def __init__(self, ind_name, ind_category, db_name, module_path, port, destination_base_path, db_version):
-        self.db_version = db_version
+    def __init__(self, ind_name, ind_category, db_name, module_path, destination_base_path, port):
         self.ind_name = ind_name
         self.ind_category = ind_category
         self.db_name = db_name
@@ -420,6 +111,8 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         Ind_category = re.sub(r'[_-]', ' ', self.ind_category).title()
         self.automated['category'] = Ind_category
 
+        os.system(f"psql {self.db_name} -c \"UPDATE res_users SET login='{LOGIN}', password='{PASSWORD}' WHERE id=2;\"")
+
         # Construct the destination path for the cleaned module
         destination_module_path = self.destination_base_path + '/' + self.ind_name
         directory = self.module_path
@@ -432,6 +125,10 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
 
         # store old_id --> new_id (for thode records whose ids are generated in rendom hexadecimal)
         old_to_new_id_map = self.prepare_old_to_new_id_map()
+
+
+        # get default pricelist id for remove ref
+        default_pricelist_id = self.get_default_pricelist_id(self.module_path)
 
         # Traverse the module directory recursively
         for root, dirs, files in os.walk(directory):
@@ -449,6 +146,9 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
 
                     # replace old_id to new_id in xml file 
                     content = self.replace_old_id_to_new_id(content, old_to_new_id_map)
+
+                    # remove field with default pricelist reference
+                    content = self.remove_default_pricelist_ref(default_pricelist_id, content)
                     
                     # Apply module-specific modifications to XML content
                     content = self.edit_xml_content(content)
@@ -496,9 +196,6 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
                     # Special case handling for certain XML files
                     if file_name == 'ir_default.xml':
                         content = re.sub(r"<odoo>", '<odoo noupdate="1">', content)
-
-                    if file_name == "knowledge_article.xml":
-                        content = re.sub('<odoo noupdate="1">', '<odoo>', content)
                     
                     # Write the processed XML content to the destination
                     Path(destination_module_path + current_dir + file_name).write_text(content, encoding='utf-8')
@@ -610,11 +307,9 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
             directory, _ = os.path.split(file)
             os.makedirs(destination_module_path + directory, exist_ok=True)
             Path(destination_module_path + file).write_text(content.format(ind_name=self.ind_name, Ind_name=Ind_name), encoding='UTF-8')
-        
 
-        # make changes only for saas~18.3 version
-        # if self.db_version == 'saas~18.3':
-        #     self.changes_depend_on_db_version(destination_module_path)
+        print("clean up successful")
+        
             
     def get_etree_content(self, file_path):
         try:
@@ -640,6 +335,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
             raise Exception(f"Error while writing etree content to file ({file_path}): {e}")
 
     def session_authentication(self):
+
         session = requests.Session()
         # Authenticates the user via Odoo's /web/session/authenticate endpoint and returns a session with an active login and the user ID.
         auth_payload = {
@@ -656,8 +352,9 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         response.raise_for_status()
         result = response.json().get("result")
         if not result or not result.get("uid"):
-            raise Exception("Login failed in script.")
+            raise Exception("Login failed in cleanup script.")
         return session, result['uid']
+
 
     def get_fields_info(self, model_name):
         session, uid = self.session_authentication()
@@ -748,7 +445,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         # Replace any version segment in a '/documentation/{version}/' URL with '/documentation/latest/'
         pattern_documention_version_link= re.compile(r'(/documentation/)[^/]+')
         content = pattern_documention_version_link.sub(r'\1latest', content)
-        
+
         # Obfuscate all odoo.com emails by replacing with ****@example.com
         pattern_email = re.compile(r'([a-zA-Z0-9._%+-]+)@odoo\.com')
         content = pattern_email.sub(lambda m: f'{"*" * len(m.group(1))}@example.com', content)
@@ -896,6 +593,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
 
     def remove_computed_fields(self, fields_info_dict, model_name, record, content):
         # Retrieve and cache the fields information for the current model if not already done; otherwise, use the cached info
+
         if model_name not in fields_info_dict:
             field_info = self.get_fields_info(model_name)
             fields_info_dict[model_name] = field_info
@@ -1087,14 +785,26 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         if path_product_pricelist.exists():
             root_product_pricelist = self.get_etree_content(path_product_pricelist)
             records = root_product_pricelist.xpath("//record")
+            default_id = None
             for record in records:
                 name_key = record.xpath(".//field[@name='name']")
                 if name_key and (name_key[0].text == 'Default' or name_key[0].text == 'default'):
+                    default_id = record.get('id')
                     root_product_pricelist.remove(record)
 
             self.write_etree_content(path_product_pricelist, root_product_pricelist)
+            return default_id
+        
+    def get_default_pricelist_id(self, extrsct_module_path):
 
-        return
+        path_product_pricelist = Path(extrsct_module_path + '/data/' + 'product_pricelist.xml')
+        if path_product_pricelist.exists():
+            root_product_pricelist = self.get_etree_content(path_product_pricelist)
+            records = root_product_pricelist.xpath("//record")
+            for record in records:
+                name_key = record.xpath(".//field[@name='name']")
+                if name_key and (name_key[0].text == 'Default' or name_key[0].text == 'default'):
+                    return record.get('id')
 
     def remove_unused_ir_attachment_post(self, destination_module_path):
         """
@@ -1193,8 +903,23 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         path_knowledge_article = Path(destination_module_path + '/data/' + 'knowledge_article.xml')
         if path_knowledge_article.exists():
             root_knowledge_article = self.get_etree_content(path_knowledge_article)
+            if 'noupdate' in root_knowledge_article.attrib and root_knowledge_article.attrib['noupdate'] == '1':
+                del root_knowledge_article.attrib['noupdate']
+
             records = root_knowledge_article.xpath("//record")
             for record in records:
+                # remove all record whose id start with knowledge.
+                record_id = record.get('id', '')
+                if not record_id.startswith("knowledge."):
+                    record.set("id", "welcome_article")  # Rename the ID
+
+                    # Wrap field text containing '<div' in CDATA sections
+                    for field in record:
+                        if field.text and '<div' in field.text:
+                            field.text = etree.CDATA(field.text)
+                else:
+                    # Remove all other records
+                    root_knowledge_article.remove(record)
 
                 # Remove all 'last_edition_uid' fields in the record
                 for field in record.xpath('.//field[@name="last_edition_uid"]'):
@@ -1205,17 +930,6 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
                     new_field = etree.Element("field", name="is_locked", eval="True")
                     record.append(new_field)
                 
-                record_id = record.get('id', '')
-                if record_id.endswith("welcome_article") or "." not in record_id:
-                    record.set("id", "welcome_article")  # Rename the ID
-
-                    # Wrap field text containing '<div' in CDATA sections
-                    for field in record:
-                        if field.text and '<div' in field.text:
-                            field.text = etree.CDATA(field.text)
-                else:
-                    # Remove all other records
-                    root_knowledge_article.remove(record)
 
             self.write_etree_content(path_knowledge_article, root_knowledge_article)
         return
@@ -1262,7 +976,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         # Check if website_sale module is installed in the Odoo instance
         if self.check_website_sale_installed():
             xml_content = """<?xml version='1.0' encoding='UTF-8'?>
-    <odoo>
+    <odoo noupdate="1">
         <function name="button_immediate_install" model="ir.module.module" eval="[ref('base.module_payment_demo')]"/>
     </odoo>
             """
@@ -1559,16 +1273,14 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
             content = content.replace(f'id="{old_id}"', f'id="{new_id}"')
         return content
 
-    def changes_depend_on_db_version(self, destination_module_path):
-            # remove demo file for saas~18.3
-            demo_files = ['res_partner.xml', 'hr_employee.xml']
-            self.remove_demo_files(demo_files, destination_module_path)
+    def remove_default_pricelist_ref(self, default_pricelist_id, content):
+        pattern_ref_field = rf'\s*<field[^>]*\sref="{default_pricelist_id}"[^>]*/?>.*?(</field>)?'
+
+        cleaned_xml = re.sub(pattern_ref_field, '', content)
+
+        return cleaned_xml
+
     
-    def remove_demo_files(self, demo_files, destination_module_path):
-        for file_name in demo_files:
-            path_file = Path(destination_module_path + '/demo/' + file_name)
-            if path_file.exists():
-                path_file.unlink()
 
 # ====================================================
 #              Main Function         
@@ -1578,24 +1290,16 @@ def main():
     parser = argparse.ArgumentParser(description="Industry Automation Script")
 
     parser.add_argument('--module_name', required=True, help="Name of the module")
-    parser.add_argument('--db_version', required=True, help="Database version")
     parser.add_argument('--category', required=True, help="Module category")
-    parser.add_argument('--dump_path', required=True, help="Path to the dump zip file")
+    parser.add_argument('--studio_path', required=True, help="Path to the dump zip file")
+    parser.add_argument('--db_name', required=True, help="restore db name")
+    parser.add_argument('--port', required=True, help="port to get compute field")
     parser.add_argument('--destination_path', default="/home/odoo/Downloads", help="Path to save the cleaned module")
-    parser.add_argument('--master_password', required=True, help="Odoo master password")
 
     args = parser.parse_args()
 
-    task = ProcessDb(
-        module_name=args.module_name,
-        db_version=args.db_version,
-        category=args.category,
-        dump_path=args.dump_path,
-        destination_path=args.destination_path,
-        master_password=args.master_password,
-    )
-
-    task.process_dump_task()
+    cleanModuleObj = CleanModule(args.module_name, args.category, args.db_name, args.studio_path, args.destination_path, args.port)
+    cleanModuleObj.clean()
 
 if __name__ == "__main__":
     main()

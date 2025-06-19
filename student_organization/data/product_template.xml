@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-  <record id="__import__.dd66be78-068f-4883-8640-603d415d54d1" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="dd66be78-068f-4883-8640-603d415d54d1" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/29-image_1920"/>
     <field name="name">Annual Membership Card - 2025-2026</field>
@@ -23,7 +23,7 @@
     <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_9')])]"/>
     <field name="publish_date">2025-06-17 11:15:34</field>
   </record>
-  <record id="__import__.e5e1d92e-cdcd-4dee-ba7c-e3c0d888bebe" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="e5e1d92e-cdcd-4dee-ba7c-e3c0d888bebe" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/32-image_1920"/>
     <field name="name">Career Workshop Access</field>

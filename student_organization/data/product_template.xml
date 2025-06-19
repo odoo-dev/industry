@@ -115,7 +115,7 @@
     <field name="website_sequence">10065</field>
     <field name="publish_date">2025-06-17 09:26:09</field>
   </record>
-  <record id="__import__.df345582-0f79-4040-872f-ad668f8d7040" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="df345582-0f79-4040-872f-ad668f8d7040" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/28-image_1920"/>
     <field name="name">Guest Lecture Pass</field>
@@ -174,7 +174,7 @@
     <field name="website_sequence">10060</field>
     <field name="publish_date">2025-06-17 09:26:09</field>
   </record>
-  <record id="__import__.2c77cecf-1653-4c72-95fc-cd570e4dfb17" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="2c77cecf-1653-4c72-95fc-cd570e4dfb17" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/31-image_1920"/>
     <field name="name">Networking Night Ticket</field>
@@ -312,7 +312,7 @@ Add to cart to become a sponsor today.</p><p><br></p>]]></field>
     <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_8')])]"/>
     <field name="publish_date">2025-06-17 13:24:31</field>
   </record>
-  <record id="__import__.44d2034b-e5da-4370-8c23-45849bcba48a" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="44d2034b-e5da-4370-8c23-45849bcba48a" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/25-image_1920"/>
     <field name="name">Student Union Hoodie</field>
@@ -332,7 +332,7 @@ Add to cart to become a sponsor today.</p><p><br></p>]]></field>
     <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_10')])]"/>
     <field name="publish_date">2025-06-17 13:24:32</field>
   </record>
-  <record id="__import__.09048d76-c72b-41d1-9b95-cf8c652312c3" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="09048d76-c72b-41d1-9b95-cf8c652312c3" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/26-image_1920"/>
     <field name="name">Student Union T-Shirt</field>
@@ -371,7 +371,7 @@ Add to cart to become a sponsor today.</p><p><br></p>]]></field>
     <field name="website_sequence">10055</field>
     <field name="publish_date">2025-06-17 09:26:09</field>
   </record>
-  <record id="__import__.4f40f796-7025-4c50-a2a9-e8aba5b0680c" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+  <record id="4f40f796-7025-4c50-a2a9-e8aba5b0680c" model="product.template" context="{'create_product_product': False}" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="student_organization/static/src/binary/product_template/27-image_1920"/>
     <field name="name">Welcome Party Ticket</field>

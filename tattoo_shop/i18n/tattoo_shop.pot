@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* tattoo_shop
+#   * tattoo_shop
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.1+e\n"
+"Project-Id-Version: Odoo Server saas~18.2+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 05:47+0000\n"
-"PO-Revision-Date: 2025-04-21 05:47+0000\n"
+"POT-Creation-Date: 2025-06-19 04:03+0000\n"
+"PO-Revision-Date: 2025-06-19 04:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -593,6 +593,12 @@ msgstr ""
 #. module: tattoo_shop
 #: model_terms:ir.ui.view,arch_db:tattoo_shop.homepage
 msgid "Get inked"
+msgstr ""
+
+#. module: tattoo_shop
+#. odoo-javascript
+#: code:addons/tattoo_shop/static/src/js/my_tour.js:0
+msgid "Get on track and explore our recommendations for your Odoo usage here!"
 msgstr ""
 
 #. module: tattoo_shop

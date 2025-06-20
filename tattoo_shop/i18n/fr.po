@@ -696,6 +696,12 @@ msgid "Get inked"
 msgstr "Offrez-vous un tatouage."
 
 #. module: tattoo_shop
+#. odoo-javascript
+#: code:addons/tattoo_shop/static/src/js/my_tour.js:0
+msgid "Get on track and explore our recommendations for your Odoo usage here!"
+msgstr "I am in french!!"
+
+#. module: tattoo_shop
 #: model_terms:ir.ui.view,arch_db:tattoo_shop.welcome_article_body
 msgid "Goods and services can be created and sold on the fly"
 msgstr "Les biens et services peuvent être créés et vendus instantanément."

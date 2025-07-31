@@ -62,15 +62,6 @@
         <field name="ttype">char</field>
     </record>
 
-    <record id="field_meter_reading_sale_order" model="ir.model.fields">
-        <field name="name">x_sale_order_id</field>
-        <field name="field_description">Sale Order</field>
-        <field name="model_id" ref="model_meter_reading"/>
-        <field name="domain">[('x_account_analytic_account_id', '!=', False)]</field>
-        <field name="relation">sale.order</field>
-        <field name="ttype">many2one</field>
-    </record>
-
     <record id="field_meter_reading_account_analytic_account" model="ir.model.fields">
         <field name="name">x_account_analytic_account_id</field>
         <field name="field_description">Property</field>
@@ -303,6 +294,15 @@ for record in self:
         <field name="ttype">many2one</field>
         <field name="relation">account.analytic.account</field>
         <field name="group_expand" eval="True"/>
+    </record>
+
+    <record id="field_meter_reading_sale_order" model="ir.model.fields">
+        <field name="name">x_sale_order_id</field>
+        <field name="field_description">Sale Order</field>
+        <field name="model_id" ref="model_meter_reading"/>
+        <field name="domain">[('x_account_analytic_account_id', '!=', False)]</field>
+        <field name="relation">sale.order</field>
+        <field name="ttype">many2one</field>
     </record>
 
     <record id="field_guarant_partner_id" model="ir.model.fields">

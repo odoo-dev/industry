@@ -364,21 +364,16 @@ class CleanModule:
             'license': 'OPL-1',
             'version': '1.0',
         }
+        self.remove_base_record_from_file_names = [
+            'data/ir_attachment_pre.xml', 
+            'data/knowledge_cover.xml', 
+            'data/mail_template.xml', 
+            'data/product_pricelist.xml', 
+            'demo/website_menu.xml', 
+            'demo/website_page.xml',
+            'demo/account_analytic_plan.xml',
+        ]
         self.mandatory_files = {
-            "/static/src/js/my_tour.js": """import {{ _t }} from "@web/core/l10n/translation";
-import {{ registry }} from "@web/core/registry";
-
-registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
-    url: "/odoo",
-    steps: () => [
-        {{
-            trigger: '.o_app[data-menu-xmlid="knowledge.knowledge_menu_root"]',
-            content: _t("Get on track and explore our recommendations for your Odoo usage here!"),
-            run: "click",
-        }},
-    ],
-}});
-""",
             "/data/mail_message.xml": """<?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
     <record model="mail.message" id="notification_knowledge">
@@ -387,7 +382,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         <field name="message_type">email</field>
         <field name="author_id" ref="base.partner_root"/>
         <field name="subtype_id" ref="mail.mt_comment"/>
-        <field name="subject">🚀 Get started with Odoo {Ind_name} Shop</field>
+        <field name="subject">🚀 Get started with Odoo {Ind_name}</field>
         <field name="body" model="knowledge.article" eval="
             '&lt;span>&#x1F44B; Hi! Follow this &lt;a href=\\''
              + obj().env.ref('{ind_name}.welcome_article').article_url 
@@ -400,15 +395,6 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
     <record id="knowledge_favorite" model="knowledge.article.favorite">
         <field name="article_id" ref="welcome_article"/>
         <field name="user_id" ref="base.user_admin"/>
-    </record>
-</odoo>
-""",
-            "/data/knowledge_tour.xml": """<?xml version="1.0" encoding="UTF-8"?>
-<odoo noupdate="1">
-    <record id="knowledge_tour" model="web_tour.tour">
-        <field name="name">{ind_name}_knowledge_tour</field>
-        <field name="sequence">2</field>
-        <field name="rainbow_man_message">Welcome! Happy exploring.</field>
     </record>
 </odoo>
 """,
@@ -558,7 +544,6 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
                                     if k == 'data':
                                         f.write("        'data/mail_message.xml',\n")
                                         f.write("        'data/knowledge_article_favorite.xml',\n")
-                                        f.write("        'data/knowledge_tour.xml',\n")
                                     f.write("    ],\n")
                                 else:
                                     f.write(f"    '{k}': '{v}',\n")
@@ -581,9 +566,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         self.remove_ondelete_false_field(destination_module_path)
 
         # Clean up specific non-user created records
-        remove_file_names = ['ir_attachment_pre.xml', 'knowledge_cover.xml', 'mail_template.xml']
-        for remove_file_name in remove_file_names:
-            self.remove_record_not_created_by_user(destination_module_path, remove_file_name)
+        self.remove_base_records_from_files(destination_module_path)
 
         # Clean up default pricelists from data files
         self.remove_default_pricelist(destination_module_path)
@@ -602,8 +585,18 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         self.add_theme_immediate_install_function(destination_module_path)
 
         self.clean_sale_order_line_record(destination_module_path)
+
+        # Clean up HR employee records
+        self.clean_hr_employee(destination_module_path)
+
+        # Clean up res.partner records
+        self.clean_res_partner(destination_module_path)
+
+        # Clean up pos.payment.method records
+        self.clean_pos_payment_method(destination_module_path)
+
         # Update demo file order in manifest
-        self.arrange_demo_files(destination_module_path,  manifest_demo_file_list)
+        self.arrange_manifest_file(destination_module_path,  manifest_demo_file_list)
 
         # Write mandatory files such as templates or init scripts
         for file, content in self.mandatory_files.items():
@@ -753,6 +746,10 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         pattern_email = re.compile(r'([a-zA-Z0-9._%+-]+)@odoo\.com')
         content = pattern_email.sub(lambda m: f'{"*" * len(m.group(1))}@example.com', content)
 
+        #  Replace the <field name="user_id" eval="False"/> with <field name="user_id" ref="base.user_admin"/>
+        pattern_user_id_false = re.compile(r'<field name="user_id" eval="False"\s*/>')
+        content = pattern_user_id_false.sub(r'<field name="user_id" ref="base.user_admin"/>', content)
+
         return content
 
     def remove_unwanted_fields(self, content, unwanted_fields):
@@ -879,7 +876,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
             'product.template': ['base_unit_count'],
             'purchase.order': ['date_order', 'date_approve', 'state', 'date_planned'],
             'purchase.order.line': ['date_planned', 'name'],
-            'res.partner': ['supplier_rank', 'partner_gid', 'partner_weight'],
+            'res.partner': ['supplier_rank', 'partner_gid', 'partner_weight', 'partner_share'],
             'sale.order': ['date_order', 'prepayment_percent', 'delivery_status', 'amount_unpaid', 'warehouse_id', 'origin'],
             'sale.order.line': ['technical_price_unit', 'warehouse_id'],
             'sale.order.template': ['prepayment_percent'],
@@ -1050,7 +1047,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
 
         return
 
-    def remove_record_not_created_by_user(self, destination_module_path, file_name):
+    def remove_base_records_from_files(self, destination_module_path):
         """
         Remove XML records from the given file if their ID contains a dot ('.'),
         which indicates they are not user-created records.
@@ -1062,15 +1059,19 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         Returns:
             None
         """
-        path_file = Path(destination_module_path + '/data/' + file_name)
-        if path_file.exists():
-            root_file = self.get_etree_content(path_file)
-            records = root_file.xpath("//record")
-            for record in records:
-                record_id = record.get('id')
-                if '.' in record_id:
-                    root_file.remove(record)
-            self.write_etree_content(path_file, root_file)
+        for file_name in self.remove_base_record_from_file_names:
+            path_file = Path(destination_module_path + '/' + file_name)
+            if path_file.exists():
+                root_file = self.get_etree_content(path_file)
+                records = root_file.xpath("//record")
+                for record in records:
+                    record_id = record.get('id')
+                    if '.' in record_id:
+                        root_file.remove(record)
+                if len(root_file.xpath("//record")) == 0:
+                    os.remove(path_file)
+                else:
+                    self.write_etree_content(path_file, root_file)
         return
 
     def remove_default_pricelist(self, destination_module_path):
@@ -1193,26 +1194,31 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         path_knowledge_article = Path(destination_module_path + '/data/' + 'knowledge_article.xml')
         if path_knowledge_article.exists():
             root_knowledge_article = self.get_etree_content(path_knowledge_article)
+            
+            # remove auto_sequence if exists in <odoo auto_sequence="1">
+            if root_knowledge_article.get('auto_sequence'):
+                root_knowledge_article.attrib.pop('auto_sequence')
+
             records = root_knowledge_article.xpath("//record")
             for record in records:
-
-                # Remove all 'last_edition_uid' fields in the record
-                for field in record.xpath('.//field[@name="last_edition_uid"]'):
-                    record.remove(field)
-                
-                # Add 'is_locked' field with eval="True" if missing in this record
-                if not record.xpath('.//field[@name="is_locked"]'):
-                    new_field = etree.Element("field", name="is_locked", eval="True")
-                    record.append(new_field)
                 
                 record_id = record.get('id', '')
                 if record_id.endswith("welcome_article") or "." not in record_id:
                     record.set("id", "welcome_article")  # Rename the ID
 
-                    # Wrap field text containing '<div' in CDATA sections
                     for field in record:
-                        if field.text and '<div' in field.text:
+                        # Wrap body field text in CDATA sections
+                        if field.get('name') == "body" and field.text:
                             field.text = etree.CDATA(field.text)
+                        # Remove all 'last_edition_uid' fields in the record
+                        if field.get('name') == "last_edition_uid":
+                            record.remove(field)
+                    
+                    # Add 'is_locked' field with eval="True" if missing in this record
+                    if not record.xpath('.//field[@name="is_locked"]'):
+                        new_field = etree.Element("field", name="is_locked", eval="True")
+                        record.append(new_field)
+
                 else:
                     # Remove all other records
                     root_knowledge_article.remove(record)
@@ -1262,10 +1268,10 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         # Check if website_sale module is installed in the Odoo instance
         if self.check_website_sale_installed():
             xml_content = """<?xml version='1.0' encoding='UTF-8'?>
-    <odoo>
-        <function name="button_immediate_install" model="ir.module.module" eval="[ref('base.module_payment_demo')]"/>
-    </odoo>
-            """
+<odoo>
+    <function name="button_immediate_install" model="ir.module.module" eval="[ref('base.module_payment_demo')]"/>
+</odoo>
+"""
             
             # Prepare dictionary for manifest demo file entry
             manifest_demo_file_dict = {
@@ -1296,7 +1302,7 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
         depends_list = sorted(set(depends_list + new_depends))
         return depends_list
 
-    def arrange_demo_files(self, destination_module_path, manifest_demo_file_list):
+    def arrange_manifest_file(self, destination_module_path, manifest_demo_file_list):
         """
         Finalizes the demo file arrangement and updates the __manifest__.py accordingly.
 
@@ -1340,15 +1346,11 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
             raise Exception(f"Unable to read manifest file: {e}")
         
         # Clean up specific files in the data directory if they have no <record> elements
-        check_files = ['ir_attachment_pre.xml', 'knowledge_cover.xml', 'mail_template.xml', 'product_pricelist.xml']
-        for check_file in check_files:
-            file_path = Path(destination_module_path + '/data/' + check_file)
-            if file_path.exists():
-                etree_content = self.get_etree_content(file_path)
-                records = etree_content.xpath("//record")
-                if len(records) == 0:
-                    os.remove(file_path)
-                    manifest['data'].remove('data/' + check_file)
+        for check_file in self.remove_base_record_from_file_names:
+            file_path = Path(destination_module_path + '/' + check_file)
+            if not file_path.exists():
+                parent_dir = check_file.split('/')[0]
+                manifest[parent_dir].remove(check_file)
         
         # Adding some required dependencies like knowledge
         manifest['depends'] = self.add_require_depends(manifest['depends'])
@@ -1370,18 +1372,12 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
                 lines.append(f"    '{key}': {value},")
         
         # Append static entries (assets, cloc_exclude, images)
-        lines.append((f"""    'assets': {{
-                'web.assets_backend': [
-                    '{self.ind_name}/static/src/js/my_tour.js',
-                ],
-            }},
-        'cloc_exclude': [
-            'data/knowledge_article.xml',
-            'static/src/js/my_tour.js',
-        ],
-        'images': [
-            'images/main.png',
-        ],"""))
+        lines.append((f"""'cloc_exclude': [
+        'data/knowledge_article.xml',
+    ],
+    'images': [
+        'images/main.png',
+    ],"""))
 
         lines.append("}")
 
@@ -1463,10 +1459,71 @@ registry.category("web_tour.tours").add("{ind_name}_knowledge_tour", {{
                 else:
                     for field in record.xpath(".//field[@name='name']"):
                         record.remove(field)
+                # remove state, currency_id fields from record
+                for field in record.xpath(".//field[@name='state']"):
+                    record.remove(field)
+                for field in record.xpath(".//field[@name='currency_id']"):
+                    record.remove(field)
             
             self.write_etree_content(target_path, etree_content)
 
         return
+    
+    # claen hr.employee.xml file
+    def clean_hr_employee(self, destination_module_path):
+        """
+            -replace the name of hr.employee_admin record id with Casey Admin and work_email to casey.admin@yourcompany.example.com
+        """
+        path_hr_employee = Path(destination_module_path + '/demo/' + 'hr_employee.xml')
+        if path_hr_employee.exists():
+            root_hr_employee = self.get_etree_content(path_hr_employee)
+            records = root_hr_employee.xpath("//record")
+            for record in records:
+                if record.get('id') == 'hr.employee_admin':
+                    name_field = record.xpath(".//field[@name='name']")
+                    if name_field:
+                        name_field[0].text = 'Casey Admin'
+                    work_email_field = record.xpath(".//field[@name='work_email']")
+                    if work_email_field:
+                        work_email_field[0].text = 'casey.admin@yourcompany.example.com'
+            
+            self.write_etree_content(path_hr_employee, root_hr_employee)
+        return
+    
+    # remove the records only which starts with base_industry_data.
+    def clean_res_partner(self, destination_module_path):
+        """
+            -remove the records only which starts with base_industry_data.
+        """
+        path_res_partner = Path(destination_module_path + '/demo/' + 'res_partner.xml')
+        if path_res_partner.exists():
+            root_res_partner = self.get_etree_content(path_res_partner)
+            records = root_res_partner.xpath("//record")
+            for record in records:
+                record_id = record.get('id', '')
+                if record_id.startswith("base_industry_data."):
+                    root_res_partner.remove(record)
+
+            self.write_etree_content(path_res_partner, root_res_partner)
+        return
+    
+    #  Remove config_ids from pos.payment.method records in pos_payment_method.xml
+    def clean_pos_payment_method(self, destination_module_path):
+        """
+            -Remove config_ids from pos.payment.method records in pos_payment_method.xml
+        """
+        path_pos_payment_method = Path(destination_module_path + '/data/' + 'pos_payment_method.xml')
+        if path_pos_payment_method.exists():
+            root_pos_payment_method = self.get_etree_content(path_pos_payment_method)
+            records = root_pos_payment_method.xpath("//record")
+            for record in records:
+                for field in record.xpath(".//field[@name='config_ids']"):
+                    record.remove(field)
+            
+            self.write_etree_content(path_pos_payment_method, root_pos_payment_method)
+        return
+
+    # ================= ID Mapping Functions ==================
     
     def prepare_old_to_new_id_map(self):
         files_name = [

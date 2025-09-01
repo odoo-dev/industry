@@ -206,14 +206,25 @@ class ProcessDb:
 
             # Step 2: Ensure web_studio is installed
             modules = self.check_web_studio_installed(port, db_name, uid)
-            if modules:
-                state = modules[0]['state']
-                model_id = modules[0]['id']
-                if state == "uninstalled":
-                    self.install_web_studio(port, db_name, uid, model_id)
-            else:
+            if not modules:
                 _logger.error("web_studio module not found in registry.")
                 raise Exception("web_studio module not found in registry.")
+
+            module = modules[0]
+            state = module.get("state")
+            model_id = module.get("id")
+
+            if not state or not model_id:
+                _logger.error("Invalid module data: %s", module)
+                raise Exception("Invalid module data for web_studio")
+
+            if state == "uninstalled":
+                self.install_web_studio(port, db_name, uid, model_id)
+                # optional: re-check status after install
+                modules = self.check_web_studio_installed(port, db_name, uid)
+                new_state = modules[0].get("state")
+                if new_state != "installed":
+                    _logger.warning("web_studio installation triggered but state is still %s", new_state)
 
             # Step 3: Call action_preset on studio.export.model
             preset_payload = {
@@ -334,13 +345,21 @@ class ProcessDb:
             "id": 4
         }
 
-        # Send request to install the module
-        install_response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
+         # Send request to install the module
+        response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
 
-        # Log error if installation failed
-        if not install_response["result"]:
-            _logger.error("Module Studio can't install")
-        return install_response["result"]
+        # Handle response safely
+        if "error" in response:
+            _logger.error("Failed to install web_studio: %s", response["error"])
+            raise Exception(f"Failed to install web_studio: {response['error']}")
+
+        result = response.get("result")
+        if not result:
+            _logger.error("Unexpected response when installing web_studio: %s", response)
+            raise Exception("web_studio installation did not return result")
+
+        _logger.info("web_studio installed successfully.")
+        return result
 
 
 # ====================================================
@@ -372,6 +391,8 @@ class CleanModule:
             'demo/website_menu.xml', 
             'demo/website_page.xml',
             'demo/account_analytic_plan.xml',
+            'demo/crm_team.xml',
+            'data/uom.uom.xml',
         ]
         self.mandatory_files = {
             "/data/mail_message.xml": """<?xml version='1.0' encoding='UTF-8'?>
@@ -416,6 +437,9 @@ class CleanModule:
         scss_content_list = []
         manifest_demo_file_list = []
 
+        # get default pricelist id for remove ref
+        default_pricelist_id = self.get_default_pricelist_id(self.module_path)
+
         # store old_id --> new_id (for thode records whose ids are generated in rendom hexadecimal)
         old_to_new_id_map = self.prepare_old_to_new_id_map()
 
@@ -435,6 +459,9 @@ class CleanModule:
 
                     # replace old_id to new_id in xml file 
                     content = self.replace_old_id_to_new_id(content, old_to_new_id_map)
+
+                    # remove field with default pricelist reference
+                    content = self.remove_default_pricelist_ref(default_pricelist_id, content)
                     
                     # Apply module-specific modifications to XML content
                     content = self.edit_xml_content(content)
@@ -574,6 +601,7 @@ class CleanModule:
         # Organize records in a standard format
         self.remove_unused_ir_attachment_post(destination_module_path)
         self.order_ir_attachment_post(destination_module_path)
+        self.rename_ir_attachment_post(destination_module_path)
 
         # Retain only welcome article in the knowledge article
         self.clean_knowledge_article(destination_module_path)
@@ -584,7 +612,11 @@ class CleanModule:
         # Add immediate install function for the theme module in demo XML files
         self.add_theme_immediate_install_function(destination_module_path)
 
+        # Clean up sale order line records
         self.clean_sale_order_line_record(destination_module_path)
+
+        # Clean up sale order confirm records
+        self.clean_sale_order_confirm_record(destination_module_path)
 
         # Clean up HR employee records
         self.clean_hr_employee(destination_module_path)
@@ -750,6 +782,12 @@ class CleanModule:
         pattern_user_id_false = re.compile(r'<field name="user_id" eval="False"\s*/>')
         content = pattern_user_id_false.sub(r'<field name="user_id" ref="base.user_admin"/>', content)
 
+        # Remove data-oe-version and data-last-history-steps attributes.
+        content = re.sub(r'\s*(data-oe-version|data-last-history-steps)="[^"]*"', '', content)
+
+        # Replace eval="obj().search(" with search=( to avoid eval usage
+        content = re.sub(r'eval="obj\(\)\.search\(', r'search=(', content)
+
         return content
 
     def remove_unwanted_fields(self, content, unwanted_fields):
@@ -868,19 +906,22 @@ class CleanModule:
             'event.event': ['kanban_state_label'],
             'hr.department': ['complete_name', 'master_department_id'],
             'pos.config': ['last_data_change'],
-            'pos.order': ['date_order', 'state', 'last_order_preparation_change', 'pos_reference', 'ticket_code', 'email', 'company_id'],
-            'pos.order.line': ['full_product_name', 'qty_delivered', 'price_unit', 'total_cost'],
+            'pos.order': ['date_order', 'state', 'last_order_preparation_change', 'pos_reference', 'ticket_code', 'email', 'company_id', 'currency_rate', 'cashier'],
+            'pos.order.line': ['full_product_name', 'qty_delivered', 'price_unit', 'total_cost', 'company_id'],
             'pos.payment.method': ['is_cash_count'],
             'pos.session': ['name', 'start_at', 'stop_at', 'state'],
-            'product.pricelist.item': ['date_start', 'date_end'],
-            'product.template': ['base_unit_count'],
-            'purchase.order': ['date_order', 'date_approve', 'state', 'date_planned'],
-            'purchase.order.line': ['date_planned', 'name'],
+            'product.pricelist.item': ['date_start', 'date_end', 'company_id'],
+            'product.template': ['base_unit_count', 'publish_date', 'has_configurable_attributes'],
+            'purchase.order': ['date_order', 'date_approve', 'state', 'date_planned', 'effective_date', 'amount_untaxed', 'amount_total_cc', 'receipt_status', 'date_calendar_start'],
+            'purchase.order.line': ['date_planned', 'name', 'company_id', 'product_uom_qty', 'partner_id'],
             'res.partner': ['supplier_rank', 'partner_gid', 'partner_weight', 'partner_share'],
-            'sale.order': ['date_order', 'prepayment_percent', 'delivery_status', 'amount_unpaid', 'warehouse_id', 'origin'],
-            'sale.order.line': ['technical_price_unit', 'warehouse_id'],
+            'sale.order': ['date_order', 'prepayment_percent', 'delivery_status', 'amount_unpaid', 'warehouse_id', 'origin', 'currency_id'],
+            'sale.order.line': ['technical_price_unit', 'warehouse_id', 'currency_id', 'company_id', 'salesman_id', 'order_partner_id', 'state'],
             'sale.order.template': ['prepayment_percent'],
             'sign.item': ['transaction_id'],
+            'stock.quant': ['company_id'],
+            'product.attribute': ['product_tmpl_ids'],
+            'pos.category': ['image_128'],
         }
 
         # Retrieve the list of unwanted fields for the given model
@@ -1092,10 +1133,23 @@ class CleanModule:
                 name_key = record.xpath(".//field[@name='name']")
                 if name_key and (name_key[0].text == 'Default' or name_key[0].text == 'default'):
                     root_product_pricelist.remove(record)
-
-            self.write_etree_content(path_product_pricelist, root_product_pricelist)
+            if len(root_product_pricelist.xpath("//record")) == 0:
+                os.remove(path_product_pricelist)
+            else:
+                self.write_etree_content(path_product_pricelist, root_product_pricelist)
 
         return
+    
+    def get_default_pricelist_id(self, extrsct_module_path):
+
+        path_product_pricelist = Path(extrsct_module_path + '/data/' + 'product_pricelist.xml')
+        if path_product_pricelist.exists():
+            root_product_pricelist = self.get_etree_content(path_product_pricelist)
+            records = root_product_pricelist.xpath("//record")
+            for record in records:
+                name_key = record.xpath(".//field[@name='name']")
+                if name_key and (name_key[0].text == 'Default' or name_key[0].text == 'default'):
+                    return record.get('id')
 
     def remove_unused_ir_attachment_post(self, destination_module_path):
         """
@@ -1151,7 +1205,7 @@ class CleanModule:
                     try:
                         os.remove(file_path)
                     except Exception as e:
-                        print(f"Warning: Failed to remove file {file_path}: {e}")
+                        _logger.error(f"Warning: Failed to remove file {file_path}: {e}")
 
             self.write_etree_content(path_ir_attachment_post, root_ir_attachment_post)
 
@@ -1184,6 +1238,74 @@ class CleanModule:
             self.write_etree_content(path_ir_attachment_post, root_ir_attachment_post)
         
         return
+    
+    def rename_ir_attachment_post(self, destination_module_path):
+        """
+        Rename records ids, name and attatched filename in 'ir_attachment_post.xml'      
+        """
+        path_ir_attachment_post = Path(destination_module_path + '/demo/' + 'ir_attachment_post.xml')
+        if path_ir_attachment_post.exists():
+            root_ir_attachment_post = self.get_etree_content(path_ir_attachment_post)
+            records = root_ir_attachment_post.xpath("//record")
+            suffix = 1
+            id_map = {}
+            # image name map to track old and new image names and extention (value as a tuple)
+            image_name_map = {}
+            for record in records:
+                record_id = record.get('id', '')
+                new_id = f"ir_attachment_{suffix}"
+                if record_id != new_id:
+                    record.set("id", new_id)
+                    id_map[record_id] = new_id
+
+                extention = None
+
+                # 1) datas field
+                datas_field = record.xpath('.//field[@name="datas"]')
+                if datas_field and datas_field[0].get('file'):
+                    field = datas_field[0]
+                    image_name = field.get('file').split('/')[-1]
+                    extention = image_name.split('.')[-1] if '.' in image_name else 'jpg'
+                    if extention != 'svg':
+                        extention = 'jpg'
+                    image_name_map[image_name] = (f"{new_id}.{extention}", extention)
+                    field.set('file', f"{self.ind_name}/static/src/binary/ir_attachment/{new_id}.{extention}")
+
+                # 2) name field (only if we got an extension from datas)
+                if extention:
+                    name_field = record.xpath('.//field[@name="name"]')
+                    if name_field:
+                        name_field[0].text = f"{new_id}.{extention}"
+
+                # 3) res_id field
+                res_id_field = record.xpath('.//field[@name="res_id"]')
+                if res_id_field:
+                    old_res_id = res_id_field[0].get('ref')
+                    if old_res_id in id_map:
+                        res_id_field[0].set('ref', id_map[old_res_id])
+
+                suffix += 1
+            
+            self.write_etree_content(path_ir_attachment_post, root_ir_attachment_post)
+            self.rename_image_files(destination_module_path, image_name_map)
+        return
+
+    # Rename the actual image files on disk
+    def rename_image_files(self, destination_module_path, image_name_map):
+        path_img_dir = Path(destination_module_path + '/static/src/binary/ir_attachment')
+        if path_img_dir.exists():
+            for file in path_img_dir.iterdir():
+                if file.is_file():
+                    image_name = file.name
+                    if image_name in image_name_map:
+                        new_image_name, _ = image_name_map[image_name]
+                        new_file_path = path_img_dir / new_image_name
+                        try:
+                            file.rename(new_file_path)
+                        except Exception as e:
+                            _logger.warning(f"Warning: Failed to rename file {file} to {new_file_path}: {e}")
+        return
+
 
     def clean_knowledge_article(self, destination_module_path):
         """
@@ -1198,6 +1320,8 @@ class CleanModule:
             # remove auto_sequence if exists in <odoo auto_sequence="1">
             if root_knowledge_article.get('auto_sequence'):
                 root_knowledge_article.attrib.pop('auto_sequence')
+            if root_knowledge_article.get('noupdate'):
+                root_knowledge_article.attrib.pop('noupdate')
 
             records = root_knowledge_article.xpath("//record")
             for record in records:
@@ -1345,18 +1469,19 @@ class CleanModule:
         except Exception as e:
             raise Exception(f"Unable to read manifest file: {e}")
         
+        # Update the demo file list in the manifest
+        manifest['demo'] = unique_manifest_demo_file_list
+
         # Clean up specific files in the data directory if they have no <record> elements
         for check_file in self.remove_base_record_from_file_names:
             file_path = Path(destination_module_path + '/' + check_file)
             if not file_path.exists():
                 parent_dir = check_file.split('/')[0]
-                manifest[parent_dir].remove(check_file)
+                if parent_dir in manifest and check_file in manifest[parent_dir]:
+                    manifest[parent_dir].remove(check_file)
         
         # Adding some required dependencies like knowledge
         manifest['depends'] = self.add_require_depends(manifest['depends'])
-
-        # Update the demo file list in the manifest
-        manifest['demo'] = unique_manifest_demo_file_list
 
         # Format the manifest dictionary as Python code
         lines = ["{"]
@@ -1372,7 +1497,7 @@ class CleanModule:
                 lines.append(f"    '{key}': {value},")
         
         # Append static entries (assets, cloc_exclude, images)
-        lines.append((f"""'cloc_exclude': [
+        lines.append((f"""    'cloc_exclude': [
         'data/knowledge_article.xml',
     ],
     'images': [
@@ -1469,6 +1594,29 @@ class CleanModule:
 
         return
     
+    def clean_sale_order_confirm_record(self, destination_module_path):
+        """
+            add noupdate=1 from sale_order_confirm.xml file
+
+            Args:
+                destination_module_path (str): Directory name containing the 'demo/sale_order_confirm.xml' file.
+
+            Returns:
+                None: Modifies the XML file in place without returning a value.
+        """
+        target_path = Path(destination_module_path + '/demo/' + 'sale_order_confirm.xml')
+        if target_path.exists():
+            etree_content = self.get_etree_content(target_path)
+            if etree_content.get('noupdate'):
+                # add noupdate
+                etree_content.set('noupdate', '1')
+            else:
+                etree_content.attrib['noupdate'] = '1'
+
+            self.write_etree_content(target_path, etree_content)
+
+        return
+    
     # claen hr.employee.xml file
     def clean_hr_employee(self, destination_module_path):
         """
@@ -1532,6 +1680,7 @@ class CleanModule:
             'ir_ui_view.xml',
             'ir_default.xml',
             'ir_model_access.xml',
+            'ir_actions_server.xml',
         ]
         old_new_id_map = {}
 
@@ -1599,6 +1748,15 @@ class CleanModule:
                                 model_id = old_new_id_map.get(model_id, model_id)
                                 new_id = f"{model_id}_{group_id}_model_access"
                                 allow_change = True
+
+                        case 'ir_actions_server.xml':
+                            if name_field:
+                                name = name_field[0].text.replace('.', '_').replace(':', '_').replace('-', '_').replace(' ', '_').lower()
+                                if name.startswith("Industry__"):
+                                    name = name[len("Industry__"):]
+
+                                new_id = f"{name}_server_action"
+                                allow_change = True
                         
                         case _:
                             pass
@@ -1613,6 +1771,8 @@ class CleanModule:
         for old_id, new_id in old_new_id_map.items():
             content = content.replace(f'model_id="{old_id}"', f'model_id="{new_id}"')
             content = content.replace(f'ref="{old_id}"', f'ref="{new_id}"')
+            content = content.replace(f"ref('{old_id}')", f"ref('{new_id}')")
+            content = content.replace(f'ref("{old_id}")', f'ref("{new_id}")')
             content = content.replace(f'id="{old_id}"', f'id="{new_id}"')
         return content
 
@@ -1626,6 +1786,13 @@ class CleanModule:
             path_file = Path(destination_module_path + '/demo/' + file_name)
             if path_file.exists():
                 path_file.unlink()
+    
+    def remove_default_pricelist_ref(self, default_pricelist_id, content):
+        pattern_ref_field = rf'\s*<field[^>]*\sref="{default_pricelist_id}"[^>]*/?>.*?(</field>)?'
+
+        cleaned_xml = re.sub(pattern_ref_field, '', content)
+
+        return cleaned_xml
 
 # ====================================================
 #              Main Function         

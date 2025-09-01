@@ -64,6 +64,7 @@ class CleanModule:
             'demo/website_page.xml',
             'demo/account_analytic_plan.xml',
             'demo/crm_team.xml',
+            'data/uom.uom.xml',
         ]
         self.mandatory_files = {
             "/data/mail_message.xml": """<?xml version='1.0' encoding='UTF-8'?>
@@ -272,6 +273,7 @@ class CleanModule:
         # Organize records in a standard format
         self.remove_unused_ir_attachment_post(destination_module_path)
         self.order_ir_attachment_post(destination_module_path)
+        self.rename_ir_attachment_post(destination_module_path)
 
         # Retain only welcome article in the knowledge article
         self.clean_knowledge_article(destination_module_path)
@@ -452,6 +454,11 @@ class CleanModule:
         pattern_user_id_false = re.compile(r'<field name="user_id" eval="False"\s*/>')
         content = pattern_user_id_false.sub(r'<field name="user_id" ref="base.user_admin"/>', content)
 
+        # Remove data-oe-version and data-last-history-steps attributes.
+        content = re.sub(r'\s*(data-oe-version|data-last-history-steps)="[^"]*"', '', content)
+
+        # Replace eval="obj().search(" with search=( to avoid eval usage
+        content = re.sub(r'eval="obj\(\)\.search\(', r'search=(', content)
 
         return content
 
@@ -795,15 +802,16 @@ class CleanModule:
         if path_product_pricelist.exists():
             root_product_pricelist = self.get_etree_content(path_product_pricelist)
             records = root_product_pricelist.xpath("//record")
-            default_id = None
             for record in records:
                 name_key = record.xpath(".//field[@name='name']")
                 if name_key and (name_key[0].text == 'Default' or name_key[0].text == 'default'):
-                    default_id = record.get('id')
                     root_product_pricelist.remove(record)
+            if len(root_product_pricelist.xpath("//record")) == 0:
+                os.remove(path_product_pricelist)
+            else:
+                self.write_etree_content(path_product_pricelist, root_product_pricelist)
 
-            self.write_etree_content(path_product_pricelist, root_product_pricelist)
-            return default_id
+        return
         
     def get_default_pricelist_id(self, extrsct_module_path):
 
@@ -902,6 +910,73 @@ class CleanModule:
 
             self.write_etree_content(path_ir_attachment_post, root_ir_attachment_post)
         
+        return
+    
+    def rename_ir_attachment_post(self, destination_module_path):
+        """
+        Rename records ids, name and attatched filename in 'ir_attachment_post.xml'      
+        """
+        path_ir_attachment_post = Path(destination_module_path + '/demo/' + 'ir_attachment_post.xml')
+        if path_ir_attachment_post.exists():
+            root_ir_attachment_post = self.get_etree_content(path_ir_attachment_post)
+            records = root_ir_attachment_post.xpath("//record")
+            suffix = 1
+            id_map = {}
+            # image name map to track old and new image names and extention (value as a tuple)
+            image_name_map = {}
+            for record in records:
+                record_id = record.get('id', '')
+                new_id = f"ir_attachment_{suffix}"
+                if record_id != new_id:
+                    record.set("id", new_id)
+                    id_map[record_id] = new_id
+
+                extention = None
+
+                # 1) datas field
+                datas_field = record.xpath('.//field[@name="datas"]')
+                if datas_field and datas_field[0].get('file'):
+                    field = datas_field[0]
+                    image_name = field.get('file').split('/')[-1]
+                    extention = image_name.split('.')[-1] if '.' in image_name else 'jpg'
+                    if extention != 'svg':
+                        extention = 'jpg'
+                    image_name_map[image_name] = (f"{new_id}.{extention}", extention)
+                    field.set('file', f"{self.ind_name}/static/src/binary/ir_attachment/{new_id}.{extention}")
+
+                # 2) name field (only if we got an extension from datas)
+                if extention:
+                    name_field = record.xpath('.//field[@name="name"]')
+                    if name_field:
+                        name_field[0].text = f"{new_id}.{extention}"
+
+                # 3) res_id field
+                res_id_field = record.xpath('.//field[@name="res_id"]')
+                if res_id_field:
+                    old_res_id = res_id_field[0].get('ref')
+                    if old_res_id in id_map:
+                        res_id_field[0].set('ref', id_map[old_res_id])
+
+                suffix += 1
+            
+            self.write_etree_content(path_ir_attachment_post, root_ir_attachment_post)
+            self.rename_image_files(destination_module_path, image_name_map)
+        return
+    
+    # Rename the actual image files on disk
+    def rename_image_files(self, destination_module_path, image_name_map):
+        path_img_dir = Path(destination_module_path + '/static/src/binary/ir_attachment')
+        if path_img_dir.exists():
+            for file in path_img_dir.iterdir():
+                if file.is_file():
+                    image_name = file.name
+                    if image_name in image_name_map:
+                        new_image_name, _ = image_name_map[image_name]
+                        new_file_path = path_img_dir / new_image_name
+                        try:
+                            file.rename(new_file_path)
+                        except Exception as e:
+                            _logger.warning(f"Warning: Failed to rename file {file} to {new_file_path}: {e}")
         return
     
 
@@ -1066,19 +1141,20 @@ class CleanModule:
             manifest = literal_eval(manifest_path.read_text(encoding="utf-8"))
         except Exception as e:
             raise Exception(f"Unable to read manifest file: {e}")
+
+        # Update the demo file list in the manifest
+        manifest['demo'] = unique_manifest_demo_file_list
         
-        # Clean up specific files in the data directory if they have no <record> elements
+        # Clean up specific files in the data and demo directory if they have no <record> elements
         for check_file in self.remove_base_record_from_file_names:
             file_path = Path(destination_module_path + '/' + check_file)
             if not file_path.exists():
                 parent_dir = check_file.split('/')[0]
-                manifest[parent_dir].remove(check_file)
+                if check_file in manifest.get(parent_dir, []):
+                    manifest[parent_dir].remove(check_file)
         
         # Adding some required dependencies like knowledge
         manifest['depends'] = self.add_require_depends(manifest['depends'])
-
-        # Update the demo file list in the manifest
-        manifest['demo'] = unique_manifest_demo_file_list
 
         # Format the manifest dictionary as Python code
         lines = ["{"]
@@ -1094,7 +1170,7 @@ class CleanModule:
                 lines.append(f"    '{key}': {value},")
         
         # Append static entries (assets, cloc_exclude, images)
-        lines.append((f"""'cloc_exclude': [
+        lines.append((f"""    'cloc_exclude': [
         'data/knowledge_article.xml',
     ],
     'images': [
@@ -1193,7 +1269,7 @@ class CleanModule:
     
     def clean_sale_order_confirm_record(self, destination_module_path):
         """
-            remove noupdate=1 from sale_order_confirm.xml file
+            add noupdate=1 from sale_order_confirm.xml file
 
             Args:
                 destination_module_path (str): Directory name containing the 'demo/sale_order_confirm.xml' file.
@@ -1205,8 +1281,10 @@ class CleanModule:
         if target_path.exists():
             etree_content = self.get_etree_content(target_path)
             if etree_content.get('noupdate'):
-                etree_content.attrib.pop('noupdate')
-
+                # add noupdate
+                etree_content.set('noupdate', '1')
+            else:
+                etree_content.attrib['noupdate'] = '1'
             self.write_etree_content(target_path, etree_content)
 
         return
@@ -1274,6 +1352,7 @@ class CleanModule:
             'ir_ui_view.xml',
             'ir_default.xml',
             'ir_model_access.xml',
+            'ir_actions_server.xml',
         ]
         old_new_id_map = {}
 
@@ -1342,6 +1421,15 @@ class CleanModule:
                                 new_id = f"{model_id}_{group_id}_model_access"
                                 allow_change = True
                         
+                        case 'ir_actions_server.xml':
+                            if name_field:
+                                name = name_field[0].text.replace('.', '_').replace(':', '_').replace('-', '_').replace(' ', '_').lower()
+                                if name.startswith("Industry__"):
+                                    name = name[len("Industry__"):]
+
+                                new_id = f"{name}_server_action"
+                                allow_change = True
+                        
                         case _:
                             pass
                     
@@ -1355,6 +1443,8 @@ class CleanModule:
         for old_id, new_id in old_new_id_map.items():
             content = content.replace(f'model_id="{old_id}"', f'model_id="{new_id}"')
             content = content.replace(f'ref="{old_id}"', f'ref="{new_id}"')
+            content = content.replace(f"ref('{old_id}')", f"ref('{new_id}')")
+            content = content.replace(f'ref("{old_id}")', f'ref("{new_id}")')
             content = content.replace(f'id="{old_id}"', f'id="{new_id}"')
         return content
 

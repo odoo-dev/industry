@@ -282,7 +282,11 @@ class CleanModule:
         # Add immediate install function for the theme module in demo XML files
         self.add_theme_immediate_install_function(destination_module_path)
 
+        # Clean up sale order line records
         self.clean_sale_order_line_record(destination_module_path)
+
+        # Clean up sale order confirm records
+        self.clean_sale_order_confirm_record(destination_module_path)
 
         # Clean up HR employee records
         self.clean_hr_employee(destination_module_path)
@@ -567,19 +571,22 @@ class CleanModule:
             'event.event': ['kanban_state_label'],
             'hr.department': ['complete_name', 'master_department_id'],
             'pos.config': ['last_data_change'],
-            'pos.order': ['date_order', 'state', 'last_order_preparation_change', 'pos_reference', 'ticket_code', 'email', 'company_id'],
-            'pos.order.line': ['full_product_name', 'qty_delivered', 'price_unit', 'total_cost'],
+            'pos.order': ['date_order', 'state', 'last_order_preparation_change', 'pos_reference', 'ticket_code', 'email', 'company_id', 'currency_rate', 'cashier'],
+            'pos.order.line': ['full_product_name', 'qty_delivered', 'price_unit', 'total_cost', 'company_id'],
             'pos.payment.method': ['is_cash_count'],
             'pos.session': ['name', 'start_at', 'stop_at', 'state'],
-            'product.pricelist.item': ['date_start', 'date_end'],
-            'product.template': ['base_unit_count'],
-            'purchase.order': ['date_order', 'date_approve', 'state', 'date_planned'],
-            'purchase.order.line': ['date_planned', 'name'],
+            'product.pricelist.item': ['date_start', 'date_end', 'company_id'],
+            'product.template': ['base_unit_count', 'publish_date', 'has_configurable_attributes'],
+            'purchase.order': ['date_order', 'date_approve', 'state', 'date_planned', 'effective_date', 'amount_untaxed', 'amount_total_cc', 'receipt_status', 'date_calendar_start'],
+            'purchase.order.line': ['date_planned', 'name', 'company_id', 'product_uom_qty', 'partner_id'],
             'res.partner': ['supplier_rank', 'partner_gid', 'partner_weight', 'partner_share'],
-            'sale.order': ['date_order', 'prepayment_percent', 'delivery_status', 'amount_unpaid', 'warehouse_id', 'origin'],
-            'sale.order.line': ['technical_price_unit', 'warehouse_id'],
+            'sale.order': ['date_order', 'prepayment_percent', 'delivery_status', 'amount_unpaid', 'warehouse_id', 'origin', 'currency_id'],
+            'sale.order.line': ['technical_price_unit', 'warehouse_id', 'currency_id', 'company_id', 'salesman_id', 'order_partner_id', 'state'],
             'sale.order.template': ['prepayment_percent'],
             'sign.item': ['transaction_id'],
+            'stock.quant': ['company_id'],
+            'product.attribute': ['product_tmpl_ids'],
+            'pos.category': ['image_128'],
         }
 
         # Retrieve the list of unwanted fields for the given model
@@ -911,6 +918,8 @@ class CleanModule:
             # remove auto_sequence if exists in <odoo auto_sequence="1">
             if root_knowledge_article.get('auto_sequence'):
                 root_knowledge_article.attrib.pop('auto_sequence')
+            if root_knowledge_article.get('noupdate'):
+                root_knowledge_article.attrib.pop('noupdate')
 
             records = root_knowledge_article.xpath("//record")
             for record in records:
@@ -1178,6 +1187,26 @@ class CleanModule:
                 for field in record.xpath(".//field[@name='currency_id']"):
                     record.remove(field)
             
+            self.write_etree_content(target_path, etree_content)
+
+        return
+    
+    def clean_sale_order_confirm_record(self, destination_module_path):
+        """
+            remove noupdate=1 from sale_order_confirm.xml file
+
+            Args:
+                destination_module_path (str): Directory name containing the 'demo/sale_order_confirm.xml' file.
+
+            Returns:
+                None: Modifies the XML file in place without returning a value.
+        """
+        target_path = Path(destination_module_path + '/demo/' + 'sale_order_confirm.xml')
+        if target_path.exists():
+            etree_content = self.get_etree_content(target_path)
+            if etree_content.get('noupdate'):
+                etree_content.attrib.pop('noupdate')
+
             self.write_etree_content(target_path, etree_content)
 
         return

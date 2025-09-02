@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="ir_ui_view_3576" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <t name="Contact Us" t-name="website.contactus">
+        <t t-call="website.layout">
+          <t t-set="logged_partner" t-value="request.env['website.visitor']._get_visitor_from_request().partner_id"/>
+          <t t-set="contactus_form_values" t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"/>
+          <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values"/>
+          <div id="wrap" class="oe_structure oe_empty">
+            <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
+              <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 0;"/>
+              <div class="o_we_bg_filter bg-black-50"/>
+              <div class="container">
+                <h1>Contact us</h1>
+              </div>
+            </section>
+            <section class="s_text_block pt40 pb40 o_colored_level" data-snippet="s_text_block">
+              <div class="s_allow_columns container">
+                <div class="row">
+                  <div class="col-lg-7 mt-4 mt-lg-0 o_colored_level">
+                    <p class="lead">
+                                    Contact us about anything related to our company or services.<br/>
+                                    We'll do our best to get back to you as soon as possible.
+                                </p>
+                    <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                      <div class="container">
+                        <form id="contactus_form" action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="crm.lead" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-pre-fill="true">
+                          <div class="s_website_form_rows row s_col_no_bgcolor">
+                            <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="char">
+                              <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="ozh20uypdxie">
+                                  <span class="s_website_form_label_content">Your Name</span>
+                                  <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <div class="col-sm">
+                                  <input class="form-control s_website_form_input" type="text" name="contact_name" required="1" data-fill-with="name" id="ozh20uypdxie"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div data-name="Field" class="s_website_form_field mb-3 col-12" data-type="tel">
+                              <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="ofd9p2b7jjjh">
+                                  <span class="s_website_form_label_content">Phone Number</span>
+                                </label>
+                                <div class="col-sm">
+                                  <input class="form-control s_website_form_input" type="tel" name="phone" data-fill-with="phone" id="ofd9p2b7jjjh"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="email">
+                              <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="o4n264vzoekn">
+                                  <span class="s_website_form_label_content">Your Email</span>
+                                  <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <div class="col-sm">
+                                  <input class="form-control s_website_form_input" type="email" name="email_from" required="1" data-fill-with="email" id="o4n264vzoekn"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="char">
+                              <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="ozz62iv8pfmk">
+                                  <span class="s_website_form_label_content">Your Company</span>
+                                  <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <div class="col-sm">
+                                  <input class="form-control s_website_form_input" type="text" name="partner_name" required="1" data-fill-with="commercial_company_name" id="ozz62iv8pfmk"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_model_required" data-type="char">
+                              <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="opqpcgyft2kl">
+                                  <span class="s_website_form_label_content">Subject</span>
+                                  <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <div class="col-sm">
+                                  <input class="form-control s_website_form_input" type="text" name="name" required="" id="opqpcgyft2kl"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="text">
+                              <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="orkht9n5fror">
+                                  <span class="s_website_form_label_content">Your Question</span>
+                                  <span class="s_website_form_mark"> *</span>
+                                </label>
+                                <div class="col-sm">
+                                  <textarea class="form-control s_website_form_input" name="description" required="1" id="orkht9n5fror" rows="3"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mb-0 py-2 col-12 s_website_form_submit s_website_form_no_submit_label text-end" data-name="Submit Button">
+                              <div style="width: 200px;" class="s_website_form_label"/>
+                              <a href="#" role="button" class="btn btn-primary s_website_form_send">Submit</a>
+                              <span id="s_website_form_result" class="me-2 small text-danger"/>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0 o_colored_level">
+                    <h5>My Company</h5>
+                    <ul class="list-unstyled mb-0 ps-2">
+                      <li>
+                        <i class="fa fa-map-marker fa-fw me-2"/>
+                        <span class="o_force_ltr">3575 Fake Buena Vista Avenue</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-phone fa-fw me-2"/>
+                        <span class="o_force_ltr">+1 555-555-5556</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-1x fa-fw fa-envelope me-2"/>
+                        <span>info@yourcompany.example.com</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </t>
+      </t>
+    </field>
+    <field name="key">website.contactus</field>
+    <field name="name">Contact Us</field>
+    <field name="type">qweb</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="ir_ui_view_2302" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <t name="Homepage" t-name="website.homepage">
+        <t t-call="website.layout">
+          <t t-set="pageName" t-value="'homepage'"/>
+          <div id="wrap" class="oe_structure">
+            <section class="s_cover parallax o_cc o_cc5 o_half_screen_height pt0 pb0 o_colored_level" data-scroll-background-ratio="1.5" data-snippet="s_cover">
+              <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/website.s_cover_default_image&quot;); background-position: 50% 75%;"/>
+              <div class="o_we_bg_filter bg-black-50"/>
+              <div class="container s_allow_columns">
+                <h1 style="text-align: center;">Metal Fabricator</h1>
+                <p class="lead" style="text-align: center;">As a custom metal fabricator, we specialize in creating bespoke metal solutions tailored to your exact specifications.</p>
+                <p style="text-align: center;">
+                  <a class="btn btn-secondary mb-2 o_translate_inline" href="/contactus">Get your project started</a>
+                </p>
+              </div>
+            </section>
+            <section class="s_title o_cc o_cc2 pt64 pb0 o_colored_level" data-vcss="001" data-snippet="s_title">
+              <div class="container s_allow_columns">
+                <h2 style="text-align: left;">All our fabrication services</h2>
+              </div>
+            </section>
+            <section class="s_three_columns o_cc o_cc2 o_colored_level pt0 pb64" data-vxml="001" data-vcss="001" data-snippet="s_three_columns">
+              <div class="container">
+                <div class="row d-flex align-items-stretch">
+                  <div data-name="Card" class="col-lg-4 pt16 pb0">
+                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                      <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
+                        <img src="/unsplash/QTBHypPVPWE/Metal Table legs.jpg?unique=692fa5ab" alt="black and white floor tiles" data-attachment-id="1259" class="o_card_img card-img-top img img-fluid o_we_custom_image"/>
+                      </figure>
+                      <div class="card-body">
+                        <h5 class="card-title">
+        Custom Metal Product&amp;nbsp;<br/></h5>
+                        <p class="card-text">
+        Looking for a unique metal piece? Our expertise lies in <b>custom metal products</b>, where we design and fabricate solutions for any project. Whether you need a functional <b>bike rack</b>, a stunning <b>range hood</b>, or custom <b>table legs</b>, we have the capabilities to create almost anything you can envision.<br/><br/>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-name="Card" class="col-lg-4 pt16 pb16">
+                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                      <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
+                        <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_2" alt="" loading="lazy"/>
+                      </figure>
+                      <div class="card-body">
+                        <h5 class="card-title">
+        All industries&amp;nbsp;<br/></h5>
+                        <p class="card-text">&amp;nbsp;Our expertise extends across diverse industries. We provide custom metal fabrication services for both <b>individuals</b> and <b>businesses</b> in sectors like <b>agriculture</b>, <b>automotive</b>, and <b>pharmaceuticals</b>, ensuring we meet the unique demands of each project.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-name="Card" class="col-lg-4 pt16 pb16">
+                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                      <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
+                        <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_3" alt="" loading="lazy"/>
+                      </figure>
+                      <div class="card-body"><h5 class="card-title">
+        Project&amp;nbsp;<br/></h5><p class="card-text">&amp;nbsp;For larger projects, we offer comprehensive services that include <b>on-site installation</b> and meticulous project management, ensuring a smooth and successful completion from start to finish.</p>&amp;nbsp;<br/></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </t>
+      </t>
+    </field>
+    <field name="key">metal_fabricator.homepage</field>
+    <field name="name">Home</field>
+    <field name="type">qweb</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="ir_ui_view_3504" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <t name="Services" t-name="website.services">
+        <t t-call="website.layout">
+          <div id="wrap" class="">
+            <div class="oe_structure">
+              <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
+                <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 0;"/>
+                <div class="o_we_bg_filter bg-black-50"/>
+                <div class="container">
+                  <h1>Services</h1>
+                </div>
+              </section>
+            </div>
+            <div class="oe_structure">
+              <section class="s_three_columns o_cc o_cc2 o_colored_level pt0 pb64" data-vxml="001" data-vcss="001" data-snippet="s_three_columns">
+                <div class="container">
+                  <div class="row d-flex align-items-stretch">
+                    <div data-name="Card" class="col-lg-4 pt16 pb16">
+                      <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
+                          <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_1" alt="" loading="lazy"/>
+                        </figure>
+                        <div class="card-body">
+                          <h5 class="card-title">
+        22\-08\-25\-Metal\-Fabricator Mini
+    </h5>
+                          <p class="card-text">
+        Combining strength with sophistication, our custom metal products showcase advanced engineering and innovative design, providing solutions that are both durable and aesthetically pleasing.
+    </p>
+                          <span class="d-inline-block mb-4">
+                            <b>Starting at $10,000</b>
+                          </span>
+                          <p>
+                            <a href="#" class="btn btn-primary btn-block mb-0 o_cc o_cc4 o_translate_inline">Configure</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-name="Card" class="col-lg-4 pt16 pb16">
+                      <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
+                          <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_2" alt="" loading="lazy"/>
+                        </figure>
+                        <div class="card-body">
+                          <h5 class="card-title">
+        Koran X
+    </h5>
+                          <p class="card-text">
+        A bold statement in every project, our custom metal designs capture the essence of modern engineering. Built for those who demand excellence in quality and performance.
+    </p>
+                          <span class="d-inline-block mb-4">
+                            <b>Starting at $5,000</b>
+                          </span>
+                          <p>
+                            <a href="#" class="btn btn-primary btn-block mb-0 o_cc o_cc4 o_translate_inline">Configure</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-name="Card" class="col-lg-4 pt16 pb16">
+                      <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
+                          <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_3" alt="" loading="lazy"/>
+                        </figure>
+                        <div class="card-body">
+                          <h5 class="card-title">
+        Koran GT
+    </h5>
+                          <p class="card-text">
+        Engineered for precision, our metal fabrication services deliver unmatched quality and performance. Tailored for your project needs, we promise an exceptional manufacturing experience.
+    </p>
+                          <span class="d-inline-block mb-4">
+                            <b>Starting at $15,000</b>
+                          </span>
+                          <p>
+                            <a href="#" class="btn btn-primary btn-block mb-0 o_cc o_cc4 o_translate_inline">Configure</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_quotes_carousel_wrapper" data-vxml="001" data-vcss="002" data-preview-interaction-enabled="true" data-snippet="s_quotes_carousel">
+                <div class="s_quotes_carousel s_carousel_boxed carousel carousel-dark slide o_cc o_cc2 o_colored_level" data-bs-ride="true" data-bs-interval="10000" id="myQuoteCarousel114289">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/website.s_quotes_carousel_demo_image_0&quot;); background-position: 50% 50%;" data-name="Slide">
+                      <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
+                        <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
+                          <br/>
+                        </div>
+                        <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
+                          <i class="s_blockquote_icon fa fa-quote-right d-block mx-auto rounded bg-o-color-1" role="img"/>
+                        </div>
+                        <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
+                        <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
+                          <img src="/web/image/website.s_quotes_carousel_demo_image_3" class="s_blockquote_avatar img rounded-circle" alt=""/>
+                          <div class="s_blockquote_author">
+                            <span class="o_small">
+                              <strong>Sarah JOHNSON</strong>
+                              <br/>
+                              <span class="text-muted">COO of MyCompany</span>
+                            </span>
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/website.s_quotes_carousel_demo_image_1&quot;); background-position: 50% 50%;" data-name="Slide">
+                      <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
+                        <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
+                          <br/>
+                        </div>
+                        <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
+                          <i class="s_blockquote_icon fa fa-quote-right d-block mx-auto rounded bg-o-color-1" role="img"/>
+                        </div>
+                        <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
+                        <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
+                          <img src="/web/image/website.s_quotes_carousel_demo_image_4" class="s_blockquote_avatar img rounded-circle" alt=""/>
+                          <div class="s_blockquote_author">
+                            <span class="o_small">
+                              <strong>Michael SMITH</strong>
+                              <br/>
+                              <span class="text-muted">CEO of MyCompany</span>
+                            </span>
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/website.s_quotes_carousel_demo_image_2&quot;); background-position: 50% 50%;" data-name="Slide">
+                      <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
+                        <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
+                          <br/>
+                        </div>
+                        <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
+                          <i class="s_blockquote_icon fa fa-quote-right d-block mx-auto rounded bg-o-color-1" role="img"/>
+                        </div>
+                        <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
+                        <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
+                          <img src="/web/image/website.s_quotes_carousel_demo_image_5" class="s_blockquote_avatar img rounded-circle" alt=""/>
+                          <div class="s_blockquote_author">
+                            <span class="o_small">
+                              <strong>Iris DOE</strong>
+                              <br/>
+                              <span class="text-muted">Manager of MyCompany</span>
+                            </span>
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev o_not_editable" aria-label="Previous" title="Previous" data-bs-target="#myQuoteCarousel114289" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"/>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next o_not_editable" aria-label="Next" title="Next" data-bs-target="#myQuoteCarousel114289" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"/>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                  <div class="carousel-indicators s_carousel_indicators_dots o_not_editable">
+                    <button type="button" class="active" aria-label="Carousel indicator" data-bs-target="#myQuoteCarousel114289" data-bs-slide-to="0" aria-current="true"/>
+                    <button type="button" aria-label="Carousel indicator" data-bs-target="#myQuoteCarousel114289" data-bs-slide-to="1"/>
+                    <button type="button" aria-label="Carousel indicator" data-bs-target="#myQuoteCarousel114289" data-bs-slide-to="2"/>
+                  </div>
+                </div>
+              </section>
+              <section class="s_references o_cc o_cc1 pt120 pb112 o_colored_level" data-snippet="s_references">
+                <div class="container">
+                  <h2 style="text-align: center;">
+        Our Valued Clients
+    </h2>
+                  <p style="text-align: center;">
+                    <a class="o_translate_inline" href="#">See our case studies <i class="fa fa-long-arrow-right ms-2"/></a>
+                  </p>
+                  <p>
+                    <br/>
+                  </p>
+                  <div class="row">
+                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
+                      <img src="/web/image/website.s_reference_demo_image_1" class="img img-fluid mx-auto" alt="" loading="lazy"/>
+                    </div>
+                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
+                      <img src="/web/image/website.s_reference_demo_image_2" class="img img-fluid mx-auto" alt="" loading="lazy"/>
+                    </div>
+                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
+                      <img src="/web/image/website.s_reference_demo_image_3" class="img img-fluid mx-auto" alt="" loading="lazy"/>
+                    </div>
+                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
+                      <img src="/web/image/website.s_reference_demo_image_4" class="img img-fluid mx-auto" alt="" loading="lazy"/>
+                    </div>
+                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
+                      <img src="/web/image/website.s_reference_demo_image_5" class="img img-fluid mx-auto" alt="" loading="lazy"/>
+                    </div>
+                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
+                      <img src="/web/image/website.s_reference_default_image_6" class="img img-fluid mx-auto" alt="" loading="lazy"/>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </t>
+      </t>
+    </field>
+    <field name="key">website.services</field>
+    <field name="name">Services</field>
+    <field name="type">qweb</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <function model="ir.ui.view" name="write">
+    <value model="ir.ui.view" eval="obj().env['website'].with_context(website_id=obj().env.ref('website.default_website').id).viewref('website.homepage').id"/>
+    <value model="ir.ui.view" eval="{'arch': obj().env.ref('metal_fabricator.ir_ui_view_2302').arch}"/>
+  </function>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="product_template_8" model="product.template" context="{'create_product_product': False}">
+    <field name="image_1920" type="base64" file="metal_fabricator/static/src/binary/product_template/8-image_1920"/>
+    <field name="name"> Round aluminum tube 0.6</field>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="route_ids" eval="[(6, 0, [ref('purchase_stock.route_warehouse0_buy'), ref('stock.route_warehouse0_mto')])]"/>
+    <field name="purchase_method">receive</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+  <record id="product_template_4" model="product.template" context="{'create_product_product': False}">
+    <field name="image_1920" type="base64" file="metal_fabricator/static/src/binary/product_template/4-image_1920"/>
+    <field name="name">Aluminium Bar 14*14*220</field>
+    <field name="categ_id" ref="product_category_4"/>
+    <field name="route_ids" eval="[(6, 0, [ref('purchase_stock.route_warehouse0_buy'), ref('stock.route_warehouse0_mto')])]"/>
+    <field name="purchase_method">receive</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+  <record id="product_template_7" model="product.template" context="{'create_product_product': False}">
+    <field name="image_1920" type="base64" file="metal_fabricator/static/src/binary/product_template/7-image_1920"/>
+    <field name="name">Aluminium Plate 2mm</field>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="route_ids" eval="[(6, 0, [ref('purchase_stock.route_warehouse0_buy'), ref('stock.route_warehouse0_mto')])]"/>
+    <field name="purchase_method">receive</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+  <record id="appointment_account_payment.default_booking_product_product_template" model="product.template" context="{'create_product_product': False}" forcecreate="1">
+    <field name="image_1920" type="base64" file="metal_fabricator/static/src/binary/product_template/1-image_1920"/>
+    <field name="name">Booking Fees</field>
+    <field name="type">service</field>
+    <field name="categ_id" ref="product.product_category_services"/>
+    <field name="list_price">50.0</field>
+    <field name="purchase_ok" eval="False"/>
+    <field name="responsible_id" ref="base.user_root"/>
+    <field name="route_ids" eval="[(6, 0, [])]"/>
+    <field name="purchase_method">purchase</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+  <record id="product_template_6" model="product.template" context="{'create_product_product': False}">
+    <field name="image_1920" type="base64" file="metal_fabricator/static/src/binary/product_template/6-image_1920"/>
+    <field name="name">Custom Laser Cutting INOX</field>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="route_ids" eval="[(6, 0, [ref('purchase_stock.route_warehouse0_buy'), ref('stock.route_warehouse0_mto')])]"/>
+    <field name="purchase_method">receive</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+  <record id="product_template_3" model="product.template" context="{'create_product_product': False}">
+    <field name="name">Custom Product</field>
+    <field name="categ_id" ref="product_category_6"/>
+    <field name="route_ids" eval="[(6, 0, [ref('stock.route_warehouse0_mto'), ref('mrp.route_warehouse0_manufacture')])]"/>
+    <field name="purchase_method">receive</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+  <record id="product_template_9" model="product.template" context="{'create_product_product': False}">
+    <field name="name">Painting</field>
+    <field name="type">service</field>
+    <field name="categ_id" ref="product.product_category_services"/>
+    <field name="list_price" eval="False"/>
+    <field name="purchase_method">purchase</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+    <!-- <field name="service_to_purchase" eval="True"/> -->
+  </record>
+  <record id="product_template_2" model="product.template" context="{'create_product_product': False}">
+    <field name="name">Project Management &amp; Services</field>
+    <field name="type">service</field>
+    <field name="service_tracking">task_in_project</field>
+    <field name="purchase_method">purchase</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+    <field name="project_template_id" ref="project_project_1"/>
+  </record>
+  <record id="product_template_5" model="product.template" context="{'create_product_product': False}">
+    <field name="image_1920" type="base64" file="metal_fabricator/static/src/binary/product_template/5-image_1920"/>
+    <field name="name">Screw Box 50 4*5</field>
+    <field name="categ_id" ref="product_category_4"/>
+    <field name="purchase_method">receive</field>
+    <field name="service_type">manual</field>
+    <field name="invoice_policy">order</field>
+  </record>
+</odoo>

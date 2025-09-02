@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo auto_sequence="1" noupdate="1">
+  <record id="project_task_7" model="project.task">
+    <field name="name">Production Order &amp; replenishment</field>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="stage_id" ref="project_task_type_2"/>
+    <field name="date_assign">2025-08-25 08:57:52</field>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="partner_id" ref="base_industry_data.res_partner_30"/>
+    <field name="partner_name">Tom Wilson</field>
+    <field name="sale_line_id" ref="sale_order_line_4"/>
+    <field name="sale_order_id" ref="sale_order_1"/>
+  </record>
+  <record id="project_task_5" model="project.task">
+    <field name="name">Confirm All measures</field>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="stage_id" ref="project_task_type_3"/>
+    <field name="date_assign">2025-08-25 08:57:52</field>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="partner_id" ref="base_industry_data.res_partner_30"/>
+    <field name="partner_name">Tom Wilson</field>
+    <field name="sale_line_id" ref="sale_order_line_4"/>
+    <field name="sale_order_id" ref="sale_order_1"/>
+  </record>
+  <record id="project_task_1" model="project.task">
+    <field name="name">Confirm All measures</field>
+    <field name="project_id" ref="project_project_1"/>
+    <field name="stage_id" ref="project_task_type_1"/>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="is_template" eval="True"/>
+  </record>
+  <record id="project_task_6" model="project.task">
+    <field name="name">Drawings &amp; validation</field>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="stage_id" ref="project_task_type_3"/>
+    <field name="date_assign">2025-08-25 08:57:52</field>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="partner_id" ref="base_industry_data.res_partner_30"/>
+    <field name="partner_name">Tom Wilson</field>
+    <field name="sale_line_id" ref="sale_order_line_4"/>
+    <field name="sale_order_id" ref="sale_order_1"/>
+  </record>
+  <record id="project_task_2" model="project.task">
+    <field name="name">Drawings &amp; validation</field>
+    <field name="project_id" ref="project_project_1"/>
+    <field name="stage_id" ref="project_task_type_1"/>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="is_template" eval="True"/>
+  </record>
+  <record id="project_task_3" model="project.task">
+    <field name="name">Production Order &amp; replenishment</field>
+    <field name="project_id" ref="project_project_1"/>
+    <field name="stage_id" ref="project_task_type_1"/>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="is_template" eval="True"/>
+  </record>
+  <record id="project_task_8" model="project.task">
+    <field name="name">On site Installattion</field>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="stage_id" ref="project_task_type_1"/>
+    <field name="date_assign">2025-08-25 08:57:52</field>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="partner_id" ref="base_industry_data.res_partner_30"/>
+    <field name="partner_name">Tom Wilson</field>
+    <field name="sale_line_id" ref="sale_order_line_4"/>
+    <field name="sale_order_id" ref="sale_order_1"/>
+  </record>
+  <record id="project_task_4" model="project.task">
+    <field name="name">On site Installattion</field>
+    <field name="project_id" ref="project_project_1"/>
+    <field name="stage_id" ref="project_task_type_1"/>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="is_template" eval="True"/>
+  </record>
+  <record id="project_task_9" model="project.task">
+    <field name="name">Project Management &amp; Services</field>
+    <field name="description"><![CDATA[<p>Include on-site installation &amp; transport</p>]]></field>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="stage_id" ref="project_task_type_1"/>
+    <field name="display_in_project" eval="True"/>
+    <field name="user_ids" eval="[(6, 0, [])]"/>
+    <field name="partner_id" ref="base_industry_data.res_partner_30"/>
+    <field name="partner_name">Tom Wilson</field>
+    <field name="sale_line_id" ref="sale_order_line_4"/>
+    <field name="sale_order_id" ref="sale_order_1"/>
+  </record>
+</odoo>

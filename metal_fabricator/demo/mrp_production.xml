@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="mrp_production_1" model="mrp.production">
+    <!-- <field name="name">WH/MO/00001</field> -->
+    <field name="origin">S00001</field>
+    <field name="product_id" ref="product_product_3"/>
+    <field name="product_qty">2.0</field>
+    <field name="product_uom_qty">2.0</field>
+    <field name="location_src_id" ref="stock.stock_location_stock"/>
+    <field name="location_dest_id" ref="stock.stock_location_stock"/>
+    <field name="location_final_id" ref="stock.stock_location_stock"/>
+    <field name="date_deadline">2025-08-25 08:57:52</field>
+    <field name="date_start">2025-08-25 07:57:52</field>
+    <field name="date_finished">2025-08-25 08:57:52</field>
+    <field name="state">confirmed</field>
+    <field name="reservation_state">waiting</field>
+    <field name="user_id" ref="base.user_admin"/>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+  </record>
+  <record id="mrp_production_2" model="mrp.production">
+    <!-- <field name="name">WH/MO/00002</field> -->
+    <field name="origin">S00001</field>
+    <field name="product_id" ref="product_product_3"/>
+    <field name="product_qty">1.0</field>
+    <field name="product_uom_qty">1.0</field>
+    <field name="location_src_id" ref="stock.stock_location_stock"/>
+    <field name="location_dest_id" ref="stock.stock_location_stock"/>
+    <field name="location_final_id" ref="stock.stock_location_stock"/>
+    <field name="date_deadline">2025-08-25 08:57:52</field>
+    <field name="date_start">2025-08-25 07:57:52</field>
+    <field name="date_finished">2025-08-25 08:57:52</field>
+    <field name="state">confirmed</field>
+    <field name="reservation_state">waiting</field>
+    <field name="user_id" ref="base.user_admin"/>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+  </record>
+  <record id="mrp_production_3" model="mrp.production">
+    <!-- <field name="name">WH/MO/00003</field> -->
+    <field name="origin">S00001</field>
+    <field name="product_id" ref="product_product_3"/>
+    <field name="product_qty">1.0</field>
+    <field name="product_uom_qty">1.0</field>
+    <field name="location_src_id" ref="stock.stock_location_stock"/>
+    <field name="location_dest_id" ref="stock.stock_location_stock"/>
+    <field name="location_final_id" ref="stock.stock_location_stock"/>
+    <field name="date_deadline">2025-08-25 08:57:52</field>
+    <field name="date_start">2025-08-25 07:57:52</field>
+    <field name="date_finished">2025-08-25 08:57:52</field>
+    <field name="state">confirmed</field>
+    <field name="reservation_state">waiting</field>
+    <field name="user_id" ref="base.user_admin"/>
+    <field name="project_id" ref="project_project_2"/>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+  </record>
+  <record id="mrp_production_4" model="mrp.production">
+    <!-- <field name="name">WH/MO/00004</field> -->
+    <field name="origin">S00002</field>
+    <field name="product_id" ref="product_product_3"/>
+    <field name="product_qty">1.0</field>
+    <field name="product_uom_qty">1.0</field>
+    <field name="location_src_id" ref="stock.stock_location_stock"/>
+    <field name="location_dest_id" ref="stock.stock_location_stock"/>
+    <field name="location_final_id" ref="stock.stock_location_stock"/>
+    <field name="date_deadline">2025-08-25 09:02:41</field>
+    <field name="date_start">2025-08-25 08:02:41</field>
+    <field name="date_finished">2025-08-25 09:02:41</field>
+    <field name="state">draft</field>
+    <field name="user_id" ref="base.user_admin"/>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+  </record>
+</odoo>

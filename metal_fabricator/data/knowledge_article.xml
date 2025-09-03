@@ -6,7 +6,7 @@
     <p style="text-align: justify;"><span class="h6-fs">This module is designed to streamline your daily production, from start to finish. It helps you manage customer relationships, prepare for production, purchase raw materials, and handle deliveries. With this complete solution, you can boost efficiency and improve customer satisfaction across all your production services.</span></p>
     <div data-embedded="tableOfContent"></div>
     <p style="text-align: justify;"><span class="h6-fs">​</span><br/></p>
-    <h2 data-heading-link-id="1713273487851"><span class="h1-fs"><strong>Basics</strong></span>
+    <h2><span class="h1-fs"><strong>Basics</strong></span>
     </h2>
     <hr/>
     <p>You can access every installed App in your Odoo database on your main dashboard.</p>
@@ -43,11 +43,11 @@
     <div data-oe-role="status" class="o_editor_banner user-select-none o-contenteditable-false lh-1 d-flex align-items-center alert alert-warning pb-0 pt-3">
       <i data-oe-aria-label="Banner Warning" class="o_editor_banner_icon mb-3 fst-normal">⚠️</i>
       <div class="o_editor_banner_content o-contenteditable-true w-100 px-3">
-          <p data-heading-link-id="920047523910">Since Odoo is not a design tool, all necessary drawings must be created in a dedicated drawing program.</p>
+          <p>Since Odoo is not a design tool, all necessary drawings must be created in a dedicated drawing program.</p>
       </div>
     </div>
-    <p data-heading-link-id="199677524056"><br/></p>
-    <h2 data-heading-link-id="635379592770"><span class="h1-fs"><strong>Activities</strong></span><br/></h2>
+    <p><br/></p>
+    <h2><span class="h1-fs"><strong>Activities</strong></span><br/></h2>
     <hr/>
     <p style="text-align: justify;">By uploading this module's demo data, your database has been filled with a few contacts.</p>
     <p style="text-align: justify;">To get a rapid understanding of the processes this Odoo package offers, you can execute the following flows and configure the settings to suit your library.</p>
@@ -59,10 +59,10 @@
       </div>
     </div>
     <ul>
-      <h3 data-heading-link-id="1315072722036"><br/></h3>
+      <h3><br/></h3>
     </ul>
-    <h3 data-heading-link-id="103307885088"><span class="h2-fs">Manage Quotation and Sales Order🤝</span></h3>
-    <h3 style="text-align: justify;" data-heading-link-id="43568747084"><br/></h3>
+    <h3><span class="h2-fs">Manage Quotation and Sales Order🤝</span></h3>
+    <h3 style="text-align: justify;"><br/></h3>
     <p style="text-align: justify;">Use the <b>CRM app</b> to track and manage all necessary contacts, enabling you to generate a professional quotation. From the quotation, you can use the built-in <b>quote calculator</b> to determine a fixed price for each product. This method allows you to offer generic products with a customized price based on each customer's specific needs.</p>
     <p style="text-align: justify;"><span class="h4-fs"><strong>Creating a Sales Order from the CRM</strong></span></p>
     <p style="text-align: justify;">To begin, open the <b>CRM app</b> and follow these steps to create a new sales order.</p>
@@ -112,8 +112,8 @@
           <p>The Project Management tool helps you track multiple tasks, productions, purchases, and planning all in one place. It's especially useful for managing larger projects that span several weeks or months. For smaller requests, there is no need to create a project.</p>
       </div>
     </div>
-    <p data-heading-link-id="393405616837"><a href="https://www.odoo.com/documentation/master/applications/sales/crm.html" class="btn btn-secondary">Sales</a></p>
-    <h3 data-heading-link-id="970757455285"><span class="h2-fs">Manage your Production🛠️</span></h3>
+    <p><a href="https://www.odoo.com/documentation/latest/applications/sales/crm.html" class="btn btn-secondary">Sales</a></p>
+    <h3><span class="h2-fs">Manage your Production🛠️</span></h3>
     <p><br/></p>
     <p style="text-align: justify;">The<b>Manufacturing app</b> is your central hub for production management. Its main purpose is to automatically generate all the necessary <b>sub-assemblies</b> and <b>purchase orders</b> linked to your production needs.</p>
     <div class="o_editor_banner user-select-none lh-1 d-flex align-items-center alert alert-info pb-0 pt-3 o-contenteditable-false" data-oe-role="status">
@@ -149,13 +149,13 @@
           <p style="text-align: justify;">Important Considerations</p>
           <ul>
             <li>
-                <p style="text-align: justify;"><b>Inventory Tracking:</b> In this database, we've decided not to track products using a Warehouse Management System, even though Odoo offers this feature. While inventory tracking improves stock accuracy and forecasting, it also requires more administrative tasks to ensure all operations are validated on time. If you wish to implement inventory tracking, you can find more information in the official documentation.<a href="https://www.odoo.com/documentation/18.0/applications/inventory_and_mrp/inventory/product_management/configure/type.html" class="btn btn-secondary">Inventory tracking</a></p>
+                <p style="text-align: justify;"><b>Inventory Tracking:</b> In this database, we've decided not to track products using a Warehouse Management System, even though Odoo offers this feature. While inventory tracking improves stock accuracy and forecasting, it also requires more administrative tasks to ensure all operations are validated on time. If you wish to implement inventory tracking, you can find more information in the official documentation.<a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory/product_management/configure/type.html" class="btn btn-secondary">Inventory tracking</a></p>
             </li>
-            <li style="text-align: justify;" class="oe-nested"><b>Production Guidance:</b> If you have employees on the shop floor who need guidance on manufacturing processes, consider exploring the <b>Work Order</b>feature and <b>Shopfloor</b> application. They are designed to provide operational support and instructions for your team. See documentation about it if you want to implement.<a class="btn btn-secondary" href="https://www.odoo.com/documentation/18.0/applications/inventory_and_mrp/manufacturing/basic_setup/bill_configuration.html">Work Orders</a></li>
+            <li style="text-align: justify;" class="oe-nested"><b>Production Guidance:</b> If you have employees on the shop floor who need guidance on manufacturing processes, consider exploring the <b>Work Order</b>feature and <b>Shopfloor</b> application. They are designed to provide operational support and instructions for your team. See documentation about it if you want to implement.<a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/manufacturing/basic_setup/bill_configuration.html">Work Orders</a></li>
           </ul>
       </div>
     </div>
-    <div data-heading-link-id="1530372360662" style="text-align: justify;"><span class="h4-fs"><strong>Creating Production Order</strong></span></div>
+    <div style="text-align: justify;"><span class="h4-fs"><strong>Creating Production Order</strong></span></div>
     <div style="text-align: justify;"><br/></div>
     <p style="text-align: justify;">There are two ways to manage production orders, depending on how you've configured your products.</p>
     <ul>
@@ -201,9 +201,9 @@
           <p>For effective planning and follow-up, simply use the pre-set filters available in the search bar.</p>
       </div>
     </div>
-    <p style="text-align: justify;" data-heading-link-id="806863215154"><a class="btn btn-secondary" href="https://www.odoo.com/documentation/18.0/applications/inventory_and_mrp/manufacturing.html">Manufacturing</a></p>
-    <h3 data-heading-link-id="886198280168" style="text-align: justify;"><span class="h2-fs">Track Your Purchases</span>🛒</h3>
-    <h2 style="text-align: justify;" data-heading-link-id="210698835707"><br/></h2>
+    <p style="text-align: justify;"><a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/manufacturing.html">Manufacturing</a></p>
+    <h3 style="text-align: justify;"><span class="h2-fs">Track Your Purchases</span>🛒</h3>
+    <h2 style="text-align: justify;"><br/></h2>
     <p style="text-align: justify;">The Purchase App gives you a complete overview of all your orders. You can see ordered products with their expected delivery dates, as well as all subcontracting and services.</p>
     <div data-oe-role="status" class="o_editor_banner user-select-none lh-1 d-flex align-items-center alert alert-info pb-0 pt-3 o-contenteditable-false">
       <i data-oe-aria-label="Banner Info" class="o_editor_banner_icon mb-3 fst-normal">💡</i>
@@ -254,11 +254,11 @@
     <div class="o_editor_banner user-select-none o-contenteditable-false lh-1 d-flex align-items-center alert alert-success pb-0 pt-3" data-oe-role="status">
       <i class="o_editor_banner_icon mb-3 fst-normal" data-oe-aria-label="Banner Success">✅</i>
       <div class="o_editor_banner_content o-contenteditable-true w-100 px-3">
-          <p>You can make your purchasing more efficient by automating delivery lead times and comparing price offers from different vendors.<a class="btn btn-secondary" href="https://www.odoo.com/documentation/master/applications/inventory_and_mrp/purchase.html">Learn More</a></p>
+          <p>You can make your purchasing more efficient by automating delivery lead times and comparing price offers from different vendors.<a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/purchase.html">Learn More</a></p>
       </div>
     </div>
-    <p data-heading-link-id="806863215154" style="text-align: justify;"><br/></p>
-    <h3 style="text-align: justify;" data-heading-link-id="908945225082"><span class="h2-fs">ManagingReceipts &amp; Deliveries</span>🚛</h3>
+    <p style="text-align: justify;"><br/></p>
+    <h3 style="text-align: justify;"><span class="h2-fs">ManagingReceipts &amp; Deliveries</span>🚛</h3>
     <p style="text-align: justify;"><br/></p>
     <p style="text-align: justify;">From the <b>Inventory App</b>, you can adapt and validate all receipts or deliveries.</p>
     <p style="text-align: justify;">The main <b>Dashboard</b> gives you a real-time overview of all receipts and deliveries, showing which are on time and which are late. You can send reminders to vendors or updates to clients to ensure live, accurate tracking.</p>
@@ -274,21 +274,21 @@
           <p style="text-align: justify;">If you have a partial quantity, update the quantity on the line and validate it. The system will automatically create a <b>backorder</b> for the remaining items.</p>
       </li>
     </ol>
-    <div><a href="https://www.odoo.com/documentation/18.0/applications/inventory_and_mrp/inventory.html" class="btn btn-secondary">Inventory</a></div>
+    <div><a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory.html" class="btn btn-secondary">Inventory</a></div>
     <div><br/></div>
-    <h3 data-heading-link-id="908945225082" style="text-align: justify;"><span class="h2-fs">Invoicing Your Clients💲</span></h3>
+    <h3 style="text-align: justify;"><span class="h2-fs">Invoicing Your Clients💲</span></h3>
     <p><br/></p>
     <p style="text-align: justify;">You can easily invoice clients directly from a <b>Sales Order</b>. Each order allows you to set specific <b>payment terms and conditions</b> tailored to that client or project.</p>
     <p style="text-align: justify;">When you're ready, you have the flexibility to create an invoice for either a full or a partial payment, such as a down payment. All invoices generated are tracked and can be managed through the <b>Invoices app</b>.</p>
-    <p style="text-align: justify;"><a class="btn btn-secondary" href="https://www.odoo.com/documentation/18.0/applications/finance/accounting/customer_invoices.html">Invoicing</a></p>
+    <p style="text-align: justify;"><a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/finance/accounting/customer_invoices.html">Invoicing</a></p>
     <p><br/></p>
-    <h3 style="text-align: justify;" data-heading-link-id="908945225082"><span class="h2-fs">Manage your website🌐</span></h3>
+    <h3 style="text-align: justify;"><span class="h2-fs">Manage your website🌐</span></h3>
     <p><br/></p>
     <p>You can easily tailor your website to provide the information you want for potential leads. When a client contacts you through the contact page, their submission will automatically create a new opportunity in your CRM pipeline.</p>
-    <p><a href="https://www.odoo.com/documentation/master/applications/websites/website.html" class="btn btn-secondary">Website</a></p>
+    <p><a href="https://www.odoo.com/documentation/latest/applications/websites/website.html" class="btn btn-secondary">Website</a></p>
     <p><br/></p>
     <hr/>
-    <h1 data-heading-link-id="566714642390">Do You Want to Go Further?</h1>
+    <h1>Do You Want to Go Further?</h1>
     <p>Once your core operations are running smoothly, consider expanding your toolset:</p>
     <p>Want to do more?</p>
     <ul>
@@ -318,7 +318,6 @@
     <field name="icon">🔨</field>
     <field name="cover_image_id" ref="knowledge_cover_9"/>
     <field name="internal_permission">write</field>
-    <field name="last_edition_uid" ref="base.user_admin"/>
     <field name="is_article_visible_by_everyone" eval="True"/>
     <field name="is_locked" eval="True"/>
     <field name="body"><![CDATA[]]></field>

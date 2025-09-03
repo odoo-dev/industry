@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <function name="action_confirm" model="mrp.production">
+        <value eval="[ref('mrp_production_1'), ref('mrp_production_3'), ref('mrp_production_2')]"/>
+    </function>
+</odoo>

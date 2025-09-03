@@ -54,11 +54,4 @@
     <field name="name"><![CDATA[Down Payments]]></field>
     <field name="product_uom_qty" eval="False"/>
   </record>
-  <record id="sale_order_line_12" model="sale.order.line">
-    <field name="order_id" ref="sale_order_1"/>
-    <field name="analytic_distribution" eval="{'%s'%(ref('account_analytic_account_1')): 100.0}"/>
-    <field name="is_downpayment" eval="True"/>
-    <field name="product_uom_qty" eval="False"/>
-    <field name="price_unit">8488.96</field>
-  </record>
 </odoo>

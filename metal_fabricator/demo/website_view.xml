@@ -9,7 +9,7 @@
           <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values"/>
           <div id="wrap" class="oe_structure oe_empty">
             <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
-              <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/metal_fabricator.ir_attachment_5'); background-position: 50% 0;"/>
+              <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/metal_fabricator.ir_attachment_3'); background-position: 50% 0;"/>
               <div class="o_we_bg_filter bg-black-50"/>
               <div class="container">
                 <h1>Contact us</h1>
@@ -103,19 +103,19 @@
                     </section>
                   </div>
                   <div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0 o_colored_level">
-                    <h5>My Company</h5>
+                    <h t-esc="request.env.company.name"/>
                     <ul class="list-unstyled mb-0 ps-2">
                       <li>
                         <i class="fa fa-map-marker fa-fw me-2"/>
-                        <span class="o_force_ltr">3575 Fake Buena Vista Avenue</span>
+                        <span class="o_force_ltr" t-esc="request.env.company.street"/>
                       </li>
                       <li>
                         <i class="fa fa-phone fa-fw me-2"/>
-                        <span class="o_force_ltr">+1 555-555-5556</span>
+                        <span class="o_force_ltr" t-esc="request.env.company.phone"/>
                       </li>
                       <li>
                         <i class="fa fa-1x fa-fw fa-envelope me-2"/>
-                        <span>info@yourcompany.example.com</span>
+                        <span t-esc="request.env.company.email"/>
                       </li>
                     </ul>
                   </div>
@@ -126,7 +126,7 @@
         </t>
       </t>
     </field>
-    <field name="key">website.contactus</field>
+    <field name="key">metal_fabricator.contactus</field>
     <field name="name">Contact Us</field>
     <field name="type">qweb</field>
     <field name="website_id" ref="website.default_website"/>
@@ -138,7 +138,7 @@
           <t t-set="pageName" t-value="'homepage'"/>
           <div id="wrap" class="oe_structure">
             <section class="s_cover parallax o_cc o_cc5 o_half_screen_height pt0 pb0 o_colored_level" data-scroll-background-ratio="1.5" data-snippet="s_cover">
-              <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_8&quot;); background-position: 50% 75%;"/>
+              <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_4&quot;); background-position: 50% 75%;"/>
               <div class="o_we_bg_filter bg-black-50"/>
               <div class="container s_allow_columns">
                 <h1 style="text-align: center;">Metal Fabricator</h1>
@@ -159,7 +159,7 @@
                   <div data-name="Card" class="col-lg-4 pt16 pb0">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                       <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                        <img src="/web/image/metal_fabricator.ir_attachment_9" alt="black and white floor tiles" data-attachment-id="1259" class="o_card_img card-img-top img img-fluid o_we_custom_image"/>
+                        <img src="/web/image/metal_fabricator.ir_attachment_5" alt="black and white floor tiles" data-attachment-id="1259" class="o_card_img card-img-top img img-fluid o_we_custom_image"/>
                       </figure>
                       <div class="card-body">
                         <h5 class="card-title">
@@ -173,7 +173,7 @@
                   <div data-name="Card" class="col-lg-4 pt16 pb16">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                       <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                        <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_3" alt="" loading="lazy"/>
+                        <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_2" alt="" loading="lazy"/>
                       </figure>
                       <div class="card-body">
                         <h5 class="card-title">
@@ -185,7 +185,7 @@
                   <div data-name="Card" class="col-lg-4 pt16 pb16">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                       <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                        <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_2" alt="" loading="lazy"/>
+                        <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_1" alt="" loading="lazy"/>
                       </figure>
                       <div class="card-body"><h5 class="card-title">
         Project&amp;nbsp;<br/></h5><p class="card-text">&amp;nbsp;For larger projects, we offer comprehensive services that include <b>on-site installation</b> and meticulous project management, ensuring a smooth and successful completion from start to finish.</p>&amp;nbsp;<br/></div>
@@ -203,212 +203,59 @@
     <field name="type">qweb</field>
     <field name="website_id" ref="website.default_website"/>
   </record>
-  <record id="services" model="ir.ui.view">
+  <record id="footer" model="ir.ui.view">
     <field name="arch" type="xml">
-      <t name="Services" t-name="website.services">
-        <t t-call="website.layout">
-          <div id="wrap" class="">
-            <div class="oe_structure">
-              <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
-                <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/metal_fabricator.ir_attachment_5'); background-position: 50% 0;"/>
-                <div class="o_we_bg_filter bg-black-50"/>
-                <div class="container">
-                  <h1>Services</h1>
-                </div>
-              </section>
-            </div>
-            <div class="oe_structure">
-              <section class="s_three_columns o_cc o_cc2 o_colored_level pt0 pb64" data-vxml="001" data-vcss="001" data-snippet="s_three_columns">
-                <div class="container">
-                  <div class="row d-flex align-items-stretch">
-                    <div data-name="Card" class="col-lg-4 pt16 pb16">
-                      <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
-                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                          <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_4" alt="" loading="lazy"/>
-                        </figure>
-                        <div class="card-body">
-                          <h5 class="card-title">
-        22\-08\-25\-Metal\-Fabricator Mini
-    </h5>
-                          <p class="card-text">
-        Combining strength with sophistication, our custom metal products showcase advanced engineering and innovative design, providing solutions that are both durable and aesthetically pleasing.
-    </p>
-                          <span class="d-inline-block mb-4">
-                            <b>Starting at $10,000</b>
-                          </span>
-                          <p>
-                            <a href="#" class="btn btn-primary btn-block mb-0 o_cc o_cc4 o_translate_inline">Configure</a>
-                          </p>
-                        </div>
+      <data inherit_id="website.layout" name="Descriptive" active="False">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col-lg-2 pt16 pb16">
+                          <a href="/" class="o_footer_logo logo">
+                              <img src="/metal_fabricator/static/description/icon.png" class="img-fluid mx-auto" aria-label="Logo of MyCompany" title="MyCompany" role="img"/>
+                          </a>
                       </div>
-                    </div>
-                    <div data-name="Card" class="col-lg-4 pt16 pb16">
-                      <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
-                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                          <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_3" alt="" loading="lazy"/>
-                        </figure>
-                        <div class="card-body">
-                          <h5 class="card-title">
-        Koran X
-    </h5>
-                          <p class="card-text">
-        A bold statement in every project, our custom metal designs capture the essence of modern engineering. Built for those who demand excellence in quality and performance.
-    </p>
-                          <span class="d-inline-block mb-4">
-                            <b>Starting at $5,000</b>
-                          </span>
-                          <p>
-                            <a href="#" class="btn btn-primary btn-block mb-0 o_cc o_cc4 o_translate_inline">Configure</a>
-                          </p>
-                        </div>
+                      <div class="col-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start pt16 pb16">
+                          <ul class="list-inline mb-0 ms-3">
+                              <li class="list-inline-item"><a href="/">Home</a></li>
+                              <li class="list-inline-item"><a href="#">About us</a></li>
+                              <li class="list-inline-item"><a href="#">Products</a></li>
+                              <li class="list-inline-item"><a href="#">Services</a></li>
+                              <t t-set="configurator_footer_links" t-value="[]"/>
+                              <li t-foreach="configurator_footer_links" t-as="link" class="list-inline-item">
+                                  <a t-att-href="link['href']" t-esc="link['text']"/>
+                              </li>
+                          </ul>
                       </div>
-                    </div>
-                    <div data-name="Card" class="col-lg-4 pt16 pb16">
-                      <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
-                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                          <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_2" alt="" loading="lazy"/>
-                        </figure>
-                        <div class="card-body">
-                          <h5 class="card-title">
-        Koran GT
-    </h5>
-                          <p class="card-text">
-        Engineered for precision, our metal fabrication services deliver unmatched quality and performance. Tailored for your project needs, we promise an exceptional manufacturing experience.
-    </p>
-                          <span class="d-inline-block mb-4">
-                            <b>Starting at $15,000</b>
-                          </span>
-                          <p>
-                            <a href="#" class="btn btn-primary btn-block mb-0 o_cc o_cc4 o_translate_inline">Configure</a>
-                          </p>
-                        </div>
+                      <div class="col-lg-3 pt16 pb16">
+                          <div class="s_social_media text-end no_icon_color o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                              <h5 class="s_social_media_title d-none" contenteditable="true">Follow us</h5>
+                              <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank">
+                                  <i class="fa fa-2x fa-facebook m-1 o_editable_media"/>
+                              </a>
+                              <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank">
+                                  <i class="fa fa-2x fa-twitter m-1 o_editable_media"/>
+                              </a>
+                              <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank">
+                                  <i class="fa fa-2x fa-instagram m-1 o_editable_media"/>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-lg-2 pt16 pb16">
+                          <a href="/contactus" class="btn btn-block btn-primary">Get in touch</a>
                       </div>
                     </div>
                   </div>
-                </div>
               </section>
-              <section class="s_quotes_carousel_wrapper" data-vxml="001" data-vcss="002" data-preview-interaction-enabled="true" data-snippet="s_quotes_carousel">
-                <div class="s_quotes_carousel s_carousel_boxed carousel carousel-dark slide o_cc o_cc2 o_colored_level" data-bs-ride="true" data-bs-interval="10000" id="myQuoteCarousel114289">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_1&quot;); background-position: 50% 50%;" data-name="Slide">
-                      <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
-                        <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
-                          <br/>
-                        </div>
-                        <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
-                          <i class="s_blockquote_icon fa fa-quote-right d-block mx-auto rounded bg-o-color-1" role="img"/>
-                        </div>
-                        <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
-                        <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
-                          <img src="/web/image/metal_fabricator.ir_attachment_1" class="s_blockquote_avatar img rounded-circle" alt=""/>
-                          <div class="s_blockquote_author">
-                            <span class="o_small">
-                              <strong>Sarah JOHNSON</strong>
-                              <br/>
-                              <span class="text-muted">COO of MyCompany</span>
-                            </span>
-                          </div>
-                        </div>
-                      </blockquote>
-                    </div>
-                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_7&quot;); background-position: 50% 50%;" data-name="Slide">
-                      <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
-                        <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
-                          <br/>
-                        </div>
-                        <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
-                          <i class="s_blockquote_icon fa fa-quote-right d-block mx-auto rounded bg-o-color-1" role="img"/>
-                        </div>
-                        <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
-                        <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
-                          <img src="/web/image/metal_fabricator.ir_attachment_7" class="s_blockquote_avatar img rounded-circle" alt=""/>
-                          <div class="s_blockquote_author">
-                            <span class="o_small">
-                              <strong>Michael SMITH</strong>
-                              <br/>
-                              <span class="text-muted">CEO of MyCompany</span>
-                            </span>
-                          </div>
-                        </div>
-                      </blockquote>
-                    </div>
-                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_6&quot;); background-position: 50% 50%;" data-name="Slide">
-                      <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
-                        <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
-                          <br/>
-                        </div>
-                        <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
-                          <i class="s_blockquote_icon fa fa-quote-right d-block mx-auto rounded bg-o-color-1" role="img"/>
-                        </div>
-                        <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
-                        <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
-                          <img src="/web/image/metal_fabricator.ir_attachment_6" class="s_blockquote_avatar img rounded-circle" alt=""/>
-                          <div class="s_blockquote_author">
-                            <span class="o_small">
-                              <strong>Iris DOE</strong>
-                              <br/>
-                              <span class="text-muted">Manager of MyCompany</span>
-                            </span>
-                          </div>
-                        </div>
-                      </blockquote>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev o_not_editable" aria-label="Previous" title="Previous" data-bs-target="#myQuoteCarousel114289" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"/>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next o_not_editable" aria-label="Next" title="Next" data-bs-target="#myQuoteCarousel114289" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"/>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                  <div class="carousel-indicators s_carousel_indicators_dots o_not_editable">
-                    <button type="button" class="active" aria-label="Carousel indicator" data-bs-target="#myQuoteCarousel114289" data-bs-slide-to="0" aria-current="true"/>
-                    <button type="button" aria-label="Carousel indicator" data-bs-target="#myQuoteCarousel114289" data-bs-slide-to="1"/>
-                    <button type="button" aria-label="Carousel indicator" data-bs-target="#myQuoteCarousel114289" data-bs-slide-to="2"/>
-                  </div>
-                </div>
-              </section>
-              <section class="s_references o_cc o_cc1 pt120 pb112 o_colored_level" data-snippet="s_references">
-                <div class="container">
-                  <h2 style="text-align: center;">
-        Our Valued Clients
-    </h2>
-                  <p style="text-align: center;">
-                    <a class="o_translate_inline" href="#">See our case studies <i class="fa fa-long-arrow-right ms-2"/></a>
-                  </p>
-                  <p>
-                    <br/>
-                  </p>
-                  <div class="row">
-                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
-                      <img src="/web/image/website.s_reference_demo_image_1" class="img img-fluid mx-auto" alt="" loading="lazy"/>
-                    </div>
-                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
-                      <img src="/web/image/website.s_reference_demo_image_2" class="img img-fluid mx-auto" alt="" loading="lazy"/>
-                    </div>
-                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
-                      <img src="/web/image/website.s_reference_demo_image_3" class="img img-fluid mx-auto" alt="" loading="lazy"/>
-                    </div>
-                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
-                      <img src="/web/image/website.s_reference_demo_image_4" class="img img-fluid mx-auto" alt="" loading="lazy"/>
-                    </div>
-                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
-                      <img src="/web/image/website.s_reference_demo_image_5" class="img img-fluid mx-auto" alt="" loading="lazy"/>
-                    </div>
-                    <div class="col-6 col-lg-2 pt16 pb16 o_colored_level">
-                      <img src="/web/image/website.s_reference_default_image_6" class="img img-fluid mx-auto" alt="" loading="lazy"/>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
           </div>
-        </t>
-      </t>
+        </xpath>
+      </data>
     </field>
-    <field name="key">website.services</field>
-    <field name="name">Services</field>
+    <field name="inherit_id" ref="website.layout"/>
+    <field name="key">guided_tours.template_footer_descriptive</field>
+    <field name="mode">extension</field>
+    <field name="name">Descriptive</field>
     <field name="type">qweb</field>
     <field name="website_id" ref="website.default_website"/>
   </record>
@@ -419,5 +266,9 @@
   <function model="ir.ui.view" name="write">
     <value model="ir.ui.view" eval="obj().env['website'].with_context(website_id=obj().env.ref('website.default_website').id).viewref('website.contactus').id"/>
     <value model="ir.ui.view" eval="{'arch': obj().env.ref('metal_fabricator.contactus').arch}"/>
+  </function>
+   <function model="ir.ui.view" name="write">
+    <value model="ir.ui.view" eval="obj().env['website'].with_context(website_id=obj().env.ref('website.default_website').id).viewref('website.template_footer_descriptive').id"/>
+    <value model="ir.ui.view" eval="{'arch': obj().env.ref('metal_fabricator.footer').arch}"/>
   </function>
 </odoo>

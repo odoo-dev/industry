@@ -1,29 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odoo auto_sequence="1" noupdate="1">
-  <record id="project_task_1" model="project.task">
-    <field name="name">Confirm All measures</field>
-    <field name="project_id" ref="project_project_1"/>
-    <field name="stage_id" ref="project_task_type_1"/>
-    <field name="is_template" eval="True"/>
-  </record>
-  <record id="project_task_2" model="project.task">
-    <field name="name">Drawings &amp; validation</field>
-    <field name="project_id" ref="project_project_1"/>
-    <field name="stage_id" ref="project_task_type_1"/>
-    <field name="is_template" eval="True"/>
-  </record>
-  <record id="project_task_3" model="project.task">
-    <field name="name">Production Order &amp; replenishment</field>
-    <field name="project_id" ref="project_project_1"/>
-    <field name="stage_id" ref="project_task_type_1"/>
-    <field name="is_template" eval="True"/>
-  </record>
-  <record id="project_task_4" model="project.task">
-    <field name="name">On site Installattion</field>
-    <field name="project_id" ref="project_project_1"/>
-    <field name="stage_id" ref="project_task_type_1"/>
-    <field name="is_template" eval="True"/>
-  </record>
+<odoo noupdate="1">
   <record id="project_task_5" model="project.task">
     <field name="name">Confirm All measures</field>
     <field name="project_id" ref="project_project_2"/>

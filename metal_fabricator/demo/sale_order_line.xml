@@ -60,6 +60,5 @@
     <field name="is_downpayment" eval="True"/>
     <field name="product_uom_qty" eval="False"/>
     <field name="price_unit">8488.96</field>
-    <!-- <field name="extra_tax_data">{'discount': 0.0, 'quantity': 1.0, 'price_unit': 8488.960000000001, 'currency_id': 125, 'computation_key': 'down_payment,1', 'manual_tax_amounts': {'5': {'tax_amount_currency': 1782.67, 'base_amount_currency': 8488.960000000001}}}</field> -->
   </record>
 </odoo>

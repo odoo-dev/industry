@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-  <record id="ir_ui_view_3576" model="ir.ui.view">
+  <record id="contactus" model="ir.ui.view">
     <field name="arch" type="xml">
       <t name="Contact Us" t-name="website.contactus">
         <t t-call="website.layout">
@@ -9,7 +9,7 @@
           <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values"/>
           <div id="wrap" class="oe_structure oe_empty">
             <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
-              <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 0;"/>
+              <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/metal_fabricator.ir_attachment_5'); background-position: 50% 0;"/>
               <div class="o_we_bg_filter bg-black-50"/>
               <div class="container">
                 <h1>Contact us</h1>
@@ -131,14 +131,14 @@
     <field name="type">qweb</field>
     <field name="website_id" ref="website.default_website"/>
   </record>
-  <record id="ir_ui_view_2302" model="ir.ui.view">
+  <record id="homepage" model="ir.ui.view">
     <field name="arch" type="xml">
       <t name="Homepage" t-name="website.homepage">
         <t t-call="website.layout">
           <t t-set="pageName" t-value="'homepage'"/>
           <div id="wrap" class="oe_structure">
             <section class="s_cover parallax o_cc o_cc5 o_half_screen_height pt0 pb0 o_colored_level" data-scroll-background-ratio="1.5" data-snippet="s_cover">
-              <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/website.s_cover_default_image&quot;); background-position: 50% 75%;"/>
+              <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_8&quot;); background-position: 50% 75%;"/>
               <div class="o_we_bg_filter bg-black-50"/>
               <div class="container s_allow_columns">
                 <h1 style="text-align: center;">Metal Fabricator</h1>
@@ -159,7 +159,7 @@
                   <div data-name="Card" class="col-lg-4 pt16 pb0">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                       <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                        <img src="/unsplash/QTBHypPVPWE/Metal Table legs.jpg?unique=692fa5ab" alt="black and white floor tiles" data-attachment-id="1259" class="o_card_img card-img-top img img-fluid o_we_custom_image"/>
+                        <img src="/web/image/metal_fabricator.ir_attachment_9" alt="black and white floor tiles" data-attachment-id="1259" class="o_card_img card-img-top img img-fluid o_we_custom_image"/>
                       </figure>
                       <div class="card-body">
                         <h5 class="card-title">
@@ -173,7 +173,7 @@
                   <div data-name="Card" class="col-lg-4 pt16 pb16">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                       <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                        <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_2" alt="" loading="lazy"/>
+                        <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_3" alt="" loading="lazy"/>
                       </figure>
                       <div class="card-body">
                         <h5 class="card-title">
@@ -185,7 +185,7 @@
                   <div data-name="Card" class="col-lg-4 pt16 pb16">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                       <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                        <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_3" alt="" loading="lazy"/>
+                        <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_2" alt="" loading="lazy"/>
                       </figure>
                       <div class="card-body"><h5 class="card-title">
         Project&amp;nbsp;<br/></h5><p class="card-text">&amp;nbsp;For larger projects, we offer comprehensive services that include <b>on-site installation</b> and meticulous project management, ensuring a smooth and successful completion from start to finish.</p>&amp;nbsp;<br/></div>
@@ -203,14 +203,14 @@
     <field name="type">qweb</field>
     <field name="website_id" ref="website.default_website"/>
   </record>
-  <record id="ir_ui_view_3504" model="ir.ui.view">
+  <record id="services" model="ir.ui.view">
     <field name="arch" type="xml">
       <t name="Services" t-name="website.services">
         <t t-call="website.layout">
           <div id="wrap" class="">
             <div class="oe_structure">
               <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
-                <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 0;"/>
+                <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/metal_fabricator.ir_attachment_5'); background-position: 50% 0;"/>
                 <div class="o_we_bg_filter bg-black-50"/>
                 <div class="container">
                   <h1>Services</h1>
@@ -224,7 +224,7 @@
                     <div data-name="Card" class="col-lg-4 pt16 pb16">
                       <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                         <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                          <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_1" alt="" loading="lazy"/>
+                          <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_4" alt="" loading="lazy"/>
                         </figure>
                         <div class="card-body">
                           <h5 class="card-title">
@@ -245,7 +245,7 @@
                     <div data-name="Card" class="col-lg-4 pt16 pb16">
                       <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                         <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                          <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_2" alt="" loading="lazy"/>
+                          <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_3" alt="" loading="lazy"/>
                         </figure>
                         <div class="card-body">
                           <h5 class="card-title">
@@ -266,7 +266,7 @@
                     <div data-name="Card" class="col-lg-4 pt16 pb16">
                       <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
                         <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                          <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_3" alt="" loading="lazy"/>
+                          <img class="o_card_img card-img-top" src="/web/image/metal_fabricator.ir_attachment_2" alt="" loading="lazy"/>
                         </figure>
                         <div class="card-body">
                           <h5 class="card-title">
@@ -290,7 +290,7 @@
               <section class="s_quotes_carousel_wrapper" data-vxml="001" data-vcss="002" data-preview-interaction-enabled="true" data-snippet="s_quotes_carousel">
                 <div class="s_quotes_carousel s_carousel_boxed carousel carousel-dark slide o_cc o_cc2 o_colored_level" data-bs-ride="true" data-bs-interval="10000" id="myQuoteCarousel114289">
                   <div class="carousel-inner">
-                    <div class="carousel-item active oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/website.s_quotes_carousel_demo_image_0&quot;); background-position: 50% 50%;" data-name="Slide">
+                    <div class="carousel-item active oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_1&quot;); background-position: 50% 50%;" data-name="Slide">
                       <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
                         <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
                           <br/>
@@ -300,7 +300,7 @@
                         </div>
                         <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
                         <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
-                          <img src="/web/image/website.s_quotes_carousel_demo_image_3" class="s_blockquote_avatar img rounded-circle" alt=""/>
+                          <img src="/web/image/metal_fabricator.ir_attachment_1" class="s_blockquote_avatar img rounded-circle" alt=""/>
                           <div class="s_blockquote_author">
                             <span class="o_small">
                               <strong>Sarah JOHNSON</strong>
@@ -311,7 +311,7 @@
                         </div>
                       </blockquote>
                     </div>
-                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/website.s_quotes_carousel_demo_image_1&quot;); background-position: 50% 50%;" data-name="Slide">
+                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_7&quot;); background-position: 50% 50%;" data-name="Slide">
                       <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
                         <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
                           <br/>
@@ -321,7 +321,7 @@
                         </div>
                         <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
                         <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
-                          <img src="/web/image/website.s_quotes_carousel_demo_image_4" class="s_blockquote_avatar img rounded-circle" alt=""/>
+                          <img src="/web/image/metal_fabricator.ir_attachment_7" class="s_blockquote_avatar img rounded-circle" alt=""/>
                           <div class="s_blockquote_author">
                             <span class="o_small">
                               <strong>Michael SMITH</strong>
@@ -332,7 +332,7 @@
                         </div>
                       </blockquote>
                     </div>
-                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/website.s_quotes_carousel_demo_image_2&quot;); background-position: 50% 50%;" data-name="Slide">
+                    <div class="carousel-item oe_img_bg o_bg_img_center pt80 pb80 o_colored_level" style="background-image: url(&quot;/web/image/metal_fabricator.ir_attachment_6&quot;); background-position: 50% 50%;" data-name="Slide">
                       <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_cc o_cc1 o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal o_colored_level" data-vcss="001">
                         <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1">
                           <br/>
@@ -342,7 +342,7 @@
                         </div>
                         <p class="s_blockquote_quote my-auto h4-fs" style="text-align:center;">"Our partnership with this metal fabricator has transformed our production capabilities. Their expertise is unmatched!"</p>
                         <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
-                          <img src="/web/image/website.s_quotes_carousel_demo_image_5" class="s_blockquote_avatar img rounded-circle" alt=""/>
+                          <img src="/web/image/metal_fabricator.ir_attachment_6" class="s_blockquote_avatar img rounded-circle" alt=""/>
                           <div class="s_blockquote_author">
                             <span class="o_small">
                               <strong>Iris DOE</strong>
@@ -414,6 +414,10 @@
   </record>
   <function model="ir.ui.view" name="write">
     <value model="ir.ui.view" eval="obj().env['website'].with_context(website_id=obj().env.ref('website.default_website').id).viewref('website.homepage').id"/>
-    <value model="ir.ui.view" eval="{'arch': obj().env.ref('metal_fabricator.ir_ui_view_2302').arch}"/>
+    <value model="ir.ui.view" eval="{'arch': obj().env.ref('metal_fabricator.homepage').arch}"/>
+  </function>
+  <function model="ir.ui.view" name="write">
+    <value model="ir.ui.view" eval="obj().env['website'].with_context(website_id=obj().env.ref('website.default_website').id).viewref('website.contactus').id"/>
+    <value model="ir.ui.view" eval="{'arch': obj().env.ref('metal_fabricator.contactus').arch}"/>
   </function>
 </odoo>

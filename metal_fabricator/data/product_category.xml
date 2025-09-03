@@ -3,18 +3,9 @@
   <record id="product_category_5" model="product.category">
     <field name="name">Custom cut</field>
   </record>
-  <!-- <record id="product.product_category_expenses" model="product.category" forcecreate="1">
-    <field name="name">Expenses</field>
-  </record> -->
   <record id="product_category_6" model="product.category">
     <field name="name">Finish Products</field>
   </record>
-  <!-- <record id="product.product_category_goods" model="product.category" forcecreate="1">
-    <field name="name">Goods</field>
-  </record>
-  <record id="product.product_category_services" model="product.category" forcecreate="1">
-    <field name="name">Services</field>
-  </record> -->
   <record id="product_category_4" model="product.category">
     <field name="name">Standard Products</field>
   </record>

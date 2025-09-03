@@ -25,7 +25,6 @@
     ],
     'data': [
         'data/ir_attachment_pre.xml',
-        'data/crm_stage.xml',
         'data/knowledge_cover.xml',
         'data/knowledge_article.xml',
         'data/product_attribute.xml',
@@ -48,7 +47,6 @@
         'demo/hr_employee.xml',
         'demo/website.xml',
         'demo/account_analytic_account.xml',
-        'demo/website_view.xml',
         'demo/sale_order.xml',
         'demo/project_project.xml',
         'demo/sale_order_line.xml',
@@ -60,12 +58,14 @@
         'demo/website_page.xml',
         'demo/website_menu.xml',
         'demo/website_theme_apply.xml',
-        # 'demo/sale_order_confirm.xml',
+        'demo/sale_order_confirm.xml',
         'demo/product_supplierinfo.xml',
+        'demo/website_view.xml',
     ],
     'license': 'OPL-1',
     'cloc_exclude': [
         'data/knowledge_article.xml',
+        'demo/website_view.xml',
     ],
     'images': [
         'images/main.png',

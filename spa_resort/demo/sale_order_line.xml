@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo auto_sequence="1" noupdate="1">
+  <record id="sale_order_line_22" model="sale.order.line">
+    <field name="order_id" ref="sale_order_10"/>
+    <field name="product_id" ref="product_product_29"/>
+    <field name="price_unit">25.0</field>
+    <field name="calendar_event_id" ref="calendar_event_7"/>
+  </record>
+  <record id="sale_order_line_23" model="sale.order.line">
+    <field name="name"><![CDATA[Discount 15%]]></field>
+    <field name="order_id" ref="sale_order_10"/>
+    <field name="product_id" ref="product_product_36"/>
+    <field name="price_unit">-3.75</field>
+    <field name="reward_id" ref="loyalty_reward_7"/>
+    <!-- <field name="reward_identifier_code">2090937548</field> -->
+    <!-- <field name="points_cost">1.0</field> -->
+  </record>
+  <!-- <record id="sale_order_line_21" model="sale.order.line">
+    <field name="product_id" ref="loyalty.gift_card_product_50"/>
+    <field name="price_unit">50.0</field>
+  </record> -->
+  <record id="sale_order_line_17" model="sale.order.line">
+    <field name="order_id" ref="sale_order_8"/>
+    <field name="product_id" ref="product_product_27"/>
+    <field name="price_unit">39.0</field>
+  </record>
+  <record id="sale_order_line_18" model="sale.order.line">
+    <field name="order_id" ref="sale_order_8"/>
+    <field name="product_id" ref="product_product_22"/>
+    <field name="price_unit">6.0</field>
+  </record>
+  <record id="sale_order_line_19" model="sale.order.line">
+    <field name="order_id" ref="sale_order_8"/>
+    <field name="product_id" ref="product_product_23"/>
+    <field name="price_unit">4.0</field>
+  </record>
+  <record id="sale_order_line_20" model="sale.order.line">
+    <field name="name"><![CDATA[Discount 100% Discount]]></field>
+    <field name="order_id" ref="sale_order_8"/>
+    <field name="product_id" ref="product_product_37"/>
+    <field name="price_unit">-39.0</field>
+    <field name="reward_id" ref="loyalty_reward_3"/>
+    <!-- <field name="reward_identifier_code">68381849</field> -->
+    <!-- <field name="points_cost">1.0</field> -->
+  </record>
+  <record id="sale_order_line_16" model="sale.order.line">
+    <field name="order_id" ref="sale_order_7"/>
+    <field name="product_id" ref="product_product_29"/>
+    <field name="price_unit">25.0</field>
+    <field name="calendar_event_id" ref="calendar_event_6"/>
+  </record>
+  <!-- <record id="sale_order_line_10" model="sale.order.line">
+    <field name="product_id" ref="product_product_28"/>
+    <field name="price_unit">29.0</field>
+  </record> -->
+  <record id="sale_order_line_1" model="sale.order.line">
+    <field name="order_id" ref="sale_order_1"/>
+    <field name="product_id" ref="product_product_28"/>
+    <field name="price_unit">29.0</field>
+    <field name="calendar_event_id" ref="calendar_event_2"/>
+  </record>
+  <record id="sale_order_line_4" model="sale.order.line">
+    <field name="name"><![CDATA[Discount Free relax time]]></field>
+    <field name="order_id" ref="sale_order_1"/>
+    <field name="product_id" ref="product_product_34"/>
+    <field name="price_unit">-29.0</field>
+    <field name="reward_id" ref="loyalty_reward_5"/>
+    <!-- <field name="reward_identifier_code">1918967843</field> -->
+    <!-- <field name="points_cost">1.0</field> -->
+  </record>
+</odoo>

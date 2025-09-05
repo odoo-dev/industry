@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="ir_attachment_1542" model="ir.attachment">
+    <field name="name">unsplash_NHLS5hOSH0c_.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1542-unsplash_NHLS5hOSH0c_.jpg"/>
+    <field name="url">/unsplash/NHLS5hOSH0c/.jpg</field>
+  </record>
+  <record id="ir_attachment_1541" model="ir.attachment">
+    <field name="name">unsplash_cjOHRcB4XzE_.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1541-unsplash_cjOHRcB4XzE_.jpg"/>
+    <field name="url">/unsplash/cjOHRcB4XzE/.jpg</field>
+  </record>
+  </odoo>

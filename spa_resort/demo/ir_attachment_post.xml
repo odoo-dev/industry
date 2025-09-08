@@ -119,5 +119,12 @@
     <field name="name">website.s_parallax_default_image</field>
     <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/987-website.s_parallax_default_image"/>
     <field name="key">website.s_parallax_default_image</field>
-    </record>
-  </odoo>
+  </record>
+
+
+  <record id="ir_attachment_1104" model="ir.attachment">
+    <field name="name">unsplash_NHLS5hOSH0c_spa wellness.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1104-unsplash_NHLS5hOSH0c_spawellness.jpg"/>
+    <field name="url">/unsplash/NHLS5hOSH0c/spa wellness.jpg</field>
+  </record>
+</odoo>

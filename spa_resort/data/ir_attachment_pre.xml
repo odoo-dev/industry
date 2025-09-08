@@ -10,4 +10,4 @@
     <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1541-unsplash_cjOHRcB4XzE_.jpg"/>
     <field name="url">/unsplash/cjOHRcB4XzE/.jpg</field>
   </record>
-  </odoo>
+</odoo>

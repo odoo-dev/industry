@@ -15,10 +15,11 @@
     <!-- <field name="reward_identifier_code">2090937548</field> -->
     <!-- <field name="points_cost">1.0</field> -->
   </record>
-  <!-- <record id="sale_order_line_21" model="sale.order.line">
+  <record id="sale_order_line_21" model="sale.order.line">
+    <field name="order_id" ref="sale_order_3"/>
     <field name="product_id" ref="loyalty.gift_card_product_50"/>
     <field name="price_unit">50.0</field>
-  </record> -->
+  </record>
   <record id="sale_order_line_17" model="sale.order.line">
     <field name="order_id" ref="sale_order_8"/>
     <field name="product_id" ref="product_product_27"/>
@@ -49,10 +50,11 @@
     <field name="price_unit">25.0</field>
     <field name="calendar_event_id" ref="calendar_event_6"/>
   </record>
-  <!-- <record id="sale_order_line_10" model="sale.order.line">
+  <record id="sale_order_line_10" model="sale.order.line">
+    <field name="order_id" ref="sale_order_2"/>
     <field name="product_id" ref="product_product_28"/>
     <field name="price_unit">29.0</field>
-  </record> -->
+  </record>
   <record id="sale_order_line_1" model="sale.order.line">
     <field name="order_id" ref="sale_order_1"/>
     <field name="product_id" ref="product_product_28"/>

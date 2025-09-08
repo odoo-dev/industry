@@ -3,22 +3,22 @@
   <record id="res_partner_35" model="res.partner">
     <field name="name">BONGO</field>
   </record>
-  <record id="res_partner_36" model="res.partner">
+  <!-- <record id="res_partner_36" model="res.partner">
     <field name="name">Juliette Vandenheede</field>
     <field name="email">juliette.vdheede@gmail.com</field>
     <field name="phone">+32479916812</field>
-  </record>
+  </record> -->
   <record id="res_partner_31" model="res.partner">
     <field name="name">Juliette Vandenheede</field>
     <field name="type">invoice</field>
     <field name="email">juliette.vdheede@gmail.com</field>
     <field name="phone">+32 479 91 68 12</field>
   </record>
-  <record id="res_partner_30" model="res.partner">
+  <!-- <record id="res_partner_30" model="res.partner">
     <field name="name">Juliette Vandenheede</field>
     <field name="email">juliette.vdheede@gmail.com</field>
     <field name="phone">+32479916812</field>
-  </record>
+  </record> -->
   <record id="res_partner_9" model="res.partner">
     <field name="name">Juliette Vandenheede</field>
     <field name="email">juliette.vdheede@gmail.com</field>

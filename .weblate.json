@@ -347,6 +347,11 @@
                 "new_base": "solar_installation/i18n/solar_installation.pot"
             },
             {
+                "name": "spa_resort",
+                "filemask": "spa_resort/i18n/*.po",
+                "new_base": "spa_resort/i18n/spa_resort.pot"
+            },
+            {
                 "name": "sports_club",
                 "filemask": "sports_club/i18n/*.po",
                 "new_base": "sports_club/i18n/sports_club.pot"

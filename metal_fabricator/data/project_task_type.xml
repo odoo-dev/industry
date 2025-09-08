@@ -3,16 +3,13 @@
   <record id="project_task_type_1" model="project.task.type">
     <field name="name">To do</field>
     <field name="sequence">1</field>
-    <field name="user_id" ref="base.user_admin"/>
   </record>
   <record id="project_task_type_2" model="project.task.type">
     <field name="name">Ongoing</field>
     <field name="sequence">2</field>
-    <field name="user_id" ref="base.user_admin"/>
   </record>
   <record id="project_task_type_3" model="project.task.type">
     <field name="name">Done</field>
     <field name="sequence">3</field>
-    <field name="user_id" ref="base.user_admin"/>
   </record>
 </odoo>

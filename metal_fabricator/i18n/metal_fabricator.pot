@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~18.4+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-03 13:37+0000\n"
-"PO-Revision-Date: 2025-09-03 13:37+0000\n"
+"POT-Creation-Date: 2025-09-09 06:04+0000\n"
+"PO-Revision-Date: 2025-09-09 06:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,6 @@ msgstr ""
 #. module: metal_fabricator
 #: model:product.template,name:metal_fabricator.product_product_8_product_template
 msgid " Round aluminum tube 0.6"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"\"Our partnership with this metal fabricator has transformed our production "
-"capabilities. Their expertise is unmatched!\""
 msgstr ""
 
 #. module: metal_fabricator
@@ -51,29 +44,10 @@ msgid ""
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "22\\-08\\-25\\-Metal\\-Fabricator Mini"
-msgstr ""
-
-#. module: metal_fabricator
 #: model_terms:ir.ui.view,arch_db:metal_fabricator.homepage
 msgid ""
 "<a class=\"btn btn-secondary mb-2 o_translate_inline\" "
 "href=\"/contactus\">Get your project started</a>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<a class=\"o_translate_inline\" href=\"#\">See our case studies <i "
-"class=\"fa fa-long-arrow-right ms-2\"/></a>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<a href=\"#\" class=\"btn btn-primary btn-block mb-0 o_cc o_cc4 "
-"o_translate_inline\">Configure</a>"
 msgstr ""
 
 #. module: metal_fabricator
@@ -160,27 +134,6 @@ msgid "<b>Validate the order</b> to confirm it."
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.contactus
-msgid ""
-"<i class=\"fa fa-1x fa-fw fa-envelope me-2\"/>\n"
-"                        <span>info@yourcompany.example.com</span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.contactus
-msgid ""
-"<i class=\"fa fa-map-marker fa-fw me-2\"/>\n"
-"                        <span class=\"o_force_ltr\">3575 Fake Buena Vista Avenue</span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.contactus
-msgid ""
-"<i class=\"fa fa-phone fa-fw me-2\"/>\n"
-"                        <span class=\"o_force_ltr\">+1 555-555-5556</span>"
-msgstr ""
-
-#. module: metal_fabricator
 #: model_terms:ir.ui.view,arch_db:metal_fabricator.welcome_article_body
 msgid ""
 "<i class=\"o_editor_banner_icon mb-3 fst-normal\" data-oe-aria-"
@@ -227,44 +180,6 @@ msgstr ""
 msgid ""
 "<i data-oe-aria-label=\"Banner Warning\" class=\"o_editor_banner_icon mb-3 "
 "fst-normal\">⚠️</i>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"/>\n"
-"                    <span class=\"visually-hidden\">Next</span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"/>\n"
-"                    <span class=\"visually-hidden\">Previous</span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"d-inline-block mb-4\">\n"
-"                            <b>Starting at $10,000</b>\n"
-"                          </span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"d-inline-block mb-4\">\n"
-"                            <b>Starting at $15,000</b>\n"
-"                          </span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"d-inline-block mb-4\">\n"
-"                            <b>Starting at $5,000</b>\n"
-"                          </span>"
 msgstr ""
 
 #. module: metal_fabricator
@@ -352,36 +267,6 @@ msgid "<span class=\"h6-fs\">​</span><br/>"
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"o_small\">\n"
-"                              <strong>Iris DOE</strong>\n"
-"                              <br/>\n"
-"                              <span class=\"text-muted\">Manager of MyCompany</span>\n"
-"                            </span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"o_small\">\n"
-"                              <strong>Michael SMITH</strong>\n"
-"                              <br/>\n"
-"                              <span class=\"text-muted\">CEO of MyCompany</span>\n"
-"                            </span>"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"<span class=\"o_small\">\n"
-"                              <strong>Sarah JOHNSON</strong>\n"
-"                              <br/>\n"
-"                              <span class=\"text-muted\">COO of MyCompany</span>\n"
-"                            </span>"
-msgstr ""
-
-#. module: metal_fabricator
 #: model_terms:ir.ui.view,arch_db:metal_fabricator.contactus
 msgid "<span class=\"s_website_form_label_content\">Phone Number</span>"
 msgstr ""
@@ -434,11 +319,8 @@ msgid ""
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"A bold statement in every project, our custom metal designs capture the "
-"essence of modern engineering. Built for those who demand excellence in "
-"quality and performance."
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
+msgid "About us"
 msgstr ""
 
 #. module: metal_fabricator
@@ -494,11 +376,6 @@ msgid ""
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "Carousel indicator"
-msgstr ""
-
-#. module: metal_fabricator
 #: model:sale.order.template.line,name:metal_fabricator.sale_order_template_line_10
 #: model:sale.order.template.line,name:metal_fabricator.sale_order_template_line_11
 #: model:sale.order.template.line,name:metal_fabricator.sale_order_template_line_12
@@ -529,14 +406,6 @@ msgstr ""
 msgid ""
 "Click <strong>\"Create\"</strong> to start a new "
 "<strong>opportunity</strong>."
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"Combining strength with sophistication, our custom metal products showcase "
-"advanced engineering and innovative design, providing solutions that are "
-"both durable and aesthetically pleasing."
 msgstr ""
 
 #. module: metal_fabricator
@@ -585,11 +454,8 @@ msgid "Done"
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid ""
-"Engineered for precision, our metal fabrication services deliver unmatched "
-"quality and performance. Tailored for your project needs, we promise an "
-"exceptional manufacturing experience."
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
+msgid "Follow us"
 msgstr ""
 
 #. module: metal_fabricator
@@ -652,6 +518,16 @@ msgstr ""
 msgid ""
 "From the <b>Inventory App</b>, you can adapt and validate all receipts or "
 "deliveries."
+msgstr ""
+
+#. module: metal_fabricator
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
+msgid "Get in touch"
+msgstr ""
+
+#. module: metal_fabricator
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
+msgid "Home"
 msgstr ""
 
 #. module: metal_fabricator
@@ -718,16 +594,6 @@ msgid "Invoicing"
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "Koran GT"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "Koran X"
-msgstr ""
-
-#. module: metal_fabricator
 #: model_terms:ir.ui.view,arch_db:metal_fabricator.welcome_article_body
 msgid "Learn More"
 msgstr ""
@@ -735,6 +601,11 @@ msgstr ""
 #. module: metal_fabricator
 #: model_terms:ir.ui.view,arch_db:metal_fabricator.welcome_article_body
 msgid "Learn more"
+msgstr ""
+
+#. module: metal_fabricator
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
+msgid "Logo of MyCompany"
 msgstr ""
 
 #. module: metal_fabricator
@@ -763,13 +634,8 @@ msgid "Metal Fabricator"
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.contactus
-msgid "My Company"
-msgstr ""
-
-#. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "Next"
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
+msgid "MyCompany"
 msgstr ""
 
 #. module: metal_fabricator
@@ -822,22 +688,13 @@ msgid "Open the specific receipt or delivery."
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "Our Valued Clients"
-msgstr ""
-
-#. module: metal_fabricator
 #: model:product.template,name:metal_fabricator.product_product_9_product_template
 msgid "Painting"
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
-msgid "Previous"
-msgstr ""
-
-#. module: metal_fabricator
 #: model:sale.order.template.line,name:metal_fabricator.sale_order_template_line_2
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
 msgid "Products"
 msgstr ""
 
@@ -856,16 +713,6 @@ msgstr ""
 msgid ""
 "Remember, the app only generates a receipt for physical goods, not for "
 "services."
-msgstr ""
-
-#. module: metal_fabricator
-#: model:account.analytic.account,name:metal_fabricator.account_analytic_account_1
-msgid "S00001"
-msgstr ""
-
-#. module: metal_fabricator
-#: model:project.project,name:metal_fabricator.project_project_2
-msgid "S00001 - Template Project Management"
 msgstr ""
 
 #. module: metal_fabricator
@@ -891,7 +738,7 @@ msgid ""
 msgstr ""
 
 #. module: metal_fabricator
-#: model_terms:ir.ui.view,arch_db:metal_fabricator.services
+#: model_terms:ir.ui.view,arch_db:metal_fabricator.footer
 msgid "Services"
 msgstr ""
 
@@ -914,7 +761,6 @@ msgstr ""
 
 #. module: metal_fabricator
 #: model:project.project,label_tasks:metal_fabricator.project_project_1
-#: model:project.project,label_tasks:metal_fabricator.project_project_2
 msgid "Tasks"
 msgstr ""
 

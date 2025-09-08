@@ -3,7 +3,7 @@
   <record id="product_product_2" model="product.product">
     <field name="name">Project Management &amp; Services</field>
     <field name="type">service</field>
-    <field name="service_tracking">task_in_project</field>
+    <field name="service_tracking">project_only</field>
     <field name="purchase_method">purchase</field>
     <field name="service_type">manual</field>
     <field name="invoice_policy">order</field>
@@ -69,6 +69,5 @@
     <field name="purchase_method">purchase</field>
     <field name="service_type">manual</field>
     <field name="invoice_policy">order</field>
-    <!-- <field name="service_to_purchase" eval="True"/> -->
   </record>
 </odoo>

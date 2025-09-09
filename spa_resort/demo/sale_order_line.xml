@@ -1,6 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odoo auto_sequence="1" noupdate="1">
+<odoo noupdate="1">
   <record id="sale_order_line_22" model="sale.order.line">
+    <field name="name"><![CDATA[Student Wellness Break
+08/29/2025 at 10:00:00 to
+08/29/2025 at 18:00:00 (Europe/Brussels)]]></field>
     <field name="order_id" ref="sale_order_10"/>
     <field name="product_id" ref="product_product_29"/>
     <field name="price_unit">25.0</field>
@@ -45,17 +48,26 @@
     <!-- <field name="points_cost">1.0</field> -->
   </record>
   <record id="sale_order_line_16" model="sale.order.line">
+    <field name="name"><![CDATA[Student Wellness Break
+09/25/2025 at 10:00:00 to
+09/25/2025 at 18:00:00 (Europe/Brussels)]]></field>
     <field name="order_id" ref="sale_order_7"/>
     <field name="product_id" ref="product_product_29"/>
     <field name="price_unit">25.0</field>
     <field name="calendar_event_id" ref="calendar_event_6"/>
   </record>
   <record id="sale_order_line_10" model="sale.order.line">
+    <field name="name"><![CDATA[Golden Age Retreat (65+)
+08/30/2025 at 10:00:00 to
+08/30/2025 at 18:00:00 (Europe/Brussels)]]></field>
     <field name="order_id" ref="sale_order_2"/>
     <field name="product_id" ref="product_product_28"/>
     <field name="price_unit">29.0</field>
   </record>
   <record id="sale_order_line_1" model="sale.order.line">
+    <field name="name"><![CDATA[Golden Age Retreat (65+)
+08/28/2025 at 10:00:00 to
+08/28/2025 at 18:00:00 (Europe/Brussels)]]></field>
     <field name="order_id" ref="sale_order_1"/>
     <field name="product_id" ref="product_product_28"/>
     <field name="price_unit">29.0</field>

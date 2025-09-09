@@ -1,89 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-  <record id="res_partner_35" model="res.partner">
-    <field name="name">BONGO</field>
-  </record>
-  <!-- <record id="res_partner_36" model="res.partner">
-    <field name="name">Juliette Vandenheede</field>
-    <field name="email">juliette.vdheede@gmail.com</field>
-    <field name="phone">+32479916812</field>
-  </record> -->
-  <record id="res_partner_31" model="res.partner">
-    <field name="name">Juliette Vandenheede</field>
-    <field name="type">invoice</field>
-    <field name="email">juliette.vdheede@gmail.com</field>
-    <field name="phone">+32 479 91 68 12</field>
-  </record>
-  <!-- <record id="res_partner_30" model="res.partner">
-    <field name="name">Juliette Vandenheede</field>
-    <field name="email">juliette.vdheede@gmail.com</field>
-    <field name="phone">+32479916812</field>
-  </record> -->
   <record id="res_partner_9" model="res.partner">
     <field name="name">Juliette Vandenheede</field>
-    <field name="email">juliette.vdheede@gmail.com</field>
-    <field name="phone">+32479916812</field>
-  </record>
-  <record id="res_partner_32" model="res.partner">
-    <field name="name">Demo User</field>
-    <field name="parent_id" ref="res_partner_31"/>
-    <field name="user_id" ref="base.user_admin"/>
     <field name="type">invoice</field>
-    <field name="street">Rue des Bourlottes 9</field>
-    <field name="street2">23</field>
-    <field name="zip">1367</field>
-    <field name="city">Ramillies</field>
-    <field name="email">demo@test.com</field>
+    <field name="email">juliette.vdheede@example.com</field>
+    <field name="phone">+32479916812</field>
   </record>
   <record id="res_partner_41" model="res.partner">
     <field name="name">Martin Test</field>
     <field name="type">invoice</field>
-    <field name="email">martin.test@gmail.com</field>
+    <field name="email">martin.test@example.com</field>
     <field name="phone">+32 476 56 54 23</field>
-  </record>
-  <record id="res_partner_40" model="res.partner">
-    <field name="name">Martin Test</field>
-    <field name="email">martin.test@gmail.com</field>
-    <field name="phone">+32476565423</field>
-  </record>
-  <record id="res_partner_38" model="res.partner">
-    <field name="name">Martin Test</field>
-    <field name="type">invoice</field>
-    <field name="email">martin@test.com</field>
-    <field name="phone">+32 476 61 82 91</field>
-  </record>
-  <record id="res_partner_37" model="res.partner">
-    <field name="name">Martin Test</field>
-    <field name="type">invoice</field>
-    <field name="email">martin@test.com</field>
-    <field name="phone">+32 476 61 82 91</field>
-  </record>
-  <record id="res_partner_34" model="res.partner">
-    <field name="name">Martin Test</field>
-    <field name="type">invoice</field>
-    <field name="email">martin@test.com</field>
-    <field name="phone">+32 476 61 82 91</field>
-  </record>
-  <record id="res_partner_33" model="res.partner">
-    <field name="name">Martin Test</field>
-    <field name="email">martin@test.com</field>
-    <field name="phone">+32476618291</field>
   </record>
   <record id="base.main_partner" model="res.partner" forcecreate="1">
     <field name="is_published" eval="True"/>
-    <field name="image_1920" type="base64" file="spa_resort/static/src/binary/res_partner/1-image_1920"/>
-    <field name="name">MyCompany</field>
-    <field name="website">http://odoo.com</field>
+    <field name="name">Industry Spa Resort</field>
     <field name="street">Rue des Bourlottes 9</field>
     <field name="zip">1367</field>
     <field name="city">Ramillies</field>
-    <field name="email">hello@yourcompany.example.com</field>
+    <field name="email">hello@example.com</field>
     <field name="phone">+1 650-691-3277</field>
     <field name="is_company" eval="True"/>
-  </record>
-  <record id="res_partner_39" model="res.partner">
-    <field name="name">Test</field>
-    <field name="email">test@test.com</field>
-    <field name="phone">+32476618276</field>
   </record>
 </odoo>

@@ -23,17 +23,6 @@
     <field name="invoice_policy">order</field>
     <field name="website_sequence">10095</field>
   </record>
-  <!-- <record id="product_product_35" model="product.product">
-    <field name="name">100% Discount</field>
-    <field name="type">service</field>
-    <field name="sale_ok" eval="False"/>
-    <field name="list_price" eval="False"/>
-    <field name="purchase_ok" eval="False"/>
-    <field name="pos_sequence">34</field>
-    <field name="service_type">manual</field>
-    <field name="invoice_policy">order</field>
-    <field name="website_sequence">10165</field>
-  </record> -->
   <record id="product_product_37" model="product.product">
     <field name="name">100% Discount</field>
     <field name="type">service</field>
@@ -45,17 +34,6 @@
     <field name="invoice_policy">order</field>
     <field name="website_sequence">10175</field>
   </record>
-  <!-- <record id="product_product_19" model="product.product">
-    <field name="name">100% Discount</field>
-    <field name="type">service</field>
-    <field name="sale_ok" eval="False"/>
-    <field name="list_price" eval="False"/>
-    <field name="purchase_ok" eval="False"/>
-    <field name="pos_sequence">19</field>
-    <field name="service_type">manual</field>
-    <field name="invoice_policy">order</field>
-    <field name="website_sequence">10090</field>
-  </record> -->
   <record id="product_product_33" model="product.product">
     <field name="name">100% on specific products</field>
     <field name="type">service</field>
@@ -170,32 +148,19 @@
     <field name="website_sequence">10090</field>
   </record>
   <record id="loyalty.gift_card_product_50" model="product.product" forcecreate="1">
-    <field name="is_published" eval="True"/>
     <field name="image_1920" type="base64" file="spa_resort/static/src/binary/product_product/15-image_1920"/>
     <field name="name">Gift Card</field>
     <field name="type">service</field>
     <field name="categ_id" ref="product.product_category_services"/>
     <field name="list_price">50.0</field>
     <field name="purchase_ok" eval="False"/>
-    <field name="responsible_id" ref="base.user_root"/>
+    <field name="responsible_id" ref="base.user_admin"/>
     <field name="available_in_pos" eval="True"/>
     <field name="pos_sequence">15</field>
     <field name="service_type">manual</field>
     <field name="invoice_policy">order</field>
     <field name="website_sequence">10070</field>
   </record>
-  <!-- <record id="product_product_17" model="product.product">
-    <field name="name">Gift Card</field>
-    <field name="type">service</field>
-    <field name="sale_ok" eval="False"/>
-    <field name="list_price" eval="False"/>
-    <field name="purchase_ok" eval="False"/>
-    <field name="responsible_id" ref="base.user_root"/>
-    <field name="pos_sequence">17</field>
-    <field name="service_type">manual</field>
-    <field name="invoice_policy">order</field>
-    <field name="website_sequence">10080</field>
-  </record> -->
   <record id="product_product_28" model="product.product">
     <field name="image_1920" type="base64" file="spa_resort/static/src/binary/product_product/28-image_1920"/>
     <field name="name">Golden Age Retreat (65+)</field>
@@ -243,16 +208,6 @@
     <field name="invoice_policy">order</field>
     <field name="website_sequence">10120</field>
   </record>
-  <!-- <record id="pos_settle_due.product_product_settle" model="product.product" forcecreate="1">
-    <field name="name">Settle Due</field>
-    <field name="type">service</field>
-    <field name="categ_id" ref="product.product_category_services"/>
-    <field name="responsible_id" ref="base.user_root"/>
-    <field name="pos_sequence">3</field>
-    <field name="service_type">manual</field>
-    <field name="invoice_policy">order</field>
-    <field name="website_sequence">10010</field>
-  </record> -->
   <record id="product_product_29" model="product.product">
     <field name="image_1920" type="base64" file="spa_resort/static/src/binary/product_product/29-image_1920"/>
     <field name="name">Student Wellness Break</field>

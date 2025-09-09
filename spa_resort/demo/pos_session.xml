@@ -2,14 +2,16 @@
 <odoo noupdate="1">
   <record id="pos_session_9" model="pos.session">
     <field name="config_id" ref="point_of_sale.pos_config_retail"/>
-    <field name="name">Thermes &amp; Spa/00005</field>
+    <field name="name">Thermes &amp; Spa/00002</field>
+    <field name="user_id" ref="base.user_admin" />
     <field name="start_at" eval="(datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d 11:00:00')"/>
     <field name="stop_at" eval="(datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d 13:00:00')"/>
     <field name="state">closed</field>
   </record>
   <record id="pos_session_5" model="pos.session">
     <field name="config_id" ref="point_of_sale.pos_config_retail"/>
-    <field name="name">Thermes &amp; Spa/00003</field>
+    <field name="name">Thermes &amp; Spa/00001</field>
+    <field name="user_id" ref="base.user_admin" />
     <field name="start_at" eval="(datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d 11:00:00')"/>
     <field name="stop_at" eval="(datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d 13:00:00')"/>
     <field name="state">closed</field>

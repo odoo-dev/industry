@@ -1,130 +1,70 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
   <record id="ir_attachment_1103" model="ir.attachment">
-    <field name="name">unsplash_ZpKxweXHqkc_spa .jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1103-unsplash_ZpKxweXHqkc_spa.jpg"/>
-    <field name="url">/unsplash/ZpKxweXHqkc/spa .jpg</field>
-    </record>
-  <record id="ir_attachment_1106" model="ir.attachment">
-    <field name="name">unsplash_5CiMFTlMMX0_spa wellness.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1106-unsplash_5CiMFTlMMX0_spawellness.jpg"/>
-    <field name="url">/unsplash/5CiMFTlMMX0/spa wellness.jpg</field>
-    </record>
-  <record id="ir_attachment_1107" model="ir.attachment">
-    <field name="name">unsplash_0MoF-Fe0w0A_spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1107-unsplash_0MoF-Fe0w0A_spa.jpg"/>
-    <field name="url">/unsplash/0MoF-Fe0w0A/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1108" model="ir.attachment">
-    <field name="name">unsplash_UiMkBvDQSAA_spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1108-unsplash_UiMkBvDQSAA_spa.jpg"/>
-    <field name="url">/unsplash/UiMkBvDQSAA/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1109" model="ir.attachment">
-    <field name="name">unsplash_0MoF-Fe0w0A_spa.webp</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1109-unsplash_0MoF-Fe0w0A_spa.webp"/>
-    <field name="url">/unsplash/0MoF-Fe0w0A/1109/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1117" model="ir.attachment">
-    <field name="name">unsplash_xn_MghoT9HE_spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1117-unsplash_xn_MghoT9HE_spa.jpg"/>
-    <field name="url">/unsplash/xn_MghoT9HE/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1120" model="ir.attachment">
-    <field name="name">unsplash_ls2i2Mh0M4Q_pool spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1120-unsplash_ls2i2Mh0M4Q_poolspa.jpg"/>
-    <field name="url">/unsplash/ls2i2Mh0M4Q/pool spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1123" model="ir.attachment">
-    <field name="name">unsplash_xn_MghoT9HE_spa.webp</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1123-unsplash_xn_MghoT9HE_spa.webp"/>
-    <field name="url">/unsplash/xn_MghoT9HE/1123/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1125" model="ir.attachment">
-    <field name="name">unsplash_s8gTi0IbctU_spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1125-unsplash_s8gTi0IbctU_spa.jpg"/>
-    <field name="url">/unsplash/s8gTi0IbctU/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1126" model="ir.attachment">
-    <field name="name">unsplash_s8gTi0IbctU_spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1126-unsplash_s8gTi0IbctU_spa.jpg"/>
-    <field name="url">/unsplash/s8gTi0IbctU/1126/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1127" model="ir.attachment">
-    <field name="name">unsplash_0MoF-Fe0w0A_massage.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1127-unsplash_0MoF-Fe0w0A_massage.jpg"/>
-    <field name="url">/unsplash/0MoF-Fe0w0A/massage.jpg</field>
-    </record>
-  <record id="ir_attachment_1128" model="ir.attachment">
-    <field name="name">unsplash_0MoF-Fe0w0A_massage.webp</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1128-unsplash_0MoF-Fe0w0A_massage.webp"/>
-    <field name="url">/unsplash/0MoF-Fe0w0A/1128/massage.jpg</field>
-    </record>
-  <record id="ir_attachment_1129" model="ir.attachment">
-    <field name="name">unsplash_WAm_HaI4W2E_massages.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1129-unsplash_WAm_HaI4W2E_massages.jpg"/>
-    <field name="url">/unsplash/WAm_HaI4W2E/massages.jpg</field>
-    </record>
-  <record id="ir_attachment_1133" model="ir.attachment">
-    <field name="name">unsplash_WAm_HaI4W2E_massages.webp</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1133-unsplash_WAm_HaI4W2E_massages.webp"/>
-    <field name="url">/unsplash/WAm_HaI4W2E/1133/massages.jpg</field>
-    </record>
-  <record id="ir_attachment_1137" model="ir.attachment">
-    <field name="name">unsplash_7yeqemd-p90_relax massage.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1137-unsplash_7yeqemd-p90_relaxmassage.jpg"/>
-    <field name="url">/unsplash/7yeqemd-p90/relax massage.jpg</field>
-    </record>
-  <record id="ir_attachment_1138" model="ir.attachment">
-    <field name="name">unsplash_UiMkBvDQSAA_spa.webp</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1138-unsplash_UiMkBvDQSAA_spa.webp"/>
-    <field name="url">/unsplash/UiMkBvDQSAA/1138/spa.jpg</field>
-    </record>
-  <record id="ir_attachment_1142" model="ir.attachment">
-    <field name="name">spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1142-spa.jpg"/>
-    <!-- <field name="res_id" ref="ir_attachment_1141"/> -->
-    </record>
-  <record id="ir_attachment_1144" model="ir.attachment">
-    <field name="name">spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1144-spa.jpg"/>
-    <!-- <field name="res_id" ref="ir_attachment_1143"/> -->
-    </record>
-  <record id="ir_attachment_1145" model="ir.attachment">
-    <field name="name">spa.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1145-spa.jpg"/>
-    <!-- <field name="res_id" ref="ir_attachment_1140"/> -->
-    </record>
-  <record id="ir_attachment_1153" model="ir.attachment">
-    <field name="name">massage.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1153-massage.jpg"/>
-    <!-- <field name="res_id" ref="ir_attachment_1152"/> -->
-    </record>
-  <record id="ir_attachment_1155" model="ir.attachment">
-    <field name="name">massage.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1155-massage.jpg"/>
-    <!-- <field name="res_id" ref="ir_attachment_1154"/> -->
-    </record>
-  <record id="ir_attachment_1157" model="ir.attachment">
-    <field name="name">massage.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1157-massage.jpg"/>
-    <!-- <field name="res_id" ref="ir_attachment_1156"/> -->
-    </record>
-  <record id="configurator_1_s_picture_default_image" model="ir.attachment" forcecreate="1">
-    <field name="name">website.s_picture_default_image</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/995-website.s_picture_default_image"/>
-    <field name="key">website.s_picture_default_image</field>
-    </record>
-  <record id="configurator_1_s_parallax_default_image" model="ir.attachment" forcecreate="1">
-    <field name="name">website.s_parallax_default_image</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/987-website.s_parallax_default_image"/>
-    <field name="key">website.s_parallax_default_image</field>
+    <field name="name">ir_attachment_1103.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1103.jpg"/>
+    <field name="public" eval="True"/>
   </record>
-
-
   <record id="ir_attachment_1104" model="ir.attachment">
-    <field name="name">unsplash_NHLS5hOSH0c_spa wellness.jpg</field>
-    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/1104-unsplash_NHLS5hOSH0c_spawellness.jpg"/>
-    <field name="url">/unsplash/NHLS5hOSH0c/spa wellness.jpg</field>
+    <field name="name">ir_attachment_1104.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1104.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1106" model="ir.attachment">
+    <field name="name">ir_attachment_1106.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1106.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1107" model="ir.attachment">
+    <field name="name">ir_attachment_1107.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1107.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1108" model="ir.attachment">
+    <field name="name">ir_attachment_1108.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1108.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1117" model="ir.attachment">
+    <field name="name">ir_attachment_1117.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1117.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1120" model="ir.attachment">
+    <field name="name">ir_attachment_1120.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1120.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1125" model="ir.attachment">
+    <field name="name">ir_attachment_1125.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1125.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1127" model="ir.attachment">
+    <field name="name">ir_attachment_1127.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1127.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1129" model="ir.attachment">
+    <field name="name">ir_attachment_1129.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1129.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="ir_attachment_1137" model="ir.attachment">
+    <field name="name">ir_attachment_1137.jpg</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/ir_attachment_1137.jpg"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="website.configurator_1_s_picture_default_image" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_picture_default_image</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/995-website.s_picture_default_image.jpg"/>
+    <field name="key">website.s_picture_default_image</field>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="website.configurator_1_s_parallax_default_image" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_parallax_default_image</field>
+    <field name="datas" type="base64" file="spa_resort/static/src/binary/ir_attachment/987-website.s_parallax_default_image.jpg"/>
+    <field name="key">website.s_parallax_default_image</field>
+    <field name="public" eval="True"/>
   </record>
 </odoo>

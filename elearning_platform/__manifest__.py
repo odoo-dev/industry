@@ -56,4 +56,5 @@
         'demo/website_view.xml',
     ],
     'images': ['images/main.png'],
+    'post_init_hook': '_disable_view',
 }

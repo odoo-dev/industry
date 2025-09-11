@@ -52,15 +52,15 @@
   <!-- <function model="ir.ui.view" name="write">
     <value model="ir.ui.view" eval="obj().search([('key', '=', 'website.template_header_default')], limit=1).id"/>
     <value eval="{'active': False}"/>
-  </function> -->
+  </function>
 
-  <!-- <function model="ir.ui.view" name="write">
-    <value eval="ref('website.template_header_boxed')"/>
+   <function model="ir.ui.view" name="write" context="{'active_test': False}">
+    <value model="ir.ui.view" eval="obj().search([('key', '=', 'website.template_header_boxed')], limit=1).id"/>
     <value eval="{'active': True}"/>
   </function>
 
-  <function model="ir.ui.view" name="write">
-    <value eval="ref('website.header_navbar_pills_style')"/>
+ <function model="ir.ui.view" name="write" context="{'active_test': False}">
+    <value model="ir.ui.view" eval="obj().search([('key', '=', 'website.header_navbar_pills_style')], limit=1).id"/>
     <value eval="{'active': True}"/>
   </function> -->
 

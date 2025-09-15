@@ -1068,6 +1068,7 @@ class CleanModule:
 <odoo noupdate="1">
     <function name="button_immediate_install" model="ir.module.module" eval="[ref('base.module_payment_demo')]"/>
 </odoo>
+
 """
             
             # Prepare dictionary for manifest demo file entry
@@ -1207,7 +1208,7 @@ class CleanModule:
             if theme_id:
         
                 # Build new <function> entries for each SCSS customization
-                new_function = f"""<function name="button_immediate_install" model="ir.module.module" eval="[ref('{theme_id}', raise_if_not_found=False)]"/>"""
+                new_function = f"""<function name="button_choose_theme" model="ir.module.module" eval="[ref('{theme_id}', raise_if_not_found=False) or ref('base.module_theme_default')]"/>"""
                 
                 # Base structure if file does not exist
                 base_xml = f"""<?xml version='1.0' encoding='UTF-8'?>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
   <record id="product_pricelist_item_2" model="product.pricelist.item">
-    <field name="pricelist_id" eval="False"/>
+    <field name="pricelist_id" ref="product_pricelist_2"/>
     <field name="plan_id" ref="sale_subscription.subscription_plan_year"/>
     <field name="product_id" ref="product_product_13"/>
     <field name="applied_on">1_product</field>

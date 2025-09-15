@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="base.main_company" model="res.company" context="{'disable_company_pricelist_creation': True}" forcecreate="0">
+    <field name="name">Odoo Library</field>
+  </record>
+</odoo>

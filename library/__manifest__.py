@@ -18,6 +18,7 @@
         'website_sale_collect',
     ],
     'data': [
+        # 'data/res_company.xml',
         'data/product_pricelist.xml',
         'data/res_config_settings.xml',
         'data/ir_attachment_pre.xml',
@@ -50,10 +51,11 @@
     'demo': [
         'demo/delivery_carrier.xml',
         'demo/payment_provider_demo.xml',
-        'demo/product_pricelist.xml',
+        # 'demo/product_pricelist.xml',
         'demo/product_product.xml',
         'demo/event_event.xml',
         'demo/website_view.xml',
+        'demo/stock_quant.xml',
         'demo/pos_session.xml',
         'demo/pos_order.xml',
         'demo/pos_order_line.xml',
@@ -61,7 +63,6 @@
         'demo/sale_order.xml',
         'demo/ir_attachment_post.xml',
         'demo/sale_order_line.xml',
-        'demo/stock_quant.xml',
         'demo/website_page.xml',
         'demo/res_partner.xml',
         'demo/hr_employee.xml',

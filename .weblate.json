@@ -342,6 +342,11 @@
                 "new_base": "museum/i18n/museum.pot"
             },
             {
+                "name": "museum_test",
+                "filemask": "museum_test/i18n/*.po",
+                "new_base": "museum_test/i18n/museum_test.pot"
+            },
+            {
                 "name": "non_profit_organization",
                 "filemask": "non_profit_organization/i18n/*.po",
                 "new_base": "non_profit_organization/i18n/non_profit_organization.pot"

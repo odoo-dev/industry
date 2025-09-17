@@ -41,6 +41,7 @@
         'data/product_pricelist_item.xml',
         'data/mail_message.xml',
         'data/knowledge_article_favorite.xml',
+        'data/knowledge_tour.xml',
         'data/ir_filters.xml',
         'data/res_partner_grade.xml',
         'data/stock_rule.xml',
@@ -55,6 +56,7 @@
         'demo/event_event.xml',
         'demo/website_view.xml',
         'demo/pos_session.xml',
+        'demo/res_partner.xml',
         'demo/pos_order.xml',
         'demo/pos_order_line.xml',
         'demo/pos_confirm.xml',
@@ -63,16 +65,21 @@
         'demo/sale_order_line.xml',
         'demo/stock_quant.xml',
         'demo/website_page.xml',
-        'demo/res_partner.xml',
         'demo/hr_employee.xml',
         'demo/website_theme_apply.xml',
         'demo/sale_order_confirm.xml',
         'demo/website.xml',
     ],
     'license': 'OPL-1',
+    'assets': {
+        'web.assets_backend': [
+            'library/static/src/js/my_tour.js',
+        ],
+    },
     'cloc_exclude': [
         'data/knowledge_article.xml',
         'demo/website_view.xml',
+        'static/src/js/my_tour.js',
     ],
     'images': ['images/main.png'],
 }

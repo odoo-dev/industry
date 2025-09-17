@@ -5,7 +5,12 @@
     <field name="employee" eval="True"/>
     <field name="company_id" ref="base.main_company"/>
   </record>
-  <record id="base.main_partner" model="res.partner" forcecreate="1">
+  <record id="res_partner_25" model="res.partner">
+    <field name="name">John1</field>
+    <field name="employee" eval="True"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <!-- <record id="base.main_partner" model="res.partner" forcecreate="1">
     <field name="is_published" eval="True"/>
     <field name="name">Odoo Library</field>
     <field name="country_id" ref="base.be"/>
@@ -16,5 +21,5 @@
     <field name="email">hello@example.com</field>
     <field name="phone">+1 650-691-3277</field>
     <field name="is_company" eval="True"/>
-  </record>
+  </record> -->
 </odoo>

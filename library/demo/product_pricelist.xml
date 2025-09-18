@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-  <record id="product_pricelist_1" model="product.pricelist">
+  <record id="library.default_pricelist" model="product.pricelist">
     <field name="website_id" ref="website.default_website"/>
     <field name="selectable" eval="True"/>
   </record>

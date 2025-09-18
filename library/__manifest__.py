@@ -19,7 +19,6 @@
     ],
     'data': [
         'data/product_pricelist.xml',
-        'data/res_config_settings.xml',
         'data/ir_attachment_pre.xml',
         'data/ir_model_fields.xml',
         'data/ir_ui_view.xml',
@@ -46,6 +45,7 @@
         'data/stock_rule.xml',
         'data/delivery_carrier.xml',
         'data/pos_config.xml',
+        'data/res_config_settings.xml',
     ],
     'demo': [
         'demo/delivery_carrier.xml',

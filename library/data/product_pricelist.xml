@@ -1,9 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-  <record id="product_pricelist_1" model="product.pricelist" forcecreate="False">
-      <field name="name">Default</field>
-  </record>
   <record id="product_pricelist_2" model="product.pricelist">
     <field name="name">Members</field>
   </record>
+  <function model="ir.model.data" name="_update_xmlids">
+    <value model="base" eval="[{
+        'xml_id': 'library.default_pricelist',
+        'record': obj().env['product.pricelist'].search([], limit=1),
+        'noupdate': True,
+    }]"/>
+  </function>
 </odoo>

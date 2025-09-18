@@ -4,6 +4,7 @@
     'category': 'Services',
     'author': 'Odoo S.A.',
     'depends': [
+        'base_industry_data',
         'calendar',
         'documents_sign',
         'hr',

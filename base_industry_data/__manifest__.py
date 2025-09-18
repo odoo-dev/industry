@@ -18,12 +18,12 @@
         'demo/res_partner_category.xml',
     ],
     'license': 'OPL-1',
-    'assets': {
-        'web.assets_backend': [
-            'base_industry_data/static/src/js/my_tour.js',
-        ],
-    },
-    'cloc_exclude': [
-        'static/src/js/my_tour.js',
-    ],
+    # 'assets': {
+    #     'web.assets_backend': [
+    #         'base_industry_data/static/src/js/my_tour.js',
+    #     ],
+    # },
+    # 'cloc_exclude': [
+    #     'static/src/js/my_tour.js',
+    # ],
 }

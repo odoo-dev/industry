@@ -5,10 +5,10 @@
     <field name="employee" eval="True"/>
     <field name="company_id" ref="base.main_company"/>
   </record>
-  <record id="base.main_partner" model="res.partner" forcecreate="1">
-    <field name="is_published" eval="True"/>
+  <record id="base.main_partner" model="res.partner" forcecreate="1" context="{'default_is_company': True}">
     <field name="name">Odoo Library</field>
-    <field name="country_id" ref="base.be"/>
+    <field name="is_published" eval="True"/>
+    <field name="company_id" eval="None"/>
     <field name="website">http://odoo.com</field>
     <field name="street">Rue des Bourlottes 9</field>
     <field name="zip">1367</field>
@@ -17,4 +17,14 @@
     <field name="phone">+1 650-691-3277</field>
     <field name="is_company" eval="True"/>
   </record>
+  <!-- <record id="main_partner" model="res.partner" context="{'default_is_company': True}">
+      <field name="name">My Company</field>
+      <field name="company_id" eval="None"/>
+      <field name="is_company" eval="True"/>
+      <field name="street"></field>
+      <field name="city"></field>
+      <field name="zip"></field>
+      <field name="phone"></field>
+      <field name="image_1920" type="base64" file="base/static/img/res_company_logo.png"/>
+  </record> -->
 </odoo>

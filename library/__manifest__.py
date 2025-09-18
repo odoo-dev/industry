@@ -9,7 +9,6 @@
         'hr',
         'knowledge',
         'partnership',
-
         'pos_enterprise',
         'sale_service',
         'sale_subscription',

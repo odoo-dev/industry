@@ -170,15 +170,15 @@
         <field name="res_model">x_meeting</field>
         <field name="view_mode">form</field>
     </record> -->
-    <record id="meetings_51a400cb-04ba-4687-ad4f-bd09d8700e16" model="ir.actions.act_window">
-        <field name="domain">[('x_companies', 'in', allowed_company_ids)]</field>
+    <!-- <record id="meetings_51a400cb-04ba-4687-ad4f-bd09d8700e16" model="ir.actions.act_window">
+        <field name="domain">['|', ('x_studio_condominium', '=', False), ('x_studio_condominium', 'in', allowed_company_ids)]</field>
         <field name="name">Meetings</field>
         <field name="res_model">calendar.event</field>
         <field name="view_mode">list,form,calendar,gantt,pivot,graph</field>
-    </record>
+    </record> -->
     <record id="meetings_6b93aa76-ac43-4256-8794-6c0a3e846972" model="ir.actions.act_window">
-        <field name="domain">[('x_studio_condominium','in', allowed_company_ids)]</field>
-        <field name="name">Meetings</field>
+        <field name="domain">['|', '|', ('x_studio_condominium', '=', False), ('x_studio_condominium', 'in', allowed_company_ids), ('x_studio_condominium', 'child_of', allowed_company_ids)]</field>
+        <field name="name">Meetings--------</field>
         <field name="res_model">calendar.event</field>
         <field name="view_mode">list,form,calendar,gantt,pivot,graph</field>
     </record>

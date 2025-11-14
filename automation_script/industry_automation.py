@@ -33,6 +33,9 @@ VERSION_PORT_MAP = {
     'saas~18.2': 10002,
     'saas~18.3': 10003,
     'saas~18.4': 10004,
+    '19.0': 10005,
+    '19.1': 10006,
+    '19.2': 10007,
 }
 BASE_URL = "http://localhost:"
 LOGIN = "admin"
@@ -344,7 +347,6 @@ class ProcessDb:
             },
             "id": 4
         }
-
          # Send request to install the module
         response = requests.post(f"{BASE_URL}{port}/jsonrpc", json=payload).json()
 

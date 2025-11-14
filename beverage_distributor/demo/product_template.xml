@@ -54,4 +54,19 @@
     <record id="product_template_71" model="product.template">
         <field name="is_published" eval="True"/>
     </record>
+    <record id="product_template_27" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_28" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_29" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_9" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_55" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
 </odoo>

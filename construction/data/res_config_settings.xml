@@ -8,7 +8,7 @@
         <field name="readonly" eval="True"/>
         <field name="store" eval="False"/>
         <field name="compute"><![CDATA[
-self['x_module_construction_progress_management'] = bool(self.env['ir.module.module'].search_count([('name', '=', 'construction_progress_management')], limit=1))
+self['x_module_construction_progress_management'] = self.env.user.has_group('construction.group_progress_management')
 ]]></field>
     </record>
     <record id="x_setting_field_show_line_numbering" model="ir.model.fields">
@@ -19,7 +19,7 @@ self['x_module_construction_progress_management'] = bool(self.env['ir.module.mod
         <field name="readonly" eval="True"/>
         <field name="store" eval="False"/>
         <field name="compute"><![CDATA[
-self['x_module_construction_show_line_numbering'] = bool(self.env['ir.module.module'].search_count([('name', '=', 'construction_show_line_numbering')], limit=1))
+self['x_module_construction_show_line_numbering'] = self.env.user.has_group('construction.group_show_line_numbering')
 ]]></field>
     </record>
     <record id="x_setting_field_work_items" model="ir.model.fields">
@@ -30,54 +30,214 @@ self['x_module_construction_show_line_numbering'] = bool(self.env['ir.module.mod
         <field name="readonly" eval="True"/>
         <field name="store" eval="False"/>
         <field name="compute"><![CDATA[
-self['x_module_construction_work_items'] = bool(self.env['ir.module.module'].search_count([('name', '=', 'construction_work_items')], limit=1))
+self['x_module_construction_work_items'] = self.env.user.has_group('construction.group_work_items')
 ]]></field>
     </record>
 
     <record id="x_action_activate_progress_management" model="ir.actions.server">
         <field name="code"><![CDATA[
-if not (module := env['ir.module.module'].search([('name', '=', 'construction_progress_management')], limit=1)):
-    action_window = env['ir.module.module'].with_context({'module_name': 'construction_progress_management'}).button_immediate_install_app()
-    env['base.import.module'].with_context(action_window.get('context')).browse(action_window['res_id']).import_module()
-elif module:
-    line_numbering_module = env['ir.module.module'].search([('name', '=', 'construction_line_numbering')], limit=1)
-    if line_numbering_module and not env['ir.module.module'].search_count([('dependencies_id.name', '=', 'construction_line_numbering')], limit=1):
-        (module + line_numbering_module).button_immediate_uninstall()
-    else: module.button_immediate_uninstall()
-action = {'type': 'ir.actions.client', 'tag': 'reload'}
+env.ref('base.group_user')._apply_group(env.ref('construction.group_progress_management'))
+for automation in ['automation_update_progress_increment_on_change', 'automation_update_quantity_increment_on_change']:
+    env.ref(f'construction.{automation}')['active'] = True
+cloc_entries = [
+    'field_sale_order_line_x_delivered_progress',
+    'field_sale_order_line_x_current_progress',
+    'field_sale_order_line_x_is_undeliverable',
+    'field_sale_order_line_x_is_deliverable',
+    'field_sale_order_line_x_display_button',
+    'server_action_sol_update_progress_increment_on_change',
+    'server_action_sol_update_quantity_increment_on_change',
+    'server_action_sol_update_section_progress',
+    'server_action_sol_update_qty_delivered',
+    'server_action_initialize_sales_order_line_sequence_on_sales_order_create',
+]
+for cloc_entry in cloc_entries:
+    entry_model = 'ir.actions.server' if cloc_entry.startswith('server_action') else 'ir.model.fields'
+    if (cloc_entry_id := env.ref(f'__cloc_exclude__.construction_{cloc_entry}', raise_if_not_found=False)):
+        env['ir.model.data'].search([
+            ('name', '=', f'construction_{cloc_entry}'),
+            ('model', '=', entry_model),
+            ('module', '=', '__cloc_exclude__'),
+            ('res_id', '=', cloc_entry_id.id),
+        ], limit=1).unlink()
 ]]></field>
         <field name="model_id" ref="base_setup.model_res_config_settings"/>
         <field name="state">code</field>
-        <field name="name">(Un-)Install Progress Management</field>
+        <field name="name">Install Progress Management</field>
+    </record>
+    <record id="x_action_deactivate_progress_management" model="ir.actions.server">
+        <field name="code"><![CDATA[
+env.ref('base.group_user')._remove_group(env.ref('construction.group_progress_management'))
+for automation in ['automation_update_progress_increment_on_change', 'automation_update_quantity_increment_on_change']:
+    env.ref(f'construction.{automation}')['active'] = False
+cloc_entries = [
+    'field_sale_order_line_x_delivered_progress',
+    'field_sale_order_line_x_current_progress',
+    'field_sale_order_line_x_is_undeliverable',
+    'field_sale_order_line_x_is_deliverable',
+    'field_sale_order_line_x_display_button',
+    'server_action_sol_update_progress_increment_on_change',
+    'server_action_sol_update_quantity_increment_on_change',
+    'server_action_sol_update_section_progress',
+    'server_action_sol_update_qty_delivered',
+]
+if not env.user.has_group('construction.group_show_line_numbering'):
+    cloc_entries.append('server_action_initialize_sales_order_line_sequence_on_sales_order_create')
+for cloc_entry in cloc_entries:
+    cloc_exclude_id = f'construction_{cloc_entry}'
+    entry_model = 'ir.actions.server' if cloc_entry.startswith('server_action') else 'ir.model.fields'
+    if (cloc_entry_id := env.ref(f'construction.{cloc_entry}', raise_if_not_found=False)) and not env.ref(f'__cloc_exclude__.{cloc_exclude_id}', raise_if_not_found=False):
+        env['ir.model.data'].create({
+            'name': cloc_exclude_id,
+            'model': entry_model,
+            'module': '__cloc_exclude__',
+            'res_id': cloc_entry_id.id,
+        })
+]]></field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="state">code</field>
+        <field name="name">Uninstall Progress Management</field>
     </record>
     <record id="x_action_activate_show_line_numbering" model="ir.actions.server">
         <field name="code"><![CDATA[
-if not (module := env['ir.module.module'].search([('name', '=', 'construction_show_line_numbering')], limit=1)):
-    action_window = env['ir.module.module'].with_context({'module_name': 'construction_show_line_numbering', 'data_module': True}).button_immediate_install_app()
-    env['base.import.module'].with_context(action_window.get('context')).browse(action_window['res_id']).import_module()
-elif module:
-    line_numbering_module = env['ir.module.module'].search([('name', '=', 'construction_line_numbering')], limit=1)
-    if line_numbering_module and not env['ir.module.module'].search_count([('dependencies_id.name', '=', 'construction_line_numbering')], limit=1):
-        (module + line_numbering_module).button_immediate_uninstall()
-    else: module.button_immediate_uninstall()
-action = {'type': 'ir.actions.client', 'tag': 'reload'}
+env.ref('base.group_user')._apply_group(env.ref('construction.group_show_line_numbering'))
+cloc_entry = 'server_action_initialize_sales_order_line_sequence_on_sales_order_create'
+if (cloc_entry_id := env.ref(f'__cloc_exclude__.construction_{cloc_entry}', raise_if_not_found=False)):
+    env['ir.model.data'].search([
+        ('name', '=', f'construction_{cloc_entry}'),
+        ('model', '=', 'ir.actions.server'),
+        ('module', '=', '__cloc_exclude__'),
+        ('res_id', '=', cloc_entry_id.id),
+    ], limit=1).unlink()
 ]]></field>
         <field name="model_id" ref="base_setup.model_res_config_settings"/>
         <field name="state">code</field>
-        <field name="name">(Un-)Install Line Numbering</field>
+        <field name="name">Show Line Numbering</field>
+    </record>
+    <record id="x_action_deactivate_show_line_numbering" model="ir.actions.server">
+        <field name="code"><![CDATA[
+env.ref('base.group_user')._remove_group(env.ref('construction.group_show_line_numbering'))
+if not env.user.has_group('construction.group_progress_management'):
+    cloc_entry = 'server_action_initialize_sales_order_line_sequence_on_sales_order_create'
+    cloc_exclude_id = f'construction_{cloc_entry}'
+    if (cloc_entry_id := env.ref(f'construction.{cloc_entry}', raise_if_not_found=False)) and not env.ref(f'__cloc_exclude__.{cloc_exclude_id}', raise_if_not_found=False):
+        env['ir.model.data'].create({
+            'name': cloc_exclude_id,
+            'model': 'ir.actions.server',
+            'module': '__cloc_exclude__',
+            'res_id': cloc_entry_id.id,
+        })
+]]></field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="state">code</field>
+        <field name="name">Hide Line Numbering</field>
     </record>
     <record id="x_action_activate_work_items" model="ir.actions.server">
         <field name="code"><![CDATA[
-if not (module := env['ir.module.module'].search([('name', '=', 'construction_work_items')], limit=1)):
-    action_window = env['ir.module.module'].with_context({'module_name': 'construction_work_items', 'data_module': True}).button_immediate_install_app()
-    env['base.import.module'].with_context(action_window.get('context')).browse(action_window['res_id']).import_module()
-elif module:
-    module.button_immediate_uninstall()
-action = {'type': 'ir.actions.client', 'tag': 'reload'}
+env.ref('base.group_user')._apply_group(env.ref('construction.group_work_items'))
+for automation in [
+    'base_automation_on_product_from_wi_line_change',
+    'base_automation_on_product_from_wi_change',
+    'base_automation_work_item_template_on_write',
+    'base_automation_work_item_on_write_unit_cost_price_change',
+    'base_automation_work_item_on_write',
+    'base_automation_sol_on_write',
+    'base_automation_wi_template_without_product_on_write',
+]:
+    env.ref(f'construction.{automation}')['active'] = True
+for cloc_entry in [
+    'x_margin_field_x_work_item_line',
+    'x_unit_cost_field_x_work_item',
+    'x_unit_price_field_x_work_item',
+    'x_unit_margin_field_x_work_item',
+    'x_work_item_template_id_field_product_product',
+    'server_action_set_work_item_name',
+    'server_action_set_unit_cost_price_from_product',
+    'server_action_set_work_item_as_template',
+    'server_action_create_product_for_wi',
+    'server_action_create_or_modify_wi_on_sol',
+    'server_action_create_associated_work_item',
+    'server_action_open_sol_work_item',
+    'server_action_assign_x_template_work_item_id',
+]:
+    if (cloc_entry_id := env.ref(f'__cloc_exclude__.construction_{cloc_entry}', raise_if_not_found=False)):
+        entry_model = 'ir.actions.server' if cloc_entry.startswith('server_action') else 'ir.model.fields'
+        env['ir.model.data'].search([
+            ('name', '=', f'construction_{cloc_entry}'),
+            ('model', '=', entry_model),
+            ('module', '=', '__cloc_exclude__'),
+            ('res_id', '=', cloc_entry_id.id),
+        ], limit=1).unlink()
 ]]></field>
         <field name="model_id" ref="base_setup.model_res_config_settings"/>
         <field name="state">code</field>
-        <field name="name">(Un-)Install Work Items</field>
+        <field name="name">Install Work Items</field>
+    </record>
+    <record id="x_action_deactivate_work_items" model="ir.actions.server">
+        <field name="code"><![CDATA[
+env.ref('base.group_user')._remove_group(env.ref('construction.group_work_items'))
+for automation in [
+    'base_automation_on_product_from_wi_line_change',
+    'base_automation_on_product_from_wi_change',
+    'base_automation_work_item_template_on_write',
+    'base_automation_work_item_on_write_unit_cost_price_change',
+    'base_automation_work_item_on_write',
+    'base_automation_sol_on_write',
+    'base_automation_wi_template_without_product_on_write',
+]:
+    env.ref(f'construction.{automation}')['active'] = False
+for cloc_entry in [
+    'x_margin_field_x_work_item_line',
+    'x_unit_cost_field_x_work_item',
+    'x_unit_price_field_x_work_item',
+    'x_unit_margin_field_x_work_item',
+    'x_work_item_template_id_field_product_product',
+    'server_action_set_work_item_name',
+    'server_action_set_unit_cost_price_from_product',
+    'server_action_set_work_item_as_template',
+    'server_action_create_product_for_wi',
+    'server_action_create_or_modify_wi_on_sol',
+    'server_action_create_associated_work_item',
+    'server_action_open_sol_work_item',
+    'server_action_assign_x_template_work_item_id',
+]:
+    cloc_exclude_id = f'construction_{cloc_entry}'
+    entry_model = 'ir.actions.server' if cloc_entry.startswith('server_action') else 'ir.model.fields'
+    if (cloc_entry_id := env.ref(f'construction.{cloc_entry}', raise_if_not_found=False)) and not env.ref(f'__cloc_exclude__.{cloc_exclude_id}', raise_if_not_found=False):
+        env['ir.model.data'].create({
+            'name': cloc_exclude_id,
+            'model': entry_model,
+            'module': '__cloc_exclude__',
+            'res_id': cloc_entry_id.id,
+        })
+]]></field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="state">code</field>
+        <field name="name">Uninstall Work Items</field>
+    </record>
+
+
+    <record id="ir_server_action_remove_studio_dependency" model="ir.actions.server">
+        <field name="name">Notify contacts for their matches</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="state">code</field>
+        <field name="usage">ir_cron</field>
+        <field name="code"><![CDATA[
+model.env['ir.module.module.dependency'].search([
+    ('name', 'in', ['base_automation', 'web_studio']),
+    ('module_id', 'any', [('name', '=', 'construction')]),
+]).unlink()
+model.env['ir.cron']._commit_progress(processed=1, remaining=0, deactivate=True)
+]]></field>
+    </record>
+    <record id="ir_cron_remove_studio_dependency" model="ir.cron">
+        <field name="name">Remove Studio Dependency</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="datetime.today().date()+relativedelta(minutes=1)"/>
+        <field name="model_id" ref="base.model_ir_actions_server"/>
+        <field name="state">code</field>
+        <field name="ir_actions_server_id" ref="ir_server_action_remove_studio_dependency"/>
     </record>
 
     <record id="res_config_settings_view_form" model="ir.ui.view">
@@ -93,17 +253,17 @@ action = {'type': 'ir.actions.client', 'tag': 'reload'}
                         <setting id="construction_custom_show_line_numbering" help="Display line number in sale orders and invoices for more clarity with your customers">
                             <field name="x_module_construction_show_line_numbering"/>
                             <button invisible="x_module_construction_show_line_numbering" name="%(x_action_activate_show_line_numbering)d" string="Install" class="btn-secondary" type="action"/>
-                            <button invisible="not x_module_construction_show_line_numbering" name="%(x_action_activate_show_line_numbering)d" string="Uninstall" class="btn-secondary" type="action"/>
-                        </setting>
-                        <setting id="construction_custom_work_items" help="Adjust work item pricing and secure your margin straight from quotations based on components.">
-                            <field name="x_module_construction_work_items"/>
-                            <button invisible="x_module_construction_work_items" name="%(x_action_activate_work_items)d" string="Install" class="btn-secondary" type="action"/>
-                            <button invisible="not x_module_construction_work_items" name="%(x_action_activate_work_items)d" string="Uninstall" class="btn-secondary" type="action"/>
+                            <button invisible="not x_module_construction_show_line_numbering" name="%(x_action_deactivate_show_line_numbering)d" string="Uninstall" class="btn-secondary" type="action"/>
                         </setting>
                         <setting id="construction_custom_progress_management" help="Handle progress delivery at project level and delegate work progress statement approval prior billing.">
                             <field name="x_module_construction_progress_management"/>
                             <button invisible="x_module_construction_progress_management" name="%(x_action_activate_progress_management)d" string="Install" class="btn-secondary" type="action"/>
-                            <button invisible="not x_module_construction_progress_management" name="%(x_action_activate_progress_management)d" string="Uninstall" class="btn-secondary" type="action"/>
+                            <button invisible="not x_module_construction_progress_management" name="%(x_action_deactivate_progress_management)d" string="Uninstall" class="btn-secondary" type="action"/>
+                        </setting>
+                         <setting id="construction_custom_work_items" help="Adjust work item pricing and secure your margin straight from quotations based on components.">
+                            <field name="x_module_construction_work_items"/>
+                            <button invisible="x_module_construction_work_items" name="%(x_action_activate_work_items)d" string="Install" class="btn-secondary" type="action"/>
+                            <button invisible="not x_module_construction_work_items" name="%(x_action_deactivate_work_items)d" string="Uninstall" class="btn-secondary" type="action"/>
                         </setting>
                     </block>
                 </app>
@@ -127,7 +287,12 @@ action = {'type': 'ir.actions.client', 'tag': 'reload'}
             <field name="group_analytic_accounting" eval="1"/>
             <field name="group_uom" eval="1"/>
             <field name="group_sale_order_template" eval="1"/>
+            <field name="group_product_variant" eval="True"/>
         </record>
         <function name="execute" model="res.config.settings" eval="[ref('res_config_construction')]"/>
     </data>
+
+    <function name="run" model="ir.actions.server" context="{'active_model': 'res.config.settings', 'active_id': ref('res_config_construction')}">
+        <value eval="[ref('x_action_activate_progress_management'), ref('x_action_activate_show_line_numbering'), ref('x_action_activate_work_items')]"/>
+    </function>
 </odoo>

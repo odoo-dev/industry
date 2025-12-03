@@ -10,4 +10,9 @@
     <field name="number_of_days">60</field>
     <field name="spreadsheet_template_id" ref="sale_order_spreadsheet_1"/>
   </record>
+  <record id="sale_order_template_2" model="sale.order.template">
+    <field name="name">Carport</field>
+    <field name="require_signature" eval="True"/>
+    <field name="prepayment_percent">1.0</field>
+  </record>
 </odoo>

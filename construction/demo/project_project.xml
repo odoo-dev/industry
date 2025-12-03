@@ -46,6 +46,7 @@
                 str(ref('project_forecast.project_embedded_action_planning')),
                 str(ref('documents_project.project_embedded_action_documents')),
                 str(ref('sale_project.project_embedded_action_sales_orders')),
+                str(ref('construction_embedded_action_sales_order_lines')),
                 str(ref('sale_project.project_embedded_action_invoices')),
                 str(ref('project_purchase.project_embedded_action_purchase_orders')),
                 str(ref('sale_project.project_embedded_action_vendor_bills')),
@@ -61,6 +62,7 @@
                 str(ref('project_forecast.project_embedded_action_planning')),
                 str(ref('documents_project.project_embedded_action_documents')),
                 str(ref('sale_project.project_embedded_action_sales_orders')),
+                str(ref('construction_embedded_action_sales_order_lines')),
                 str(ref('sale_project.project_embedded_action_invoices')),
                 str(ref('project_purchase.project_embedded_action_purchase_orders')),
                 str(ref('sale_project.project_embedded_action_vendor_bills')),
@@ -70,5 +72,19 @@
             ])"
         />
         <field name="embedded_visibility">True</field>
+    </record>
+    <record id="project_project_16" model="project.project">
+        <field name="name">S00003 - Project Template</field>
+        <field name="allow_material" eval="True"/>
+        <field name="allow_billable" eval="True"/>
+        <field name="type_ids" eval="[(6, 0, [ref('planning_project_stage_0'), ref('planning_project_stage_1'), ref('planning_project_stage_2'), ref('planning_project_stage_3'), ref('planning_project_stage_4')])]"/>
+        <field name="allow_task_dependencies" eval="True"/>
+        <field name="allow_milestones" eval="True"/>
+        <field name="stage_id" ref="project.project_project_stage_1"/>
+        <field name="allocated_hours">4.0</field>
+        <field name="allow_quotations" eval="True"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="partner_id" ref="res_partner_30"/>
     </record>
 </odoo>

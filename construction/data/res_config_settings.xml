@@ -37,7 +37,7 @@ self['x_module_construction_work_items'] = self.env.user.has_group('construction
     <record id="x_action_activate_progress_management" model="ir.actions.server">
         <field name="code"><![CDATA[
 env.ref('base.group_user')._apply_group(env.ref('construction.group_progress_management'))
-for automation in ['automation_update_progress_increment_on_change', 'automation_update_quantity_increment_on_change']:
+for automation in ['automation_update_progress_increment_on_change', 'automation_update_quantity_increment_on_change', 'automation_initialize_sales_order_line_sequence_on_sales_order_create']:
     env.ref(f'construction.{automation}')['active'] = True
 cloc_entries = [
     'field_sale_order_line_x_delivered_progress',
@@ -83,6 +83,7 @@ cloc_entries = [
 ]
 if not env.user.has_group('construction.group_show_line_numbering'):
     cloc_entries.append('server_action_initialize_sales_order_line_sequence_on_sales_order_create')
+    env.ref('construction.automation_initialize_sales_order_line_sequence_on_sales_order_create')['active'] = False
 for cloc_entry in cloc_entries:
     cloc_exclude_id = f'construction_{cloc_entry}'
     entry_model = 'ir.actions.server' if cloc_entry.startswith('server_action') else 'ir.model.fields'
@@ -101,6 +102,8 @@ for cloc_entry in cloc_entries:
     <record id="x_action_activate_show_line_numbering" model="ir.actions.server">
         <field name="code"><![CDATA[
 env.ref('base.group_user')._apply_group(env.ref('construction.group_show_line_numbering'))
+env.ref('base.group_portal')._apply_group(env.ref('construction.group_show_line_numbering'))
+env.ref('construction.automation_initialize_sales_order_line_sequence_on_sales_order_create')['active'] = True
 cloc_entry = 'server_action_initialize_sales_order_line_sequence_on_sales_order_create'
 if (cloc_entry_id := env.ref(f'__cloc_exclude__.construction_{cloc_entry}', raise_if_not_found=False)):
     env['ir.model.data'].search([
@@ -117,7 +120,9 @@ if (cloc_entry_id := env.ref(f'__cloc_exclude__.construction_{cloc_entry}', rais
     <record id="x_action_deactivate_show_line_numbering" model="ir.actions.server">
         <field name="code"><![CDATA[
 env.ref('base.group_user')._remove_group(env.ref('construction.group_show_line_numbering'))
+env.ref('base.group_portal')._remove_group(env.ref('construction.group_show_line_numbering'))
 if not env.user.has_group('construction.group_progress_management'):
+    env.ref('construction.automation_initialize_sales_order_line_sequence_on_sales_order_create')['active'] = False
     cloc_entry = 'server_action_initialize_sales_order_line_sequence_on_sales_order_create'
     cloc_exclude_id = f'construction_{cloc_entry}'
     if (cloc_entry_id := env.ref(f'construction.{cloc_entry}', raise_if_not_found=False)) and not env.ref(f'__cloc_exclude__.{cloc_exclude_id}', raise_if_not_found=False):

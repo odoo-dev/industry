@@ -34,16 +34,28 @@ record.write({'partner_ids': partners, 'x_is_user_high_group': is_user_high_grou
         <field name="code"><![CDATA[FIELDS_TO_REMOVE = {'force_send', 'mail_auto_delete', 'model_description', 'force_email_lang'}
 for wizard in records:
     wizard.partner_ids.write({'x_suggest_approval': wizard.x_approval})
-    body_html = wizard.body
     res_ids = wizard._evaluate_res_ids()
     post_values_all = wizard._prepare_mail_values(res_ids)
 
     for res_id, post_values in post_values_all.items():
         for key in FIELDS_TO_REMOVE:
             post_values.pop(key, None)
-        post_values.update({'body_html': body_html, 'x_approval_status': 'pending'})
 
-        env['mail.mail'].sudo().create(post_values)
+        mail = env['mail.mail'].sudo().create(post_values)
+
+        env['x_approval_mail'].create({
+            'x_subject': mail.subject,
+            'x_mail_mail': mail.id,
+            'x_author_id': mail.author_id.id,
+            'x_email_from': mail.email_from,
+            'x_email_to': mail.email_to,
+            'x_email_cc': mail.email_cc,
+            'x_date': mail.date,
+            'x_scheduled_date': mail.scheduled_date,
+            'x_approval_status': 'pending',
+            'x_body_content': mail.body,
+            'x_unrestricted_attachment_ids': mail.attachment_ids
+        })
         ]]>        </field>
         <field name="model_id" ref="mail.model_mail_compose_message"/>
         <field name="state">code</field>
@@ -61,14 +73,42 @@ action = {'type': 'ir.actions.act_url', 'url': f'/web/content/{record.id}?downlo
     </record>
     <record id="action_send_and_close_email" model="ir.actions.server">
         <field name="code">
-            <![CDATA[records.send()
+            <![CDATA[origial = records.x_mail_mail
+if origial:
+    origial.send()
+
+    if origial.state == 'sent':
+        records['x_approval_status'] = 'sent'
+
 action = env['ir.actions.act_window']._for_xml_id('industry_lawyer.approval_email_action')
 ]]>
         </field>
         <field name="name">Industry Lawyer: Send &amp; Close</field>
-        <field name="model_id" ref="mail.model_mail_mail"/>
-        <field name="sequence">1</field>
-        <field name="binding_model_id" ref="mail.model_mail_mail"/>
+        <field name="model_id" ref="model_x_approval_mail"/>
+        <field name="binding_model_id" ref="model_x_approval_mail"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+    </record>
+
+
+
+    <record id="action_mark_outgoing" model="ir.actions.server">
+        <field name="code">
+            <![CDATA[records.write({'x_approval_status': 'pending'})]]>
+        </field>
+        <field name="name">Industry Lawyer: Retry</field>
+        <field name="model_id" ref="model_x_approval_mail"/>
+        <field name="binding_model_id" ref="model_x_approval_mail"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+    </record>
+    <record id="action_cancel" model="ir.actions.server">
+        <field name="code">
+            <![CDATA[records.write({'x_approval_status': 'cancelled'})]]>
+        </field>
+        <field name="name">Industry Lawyer: Cancel</field>
+        <field name="model_id" ref="model_x_approval_mail"/>
+        <field name="binding_model_id" ref="model_x_approval_mail"/>
         <field name="binding_view_types">list</field>
         <field name="state">code</field>
     </record>

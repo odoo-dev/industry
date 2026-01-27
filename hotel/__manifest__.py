@@ -37,9 +37,6 @@
         'demo/sale_order_line.xml',
         'demo/sale_order_post.xml',
         'demo/planning_slot_post.xml',
-        'demo/website_view.xml',
-        'demo/website_theme_apply.xml',
-        'demo/website.xml',
     ],
     'license': 'OEEL-1',
     'cloc_exclude': [

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="page_task_submitted" model="website.page">
+        <field name="name">Task Submitted</field>
+        <field name="key">website_hotel.page_task_submitted</field>
+        <field name="url">/your-task-has-been-submitted</field>
+        <field name="type">qweb</field>
+        <field name="arch" type="xml">
+            <t name="Task Submitted" t-name="website_hotel.page_task_submitted">
+                <t t-call="website.layout">
+                    <div class="oe_structure oe_empty h-100">
+                        <div class="container d-flex flex-column justify-content-center h-100">
+                            <div class="d-flex flex-column align-items-center mb16 p-4 text-center">
+                                <t t-if="request.session.get('form_builder_model_model', '') == 'project.task'"/>
+                                <h1 class="fw-bolder">Thank you!</h1>
+                                <t t-if="task">
+                                    <p class="lead mb-0">Your task has been sent.</p>
+                                    <p class="lead">Our team will get right on it.</p>
+                                    <a class="my-3 border rounded px-4 py-3 bg-100 fs-5 fw-bold shadow-sm text-decoration-none" t-att-title="'Ticket #' + str(task.id)" t-attf-href="/my/task/#{task.id}" t-if="request.session.uid and task.sudo().project_id.id and task.project_privacy_visibility in ['employees', 'portal']">Task #</a><span class="my-3 border rounded px-4 py-3 fs-5 fw-bold shadow-sm" t-else="">Task #</span>
+                                </t>
+                                <a href="/">Go to Homepage</a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

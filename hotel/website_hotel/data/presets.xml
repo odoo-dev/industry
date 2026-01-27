@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <!-- Deactivate fragile view (xpath breaks on some themes) -->
+    <record id="website.footer_copyright_company_name" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <!---->
+    <!-- Presets des vues COW -->
+    <record id="website_sale.carousel_product_indicators_bottom" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website_sale.carousel_product_indicators_left" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.cta_wrapper_boxed" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website_sale.cta_wrapper_large" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.filmstrip_categories_bordered" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.floating_bar" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website_sale.product_buy_now_large" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.product_quantity_large" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.products_attributes_collapsible" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.products_categories_list_collapsible" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale.sidebar_dropzone_at_bottom" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website_sale.sidebar_dropzone_at_top" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website.footer_custom" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website.header_call_to_action" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website.header_call_to_action_large" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website.header_call_to_action_sidebar" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website.header_call_to_action_stretched" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website.header_search_box" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website.header_text_element" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website.template_footer_minimalist" model="ir.ui.view">
+      <field name="active" eval="True"/>
+    </record>
+    <record id="website.template_header_additional_color_primary" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website.template_header_additional_color_secondary" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <record id="website_sale_comparison.accordion_specs_item" model="ir.ui.view">
+      <field name="active" eval="False"/>
+    </record>
+    <!---->
+    <!-- Remove default menus -->
+    <delete model="website.menu" search="[('url', 'in', ['/', '/contactus', '/contact-us']), ('website_id', '=', ref('website.default_website'))]"/>
+    <!---->
+  </data>
+</odoo>

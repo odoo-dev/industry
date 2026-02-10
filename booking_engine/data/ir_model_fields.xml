@@ -238,6 +238,21 @@ for record in self: record['x_city_tax'] = record.x_nights * record.x_guests
     <field name="name">x_sale_order_id</field>
     <field name="readonly" eval="True"/>
   </record>
+  <record id="test1" model="ir.model.fields">
+    <field name="ttype">properties_definition</field>
+    <field name="field_description">Properties Definition</field>
+    <field name="model_id" ref="x_model_city_tax"/>
+    <field name="name">x_property_definition</field>
+  </record>
+  <record id="test" model="ir.model.fields">
+    <field name="ttype">properties</field>
+    <field name="field_description">Properties</field>
+    <field name="model_id" ref="x_model_city_tax"/>
+    <field name="name">x_properties</field>
+    <field name="relation">x_city_tax</field>
+    <field name="relation_field">x_property_definition</field>
+    <field name="relation_field_id" ref="test1"/>
+  </record>
   <record id="x_model_city_tax_x_slot_ids" model="ir.model.fields">
     <field name="ttype">many2many</field>
     <field name="field_description">Slots</field>

@@ -20,7 +20,7 @@ elif record.x_total > 0:
         <field name="name">City Tax</field>
         <field name="res_model">x_city_tax</field>
         <field name="view_mode">form</field>
-        <field name="target">new</field>
+        <!-- <field name="target">new</field> -->
     </record>
     <record id="industry_fix_slot_times" model="ir.actions.server">
         <field name="binding_model_id" ref="planning.model_planning_slot"/>

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
+    <record id="website.homepage" model="ir.ui.view">
+        <field name="active" eval="False" />
+    </record>
+
     <record id="page_home" model="website.page">
         <field name="name">Home</field>
-        <field eval="True" name="is_published"/>
         <field name="key">website_hotel.page_home</field>
         <field name="url">/</field>
-        <field eval="1" name="website_id"/>
+        <field name="website_id" eval="1"/>
         <field name="type">qweb</field>
-        <field eval="True" name="website_indexed"/>
-        <field eval="True" name="header_overlay"/>
+        <field name="is_published" eval="True" />
+        <field name="is_homepage" eval="True" />
+        <field name="website_indexed" eval="True" />
+        <field name="header_overlay" eval="True" />
         <field name="header_color">#</field>
         <field name="header_text_color">text-o-color-4</field>
-        <field eval="True" name="header_visible"/>
-        <field eval="True" name="footer_visible"/>
         <field name="arch" type="xml">
             <t name="Home" t-name="website_hotel.page_home">
                 <t pageName.f="homepage" t-call="website.layout">

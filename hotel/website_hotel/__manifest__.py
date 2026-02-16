@@ -12,14 +12,12 @@
         'delivery',
     ],
     'data': [
-        'data/images.xml',
         'data/presets.xml',
         'data/website.xml',
+        'data/images.xml',
+        'data/menu.xml',
         'data/pages/contactus.xml',
         'data/pages/home.xml',
-        'data/pages/thanks_contact_us.xml',
-        'data/pages/task_submitted.xml',
-        'data/menu.xml',
         'views/website_templates.xml',
     ],
     'assets': {
@@ -27,5 +25,4 @@
             'website_hotel/static/src/scss/primary_variables.scss',
         ],
     },
-    'post_init_hook': 'post_init_hook',
 }

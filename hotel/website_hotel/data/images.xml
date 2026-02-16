@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="img_custom_hotel_image_01" model="ir.attachment">
         <field name="name">envato-labs-image-edit (5).png</field>
         <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-02.webp"/>

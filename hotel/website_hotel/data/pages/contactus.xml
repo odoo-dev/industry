@@ -2,15 +2,12 @@
 <odoo noupdate="1">
     <record id="page_contactus" model="website.page">
         <field name="name">Contact Us</field>
-        <field name="is_published" eval="True"/>
         <field name="key">website_hotel.page_contactus</field>
         <field name="url">/contactus</field>
         <field name="website_id" eval="1"/>
         <field name="type">qweb</field>
+        <field name="is_published" eval="True"/>
         <field name="website_indexed" eval="True"/>
-        <field name="header_overlay" eval="False"/>
-        <field name="header_visible" eval="True"/>
-        <field name="footer_visible" eval="True"/>
         <field name="arch" type="xml">
             <t name="Contact Us" t-name="website_hotel.page_contactus">
                 <t t-call="website.layout">

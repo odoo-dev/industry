@@ -7,7 +7,7 @@
                     <div class="o_we_bg_filter" style="background-color: rgba(0, 0, 0, 0.5);"/>
                     <div class="o_we_shape o_html_builder_Connections_06" style="background-image: url(&quot;/html_editor/shape/html_builder%2FConnections%2F06.svg?c5=%23EDEDE9&quot;);"/>
                     <div class="container">
-                        <h1 style="text-align: center;"><span style="font-size: 70px;">All our rooms</span></h1>
+                        <h1 class="display-1-fs" style="text-align: center;">All our rooms</h1>
                     </div>
                 </section>
                 <div class="s_hr pt32 pb32 o_colored_level" data-snippet="s_hr" data-name="Separator">

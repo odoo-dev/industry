@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data noupdate="1">
-    <!-- Héritage classique (A→B→C) : pas de COW, pas de key/website_id -->
-    <record id="website_sale_products_oe_structure_website_sale_products_1" model="ir.ui.view">
-      <field name="name">Products (oe_structure_website_sale_products_1)</field>
-      <field name="type">qweb</field>
-      <field name="inherit_id" ref="website_sale.products"/>
-      <field name="active" eval="True"/>
-      <field name="arch" type="xml">
-        <data>
-          <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_website_sale_products_1']" position="replace">
-            <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1">
-              <section class="s_kickoff o_cc o_cc5 s_parallax_no_overflow_hidden pt232 pb88 o_colored_level oe_img_bg o_bg_img_center o_bg_img_origin_border_box" data-scroll-background-ratio="0" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Connections/06&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;#EDEDE9&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}" data-snippet="s_kickoff" data-name="Kickoff" data-resize-width="1920" data-mimetype="image/webp" style="background-image: url(&quot;/website_hotel/static/src/img/content/hotel/hotel-image-36.webp&quot;); background-position: 50% 100%;">
+  <template id="website_sale_products_oe_structure_website_sale_products_1" name="Hotel - Products (oe_structure_website_sale_products_1)" inherit_id="website_sale.products">
+    <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_website_sale_products_1']" position="replace">
+      <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1">
+        <section class="s_kickoff o_cc o_cc5 s_parallax_no_overflow_hidden pt232 pb88 o_colored_level oe_img_bg o_bg_img_center o_bg_img_origin_border_box" data-scroll-background-ratio="0" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Connections/06&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;#EDEDE9&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}" data-snippet="s_kickoff" data-name="Kickoff" data-resize-width="1920" data-mimetype="image/webp" style="background-image: url(&quot;/website_hotel/static/src/img/content/hotel/hotel-image-36.webp&quot;); background-position: 50% 100%;">
         <div class="o_we_bg_filter" style="background-color: rgba(0, 0, 0, 0.5);"/>
         
         <div class="o_we_shape o_html_builder_Connections_06" style="background-image: url(&quot;/html_editor/shape/html_builder%2FConnections%2F06.svg?c5=%23EDEDE9&quot;);"/>
@@ -19,66 +11,31 @@
             <h1 style="text-align: center;"><span style="font-size: 70px;">All our rooms</span></h1>
         </div>
     </section>
-              <div class="s_hr pt32 pb32 o_colored_level" data-snippet="s_hr" data-name="Separator">
+        <div class="s_hr pt32 pb32 o_colored_level" data-snippet="s_hr" data-name="Separator">
         <hr class="w-100 mx-auto" style="border-top-width: 0px;"/>
     </div>
-            </div>
-          </xpath>
-        </data>
-      </field>
-    </record>
-    <record id="website_sale_sidebar_dropzone_at_bottom" model="ir.ui.view">
-      <field name="name">website_sale.sidebar_dropzone_at_bottom</field>
-      <field name="type">qweb</field>
-      <field name="inherit_id" ref="website_sale.sidebar_dropzone_at_bottom"/>
-      <field name="active" eval="True"/>
-      <field name="arch" type="xml">
-        <data>
-          <xpath expr="." position="replace">
-            <t>
+      </div>
+    </xpath>
+  </template>
+  <template id="website_sale_sidebar_dropzone_at_bottom" name="Hotel - website_sale.sidebar_dropzone_at_bottom" inherit_id="website_sale.sidebar_dropzone_at_bottom">
+    <xpath expr="." position="replace">
+      <t>
         <div id="oe_structure_website_sale_sidebar_bottom" class="oe_structure"/>
     </t>
-          </xpath>
-        </data>
-      </field>
-      <field name="priority" eval="99"/>
-    </record>
-    <record id="website_sale_sidebar_dropzone_at_top" model="ir.ui.view">
-      <field name="name">website_sale.sidebar_dropzone_at_top</field>
-      <field name="type">qweb</field>
-      <field name="inherit_id" ref="website_sale.sidebar_dropzone_at_top"/>
-      <field name="active" eval="True"/>
-      <field name="arch" type="xml">
-        <data>
-          <xpath expr="." position="replace">
-            <t>
+    </xpath>
+  </template>
+  <template id="website_sale_sidebar_dropzone_at_top" name="Hotel - website_sale.sidebar_dropzone_at_top" inherit_id="website_sale.sidebar_dropzone_at_top">
+    <xpath expr="." position="replace">
+      <t>
         <div id="oe_structure_website_sale_sidebar_top" class="oe_structure"/>
     </t>
-          </xpath>
-        </data>
-      </field>
-      <field name="priority" eval="99"/>
-    </record>
-    <record id="footer_copyright_company_name" model="ir.ui.view">
-      <field name="name">footer_copyright_company_name</field>
-      <field name="type">qweb</field>
-      <field name="inherit_id" ref="website.footer_copyright_company_name"/>
-      <field name="active" eval="True"/>
-      <field name="arch" type="xml">
-        <data><xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
+    </xpath>
+  </template>
+  <template id="footer_copyright_company_name" name="Hotel - footer_copyright_company_name" inherit_id="website.footer_copyright_company_name"><xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
         <span class="o_footer_copyright_name me-2 small" style="text-align: center;">Copyright © <strong>GRAND NORRIS PALACE</strong></span>
     </xpath>
-    </data>
-      </field>
-      <field name="priority" eval="99"/>
-    </record>
-    <record id="template_footer_minimalist" model="ir.ui.view">
-      <field name="name">Minimalist</field>
-      <field name="type">qweb</field>
-      <field name="inherit_id" ref="website.template_footer_minimalist"/>
-      <field name="active" eval="True"/>
-      <field name="arch" type="xml">
-        <data><xpath expr="//div[@id='footer']" position="replace">
+    </template>
+  <template id="template_footer_minimalist" name="Hotel - Minimalist" inherit_id="website.template_footer_minimalist"><xpath expr="//div[@id='footer']" position="replace">
         <div id="footer" class="oe_structure oe_structure_solo text-break" t-ignore="true" t-if="not no_footer">
             <section class="s_text_block pb0 pt0" data-snippet="s_text_block" data-name="Container">
                 <div class="container">
@@ -113,9 +70,5 @@
             </section>
         </div>
     </xpath>
-</data>
-      </field>
-      <field name="priority" eval="99"/>
-    </record>
-  </data>
+</template>
 </odoo>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <record id="website.default_website" model="website">
-    <field name="name">Custom Website Hotel</field>
+    <field name="name">My Website</field>
     <field name="logo" type="base64" file="website_hotel/static/src/img/content/logo.webp"/>
     <field name="favicon" type="base64" file="website_hotel/static/description/favicon.png"/>
   </record>

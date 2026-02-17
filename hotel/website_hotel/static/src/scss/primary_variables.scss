@@ -1,39 +1,36 @@
+$o-color-palettes: map-merge(
+    $o-color-palettes,
+    (
+        'hotel': (
+            'o-color-1': #60463B,
+            'o-color-2': #C6B9B3,
+            'o-color-3': #432818,
+            'o-color-4': #edede9,
+            'o-color-5': #1B1319,
+            'menu': 1,
+            'footer': 3,
+        ),
+    ),
+);
+
 $o-website-values-palettes: (
-   (
-        // Colors
+    (
         'color-palettes-name': 'hotel',
-        // Theme values
-        'header-text-color': var(--o-color-5),
-        'footer-template': minimalist,
+        'header-text-color': var(--o-color-5,
+        'footer-template': 'minimalist',
         'menu-box-shadow': none,
-        'h2-font': 'Suranna',
+        'menu-gradient': NULL,
         'google-fonts': ('Suranna', 'Nanum Pen Script'),
         'google-local-fonts': null,
         'uploaded-local-fonts': null,
-        'display-1-font': 'Nanum Pen Script',
-        'display-1-line-height': 0.6,
         'headings-font': 'Suranna',
         'headings-line-height': 1,
+        'h2-font': 'Suranna',
+        'display-1-font': 'Nanum Pen Script',
+        'display-1-line-height': 0.6,
         'logo-height': 3.75rem,
         'fixed-logo-height': 3.75rem,
-        'menu-gradient': NULL,
-        // -- hook --
-   ),
+    ),
 );
 
-$o-color-palettes: map-merge($o-color-palettes, (
-    'hotel': (
-        'o-color-1': #60463B,
-        'o-color-2': #C6B9B3,
-        'o-color-3': #432818,
-        'o-color-4': #edede9,
-        'o-color-5': #1B1319,
-    ),
-));
-
 $o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'hotel');
-
-// Theme values
-// This file is meant to be edited automatically by the user. The variables it
-// contains should not be renamed otherwise it would break existing customers
-// customizations.

@@ -1,8 +1,8 @@
 {
-    'name': 'Custom Website Hotel',
+    'name': 'Custom Website',
     'description': 'Custom website module exported from Odoo Website Builder',
     'version': '19.0.1.0.0',
-    'author': 'PSBE Designers',
+    'author': 'Odoo',
     'license': 'LGPL-3',
     'depends': [
         'website',

@@ -13,10 +13,22 @@ class IndustryUtils:
         output = BytesIO()
         zf = ZipFile(output, "w", ZIP_DEFLATED)
         industry_modules = self.get_industry_dependencies(module_name)
-        dirs = [self.industry_path + module for module in industry_modules]
+        dirs = []
+        for module in industry_modules:
+            if module == f"website_{module_name}":
+                # Submodule lives inside industry folder
+                dirs.append(os.path.join(self.industry_path, module_name, module))
+            else:
+                dirs.append(self.industry_path + module)
+        website_sub_path = os.path.join(self.industry_path, module_name, f"website_{module_name}")
         for dir in dirs:
             for dirname, _, files in os.walk(dir):
-                zip_dirname = os.sep.join(dirname.split(os.sep)[1:])
+                if dir == website_sub_path:
+                    # Submodule must appear as website_<name>/ at root of zip for Odoo
+                    rel = os.path.relpath(dirname, dir)
+                    zip_dirname = f"website_{module_name}" if rel == "." else f"website_{module_name}{os.sep}{rel}"
+                else:
+                    zip_dirname = os.sep.join(dirname.split(os.sep)[1:])
                 zf.write(dirname, zip_dirname)
                 for filename in files:
                     zf.write(os.path.join(dirname, filename), os.path.join(zip_dirname, filename))
@@ -28,6 +40,15 @@ class IndustryUtils:
 
     def is_industry(self, module: str):
         return os.path.exists(self.get_manifest(module))
+
+    def _has_website_submodule(self, module_name: str) -> bool:
+        """Return True if this industry has a website_<industry> subfolder with a valid module."""
+        website_sub = f"website_{module_name}"
+        path = os.path.join(self.industry_path, module_name, website_sub)
+        return (
+            os.path.isdir(path)
+            and os.path.isfile(os.path.join(path, "__manifest__.py"))
+        )
 
     def get_dependencies(self, module_name: str):
         industries = {module_name}
@@ -43,6 +64,9 @@ class IndustryUtils:
                 elif dep not in industries:
                     to_check.append(dep)
                     industries.add(dep)
+        # If this industry has a website_<industry> submodule, include it so it gets installed and activated
+        if self._has_website_submodule(module_name):
+            industries.add(f"website_{module_name}")
         return industries, other_dep
 
     def get_industry_dependencies(self, module_name: str):

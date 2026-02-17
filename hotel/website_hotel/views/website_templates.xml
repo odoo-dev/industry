@@ -1,265 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-        <!-- Header/Footer COW content (replace default, no duplicate) -->
-        <record id="cow_website_sale_carousel_product_indicators_bottom" model="ir.ui.view">
-            <field name="name">Carousel Product Indicators Bottom</field>
-            <field name="type">qweb</field>
-            <field name="inherit_id" ref="website_sale.shop_product_carousel"/>
-            <field name="key">website_hotel.cow_website_sale_carousel_product_indicators_bottom</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website_sale.shop_product_carousel">
-                    <xpath expr="//div[hasclass('o_carousel_product_outer')]" position="after">
-                        <t t-call="website_sale.carousel_product_indicators">
-                            <t t-set="indicators_div_class" t-value="'pt-2 overflow-hidden'"/>
-                        </t>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_sale_cta_wrapper_boxed" model="ir.ui.view">
-            <field name="name">Bordered CTA Wrapper</field>
-            <field name="type">qweb</field>
-            <field name="inherit_id" ref="website_sale.cta_wrapper"/>
-            <field name="key">website_hotel.cow_website_sale_cta_wrapper_boxed</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website_sale.cta_wrapper">
-                    <xpath expr="//div[@id='o_wsale_cta_wrapper']" position="attributes">
-                        <attribute name="t-att-class" remove="pt-3" add="' o_wsale_cta_wrapper_boxed border rounded p-3'" separator="+"/>
-                    </xpath>
-                    <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
-                        <attribute name="t-attf-class" remove="flex-lg-grow-0" separator=" "/>
-                    </xpath>
-                    <xpath expr="//div[@id='product_option_block']" position="attributes">
-                        <attribute name="t-att-class" remove="flex-lg-grow-0" separator=" "/>
-                    </xpath>
-                    <xpath expr="//div[@id='o_wsale_cta_wrapper']" position="inside">
-                        <div class="d-flex gap-5 flex-grow-1 justify-content-between align-items-center order-first w-100 mb-3 pb-3 border-bottom">
-                            <span name="o_wsale_cta_wrapper_boxed_price_label" class="text-muted">Price</span>
-                            <t t-call="website_sale.product_price"/>
-                        </div>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_sale_floating_bar" model="ir.ui.view">
-            <field name="name">Shop Floating Bar</field>
-            <field name="type">qweb</field>
-            <field name="inherit_id" ref="website_sale.products"/>
-            <field name="key">website_hotel.cow_website_sale_floating_bar</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website_sale.products">
-                    <xpath expr="//div[hasclass('o_wsale_products_main_row')]" position="attributes">
-                        <attribute name="class" add="position-relative" separator=" "/>
-                    </xpath>
-                    <xpath expr="//div[@id='o_wsale_pager']" position="attributes">
-                        <attribute name="t-attf-class" add="o_wsale_pager_accommodate_floating" separator=" "/>
-                    </xpath>
-                    <xpath expr="//div[@id='products_grid']" position="after">
-                        <t t-set="floatBar_hasSort" t-value="is_view_active('website_sale.sort')"/>
-                        <t t-set="floatBar_hasSearch" t-value="is_view_active('website_sale.search')"/>
-                        <t t-set="website_sale_pricelists" t-value="website_sale_pricelists or website.get_pricelist_available(show_visible=True)"/>
-                        <t t-set="floatBar_hasPricelist" t-value="website_sale_pricelists and len(website_sale_pricelists)&gt;1"/>
-                        <div id="o_wsale_floating_bar_rail" class="o_not_editable position-absolute top-0 bottom-0 d-flex justify-content-end align-items-end p-0">
-                            <nav id="o_wsale_floating_bar" t-attf-class="navbar position-sticky d-flex gap-1 gap-lg-2 flex-shrink-0 bg-body rounded mb-2 px-2 px-lg-3 shadow {{floatBar_hasSearch and 'ps-1 ps-lg-1'}}">
-                                <div t-if="floatBar_hasSearch">
-                                    <a t-attf-class="btn o_not_editable {{(wsale_has_filters_btn or floatBar_hasSort or floatBar_hasPricelist) and 'me-n2'}}" data-bs-target="#o_wsale_search_modal" data-bs-toggle="modal" role="button" title="Search Products" href="#"><i class="oi oi-search" role="img"/></a>
-                                </div>
-                                <span t-if="floatBar_hasSearch and (wsale_has_filters_btn or floatBar_hasSort or floatBar_hasPricelist)" t-attf-class="align-self-stretch border-start opacity-50 {{(not floatBar_hasSort and not floatBar_hasPricelist and not wsale_has_filters_btn_lg) and 'd-lg-none'}}"/>
-                                <t t-if="floatBar_hasPricelist" t-call="website_sale.pricelist_list"/>
-                                <t t-if="floatBar_hasSort" t-call="website_sale.sort"/>
-                                <button t-if="wsale_has_filters_btn" t-attf-class="btn btn-{{navClass}} position-relative {{not wsale_has_filters_btn_lg and 'd-lg-none'}}" data-bs-toggle="offcanvas" data-bs-target="#o_wsale_offcanvas">
-                                    <i class="oi oi-settings-adjust" role="img"/><span t-if="isFilteringByPrice or attrib_set or tags" t-attf-class="position-absolute top-0 start-100 translate-middle rounded-circle bg-danger p-1"><span class="visually-hidden">filters active</span></span>
-                                </button>
-                            </nav>
-                        </div>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_sale_products_oe_structure_website_sale_products_1" model="ir.ui.view">
-            <field name="name">Products (oe_structure_website_sale_products_1)</field>
-            <field name="type">qweb</field>
-            <field name="inherit_id" ref="website_sale.products"/>
-            <field name="key">website_hotel.cow_website_sale_products_oe_structure_website_sale_products_1</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website_sale.products">
-                    <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_website_sale_products_1']" position="replace">
-                        <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1">
-                            <section class="s_kickoff o_cc o_cc5 s_parallax_no_overflow_hidden pt232 pb88 o_colored_level oe_img_bg o_bg_img_center o_bg_img_origin_border_box" data-scroll-background-ratio="0" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Connections/06&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;#EDEDE9&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}" data-snippet="s_kickoff" data-name="Kickoff" data-original-id="1114" data-original-src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-35.webp" data-mimetype-before-conversion="image/jpeg" data-resize-width="1920" data-mimetype="image/webp" style="background-image: url(&quot;/website_hotel/static/src/img/content/custom_hotel/hotel-image-36.webp&quot;); background-position: 50% 100%;" data-attachment-id="1114">
-                                <div class="o_we_bg_filter" style="background-color: rgba(0, 0, 0, 0.5);"/>
-                                <div class="o_we_shape o_html_builder_Connections_06" style="background-image: url(&quot;/html_editor/shape/html_builder%2FConnections%2F06.svg?c5=%23EDEDE9&quot;);"/>
-                                <div class="container">
-                                    <h1 style="text-align: center;"><span style="font-size: 70px;">All our rooms</span></h1>
-                                </div>
-                            </section>
-                            <div class="s_hr pt32 pb32 o_colored_level" data-snippet="s_hr" data-name="Separator">
-                                <hr class="w-100 mx-auto" style="border-top-width: 0px;"/>
-                            </div>
-                        </div>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_sale_sidebar_dropzone_at_bottom" model="ir.ui.view">
-            <field name="name">website_sale.sidebar_dropzone_at_bottom</field>
-            <field name="type">qweb</field>
-            <field name="key">website_hotel.cow_website_sale_sidebar_dropzone_at_bottom</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <t t-name="website_sale.sidebar_dropzone_at_bottom">
-                    <div id="oe_structure_website_sale_sidebar_bottom" class="oe_structure"/>
-                </t>
-            </field>
-        </record>
-        <record id="cow_website_sale_sidebar_dropzone_at_top" model="ir.ui.view">
-            <field name="name">website_sale.sidebar_dropzone_at_top</field>
-            <field name="type">qweb</field>
-            <field name="key">website_hotel.cow_website_sale_sidebar_dropzone_at_top</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <t t-name="website_sale.sidebar_dropzone_at_top">
-                    <div id="oe_structure_website_sale_sidebar_top" class="oe_structure"/>
-                </t>
-            </field>
-        </record>
-        <record id="cow_website_footer_copyright_company_name" model="ir.ui.view">
-            <field name="name">footer_copyright_company_name</field>
-            <field name="type">qweb</field>
-            <field name="inherit_id" ref="website.layout"/>
-            <field name="key">website_hotel.cow_website_footer_copyright_company_name</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website.layout">
-                    <xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
-                        <span class="o_footer_copyright_name me-2 small" style="text-align: center;">Copyright © <strong>GRAND NORRIS PALACE</strong></span>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_header_call_to_action_large" model="ir.ui.view">
-            <field name="name">Header Call to Action - Large</field>
-            <field name="type">qweb</field>
-            <field name="key">website_hotel.cow_website_header_call_to_action_large</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website.header_call_to_action">
-                    <xpath expr="//a[hasclass('oe_unremovable')]" position="attributes">
-                        <attribute name="class" remove="" add="w-100" separator=" "/>
-                    </xpath>
-                    <xpath expr="." position="attributes">
-                        <attribute name="t-name">
-                            website.header_call_to_action_large
-                        </attribute>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_header_call_to_action_sidebar" model="ir.ui.view">
-            <field name="name">Header Call to Action - Sidebar</field>
-            <field name="type">qweb</field>
-            <field name="key">website_hotel.cow_website_header_call_to_action_sidebar</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website.header_call_to_action_large">
-                    <xpath expr="//section/div" position="attributes">
-                        <attribute name="class" remove="" add="p-0" separator=" "/>
-                    </xpath>
-                    <xpath expr="." position="attributes">
-                        <attribute name="t-name">
-                            website.header_call_to_action_sidebar
-                        </attribute>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_header_call_to_action_stretched" model="ir.ui.view">
-            <field name="name">Header Call to Action - Stretched</field>
-            <field name="type">qweb</field>
-            <field name="key">website_hotel.cow_website_header_call_to_action_stretched</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website.header_call_to_action">
-                    <xpath expr="//section/div" position="attributes">
-                        <attribute name="class" remove="" add="h-100" separator=" "/>
-                    </xpath>
-                    <xpath expr="//a[hasclass('oe_unremovable')]" position="attributes">
-                        <attribute name="class" remove="" add="d-flex align-items-center h-100 rounded-0" separator=" "/>
-                    </xpath>
-                    <xpath expr="." position="attributes">
-                        <attribute name="t-name">
-                            website.header_call_to_action_stretched
-                        </attribute>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        <record id="cow_website_template_footer_minimalist" model="ir.ui.view">
-            <field name="name">Minimalist</field>
-            <field name="type">qweb</field>
-            <field name="inherit_id" ref="website.layout"/>
-            <field name="key">website_hotel.cow_website_template_footer_minimalist</field>
-            <field name="website_id" ref="website.default_website"/>
-            <field name="active" eval="True"/>
-            <field name="priority" eval="99"/>
-            <field name="arch" type="xml">
-                <data inherit_id="website.layout">
-                    <xpath expr="//div[@id='footer']" position="replace">
-                        <div id="footer" class="oe_structure oe_structure_solo text-break" t-ignore="true" t-if="not no_footer">
-                            <section class="s_text_block pb0 pt0" data-snippet="s_text_block" data-name="Container">
-                                <div class="container">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-2 offset-lg-0 col-8 offset-2 pt16 pb16 o_colored_level">
-                                            <a href="/" class="o_footer_logo logo">
-                                                <img src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-38.webp" alt="" data-attachment-id="754" class="img-fluid d-block mx-auto img o_we_custom_image" style="width: 50% !important;" data-format-mimetype="image/webp" data-original-id="754" data-original-src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-38.webp" data-mimetype-before-conversion="image/png" data-resize-width="690" data-mimetype="image/webp" loading="lazy"/>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-8 pt16 pb16 o_colored_level">
-                                            <nav class="nav align-items-center justify-content-center flex-column flex-lg-row">
-                                                <a class="nav-link btn btn-custom text-o-color-4" href="#" style="background-color: rgba(0, 0, 0, 0); border-width: 0px; border-color: rgb(128, 93, 78); border-style: none;">Home</a>
-                                                <a class="nav-link btn btn-custom text-o-color-4" href="/shop" style="background-color: rgba(0, 0, 0, 0); border-width: 0px; border-color: rgb(128, 93, 78); border-style: none;">Rooms</a>
-                                                <a class="nav-link btn btn-custom text-o-color-4" href="/contactus" style="background-color: rgba(0, 0, 0, 0); border-width: 0px; border-color: rgb(128, 93, 78); border-style: none;">Contact us</a>
-                                            </nav>
-                                        </div>
-                                        <div class="col-lg-2 pt16 pb16 o_colored_level">
-                                            <div class="s_social_media no_icon_color o_not_editable text-center" data-snippet="s_social_media" data-name="Social Media">
-                                                <h5 class="s_social_media_title d-none">Follow us</h5>
-                                                <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank"><i class="fa fa-facebook fa-stack o_editable_media o_cc o_cc1 rounded-circle"/></a>
-                                                <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank"><i class="fa fa-twitter fa-stack o_editable_media o_cc o_cc1 rounded-circle"/></a>
-                                                <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank"><i class="fa fa-instagram fa-stack o_editable_media o_cc o_cc1 rounded-circle"/></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </xpath>
-                </data>
-            </field>
-        </record>
+  <data noupdate="1">
+    <!-- Héritage classique (A→B→C) : pas de COW, pas de key/website_id -->
+    <record id="website_sale_products_oe_structure_website_sale_products_1" model="ir.ui.view">
+      <field name="name">Products (oe_structure_website_sale_products_1)</field>
+      <field name="type">qweb</field>
+      <field name="inherit_id" ref="website_sale.products"/>
+      <field name="active" eval="True"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_website_sale_products_1']" position="replace">
+            <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1">
+              <section class="s_kickoff o_cc o_cc5 s_parallax_no_overflow_hidden pt232 pb88 o_colored_level oe_img_bg o_bg_img_center o_bg_img_origin_border_box" data-scroll-background-ratio="0" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Connections/06&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;#EDEDE9&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}" data-snippet="s_kickoff" data-name="Kickoff" data-resize-width="1920" data-mimetype="image/webp" style="background-image: url(&quot;/website_hotel/static/src/img/content/hotel/hotel-image-36.webp&quot;); background-position: 50% 100%;">
+        <div class="o_we_bg_filter" style="background-color: rgba(0, 0, 0, 0.5);"/>
+        
+        <div class="o_we_shape o_html_builder_Connections_06" style="background-image: url(&quot;/html_editor/shape/html_builder%2FConnections%2F06.svg?c5=%23EDEDE9&quot;);"/>
+        <div class="container">
+            <h1 style="text-align: center;"><span style="font-size: 70px;">All our rooms</span></h1>
+        </div>
+    </section>
+              <div class="s_hr pt32 pb32 o_colored_level" data-snippet="s_hr" data-name="Separator">
+        <hr class="w-100 mx-auto" style="border-top-width: 0px;"/>
+    </div>
+            </div>
+          </xpath>
+        </data>
+      </field>
+    </record>
+    <record id="website_sale_sidebar_dropzone_at_bottom" model="ir.ui.view">
+      <field name="name">website_sale.sidebar_dropzone_at_bottom</field>
+      <field name="type">qweb</field>
+      <field name="inherit_id" ref="website_sale.sidebar_dropzone_at_bottom"/>
+      <field name="active" eval="True"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="." position="replace">
+            <t>
+        <div id="oe_structure_website_sale_sidebar_bottom" class="oe_structure"/>
+    </t>
+          </xpath>
+        </data>
+      </field>
+      <field name="priority" eval="99"/>
+    </record>
+    <record id="website_sale_sidebar_dropzone_at_top" model="ir.ui.view">
+      <field name="name">website_sale.sidebar_dropzone_at_top</field>
+      <field name="type">qweb</field>
+      <field name="inherit_id" ref="website_sale.sidebar_dropzone_at_top"/>
+      <field name="active" eval="True"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="." position="replace">
+            <t>
+        <div id="oe_structure_website_sale_sidebar_top" class="oe_structure"/>
+    </t>
+          </xpath>
+        </data>
+      </field>
+      <field name="priority" eval="99"/>
+    </record>
+    <record id="footer_copyright_company_name" model="ir.ui.view">
+      <field name="name">footer_copyright_company_name</field>
+      <field name="type">qweb</field>
+      <field name="inherit_id" ref="website.footer_copyright_company_name"/>
+      <field name="active" eval="True"/>
+      <field name="arch" type="xml">
+        <data><xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
+        <span class="o_footer_copyright_name me-2 small" style="text-align: center;">Copyright © <strong>GRAND NORRIS PALACE</strong></span>
+    </xpath>
     </data>
+      </field>
+      <field name="priority" eval="99"/>
+    </record>
+    <record id="template_footer_minimalist" model="ir.ui.view">
+      <field name="name">Minimalist</field>
+      <field name="type">qweb</field>
+      <field name="inherit_id" ref="website.template_footer_minimalist"/>
+      <field name="active" eval="True"/>
+      <field name="arch" type="xml">
+        <data><xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" class="oe_structure oe_structure_solo text-break" t-ignore="true" t-if="not no_footer">
+            <section class="s_text_block pb0 pt0" data-snippet="s_text_block" data-name="Container">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 offset-lg-0 col-8 offset-2 pt16 pb16 o_colored_level">
+                            <a href="/" class="o_footer_logo logo">
+                                <img src="/website_hotel/static/src/img/content/hotel/hotel-image-37.webp" alt="" class="img-fluid d-block mx-auto img o_we_custom_image" style="width: 50% !important;" data-format-mimetype="image/webp" data-resize-width="690" data-mimetype="image/webp" loading="lazy"/>
+                            </a>
+                        </div>
+                        <div class="col-lg-8 pt16 pb16 o_colored_level">
+                            <nav class="nav align-items-center justify-content-center flex-column flex-lg-row">
+                                <a class="nav-link btn btn-custom text-o-color-4" href="#" style="background-color: rgba(0, 0, 0, 0); border-width: 0px; border-color: rgb(128, 93, 78); border-style: none; ">Home</a>
+                                <a class="nav-link btn btn-custom text-o-color-4" href="/shop" style="background-color: rgba(0, 0, 0, 0); border-width: 0px; border-color: rgb(128, 93, 78); border-style: none; ">Rooms</a>
+                                <a class="nav-link btn btn-custom text-o-color-4" href="/contactus" style="background-color: rgba(0, 0, 0, 0); border-width: 0px; border-color: rgb(128, 93, 78); border-style: none; ">Contact us</a></nav>
+                        </div>
+                        <div class="col-lg-2 pt16 pb16 o_colored_level">
+                            <div class="s_social_media no_icon_color o_not_editable text-center" data-snippet="s_social_media" data-name="Social Media">
+                                <h5 class="s_social_media_title d-none">Follow us</h5>
+<a href="/website/social/facebook" class="s_social_media_facebook" target="_blank">
+                                    <i class="fa fa-facebook fa-stack o_editable_media o_cc o_cc1 rounded-circle"/>
+                                </a>
+<a href="/website/social/twitter" class="s_social_media_twitter" target="_blank">
+                                    <i class="fa fa-twitter fa-stack o_editable_media o_cc o_cc1 rounded-circle"/>
+                                </a>
+<a href="/website/social/instagram" class="s_social_media_instagram" target="_blank">
+                                    <i class="fa fa-instagram fa-stack o_editable_media o_cc o_cc1 rounded-circle"/>
+                                </a>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</data>
+      </field>
+      <field name="priority" eval="99"/>
+    </record>
+  </data>
 </odoo>

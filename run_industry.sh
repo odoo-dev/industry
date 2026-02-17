@@ -17,7 +17,7 @@ usage() {
 # Default values
 INDUSTRY_NAME=""
 INSTALL=false
-TEST=false  
+TEST=false
 RESET=false
 HARD_RESET=false
 DEMO=False
@@ -103,7 +103,7 @@ if $RESET || $HARD_RESET; then
   $PYTHON_BIN $ODOO_BIN db duplicate $DEP_DB $INDUSTRY_NAME --force
 fi
 
-# install industry module 
+# install industry module
 if $INSTALL; then
   echo "Initializing industry module..."
   TMP_INSTALL_PY=$(mktemp)

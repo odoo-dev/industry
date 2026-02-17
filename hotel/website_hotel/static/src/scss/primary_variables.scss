@@ -1,44 +1,39 @@
-$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'custom_hotel');
+$o-website-values-palettes: (
+   (
+        // Colors
+        'color-palettes-name': 'hotel',
+        // Theme values
+        'header-text-color': var(--o-color-5),
+        'footer-template': minimalist,
+        'menu-box-shadow': none,
+        'h2-font': 'Suranna',
+        'google-fonts': ('Suranna', 'Nanum Pen Script'),
+        'google-local-fonts': null,
+        'uploaded-local-fonts': null,
+        'display-1-font': 'Nanum Pen Script',
+        'display-1-line-height': 0.6,
+        'headings-font': 'Suranna',
+        'headings-line-height': 1,
+        'logo-height': 3.75rem,
+        'fixed-logo-height': 3.75rem,
+        'menu-gradient': NULL,
+        // -- hook --
+   ),
+);
+
 $o-color-palettes: map-merge($o-color-palettes, (
-    'custom_hotel': (
+    'hotel': (
         'o-color-1': #60463B,
         'o-color-2': #C6B9B3,
-        'o-color-3': #260701,
-        'o-color-4': #EDEDE9,
+        'o-color-3': #432818,
+        'o-color-4': #edede9,
         'o-color-5': #1B1319,
     ),
 ));
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'hotel');
 
 // Theme values
 // This file is meant to be edited automatically by the user. The variables it
 // contains should not be renamed otherwise it would break existing customers
 // customizations.
-
-$o-user-website-values: map-merge($o-user-website-values, o-map-omit((
-    'header-text-color': var(--o-color-5),
-    'footer-template': minimalist,
-    'menu-box-shadow': none,
-    'h2-font': 'Suranna',
-    'google-fonts': ('Suranna', 'Nanum Pen Script'),
-    'google-local-fonts': null,
-    'uploaded-local-fonts': null,
-    'display-1-font': 'Nanum Pen Script',
-    'display-1-line-height': 0.6,
-    'headings-font': 'Suranna',
-    'headings-line-height': 1,
-    'logo-height': 3.75rem,
-    'fixed-logo-height': 3.75rem,
-    'menu-gradient': NULL,
-    // -- hook --
-)));
-// Custom palette
-
-$o-user-color-palette: map-merge($o-user-color-palette, o-map-omit((
-    'o-color-3': #260701,
-    'o-color-1': #60463B,
-    'o-color-2': #C6B9B3,
-    'o-color-4': #edede9,
-    'menu-custom': NULL,
-    'menu': 1,
-    // -- hook --
-)));

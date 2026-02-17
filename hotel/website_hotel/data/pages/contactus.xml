@@ -51,8 +51,8 @@
                         </section>
                         <section class="s_numbers_boxed o_colored_level o_cc pt0 o_cc1 pb0" data-snippet="s_numbers_boxed" data-name="Numbers boxed">
                             <div class="container">
-                                <div class="row o_grid_mode" data-row-count="6" style="column-gap: 40px;">
-                                    <div class="o_grid_item g-col-lg-4 border rounded o_colored_level g-height-5 col-lg-4" style="grid-area: 2 / 1 / 7 / 5; --grid-item-padding-y: 64px; text-align: center; z-index: 2; border-radius: 9.6px !important;">
+                                <div class="row o_grid_mode" data-row-count="6" style="row-gap: 20px; column-gap: 40px;">
+                                    <div class="o_grid_item g-col-lg-4 border rounded o_colored_level g-height-5 col-lg-4" style="grid-area: 2 / 1 / 7 / 5; --grid-item-padding-y: 72px; text-align: center; z-index: 2; border-radius: 9.6px !important;">
                                         <h3 class="display-3-fs">
                                             <font style="background-image: linear-gradient(135deg, rgb(169, 169, 152) 15%, rgb(96, 70, 59) 100%);" class="text-gradient">
                                                 Find us
@@ -66,7 +66,7 @@
                                             </font>
                                         </p>
                                     </div>
-                                    <div class="o_grid_item g-col-lg-4 border rounded o_colored_level g-height-5 col-lg-4" style="grid-area: 2 / 5 / 7 / 9; --grid-item-padding-y: 64px; text-align: center; z-index: 3; border-radius: 9.6px !important;">
+                                    <div class="o_grid_item g-col-lg-4 border rounded o_colored_level g-height-5 col-lg-4" style="grid-area: 2 / 5 / 7 / 9; --grid-item-padding-y: 72px; text-align: center; z-index: 3; border-radius: 9.6px !important;">
                                         <h3 class="display-3-fs">
                                             <font style="background-image: linear-gradient(45deg, rgb(169, 169, 152) 15%, rgb(96, 70, 59) 100%);" class="text-gradient">
                                                 Email us
@@ -83,7 +83,7 @@
                                             </span>
                                         </p>
                                     </div>
-                                    <div class="o_grid_item g-col-lg-4 border rounded o_colored_level g-height-5 col-lg-4" style="grid-area: 2 / 9 / 7 / 13; --grid-item-padding-y: 64px; text-align: center; z-index: 4; border-radius: 9.6px !important;">
+                                    <div class="o_grid_item g-col-lg-4 border rounded o_colored_level g-height-5 col-lg-4" style="grid-area: 2 / 9 / 7 / 13; --grid-item-padding-y: 72px; text-align: center; z-index: 4; border-radius: 9.6px !important;">
                                         <h3 class="display-3-fs">
                                             <font style="background-image: linear-gradient(45deg, rgb(169, 169, 152) 15%, rgb(96, 70, 59) 100%);" class="text-gradient">
                                                 Call us

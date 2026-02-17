@@ -74,7 +74,7 @@
         <field name="pos_categ_ids" eval="[(6, 0, [ref('pos_category_1')])]"/>
     </record>
     <record id="product_template_10" model="product.template" context="{'create_product_product': False}">
-        <field name="image_1920" type="base64" file="website_hotel/static/src/img/products/website_custom_hotel_product_15.png"/>
+        <field name="image_1920" type="base64" file="hotel/static/src/img/products/hotel-product-15.png"/>
         <field name="name">La Nina</field>
         <field name="type">service</field>
         <field name="categ_id" ref="booking_engine.product_category_6"/>
@@ -91,7 +91,7 @@
         </field>
     </record>
     <record id="product_template_9" model="product.template" context="{'create_product_product': False}">
-        <field name="image_1920" type="base64" file="website_hotel/static/src/img/products/website_custom_hotel_product_16.png"/>
+        <field name="image_1920" type="base64" file="hotel/static/src/img/products/hotel-product-16.png"/>
         <field name="name">La Maria</field>
         <field name="type">service</field>
         <field name="categ_id" ref="booking_engine.product_category_6"/>
@@ -109,7 +109,7 @@
         </field>
     </record>
     <record id="product_template_8" model="product.template" context="{'create_product_product': False}">
-        <field name="image_1920" type="base64" file="website_hotel/static/src/img/products/website_custom_hotel_product_17.png"/>
+        <field name="image_1920" type="base64" file="hotel/static/src/img/products/hotel-product-17.png"/>
         <field name="name">La Claudia</field>
         <field name="type">service</field>
         <field name="categ_id" ref="booking_engine.product_category_6"/>

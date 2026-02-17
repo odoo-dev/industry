@@ -19,7 +19,7 @@
                         <section class="s_title bg-black-50 o_colored_level s_parallax_no_overflow_hidden oe_img_bg o_bg_img_center o_bg_img_origin_border_box pt144" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="0" style="background-image: url(&quot;/website_hotel/static/src/img/content/custom_hotel/hotel-image-03.webp&quot;);" data-format-mimetype="image/webp" data-original-src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-02.webp" data-mimetype-before-conversion="image/png" data-resize-width="1344" data-mimetype="image/webp">
                             <div class="o_we_bg_filter" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.81) 0%, rgba(0, 0, 0, 0.29) 100%);"/>
                             <div class="container">
-                                <h1 style="text-align: center;">Contact us</h1>
+                                <h1 class="display-1-fs" style="text-align: center;">Contact us</h1>
                                 <div class="s_hr pt32 pb32" data-snippet="s_hr" data-name="Separator">
                                     <hr class="w-100 mx-auto" style="border-top-width: 0px;"/>
                                 </div>

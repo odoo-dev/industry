@@ -16,7 +16,7 @@ $o-color-palettes: map-merge(
 $o-website-values-palettes: (
     (
         'color-palettes-name': 'hotel',
-        'header-text-color': var(--o-color-5,
+        'header-text-color': var(--o-color-5),
         'footer-template': 'minimalist',
         'menu-box-shadow': none,
         'menu-gradient': NULL,

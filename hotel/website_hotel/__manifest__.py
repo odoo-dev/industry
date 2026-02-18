@@ -1,5 +1,5 @@
 {
-    'name': 'Custom Website',
+    'name': 'Custom Website Hotel',
     'description': 'Custom website module exported from Odoo Website Builder',
     'version': '19.0.1.0.0',
     'author': 'Odoo',

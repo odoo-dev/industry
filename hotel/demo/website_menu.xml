@@ -12,4 +12,12 @@
         <field name="sequence" eval="20"/>
         <field name="is_visible" eval="True"/>
     </record>
+    <record id="menu_contactus" model="website.menu">
+        <field name="name">Contact us</field>
+        <field name="url">/contactus</field>
+        <field name="parent_id" model="website.menu" search="[('url', '=', '#'), ('website_id', '=', ref('website.default_website'))]"/>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence" eval="30"/>
+        <field name="is_visible" eval="True"/>
+    </record>
 </odoo>

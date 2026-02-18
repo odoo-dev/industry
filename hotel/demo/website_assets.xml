@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <asset id="hotel.industry_variables_scss" name="Hotel - Primary Variables">
+        <bundle>web._assets_primary_variables</bundle>
+        <path>/hotel/static/src/scss/primary_variables.scss</path>
+    </asset>
+
+</odoo>

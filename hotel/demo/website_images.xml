@@ -2,223 +2,223 @@
 <odoo noupdate="1">
     <record id="img_custom_hotel_image_01" model="ir.attachment">
         <field name="name">envato-labs-image-edit (5).png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-02.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-02.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_02" model="ir.attachment">
         <field name="name">envato-labs-image-edit (5).webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-03.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-03.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_03" model="ir.attachment">
         <field name="name">patrick-robert-doyle-yqxEADWMKpM-unsplash (1).jpg</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-04.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-04.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_04" model="ir.attachment">
         <field name="name">gn-white.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-05.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-05.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_05" model="ir.attachment">
         <field name="name">envato-labs-image-edit (6).png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-06.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-06.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_06" model="ir.attachment">
         <field name="name">patrick-robert-doyle-aIc96qrO4iE-unsplash.jpg</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-07.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-07.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_07" model="ir.attachment">
         <field name="name">new-coffee.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-08.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-08.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_08" model="ir.attachment">
         <field name="name">new-bagpack.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-09.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-09.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_09" model="ir.attachment">
         <field name="name">envato-graphic-969b7415-7acd-476b-869d-b44afc1f6d21.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-10.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-10.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_10" model="ir.attachment">
         <field name="name">La Nina.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-11.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-11.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_11" model="ir.attachment">
         <field name="name">La Maria.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-12.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-12.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_12" model="ir.attachment">
         <field name="name">La Claudia.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-13.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-13.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_13" model="ir.attachment">
         <field name="name">castlesecond.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-14.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-14.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_14" model="ir.attachment">
         <field name="name">cards.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-15.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-15.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_15" model="ir.attachment">
         <field name="name">gn-line.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-16.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-16.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_16" model="ir.attachment">
         <field name="name">part-of-interior-of-modern-luxurious-resturant-loo-2025-03-15-06-05-30-utc.JPG</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-17.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-17.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_17" model="ir.attachment">
         <field name="name">patrick-robert-doyle-yqxEADWMKpM-unsplash (1).webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-18.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-18.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_18" model="ir.attachment">
         <field name="name">gn-white.png</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-19.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-19.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_19" model="ir.attachment">
         <field name="name">envato-labs-image-edit (6).webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-20.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-20.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_20" model="ir.attachment">
         <field name="name">envato-labs-image-edit (5).webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-21.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-21.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_21" model="ir.attachment">
         <field name="name">patrick-robert-doyle-aIc96qrO4iE-unsplash.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-22.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-22.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_22" model="ir.attachment">
         <field name="name">patrick-robert-doyle-aIc96qrO4iE-unsplash.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-23.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-23.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_23" model="ir.attachment">
         <field name="name">new-coffee.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-24.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-24.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_24" model="ir.attachment">
         <field name="name">new-bagpack.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-25.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-25.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_25" model="ir.attachment">
         <field name="name">envato-graphic-969b7415-7acd-476b-869d-b44afc1f6d21.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-26.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-26.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_26" model="ir.attachment">
         <field name="name">La Nina.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-27.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-27.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_27" model="ir.attachment">
         <field name="name">La Maria.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-28.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-28.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_28" model="ir.attachment">
         <field name="name">La Maria.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-29.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-29.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_29" model="ir.attachment">
         <field name="name">La Claudia.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-30.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-30.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_30" model="ir.attachment">
         <field name="name">castlesecond.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-31.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-31.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_31" model="ir.attachment">
         <field name="name">cards.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-32.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-32.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_32" model="ir.attachment">
         <field name="name">gn-line.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-33.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-33.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_33" model="ir.attachment">
         <field name="name">gn-line.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-34.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-34.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_34" model="ir.attachment">
         <field name="name">part-of-interior-of-modern-luxurious-resturant-loo-2025-03-15-06-05-30-utc.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-35.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-35.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_35" model="ir.attachment">
         <field name="name">hans--WS7qSvhTq8-unsplash.jpg</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-36.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-36.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_36" model="ir.attachment">
         <field name="name">hans--WS7qSvhTq8-unsplash.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-37.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-37.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>
     <record id="img_custom_hotel_image_37" model="ir.attachment">
         <field name="name">gn-white.webp</field>
-        <field name="datas" type="base64" file="website_hotel/static/src/img/content/custom_hotel/hotel-image-38.webp"/>
+        <field name="datas" type="base64" file="hotel/static/src/img/content/custom_hotel/hotel-image-38.webp"/>
         <field name="res_model">ir.ui.view</field>
         <field name="public" eval="True"/>
     </record>

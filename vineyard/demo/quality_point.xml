@@ -46,6 +46,7 @@
   </record>
   <record id="quality_point_10" model="quality.point">
     <field name="title">SO₂ content (Assemblages)</field>
+    <field name="apply_to">categories</field>
     <field name="product_category_ids" eval="[(6, 0, [ref('product_category_8')])]"/>
     <field name="test_type_id" ref="quality_control.test_type_measure"/>
     <field name="note"><![CDATA[<div>Measure and record SO₂ content.</div>]]></field>
@@ -79,12 +80,14 @@
   </record>
   <record id="quality_point_7" model="quality.point">
     <field name="title">Microbiological</field>
+    <field name="apply_to">categories</field>
     <field name="product_category_ids" eval="[(6, 0, [ref('product_category_7')])]"/>
     <field name="note"><![CDATA[<div>Assess the microbiological viability.</div>]]></field>
     <field name="picking_type_ids" model="stock.warehouse" eval="[(4, obj().env.ref('stock.warehouse0').manu_type_id.id)]"/>
   </record>
   <record id="quality_point_8" model="quality.point">
     <field name="title">Sensory Evaluation</field>
+    <field name="apply_to">categories</field>
     <field name="product_category_ids" eval="[(6, 0, [ref('product_category_8')])]"/>
     <field name="note"><![CDATA[<h1>Wine Sensory Evaluation</h1>
 <h2><strong>1. Appearance</strong></h2>
@@ -247,6 +250,7 @@
   </record>
   <record id="quality_point_9" model="quality.point">
     <field name="title">SO₂ content (Must)</field>
+    <field name="apply_to">categories</field>
     <field name="product_category_ids" eval="[(6, 0, [ref('product_category_7')])]"/>
     <field name="test_type_id" ref="quality_control.test_type_measure"/>
     <field name="note"><![CDATA[<div>Measure and record SO₂ content.</div>]]></field>

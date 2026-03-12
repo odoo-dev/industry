@@ -7,9 +7,9 @@
     <field name="website_id" ref="website.default_website"/>
     <field name="arch" type="xml">
       <t name="Contact Us" t-name="website.contactus">
-        <t t-call="website.layout">
-          <t t-set="logged_partner" t-value="request.env['website.visitor']._get_visitor_from_request().partner_id"/>
-          <t t-set="contactus_form_values" t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"/>
+        <t t-set="contactus_form_values" t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"/>
+        <t t-call="website.layout"
+            logged_partner="request.env['website.visitor']._get_visitor_from_request().partner_id">
           <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values"/>
           <div id="wrap" class="oe_structure oe_empty">
             <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1" data-name="Title">
@@ -197,8 +197,7 @@
     <field name="website_id" ref="website.default_website"/>
     <field name="arch" type="xml">
       <t name="Homepage" t-name="website.homepage">
-        <t t-call="website.layout">
-          <t t-set="pageName" t-value="'homepage'"/>
+        <t t-call="website.layout" pageName.f="homepage">
           <div id="wrap" class="oe_structure">
             <section class="s_kickoff o_cc o_cc5 s_parallax_no_overflow_hidden pt232 pb88 o_colored_level oe_img_bg o_bg_img_center o_bg_img_origin_border_box" data-scroll-background-ratio="1" data-oe-shape-data="{'shape':'web_editor/Connections/06','colors':{'c5':'o-color-3'},'showOnMobile':true}" style="background-position: 100% 100%; background-image: url(&quot;/web/image/wine_merchant.configurator_1_s_kickoff_default_image&quot;) !important;" data-snippet="s_kickoff">
               <div class="o_we_bg_filter bg-black-50"/>
@@ -283,12 +282,12 @@
   </record>
   <record id="ir_ui_view_3796" model="ir.ui.view">
     <field name="arch" type="xml">
-      <t t-name="website.record_cover">
-        <t t-set="_cp" t-value="_cp or json.loads(_record.cover_properties)"/>
-        <t t-set="_name" t-value="_name or _record._name"/>
-        <t t-set="_id" t-value="_id or _record.id"/>
-        <t t-set="_bg" t-value="_bg or _record._get_background(height=_resize_height, width=_resize_width)"/>
-        <t t-set="default_cover_name">Cover</t>
+      <t t-name="website.record_cover"
+          _cp="_cp or json.loads(_record.cover_properties)"
+          _name="_name or _record._name"
+          _id="_id or _record.id"
+          _bg="_bg or _record._get_background(height=_resize_height, width=_resize_width)"
+          default_cover_name.translate="Cover">
         <div t-att-data-name="display_opt_name or default_cover_name" t-att-style="_cp.get('background_color_style')" t-att-data-use_size="use_size" t-att-data-use_filters="use_filters" t-att-data-use_text_align="use_text_align" t-att-data-res-model="_name" t-att-data-res-id="_id" t-attf-class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc #{_cp.get('background_color_class')} #{use_size and _cp.get('resize_class')} #{use_text_align and _cp.get('text_align_class')} #{additionnal_classes}">
           <div t-attf-class="o_record_cover_component o_record_cover_image #{snippet_autofocus and 'o_we_snippet_autofocus'}" t-attf-style="background-image: #{_bg};" style="background-image: url(&quot;/unsplash/hErgu3X7gvY/wine tasting.jpg?unique=e6f93228&quot;);" class="o_record_cover_component o_record_cover_image"/>
           <div t-if="use_filters" t-attf-class="o_record_cover_component o_record_cover_filter oe_black" t-attf-style="opacity: #{_cp.get('opacity', 0.0)};"/>

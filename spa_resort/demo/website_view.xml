@@ -7,8 +7,7 @@
     <field name="website_id" ref="website.default_website"/>
     <field name="arch" type="xml">
       <t name="Homepage" t-name="website.homepage">
-        <t t-call="website.layout">
-          <t t-set="pageName" t-value="'homepage'"/>
+        <t t-call="website.layout" pageName.f="homepage">
           <div id="wrap" class="oe_structure">
             <section class="s_discovery pt136 pb136 o_cc o_cc5 o_colored_level" data-snippet="s_discovery">
               <div style="text-align: center;" class="container">
@@ -295,19 +294,6 @@
           </div>
         </t>
       </t>
-    </field>
-  </record>
-  <record id="ir_ui_view_3276" model="ir.ui.view">
-    <field name="inherit_id" ref="website.contactus"/>
-    <field name="key">spa_resort.contactusbanner</field>
-    <field name="mode">extension</field>
-    <field name="name">Contact Us Banner Image</field>
-    <field name="type">qweb</field>
-    <field name="website_id" ref="website.default_website"/>
-    <field name="arch" type="xml">
-      <xpath expr="//t[@t-name='website.contactus']//span[hasclass('s_parallax_bg')]" position="replace">
-        <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/spa_resort.ir_attachment_1139'); background-position: 50% 0;"/>
-      </xpath>
     </field>
   </record>
 </odoo>

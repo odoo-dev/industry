@@ -46,10 +46,9 @@
                   </ul>
                   <ul t-if="not navbar_back_url" class="nav" t-att-data-menu_name="editable and 'Event Menu'" t-att-data-content_menu_id="editable and event.menu_id.id">
                     <t t-foreach="event.menu_id.child_id" t-as="submenu">
-                      <t t-call="website.submenu">
-                        <t t-set="item_class" t-value="'nav-item'"/>
-                        <t t-set="link_class" t-value="'nav-link text-nowrap'"/>
-                      </t>
+                      <t t-call="website.submenu"
+                          item_class.f="'nav-item'"
+                          link_class.f="'nav-link text-nowrap'"/>
                     </t>
                   </ul>
                 </nav>
@@ -100,8 +99,7 @@
     <field name="website_id" ref="website.default_website"/>
     <field name="arch" type="xml">
       <t name="Homepage" t-name="website.homepage">
-        <t t-call="website.layout">
-          <t t-set="pageName" t-value="'homepage'"/>
+        <t t-call="website.layout" pageName.f="homepage">
           <div id="wrap" class="oe_structure">
             <section class="s_sidegrid pt56 pb56 o_cc3 o_colored_level" data-snippet="s_sidegrid">
               <div class="container">
@@ -294,12 +292,10 @@
     <field name="website_id" ref="website.default_website" />
     <field name="arch" type="xml">
       <t name="Contact Us" t-name="website.contactus">
-          <t t-call="website.layout">
-              <t t-set="logged_partner" t-value="request.env['website.visitor']._get_visitor_from_request().partner_id" />
-              <t
-                  t-set="contactus_form_values"
-                  t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"
-              />
+          <t t-set="contactus_form_values"
+              t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"/>
+          <t t-call="website.layout"
+              logged_partner="request.env['website.visitor']._get_visitor_from_request().partner_id">
               <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values" />
               <div id="wrap" class="oe_structure oe_empty">
                   <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24 o_colored_level" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
@@ -477,15 +473,15 @@
               </div>
             </t>
             <div class="o_wevent_search d-flex w-100 w-lg-25">
-              <t t-call="website.website_search_box_input">
-                <t t-set="_form_classes" t-valuef="flex-grow-1"/>
-                <t t-set="_classes" t-valuef="o_wevent_event_searchbar_form"/>
-                <t t-set="search_type">events</t>
-                <t t-set="action" t-value="'/event/'"/>
-                <t t-set="display_description" t-valuef="true"/>
-                <t t-set="display_detail" t-valuef="false"/>
-                <t t-set="search" t-value="search or searches and searches['search']"/>
-                <t t-set="placeholder">Search an event..</t>
+              <t t-call="website.website_search_box_input"
+                  _form_classes.f="flex-grow-1"
+                  _classes.f="o_wevent_event_searchbar_form"
+                  search_type.f="events"
+                  action.f="/event/"
+                  display_description.f="true"
+                  display_detail.f="false"
+                  search="search or searches and searches['search']"
+                  placeholder.translate="Search an event..">
                 <t t-foreach="searches" t-as="item">
                   <input t-if="item != 'search' and item_value != 'all'" type="hidden" t-att-name="item" t-att-value="item_value"/>
                 </t>
@@ -540,12 +536,12 @@
   </record>
   <record id="ir_ui_view_3972" model="ir.ui.view">
     <field name="arch" type="xml">
-      <t t-name="website.record_cover">
-        <t t-set="_cp" t-value="_cp or json.loads(_record.cover_properties)"/>
-        <t t-set="_name" t-value="_name or _record._name"/>
-        <t t-set="_id" t-value="_id or _record.id"/>
-        <t t-set="_bg" t-value="_bg or _record._get_background(height=_resize_height, width=_resize_width)"/>
-        <t t-set="default_cover_name">Cover</t>
+      <t t-name="website.record_cover"
+          _cp="_cp or json.loads(_record.cover_properties)"
+          _name="_name or _record._name"
+          _id="_id or _record.id"
+          _bg="_bg or _record._get_background(height=_resize_height, width=_resize_width)"
+          default_cover_name.translate="Cover">
         <div t-att-data-name="display_opt_name or default_cover_name" t-att-style="_cp.get('background_color_style')" t-att-data-use_size="use_size" t-att-data-use_filters="use_filters" t-att-data-use_text_align="use_text_align" t-att-data-res-model="_name" t-att-data-res-id="_id" t-attf-class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc #{_cp.get('background_color_class')} #{use_size and _cp.get('resize_class')} #{use_text_align and _cp.get('text_align_class')} #{additionnal_classes}">
           <div t-attf-class="o_record_cover_component o_record_cover_image #{snippet_autofocus and 'o_we_snippet_autofocus'}" t-attf-style="background-image: #{_bg};" style="background-image: url(&quot;/web/image/1129-a15ea36f/Event%20%27The%20Rolling%20Stones%27%20cover%20image.webp&quot;);" class="o_record_cover_component o_record_cover_image"/>
           <div t-if="use_filters" t-attf-class="o_record_cover_component o_record_cover_filter oe_black" t-attf-style="opacity: #{_cp.get('opacity', 0.0)};"/>

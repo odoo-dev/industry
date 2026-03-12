@@ -172,6 +172,7 @@ class TestEnv(IndustryCase):
                 self._check_context_to_stop_mail_sending(tree, file_name, module)
                 self._check_text_based_xpath(tree, file_name)
                 self._check_portal_login_is_email(tree, file_name)
+                self._check_old_syntax_t_call_with_t_set(tree, file_name)
                 if root.split('/')[-1] == 'data':
                     self._check_view_active(tree, file_name)
                     self._check_is_published_false(tree, file_name)
@@ -662,3 +663,10 @@ class TestEnv(IndustryCase):
                         login,
                         file_name,
                     )
+
+    def _check_old_syntax_t_call_with_t_set(self, root, file_name):
+        if root.xpath(".//t[@t-set and parent::t[@t-call or @t-snippet-call]]"):
+            _logger.warning(
+                "Old syntax with t-call/t-snippet-call and t-set in the same tag detected in %s.",
+                file_name,
+            )

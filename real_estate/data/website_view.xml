@@ -8,9 +8,9 @@
     <field name="website_id" ref="website.default_website"/>
     <field name="arch" type="xml">
       <t name="Contact Us" t-name="website.contactus">
-        <t t-call="website.layout">
-          <t t-set="logged_partner" t-value="request.env['website.visitor']._get_visitor_from_request().partner_id"/>
-          <t t-set="contactus_form_values" t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"/>
+        <t t-set="contactus_form_values" t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"/>
+        <t t-call="website.layout"
+            logged_partner="request.env['website.visitor']._get_visitor_from_request().partner_id">
           <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values"/>
           <div id="wrap" class="oe_structure oe_empty">
             <section class="s_kickoff s_parallax_no_overflow_hidden o_colored_level o_cc o_cc2 pb40 pt48 s_custom_snippet" data-scroll-background-ratio="0" data-oe-shape-data="{&quot;shape&quot;:&quot;web_editor/Connections/12&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;o-color-4&quot;},&quot;flip&quot;:[&quot;x&quot;],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}" data-snippet="s_kickoff" style="position: relative;" data-name="Custom Kickoff">

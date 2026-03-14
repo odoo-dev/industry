@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="ir_attachment_1362" model="ir.attachment">
+    <field name="name">unsplash_jsuWg7IXx1k_.jpg</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1362-unsplash_jsuWg7IXx1k_.jpg"/>
+    <field name="url">/unsplash/jsuWg7IXx1k/.jpg</field>
+  </record>
+  </odoo>

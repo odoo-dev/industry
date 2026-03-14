@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//PYVOBJECT//NONSGML Version 1//EN
+BEGIN:VEVENT
+UID:20260210T155357Z - 63887@eu727a.odoo.com
+DTSTART:20260219T150000Z
+DTEND:20260219T160000Z
+ATTENDEE:MAILTO:jvan@odoo.com
+ATTENDEE:MAILTO:alice.donc@test.com
+CREATED:20260210T155357Z
+DESCRIPTION:*Contact Details*\nAlice Donc\nalice.donc@test.com [1]\n+328756
+ 54343 [2]\n*Questions & Answers*\nPhone number - +32875654343\nNeed to res
+ chedule? Click here [3]\n\n[1] mailto:alice.donc@test.com\n[2] tel:+328756
+ 54343\n[3] https://beauty-parlor.odoo.com/calendar/view/1e2086b6-a43b-4efe
+ -b9ee-acfcb12c7fae
+DTSTAMP:20260210T155357Z
+LOCATION:Therapist Industry Test\, 1160\, Belgium
+ORGANIZER;CN=Juliette Vandenheede (jvan):MAILTO:jvan@odoo.com
+SUMMARY:Relaxing Body Massage with Juliette Vandenheede (jvan)
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:Notification - 15 Minutes
+TRIGGER;related=START:PT15M
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:Email - 3 Hours
+TRIGGER;related=START:PT3H
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:SMS Text Message - 1 Hours
+TRIGGER;related=START:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:Follow up
+TRIGGER;related=START:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

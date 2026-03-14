@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="point_of_sale.product_product_tip" model="product.product" forcecreate="1">
+    <field name="lst_price">1.0</field>
+    <field name="default_code">TIPS</field>
+    <field name="product_tmpl_id" ref="point_of_sale.product_product_tip_product_template"/>
+    <field name="weight">0.01</field>
+    <field name="name">Tips</field>
+  </record>
+  <record id="appointment_account_payment.default_booking_product" model="product.product" forcecreate="1">
+    <field name="lst_price">50.0</field>
+    <field name="product_tmpl_id" ref="appointment_account_payment.default_booking_product_product_template"/>
+    <field name="name">Booking Fees</field>
+    <field name="type">service</field>
+  </record>
+  <record id="pos_settle_due.product_product_deposit" model="product.product" forcecreate="1">
+    <field name="lst_price">1.0</field>
+    <field name="product_tmpl_id" ref="pos_settle_due.product_product_deposit_product_template"/>
+    <field name="name">Deposit</field>
+    <field name="type">service</field>
+  </record>
+  <record id="pos_sale.default_downpayment_product" model="product.product" forcecreate="1">
+    <field name="product_tmpl_id" ref="pos_sale.default_downpayment_product_product_template"/>
+    <field name="name">Down Payment (POS)</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_5" model="product.product">
+    <field name="product_tmpl_id" ref="product_template_5"/>
+    <field name="name">Free Product - Booking Fees</field>
+    <field name="type">service</field>
+  </record>
+  <record id="loyalty.gift_card_product_50" model="product.product" forcecreate="1">
+    <field name="lst_price">50.0</field>
+    <field name="product_tmpl_id" ref="loyalty.gift_card_product_50_product_template"/>
+    <field name="name">Gift Card</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_4" model="product.product">
+    <field name="product_tmpl_id" ref="product_template_4"/>
+    <field name="name">Gift Card</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_11" model="product.product">
+    <field name="lst_price">22.0</field>
+    <field name="product_tmpl_id" ref="product_template_11"/>
+    <field name="name">Hand &amp; Nail Repair Cream</field>
+  </record>
+  <record id="product_product_6" model="product.product">
+    <field name="lst_price">45.0</field>
+    <field name="product_tmpl_id" ref="product_template_6"/>
+    <field name="name">Hydrating Facial Treatment</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_8" model="product.product">
+    <field name="lst_price">35.0</field>
+    <field name="product_tmpl_id" ref="product_template_8"/>
+    <field name="name">Manicure &amp; Nail Care</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_7" model="product.product">
+    <field name="lst_price">70.0</field>
+    <field name="product_tmpl_id" ref="product_template_7"/>
+    <field name="name">Relaxing Body Massage</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_10" model="product.product">
+    <field name="lst_price">30.0</field>
+    <field name="product_tmpl_id" ref="product_template_10"/>
+    <field name="name">Revitalizing Face Serumz</field>
+  </record>
+  <record id="pos_settle_due.product_product_settle" model="product.product" forcecreate="1">
+    <field name="lst_price">1.0</field>
+    <field name="product_tmpl_id" ref="pos_settle_due.product_product_settle_product_template"/>
+    <field name="name">Settle Due</field>
+    <field name="type">service</field>
+  </record>
+  <record id="pos_settle_due.product_product_settle_invoice" model="product.product" forcecreate="1">
+    <field name="lst_price">1.0</field>
+    <field name="product_tmpl_id" ref="pos_settle_due.product_product_settle_invoice_product_template"/>
+    <field name="name">Settle Invoice</field>
+    <field name="type">service</field>
+  </record>
+  <record id="loyalty.ewallet_product_50" model="product.product" forcecreate="1">
+    <field name="lst_price">50.0</field>
+    <field name="product_tmpl_id" ref="loyalty.ewallet_product_50_product_template"/>
+    <field name="name">Top-up eWallet</field>
+    <field name="type">service</field>
+  </record>
+  <record id="product_product_9" model="product.product">
+    <field name="lst_price">30.0</field>
+    <field name="product_tmpl_id" ref="product_template_9"/>
+    <field name="name">Waxing – Legs &amp; Arms</field>
+    <field name="type">service</field>
+  </record>
+</odoo>

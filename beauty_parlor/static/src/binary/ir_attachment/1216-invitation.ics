@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//PYVOBJECT//NONSGML Version 1//EN
+BEGIN:VEVENT
+UID:20260210T093334Z - 12618@eu727a.odoo.com
+DTSTART:20260212T150000Z
+DTEND:20260212T160000Z
+ATTENDEE:MAILTO:jvan@odoo.com
+ATTENDEE:MAILTO:marc.redler@test.com
+CREATED:20260210T093334Z
+DESCRIPTION:*Contact Details*\nMarc Redler\nmarc.redler@test.com [1]\n+3247
+ 8457638 [2]\n*Questions & Answers*\nPhone number - +32478457638\nNeed to r
+ eschedule? Click here [3]\n\n[1] mailto:marc.redler@test.com\n[2] tel:+324
+ 78457638\n[3] https://beauty-parlor.odoo.com/calendar/view/bb0e914e-ec9a-4
+ 792-939e-83d273205ad3
+DTSTAMP:20260210T093334Z
+LOCATION:Beauty Parlor\, 1160\, Belgium
+ORGANIZER;CN=Juliette Vandenheede (jvan):MAILTO:jvan@odoo.com
+SUMMARY:Relaxing Body Massage with Juliette Vandenheede (jvan)
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:Notification - 15 Minutes
+TRIGGER;related=START:PT15M
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:Email - 3 Hours
+TRIGGER;related=START:PT3H
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:SMS Text Message - 1 Hours
+TRIGGER;related=START:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:AUDIO
+DESCRIPTION:Follow up
+TRIGGER;related=START:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

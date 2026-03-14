@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="wellness_practitioner.crm_lead_10" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_17"/>
+    <field name="name">Stress Relief Massage Package</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">3</field>
+    <field name="stage_id" ref="crm.stage_lead3"/>
+    <field name="probability">97.62</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="wellness_practitioner.crm_lead_4" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_22"/>
+    <field name="name">Sensitive Skin Consultation</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">3</field>
+    <field name="stage_id" ref="crm.stage_lead4"/>
+    <field name="probability">100.0</field>
+  </record>
+  <record id="wellness_practitioner.crm_lead_3" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_15"/>
+    <field name="name">Hydration Boost Facial</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">3</field>
+    <field name="stage_id" ref="crm.stage_lead1"/>
+    <field name="probability">97.62</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="wellness_practitioner.crm_lead_12" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_16"/>
+    <field name="name">Detoxifying Body Wrap</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">2</field>
+    <field name="stage_id" ref="wellness_practitioner.crm_stage_5"/>
+    <field name="probability">97.62</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="wellness_practitioner.crm_lead_9" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_23"/>
+    <field name="name">Personalized Skincare Routine Plan</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">2</field>
+    <field name="stage_id" ref="crm.stage_lead4"/>
+    <field name="probability">100.0</field>
+  </record>
+  <record id="wellness_practitioner.crm_lead_8" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_21"/>
+    <field name="name">Personalized Skincare Routine Plan</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">2</field>
+    <field name="stage_id" ref="crm.stage_lead3"/>
+    <field name="probability">97.62</field>
+    <field name="date_automation_last">2026-02-10 10:19:15</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="wellness_practitioner.crm_lead_7" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_20"/>
+    <field name="name">Gel Nail Repair &amp; Maintenance</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">2</field>
+    <field name="stage_id" ref="crm.stage_lead3"/>
+    <field name="probability">97.62</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="wellness_practitioner.crm_lead_6" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_14"/>
+    <field name="name">Pre-Wedding Beauty Prep Package</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">2</field>
+    <field name="stage_id" ref="crm.stage_lead4"/>
+    <field name="probability">100.0</field>
+  </record>
+  <record id="wellness_practitioner.crm_lead_5" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_19"/>
+    <field name="name">Post-Workout Muscle Relief Massage</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="priority">2</field>
+    <field name="stage_id" ref="crm.stage_lead1"/>
+    <field name="probability">97.62</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="crm_lead_22" model="crm.lead">
+    <field name="partner_id" ref="res_partner_32"/>
+    <field name="name">Alice Donc - Relaxing Body Massage Booking</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="description"><![CDATA[<span><strong>Contact Details</strong><br>Alice Donc<br><a href="mailto:alice.donc@test.com">alice.donc@test.com</a><br><a href="tel:+32875654343">+32875654343</a><br><br><strong>Questions &amp; Answers</strong><br><span>Phone number - +32875654343</span></span>]]></field>
+    <field name="stage_id" ref="crm.stage_lead1"/>
+    <field name="phone_state">incorrect</field>
+    <field name="probability">98.39</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="wellness_practitioner.crm_lead_11" model="crm.lead" forcecreate="1">
+    <field name="partner_id" ref="wellness_practitioner.res_partner_18"/>
+    <field name="name">Luxury Pedicure Session</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="stage_id" ref="wellness_practitioner.crm_stage_5"/>
+    <field name="probability">96.88</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+  <record id="crm_lead_11" model="crm.lead">
+    <field name="partner_id" ref="res_partner_21"/>
+    <field name="phone_sanitized">+32478457638</field>
+    <field name="name">Marc Redler - Relaxing Body Massage Booking</field>
+    <field name="team_id" ref="sales_team.team_sales_department"/>
+    <field name="description"><![CDATA[<span><strong>Contact Details</strong><br>Marc Redler<br><a href="mailto:marc.redler@test.com">marc.redler@test.com</a><br><a href="tel:+32478457638">+32478457638</a><br><br><strong>Questions &amp; Answers</strong><br><span>Phone number - +32478457638</span></span>]]></field>
+    <field name="stage_id" ref="crm.stage_lead2"/>
+    <field name="phone_state">correct</field>
+    <field name="probability">96.88</field>
+    <field name="date_automation_last">2026-02-10 09:39:11</field>
+    <field name="iap_enrich_done" eval="True"/>
+  </record>
+</odoo>

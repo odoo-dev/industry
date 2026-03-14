@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="configurator_1_s_image_frame_default_image" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_image_frame_default_image</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1116-website.s_image_frame_default_image"/>
+    <field name="key">website.s_image_frame_default_image</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_cta_box_default_image" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_cta_box_default_image</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1114-website.s_cta_box_default_image"/>
+    <field name="key">website.s_cta_box_default_image</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_sidegrid_default_image_4" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_sidegrid_default_image_4</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1113-website.s_sidegrid_default_image_4"/>
+    <field name="key">website.s_sidegrid_default_image_4</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_sidegrid_default_image_3" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_sidegrid_default_image_3</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1112-website.s_sidegrid_default_image_3"/>
+    <field name="key">website.s_sidegrid_default_image_3</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_sidegrid_default_image_2" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_sidegrid_default_image_2</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1111-website.s_sidegrid_default_image_2"/>
+    <field name="key">website.s_sidegrid_default_image_2</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_sidegrid_default_image_1" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_sidegrid_default_image_1</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1110-website.s_sidegrid_default_image_1"/>
+    <field name="key">website.s_sidegrid_default_image_1</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_library_image_16" model="ir.attachment" forcecreate="1">
+    <field name="name">website.library_image_16</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1087-website.library_image_16"/>
+    <field name="key">website.library_image_16</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_library_image_14" model="ir.attachment" forcecreate="1">
+    <field name="name">website.library_image_14</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1086-website.library_image_14"/>
+    <field name="key">website.library_image_14</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_library_image_05" model="ir.attachment" forcecreate="1">
+    <field name="name">website.library_image_05</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1085-website.library_image_05"/>
+    <field name="key">website.library_image_05</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_library_image_13" model="ir.attachment" forcecreate="1">
+    <field name="name">website.library_image_13</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1084-website.library_image_13"/>
+    <field name="key">website.library_image_13</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_library_image_10" model="ir.attachment" forcecreate="1">
+    <field name="name">website.library_image_10</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1083-website.library_image_10"/>
+    <field name="key">website.library_image_10</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_library_image_03" model="ir.attachment" forcecreate="1">
+    <field name="name">website.library_image_03</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1082-website.library_image_03"/>
+    <field name="key">website.library_image_03</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_three_columns_default_image_3" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_three_columns_default_image_3</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1080-website.s_three_columns_default_image_3"/>
+    <field name="key">website.s_three_columns_default_image_3</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_three_columns_default_image_2" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_three_columns_default_image_2</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1079-website.s_three_columns_default_image_2"/>
+    <field name="key">website.s_three_columns_default_image_2</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_three_columns_default_image_1" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_three_columns_default_image_1</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1078-website.s_three_columns_default_image_1"/>
+    <field name="key">website.s_three_columns_default_image_1</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  <record id="configurator_1_s_parallax_default_image" model="ir.attachment" forcecreate="1">
+    <field name="name">website.s_parallax_default_image</field>
+    <field name="datas" type="base64" file="beauty_parlor/static/src/binary/ir_attachment/1067-website.s_parallax_default_image"/>
+    <field name="key">website.s_parallax_default_image</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+  </odoo>

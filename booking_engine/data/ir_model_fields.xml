@@ -769,4 +769,13 @@ for r in self:
     <field name="relation">x_availability</field>
     <field name="readonly" eval="True"/>
   </record>
+
+  <!-- we'll remove or modify this field after stop sell task merge -->
+  <record id="product_model_product_template_x_stop_sell" model="ir.model.fields">
+      <field name="ttype">boolean</field>
+      <field name="copied" eval="True"/>
+      <field name="field_description">Stop-Sell</field>
+      <field name="model_id" ref="product.model_product_template"/>
+      <field name="name">x_stop_sell</field>
+  </record>
 </odoo>

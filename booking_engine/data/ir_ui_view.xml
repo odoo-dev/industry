@@ -365,6 +365,68 @@
     <field name="type">list</field>
     <field name="active" eval="True"/>
   </record>
+  <record id="booking_engine_offers_form" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <xpath expr="//div[@name='options']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//page[@name='general_information']/group" position="replace">
+        <group string="General" name="group_general_info">
+          <group>
+            <field name="list_price"/>
+            <field name="taxes_id" widget='many2many_tags'/>
+          </group>
+          <group>
+            <field name="categ_id" string="Category"/>
+            <field name="x_has_city_tax"/>
+          </group>
+        </group>
+        <group>
+          <!-- we'll remove invisible="1" when Channel Manager part is merge-->
+          <group string="Channel Manager" invisible="1">
+            <field name="x_offer_type"/>
+            <field name="x_stop_sell" widget="boolean_toggle"/>
+          </group>
+          <group string="House Keeping" groups="booking_engine.group_house_keeping">
+            <field name="x_related_has_stayover_cleaning"/>
+            <field name="x_related_has_checkout_cleaning"/>
+          </group>
+        </group>
+        <group string="Resource">
+          <span invisible="id" class="text-nowrap">Please save this product to edit the resources.</span>
+          <field name="x_resource_ids" nolabel="1" colspan="4" domain="[('x_is_stay_resource', '=', True)]" invisible="not id"
+              context="{
+              'default_x_is_stay_resource': 1,
+              'default_resource_type': 'material',
+              'default_role_ids': [planning_role_id],
+              'list_view_ref': 'booking_engine.booking_engine_resource_list',
+              'form_view_ref': 'booking_engine.booking_engine_resource_form',
+              'has_product': 1,
+              }"
+          >
+              <list editable="bottom" multi_edit="1" open_form_view="True">
+                <control>
+                  <create name="add_new_resource" string="Add a resource"/>
+                </control>
+                <field name="name"/>
+                <field name="role_ids" string="Stay offers" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="calendar_id" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+              </list>
+          </field>
+        </group>
+      </xpath>
+      <xpath expr="//page[@name='resources']" position="attributes">
+          <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="mode">primary</field>
+    <field name="model">product.template</field>
+    <field name="name">product.template.form.inherit.booking_engine</field>
+    <field name="type">form</field>
+    <field name="active" eval="True"/>
+  </record>
   <record id="booking_engine_planning_role_view_search" model="ir.ui.view">
     <field name="arch" type="xml">
         <xpath expr="//filter[@name='role_for_material']" position="replace"/>
@@ -591,6 +653,7 @@
       (5, 0, 0),
       (0, 0, {'view_mode': 'kanban', 'view_id': ref('product.product_template_kanban_view')}),
       (0, 0, {'view_mode': 'list', 'view_id': ref('booking_engine_offers_list')}),
+      (0, 0, {'view_mode': 'form', 'view_id': ref('booking_engine_offers_form')}),
     ]"/>
   </record>
   <record id="booking_engine_rooms_roles_action" model="ir.actions.act_window">

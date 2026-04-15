@@ -22,9 +22,10 @@ RESET=false
 HARD_RESET=false
 DEMO=False
 DEBUG=false
+SHELL_MODE=false
 
 # Parse arguments
-while getopts ":n:idtprh" opt; do
+while getopts ":n:idtprhs" opt; do
   case $opt in
     n)  INDUSTRY_NAME="$OPTARG";;
     i)  INSTALL=true ;;
@@ -33,6 +34,7 @@ while getopts ":n:idtprh" opt; do
     p)  DEBUG=true ;;
     r)  RESET=true ;;
     h)  HARD_RESET=true ;;
+    s) SHELL_MODE=true ;;
     *)  usage ;;
   esac
 done
@@ -43,7 +45,7 @@ fi
 
 INDUSTRY_PATH="industry/"
 PYTHON_BIN="python3"
-ODOO_BIN="odoo/odoo-bin"
+ODOO_BIN="community/odoo-bin"
 ADDONS_PATH="$INDUSTRY_PATH/tests,enterprise,odoo/addons,odoo/odoo/addons,design-themes"
 IFS=',' read -r -a MODULES <<< "$INDUSTRY_NAME"
 MODULES=($(printf '%s\n' "${MODULES[@]}" | sort))
@@ -134,3 +136,17 @@ else
   echo "Starting Odoo server..."
   $PYTHON_BIN $ODOO_BIN --addons-path="$ADDONS_PATH" -d $DB_NAME
 fi
+
+
+# if $SHELL_MODE; then
+#   echo "Opening Odoo shell..."
+#   $PYTHON_BIN $ODOO_BIN shell --addons-path="$ADDONS_PATH" -d $DB_NAME
+
+# elif $TEST; then
+#   echo "Running tests..."
+#   $PYTHON_BIN $ODOO_BIN --addons-path="$ADDONS_PATH" -i $TEST_MODULES -d $DB_NAME --test-tags $TEST_TAGS
+
+# else
+#   echo "Starting Odoo server..."
+#   $PYTHON_BIN $ODOO_BIN --addons-path="$ADDONS_PATH" -d $DB_NAME
+# fi

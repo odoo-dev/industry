@@ -1,0 +1,101 @@
+Found 2 circular dependencies (you may have to change data loading order to avoid issues when importing):
+(data) pos.config -> pos.payment.method -> pos.config
+(data) product.product -> product.template -> project.project -> product.product
+The following relational data haven't been exported because they either refer
+to a model that Studio doesn't export, or have no XML id:
+
+Record: base.main_partner,
+Model: res.partner,
+Field: property_stock_customer,
+Type: many2one,
+Value: stock.location(10,) ('Inter-warehouse transit')
+
+Record: base.main_partner,
+Model: res.partner,
+Field: property_stock_supplier,
+Type: many2one,
+Value: stock.location(10,) ('Inter-warehouse transit')
+
+Record: stock_quant_2,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_4,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_6,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_8,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_10,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_12,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_14,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_16,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_18,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: stock_quant_20,
+Model: stock.quant,
+Field: location_id,
+Type: many2one,
+Value: stock.location(11,) ('Inventory adjustment')
+
+Record: library.pos_config_library,
+Model: pos.config,
+Field: order_seq_id,
+Type: many2one,
+Value: ir.sequence(30,) ('POS order from config #1')
+
+Record: library.pos_config_library,
+Model: pos.config,
+Field: order_backend_seq_id,
+Type: many2one,
+Value: ir.sequence(31,) ('POS order backend from config #1')
+
+Record: library.pos_config_library,
+Model: pos.config,
+Field: order_line_seq_id,
+Type: many2one,
+Value: ir.sequence(32,) ('POS order line from config #1')
+
+Record: library.pos_config_library,
+Model: pos.config,
+Field: device_seq_id,
+Type: many2one,
+Value: ir.sequence(33,) ('POS device from config #1')

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="librarymg.knowledge_cover_9" model="knowledge.cover" forcecreate="1">
+    <field name="attachment_id" ref="librarymg.ir_attachment_1063"/>
+  </record>
+</odoo>

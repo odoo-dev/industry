@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+  <record id="homepage" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <t name="Homepage" t-name="website.homepage">
+        <t t-call="website.layout">
+          <t t-set="pageName" t-value="'homepage'"/>
+          <div id="wrap" class="oe_structure">
+            <section class="s_striped_center_top o_cc pb56 o_cc3 o_colored_level" data-oe-shape-data="{'shape':'web_editor/Connections/20','colors':{'c5': 'o-color-4'},'flip':[], 'showOnMobile':true}" data-snippet="s_striped_center_top">
+              <div class="o_we_shape o_web_editor_Connections_20 o_shape_show_mobile o_header_extra_shape_mapping" style="background-image: url('/web_editor/shape/web_editor/Connections/20.svg?c5=o-color-4'); background-position: 50% 100%;">
+                <br/>
+              </div>
+              <div class="container">
+                <div class="row o_grid_mode" data-row-count="18">
+                  <div class="o_colored_level o_grid_item g-col-lg-8 g-height-8 col-lg-8" style="grid-area: 2 / 3 / 10 / 11; z-index: 1;">
+                    <h1 style="text-align: center;" class="display-3-fs">
+                      Shaping Tomorrow's Knowledge Seekers
+                    </h1>
+                    <p class="lead" style="text-align: center;">
+                      Empower young minds with access to a diverse collection of books and engaging programs that inspire creativity, exploration, and lifelong learning.
+                    </p>
+                    <p>
+                      <br/>
+                    </p>
+                    <p style="text-align: center;">
+                      <a class="btn btn-primary btn-lg o_translate_inline" href="/contactus">Join Us Today</a>
+                    </p>
+                  </div>
+                  <div class="o_colored_level o_grid_item g-col-lg-4 g-height-10 col-lg-4" style="text-align: center; z-index: 2; grid-area: 9 / 5 / 19 / 9;">
+                    <figure class="figure w-100">
+                      <img src="/web/image/library.ir_attachment_6" class="figure-img img-fluid rounded" style="width: 100% !important;" alt="" loading="lazy"/>
+                      <figcaption class="figure-caption text-600">
+                        <br/>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section data-snippet="s_dynamic_snippet_products" class="s_dynamic_snippet_products oe_website_sale s_dynamic s_dynamic_empty pt32 pb32 s_product_product_borderless_1 o_colored_level" data-custom-template-data="{}" data-name="Products" data-product-category-id="all" data-show-variants="true" data-number-of-records="16" data-filter-id="4" data-template-key="website_sale.dynamic_filter_template_product_product_products_item" data-carousel-interval="5000">
+              <div class="container">
+                <div class="row s_nb_column_fixed">
+                  <section class="s_dynamic_snippet_title oe_unremovable oe_unmovable d-flex flex-column flex-md-row mb-lg-0 pb-3 pb-md-0 o_colored_level justify-content-between">
+                    <div>
+                      <h4>Our latest content</h4>
+                      <p class="lead">Check our new arrivals !</p>
+                    </div>
+                    <div>
+                      <a title="See All" href="/shop">See all<span class="fa fa-long-arrow-right ms-2"/></a>
+                    </div>
+                  </section>
+                  <section class="s_dynamic_snippet_content oe_unremovable oe_unmovable o_not_editable col o_colored_level">
+                    <div class="css_non_editable_mode_hidden">
+                      <div class="missing_option_warning alert alert-info fade show d-none d-print-none rounded-0">
+                        Your Dynamic Snippet will be displayed here... This message is displayed because you did not provide both a filter and a template to use.<br/>
+                      </div>
+                    </div>
+                    <div class="dynamic_snippet_template"/>
+                  </section>
+                </div>
+              </div>
+            </section>
+            <section class="s_faq_collapse pt32 pb32 o_colored_level" data-vcss="001" data-snippet="s_faq_collapse">
+              <div class="container">
+                <div class="row align-items-start s_nb_column_fixed">
+                  <div class="col-lg-4 pt16 o_colored_level">
+                    <h3>Frequently asked questions</h3>
+                    <p class="lead">Here are some common questions about our library.</p>
+                  </div>
+                  <div class="col-lg-7 offset-lg-1 s_col_no_bgcolor" data-name="Accordion Box">
+                    <div data-name="Accordion" class="s_accordion">
+                      <div id="myCollapse" class="accordion-flush accordion">
+                        <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                          <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="true" id="accordion-button896369_1" data-bs-target="#myCollapseTab896369_1" aria-controls="myCollapseTab896369_1">
+                            <span class="flex-grow-1">What services does your library offer?</span>
+                          </button>
+                          <div class="accordion-collapse collapse show" data-bs-parent="#myCollapse" role="region" id="myCollapseTab896369_1" aria-labelledby="accordion-button896369_1">
+                            <div class="accordion-body">
+                              <p>Our library specializes in providing access to a vast collection of books, digital resources, and community programs. We cater to the diverse needs of our patrons, fostering a love for reading and lifelong learning.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                          <button type="button" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button896369_2" data-bs-target="#myCollapseTab896369_2" aria-controls="myCollapseTab896369_2">
+                            <span class="flex-grow-1">How can I contact library support?</span>
+                          </button>
+                          <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab896369_2" aria-labelledby="accordion-button896369_2">
+                            <div class="accordion-body">
+                              <p>You can reach our library support team by emailing info@ourlibrary.example.com, calling +1 555-555-5556, or using the live chat on our website. Our dedicated team is available during library hours to assist with any inquiries or issues.</p>
+                              <p>We’re committed to providing prompt and effective solutions to ensure your library experience is enjoyable and fulfilling.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                          <button type="button" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button896369_3" data-bs-target="#myCollapseTab896369_3" aria-controls="myCollapseTab896369_3">
+                            <span class="flex-grow-1">What are your borrowing policies?</span>
+                          </button>
+                          <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab896369_3" aria-labelledby="accordion-button896369_3">
+                            <div class="accordion-body">
+                              <p>We offer a borrowing policy that allows you to check out items for up to three weeks. Items must be returned in good condition, and late fees may apply for overdue items.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </t>
+      </t>
+    </field>
+    <field name="key">librarymg.homepage</field>
+    <field name="name">Home</field>
+    <field name="type">qweb</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+</odoo>

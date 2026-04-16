@@ -2,7 +2,7 @@
 <odoo noupdate="1">
   <record id="loyalty_rule_2" model="loyalty.rule">
     <field name="program_id" ref="loyalty_program_2"/>
-    <field name="minimum_qty" eval="False"/>
     <field name="reward_point_mode">money</field>
+    <field name="minimum_qty" eval="False"/>
   </record>
 </odoo>

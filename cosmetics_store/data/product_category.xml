@@ -9,6 +9,9 @@
   <record id="product_category_9" model="product.category">
     <field name="name">Facial Care</field>
   </record>
+  <record id="point_of_sale.product_category_food" model="product.category">
+    <field name="name">Food</field>
+  </record>
   <record id="product_category_8" model="product.category">
     <field name="name">Hair Care</field>
   </record>

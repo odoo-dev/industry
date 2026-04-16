@@ -1,18 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odoo auto_sequence="1" noupdate="1">
+<odoo noupdate="1">
   <record id="purchase_order_line_2" model="purchase.order.line">
     <field name="product_id" ref="product_product_9"/>
     <field name="order_id" ref="purchase_order_2"/>
     <field name="product_qty">10.0</field>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="name"><![CDATA[Botanical Face Mist]]></field>
+    <field name="product_uom_qty">10.0</field>
+    <field name="price_unit">6.09</field>
+    <field name="partner_id" ref="res_partner_12"/>
   </record>
   <record id="purchase_order_line_3" model="purchase.order.line">
     <field name="product_id" ref="product_product_10"/>
     <field name="order_id" ref="purchase_order_2"/>
     <field name="product_qty">10.0</field>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="name"><![CDATA[Balancing Facial Oil	]]></field>
+    <field name="product_uom_qty">10.0</field>
+    <field name="price_unit">11.3</field>
+    <field name="partner_id" ref="res_partner_12"/>
   </record>
   <record id="purchase_order_line_4" model="purchase.order.line">
     <field name="product_id" ref="product_product_8"/>
     <field name="order_id" ref="purchase_order_2"/>
     <field name="product_qty">20.0</field>
+    <field name="product_uom_id" ref="uom.product_uom_unit"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="name"><![CDATA[Gentle Cleansing Milk]]></field>
+    <field name="product_uom_qty">20.0</field>
+    <field name="price_unit">8.7</field>
+    <field name="partner_id" ref="res_partner_12"/>
   </record>
 </odoo>

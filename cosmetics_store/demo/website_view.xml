@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-  <record id="ir_ui_view_2258" model="ir.ui.view">
+  <record id="homepage" model="ir.ui.view">
     <field name="arch" type="xml">
       <t name="Homepage" t-name="website.homepage">
         <t t-call="website.layout">
@@ -83,7 +83,7 @@
                 </div>
               </div>
             </section>
-            <section data-snippet="s_dynamic_snippet_products" class="s_dynamic_snippet_products oe_website_sale s_dynamic s_dynamic_empty pt32 pb32 o_colored_level s_product_product_centered" data-custom-template-data="{}" data-name="Products" data-product-category-id="all" data-number-of-records="26" data-filter-id="*filter_newest_products_cosmetics_store*" data-template-key="website_sale.dynamic_filter_template_product_product_products_item" data-carousel-interval="5000" data-arrow-position="bottom">
+            <section data-snippet="s_dynamic_snippet_products" class="s_dynamic_snippet_products oe_website_sale s_dynamic s_dynamic_empty pt32 pb32 o_colored_level s_product_product_centered" data-custom-template-data="{}" data-name="Products" data-product-category-id="all" data-number-of-records="26" data-filter-id="4" data-template-key="website_sale.dynamic_filter_template_product_product_products_item" data-carousel-interval="5000" data-arrow-position="bottom">
               <div class="container">
                 <div class="row s_nb_column_fixed">
                   <section class="s_dynamic_snippet_title oe_unremovable oe_unmovable d-flex flex-column flex-md-row mb-lg-0 pb-3 pb-md-0 o_colored_level justify-content-between">
@@ -114,7 +114,7 @@
                     </h2><p><br/> Ethical beauty is about making choices that respect the planet and its inhabitants, ensuring a brighter future for all.</p><p>Reach out to learn more about our approach, our ingredients, or how to stock our products.&amp;nbsp;<br/>
                     </p>&amp;nbsp;<br/><a href="/contactus" class="btn btn-primary">Contact Us</a></div>
                   <div class="col-lg-6 p-0 o_colored_level">
-                    <img src="/web/image/cosmetics_store.ir_attachment_1096" alt="a hand holding a black pen" data-attachment-id="1096" class="img-fluid w-100 h-100 img o_we_custom_image" style="object-fit: cover;" loading="lazy"/>
+                    <img src="/web/image/ir_attachment_1096" alt="a hand holding a black pen" data-attachment-id="1096" class="img-fluid w-100 h-100 img o_we_custom_image" style="object-fit: cover;" loading="lazy"/>
                   </div>
                 </div>
               </div>
@@ -149,4 +149,8 @@
     <field name="type">qweb</field>
     <field name="website_id" ref="website.default_website"/>
   </record>
+  <function model="ir.ui.view" name="write">
+    <value model="ir.ui.view" eval="obj().env['website'].with_context(website_id=obj().env.ref('website.default_website').id).viewref('website.homepage').id"/>
+    <value model="ir.ui.view" eval="{'arch': obj().env.ref('cosmetics_store.homepage').arch}"/>
+  </function>
 </odoo>

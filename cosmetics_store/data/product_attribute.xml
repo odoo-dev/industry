@@ -1,11 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-  <record id="product_barcodelookup.product_attribute_lookup_1" model="product.attribute" forcecreate="1">
-    <field name="name">color</field>
-    <field name="visibility">hidden</field>
-  </record>
   <record id="product_attribute_10" model="product.attribute">
     <field name="name">Scent</field>
+    <field name="product_tmpl_ids" eval="[(6, 0, [ref('product_template_14'), ref('product_template_13')])]"/>
     <field name="visibility">hidden</field>
-  </record> 
+  </record>
 </odoo>

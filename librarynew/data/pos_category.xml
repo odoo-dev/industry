@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="pos_category_2" model="pos.category" forcecreate="1">
+    <field name="name">Audio &amp; Video</field>
+    <field name="color">4</field>
+  </record>
+  <record id="pos_category_4" model="pos.category" forcecreate="1">
+    <field name="name">Books</field>
+    <field name="color" eval="False"/>
+  </record>
+  <record id="pos_event.pos_category_event" model="pos.category" forcecreate="1">
+    <field name="name">Events</field>
+    <field name="color" eval="False"/>
+  </record>
+  <record id="pos_category_5" model="pos.category" forcecreate="1">
+    <field name="name">Games</field>
+    <field name="color">5</field>
+  </record>
+  <record id="pos_category_3" model="pos.category" forcecreate="1">
+    <field name="name">Service</field>
+    <field name="color">7</field>
+  </record>
+</odoo>

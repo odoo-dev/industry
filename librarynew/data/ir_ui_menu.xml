@@ -1,0 +1,17 @@
+<odoo noupdate="1">
+    <record id="return_main_menu" model="ir.ui.menu" forcecreate="1">
+        <field name="name">Return</field>
+        <field name="sequence">2</field>
+        <field name="web_icon_data" type="base64" file="librarynew/static/src/binary/ir_ui_menu/731-web_icon_data"/>
+    </record>
+    <record id="return_sub_menu" model="ir.ui.menu" forcecreate="1">
+        <!-- <field name="action" ref="return_picking_act_window"/> -->
+        <field name="name">Return</field>
+        <field name="parent_id" ref="return_main_menu"/>
+    </record>
+    <record id="return_settings_menu" model="ir.ui.menu" forcecreate="1">
+        <!-- <field name="action" ref="settings_act_window"/> -->
+        <field name="name">Settings</field>
+        <field name="parent_id" ref="return_main_menu"/>
+    </record>
+</odoo>

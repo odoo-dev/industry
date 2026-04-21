@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 import re
 from ast import literal_eval
-from lxml import etree
+from lxml import etree,html
 
 # Setup logger
 # Create a Logger instance directly
@@ -222,6 +222,7 @@ class ProcessDb:
                 raise Exception("Invalid module data for web_studio")
 
             if state == "uninstalled":
+                self.ai_module_uninstall(port, db_name, uid)
                 self.install_web_studio(port, db_name, uid, model_id)
                 # optional: re-check status after install
                 modules = self.check_web_studio_installed(port, db_name, uid)
@@ -330,6 +331,78 @@ class ProcessDb:
         # Return the list of matched module(s) with their state
         if response["result"]:
             return response["result"]
+    
+    def ai_module_uninstall(self, port, db_name, uid):
+        # Search AI module
+        search_payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    db_name,
+                    uid,
+                    PASSWORD,
+                    "ir.module.module",
+                    "search_read",
+                    [[("name", "=", "ai")]],
+                    {
+                        "fields": ["id", "state"],
+                        "limit": 1
+                    }
+                ]
+            },
+            "id": 1
+        }
+
+        response = requests.post(
+            f"{BASE_URL}{port}/jsonrpc",
+            json=search_payload
+        ).json()
+
+        if "error" in response:
+            raise Exception(
+                f"Failed to search ai module: {response['error']}"
+            )
+
+        ai_module = response.get("result", [])
+
+        if not ai_module or ai_module[0]["state"] != "installed":
+            return
+
+        # Uninstall AI module if installed
+        ai_module_id = ai_module[0]["id"]
+
+        uninstall_payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    db_name,
+                    uid,
+                    PASSWORD,
+                    "ir.module.module",
+                    "button_immediate_uninstall",
+                    [[ai_module_id]]
+                ]
+            },
+            "id": 2
+        }
+
+        uninstall_response = requests.post(
+            f"{BASE_URL}{port}/jsonrpc",
+            json=uninstall_payload
+        ).json()
+
+        if "error" in uninstall_response:
+            raise Exception(
+                f"Failed to uninstall ai module: {uninstall_response['error']}"
+            )
+
+        _logger.info("AI module uninstalled successfully.")
         
     def install_web_studio(self, port, db_name, uid, module_id):
         # Prepare JSON-RPC payload to install the module using button_immediate_install
@@ -394,12 +467,12 @@ class CleanModule:
             'demo/website_page.xml',
             'demo/account_analytic_plan.xml',
             'demo/crm_team.xml',
-            'data/uom.uom.xml',
+            'data/uom_uom.xml',
         ]
         self.mandatory_files = {
             "/data/mail_message.xml": """<?xml version='1.0' encoding='UTF-8'?>
 <odoo noupdate="1">
-    <record model="mail.message" id="notification_knowledge">
+    <record id="notification_knowledge" model="mail.message">
         <field name="model">discuss.channel</field>
         <field name="res_id" ref="mail.channel_all_employees"/>
         <field name="message_type">email</field>
@@ -408,7 +481,7 @@ class CleanModule:
         <field name="subject">🚀 Get started with Odoo {Ind_name}</field>
         <field name="body" model="knowledge.article" eval="
             '&lt;span>&#x1F44B; Hi! Follow this &lt;a href=\\''
-             + obj().env.ref('{ind_name}.welcome_article').article_url 
+             + '/odoo/knowledge/' + str(obj().env.ref('{ind_name}.welcome_article').id)
              + '\\'>onboarding guide&lt;/a>. You can find it anytime in the Knowledge app.&lt;/span>'"/>
     </record>
 </odoo>
@@ -551,7 +624,6 @@ class CleanModule:
                                             'sale_async_emails',
                                             'snailmail_account',
                                             'web_grid',
-                                            'web_studio',
                                             'social_push_notifications',
                                             'appointment_sms',
                                             'website_knowledge',
@@ -587,6 +659,9 @@ class CleanModule:
                 # Extract relevant SCSS customization data
                 elif current_dir.endswith('/ir_attachment/') and ext == "scss":
                     self.get_relevant_scss_data(scss_content_list, root, file_name)
+                
+                if not scss_content_list:
+                    self.get_relevant_scss_data_from_db(scss_content_list)
 
         # Generate SCSS function from collected theme data
         self.write_scss_function(destination_module_path, scss_content_list)
@@ -608,11 +683,14 @@ class CleanModule:
         # Retain only welcome article in the knowledge article
         self.clean_knowledge_article(destination_module_path)
 
+        # Transform knowledge article by extracting HTML content into a QWeb template
+        self.transform_knowledge_article(destination_module_path)
+
         # Add demo payment provider if relevant module is present
         self.add_demo_payment_provider(destination_module_path, manifest_demo_file_list)
         
-        # Add immediate install function for the theme module in demo XML files
-        self.add_theme_immediate_install_function(destination_module_path)
+        # Add theme selection function using button_choose_theme in demo XML
+        self.add_button_choose_theme_function(destination_module_path)
 
         # Clean up sale order line records
         self.clean_sale_order_line_record(destination_module_path)
@@ -628,6 +706,9 @@ class CleanModule:
 
         # Clean up pos.payment.method records
         self.clean_pos_payment_method(destination_module_path)
+
+        # Rename the homepage record and move associated functions to website_theme_apply.xml
+        self.update_homepage_references(destination_module_path)
 
         # Update demo file order in manifest
         self.arrange_manifest_file(destination_module_path,  manifest_demo_file_list)
@@ -778,14 +859,14 @@ class CleanModule:
         
         # Obfuscate all odoo.com emails by replacing with ****@example.com
         pattern_email = re.compile(r'([a-zA-Z0-9._%+-]+)@odoo\.com')
-        content = pattern_email.sub(lambda m: f'{"*" * len(m.group(1))}@example.com', content)
+        content = pattern_email.sub('mitchell@example.com', content)
 
         #  Replace the <field name="user_id" eval="False"/> with <field name="user_id" ref="base.user_admin"/>
         pattern_user_id_false = re.compile(r'<field name="user_id" eval="False"\s*/>')
         content = pattern_user_id_false.sub(r'<field name="user_id" ref="base.user_admin"/>', content)
 
         # Remove data-oe-version and data-last-history-steps attributes.
-        content = re.sub(r'\s*(data-oe-version|data-last-history-steps)="[^"]*"', '', content)
+        content = re.sub(r'\s*(data-oe-version|data-last-history-steps|data-heading-link-id)="[^"]*"', '', content)
 
         # Replace eval="obj().search(" with search=( to avoid eval usage
         content = re.sub(r'eval="obj\(\)\.search\(', r'search=(', content)
@@ -972,6 +1053,77 @@ class CleanModule:
 
         return content
 
+    def get_relevant_scss_data_from_db(self, scss_content_list):
+        session, uid = self.session_authentication()
+
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    self.db_name,
+                    uid,
+                    PASSWORD,
+                    "ir.attachment",
+                    "search_read",
+                    [[
+                        (
+                            "name",
+                            "in",
+                            [
+                                "user_color_palette.scss",
+                                "user_values.scss",
+                                "user_theme_color_palette.scss",
+                            ]
+                        )
+                    ]],
+                    {
+                        "fields": ["url", "index_content"],
+                    },
+                ]
+            },
+            "id": 2,
+        }
+        response = session.post(f"{BASE_URL}{self.port}/jsonrpc", json=payload).json()
+        records = response.get("result", [])
+        scss_pattern = re.compile(r'o-map-omit\(\(\s*(.*?)\s*(?://\s*--\s*hook\s*--)?\s*\)\)', re.DOTALL)
+
+        for record in records:
+            file_name = record.get("url", "")
+            raw = record.get("index_content", "")
+
+            clean_url = "/website/" + file_name.split('website/')[1]
+            scss_content_dict = {}
+            scss_content = raw.decode() if isinstance(raw, bytes) else raw
+            scss_match = scss_pattern.search(scss_content)
+
+            if scss_match:
+                lines = []
+
+                for line in scss_match.group(1).splitlines():
+                    if not line:
+                        continue
+                    line = line.strip()
+                    if ":" in line:
+                        key, value = line.split(":", 1)
+                        value = value.strip().rstrip(",")
+
+                        if value == "NULL":
+                            value = "null"
+                        if not (value.startswith("'") and value.endswith("'")):
+                            value = f"'{value}'"
+
+                        line = f"{key}: {value},"
+
+                    lines.append(line)
+
+                inner_scss_content = "".join(lines)
+                scss_content_dict['url'] = clean_url
+                scss_content_dict['inner_scss_content'] = inner_scss_content
+                scss_content_list.append(scss_content_dict)
+
     def get_relevant_scss_data(self, scss_content_list, root, file_name):
         """
         Parses the given SCSS file to extract relevant customization data.
@@ -998,6 +1150,11 @@ class CleanModule:
 
         if scss_match:
             inner_scss_content = scss_match.group(1)  # Extract inner contents
+            inner_scss_content = re.sub(
+                r":\s*([^,\n']+)",
+                lambda m: f": '{m.group(1).strip()}'",
+                inner_scss_content
+            )
             scss_content_dict['inner_scss_content'] = inner_scss_content
             if 'color' in file_name:
                 scss_content_dict['url'] = "/website/static/src/scss/options/colors/" + file_name
@@ -1028,12 +1185,12 @@ class CleanModule:
             new_function = ""
             for item in scss_content_list:
                 new_function += f"""
-        <function model="web_editor.assets" name="make_scss_customization">
-            <value eval="{item['url']}" />
-            <value eval="{{'
-                    {item['inner_scss_content']}'
-                }}" />
-        </function>
+    <function model="web_editor.assets" name="make_scss_customization">
+        <value eval="'{item['url']}'" />
+        <value eval="{{
+            {item['inner_scss_content']}
+        }}" />
+    </function>
         """
             
             # Base structure if file does not exist
@@ -1183,6 +1340,10 @@ class CleanModule:
                     record.remove(res_model[0])
                 if website_id:
                     record.remove(website_id[0])
+                existing = record.xpath("./field[@name='public']")
+                if not existing:
+                    new_field = etree.Element("field", name="public", eval="True")
+                    record.append(new_field)
                 if key_field or name_field:
                     # check key or name in ir_ui_view.xml file if not found store in list
                     key = key_field[0].text if key_field else None
@@ -1308,7 +1469,6 @@ class CleanModule:
                             _logger.warning(f"Warning: Failed to rename file {file} to {new_file_path}: {e}")
         return
 
-
     def clean_knowledge_article(self, destination_module_path):
         """
             Keep only the record with ID ending with 'welcome_article' in knowledge_article.xml,
@@ -1339,6 +1499,9 @@ class CleanModule:
                         # Remove all 'last_edition_uid' fields in the record
                         if field.get('name') == "last_edition_uid":
                             record.remove(field)
+                        # Remove 'category' field if exists
+                        if field.get('name') == "category":
+                            record.remove(field)
                     
                     # Add 'is_locked' field with eval="True" if missing in this record
                     if not record.xpath('.//field[@name="is_locked"]'):
@@ -1351,6 +1514,39 @@ class CleanModule:
 
             self.write_etree_content(path_knowledge_article, root_knowledge_article)
         return
+
+    def transform_knowledge_article(self, destination_module_path):
+        file_path = Path(destination_module_path + '/data/knowledge_article.xml')
+
+        if not file_path.exists():
+            return
+
+        parser = etree.XMLParser(remove_blank_text=True)
+        tree = etree.parse(file_path, parser)
+        root = tree.getroot()
+
+        body_fields = root.xpath("//record[@id='welcome_article']/field[@name='body']")
+        if body_fields is None:
+            return
+        cnt = 0
+        for body in body_fields:
+
+            if body.text:
+                extracted_content = body.text
+                body.text = ""
+                template = etree.Element("template", id="welcome_article_body")
+                wrapper = html.fragment_fromstring(extracted_content, create_parent=True)
+
+                template.extend(wrapper) # Append all children
+                root.insert(cnt, template)
+                cnt+=2
+            else:
+                continue
+
+            body.text = etree.CDATA("")
+            etree.indent(root, space="  ") # This Fixes Formating
+
+        tree.write(file_path, encoding="utf-8", xml_declaration=True)
 
     def check_website_sale_installed(self):
         # Prepare the JSON-RPC payload to search for the 'website_sale' module
@@ -1427,6 +1623,82 @@ class CleanModule:
         new_depends = ['knowledge']
         depends_list = sorted(set(depends_list + new_depends))
         return depends_list
+    
+    def update_homepage_references(self, destination_module_path):
+        path_ir_ui_view = Path(destination_module_path + '/demo/ir_ui_view.xml')
+        
+        if not path_ir_ui_view.exists():
+            return
+
+        root = self.get_etree_content(path_ir_ui_view)
+        old_id = None
+
+        # Find homepage and update record id
+        records = root.xpath("//record")
+        for record in records:
+            t_nodes = record.xpath(".//t[@t-name='website.homepage']")
+            if t_nodes:
+                old_id = record.get("id")
+                record.set("id", "homepage")
+                break
+        
+        if old_id is None:
+            return
+        
+        # Update function reference
+        functions = root.xpath("//function")
+        extracted_functions = []
+
+        for func in functions:
+            values = func.xpath(".//value")
+            
+            for val in values:
+                eval_attr = val.get("eval")
+                if eval_attr and f".{old_id}" in eval_attr:
+                    new_eval = eval_attr.replace(f".{old_id}", ".homepage")
+                    val.set("eval", new_eval)
+            
+            extracted_functions.append(func)
+
+        # Update website_page.xml reference
+        path_website_page = Path(destination_module_path + '/demo/website_page.xml')
+
+        if path_website_page.exists():
+            page_root = self.get_etree_content(path_website_page)
+            records = page_root.xpath("//record")
+
+            for record in records:
+                view_fields = record.xpath("./field[@name='view_id']")
+                ref_attr = view_fields[0].get("ref") if view_fields else None
+
+                # check if ref matches old_id
+                if ref_attr and f"{old_id}" in ref_attr:
+                    view_fields[0].set("ref", "homepage")
+
+        self.write_etree_content(path_website_page, page_root)
+
+        # Remove function from original file
+        for func in extracted_functions:
+            parent = func.getparent() 
+            if parent is not None:
+                parent.remove(func)
+
+        self.write_etree_content(path_ir_ui_view, root)
+
+        # Add function to website_theme_apply.xml
+        if extracted_functions:
+            theme_apply_path = Path(destination_module_path + '/demo/website_theme_apply.xml')
+            if theme_apply_path.exists():
+                theme_root = self.get_etree_content(theme_apply_path)
+            else:
+                theme_root = etree.Element("odoo")
+
+            for func in extracted_functions:
+                theme_root.append(func)
+
+            self.write_etree_content(theme_apply_path, theme_root)
+
+        return
 
     def arrange_manifest_file(self, destination_module_path, manifest_demo_file_list):
         """
@@ -1463,6 +1735,12 @@ class CleanModule:
 
         # Prefix each file with 'demo/' for manifest compatibility
         unique_manifest_demo_file_list = [ 'demo/' + file_name for file_name in new_manifest_demo_file_list ]
+
+        # Ensure demo/website_view.xml is always the last file in demo section
+        website_view_file = 'demo/website.xml'
+        if website_view_file in unique_manifest_demo_file_list:
+            unique_manifest_demo_file_list.remove(website_view_file)
+            unique_manifest_demo_file_list.append(website_view_file)
 
         # Read and evaluate the manifest file
         manifest_path = Path(destination_module_path + '/__manifest__.py')
@@ -1517,14 +1795,19 @@ class CleanModule:
 
         return
 
-    def add_theme_immediate_install_function(self, destination_module_path):
+    def add_button_choose_theme_function(self, destination_module_path):
         """
-            Adds an immediate install function for the theme module in the website_theme_apply.xml file.
+            Adds a theme selection function (button_choose_theme) to website_theme_apply.xml.
 
-            This function reads the theme_id reference from the demo/website.xml file of the given module.
-            It then generates a <function> XML element to trigger the immediate installation of the theme module.
-            The generated function block is appended inside the <odoo> tag of demo/website_theme_apply.xml.
-            If the target XML file does not exist, it creates a new one with the required structure.
+            This function extracts the theme_id from demo/website.xml of the given module.
+            It then generates a <function> XML element that triggers theme selection using
+            the `button_choose_theme` method on `ir.module.module`.
+
+            The generated function block is added inside the <odoo> tag of
+            demo/website_theme_apply.xml. If the file does not exist, it creates
+            a new XML file with the required structure.
+
+            Also change ref attribute for the theme_id field,
 
             Args:
                 destination_module_path (str): The module directory name containing the demo folder with website.xml.
@@ -1532,11 +1815,21 @@ class CleanModule:
         website_path = Path(destination_module_path + '/demo/' + 'website.xml')
         if website_path.exists():
             etree_content = self.get_etree_content(website_path)
-            theme_id = etree_content.xpath("//field[@name='theme_id']")[0].get('ref')
+            theme_id = etree_content.xpath("//field[@name='theme_id']")
             if theme_id:
         
                 # Build new <function> entries for each SCSS customization
-                new_function = f"""<function name="button_immediate_install" model="ir.module.module" eval="[ref('{theme_id}', raise_if_not_found=False)]"/>"""
+                field_node = theme_id[0]
+                old_ref = field_node.get('ref')
+                new_function = f"""<function name="button_choose_theme" model="ir.module.module" eval="[ref('{old_ref}', raise_if_not_found=False) or ref('base.module_theme_default')]"/>"""
+                
+                field_node.attrib.pop('ref', None)
+                field_node.set(
+                    'search',
+                    f"[('id', '=', ref('{old_ref}', raise_if_not_found=False))]"
+                )
+
+                self.write_etree_content(website_path, etree_content)
                 
                 # Base structure if file does not exist
                 base_xml = f"""<?xml version='1.0' encoding='UTF-8'?>

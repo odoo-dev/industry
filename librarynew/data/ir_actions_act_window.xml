@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="return_picking_act_window" model="ir.actions.act_window">
+    <field name="name">Return</field>
+    <field name="res_model">stock.picking</field>
+    <field name="view_mode">kanban,list</field>
+  </record>
+  <record id="settings_act_window" model="ir.actions.act_window">
+    <field name="name">Settings</field>
+    <field name="res_model">stock.picking.type</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

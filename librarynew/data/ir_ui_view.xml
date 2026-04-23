@@ -1,0 +1,22 @@
+<record id="stock_picking_kanban_view" model="ir.ui.view">
+    <field name="arch" type="xml">
+      <xpath expr="//kanban" position="attributes">
+        <attribute name="create">0</attribute>
+      </xpath>
+      <xpath expr="//field[@name='user_id']" position="replace"/>
+      <xpath expr="//field[@name='activity_ids']" position="replace"/>
+      <xpath expr="//field[@name='state']" position="replace">
+        <widget name="web_ribbon" title="Late" bg_color="text-bg-danger" invisible="(state in ['assigned', 'waiting', 'confirmed']) and (scheduled_date and scheduled_date &gt;= current_date)"/>
+      </xpath>
+      <xpath expr="//kanban/templates/t/footer" position="attributes">
+        <attribute name="class">pt-5</attribute>
+      </xpath>
+    </field>
+    <field name="inherit_id" ref="stock.stock_picking_kanban"/>
+    <field name="mode">primary</field>
+    <field name="active" eval="True"/>
+    <field name="model">stock.picking</field>
+    <field name="name">stock.picking.kanban.library</field>
+    <field name="priority">99</field>
+    <field name="type">kanban</field>
+  </record>

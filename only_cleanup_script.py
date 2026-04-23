@@ -202,11 +202,10 @@ class CleanModule:
                                 continue
                             elif k not in self.automated:
                                 if isinstance(v, list):
-                                    f.write(f"    '{k}': [\n")
-                                    for item in v:
 
-                                        # Skip unwanted dependencies
-                                        unwanted_depends = [
+                                    f.write(f"    '{k}': [\n")
+
+                                    unwanted_depends = [
                                             'base_module',
                                             '__import__',
                                             'account_invoice_extract',
@@ -237,15 +236,27 @@ class CleanModule:
                                             'website_project',
                                             'project_sms',
                                             ]
-                                        if k == 'depends' and (item in unwanted_depends or item.startswith('theme_')):
-                                            continue
-                                        f.write(f"        '{item}',\n")
+
+                                    if k == 'depends':
+                                        filtered_depends = [
+                                            item for item in v
+                                            if item not in unwanted_depends and not item.startswith('theme_')
+                                        ]
+
+                                        minimized_depends = self.minimize_depends(filtered_depends)
+
+                                        for dep in minimized_depends:
+                                            f.write(f"        '{dep}',\n")
+
+                                    else:
+                                        for item in v:
+                                            f.write(f"        '{item}',\n")
+
                                     if k == 'data':
                                         f.write("        'data/mail_message.xml',\n")
                                         f.write("        'data/knowledge_article_favorite.xml',\n")
+
                                     f.write("    ],\n")
-                                else:
-                                    f.write(f"    '{k}': '{v}',\n")
                             else:
                                 f.write(f"    '{k}': '{self.automated[k]}',\n")
                         f.write('}\n')
@@ -307,10 +318,202 @@ class CleanModule:
             directory, _ = os.path.split(file)
             os.makedirs(destination_module_path + directory, exist_ok=True)
             Path(destination_module_path + file).write_text(content.format(ind_name=self.ind_name, Ind_name=Ind_name), encoding='UTF-8')
+        
 
         print("clean up successful")
+
+    def get_module_direct_deps(self, module_name: str, session, uid: int) -> list:
+        """Fetch direct dependencies of a module from Odoo's ir.module.module."""
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    self.db_name,
+                    uid,
+                    PASSWORD,
+                    "ir.module.module",
+                    "search_read",
+                    [[["name", "=", module_name]]],
+                    {"fields": ["dependencies_id"], "limit": 1},
+                ],
+            },
+        }
+        result = (
+            session.post(f"{BASE_URL}{self.port}/jsonrpc", json=payload)
+            .json()
+            .get("result")
+        )
+        if not result:
+            return []
+
+        dep_ids = result[0].get("dependencies_id", [])
+        if not dep_ids:
+            return []
+
+        payload2 = {
+            "jsonrpc": "2.0",
+            "method": "call",
+            "params": {
+                "service": "object",
+                "method": "execute_kw",
+                "args": [
+                    self.db_name,
+                    uid,
+                    PASSWORD,
+                    "ir.module.module.dependency",
+                    "read",
+                    [dep_ids],
+                    {"fields": ["name"]},
+                ],
+            },
+        }
+        result2 = (
+            session.post(f"{BASE_URL}{self.port}/jsonrpc", json=payload2)
+            .json()
+            .get("result")
+        )
+        return [dep["name"] for dep in result2] if result2 else []
         
+
+    def get_transitive_deps(self, module_name, session, uid, cache=None, visiting=None):
+        if cache is None:
+            cache = {}
+
+        if visiting is None:
+            visiting = set()
+
+        # ✅ Already computed → return
+        if module_name in cache:
+            return cache[module_name]
+
+        # 🔥 Cycle detection (THIS FIXES YOUR INFINITE LOOP)
+        if module_name in visiting:
+            _logger.warning(f"CYCLE DETECTED at {module_name}, skipping...")
+            return set()
+
+        visiting.add(module_name)
+
+        direct = self.get_module_direct_deps(module_name, session, uid)
+        all_deps = set(direct)
+
+        for dep in direct:
+            all_deps |= self.get_transitive_deps(dep, session, uid, cache, visiting)
+
+        visiting.remove(module_name)
+
+        cache[module_name] = all_deps
+        return all_deps
             
+
+    def minimize_depends(self, depends_list):
+        session, uid = self.session_authentication()
+        cache = {}
+
+        transitive_map = {}
+        for mod in depends_list:
+            transitive_map[mod] = self.get_transitive_deps(mod, session, uid, cache)
+
+        minimized = []
+        position = {mod: i for i, mod in enumerate(depends_list)}
+
+        for mod in depends_list:
+            mod_deps = transitive_map[mod]
+            is_redundant = False
+
+            for other in depends_list:
+                if mod == other:
+                    continue
+                other_deps = transitive_map[other]
+                if mod_deps.issubset(other_deps):
+                    # Mutual subset? Keep whichever appeared first in the original list
+                    if other_deps.issubset(mod_deps):
+                        if position[mod] > position[other]:
+                            _logger.info(
+                                "MUTUAL SUBSET: keeping %s over %s (appeared first)",
+                                other, mod,
+                            )
+                            is_redundant = True
+                            break
+                        # else: mod came first, keep it; other will be dropped in its turn
+                    else:
+                        _logger.info("DROPPING %s — covered by %s", mod, other)
+                        is_redundant = True
+                        break
+
+            if not is_redundant:
+                minimized.append(mod)
+        return minimized
+
+
+    def print_dependency_tree(self, depends_list):
+        """
+        Print a beautiful recursive dependency tree for each module in depends_list.
+        Uses the shared transitive cache to avoid redundant API calls.
+        """
+        session, uid = self.session_authentication()
+        cache = {}
+
+        # Icons for depth levels
+        BRANCH = "├── "
+        LAST   = "└── "
+        PIPE   = "│   "
+        SPACE  = "    "
+
+        def _print_tree(module, prefix="", visited=None, depth=0):
+            if visited is None:
+                visited = set()
+
+            direct = self.get_module_direct_deps(module, session, uid)
+
+            # Pre-fetch into cache to speed up recursion
+            if module not in cache:
+                self.get_transitive_deps(module, session, uid, cache)
+
+            for i, dep in enumerate(sorted(direct)):
+                is_last = (i == len(direct) - 1)
+                connector = LAST if is_last else BRANCH
+                indent    = SPACE if is_last else PIPE
+
+                if dep in visited:
+                    # Already expanded elsewhere — show as a reference, not re-expanded
+                    print(f"{prefix}{connector}\033[90m{dep}  ↩ (already shown)\033[0m")
+                else:
+                    # Color by depth
+                    if depth == 0:
+                        color = "\033[96m"   # cyan
+                    elif depth == 1:
+                        color = "\033[93m"   # yellow
+                    elif depth == 2:
+                        color = "\033[92m"   # green
+                    else:
+                        color = "\033[37m"   # white/grey
+
+                    reset = "\033[0m"
+                    trans_count = len(cache.get(dep, set()))
+                    label = f"{color}{dep}{reset}"
+                    if trans_count > 0:
+                        label += f"  \033[90m({trans_count} transitive)\033[0m"
+
+                    print(f"{prefix}{connector}{label}")
+                    visited.add(dep)
+                    _print_tree(dep, prefix + indent, visited, depth + 1)
+
+        print("\n\033[1m🌳 DEPENDENCY TREE\033[0m")
+        print("=" * 60)
+
+        for mod in sorted(depends_list):
+            # Pre-build full transitive cache for this module
+            self.get_transitive_deps(mod, session, uid, cache)
+            trans_total = len(cache.get(mod, set()))
+
+            print(f"\n\033[1;95m◉ {mod}\033[0m  \033[90m({trans_total} total transitive deps)\033[0m")
+            _print_tree(mod, prefix="", visited={mod}, depth=0)
+
+        print("\n" + "=" * 60)
+
     def get_etree_content(self, file_path):
         try:
             # Read the xml file and parse the XML string into an ElementTree object
@@ -498,14 +701,7 @@ class CleanModule:
                 str: Modified XML content with 'sequence' fields removed and possibly
                     updated root <odoo> tag with `auto_sequence="1"`.
         """
-        try:
-            etree_content = etree.fromstring(content.encode('utf-8'))
-        except Exception as e:
-            print("\n❌ XML ERROR FOUND\n")
-            print("📄 Problematic XML snippet:\n")
-            print(content[:500])   # shows first 500 chars
-            print("\n⚠️ Full Error:", e)
-            raise e
+        etree_content = etree.fromstring(content.encode('utf-8'))
         found_numeric_sequence = False
         for record in etree_content.xpath("//record"):
             for field in record.xpath(".//field[@name='sequence']"):

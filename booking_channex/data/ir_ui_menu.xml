@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo auto_sequence="1">
-    <record id="mapping_menu_item" model="ir.ui.menu">
-        <field name="name">Mapping Table</field>
-        <field name="parent_id" ref="sale.menu_sale_config"/>
-        <field name="action" ref="action_window_show_mapping_table"/>
-    </record>
+    <menuitem id="mapping_menu_item" 
+              name="Mappings" 
+              parent="booking_engine.booking_engine_rooms_menu" 
+              action="action_window_show_mapping_table"
+              groups="base.group_no_one"
+    />
 </odoo>

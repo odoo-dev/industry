@@ -21,5 +21,4 @@
     <field name="product_id" ref="product_product_14"/>
     <field name="is_total_cost_computed" eval="True"/>
   </record>
-
 </odoo>

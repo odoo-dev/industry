@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="automation_update_push_domain" model="base.automation">
+        <field name="name">Update Push Domain</field>
+        <field name="model_id" ref="stock.model_stock_rule"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain" eval="[('route_id', '=', ref('stock_route_4'))]" />
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('pos_product_categories_field'), ref('standard_rule_field')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('stock_rule_set_push_domain_server_action')])]"/>
+    </record>
+    <record id="automation_auto_assign_routes" model="base.automation">
+        <field name="name">Auto Assign Routes on Product Creation</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="trigger">on_create</field>
+        <field name="action_server_ids" eval="[(6, 0, [ref('product_auto_assign_routes_action')])]"/>
+    </record>
+</odoo>

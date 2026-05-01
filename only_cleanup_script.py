@@ -105,6 +105,24 @@ class CleanModule:
         destination_module_path = self.destination_base_path + '/' + self.ind_name
         directory = self.module_path
 
+        tourjs_path = Path(destination_module_path + '/static/src/js/my_tour.js')
+        tourjs_path.parent.mkdir(parents=True,exist_ok=True)
+
+        tour_js_content = f"""import {{ _t }} from "@web/core/l10n/translation";
+import {{ registry }} from "@web/core/registry";
+
+registry.category("web_tour.tours").add("{self.ind_name}_knowledge_tour", {{
+    steps: () => [
+        {{
+            trigger: '.o_app[data-menu-xmlid="knowledge.knowledge_menu_root"]',
+            content: _t("Get on track and explore our recommendations for your Odoo usage here!"),
+            run: "click",
+        }},
+    ],
+}});
+"""
+        tourjs_path.write_text(tour_js_content,encoding="utf-8")
+
         # Fetch field metadata of fields
         fields_info_dict = {}
 
@@ -206,6 +224,7 @@ class CleanModule:
                                     f.write(f"    '{k}': [\n")
 
                                     unwanted_depends = [
+                                            self.ind_name,
                                             'base_module',
                                             '__import__',
                                             'account_invoice_extract',
@@ -220,7 +239,6 @@ class CleanModule:
                                             'sale_async_emails',
                                             'snailmail_account',
                                             'web_grid',
-                                            'web_studio',
                                             'social_push_notifications',
                                             'appointment_sms',
                                             'website_knowledge',
@@ -244,7 +262,9 @@ class CleanModule:
                                         ]
 
                                         minimized_depends = self.minimize_depends(filtered_depends)
-
+                                        self.validate_minimized_depends(filtered_depends, minimized_depends)
+                                        minimized_depends = sorted(set(minimized_depends) | {'knowledge', 'web_studio'})
+                                        self._minimized_depends = minimized_depends 
                                         for dep in minimized_depends:
                                             f.write(f"        '{dep}',\n")
 
@@ -255,6 +275,7 @@ class CleanModule:
                                     if k == 'data':
                                         f.write("        'data/mail_message.xml',\n")
                                         f.write("        'data/knowledge_article_favorite.xml',\n")
+                                        f.write("        'data/knowledge_tour.xml',\n")
 
                                     f.write("    ],\n")
                             else:
@@ -313,206 +334,596 @@ class CleanModule:
         # Update demo file order in manifest
         self.arrange_manifest_file(destination_module_path,  manifest_demo_file_list)
 
+        self.add_missing_ref_depends(destination_module_path)
+
         # Write mandatory files such as templates or init scripts
         for file, content in self.mandatory_files.items():
             directory, _ = os.path.split(file)
             os.makedirs(destination_module_path + directory, exist_ok=True)
             Path(destination_module_path + file).write_text(content.format(ind_name=self.ind_name, Ind_name=Ind_name), encoding='UTF-8')
         
+        knowledge_tour_path = Path(destination_module_path + '/data/knowledge_tour.xml')
+        knowledge_tour_path.parent.mkdir(parents=True, exist_ok=True)
+
+        knowledge_tour_content = f"""<?xml version='1.0' encoding='UTF-8'?>
+        <odoo noupdate="1">
+            <record id="knowledge_tour" model="web_tour.tour">
+                <field name="name">{self.ind_name}_knowledge_tour</field>
+                <field name="sequence">2</field>
+                <field name="rainbow_man_message">Welcome! Happy exploring.</field>
+            </record>
+        </odoo>
+        """
+
+        knowledge_tour_path.write_text(knowledge_tour_content, encoding="utf-8")
 
         print("clean up successful")
 
-    def get_module_direct_deps(self, module_name: str, session, uid: int) -> list:
-        """Fetch direct dependencies of a module from Odoo's ir.module.module."""
-        payload = {
-            "jsonrpc": "2.0",
-            "method": "call",
-            "params": {
-                "service": "object",
-                "method": "execute_kw",
-                "args": [
-                    self.db_name,
-                    uid,
-                    PASSWORD,
-                    "ir.module.module",
-                    "search_read",
-                    [[["name", "=", module_name]]],
-                    {"fields": ["dependencies_id"], "limit": 1},
-                ],
-            },
-        }
-        result = (
-            session.post(f"{BASE_URL}{self.port}/jsonrpc", json=payload)
-            .json()
-            .get("result")
-        )
-        if not result:
-            return []
-
-        dep_ids = result[0].get("dependencies_id", [])
-        if not dep_ids:
-            return []
-
-        payload2 = {
-            "jsonrpc": "2.0",
-            "method": "call",
-            "params": {
-                "service": "object",
-                "method": "execute_kw",
-                "args": [
-                    self.db_name,
-                    uid,
-                    PASSWORD,
-                    "ir.module.module.dependency",
-                    "read",
-                    [dep_ids],
-                    {"fields": ["name"]},
-                ],
-            },
-        }
-        result2 = (
-            session.post(f"{BASE_URL}{self.port}/jsonrpc", json=payload2)
-            .json()
-            .get("result")
-        )
-        return [dep["name"] for dep in result2] if result2 else []
-        
-
-    def get_transitive_deps(self, module_name, session, uid, cache=None, visiting=None):
-        if cache is None:
-            cache = {}
-
-        if visiting is None:
-            visiting = set()
-
-        # ✅ Already computed → return
-        if module_name in cache:
-            return cache[module_name]
-
-        # 🔥 Cycle detection (THIS FIXES YOUR INFINITE LOOP)
-        if module_name in visiting:
-            _logger.warning(f"CYCLE DETECTED at {module_name}, skipping...")
-            return set()
-
-        visiting.add(module_name)
-
-        direct = self.get_module_direct_deps(module_name, session, uid)
-        all_deps = set(direct)
-
-        for dep in direct:
-            all_deps |= self.get_transitive_deps(dep, session, uid, cache, visiting)
-
-        visiting.remove(module_name)
-
-        cache[module_name] = all_deps
-        return all_deps
-            
-
-    def minimize_depends(self, depends_list):
-        session, uid = self.session_authentication()
-        cache = {}
-
-        transitive_map = {}
-        for mod in depends_list:
-            transitive_map[mod] = self.get_transitive_deps(mod, session, uid, cache)
-
-        minimized = []
-        position = {mod: i for i, mod in enumerate(depends_list)}
-
-        for mod in depends_list:
-            mod_deps = transitive_map[mod]
-            is_redundant = False
-
-            for other in depends_list:
-                if mod == other:
-                    continue
-                other_deps = transitive_map[other]
-                if mod_deps.issubset(other_deps):
-                    # Mutual subset? Keep whichever appeared first in the original list
-                    if other_deps.issubset(mod_deps):
-                        if position[mod] > position[other]:
-                            _logger.info(
-                                "MUTUAL SUBSET: keeping %s over %s (appeared first)",
-                                other, mod,
-                            )
-                            is_redundant = True
-                            break
-                        # else: mod came first, keep it; other will be dropped in its turn
-                    else:
-                        _logger.info("DROPPING %s — covered by %s", mod, other)
-                        is_redundant = True
-                        break
-
-            if not is_redundant:
-                minimized.append(mod)
-        return minimized
-
-
-    def print_dependency_tree(self, depends_list):
+    def compute_no_promote(self, session, uid, module_graph: dict) -> set:
         """
-        Print a beautiful recursive dependency tree for each module in depends_list.
-        Uses the shared transitive cache to avoid redundant API calls.
+        Derive NO_PROMOTE from Odoo DB facts with precision.
+
+        A module belongs here if and only if ONE of these is true:
+
+        R1 — TRUE BRIDGE (auto_install=True + 2+ meaningful parents):
+            Odoo installs these automatically when ALL their deps are met.
+            Since they have 2+ meaningful parents, they are pure connectors —
+            listing them explicitly is always redundant because Odoo handles it.
+            auto_install modules with only 1 meaningful parent are NOT blocked —
+            they may be legitimate explicit top-level deps.
+
+        R2 — OEEL LICENSE:
+            Enterprise-gated modules. Must never appear as explicit top-level
+            deps in a shipped manifest regardless of auto_install status.
+
+        Everything else is promotable — no guessing, no fan-in, no hardcoding.
         """
-        session, uid = self.session_authentication()
-        cache = {}
+        _logger.info("Computing NO_PROMOTE from Odoo DB facts (true bridges + OEEL)...")
 
-        # Icons for depth levels
-        BRANCH = "├── "
-        LAST   = "└── "
-        PIPE   = "│   "
-        SPACE  = "    "
+        INFRASTRUCTURE = {
+            'base', 'web', 'mail', 'bus', 'base_setup', 'base_import',
+            'web_editor', 'portal', 'http_routing', 'digest', 'rating',
+            'utm', 'iap', 'phone_validation', 'base_sparse_field',
+        }
 
-        def _print_tree(module, prefix="", visited=None, depth=0):
-            if visited is None:
-                visited = set()
+        result = session.post(
+            f"{BASE_URL}{self.port}/jsonrpc",
+            json={
+                "jsonrpc": "2.0", "method": "call",
+                "params": {
+                    "service": "object", "method": "execute_kw",
+                    "args": [
+                        self.db_name, uid, PASSWORD,
+                        "ir.module.module", "search_read",
+                        [[["state", "=", "installed"]]],
+                        {"fields": ["name", "auto_install", "license"]},
+                    ],
+                },
+            }
+        ).json().get("result", [])
 
-            direct = self.get_module_direct_deps(module, session, uid)
+        no_promote = set()
+        auto_install_single_parent = set()
 
-            # Pre-fetch into cache to speed up recursion
-            if module not in cache:
-                self.get_transitive_deps(module, session, uid, cache)
+        for mod in result:
+            name = mod["name"]
 
-            for i, dep in enumerate(sorted(direct)):
-                is_last = (i == len(direct) - 1)
-                connector = LAST if is_last else BRANCH
-                indent    = SPACE if is_last else PIPE
+            if mod.get("license") == "OEEL":
+                # Hard block regardless of parent count
+                no_promote.add(name)
+                _logger.info("NO_PROMOTE (OEEL license)               → %s", name)
+                continue
 
-                if dep in visited:
-                    # Already expanded elsewhere — show as a reference, not re-expanded
-                    print(f"{prefix}{connector}\033[90m{dep}  ↩ (already shown)\033[0m")
+            if mod.get("auto_install"):
+                # Count meaningful (non-infrastructure) direct parents
+                direct_deps = module_graph.get(name, set())
+                meaningful_parents = direct_deps - INFRASTRUCTURE
+
+                if len(meaningful_parents) >= 2:
+                    # True bridge — Odoo installs it when both parents are present
+                    no_promote.add(name)
+                    _logger.info(
+                        "NO_PROMOTE (auto_install, %d meaningful parents) → %s  [parents: %s]",
+                        len(meaningful_parents), name, sorted(meaningful_parents),
+                    )
                 else:
-                    # Color by depth
-                    if depth == 0:
-                        color = "\033[96m"   # cyan
-                    elif depth == 1:
-                        color = "\033[93m"   # yellow
-                    elif depth == 2:
-                        color = "\033[92m"   # green
+                    # auto_install but only 0-1 meaningful parents — could be a
+                    # legitimate explicit dep, do NOT block it
+                    auto_install_single_parent.add(name)
+                    _logger.info(
+                        "PROMOTABLE (auto_install, only %d meaningful parent(s)) → %s  "
+                        "[not blocked — may be valid top-level dep]",
+                        len(meaningful_parents), name,
+                    )
+
+        _logger.info(
+            "NO_PROMOTE: %d modules (true bridges + OEEL). "
+            "%d auto_install modules with ≤1 parent left promotable.",
+            len(no_promote), len(auto_install_single_parent),
+        )
+        return no_promote
+            
+    def minimize_depends(self, depends_list: list) -> list:
+        session, uid = self.session_authentication()
+
+        _logger.info("Fetching complete Odoo module graph...")
+
+        all_modules_result = session.post(
+            f"{BASE_URL}{self.port}/jsonrpc",
+            json={
+                "jsonrpc": "2.0", "method": "call",
+                "params": {
+                    "service": "object", "method": "execute_kw",
+                    "args": [
+                        self.db_name, uid, PASSWORD,
+                        "ir.module.module", "search_read",
+                        [[]],
+                        {"fields": ["name", "dependencies_id"]},
+                    ],
+                },
+            }
+        ).json().get("result", [])
+       
+
+        module_dep_ids: dict = {row["name"]: row["dependencies_id"] for row in all_modules_result}
+        all_dep_ids = [dep_id for dep_ids in module_dep_ids.values() for dep_id in dep_ids]
+
+        all_deps_result = session.post(
+            f"{BASE_URL}{self.port}/jsonrpc",
+            json={
+                "jsonrpc": "2.0", "method": "call",
+                "params": {
+                    "service": "object", "method": "execute_kw",
+                    "args": [
+                        self.db_name, uid, PASSWORD,
+                        "ir.module.module.dependency", "read",
+                        [all_dep_ids],
+                        {"fields": ["id", "name"]},
+                    ],
+                },
+            }
+        ).json().get("result", [])
+
+        dep_id_to_name: dict = {row["id"]: row["name"] for row in all_deps_result}
+        module_graph = {
+            mod: {dep_id_to_name[d] for d in ids if d in dep_id_to_name}
+            for mod, ids in module_dep_ids.items()
+        }
+
+        _logger.info("Module graph loaded: %d modules indexed.", len(module_graph))
+
+        transitive_cache = {}
+
+        def get_transitive(mod):
+            if mod in transitive_cache:
+                return transitive_cache[mod]
+
+            direct_deps = module_graph[mod]
+
+            all_deps = set(direct_deps)
+
+            # 5. Recursively add dependencies of dependencies
+            for dep in direct_deps:
+                child_deps = get_transitive(dep)
+                all_deps = all_deps.union(child_deps)
+
+            # 6. Save result in cache
+            transitive_cache[mod] = all_deps
+
+            # 7. Return result
+            return all_deps
+
+        for mod in depends_list:
+            get_transitive(mod)
+
+        def dominator_pass(module_list: list) -> list:
+            pos = {mod: i for i, mod in enumerate(module_list)}
+            kept = []
+            for mod in module_list:
+                mod_trans = get_transitive(mod)
+                dominators = [
+                    other for other in module_list
+                    if other != mod and mod_trans.issubset(get_transitive(other))
+                ]
+                if not dominators:
+                    kept.append(mod)
+                    continue
+                
+                mutual = [d for d in dominators if get_transitive(d).issubset(mod_trans)]
+                if mutual:
+                    earliest = min([mod] + mutual, key=lambda m: pos.get(m, 9999))
+                    if earliest == mod:
+                        kept.append(mod)
+                        _logger.info("PASS1 MUTUAL-SUBSET: keeping %s (earliest) over %s", mod, mutual)
                     else:
-                        color = "\033[37m"   # white/grey
+                        _logger.info("PASS1 MUTUAL-SUBSET: dropping %s, keeping %s", mod, earliest)
+                else:
+                    _logger.info("PASS1 DROP %s — transitively covered by %s", mod, dominators)
 
-                    reset = "\033[0m"
-                    trans_count = len(cache.get(dep, set()))
-                    label = f"{color}{dep}{reset}"
-                    if trans_count > 0:
-                        label += f"  \033[90m({trans_count} transitive)\033[0m"
+            return kept
 
-                    print(f"{prefix}{connector}{label}")
-                    visited.add(dep)
-                    _print_tree(dep, prefix + indent, visited, depth + 1)
+        # ── Pass 1 ────────────────────────────────────────────────────────────
+        after_pass1 = dominator_pass(depends_list)
+        _logger.info("After Pass 1: %d modules → %s", len(after_pass1), after_pass1)
 
-        print("\n\033[1m🌳 DEPENDENCY TREE\033[0m")
-        print("=" * 60)
+        # ── Pass 2: dynamic bridge detection + controlled unwrapping ──────────
+        #
+        # A module is a bridge when it has 2+ meaningful parents AND all those
+        # parents are already covered by the rest of the listed modules.
+        #
+        # UNWRAP RULE: only promote parents that are:
+        #   (a) not in INFRASTRUCTURE  — not framework noise
+        #   (b) not in NO_PROMOTE      — not enterprise internals or tech sub-modules
+        #   (c) not already reachable  — actually adds something new
+        #
+        # If ALL uncovered parents are in NO_PROMOTE, we KEEP the bridge as-is
+        # rather than promoting something we shouldn't. This prevents the
+        # algorithm from surfacing enterprise modules or overly granular deps.
 
-        for mod in sorted(depends_list):
-            # Pre-build full transitive cache for this module
-            self.get_transitive_deps(mod, session, uid, cache)
-            trans_total = len(cache.get(mod, set()))
+        INFRASTRUCTURE = {
+            'base', 'web', 'mail', 'bus', 'base_setup', 'base_import',
+            'web_editor', 'portal', 'http_routing', 'digest', 'rating',
+            'utm', 'iap', 'phone_validation', 'base_sparse_field',
+        }
+        NO_PROMOTE = self.compute_no_promote(session, uid, module_graph)
+        def reachability_union(module_list: list, exclude: str) -> set:
+            universe = set()
+            for m in module_list:
+                if m != exclude:
+                    universe.add(m)
+                    universe |= get_transitive(m)
+            return universe
 
-            print(f"\n\033[1;95m◉ {mod}\033[0m  \033[90m({trans_total} total transitive deps)\033[0m")
-            _print_tree(mod, prefix="", visited={mod}, depth=0)
+        def unwrap_pass(module_list: list) -> list:
+            result = []
+            seen = set()
 
-        print("\n" + "=" * 60)
+            for mod in module_list:
+                if mod in seen:
+                    continue
+
+                direct = module_graph.get(mod, set())
+                meaningful_parents = direct - INFRASTRUCTURE
+
+                if len(meaningful_parents) < 2:
+                    _logger.info(
+                        "PASS2 KEEP %s — only %d meaningful parent(s): %s",
+                        mod, len(meaningful_parents), sorted(meaningful_parents),
+                    )
+                    result.append(mod)
+                    seen.add(mod)
+                    continue
+
+                others_universe = reachability_union(module_list, exclude=mod)
+                uncovered_parents = meaningful_parents - others_universe
+
+                if not uncovered_parents:
+                    _logger.info(
+                        "PASS2 DROP BRIDGE %s — all meaningful parents %s already covered",
+                        mod, sorted(meaningful_parents),
+                    )
+                    seen.add(mod)
+                    continue
+
+                already_in_result = set(result) | reachability_union(result, exclude="__none__")
+
+                uncovered    = uncovered_parents - NO_PROMOTE
+                promotable        = uncovered - already_in_result
+
+                if promotable:
+                    for p in sorted(promotable):
+                        if p not in seen:
+                            result.append(p)
+                            seen.add(p)
+                    _logger.info(
+                        "PASS2 UNWRAP %s → promoting: %s | blocked (auto_install/OEEL): %s | covered: %s",
+                        mod,
+                        sorted(promotable),
+                        sorted(meaningful_parents - uncovered_parents),
+                    )
+                    seen.add(mod)
+                else:
+                    _logger.info(
+                        "PASS2 KEEP BRIDGE %s — all uncovered parents %s are "
+                        "auto_install or OEEL. Odoo will install them automatically.",
+                    )
+                    result.append(mod)
+                    seen.add(mod)
+
+            return result
+
+        after_pass2 = unwrap_pass(after_pass1)
+        _logger.info("After Pass 2: %d modules → %s", len(after_pass2), after_pass2)
+
+        # ── Pass 3: re-run dominator drop after unwrapping ────────────────────
+        for mod in after_pass2:
+            get_transitive(mod)
+
+        after_pass3 = dominator_pass(after_pass2)
+        _logger.info(
+            "FINAL: %d → %d modules: %s",
+            len(depends_list), len(after_pass3), sorted(after_pass3),
+        )
+
+        def bridge_readd_pass(module_list: list, original_dropped: list) -> list:
+            final_coverage = set(module_list)
+            for m in module_list:
+                final_coverage |= get_transitive(m)
+
+            result = list(module_list)
+            for mod in original_dropped:
+                if mod not in module_graph:
+                    continue
+                direct = module_graph.get(mod, set())
+                meaningful = direct - INFRASTRUCTURE - NO_PROMOTE
+                if len(meaningful) >= 1 and not meaningful.issubset(final_coverage):
+                    uncovered = meaningful - final_coverage
+
+                    if mod in NO_PROMOTE:
+                        # This bridge is auto_install — Odoo installs it automatically
+                        # when its parents are present. Promote the uncovered parents
+                        # directly instead of re-adding the bridge itself.
+                        for parent in sorted(uncovered):
+                            if parent not in final_coverage:
+                                _logger.info(
+                                    "PASS4 PROMOTE %s → from bridge %s "
+                                    "(bridge is auto_install, promoting uncovered parent instead)",
+                                    parent, mod,
+                                )
+                                result.append(parent)
+                                final_coverage.add(parent)
+                                final_coverage |= get_transitive(parent)
+                    else:
+                        # Bridge is NOT auto_install — it must be listed explicitly
+                        # because Odoo won't install it automatically.
+                        _logger.info(
+                            "PASS4 RE-ADD %s — not auto_install, parents %s "
+                            "no longer covered, must list explicitly",
+                            mod, sorted(uncovered)
+                        )
+                        result.append(mod)
+                        final_coverage.add(mod)
+                        final_coverage |= get_transitive(mod)
+            return result
+
+        all_dropped = [m for m in depends_list if m not in set(after_pass3)]
+        after_pass4 = bridge_readd_pass(after_pass3, all_dropped)
+        if len(after_pass4) != len(after_pass3):
+            _logger.info(
+                "FINAL (after re-add): %d modules: %s",
+                len(after_pass4), sorted(after_pass4)
+            )
+            after_pass3 = after_pass4
+        
+        self._last_transitive_cache = transitive_cache
+        self._last_module_graph = module_graph
+        self._last_no_promote = NO_PROMOTE  # add this line
+        return sorted(after_pass3)
+
+    def validate_minimized_depends(self, original_depends: list, minimized_depends: list) -> bool:
+        """
+        Validates minimized depends correctly.
+
+        The minimizer drops a module for exactly ONE of these legitimate reasons:
+        R1 — DOMINATED: another listed module's transitive deps are a superset
+            (meaning that other module already requires this one as a dep,
+            so Odoo will install it anyway when installing that module)
+        R2 — BRIDGE DROPPED: all meaningful parents were already covered by
+            other listed modules, so the bridge adds nothing new
+        R3 — BRIDGE UNWRAPPED: replaced by its promoted parents
+
+        Check 1: Every module in minimized_depends is installed in this DB.
+        Check 2: Every dropped module was dropped for a legitimate reason (R1/R2/R3).
+                A module dropped for NO legitimate reason is a real problem.
+        """
+        session, uid = self.session_authentication()
+
+        installed_result = session.post(
+            f"{BASE_URL}{self.port}/jsonrpc",
+            json={
+                "jsonrpc": "2.0", "method": "call",
+                "params": {
+                    "service": "object", "method": "execute_kw",
+                    "args": [
+                        self.db_name, uid, PASSWORD,
+                        "ir.module.module", "search_read",
+                        [[["state", "=", "installed"]]],
+                        {"fields": ["name"]},
+                    ],
+                },
+            }
+        ).json().get("result", [])
+        installed = {row["name"] for row in installed_result}
+
+        module_graph = getattr(self, '_last_module_graph', {})
+        transitive_cache = getattr(self, '_last_transitive_cache', {})
+
+        def get_transitive_local(mod: str, visiting: frozenset = frozenset()) -> set:
+            if mod in transitive_cache:
+                return transitive_cache[mod]
+            if mod in visiting or mod not in module_graph:
+                return set()
+            visiting = visiting | {mod}
+            direct = module_graph.get(mod, set())
+            result = set(direct)
+            for dep in direct:
+                result |= get_transitive_local(dep, visiting)
+            transitive_cache[mod] = result
+            return result
+
+        # Pre-compute transitive deps for all minimized modules
+        for mod in minimized_depends:
+            get_transitive_local(mod)
+
+        all_ok = True
+        minimized_set = set(minimized_depends)
+
+        INFRASTRUCTURE = {
+            'base', 'web', 'mail', 'bus', 'base_setup', 'base_import',
+            'web_editor', 'portal', 'http_routing', 'digest', 'rating',
+            'utm', 'iap', 'phone_validation', 'base_sparse_field',
+        }
+        NO_PROMOTE = getattr(self, '_last_no_promote', set())
+
+        # ── Check 1: every minimized module is installed ──────────────────────
+        _logger.info("--- Check 1: minimized modules are installed ---")
+        for mod in minimized_depends:
+            if mod not in installed:
+                _logger.warning(
+                    "VALIDATE ❌ '%s' NOT installed in this DB", mod
+                )
+                all_ok = False
+            else:
+                _logger.info("VALIDATE ✅ '%s' installed", mod)
+
+        # ── Check 2: every dropped module was dropped for a valid reason ───────
+        #
+        # Valid drop reasons:
+        #
+        # R1 — DOMINATED: mod's transitive deps ⊆ transitive deps of some
+        #      other module still in minimized_depends. This means that other
+        #      module depends on this one internally, so Odoo WILL load it.
+        #      (Note: "load" not "install" — but for deps purposes this is fine
+        #       because the dominator explicitly lists mod as a dep chain)
+        #
+        # R2 — BRIDGE: all of mod's meaningful direct deps are covered by
+        #      the union of minimized_depends. The bridge itself is redundant
+        #      because its parents are already explicitly depended on.
+        #
+        # R3 — CORRUPTED NAME: not in module graph at all — source manifest
+        #      has a bad module name, flag separately.
+        #
+        # INVALID drop: none of the above apply — the module was silently
+        # removed without justification.
+
+        _logger.info("--- Check 2: dropped modules were dropped for valid reasons ---")
+        dropped = [m for m in original_depends if m not in minimized_set]
+
+        for mod in dropped:
+
+            # R3 — corrupted name
+            if mod not in module_graph:
+                _logger.warning(
+                    "VALIDATE 🔴 '%s' not in module graph — "
+                    "corrupted name in source manifest", mod
+                )
+                all_ok = False
+                continue
+
+            mod_trans = get_transitive_local(mod)
+
+            # R1 — dominated: another minimized module's transitive set is a
+            # superset of mod's transitive set, meaning mod is a dep of that module
+            dominated_by = [
+                other for other in minimized_depends
+                if mod_trans.issubset(get_transitive_local(other))
+            ]
+            if dominated_by:
+                _logger.info(
+                    "VALIDATE ✅ '%s' dropped — dominated by %s (R1)",
+                    mod, dominated_by
+                )
+                continue
+
+            # R2 — bridge: all meaningful direct deps covered by minimized set
+            direct = module_graph.get(mod, set())
+            meaningful = direct - INFRASTRUCTURE
+
+            # Build coverage from minimized set
+            minimized_coverage: set = set(minimized_depends)
+            for m in minimized_depends:
+                minimized_coverage |= get_transitive_local(m)
+
+            meaningful_non_promote = meaningful - NO_PROMOTE
+            if len(meaningful_non_promote) >= 1 and meaningful_non_promote.issubset(minimized_coverage):
+                _logger.info(
+                    "VALIDATE ✅ '%s' dropped — bridge with parents %s all covered (R2)",
+                    mod, sorted(meaningful)
+                )
+                continue
+
+            # R3 — unwrapped: non-NO_PROMOTE parents now explicitly listed
+            parents_now_explicit = meaningful & minimized_set
+            if parents_now_explicit and meaningful_non_promote.issubset(minimized_coverage):
+                _logger.info(
+                    "VALIDATE ✅ '%s' dropped — unwrapped, parents %s now explicit (R3)",
+                    mod, sorted(parents_now_explicit)
+                )
+                continue
+
+            # None of the above — this is a real problem
+            _logger.warning(
+                "VALIDATE ⚠️  '%s' dropped with NO valid justification — "
+                "not dominated, not a bridge, not unwrapped. "
+                "It will NOT be installed!", mod
+            )
+            all_ok = False
+
+        if all_ok:
+            _logger.info(
+                "VALIDATE ✅ All checks passed — %d → %d is correct",
+                len(original_depends), len(minimized_depends)
+            )
+        else:
+            _logger.warning("VALIDATE ⚠️  Issues found — review above before shipping")
+
+        return all_ok
+    
+    # def print_full_dependency_graph(self, depends_list: list):
+    #     """
+    #     Prints the FULL recursive dependency tree for each module in the final list.
+    #     Shows every level of the tree down to leaf nodes, with proper tree connectors.
+    #     Deduplicates — if a module already appeared in the tree above, shows it with [seen]
+    #     to avoid infinite recursion loops.
+    #     """
+    #     module_graph = getattr(self, '_last_module_graph', {})
+    #     if not module_graph:
+    #         _logger.info("No module graph available — run minimize_depends first.")
+    #         return
+
+    #     def print_tree(mod, prefix="", is_last=True, seen=None):
+    #         if seen is None:
+    #             seen = set()
+
+    #         # Tree connector characters
+    #         connector = "└── " if is_last else "├── "
+    #         extension = "    " if is_last else "│   "
+
+    #         # Mark if already seen in this tree branch
+    #         if mod in seen:
+    #             print(f"{prefix}{connector}{mod}  [already shown above]")
+    #             return
+
+    #         seen = seen | {mod}  # immutable copy — doesn't affect siblings
+    #         print(f"{prefix}{connector}{mod}")
+
+    #         children = sorted(module_graph.get(mod, set()))
+    #         for i, child in enumerate(children):
+    #             is_child_last = (i == len(children) - 1)
+    #             print_tree(child, prefix + extension, is_child_last, seen)
+
+    #     separator = "═" * 70
+
+    #     print(f"\n{separator}")
+    #     print(f"  FULL DEPENDENCY GRAPH  ({len(depends_list)} modules)")
+    #     print(f"{separator}")
+
+    #     for i, mod in enumerate(sorted(depends_list), 1):
+    #         children = sorted(module_graph.get(mod, set()))
+    #         total_direct = len(children)
+
+    #         print(f"\n  {i:02d}. 📦  {mod}  ({total_direct} direct deps)")
+    #         print(f"  {'─' * 68}")
+
+    #         if not children:
+    #             print(f"      (no dependencies)")
+    #         else:
+    #             for j, child in enumerate(children):
+    #                 is_last = (j == len(children) - 1)
+    #                 print_tree(child, prefix="      ", is_last=is_last, seen={mod})
+
+    #     print(f"\n{separator}\n")
+    
 
     def get_etree_content(self, file_path):
         try:
@@ -1298,7 +1709,7 @@ class CleanModule:
         Returns:
             list: Sorted list of unique dependencies including the newly added ones.
         """
-        new_depends = ['knowledge']
+        new_depends = ['knowledge','web_studio']
         depends_list = sorted(set(depends_list + new_depends))
         return depends_list
 
@@ -1375,6 +1786,7 @@ class CleanModule:
         # Append static entries (assets, cloc_exclude, images)
         lines.append((f"""    'cloc_exclude': [
         'data/knowledge_article.xml',
+        'static/src/js/my_tour.js',
     ],
     'images': [
         'images/main.png',
@@ -1546,6 +1958,77 @@ class CleanModule:
             self.write_etree_content(path_pos_payment_method, root_pos_payment_method)
         return
 
+    def add_missing_ref_depends(self, destination_module_path):
+        minimized_depends = getattr(self, '_minimized_depends', None)
+        if not isinstance(minimized_depends, list) or not minimized_depends:
+            return
+
+        transitive_cache = getattr(self, '_last_transitive_cache', {})
+
+        # Include late-added deps (knowledge, web_studio) that were added
+        # by add_require_depends AFTER _minimized_depends was snapshot
+        manifest_path = Path(destination_module_path + '/__manifest__.py')
+        try:
+            manifest = literal_eval(manifest_path.read_text(encoding='utf-8'))
+        except Exception as e:
+            raise Exception(f"Unable to read manifest: {e}")
+        
+        final_depends = set(manifest.get('depends', [])) | set(minimized_depends)
+
+        # Build reachable from the full final depends + their transitive closures
+        reachable = set(final_depends)
+        for mod in final_depends:
+            reachable |= transitive_cache.get(mod, set())
+
+        reachable |= {'base', 'web', 'mail', 'bus', 'portal', 'uom', self.ind_name}
+
+        pattern = re.compile(r'ref="([a-zA-Z][a-zA-Z0-9_]*)\.([a-zA-Z0-9_]+)"')
+        missing = set()
+
+        for xml_file in Path(destination_module_path).rglob('*.xml'):
+            content = xml_file.read_text(encoding='utf-8')
+            for match in pattern.finditer(content):
+                module = match.group(1)
+                if module not in reachable:
+                    missing.add(module)
+                    _logger.info("MISSING DEP '%s' referenced in %s", module, xml_file.name)
+
+        if not missing:
+            _logger.info("No missing deps found — manifest is complete.")
+            return
+
+        # Add missing modules to the manifest depends
+        manifest_path = Path(destination_module_path + '/__manifest__.py')
+        try:
+            manifest = literal_eval(manifest_path.read_text(encoding='utf-8'))
+        except Exception as e:
+            raise Exception(f"Unable to read manifest: {e}")
+
+        current_depends = manifest.get('depends', [])
+        updated_depends = sorted(set(current_depends) | missing)
+        manifest['depends'] = updated_depends
+
+        _logger.info(
+            "Adding missing deps to manifest: %s", sorted(missing)
+        )
+
+        # Rewrite manifest
+        lines = ["{"]
+        for key, value in manifest.items():
+            if isinstance(value, str):
+                lines.append(f"    '{key}': '{value}',")
+            elif isinstance(value, list):
+                lines.append(f"    '{key}': [")
+                for item in value:
+                    lines.append(f"        '{item}',")
+                lines.append("    ],")
+            else:
+                lines.append(f"    '{key}': {value},")
+        lines.append("}")
+
+        manifest_path.write_text("\n".join(lines), encoding='utf-8')
+ 
+ 
     # ================= ID Mapping Functions ==================
     
     def prepare_old_to_new_id_map(self):

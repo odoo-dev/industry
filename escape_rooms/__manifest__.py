@@ -1,5 +1,5 @@
 {
-    'name': 'Escape Rooms',
+    'name': 'Escape Rooms test',
     'version': '1.1',
     'category': 'Hospitality',
     'author': 'Odoo S.A.',

@@ -1,5 +1,5 @@
 {
-    'name': 'Bowling Alley',
+    'name': 'Bowling Alley test',
     'version': '1.1',
     'category': 'Hospitality',
     'depends': [

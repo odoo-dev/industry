@@ -1,5 +1,5 @@
 {
-    'name': 'Bar & Pub',
+    'name': 'Bar & Pub test',
     'version': '1.2',
     'category': 'Hospitality',
     'depends': [

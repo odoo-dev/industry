@@ -1,5 +1,5 @@
 {
-    'name': 'Fitness Center',
+    'name': 'Fitness Center test',
     'version': '1.3',
     'category': 'Health and Fitness',
     'depends': [

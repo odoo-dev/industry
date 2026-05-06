@@ -1,5 +1,6 @@
 {
     'name': 'Food Trucks',
+    'version': '1.1',
     'category': 'Hospitality',
     'author': 'Odoo S.A.',
     'depends': [
@@ -8,6 +9,7 @@
         'planning_field_service_sale_timesheet',
         'pos_restaurant',
         'sale_crm',
+        'stock',
     ],
     'data': [
         'data/crm_tag.xml',

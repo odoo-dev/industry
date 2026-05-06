@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="x_is_verified_field" model="ir.model.fields">
+    <field name="name">x_is_verified</field>
+    <field name="ttype">boolean</field>
+    <field name="field_description">Is a group of people</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+  </record>
+  <record id="x_share_field_res_partner" model="ir.model.fields">
+    <field name="name">x_share</field>
+    <field name="field_description">Share</field>
+    <field name="model_id" ref="cosmetics_store.model_x_claimants"/>
+    <field name="ttype">float</field>
+  </record>
+  <record id="x_res_partner_field" model="ir.model.fields">
+    <field name="name">x_res_partner</field>
+    <field name="field_description">Claimant</field>
+    <field name="model_id" ref="cosmetics_store.model_x_claimants"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="x_partner_id_field" model="ir.model.fields">
+      <field name="name">x_partner_id</field>
+      <field name="field_description">Partner</field>
+      <field name="model_id" ref="cosmetics_store.model_x_claimants"/>
+      <field name="ttype">many2one</field>
+      <field name="relation">res.partner</field>
+  </record>
+  <record id="x_claimants_ids_field_res_partner" model="ir.model.fields">
+      <field name="name">x_claimants_ids</field>
+      <field name="field_description">Claimant ids</field>
+      <field name="model_id" ref="base.model_res_partner"/>
+      <field name="ttype">one2many</field>
+      <field name="relation">x_claimants</field>
+      <field name="relation_field">x_partner_id</field>
+  </record>
+  <record id="x_claimants_count_field_res_partner" model="ir.model.fields">
+        <field name="name">x_claimants_count</field>
+        <field name="field_description">Claimants Count</field>
+        <field name="ttype">integer</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="store" eval="True"/>
+        <field name="depends">partner_id.x_claimants_ids</field>
+        <field name="compute"><![CDATA[
+self['x_claimants_count'] = len(self.partner_id.x_claimants_ids)
+]]></field>
+  </record>
+</odoo>

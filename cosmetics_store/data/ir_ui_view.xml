@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="view_x_claimants_list" model="ir.ui.view">
+        <field name="name">x.claimants.list</field>
+        <field name="model">x_claimants</field>
+        <field name="arch" type="xml">
+            <list string="Claimants" editable="bottom">
+                <field name="x_res_partner"/>
+                <field name="x_share" widget="percentage"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_partner_form_inherit_verified" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.verified</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='company_type']" position="before">
+                <span name="group_of_people_option" class="d-inline-flex">
+                    <field name="x_is_verified"/>
+                    <label for="x_is_verified"/>
+                </span>
+            </xpath>
+
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                
+                <page name="claimants" string="Claimants" invisible="not x_is_verified">
+                    <field name="x_claimants_ids"/>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+    <record id="view_move_form_inherit_split" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.split</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_set_checked']" position="after">
+                <button name="%(action_split_invoice_server)d"
+                        string="Split Invoice"
+                        type="action"
+                        class="btn-primary"
+                        invisible="hide_post_button or x_claimants_count &lt; 2"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_invoice_tree_inherit_custom" model="ir.ui.view">
+        <field name="name">account.invoice.tree.inherit.custom</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_force_register_payment']" position="after">
+                
+                <button name="%(account.action_validate_account_moves)d"
+                        type="action"
+                        string="Confirm Entries"/>
+                        
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

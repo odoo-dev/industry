@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="action_claimant_share_server" model="ir.actions.server">
+        <field name="name">Auto Calculate Claimant Share</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="base_automation_id" ref="cosmetics_store.automation_claimant_share"/>
+        <field name="state">code</field>
+        <field name="usage">base_automation</field>
+        <field name="code"><![CDATA[
+claimants = record.x_claimants_ids
+if claimants:
+    share = 1.0 / len(claimants)
+    claimants.write({'x_share': share})
+        ]]>
+        </field>
+    </record>
+
+    <record id="action_split_invoice_server" model="ir.actions.server">
+        <field name="name">Split Invoice</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+partner = record.partner_id
+if not partner.x_is_verified:   raise UserError("Customer is not a group.")
+claimants = partner.x_claimants_ids
+if not claimants:   raise UserError("No claimants found.")
+new_moves = []
+for claimant in claimants:
+    new_move = record.copy({
+        'partner_id': claimant.x_res_partner.id,
+        'invoice_origin': record.name,
+    })
+    for line in new_move.invoice_line_ids:
+        line.write({
+            'price_unit': line.price_unit * claimant.x_share,
+        })
+    new_moves.append(new_move.id)
+record.button_cancel()
+action = {
+    'type': 'ir.actions.act_window',
+    'name': 'Split Invoices',
+    'res_model': 'account.move',
+    'view_mode': 'list',
+    'domain': [('id', 'in', new_moves)],
+}
+    ]]></field>
+    </record>
+
+    <record id="action_send_with_claimants" model="ir.actions.server">
+        <field name="name">Send with Claimants</field>
+        <field name="model_id" ref="account.model_account_move_send_wizard"/>
+        <field name="base_automation_id" ref="cosmetics_store.automation_send_with_claimants"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+all_ids = [record.move_id.partner_id.id]
+all_ids.extend(record.move_id.partner_id.x_claimants_ids.mapped('x_res_partner.id'))
+record.write({
+    'mail_partner_ids': [(6, 0, all_ids)]
+})
+        ]]></field>
+    </record>
+
+</odoo>

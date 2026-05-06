@@ -4,6 +4,7 @@
     'category': 'Retail',
     'author': 'Odoo S.A.',
     'depends': [
+        'base_automation',
         'calendar',
         'contacts',
         'hr',
@@ -15,6 +16,12 @@
         'website_sale_collect',
     ],
     'data': [
+        'data/ir_model.xml',
+        'data/ir_model_access.xml',
+        'data/ir_model_fields.xml',
+        'data/base_automation.xml',
+        'data/ir_actions_server.xml',
+        'data/ir_ui_view.xml',
         'data/res_config_settings.xml',
         'data/ir_attachment_pre.xml',
         'data/knowledge_cover.xml',
@@ -37,7 +44,7 @@
         'data/knowledge_tour.xml',
     ],
     'demo': [
-        'demo/payment_provider_demo.xml',
+        # 'demo/payment_provider_demo.xml',
         'demo/stock_quant.xml',
         'demo/product_template.xml',
         'demo/loyalty_program.xml',

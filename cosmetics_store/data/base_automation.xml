@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="automation_claimant_share" model="base.automation">
+        <field name="name">Auto Calculate Claimant Share</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('cosmetics_store.x_claimants_ids_field_res_partner')])]"/>
+    </record>
+
+    <record id="automation_send_with_claimants" model="base.automation">
+        <field name="name">Send with Claimants</field>
+        <field name="model_id" ref="account.model_account_move_send_wizard"/>
+        <field name="trigger">on_change</field>
+        <field name="on_change_field_ids" eval="[(6, 0, [ref('account.field_account_move_send_wizard__move_id')])]"/>
+    </record>
+</odoo>

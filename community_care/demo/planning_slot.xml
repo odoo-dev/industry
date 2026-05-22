@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="planning_slot_106" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-28 07:00:00</field>
+    <field name="end_datetime">2026-03-28 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_92" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-27 15:00:00</field>
+    <field name="end_datetime">2026-03-28 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_104" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-27 07:00:00</field>
+    <field name="end_datetime">2026-03-27 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_90" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-26 15:00:00</field>
+    <field name="end_datetime">2026-03-27 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_102" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-26 07:00:00</field>
+    <field name="end_datetime">2026-03-26 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_88" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-25 15:00:00</field>
+    <field name="end_datetime">2026-03-26 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_100" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-25 07:00:00</field>
+    <field name="end_datetime">2026-03-25 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_86" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-24 15:00:00</field>
+    <field name="end_datetime">2026-03-25 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_98" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-24 07:00:00</field>
+    <field name="end_datetime">2026-03-24 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_84" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-23 15:00:00</field>
+    <field name="end_datetime">2026-03-24 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_96" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-23 07:00:00</field>
+    <field name="end_datetime">2026-03-23 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_82" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-22 15:00:00</field>
+    <field name="end_datetime">2026-03-23 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_94" model="planning.slot">
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-22 07:00:00</field>
+    <field name="end_datetime">2026-03-22 16:00:00</field>
+    <field name="template_id" ref="planning_slot_template_8"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="previous_template_id" ref="planning_slot_template_8"/>
+  </record>
+  <record id="planning_slot_80" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_3')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-21 15:00:00</field>
+    <field name="end_datetime">2026-03-22 08:00:00</field>
+    <field name="template_id" ref="planning_slot_template_9"/>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+    <field name="previous_template_id" ref="planning_slot_template_9"/>
+  </record>
+  <record id="planning_slot_7" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_1')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-21 07:00:00</field>
+    <field name="end_datetime">2026-03-21 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_11" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_2')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-20 15:00:00</field>
+    <field name="end_datetime">2026-03-21 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_1" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_1')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-20 07:00:00</field>
+    <field name="end_datetime">2026-03-20 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_10" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_5')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-19 15:00:00</field>
+    <field name="end_datetime">2026-03-20 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_5" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_1')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-19 07:00:00</field>
+    <field name="end_datetime">2026-03-19 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_12" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_3')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-18 15:00:00</field>
+    <field name="end_datetime">2026-03-19 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_2" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_5')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-18 07:00:00</field>
+    <field name="end_datetime">2026-03-18 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_9" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_2')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-17 15:00:00</field>
+    <field name="end_datetime">2026-03-18 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_6" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_1')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-17 07:00:00</field>
+    <field name="end_datetime">2026-03-17 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_8" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_4')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-16 15:00:00</field>
+    <field name="end_datetime">2026-03-17 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_3" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_5')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-16 07:00:00</field>
+    <field name="end_datetime">2026-03-16 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_14" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_4')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-15 15:00:00</field>
+    <field name="end_datetime">2026-03-16 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_4" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_5')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-15 07:00:00</field>
+    <field name="end_datetime">2026-03-15 16:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.5787017517334</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+  <record id="planning_slot_28" model="planning.slot">
+    <field name="resource_ids" eval="[(6, 0, [ref('resource_resource_3')])]"/>
+    <field name="company_id" ref="base.main_company"/>
+    <field name="start_datetime">2026-03-14 15:00:00</field>
+    <field name="end_datetime">2026-03-15 08:00:59</field>
+    <field name="role_id" ref="planning_role_1"/>
+    <field name="was_copied" eval="True"/>
+    <field name="allocated_percentage">99.81892886262602</field>
+    <field name="publication_warning" eval="True"/>
+    <field name="state">published</field>
+  </record>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="residents_bfd67884-5d68-4d47-896f-509f0091fec9" model="ir.ui.menu" context="{'studio': True}">
+    <field name="name">Residents</field>
+    <field name="web_icon">fa fa-child,#00CEB3,#FFFFFF</field>
+  </record>
+  <record id="residents_resident_8b4e266b-1d6c-49ef-8433-250d8ebeac84" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="resident_5df56581-3de9-4017-8150-1906e8a60f52"/>
+    <field name="name">Residents</field>
+    <field name="parent_id" ref="residents_bfd67884-5d68-4d47-896f-509f0091fec9"/>
+  </record>
+  <record id="residents_configurat_8e434435-522b-442d-8750-9c9a4289ad04" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="base.action_open_website"/>
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="residents_bfd67884-5d68-4d47-896f-509f0091fec9"/>
+    <field name="sequence">11</field>
+  </record>
+  <record id="residents_allergies_32cde290-6402-4ec3-875d-c0f993eda1a6" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="allergies_c1daa131-7203-457a-bc6b-b76621f646be"/>
+    <field name="name">Allergies</field>
+    <field name="parent_id" ref="residents_configurat_8e434435-522b-442d-8750-9c9a4289ad04"/>
+    <field name="sequence">2</field>
+  </record>
+  <record id="residents_contact_na_292006cc-ebde-46d5-a5a9-6fc87153574a" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="contact_natures_3f2ec95c-c64f-4c63-9d81-9dbca247f0b2"/>
+    <field name="name">Contact Natures</field>
+    <field name="parent_id" ref="residents_configurat_8e434435-522b-442d-8750-9c9a4289ad04"/>
+    <field name="sequence">1</field>
+  </record>
+  <record id="residents_languages_4ed3fba5-1967-426b-91dc-9f2f55754465" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="languages_43b79213-d755-4333-823b-8036e5551284"/>
+    <field name="name">Languages</field>
+    <field name="parent_id" ref="residents_configurat_8e434435-522b-442d-8750-9c9a4289ad04"/>
+    <field name="sequence">4</field>
+  </record>
+  <record id="documents_raw_docs_20a6b83d-c97d-4ba3-8398-a452a51c3b61" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="raw_docs_81c4493d-c60e-4b48-a62b-1a11891fe550"/>
+    <field name="name">Raw Docs</field>
+    <field name="parent_id" ref="documents.menu_root"/>
+    <field name="sequence">11</field>
+  </record>
+  <record id="residents_docs_4eea8bbc-3c34-46a6-97d7-f8bb111f17ce" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="docs_5c25267d-36ce-41e9-80cb-e2952ad5d2a1"/>
+    <field name="name">Docs</field>
+    <field name="parent_id" ref="residents_bfd67884-5d68-4d47-896f-509f0091fec9"/>
+    <field name="sequence">12</field>
+  </record>
+</odoo>

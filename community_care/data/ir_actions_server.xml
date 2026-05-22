@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="set_age_according_to_31eb2d55-e549-4ddc-968c-1fdf0b199ba7" model="ir.actions.server" context="{'studio': True}">
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="update_path">x_studio_age</field>
+    <field name="state">object_write</field>
+    <field name="crud_model_id" ref="base.model_res_partner"/>
+    <field name="evaluation_type">equation</field>
+    <field name="name">Set Age according to Date of Birth</field>
+    <field name="update_field_id" ref="new_decimal_contact_9ab68796-36f2-4088-9507-9815e0b08f79"/>
+    <field name="usage">base_automation</field>
+    <field name="value"><![CDATA[datetime.date.today().year - record.x_studio_date_of_birth.year - ((datetime.date.today().month, datetime.date.today().day) < (record.x_studio_date_of_birth.month, record.x_studio_date_of_birth.day)) if record.x_studio_date_of_birth else False]]></field>
+  </record>
+</odoo>

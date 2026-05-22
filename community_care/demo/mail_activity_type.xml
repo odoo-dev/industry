@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="mail.mail_activity_data_todo" model="mail.activity.type" forcecreate="1">
+    <field name="name">To-Do</field>
+    <field name="summary">To-Do</field>
+    <field name="sequence">2</field>
+    <field name="delay_count">5</field>
+    <field name="icon">fa-check</field>
+  </record>
+  <record id="mail.mail_activity_data_email" model="mail.activity.type" forcecreate="1">
+    <field name="name">Email</field>
+    <field name="summary">Email</field>
+    <field name="sequence">3</field>
+    <field name="icon">fa-envelope</field>
+  </record>
+  <record id="mail.mail_activity_data_call" model="mail.activity.type" forcecreate="1">
+    <field name="name">Call</field>
+    <field name="summary">Call</field>
+    <field name="sequence">6</field>
+    <field name="delay_count">2</field>
+    <field name="icon">fa-phone</field>
+    <field name="category">phonecall</field>
+  </record>
+  <record id="mail.mail_activity_data_meeting" model="mail.activity.type" forcecreate="1">
+    <field name="name">Meeting</field>
+    <field name="summary">Meeting</field>
+    <field name="sequence">9</field>
+    <field name="icon">fa-users</field>
+    <field name="category">meeting</field>
+  </record>
+  <record id="documents.mail_documents_activity_data_Inbox" model="mail.activity.type" forcecreate="1">
+    <field name="name">Inbox</field>
+    <field name="summary">Inbox</field>
+    <field name="icon">fa-inbox</field>
+    <field name="res_model">documents.document</field>
+  </record>
+  <record id="hr_holidays.mail_act_leave_approval" model="mail.activity.type" forcecreate="1">
+    <field name="name">Time Off Approval</field>
+    <field name="summary">Time Off Approval</field>
+    <field name="delay_count">15</field>
+    <field name="icon">fa-sun-o</field>
+    <field name="res_model">hr.leave</field>
+  </record>
+  <record id="hr_holidays.mail_act_leave_second_approval" model="mail.activity.type" forcecreate="1">
+    <field name="name">Time Off Second Approve</field>
+    <field name="summary">Time Off Second Approve</field>
+    <field name="icon">fa-sun-o</field>
+    <field name="res_model">hr.leave</field>
+  </record>
+  <record id="hr_holidays.mail_act_leave_allocation_approval" model="mail.activity.type" forcecreate="1">
+    <field name="name">Allocation Approval</field>
+    <field name="summary">Allocation Approval</field>
+    <field name="icon">fa-sun-o</field>
+    <field name="res_model">hr.leave.allocation</field>
+  </record>
+  <record id="hr_holidays.mail_act_leave_allocation_second_approval" model="mail.activity.type" forcecreate="1">
+    <field name="name">Allocation Second Approval</field>
+    <field name="summary">Allocation Second Approval</field>
+    <field name="icon">fa-sun-o</field>
+    <field name="res_model">hr.leave.allocation</field>
+  </record>
+  <record id="mail.mail_activity_data_upload_document" model="mail.activity.type" forcecreate="1">
+    <field name="name">Document</field>
+    <field name="summary">Document</field>
+    <field name="sequence">25</field>
+    <field name="delay_count">5</field>
+    <field name="icon">fa-upload</field>
+    <field name="category">upload_file</field>
+  </record>
+  <record id="sign.mail_activity_data_signature_request" model="mail.activity.type" forcecreate="1">
+    <field name="name">Request Signature</field>
+    <field name="summary">Signature</field>
+    <field name="sequence">30</field>
+    <field name="delay_count">7</field>
+    <field name="icon">fa-pencil-square-o</field>
+    <field name="category">sign_request</field>
+  </record>
+</odoo>

@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+  <record id="documents.document_inbox_folder" model="documents.document" forcecreate="1">
+    <field name="alias_id" ref="documents.document_inbox_folder_mail_alias"/>
+    <field name="name">Inbox</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">5</field>
+    <field name="document_token">kfIPPXttQQW0a2sHmKRqIQ</field>
+    <field name="access_internal">edit</field>
+    <field name="create_activity_user_id" ref="base.user_root"/>
+    <field name="create_activity_option" eval="True"/>
+  </record>
+  <record id="documents_document_27" model="documents.document">
+    <field name="name">Residents</field>
+    <field name="type">folder</field>
+    <field name="res_model">res.partner</field>
+    <field name="favorited_ids" eval="[(6, 0, [ref('base.user_admin')])]"/>
+    <field name="is_favorited" eval="True"/>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">AYgNtwbdS5afa0swTpsmtA</field>
+    <field name="access_internal">edit</field>
+  </record>
+  <record id="documents_document_55" model="documents.document">
+    <field name="name">Addy Ding</field>
+    <field name="type">folder</field>
+    <field name="sequence">12</field>
+    <field name="document_token">kzSBbwasRFmj296YxAzXHg</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_27"/>
+  </record>
+  <record id="documents_document_56" model="documents.document">
+    <field name="name">⚖️ Admin &amp; Legal</field>
+    <field name="type">folder</field>
+    <field name="document_token">8jJ09AODTS2g0D7DaEHH8Q</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_55"/>
+  </record>
+  <record id="documents_document_50" model="documents.document">
+    <field name="name">Default Folder</field>
+    <field name="type">folder</field>
+    <field name="document_token">_DUwuAjPRsuzl09o2XoRKw</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_27"/>
+  </record>
+  <record id="documents_document_52" model="documents.document">
+    <field name="name">⚖️ Admin &amp; Legal</field>
+    <field name="type">folder</field>
+    <field name="document_token">xcVBiLogT0mj3Wqga5DBFw</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_50"/>
+  </record>
+  <record id="documents_document_15" model="documents.document">
+    <field name="name">Employees - My Company</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">AyDhZqZxQuWvHlUscS-8NQ</field>
+    <field name="is_access_via_link_hidden" eval="True"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_48" model="documents.document">
+    <field name="name">Karen Forr</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">NA9N6SZ-SNudz_GViWBKrQ</field>
+    <field name="is_access_via_link_hidden" eval="True"/>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_15"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_49" model="documents.document">
+    <field name="name">Contracts</field>
+    <field name="type">folder</field>
+    <field name="document_token">I3IGqHZkSGybMTtRD1S9mQ</field>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_48"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_25" model="documents.document">
+    <field name="name">Abe L. Tohear</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">K_oNCyiiQNio7M7Lyzc_kQ</field>
+    <field name="is_access_via_link_hidden" eval="True"/>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_15"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_26" model="documents.document">
+    <field name="name">Contracts</field>
+    <field name="type">folder</field>
+    <field name="document_token">4P0elh3SR8mBZR06uOrfhw</field>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_25"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_23" model="documents.document">
+    <field name="name">Will B. Kind</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">Xv4RwXS3TQmClZpxYegsIA</field>
+    <field name="is_access_via_link_hidden" eval="True"/>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_15"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_24" model="documents.document">
+    <field name="name">Contracts</field>
+    <field name="type">folder</field>
+    <field name="document_token">AJx089kEQ2CRg0OWezJ07w</field>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_23"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_21" model="documents.document">
+    <field name="name">Guy Dance</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">N-HozIunQWq54yFkjcbXkw</field>
+    <field name="is_access_via_link_hidden" eval="True"/>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_15"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_22" model="documents.document">
+    <field name="name">Contracts</field>
+    <field name="type">folder</field>
+    <field name="document_token">Zddvg6uHTqCBgcq7cfZ8Lg</field>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_21"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_19" model="documents.document">
+    <field name="name">Ed U. Cator</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">GZn75KFoQu6k7wdTOd07wg</field>
+    <field name="is_access_via_link_hidden" eval="True"/>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_15"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_document_20" model="documents.document">
+    <field name="name">Contracts</field>
+    <field name="type">folder</field>
+    <field name="document_token">Kv-x2d6iQ-eVDW5kVE_tnQ</field>
+    <field name="access_via_link">edit</field>
+    <field name="folder_id" ref="documents_document_19"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents_project.document_project_folder" model="documents.document" forcecreate="1">
+    <field name="name">Projects</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">25</field>
+    <field name="document_token">gd0NOdGgT1CAVrvqj7z0Ww</field>
+    <field name="access_via_link">view</field>
+    <field name="access_internal">view</field>
+  </record>
+  <record id="documents_document_17" model="documents.document">
+    <field name="name">Internal</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">RVQyssBaQxOaJAAAVJrB2Q</field>
+    <field name="access_via_link">view</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_project.document_project_folder"/>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
+  <record id="documents.document_finance_folder" model="documents.document" forcecreate="1">
+    <field name="name">Finance</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="document_token">wBBcpUkhSfKiHWKTThdhnA</field>
+    <field name="access_internal">edit</field>
+  </record>
+  <record id="documents_document_57" model="documents.document">
+    <field name="name">🩺 Health &amp; Medical</field>
+    <field name="type">folder</field>
+    <field name="sequence">11</field>
+    <field name="document_token">9sN9024uTEyeP0QpSDvHxA</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_55"/>
+  </record>
+  <record id="documents_document_51" model="documents.document">
+    <field name="name">🩺 Health &amp; Medical</field>
+    <field name="type">folder</field>
+    <field name="sequence">11</field>
+    <field name="document_token">xuzGnOgGQB2-ENlJykXAdw</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_50"/>
+  </record>
+  <record id="documents_document_58" model="documents.document">
+    <field name="name">🎓 Scholar &amp; Future</field>
+    <field name="type">folder</field>
+    <field name="sequence">12</field>
+    <field name="document_token">3bnujHuRTDK3AZo90UPYEg</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_55"/>
+  </record>
+  <record id="documents_document_53" model="documents.document">
+    <field name="name">🎓 Scholar &amp; Future</field>
+    <field name="type">folder</field>
+    <field name="sequence">12</field>
+    <field name="document_token">mvKoMom2SReDK3fo5TKu3w</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_50"/>
+  </record>
+  <record id="documents_document_59" model="documents.document">
+    <field name="name">📝 Life Path &amp; Logs</field>
+    <field name="type">folder</field>
+    <field name="sequence">13</field>
+    <field name="document_token">RpIFAMIETNig8Obxi6JrUQ</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_55"/>
+  </record>
+  <record id="documents_document_54" model="documents.document">
+    <field name="name">📝 Life Path &amp; Logs</field>
+    <field name="type">folder</field>
+    <field name="sequence">13</field>
+    <field name="document_token">Ptgf7PrQTxKtH0taDdXmuA</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents_document_50"/>
+  </record>
+  <record id="documents_fleet.document_fleet_folder" model="documents.document" forcecreate="1">
+    <field name="name">Fleet</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">13</field>
+    <field name="document_token">K-sXxmbYSnO1s1VeHTqewA</field>
+    <field name="access_internal">view</field>
+  </record>
+  <record id="documents.document_legal_folder" model="documents.document" forcecreate="1">
+    <field name="name">Legal</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">15</field>
+    <field name="document_token">gPizzD7qS_qHDOtyc7IYSw</field>
+    <field name="access_internal">edit</field>
+  </record>
+  <record id="documents_sign.document_sign_folder" model="documents.document" forcecreate="1">
+    <field name="name">Sign</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">18</field>
+    <field name="document_token">Smr79yN8RM2Jy0sMdJxKwA</field>
+    <field name="access_internal">view</field>
+  </record>
+  <record id="documents.document_marketing_folder" model="documents.document" forcecreate="1">
+    <field name="name">Marketing</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">30</field>
+    <field name="document_token">mivQVURcTbeCvdYyi11IuA</field>
+    <field name="access_internal">edit</field>
+  </record>
+  <record id="documents.document_internal_folder" model="documents.document" forcecreate="1">
+    <field name="name">Admin</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">55</field>
+    <field name="document_token">13Up9xcvSQOB_W4LK60exw</field>
+    <field name="access_internal">view</field>
+  </record>
+  <record id="documents.document_insurances_folder" model="documents.document" forcecreate="1">
+    <field name="name">Insurances</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">100</field>
+    <field name="document_token">XdinXpRWTOKtbnsqSgpyiw</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_legal_folder"/>
+  </record>
+  <record id="documents.document_loans_folder" model="documents.document" forcecreate="1">
+    <field name="name">Loans</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">110</field>
+    <field name="document_token">d7xesu6YQnuHk7Zjsy3mOw</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_legal_folder"/>
+  </record>
+  <record id="documents.document_finance_social_folder" model="documents.document" forcecreate="1">
+    <field name="name">Social</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">110</field>
+    <field name="document_token">6iIqFHXpRJag9h2iu1xcrQ</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_finance_folder"/>
+  </record>
+  <record id="documents.document_registrations_folder" model="documents.document" forcecreate="1">
+    <field name="name">Registrations</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">120</field>
+    <field name="document_token">_TM8PjvnSPuT0XCeooxaUg</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_legal_folder"/>
+  </record>
+  <record id="documents.document_finance_taxes_folder" model="documents.document" forcecreate="1">
+    <field name="name">Taxes</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">120</field>
+    <field name="document_token">HiMV208PQACybGi_-VbrmQ</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_finance_folder"/>
+  </record>
+  <record id="documents.document_contracts_folder" model="documents.document" forcecreate="1">
+    <field name="name">Contracts</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">130</field>
+    <field name="document_token">E50-9_TvS0WAmmkgdS9SKA</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_legal_folder"/>
+  </record>
+  <record id="documents.document_finance_annual_closing_folder" model="documents.document" forcecreate="1">
+    <field name="name">Annual Closing</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">130</field>
+    <field name="document_token">4lQGhVo2Qdirc2qqd-J1NA</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_finance_folder"/>
+  </record>
+  <record id="documents.document_finance_annual_closing_year_current_folder" model="documents.document" forcecreate="1">
+    <field name="name">2026</field>
+    <field name="type">folder</field>
+    <field name="owner_id" eval="False"/>
+    <field name="sequence">200</field>
+    <field name="document_token">DLmHP8rTSFuZiO9RYxDrRA</field>
+    <field name="access_internal">edit</field>
+    <field name="folder_id" ref="documents.document_finance_annual_closing_folder"/>
+  </record>
+</odoo>

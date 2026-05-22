@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="new_checkbox_contact_d319f314-ba43-425f-a910-5cad495ea6b1" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Is Resident</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_is_resident</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_contact_d5edea82-e4da-4bfb-9e65-b32817f44735" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Mother</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_mother</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_many2one_contact_d4847387-ade2-4953-8bfa-9038468f45df" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Father</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_father</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_date_contact_e05a22ee-29c8-4880-95d2-22de940875d1" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Date of Birth</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_date_of_birth</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_selection_contac_868224a7-f868-403c-b24a-693695e92755" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Legal Status</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_legal_status</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('Ward of the state', 'Ward of the state'), ('Voluntary placement', 'Voluntary placement'), ('Court-ordered', 'Court-ordered')]</field>
+  </record>
+  <record id="new_many2one_contact_ac94c240-427f-41c3-9139-fc6ee2b08383" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Legal Guardian</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_legal_guardian</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="name_allergy_4f096a54-f22b-46e4-b221-9021f7a5c8b6" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    <field name="model">x_allergy</field>
+    <field name="model_id" ref="allergy_75b23a69-ee05-41e7-8ee6-99ce912e0b18"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2many_contac_3d1cfcd8-bb9d-417f-b20b-9c573f7680f8" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Allergies</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_allergies</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_allergy</field>
+    <field name="relation_table">x_res_partner_x_allergy_rel</field>
+  </record>
+  <record id="new_selection_contac_9a3e484a-aa4e-4e4c-86c0-0e1e820c6661" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Blood Type</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_blood_type</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('O+', 'O+'), ('O-', 'O-'), ('A+', 'A+'), ('A-', 'A-'), ('B+', 'B+'), ('B-', 'B-'), ('AB+', 'AB+'), ('AB-', 'AB-')]</field>
+  </record>
+  <record id="new_multiline_text_c_9cb6a24c-2b59-4d86-a512-d430f9a3be7a" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Current Medications</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_current_medications</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="sequence_res_partner_233c875c-3ba3-46f4-8022-f9fdd1af0903" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_res_part_e7ca5a3b-be99-4d83-b3fb-63a433daa55d" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="translate">standard</field>
+  </record>
+  <record id="res_partner_line_9f1c3fc7-3b2f-43ea-846b-eb80082bdb17" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">X Res Partner</field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">x_res_partner_id</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_lines_contact_56699adb-dd8c-4f58-abf2-2cd6c6e79ac5" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">one2many</field>
+    <field name="field_description">Medical Professionals</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_medical_professionals</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_res_partner_line_3a003</field>
+    <field name="relation_field">x_res_partner_id</field>
+  </record>
+  <record id="new_text_contact_5070c5ee-99ec-498a-8a67-cf7649288c17" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Health Insurance</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_health_insurance</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_res_par_774906ed-c110-473a-ac9f-613836c363ce" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">x_studio_contact</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="name_medical_profess_5a78f210-de5f-4f67-9c2b-7928ec82d0c6" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    <field name="model">x_medical_profession</field>
+    <field name="model_id" ref="medical_profession_e60f3a16-cb56-4f57-beaa-58d2593f1aa4"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="translate">standard</field>
+  </record>
+  <record id="sequence_medical_pro_adb99035-7de8-4aaa-9149-f4f6e6cca3ff" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    <field name="model">x_medical_profession</field>
+    <field name="model_id" ref="medical_profession_e60f3a16-cb56-4f57-beaa-58d2593f1aa4"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_many2one_res_par_f9c69577-56d8-495e-aa71-69d536ffc860" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Profession</field>
+    <field name="group_expand" eval="True"/>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">x_studio_profession</field>
+    <field name="relation">x_medical_profession</field>
+  </record>
+  <record id="new_many2one_contact_ab857734-e8b4-4596-90ec-219cc024d248" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">School</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_school</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_many2one_contact_1ff4fbad-9a10-4846-8451-50b5a75fdf9a" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Teacher/Referent</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_teacherreferent</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_multiline_text_c_10dd5ec2-6fa5-4521-960f-f2f37d0755af" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Special Needs</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_special_needs</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_contact_830411e5-4fcb-43d2-8753-6867497dd363" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Admission Date</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_admission_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_date_contact_1bd29707-cb6b-46d1-b8c2-8189805fb2bc" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Projected Exit Date</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_projected_exit_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_text_contact_e94cf467-ba0e-4f7d-94da-9ab554cd8e62" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Nicknames</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_nicknames</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="name_languages_855826c2-f6fe-4644-86fb-7d0cb2c6b577" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    <field name="model">x_languages</field>
+    <field name="model_id" ref="languages_00bd7f25-5230-44dc-9761-deeb64615699"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_tags_contact_34afcc0c-9bdd-46fe-a42e-62c28ec84daf" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Languages</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_languages</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_languages</field>
+    <field name="relation_table">x_res_partner_x_languages_rel</field>
+  </record>
+  <record id="sequence_res_partner_a6b54c6f-9b26-40c6-88a3-2ab661545f68" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sequence</field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="description_res_part_ead884e7-1681-4235-84f7-70433a020509" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Description</field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="translate">standard</field>
+  </record>
+  <record id="res_partner_line_02a98d27-ef2c-4521-a579-7be8558859e6" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">X Res Partner</field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">x_res_partner_id</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_lines_contact_7104e8ef-1d76-42eb-ba9b-aef271307dec" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">one2many</field>
+    <field name="field_description">Contacts</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_contacts</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_res_partner_line_d05cf</field>
+    <field name="relation_field">x_res_partner_id</field>
+  </record>
+  <record id="new_many2one_res_par_059e9b12-879e-4d0c-9f5a-bc104c346802" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contact</field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">x_studio_contact</field>
+    <field name="relation">res.partner</field>
+  </record>
+  <record id="new_multiline_text_r_08a0d8cb-3221-4ad2-b0ba-0bb843f1ff62" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Notes</field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">x_studio_notes</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="name_contact_nature_a9590faf-6daf-4a43-bd87-cfea9b91b2bc" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Name</field>
+    <field name="model">x_contact_nature</field>
+    <field name="model_id" ref="contact_nature_8aad509e-ded6-45ec-b858-c5db7053ea9b"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_tags_res_partner_a4c4afee-1c8e-484e-bbcd-a93144318f44" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Nature</field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">x_studio_nature</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_contact_nature</field>
+    <field name="relation_table">x_x_contact_nature_x_res_partner_line_d05cf_rel</field>
+  </record>
+  <record id="new_date_contact_4bc3b273-9199-40b8-9a97-f769e1f260fd" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">New Date</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_date_field_5rc_1jjgnjg6t</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="new_decimal_contact_9ab68796-36f2-4088-9507-9815e0b08f79" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">float</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Age</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_age</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+  </record>
+  <record id="new_many2many_allerg_d05f3dbc-17bd-44f1-9b23-1c12d7341740" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Residents</field>
+    <field name="model">x_allergy</field>
+    <field name="model_id" ref="allergy_75b23a69-ee05-41e7-8ee6-99ce912e0b18"/>
+    <field name="name">x_studio_residents</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">res.partner</field>
+    <field name="relation_table">x_res_partner_x_allergy_rel</field>
+  </record>
+  <record id="new_many2many_langua_ce892c02-0791-4f20-a208-65205afdf36c" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Residents</field>
+    <field name="model">x_languages</field>
+    <field name="model_id" ref="languages_00bd7f25-5230-44dc-9761-deeb64615699"/>
+    <field name="name">x_studio_residents</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">res.partner</field>
+    <field name="relation_table">x_res_partner_x_languages_rel</field>
+  </record>
+  <record id="new_date_contact_150ace46-7398-4f34-ad0d-13283b835778" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Effective Exit Date</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_studio_effective_exit_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="contact_count_contac_9cf59f33-4457-4e9b-902e-5a9d2c0cd605" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_studio_contact_x_res_partner_line_3a003_count'] = self.env['x_res_partner_line_3a003'].search_count([('x_studio_contact', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">Contact count</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_x_studio_contact_x_res_partner_line_3a003_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="contact_count_contac_9596101b-0289-47b9-b2e8-a68a73171190" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_studio_contact_x_res_partner_line_d05cf_count'] = self.env['x_res_partner_line_d05cf'].search_count([('x_studio_contact', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">Contact count</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_x_studio_contact_x_res_partner_line_d05cf_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="x_res_partner_count__360df431-0fa3-4231-ac9e-ef4f65433934" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute"><![CDATA[
+for record in self: record['x_x_res_partner_id_x_res_partner_line_d05cf_count'] = self.env['x_res_partner_line_d05cf'].search_count([('x_res_partner_id', '=', record.id)])
+]]></field>
+    <field name="ttype">integer</field>
+    <field name="field_description">X Res Partner count</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_x_res_partner_id_x_res_partner_line_d05cf_count</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selectable" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+</odoo>

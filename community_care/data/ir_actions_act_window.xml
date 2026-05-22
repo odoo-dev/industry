@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="resident_5df56581-3de9-4017-8150-1906e8a60f52" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="domain">[('x_studio_is_resident','=',True)]</field>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Residents</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">kanban,list,form,activity</field>
+  </record>
+  <record id="medical_professions_e67ca205-306f-41ef-ba63-274b250fab7a" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Medical Professions</field>
+    <field name="res_model">x_medical_profession</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="allergies_c1daa131-7203-457a-bc6b-b76621f646be" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Allergies</field>
+    <field name="res_model">x_allergy</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="contact_nature_3d9b90cf-c835-4866-8076-553afc76d3ef" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Contact Nature</field>
+    <field name="res_model">x_contact_nature</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="contact_natures_3f2ec95c-c64f-4c63-9d81-9dbca247f0b2" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Contact Natures</field>
+    <field name="res_model">x_contact_nature</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="languages_6eba4325-7d2d-4e1b-962c-bb5828ea1f03" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Languages</field>
+    <field name="res_model">res.lang</field>
+  </record>
+  <record id="languages_43b79213-d755-4333-823b-8036e5551284" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Languages</field>
+    <field name="res_model">x_languages</field>
+    <field name="view_mode">list</field>
+  </record>
+  <record id="raw_docs_81c4493d-c60e-4b48-a62b-1a11891fe550" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Raw Docs</field>
+    <field name="res_model">documents.document</field>
+    <field name="view_mode">kanban,list,form,activity</field>
+  </record>
+  <record id="docs_5c25267d-36ce-41e9-80cb-e2952ad5d2a1" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    This is your new action.
+                </p>
+                <p>By default, it contains a list and a form view and possibly
+                    other view types depending on the options you chose for your model.
+                </p>
+                <p>
+                    You can start customizing these screens by clicking on the Studio icon on the
+                    top right corner (you can also customize this help message there).
+                </p>
+            ]]></field>
+    <field name="name">Docs</field>
+    <field name="res_model">documents.document</field>
+    <field name="view_mode">kanban,list,form,activity</field>
+  </record>
+  <record id="new_button_8155390c-8bbe-446a-b20a-0c27aefdf4d7" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="context">{'search_default_x_studio_contact': active_id,'default_x_studio_contact': active_id}</field>
+    <field name="domain">[('x_studio_contact', '=', active_id)]</field>
+    <field name="name">New button</field>
+    <field name="res_model">x_res_partner_line_3a003</field>
+  </record>
+  <record id="notes_e25ecfaa-90ce-4044-ab35-036633360737" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="context">{'search_default_x_studio_contact': active_id,'default_x_studio_contact': active_id}</field>
+    <field name="domain">[('x_studio_contact', '=', active_id)]</field>
+    <field name="name">Notes</field>
+    <field name="res_model">x_res_partner_line_d05cf</field>
+  </record>
+  <record id="notes_1287c02f-d889-48f6-b97e-e37dc49504ff" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="context">{'search_default_x_res_partner_id': active_id,'default_x_res_partner_id': active_id}</field>
+    <field name="domain">[('x_res_partner_id', '=', active_id)]</field>
+    <field name="name">Notes</field>
+    <field name="res_model">x_res_partner_line_d05cf</field>
+  </record>
+</odoo>

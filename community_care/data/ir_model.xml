@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="allergy_75b23a69-ee05-41e7-8ee6-99ce912e0b18" model="ir.model" context="{'studio': True}">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class ResUsers(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_allergy</field>
+    <field name="name">Allergy</field>
+  </record>
+  <record id="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13" model="ir.model" context="{'studio': True}">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class ResUsers(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="name">res_partner_line</field>
+  </record>
+  <record id="medical_profession_e60f3a16-cb56-4f57-beaa-58d2593f1aa4" model="ir.model" context="{'studio': True}">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class ResUsers(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_medical_profession</field>
+    <field name="name">Medical Profession</field>
+  </record>
+  <record id="languages_00bd7f25-5230-44dc-9761-deeb64615699" model="ir.model" context="{'studio': True}">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class ResUsers(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_languages</field>
+    <field name="name">Languages</field>
+  </record>
+  <record id="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469" model="ir.model" context="{'studio': True}">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class ResUsers(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="name">res_partner_line</field>
+  </record>
+  <record id="contact_nature_8aad509e-ded6-45ec-b858-c5db7053ea9b" model="ir.model" context="{'studio': True}">
+    <field name="info"><![CDATA[ Main super-class for regular database-persisted Odoo models.
+
+    Odoo models are created by inheriting from this class::
+
+        class ResUsers(Model):
+            ...
+
+    The system will later instantiate the class once per database (on
+    which the class' module is installed).
+    ]]></field>
+    <field name="model">x_contact_nature</field>
+    <field name="name">Contact Nature</field>
+  </record>
+</odoo>

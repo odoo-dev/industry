@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="on_date_of_birth_upd_12d17132-160b-4780-8fe4-953bc6c6de1d" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('set_age_according_to_31eb2d55-e549-4ddc-968c-1fdf0b199ba7')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">On Date of Birth Update</field>
+    <field name="trigger_field_ids" eval="[(6, 0, [ref('new_date_contact_e05a22ee-29c8-4880-95d2-22de940875d1')])]"/>
+  </record>
+</odoo>

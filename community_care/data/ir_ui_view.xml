@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="odoo_studio_res_part_64aa1621-8180-4c27-9e32-9234d364cfcd" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/form/sheet/group" position="replace">
+          <group name="studio_group_4kb_1jjghjvij">
+            <group name="studio_group_4kb_left">
+              <label for="x_studio_date_of_birth"/>
+              <div class="d-flex justify-content-between align-items-center" name="x_studio_date_of_birth">
+                <field name="x_studio_date_of_birth" class="oe_inline w-50" force_save="1"/>
+                <span class="oe_inline" invisible="not x_studio_date_of_birth">Age <field name="x_studio_age" class="oe_inline" options="{'digits':[0,0]}"/>
+          </span>
+              </div>
+            </group>
+          </group>
+        </xpath>
+        <xpath expr="/form//button[@name='action_view_tasks']" position="replace"/>
+        <xpath expr="/form/sheet/div[2]/div/div/div/field[@name='parent_id']" position="replace"/>
+        <xpath expr="/form//page[@name='geo_location']" position="replace"/>
+        <xpath expr="/form//page[@name='sales_purchases']" position="replace"/>
+        <xpath expr="/form//page[@name='internal_notes']" position="after">
+          <page string="Medical &amp; Safety" name="studio_page_8gk_1jjgk1n75">
+            <group name="studio_group_8gk">
+              <group name="studio_group_8gk_left">
+                <field name="x_studio_allergies" widget="many2many_tags"/>
+                <field name="x_studio_blood_type"/>
+                <field name="x_studio_health_insurance"/>
+              </group>
+              <group name="studio_group_8gk_right">
+                <field name="x_studio_current_medications" help="Dosage, frequency, and administration instructions."/>
+              </group>
+            </group>
+          </page>
+          <page string="Placement" name="studio_page_3ti_1jjgkm5n6">
+            <group name="studio_group_3ti">
+              <group name="studio_group_3ti_left">
+                <field name="x_studio_admission_date"/>
+                <field name="x_studio_legal_status"/>
+                <field name="x_studio_projected_exit_date"/>
+                <field name="x_studio_effective_exit_date" help="To fill in on resident leave."/>
+              </group>
+              <group name="studio_group_3ti_right">
+                <field name="x_studio_nicknames"/>
+                <field widget="many2many_tags" name="x_studio_languages"/>
+                <field name="x_studio_special_needs" help="e.g. IEP/Special Education status, speech therapy schedule"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+        <xpath expr="/form//field[@name='child_ids']" position="replace">
+          <field name="x_studio_contacts">
+            <list editable="bottom">
+              <field name="x_studio_sequence" widget="handle"/>
+              <field optional="show" name="x_studio_contact" required="True" widget="many2one_avatar" options="{&quot;no_open&quot;:false}" domain="[(&quot;x_studio_is_resident&quot;, &quot;=&quot;, False)]"/>
+              <field widget="many2many_tags" optional="show" name="x_studio_nature" required="True"/>
+              <field optional="show" name="x_studio_notes"/>
+            </list>
+          </field>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="mode">extension</field>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Studio: res.partner.form customization</field>
+    <field name="priority">160</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_res_part_49d00aad-cbf4-46f3-a068-a378b983a987" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/search//filter[@name='employees']" position="replace"/>
+        <xpath expr="/search//field[@name='parent_id']" position="replace"/>
+        <xpath expr="/search//field[@name='user_id']" position="replace"/>
+        <xpath expr="/search/separator[2]" position="replace">
+          <separator name="studio_separator_4e7_1jjgp6pb6"/>
+          <filter name="studio_filter_by_5h1_1jjgp6gik" string="Date of Birth" date="x_studio_date_of_birth"/>
+        </xpath>
+        <xpath expr="/search//filter[@name='group_company']" position="replace"/>
+        <xpath expr="/search//filter[@name='salesperson']" position="replace"/>
+      </data>
+    </field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="mode">extension</field>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Studio: res.partner.select customization</field>
+    <field name="priority">160</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_a1b84913-fe2f-4733-918e-970702b57500" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list editable="bottom" default_order="id desc">
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_allergy</field>
+    <field name="name">Default list view for x_allergy</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_list_view_fo_6efd22d9-c0cc-449f-93f2-4ceac684fb1f" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list default_order="x_studio_sequence asc,id desc">
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="name">Default list view for x_res_partner_line_3a003</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_72cba765-eb9a-47e8-9525-030df9192418" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="res_partner_line">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_4f242d">
+            <group name="studio_group_4f242d_left"/>
+            <group name="studio_group_4f242d_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="name">Default form view for x_res_partner_line_3a003</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__78437060-f026-424a-a862-547a26eaf82d" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_res_partner_line_3a003</field>
+    <field name="name">Default search view for x_res_partner_line_3a003</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_f8aae029-574f-4d36-953a-14fcf2c095d1" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_medical_profession</field>
+    <field name="name">Default list view for x_medical_profession</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_list_view_fo_b0e3ce15-6106-4041-8891-668b08e7b3e1" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list editable="bottom" default_order="id desc">
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_languages</field>
+    <field name="name">Default list view for x_languages</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_list_view_fo_320d4e07-c386-4ab5-bb55-a59754475207" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list default_order="x_studio_sequence asc,id desc">
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="name">Default list view for x_res_partner_line_d05cf</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_daf86506-757a-40f2-b3d8-11b626c30431" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="res_partner_line">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_a59ac2">
+            <group name="studio_group_a59ac2_left"/>
+            <group name="studio_group_a59ac2_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="name">Default form view for x_res_partner_line_d05cf</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__df9d51dd-d1e3-4911-919a-5bf5addeca97" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+      </search>
+    </field>
+    <field name="model">x_res_partner_line_d05cf</field>
+    <field name="name">Default search view for x_res_partner_line_d05cf</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_list_view_fo_e6c6d96d-e2c5-4273-81bb-c7dc3ead9b9e" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list editable="bottom" default_order="id desc">
+        <field name="x_name"/>
+      </list>
+    </field>
+    <field name="model">x_contact_nature</field>
+    <field name="name">Default list view for x_contact_nature</field>
+    <field name="type">list</field>
+  </record>
+  <record id="odoo_studio_default__4fb1752a-5239-43bb-bbfc-24001ee619bf" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/list//field[@name='x_name']" position="after">
+          <field optional="show" name="x_studio_residents" widget="many2many_tags" readonly="True"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_list_view_fo_a1b84913-fe2f-4733-918e-970702b57500"/>
+    <field name="mode">extension</field>
+    <field name="model">x_allergy</field>
+    <field name="name">Odoo Studio: Default list view for x_allergy customization</field>
+    <field name="priority">99</field>
+    <field name="type">list</field>
+  </record>
+  <record id="odoo_studio_default__095f79b2-2ad2-445e-a2ea-25227b0e4e7f" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/list//field[@name='x_name']" position="after">
+          <field optional="show" name="x_studio_residents" readonly="True" widget="many2many_tags"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_list_view_fo_b0e3ce15-6106-4041-8891-668b08e7b3e1"/>
+    <field name="mode">extension</field>
+    <field name="model">x_languages</field>
+    <field name="name">Odoo Studio: Default list view for x_languages customization</field>
+    <field name="priority">99</field>
+    <field name="type">list</field>
+  </record>
+  <record id="odoo_studio_planning_ee610f18-eb77-4d3b-812d-81470372d3e3" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/gantt" position="attributes">
+          <attribute name="precision">{"day":"hour:full","week":"day:half","month":"day:half","year":"day:full"}</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="planning.planning_view_gantt"/>
+    <field name="mode">extension</field>
+    <field name="model">planning.slot</field>
+    <field name="name">Odoo Studio: planning.slot.gantt customization</field>
+    <field name="priority">1000</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="odoo_studio_document_828dccf0-697c-4bc1-a924-7240313f129e" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/list" position="attributes">
+          <attribute name="editable">top</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="documents.documents_view_list"/>
+    <field name="mode">extension</field>
+    <field name="model">documents.document</field>
+    <field name="name">Odoo Studio: documents list customization</field>
+    <field name="priority">9990</field>
+    <field name="type">list</field>
+  </record>
+</odoo>

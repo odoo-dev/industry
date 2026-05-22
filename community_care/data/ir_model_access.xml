@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="allergy_group_system_957ca292-355c-40eb-ad69-405a2ac97ebf" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="allergy_75b23a69-ee05-41e7-8ee6-99ce912e0b18"/>
+    <field name="name">Allergy group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="allergy_group_user_b3bbef63-61e3-4c2b-80d8-3b74fcc21674" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="allergy_75b23a69-ee05-41e7-8ee6-99ce912e0b18"/>
+    <field name="name">Allergy group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="res_partner_line_gro_4d2b358f-66b3-4a3f-9918-55b03e525aa5" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">res_partner_line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="res_partner_line_gro_ab987ddd-da34-4dda-a9db-65ce6e2043dc" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="res_partner_line_0afb2ff1-2938-48c7-99f5-e3598a5b3f13"/>
+    <field name="name">res_partner_line group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="medical_profession_g_8728cc9c-81b1-4955-9e62-f1708b164cfd" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="medical_profession_e60f3a16-cb56-4f57-beaa-58d2593f1aa4"/>
+    <field name="name">Medical Profession group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="medical_profession_g_4c6e9d0d-06f3-4d4b-8804-d5a10a7fbfb3" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="medical_profession_e60f3a16-cb56-4f57-beaa-58d2593f1aa4"/>
+    <field name="name">Medical Profession group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="languages_group_syst_fef06c36-5027-4f24-a6a3-765119e75370" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="languages_00bd7f25-5230-44dc-9761-deeb64615699"/>
+    <field name="name">Languages group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="languages_group_user_cd214528-a5fe-4c7b-81cc-252251a441aa" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="languages_00bd7f25-5230-44dc-9761-deeb64615699"/>
+    <field name="name">Languages group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="res_partner_line_gro_3ee3b2b8-9a38-4a5d-9774-7125eb8acc19" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">res_partner_line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="res_partner_line_gro_f90ccb0c-cd6e-4e41-b6c6-80ab785c9d09" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="res_partner_line_e459377f-ac47-4873-af97-29d0808f2469"/>
+    <field name="name">res_partner_line group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="contact_nature_group_46ef3e0d-0bd6-4092-8f1e-09720f6b8bf6" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="contact_nature_8aad509e-ded6-45ec-b858-c5db7053ea9b"/>
+    <field name="name">Contact Nature group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="contact_nature_group_189bdd9e-30b7-4417-97d1-0ecf1842697a" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="contact_nature_8aad509e-ded6-45ec-b858-c5db7053ea9b"/>
+    <field name="name">Contact Nature group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+</odoo>

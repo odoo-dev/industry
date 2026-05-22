@@ -1,0 +1,82 @@
+Found 1 circular dependencies (you may have to change data loading order to avoid issues when importing):
+(demo) calendar.event -> res.partner -> calendar.event
+The following relational data haven't been exported because they either refer
+to a model that Studio doesn't export, or have no XML id:
+
+Record: hr_employee_4,
+Model: hr.employee,
+Field: current_version_id,
+Type: many2one,
+Value: hr.version(4,) ('Nov 1, 2024')
+
+Record: hr_employee_1,
+Model: hr.employee,
+Field: current_version_id,
+Type: many2one,
+Value: hr.version(1,) ('Jan 29, 2020')
+
+Record: hr_employee_2,
+Model: hr.employee,
+Field: current_version_id,
+Type: many2one,
+Value: hr.version(2,) ('Mar 3, 2022')
+
+Record: hr_employee_5,
+Model: hr.employee,
+Field: current_version_id,
+Type: many2one,
+Value: hr.version(5,) ('Jul 30, 2014')
+
+Record: hr_employee_3,
+Model: hr.employee,
+Field: current_version_id,
+Type: many2one,
+Value: hr.version(3,) ('Jul 10, 2025')
+
+Record: project_task_5,
+Model: project.task,
+Field: user_ids,
+Type: many2many,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_16,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_17,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_18,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_19,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_20,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_21,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')
+
+Record: project_task_type_22,
+Model: project.task.type,
+Field: user_id,
+Type: many2one,
+Value: res.users(5,) ('Industry')

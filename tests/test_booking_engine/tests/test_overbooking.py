@@ -19,6 +19,23 @@ class TestOverbooking(PaymentHttpCommon):
             'name': 'Room 101',
             'resource_type': 'material',
         })
+        calendar = cls.env['resource.calendar'].create({
+            'name': 'Classic 40h/week',
+            'hours_per_day': 8.0,
+            'attendance_ids': [
+                (0, 0, {'dayofweek': '0', 'hour_from': 8, 'hour_to': 12}),
+                (0, 0, {'dayofweek': '0', 'hour_from': 13, 'hour_to': 17}),
+                (0, 0, {'dayofweek': '1', 'hour_from': 8, 'hour_to': 12}),
+                (0, 0, {'dayofweek': '1', 'hour_from': 13, 'hour_to': 17}),
+                (0, 0, {'dayofweek': '2', 'hour_from': 8, 'hour_to': 12}),
+                (0, 0, {'dayofweek': '2', 'hour_from': 13, 'hour_to': 17}),
+                (0, 0, {'dayofweek': '3', 'hour_from': 8, 'hour_to': 12}),
+                (0, 0, {'dayofweek': '3', 'hour_from': 13, 'hour_to': 17}),
+                (0, 0, {'dayofweek': '4', 'hour_from': 8, 'hour_to': 12}),
+                (0, 0, {'dayofweek': '4', 'hour_from': 13, 'hour_to': 17}),
+            ]
+        })
+        cls.resource.calendar_id = calendar.id
         cls.role = cls.env['planning.role'].create({
             'name': 'Stay Offer Role',
             'sync_shift_rental': True,

@@ -2,7 +2,7 @@
 <odoo>
     <template id="welcome_article_body">
         <div class="oe-hint" data-oe-version="1.2">
-            <span class="display-4-fs"><strong>Real Estate Agency</strong></span><br />
+            <span class="display-4-fs"><strong>Dharmil Agency</strong></span><br />
         </div>
         <p>Welcome to the Odoo Real Estate Agencies package!</p>
         <p>

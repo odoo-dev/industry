@@ -2,7 +2,7 @@
 <odoo auto_sequence="1">
   <template id="welcome_article_body">
     <h1>
-        <strong><span class="display-4-fs">Library</span></strong><br />
+        <strong><span class="display-4-fs">Dharmil</span></strong><br />
     </h1>
     <p style="text-align: justify;">
         <span class="h6-fs">

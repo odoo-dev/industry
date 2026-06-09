@@ -10,13 +10,6 @@
         <!-- url compute automatiquement; à récupérer pour utiliser le webhook -->
     </record>
 
-    <record id="automation_on_product_product_create_or_write" model="base.automation">
-        <field name="model_id" ref="product.model_product_product"/>
-        <field name="action_server_ids" eval="[(6, 0, [ref('create_or_modify_room_type')])]"/>
-        <field name="trigger">on_create_or_write</field>
-        <field name="name">Product product Create or write</field>
-        <field name="active" eval="False"/>
-    </record>
     <record id="automation_on_product_product_write_price" model="base.automation">
         <field name="model_id" ref="product.model_product_product"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('action_modify_room_price')])]"/>
@@ -41,91 +34,165 @@
         <field name="trigger_field_ids" eval="[(5, 0, 0)]"/>
     </record>
 
+    <!-- Live Synchronization from odoo to channex -->
+    <!-- Group To Channex -->
+    <record id="automation_on_channex_group_created" model="base.automation">
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('create_groups_on_channex')])]"/>
+        <field name="trigger">on_create</field>
+        <field name="name">Channex: Live Sync, On Channex Group Create</field>
+    </record>
+    <record id="automation_on_channex_group_deleted" model="base.automation">
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('delete_groups_on_channex')])]"/>
+        <field name="trigger">on_unlink</field>
+        <field name="name">Channex: Live Sync, On Channex Group Deleted</field>
+    </record>
+    <record id="automation_on_channex_group_name_write" model="base.automation">
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('update_groups_on_channex')])]"/>
+        <field name="trigger">on_write</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('booking_channex.x_name_field_x_channex_group')])]"/>
+        <field name="name">Channex: Live Sync, On Channex Group Write</field>
+    </record>
+    <!-- Properties To Channex -->
     <record id="automation_on_channex_group_set_on_company" model="base.automation">
         <field name="model_id" ref="base.model_res_company"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('create_property_on_channex')])]"/>
         <field name="trigger">on_create_or_write</field>
-        <field name="name">Channex: On Write Channex Group To Company</field>
+        <field name="name">Channex: Live Sync, On Company Write Channex Group with non false value</field>
         <field name="filter_domain">[('x_channex_group_id', '!=', False)]</field>
         <field name="trigger_field_ids" eval="[(6, 0, [ref('booking_channex.x_channex_group_id_field_res_company')])]"/>
     </record>
-
-    <!-- Rate Plans -->
-    <record id="automation_on_room_product_variant_create" model="base.automation">
+    <record id="automation_on_company_modify" model="base.automation">
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('update_property_on_channex')])]"/>
+        <field name="trigger">on_write</field>
+        <field name="filter_pre_domain">[('x_channex_group_id', '!=', False)]</field>
+        <field name="filter_domain">[('x_channex_group_id', '!=', False)]</field>
+        <field name="name">Channex: Live Sync, Update Channex Property on Write</field>
+    </record>
+    <record id="automation_on_company_unlink" model="base.automation">
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('delete_property_on_channex')])]"/>
+        <field name="trigger">on_unlink</field>
+        <field name="name">Channex: Live Sync, On Company Deleted</field>
+    </record>
+    <!-- Rooms To Channex -->
+    <!-- This record serves to FIRST send the room to channex, THEN create rate plans (otherwise rate plans could try to be sent first on channex even if the room is not there yet) -->
+    <record id="automation_on_product_room_write" model="base.automation">
         <field name="model_id" ref="product.model_product_product"/>
-        <field name="action_server_ids" eval="[(6, 0, [ref('server_action_create_rate_plans_from_product')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('actualize_room_on_channex'), ref('server_action_create_rate_plans_from_product')])]"/>
         <field name="trigger">on_create_or_write</field>
         <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
-        <field name="name">Create Rate Plan on product room offer creation</field>
+        <field name="name">Channex: Live Sync, On write room products</field>
         <field name="trigger_field_ids" eval="[(5, 0, 0)]"/>
     </record>
+    <record id="automation_on_product_room_unlink" model="base.automation">
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('delete_room_on_channex')])]"/>
+        <field name="trigger">on_unlink</field>
+        <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
+        <field name="name">Channex: Live Sync, Delete Rooms from Channex On Unlink</field>
+    </record>
+    <record id="automation_on_product_template_room_unlink" model="base.automation">
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('delete_room_template_on_channex')])]"/>
+        <field name="trigger">on_unlink</field>
+        <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
+        <field name="name">Channex: Live Sync, Delete Rooms from Channex On Unlink Template</field>
+    </record>
+    <!-- Rates To Channex -->
+    <record id="automation_on_rate_plan_create" model="base.automation">
+        <field name="model_id" ref="x_rate_plan_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('create_rate_plan_on_channex')])]"/>
+        <field name="trigger">on_create</field>
+        <field name="filter_domain">[("x_variant_id", "!=", False), ("x_rate_plan_value_id", "!=", False)]</field>
+        <field name="name">Channex: Live Sync, On Rate Plan Create</field>
+    </record>
+    <record id="automation_on_rate_plan_unlink" model="base.automation">
+        <field name="model_id" ref="x_rate_plan_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('delete_rate_plan_on_channex')])]"/>
+        <field name="trigger">on_unlink</field>
+        <field name="name">Channex: Live Sync, On Rate Plan Delete</field>
+    </record>
+    <record id="automation_on_rate_plan_write_name" model="base.automation">
+        <field name="model_id" ref="x_rate_plan_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('update_rate_plan_on_channex')])]"/>
+        <field name="trigger">on_write</field>
+        <field name="name">Channex: Live Sync, On Rate Plan Write Name</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('booking_channex.x_name_field_x_rate_plan')])]"/>
+    </record>
+
+
+    <!-- Odoo Rate Plans -->
     <record id="automation_on_room_product_template_write" model="base.automation">
         <field name="model_id" ref="product.model_product_template"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_actualize_rate_plans_from_product')])]"/>
         <field name="trigger">on_write</field>
-        <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
-        <field name="name">Actualize Rate Plan on product room offer write</field>
+        <field name="filter_domain">[("x_is_a_room_offer", "!=", False), ("active", "!=", False)]</field>
+        <field name="name">Rate Plan: Actualize Rate Plan on product room offer write</field>
         <field name="trigger_field_ids" eval="[(6, 0, [ref('product.field_product_template__attribute_line_ids'), ref('booking_engine.product_model_product_template_x_is_a_room_offer_field')])]"/>
     </record> <!-- Possible issue, if we add an attribute line that creates products, isn't the server action called too many times ? One for the line and one for each product -->
     <record id="automation_on_room_product_template_write_room_offer_unset" model="base.automation">
         <field name="model_id" ref="product.model_product_template"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_delete_rate_plans_on_product_template_delete')])]"/>
         <field name="trigger">on_write</field>
-        <field name="filter_domain">[("x_is_a_room_offer", "=", False)]</field>
-        <field name="name">Actualize Rate Plan on product room offer write</field>
-        <field name="trigger_field_ids" eval="[(6, 0, [ref('booking_engine.product_model_product_template_x_is_a_room_offer_field')])]"/>
+        <field name="filter_domain">["|", ("x_is_a_room_offer", "=", False), ("active", "=", False)]</field>
+        <field name="name">Rate Plan: Delete Rate Plan on product room offer write active/is room offer</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('booking_engine.product_model_product_template_x_is_a_room_offer_field'), ref('product.field_product_pricelist__active')])]"/>
     </record>
     <record id="automation_on_room_attribute_line_write" model="base.automation">
         <field name="model_id" ref="product.model_product_template_attribute_line"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_actualize_rate_plans_from_attribute_lines')])]"/>
         <field name="trigger">on_write</field>
         <field name="filter_domain">[("product_tmpl_id.x_is_a_room_offer", "!=", False)]</field>
-        <field name="name">Actualize Rate Plan on values write</field>
+        <field name="name">Rate Plan: Actualize Rate Plan on values write</field>
         <field name="trigger_field_ids" eval="[(6, 0, [ref('product.field_product_template_attribute_line__value_ids')])]"/>
     </record>
     <record id="automation_on_pricelist_create" model="base.automation">
         <field name="model_id" ref="product.model_product_pricelist"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_create_rate_plans_from_pricelist')])]"/>
         <field name="trigger">on_create</field>
-        <field name="filter_domain">[("x_published_on_channex", "=", True)]</field>
-        <field name="name">Create Rate Plan on pricelist creation</field>
+        <field name="filter_domain">[("x_published_on_channex", "=", True), ("active", "!=", False)]</field>
+        <field name="name">Rate Plan: Create Rate Plan on pricelist creation</field>
     </record>
     <record id="automation_on_room_product_variant_delete" model="base.automation">
         <field name="model_id" ref="product.model_product_product"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_delete_rate_plans_from_product')])]"/>
         <field name="trigger">on_unlink</field>
-        <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
-        <field name="name">Delete rate plan on product room offer deletion</field>
+        <field name="filter_domain">[("x_is_a_room_offer", "!=", False), ("active", "!=", False)]</field>
+        <field name="name">Rate Plan: Delete rate plan on product room offer deletion</field>
     </record>
     <record id="automation_on_pricelist_delete" model="base.automation">
         <field name="model_id" ref="product.model_product_pricelist"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_delete_rate_plans_from_pricelist')])]"/>
         <field name="trigger">on_unlink</field>
-        <field name="name">Delete rate plan on pricelist deletion</field>
+        <field name="name">Rate Plan: Delete rate plan on pricelist deletion</field>
     </record>
     <record id="automation_on_pricelist_x_published_on_channex_set" model="base.automation">
         <field name="model_id" ref="product.model_product_pricelist"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_create_rate_plans_from_pricelist_2')])]"/>
         <field name="trigger">on_write</field>
-        <field name="name">Create rate plan on pricelist published channex set</field>
-        <field name="filter_domain">[("x_published_on_channex", "=", True)]</field>
-        <field name="filter_pre_domain">[("x_published_on_channex", "=", False)]</field>
-        <field name="trigger_field_ids" eval="[(6, 0, [ref('x_published_on_channex_field_product_pricelist')])]"/>
+        <field name="name">Rate Plan: Create rate plan on pricelist published channex set or active set</field>
+        <field name="filter_domain">[("x_published_on_channex", "=", True), ("active", "!=", False)]</field>
+        <field name="filter_pre_domain">['|', ("x_published_on_channex", "=", False), ("active", "=", False)]</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('x_published_on_channex_field_product_pricelist'), ref('product.field_product_pricelist__active')])]"/>
     </record>
     <record id="automation_on_pricelist_x_published_on_channex_unset" model="base.automation">
         <field name="model_id" ref="product.model_product_pricelist"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_delete_rate_plans_from_pricelist_2')])]"/>
         <field name="trigger">on_write</field>
-        <field name="name">Delete rate plan on pricelist published channex unset</field>
-        <field name="filter_domain">[("x_published_on_channex", "=", False)]</field>
-        <field name="filter_pre_domain">[("x_published_on_channex", "=", True)]</field>
-        <field name="trigger_field_ids" eval="[(6, 0, [ref('x_published_on_channex_field_product_pricelist')])]"/>
+        <field name="name">Rate Plan: Delete rate plan on pricelist published channex unset or active unset</field>
+        <field name="filter_domain">['|', ("x_published_on_channex", "=", False), ("active", "=", False)]</field>
+        <field name="filter_pre_domain">[("x_published_on_channex", "=", True), ("active", "!=", False)]</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('x_published_on_channex_field_product_pricelist'), ref('product.field_product_pricelist__active')])]"/>
     </record>
     <record id="automation_on_room_offer_product_template_delete" model="base.automation">
         <field name="model_id" ref="product.model_product_template"/>
         <field name="action_server_ids" eval="[(6, 0, [ref('server_action_delete_rate_plans_on_product_template_delete_2')])]"/>
         <field name="trigger">on_unlink</field>
         <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
-        <field name="name">On room offer Product Template deleted</field>
+        <field name="name">Rate Plan: On room offer Product Template deleted</field>
     </record>
 </odoo>

@@ -28,20 +28,6 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
     </record>
 
     <!-- Views -->
-    <record id="res_config_settings_extends" model="ir.ui.view">
-        <field name="arch" type="xml">
-            <xpath expr="//setting[@id='active_user_setting']" position="after">
-                <setting id="channex_setting">
-                    <button name="%(update_ari)d" icon="oi-arrow-right" type="action" string="Push ARI" class="btn-link"/>
-                </setting>
-            </xpath>
-        </field>
-        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
-        <field name="model">res.config.settings</field>
-        <field name="name">res.config.settings form view extension</field>
-        <field name="active" eval="True"/>
-        <field name="type">form</field>
-    </record>
     <record id="res_config_settings_form_view_inherited_sync" model="ir.ui.view">
         <field name="name">res.config.settings.form.view.inherited.booking.engine.sync</field>
         <field name="model">res.config.settings</field>

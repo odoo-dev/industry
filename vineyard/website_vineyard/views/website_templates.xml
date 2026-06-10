@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="header_call_to_action" inherit_id="website.header_call_to_action" name="Vineyard - Header Call to Action">
+        <xpath expr=".//li" position="replace">
+            <li t-attf-class="#{_item_class}">
+                <div class="oe_structure oe_structure_solo"
+                    t-attf-class="oe_structure oe_structure_solo #{_div_class}">
+                    <section
+                        class="oe_unremovable oe_unmovable s_text_block o_colored_level"
+                        data-name="Text"
+                        data-snippet="s_text_block">
+                        <div class="container">
+                            <a
+                                class="oe_unremovable w-100 btn-lg btn btn-primary"
+                                href="/appointment">
+                                Visit the domain
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </li>
+        </xpath>
+    </template>
+    <template id="template_footer_minimalist" inherit_id="website.template_footer_minimalist" name="Vineyard - Minimalist">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div class="oe_structure oe_structure_solo text-break" id="footer" t-if="not no_footer"
+                t-ignore="true">
+                <section
+                    class="s_text_block pt0 pb0"
+                    data-name="Container"
+                    data-snippet="s_text_block">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div
+                                class="offset-lg-0 col-8 offset-2 o_colored_level pb16 col-lg-2 pt24">
+                                <a class="o_footer_logo logo" href="/">
+                                    <img
+                                        alt=""
+                                        class="img-fluid img o_we_custom_image mx-auto d-block"
+                                        data-format-mimetype="image/webp"
+                                        data-resize-width="128"
+                                        loading="lazy"
+                                        src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-23.webp" />
+                                </a>
+                            </div>
+                            <div class="col-lg-8 pt16 pb16 o_colored_level">
+                                <nav
+                                    class="nav align-items-center justify-content-center flex-column flex-lg-row">
+                                    <a class="nav-link" href="/">Home</a>
+                                    <a class="nav-link" href="/contactus">Contact</a>
+                                </nav>
+                            </div>
+                            <div class="col-lg-2 pt16 pb16 o_colored_level">
+                                <div
+                                    class="s_social_media o_not_editable text-center no_icon_color"
+                                    data-name="Social Media"
+                                    data-snippet="s_social_media">
+                                    <h5 class="s_social_media_title d-none">Follow us</h5>
+                                    <a
+                                        class="s_social_media_facebook"
+                                        href="/website/social/facebook"
+                                        target="_blank">
+                                        <i class="fa fa-facebook fa-stack o_editable_media" />
+                                    </a>
+                                    <a
+                                        class="s_social_media_twitter"
+                                        href="/website/social/twitter"
+                                        target="_blank">
+                                        <i class="fa fa-twitter fa-stack o_editable_media" />
+                                    </a>
+                                    <a
+                                        class="s_social_media_instagram"
+                                        href="/website/social/instagram"
+                                        target="_blank">
+                                        <i class="fa fa-instagram fa-stack o_editable_media" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

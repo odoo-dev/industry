@@ -17,7 +17,7 @@ usage() {
 # Default values
 INDUSTRY_NAME=""
 INSTALL=false
-TEST=false  
+TEST=false
 RESET=false
 HARD_RESET=false
 DEMO=False
@@ -41,10 +41,12 @@ if [[ $DEMO == True ]]; then
   INSTALL=true
 fi
 
-INDUSTRY_PATH="industry/"
+INDUSTRY_PATH="./"
 PYTHON_BIN="python3"
-ODOO_BIN="odoo/odoo-bin"
-ADDONS_PATH="$INDUSTRY_PATH/tests,enterprise,odoo/addons,odoo/odoo/addons,design-themes"
+ODOO_BIN="../../odoo/odoo/odoo-bin"
+ADDONS_PATH="$INDUSTRY_PATH/tests,../../odoo/enterprise,../../odoo/odoo/addons,../../odoo/odoo/addons,../../odoo/design-themes"
+TEST_TAGS="/test_generic,/test_$INDUSTRY_NAME"
+DEP_DB="dep-$INDUSTRY_NAME"
 IFS=',' read -r -a MODULES <<< "$INDUSTRY_NAME"
 MODULES=($(printf '%s\n' "${MODULES[@]}" | sort))
 DB_NAME=$(IFS=- ; echo "${MODULES[*]}")
@@ -109,7 +111,7 @@ if $RESET || $HARD_RESET; then
   $PYTHON_BIN $ODOO_BIN db duplicate $DEP_DB $DB_NAME --force
 fi
 
-# install industry module 
+# install industry module
 if $INSTALL; then
   echo "Initializing industry module..."
   TMP_INSTALL_PY=$(mktemp)
@@ -132,5 +134,5 @@ if $TEST; then
   $PYTHON_BIN $ODOO_BIN --addons-path="$ADDONS_PATH" -i $TEST_MODULES -d $DB_NAME --test-tags $TEST_TAGS
 else
   echo "Starting Odoo server..."
-  $PYTHON_BIN $ODOO_BIN --addons-path="$ADDONS_PATH" -d $DB_NAME
+  $PYTHON_BIN $ODOO_BIN --addons-path="$ADDONS_PATH" -d $INDUSTRY_NAME --dev=xml
 fi

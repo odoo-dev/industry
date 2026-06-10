@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="website.contactus" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="page_contactus" model="website.page">
+        <field name="name">Contact Us</field>
+        <field name="key">website_vineyard.page_contactus</field>
+        <field name="url">/contactus</field>
+        <field name="website_id" eval="1" />
+        <field name="type">qweb</field>
+        <field name="is_published" eval="True" />
+        <field name="website_indexed" eval="True" />
+        <field name="arch" type="xml">
+            <t name="Contact Us">
+                <t t-call="website.layout">
+                    <t
+                        t-set="logged_partner"
+                        t-value="request.env['website.visitor']._get_visitor_from_request().partner_id" />
+                    <t t-set="contactus_form_values" t-value="{
+                            'email_to': res_company.email,
+                            'name': request.params.get('name', ''),
+                            'phone': request.params.get('phone', ''),
+                            'email_from': request.params.get('email_from', ''),
+                            'company': request.params.get('company', ''),
+                            'subject': request.params.get('subject', ''),
+                        }" />
+                    <span class="hidden" data-for="contactus_form" t-att-data-values="contactus_form_values" />
+                    <div class="oe_structure oe_empty" id="wrap">
+                        <section class="s_title o_colored_level pb0 pt72" data-name="Title" data-snippet="s_title" data-vcss="001">
+                            <div class="s_allow_columns container">
+                                <div class="row">
+                                    <div class="o_colored_level offset-lg-3 col-lg-6">
+                                        <h1 class="display-3 text-center">Contact us</h1>
+                                        <p class="lead text-center">
+                                            We kindly ask
+                                            you to fill out the following form so that our customer
+                                            service can get back to you.&amp;nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_text_block o_colored_level o_bg_img_opt_repeat s_parallax_no_overflow_hidden pb88 pt0"
+                            data-format-mimetype="image/webp"
+                            data-scroll-background-ratio="0"
+                            data-snippet="s_text_block"
+                            style="background-size: 1440px;">
+                            <div class="s_allow_columns container">
+                                <div class="row">
+                                    <div
+                                        class="mt-4 mt-lg-0 o_colored_level s_parallax_no_overflow_hidden offset-lg-3 col-lg-6"
+                                        data-scroll-background-ratio="0">
+                                        <p>
+                                            <br />
+                                        </p>
+                                        <section class="s_website_form" data-snippet="s_website_form" data-vcss="001">
+                                            <div class="container">
+                                                <form action="/website/form/"
+                                                    class="o_mark_required" data-mark="*"
+                                                    data-model_name="mail.mail" data-pre-fill="true"
+                                                    data-success-mode="message"
+                                                    data-success-page="/contactus-thank-you"
+                                                    enctype="multipart/form-data"
+                                                    id="contactus_form" method="post">
+                                                    <div
+                                                        class="s_website_form_rows row s_col_no_bgcolor">
+                                                        <div
+                                                            class="s_website_form_field mb-3 col-lg-6 s_website_form_custom s_website_form_required"
+                                                            data-name="Field" data-type="char">
+                                                            <label
+                                                                class="s_website_form_label"
+                                                                for="contact1"
+                                                                style="width: 200px">
+                                                                <span class="s_website_form_label_content">
+                                                                    Name
+                                                                </span>
+                                                                <span class="s_website_form_mark"> *</span>
+                                                            </label>
+                                                            <input
+                                                                class="form-control s_website_form_input"
+                                                                data-fill-with="name"
+                                                                id="contact1"
+                                                                name="name"
+                                                                required=""
+                                                                type="text" />
+                                                        </div>
+                                                        <div
+                                                            class="mb-3 col-lg-6 s_website_form_field s_website_form_custom col-6"
+                                                            data-name="Field"
+                                                            data-type="char">
+                                                            <label
+                                                                class="s_website_form_label"
+                                                                for="contact2"
+                                                                style="width: 200px">
+                                                                <span class="s_website_form_label_content">
+                                                                    Phone Number
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                class="form-control s_website_form_input"
+                                                                data-fill-with="phone"
+                                                                id="contact2"
+                                                                name="phone"
+                                                                type="tel" />
+                                                        </div>
+                                                        <div
+                                                            class="mb-3 col-lg-6 s_website_form_field s_website_form_required s_website_form_model_required col-6"
+                                                            data-name="Field"
+                                                            data-type="email">
+                                                            <label
+                                                                class="s_website_form_label"
+                                                                for="contact3"
+                                                                style="width: 200px">
+                                                                <span class="s_website_form_label_content">
+                                                                    Email
+                                                                </span>
+                                                                <span class="s_website_form_mark"> *</span>
+                                                            </label>
+                                                            <input
+                                                                class="form-control s_website_form_input"
+                                                                data-fill-with="email"
+                                                                id="contact3"
+                                                                name="email_from"
+                                                                required=""
+                                                                type="email" />
+                                                        </div>
+                                                        <div
+                                                            class="mb-3 col-lg-6 s_website_form_field s_website_form_custom"
+                                                            data-name="Field"
+                                                            data-type="char">
+                                                            <label
+                                                                class="s_website_form_label"
+                                                                for="contact4"
+                                                                style="width: 200px">
+                                                                <span class="s_website_form_label_content">
+                                                                    Company
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                class="form-control s_website_form_input"
+                                                                data-fill-with="commercial_company_name"
+                                                                id="contact4"
+                                                                name="company"
+                                                                type="text" />
+                                                        </div>
+                                                        <div
+                                                            class="mb-3 col-12 s_website_form_field s_website_form_required s_website_form_model_required"
+                                                            data-name="Field"
+                                                            data-type="char">
+                                                            <label
+                                                                class="s_website_form_label"
+                                                                for="contact5"
+                                                                style="width: 200px">
+                                                                <span class="s_website_form_label_content">
+                                                                    Subject
+                                                                </span>
+                                                                <span class="s_website_form_mark"> *</span>
+                                                            </label>
+                                                            <input
+                                                                class="form-control s_website_form_input"
+                                                                id="contact5"
+                                                                name="subject"
+                                                                required=""
+                                                                type="text" />
+                                                        </div>
+                                                        <div
+                                                            class="mb-3 col-12 s_website_form_field s_website_form_custom s_website_form_required"
+                                                            data-name="Field"
+                                                            data-type="text">
+                                                            <label
+                                                                class="s_website_form_label"
+                                                                for="contact6"
+                                                                style="width: 200px">
+                                                                <span class="s_website_form_label_content">
+                                                                    Question
+                                                                </span>
+                                                                <span class="s_website_form_mark"> *</span>
+                                                            </label>
+                                                            <textarea
+                                                                class="form-control s_website_form_input"
+                                                                id="contact6"
+                                                                name="description"
+                                                                required=""
+                                                                rows="8"/>
+                                                        </div>
+                                                        <div class="mb-3 col-12 s_website_form_field s_website_form_dnone">
+                                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    for="contact7"
+                                                                    style="width: 200px">
+                                                                    <span class="s_website_form_label_content">
+                                                                        Email To
+                                                                    </span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        class="form-control s_website_form_input"
+                                                                        id="contact7"
+                                                                        name="email_to"
+                                                                        type="hidden" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_submit text-center s_website_form_no_submit_label"
+                                                            data-name="Submit Button">
+                                                            <div
+                                                                class="s_website_form_label"
+                                                                style="width: 200px;">
+                                                                <br/>
+                                                            </div>
+                                                            <a
+                                                                class="s_website_form_send btn-lg btn btn-primary"
+                                                                href="#"
+                                                                role="button">
+                                                                SEND
+                                                            </a>
+                                                            <span id="s_website_form_result" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="s_website_form_end_message d-none">
+                                                    <div class="oe_structure">
+                                                        <section class="s_text_block o_colored_level rounded px-5 text-center" data-snippet="s_text_block">
+                                                            <i
+                                                                aria-hidden="true"
+                                                                class="fa fa-paper-plane fa-2x mb-3 rounded-circle text-bg-success"
+                                                                role="img"
+                                                                title="Success" />
+                                                            <h2 class="fw-bolder">Thank you for your message</h2>
+                                                            <p class="lead mb-0">
+                                                                Our team will message you back as soon as possible.<br />
+                                                                In the meantime we invite you to visit our <a class="o_translate_inline" href="/">website</a>.
+                                                            </p>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

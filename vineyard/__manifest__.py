@@ -72,9 +72,9 @@
         'demo/stock_picking_post.xml',
         'demo/spreadsheet_dashboard.xml',
         'demo/payment_provider_demo.xml',
-        'demo/website_theme_apply.xml',
-        'demo/website_view.xml',
-        'demo/website.xml',
+        # 'demo/website_theme_apply.xml',
+        # 'demo/website_view.xml',
+        # 'demo/website.xml',
     ],
     'cloc_exclude': [
         'data/knowledge_article.xml',

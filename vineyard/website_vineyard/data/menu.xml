@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <delete model="website.menu"
+        search="[('url', 'in', ['/', '/contactus', '/contact-us']), ('website_id', '=', ref('website.default_website'))]"/>
+
+    <!-- Custom menu: Home -->
+    <record id="menu_home" model="website.menu">
+        <field name="name">Home</field>
+        <field name="url">/</field>
+        <field name="parent_id" model="website.menu"
+            search="[('url', '=', '#'), ('website_id', '=', ref('website.default_website'))]"/>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence" eval="10"/>
+        <field name="page_id" ref="website_vineyard.page_home"/>
+        <field name="is_visible" eval="True"/>
+    </record>
+    <!-- Custom menu: Shop -->
+    <record id="menu_shop" model="website.menu">
+        <field name="name">Shop</field>
+        <field name="url">/shop</field>
+        <field name="parent_id" model="website.menu"
+            search="[('url', '=', '#'), ('website_id', '=', ref('website.default_website'))]"/>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence" eval="20"/>
+        <field name="is_visible" eval="True"/>
+    </record>
+    <!-- Custom menu: Contact us -->
+    <record id="menu_contactus" model="website.menu">
+        <field name="name">Contact us</field>
+        <field name="url">/contactus</field>
+        <field name="parent_id" model="website.menu"
+            search="[('url', '=', '#'), ('website_id', '=', ref('website.default_website'))]"/>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence" eval="30"/>
+        <field name="page_id" ref="website_vineyard.page_contactus"/>
+        <field name="is_visible" eval="True"/>
+    </record>
+</odoo>

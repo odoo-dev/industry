@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="website.homepage" model="ir.ui.view">
+        <field name="active" eval="False" />
+    </record>
+
+    <record id="page_home" model="website.page">
+        <field name="name">Home</field>
+        <field name="key">website_vineyard.page_home</field>
+        <field name="url">/</field>
+        <field name="website_id" eval="1" />
+        <field name="type">qweb</field>
+        <field eval="True" name="is_published" />
+        <field eval="True" name="is_homepage" />
+        <field eval="True" name="website_indexed" />
+        <field name="arch" type="xml">
+            <t name="Home">
+                <t t-call="website.layout" pageName.f="homepage">
+                    <div id="wrap" class="oe_structure oe_empty">
+                        <section
+                            class="s_cover o_cc o_cc5 o_colored_level pt256 pb256 parallax o_half_screen_height"
+                            data-name="Cover"
+                            data-parallax-type="zoomIn"
+                            data-scroll-background-ratio="0.2"
+                            data-snippet="s_cover">
+                            <span
+                                class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box"
+                                data-mimetype="image/webp"
+                                data-resize-width="1920"
+                                style='background-image: url("/website_vineyard/static/src/img/content/vineyard/vineyard-image-13.webp"); background-position: 100% 25.9488%;' />
+                            <div class="o_we_bg_filter" style="background-color: rgba(60, 48, 32, 0.5);" />
+                            <div class="s_allow_columns container">
+                                <img
+                                    src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-14.webp"
+                                    alt=""
+                                    class="img img-fluid o_we_custom_image text-center"
+                                    data-format-mimetype="image/webp"
+                                    data-mimetype="image/webp"
+                                    data-resize-width="128"
+                                    loading="lazy" />
+                                <h1 class="display-2 text-center">Maison Marceline</h1>
+                                <p class="lead text-center">
+                                    <span class="h4-fs">From an exceptional terroir grows a great wine</span>
+                                </p>
+                            </div>
+                        </section>
+                        <section
+                            class="s_banner o_colored_level o_cc o_cc1 s_parallax_no_overflow_hidden oe_img_bg o_bg_img_center o_bg_img_origin_border_box pt0 pb0"
+                            data-format-mimetype="image/webp"
+                            data-mimetype="image/webp"
+                            data-name="Banner"
+                            data-resize-width="1410"
+                            data-scroll-background-ratio="0"
+                            data-snippet="s_banner"
+                            style='background-image: url("/website_vineyard/static/src/img/content/vineyard/vineyard-image-15.webp");'>
+                            <div class="o_we_bg_filter" style="background-color: rgba(243, 236, 229, 0.5);" />
+                            <div class="container">
+                                <div class="row o_grid_mode" data-row-count="16">
+                                    <div
+                                        class="o_grid_item o_colored_level s_parallax_no_overflow_hidden g-col-lg-4 g-height-13 col-lg-4"
+                                        data-name="Box"
+                                        data-scroll-background-ratio="0"
+                                        style="z-index: 1; grid-area: 1 / 1 / 14 / 5; --grid-item-padding-y: 96px;">
+                                        <h2>
+                                            <span class="display-2-fs">A family vineyard</span><br />
+                                        </h2>
+                                        <p>
+                                            <br />
+                                            Terroir is a concept so French that the word doesn't have an equivalent in any other language. Terroir is a genetic heritage of great wines. Without it, nothing is possible, however its character is only truly revealed as a result of the work and determination of men.
+                                            <br />
+                                            <br />
+                                        </p>
+                                        <p>
+                                            <a class="o_translate_inline btn-lg btn btn-primary" href="/contactus">READ MORE</a>
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="o_grid_item o_grid_item_image o_colored_level s_parallax_no_overflow_hidden g-col-lg-5 g-height-13 o_animate o_animate_on_scroll o_anim_slide_in col-lg-5 d-lg-block d-none o_snippet_mobile_invisible o_anim_from_top"
+                                        data-invisible="1"
+                                        data-scroll-background-ratio="0"
+                                        data-scroll-zone-end="100"
+                                        data-scroll-zone-start="0"
+                                        style="z-index: 2; grid-area: 1 / 8 / 14 / 13; --grid-item-padding-y: 0px; --wanim-intensity: 10;">
+                                        <img
+                                            src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-16.webp"
+                                            alt=""
+                                            class="img img-fluid mx-auto o_we_custom_image"
+                                            data-format-mimetype="image/webp"
+                                            data-mimetype="image/webp"
+                                            data-resize-width="657"
+                                            loading="lazy" />
+                                    </div>
+                                    <div
+                                        class="o_grid_item o_grid_item_image o_colored_level g-col-lg-5 g-height-9 col-lg-5 o_animate o_animate_on_scroll o_anim_slide_in o_anim_from_bottom"
+                                        data-scroll-zone-end="50%"
+                                        data-scroll-zone-start="0"
+                                        style="z-index: 3; --grid-item-padding-y: 0px; --grid-item-padding-x: 0px; --wanim-intensity: 10; grid-area: 8 / 6 / 17 / 11;">
+                                        <img
+                                            src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-17.webp"
+                                            alt=""
+                                            class="img img-fluid o_we_custom_image"
+                                            data-format-mimetype="image/webp"
+                                            data-mimetype="image/webp"
+                                            data-resize-width="640"
+                                            loading="lazy" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_banner_connected o_cc o_cc5 pt128 pb136 o_colored_level parallax s_parallax_is_fixed s_parallax_no_overflow_hidden"
+                            data-format-mimetype="image/webp"
+                            data-name="Banner connected"
+                            data-scroll-background-ratio="1"
+                            data-snippet="s_banner_connected">
+                            <span
+                                class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box"
+                                data-mimetype="image/webp"
+                                data-resize-width="1920"
+                                style='background-image: url("/website_vineyard/static/src/img/content/vineyard/vineyard-image-18.webp");' />
+                            <div class="o_we_bg_filter" style="background-color: rgba(60, 48, 32, 0.78);" />
+                            <div class="container">
+                                <div class="row">
+                                    <div class="o_colored_level pb32 pt32 col-lg-12">
+                                        <h2 style="text-align: center;">
+                                            Since the 17th Century, the first wine of Maison Marceline has been recognised as being <span class="text-o-color-2">one of the </span>
+                                            <span
+                                                class="text-o-color-2 o_text_highlight_circle_1 o_text_highlight"
+                                                style="--text-highlight-color: var(--o-color-4); --text-highlight-width: 2px;">
+                                                <span class="o_animated_text o_animate o_anim_fade_in o_visible">greatest</span>
+                                            </span>
+                                            <span class="text-o-color-2">wines in the entire world</span>.
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_text_block o_colored_level pt0 s_parallax_no_overflow_hidden oe_img_bg o_bg_img_center o_bg_img_origin_border_box pb0"
+                            data-format-mimetype="image/webp"
+                            data-name="Text"
+                            data-scroll-background-ratio="0"
+                            data-snippet="s_text_block"
+                            style='background-position: 50% 46%; background-image: url("/website_vineyard/static/src/img/content/vineyard/vineyard-image-07.svg");'>
+                            <div class="o_we_bg_filter" style="background-color: rgba(255, 255, 255, 0.84);" />
+                            <div class="s_allow_columns container">
+                                <div class="row o_grid_mode" data-row-count="13">
+                                    <div
+                                        class="o_colored_level o_grid_item s_parallax_no_overflow_hidden g-height-4 g-col-lg-4 col-lg-4 order-lg-0"
+                                        data-scroll-background-ratio="0"
+                                        style="z-index: 3; --grid-item-padding-y: 0px; grid-area: 5 / 1 / 9 / 5; order: 1;">
+                                        <div class="s_hr d-lg-none o_snippet_desktop_invisible pt0 pb40" data-invisible="1" data-name="Separator" data-snippet="s_hr">
+                                            <hr class="w-100 mx-auto" />
+                                        </div>
+                                        <h2>
+                                            <span class="display-4-fs">Cabernet Sauvignon</span>
+                                        </h2>
+                                        <p>
+                                            It owes its unique qualities to the genius of its terroir as well as to the passionate work of a succession of generations
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="o_colored_level o_grid_item s_parallax_no_overflow_hidden g-height-6 g-col-lg-4 col-lg-4 order-lg-0"
+                                        data-scroll-background-ratio="0"
+                                        style="z-index: 1; --grid-item-padding-y: 0px; grid-area: 5 / 9 / 11 / 13; order: 2;">
+                                        <p>
+                                            The great vintages are distinguished by their formidable ability to move us. The lesser vintages give pleasure to wise enthusiasts. They offer the advantage of evolving very rapidly and, reveal, after a few years, instead of power, this subtlety that is the prerogative of great terroirs.
+                                        </p>
+                                        <p>
+                                            Maison Marceline has an extraordinary ability to evolve. Over the years, it has developed a finesse, an aromatic complexity and a remarkable presence on the palate.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="o_grid_item o_grid_item_image o_colored_level g-col-lg-4 g-height-13 col-lg-4 o_grid_item_image_contain order-lg-0"
+                                        style="grid-area: 1 / 5 / 14 / 9; z-index: 4; --grid-item-padding-y: 0px; --grid-item-padding-x: 0px; order: 0;">
+                                        <img
+                                            alt=""
+                                            class="img img-fluid o_we_custom_image mx-auto d-block o_animate o_animate_on_scroll o_anim_slide_in o_anim_from_bottom"
+                                            data-format-mimetype="image/webp"
+                                            data-mimetype="image/webp"
+                                            data-resize-width="381"
+                                            data-scroll-zone-end="75%"
+                                            data-scroll-zone-start="0"
+                                            loading="eager"
+                                            src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-19.webp"
+                                            style="--wanim-intensity: 15;" />
+                                    </div>
+                                    <div
+                                        class="o_grid_item s_parallax_no_overflow_hidden o_colored_level g-height-4 g-col-lg-4 col-lg-4 order-lg-0"
+                                        data-scroll-background-ratio="0"
+                                        style="z-index: 5; --grid-item-padding-y: 0px; grid-area: 9 / 1 / 13 / 5; order: 3;">
+                                        <div class="s_hr pb32 pt32" data-name="Separator" data-snippet="s_hr">
+                                            <hr class="w-100 mx-auto" />
+                                            <br />
+                                            <br />
+                                        </div>
+                                        <div
+                                            class="s_add_to_cart oe_website_sale"
+                                            data-action="add_to_cart"
+                                            data-name="Add to Cart Button"
+                                            data-product-template="39"
+                                            data-product-type="consu"
+                                            data-snippet="s_add_to_cart"
+                                            data-variants="57">
+                                            <button
+                                                class="s_add_to_cart_btn btn btn-secondary mb-2"
+                                                data-action="add_to_cart"
+                                                data-product-template-id="39"
+                                                data-product-type="consu"
+                                                data-product-variant-id="57"
+                                                type="button">
+                                                <span class="h6-fs">BUY NOW</span>
+                                            </button>
+                                        </div>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_text_image pb80 o_colored_level o_cc o_cc4 oe_img_bg o_bg_img_center o_bg_img_origin_border_box o_bg_img_opt_repeat pt104"
+                            data-format-mimetype="image/webp"
+                            data-mimetype="image/webp"
+                            data-name="Text - Image"
+                            data-resize-width="800"
+                            data-snippet="s_text_image"
+                            style='background-image: url("/website_vineyard/static/src/img/content/vineyard/vineyard-image-20.webp"); background-size: 100px;'>
+                            <div class="container">
+                                <div class="row o_grid_mode" data-row-count="14">
+                                    <div
+                                        class="o_colored_level o_grid_item g-height-5 g-col-lg-8 col-lg-8"
+                                        style="grid-area: 1 / 1 / 6 / 9; z-index: 1;">
+                                        <h2 class="h3-fs">
+                                            <span class="display-4-fs" style="color: rgba(243, 236, 229, 0.5);">
+                                                Maison Marceline stands for wines of the highest
+                                            </span>
+                                            <span
+                                                class="display-4-fs o_text_highlight_circle_1 o_text_highlight text-o-color-4"
+                                                style="--text-highlight-color: #F3ECE580; --text-highlight-width: 2px;">
+                                                <em>quality</em>
+                                            </span>
+                                            <span
+                                                class="display-4-fs"
+                                                style="color: rgba(243, 236, 229, 0.5);">
+                                                cultivated with excellence
+                                            </span>
+                                        </h2>
+                                    </div>
+                                    <div
+                                        class="o_colored_level o_grid_item o_grid_item_image g-col-lg-6 g-height-14 col-lg-6 o_grid_item_image_contain d-lg-block d-none o_snippet_mobile_invisible"
+                                        data-invisible="1"
+                                        style="grid-area: 1 / 7 / 15 / 13; z-index: 2; --grid-item-padding-x: 0px; --grid-item-padding-y: 0px;">
+                                        <img
+                                            src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-10.svg"
+                                            alt=""
+                                            class="img img-fluid mx-auto rounded o_we_custom_image"
+                                            loading="lazy" />
+                                    </div>
+                                    <div
+                                        class="o_grid_item o_grid_item_image g-col-lg-6 o_colored_level g-height-14 col-lg-6 o_grid_item_image_contain d-lg-block d-none o_snippet_mobile_invisible"
+                                        data-invisible="1"
+                                        style="z-index: 4; grid-area: 1 / 7 / 15 / 13;">
+                                        <img
+                                            src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-11.svg"
+                                            alt=""
+                                            class="img img-fluid o_we_custom_image o_animate o_visible o_anim_slide_in o_anim_from_top"
+                                            loading="eager"
+                                            style="--wanim-intensity: 1; animation-delay: 0.4s;" />
+                                    </div>
+                                    <div
+                                        class="o_grid_item o_colored_level g-col-lg-5 g-height-8 col-lg-5"
+                                        style="z-index: 3; grid-area: 7 / 1 / 15 / 6;">
+                                        <p>
+                                            <span class="text-o-color-3">
+                                                The quality of a French Cabernet Sauvignon can be affected by a variety of factors, such as the climate and soil conditions in which the grapes were grown, the vineyard management techniques, and the winemaking process. In general, high-quality French Cabernet Sauvignon will have a deep, rich colour, with a complex aroma that combines notes of fruit, spice, and oak. On the palate, the wine should be well-balanced with a firm tannic structure.
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <br />
+                                        </p>
+                                        <p>
+                                            <img
+                                                src="/website_vineyard/static/src/img/content/vineyard/vineyard-image-21.webp"
+                                                alt=""
+                                                class="img img-fluid o_we_custom_image"
+                                                data-aspect-ratio="0/0" data-height="148.61605415860734"
+                                                data-mimetype="image/svg+xml" data-scale-x="1"
+                                                data-scale-y="1"
+                                                data-width="191.21083172147002"
+                                                loading="lazy"
+                                                style="width: 28.19%; height: auto;" />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

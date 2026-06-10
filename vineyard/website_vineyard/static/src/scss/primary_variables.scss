@@ -1,0 +1,49 @@
+$o-color-palettes: map-merge(
+    $o-color-palettes,
+    (
+        'vineyard': (
+            'o-color-1': #856F4F,
+            'o-color-2': #D14C2B,
+            'o-color-3': #F3ECE5,
+            'o-color-4': #FFFFFF,
+            'o-color-5': #222222,
+            'menu-custom': NULL,
+            'menu': 2,
+            'o-cc1-headings': #856F4F,
+        ),
+    ),
+);
+
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'vineyard',
+        'font': 'Source Sans Pro',
+        'google-fonts': ('Nanum Myeongjo'),
+        'google-local-fonts': null,
+        'uploaded-local-fonts': null,
+        'buttons-font': 'Source Sans Pro',
+        'btn-border-radius': 0rem,
+        'btn-border-radius-sm': 0rem,
+        'btn-border-radius-lg': 0rem,
+        'header-template': hamburger,
+        'menu-box-shadow': none,
+        'menu-gradient': NULL,
+        'headings-font': 'Nanum Myeongjo',
+        'logo-height': 4.375rem,
+        'fixed-logo-height': 3.125rem,
+        'btn-font-size': 1rem,
+        'btn-font-size-lg': 0.875rem,
+        'btn-padding-y-lg': 1.125rem,
+        'btn-padding-x-lg': 2.25rem,
+        'body-line-height': 1.8,
+        'footer-effect': slideout_slide_hover,
+        'input-border-radius': 0rem,
+        'input-border-radius-sm': 0rem,
+        'input-border-radius-lg': 0rem,
+        'input-padding-y': 0.75rem,
+        'hamburger-position': left,
+        'hamburger-position-mobile': right,
+    ),
+);
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'vineyard');

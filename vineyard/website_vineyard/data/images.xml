@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="img_vineyard_image_01" model="ir.attachment">
+        <field name="name">johny-goerend-pnigODapPek-unsplash.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-01.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_02" model="ir.attachment">
+        <field name="name">logo_label.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-02.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_03" model="ir.attachment">
+        <field name="name">vines-etching-2.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-03.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_04" model="ir.attachment">
+        <field name="name">photo1 1.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-04.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_05" model="ir.attachment">
+        <field name="name">bottles.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-05.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_06" model="ir.attachment">
+        <field name="name">dan-meyers-0AgtPoAARtE-unsplash.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-06.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_07" model="ir.attachment">
+        <field name="name">vine-01.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-07.svg"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_08" model="ir.attachment">
+        <field name="name">
+            front-view-bottle-wine-light-background-alcohol-grape-drink-bar-photo-holiday-dinner-juice-lemonade_small-1.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-08.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_09" model="ir.attachment">
+        <field name="name">noise.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-09.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_10" model="ir.attachment">
+        <field name="name">map.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-10.svg"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_11" model="ir.attachment">
+        <field name="name">map-marker.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-11.svg"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_12" model="ir.attachment">
+        <field name="name">signature.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-12.svg"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_13" model="ir.attachment">
+        <field name="name">johny-goerend-pnigODapPek-unsplash.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-13.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_14" model="ir.attachment">
+        <field name="name">logo_label.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-14.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_15" model="ir.attachment">
+        <field name="name">vines-etching-2.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-15.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_16" model="ir.attachment">
+        <field name="name">photo1 1.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-16.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_17" model="ir.attachment">
+        <field name="name">bottles.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-17.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_18" model="ir.attachment">
+        <field name="name">dan-meyers-0AgtPoAARtE-unsplash.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-18.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_19" model="ir.attachment">
+        <field name="name">
+            front-view-bottle-wine-light-background-alcohol-grape-drink-bar-photo-holiday-dinner-juice-lemonade_small-1.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-19.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_20" model="ir.attachment">
+        <field name="name">noise.webp</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-20.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_21" model="ir.attachment">
+        <field name="name">signature.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-21.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_22" model="ir.attachment">
+        <field name="name">logo_small.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-22.svg"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_vineyard_image_23" model="ir.attachment">
+        <field name="name">logo_small.svg</field>
+        <field name="datas" type="base64"
+            file="website_vineyard/static/src/img/content/vineyard/vineyard-image-23.webp"/>
+        <field name="res_model">ir.ui.view</field>
+        <field name="public" eval="True"/>
+    </record>
+</odoo>

@@ -7,8 +7,8 @@ from zipfile import ZipFile, ZIP_DEFLATED
 
 class IndustryUtils:
     def __init__(self, industry_path: str = './'):
-        self.odoo_path = os.path.join(industry_path, '../odoo/addons/')
-        self.enterprise_path = os.path.join(industry_path, '../enterprise/')
+        self.odoo_path = os.path.join(industry_path, '../../odoo/odoo/addons/')
+        self.enterprise_path = os.path.join(industry_path, '../../odoo/enterprise/')
         self.industry_path = industry_path
 
     def get_zip(self, module_names: str):

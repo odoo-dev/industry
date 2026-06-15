@@ -1,9 +1,14 @@
 {
     'name': 'Hotel Industry Website',
     'description': 'Custom website module for hotel industry',
+    "category": "Theme/Retail",
+    "summary": "Hotel, Rooms, Booking",
     'version': '19.0.1.0.0',
     'author': 'PSBE DESIGN',
-    'license': 'LGPL-3',
+    'license': 'OEEL-1',
+    "images": [
+        "static/description/hotel_screenshot.jpg",
+    ],
     'depends': [
         'website',
         'website_sale',
@@ -12,8 +17,8 @@
         'delivery',
     ],
     'data': [
-        'data/presets.xml',
         'data/website.xml',
+        'data/server_actions.xml',
         'data/images.xml',
         'data/menu.xml',
         'data/pages/contactus.xml',
@@ -22,7 +27,7 @@
     ],
     'assets': {
         'web._assets_primary_variables': [
-            'website_hotel/static/src/scss/primary_variables.scss',
+            'theme_hotel/static/src/scss/primary_variables.scss',
         ],
     },
 }

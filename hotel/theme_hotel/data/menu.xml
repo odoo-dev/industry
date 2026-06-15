@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="menu_rooms" model="theme.website.menu">
+        <field name="name">Rooms</field>
+        <field name="url">/shop</field>
+        <field name="sequence" eval="20"/>
+    </record>
+</odoo>

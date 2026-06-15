@@ -330,9 +330,13 @@ else:
         <field name="ttype">boolean</field>
         <field name="field_description">Channel Manager</field>
         <field name="model_id" ref="base.model_res_company"/>
-        <field name="store" eval="True"/>
+        <field name="store" eval="False"/>
         <field name="name">x_module_channel_manager</field>
         <field name="groups" eval="[(4, ref('base.group_no_one'))]"/>
+        <field name="compute"><![CDATA[
+module = self.env['ir.module.module'].search([('name', '=', 'booking_channex')])
+self['x_module_channel_manager'] = module and module.state in ['installed', 'to install']
+    ]]></field>
     </record>
     <record id="x_setting_field_channel_manager" model="ir.model.fields">
         <field name="ttype">boolean</field>
@@ -363,24 +367,6 @@ if module:
         <field name="model_id" ref="base_setup.model_res_config_settings"/>
         <field name="trigger_field_ids" eval="[(6, 0, [ref('x_setting_field_channel_manager')])]"/>
         <field name="trigger">on_create_or_write</field>
-    </record>
-    <record id="x_action_set_unset_channel_manager" model="ir.actions.server">
-        <field name="model_id" ref="base.model_ir_module_module"/>
-        <field name="state">code</field>
-        <field name="name">Set/Unset Channel Manager</field>
-        <field name="usage">base_automation</field>
-        <field name="code"><![CDATA[
-module = env.ref('base.module_booking_channex', raise_if_not_found=False)
-env.company['x_module_channel_manager'] = module and module.state in ['installed', 'to install']
-        ]]></field>
-    </record>
-    <record id="x_automation_set_unset_channel_manager" model="base.automation">
-        <field name="model_id" ref="base.model_ir_module_module"/>
-        <field name="action_server_ids" eval="[(6, 0, [ref('x_action_set_unset_channel_manager')])]"/>
-        <field name="trigger">on_create_or_write</field>
-        <field name="filter_pre_domain" eval="[('id', '=', ref('base.module_booking_channex', raise_if_not_found=False))]"/>
-        <field name="name">Set/Unset Channel Manager</field>
-        <field name="trigger_field_ids" eval="[(6, 0, [ref('base.field_ir_module_module__state')])]"/>
     </record>
 
     <record id="res_config_settings_form_view_inherited" model="ir.ui.view">

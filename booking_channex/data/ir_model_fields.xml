@@ -121,46 +121,28 @@ for record in self:
         <field name="model_id" ref="base.model_ir_cron"/>
         <field name="name">x_debug_last_answer</field>
     </record>
-    <!-- x_channex_datas_cron_lines fields -->
 
-    <!-- TODO remove this, and search lines to take into account in the cron instead -->
-     <record id="x_cron_id_field_x_channex_datas_cron_lines" model="ir.model.fields">
-        <field name="ttype">many2one</field>
-        <field name="relation">ir.cron</field>
-        <field name="field_description">Related Cron</field>
-        <field name="model_id" ref="x_channex_datas_cron_lines_model"/>
-        <field name="name">x_cron_id</field>
-    </record>
-
-    <record id="x_datas_to_send_field_ir_cron" model="ir.model.fields">
-        <field name="ttype">one2many</field>
-        <field name="relation">x_channex_datas_cron_lines</field>
-        <field name="field_description">Datas to send to channex</field>
-        <field name="model_id" ref="base.model_ir_cron"/>
-        <field name="name">x_datas_to_send</field>
-        <field name="relation_field">x_cron_id</field>
-    </record>
-
-    <record id="x_payload_field_x_channex_datas_cron_lines" model="ir.model.fields">
+    <!-- x_channex_ari_update_lines fields -->
+    <record id="x_payload_field_x_channex_ari_update_lines" model="ir.model.fields">
         <field name="name">x_payload</field>
         <field name="field_description">payload to send</field>
-        <field name="model_id" ref="x_channex_datas_cron_lines_model"/>
+        <field name="model_id" ref="x_channex_ari_update_lines_model"/>
         <field name="ttype">json</field>
     </record>
-    <record id="x_operation_field_x_channex_datas_cron_lines" model="ir.model.fields">
+    <record id="x_operation_field_x_channex_ari_update_lines" model="ir.model.fields">
         <field name="name">x_operation</field>
         <field name="field_description">Operation to do</field>
-        <field name="model_id" ref="x_channex_datas_cron_lines_model"/>
+        <field name="model_id" ref="x_channex_ari_update_lines_model"/>
         <field name="ttype">selection</field>
     </record>
-    <record id="x_operation_field_x_channex_datas_cron_lines_selection_availability" model="ir.model.fields.selection">
+    <record id="x_operation_field_x_channex_ari_update_lines_selection_availability" model="ir.model.fields.selection">
         <field name="name">Availability</field>
-        <field name="field_id" ref="x_operation_field_x_channex_datas_cron_lines" />
+        <field name="field_id" ref="x_operation_field_x_channex_ari_update_lines" />
         <field name="value">availability</field>
     </record>
-    <record id="x_operation_field_x_channex_datas_cron_lines_selection_restrictions" model="ir.model.fields.selection">
+    <record id="x_operation_field_x_channex_ari_update_lines_selection_restrictions" model="ir.model.fields.selection">
         <field name="name">Restrictions</field>
-        <field name="field_id" ref="x_operation_field_x_channex_datas_cron_lines" />
+        <field name="field_id" ref="x_operation_field_x_channex_ari_update_lines" />
         <field name="value">restrictions</field>
     </record>
     <record id="x_channex_api_key_field_res_company" model="ir.model.fields">

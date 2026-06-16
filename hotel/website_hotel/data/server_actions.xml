@@ -5,7 +5,7 @@
         <field name="model_id" ref="website.model_website"/>
         <field name="state">code</field>
         <field name="code">
-website = env.ref('theme_hotel.website_industry')
+website = env.ref('website_hotel.website_industry')
 to_deactivate = [
     # Presets
     'website.header_call_to_action',

@@ -1,14 +1,9 @@
 {
     'name': 'Hotel Industry Website',
-    'description': 'Custom website module for hotel industry',
-    "category": "Theme/Retail",
-    "summary": "Hotel, Rooms, Booking",
+    'description': 'Custom website module for Hotel industry',
     'version': '19.0.1.0.0',
-    'author': 'PSBE DESIGN',
+    'author': 'Odoo S.A.',
     'license': 'OEEL-1',
-    "images": [
-        "static/description/hotel_screenshot.jpg",
-    ],
     'depends': [
         'website',
         'website_sale',
@@ -19,15 +14,15 @@
     'data': [
         'data/website.xml',
         'data/server_actions.xml',
+        'data/assets.xml',
         'data/images.xml',
         'data/menu.xml',
         'data/pages/contactus.xml',
         'data/pages/home.xml',
         'views/website_templates.xml',
     ],
-    'assets': {
-        'web._assets_primary_variables': [
-            'theme_hotel/static/src/scss/primary_variables.scss',
-        ],
-    },
+    'cloc_exclude': [
+        'views/website_templates.xml',
+        'views/website_sale_templates.xml',
+    ],
 }

@@ -106,6 +106,7 @@ class ManifestTest(ManifestLinter, IndustryCase):
         manifest_files_list = manifest_data.get(manifest_key, [])
         manifest_files = set(manifest_files_list)
 
+        # Check for duplicates in the manifest list
         if (duplicates := {item for item in manifest_files_list if manifest_files_list.count(item) > 1}):
             _logger.warning("Duplicated in %s in the manifest: %s", manifest_key, ', '.join(duplicates))
 

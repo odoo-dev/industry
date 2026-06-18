@@ -163,21 +163,6 @@ for record in self:
         <field name="field_id" ref="x_operation_field_x_channex_datas_cron_lines" />
         <field name="value">restrictions</field>
     </record>
-    <record id="x_channex_api_key_field_res_company" model="ir.model.fields">
-        <field name="ttype">char</field>
-        <field name="field_description">Channex API Key</field>
-        <field name="model_id" ref="base.model_res_company"/>
-        <field name="name">x_channex_api_key</field>
-        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
-    </record>
-    <record id="x_setting_related_field_channel_manager_api_key" model="ir.model.fields">
-        <field name="ttype">char</field>
-        <field name="store" eval="False"/>
-        <field name="related">company_id.x_channex_api_key</field>
-        <field name="field_description">API Key</field>
-        <field name="model_id" ref="base_setup.model_res_config_settings"/>
-        <field name="name">x_channex_api_key</field>
-    </record>
 
     <record id="x_published_on_channex_field_product_pricelist" model="ir.model.fields">
         <field name="ttype">boolean</field>
@@ -199,5 +184,25 @@ for record in self:
         <field name="model_id" ref="product.model_product_template"/>
         <field name="ttype">boolean</field>
         <field name="copied" eval="True"/>
+    </record>
+    <record id="x_has_rates_attribute_field_product_template" model="ir.model.fields">
+        <field name="name">x_has_rates_attribute</field>
+        <field name="field_description">Has Rates Attribute</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="ttype">boolean</field>
+        <field name="store" eval="0"/>
+        <field name="compute"><![CDATA[
+for record in self: record['x_has_rates_attribute'] = ('rate_plan' in record.attribute_line_ids.mapped('attribute_id.x_accommodation_characteristic')) if record.attribute_line_ids else False
+]]></field>
+    </record>
+    <record id="x_has_guests_attribute_field_product_template" model="ir.model.fields">
+        <field name="name">x_has_guests_attribute</field>
+        <field name="field_description">Has Guests Attribute</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="ttype">boolean</field>
+        <field name="store" eval="0"/>
+        <field name="compute"><![CDATA[
+for record in self: record['x_has_guests_attribute'] = ('guest' in record.attribute_line_ids.mapped('attribute_id.x_accommodation_characteristic')) if record.attribute_line_ids else False
+]]></field>
     </record>
 </odoo>

@@ -13,7 +13,8 @@
 
     <record id="template_footer_minimalist" model="ir.ui.view">
         <field name="name">Hotel - Minimalist</field>
-        <field name="inherit_id" ref="website.template_footer_minimalist"/>
+        <field name="key">website.template_footer_minimalist</field>
+        <field name="inherit_id" ref="website.layout"/>
         <field name="website_id" ref="website_hotel.website_industry"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@id='footer']" position="replace">
@@ -23,7 +24,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-2 offset-lg-0 col-8 offset-2 pt16 pb16 o_colored_level">
                                     <a href="/" class="o_footer_logo logo">
-                                        <img src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-38.webp" alt="" data-attachment-id="754" class="img-fluid d-block mx-auto img o_we_custom_image" style="width: 50% !important;" data-format-mimetype="image/webp" data-original-id="754" data-original-src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-38.webp" data-mimetype-before-conversion="image/png" data-resize-width="690" data-mimetype="image/webp" loading="lazy"/>
+                                        <img src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-03.webp" alt="" class="img-fluid d-block mx-auto img o_we_custom_image" style="width: 50% !important;" data-format-mimetype="image/webp" data-original-src="/website_hotel/static/src/img/content/custom_hotel/hotel-image-03.webp" data-resize-width="1920" data-mimetype="image/webp" loading="lazy"/>
                                     </a>
                                 </div>
                                 <div class="col-lg-8 pt16 pb16 o_colored_level">

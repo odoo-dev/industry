@@ -7,7 +7,8 @@
     <record id="website_industry" model="website">
         <field name="name">Hotel</field>
         <field name="sequence">1</field>
+        <field name="configurator_done" eval="True"/>
         <field name="logo" type="base64" file="website_hotel/static/src/img/content/logo.webp"/>
-        <field name="favicon" type="base64" file="website_hotel/static/description/favicon.png"/>
+        <field name="favicon" type="base64" file="website_hotel/static/src/img/favicon.png"/>
     </record>
 </odoo>

@@ -4,7 +4,7 @@
         <field name="name">Send HTTP request to channex</field>
         <field name="code"><![CDATA[
 BASE_URL = "https://staging.channex.io/api/v1"
-if not env.company.x_channex_api_key:
+if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
     raise UserError("Channex API key is missing in company settings.")
 try:
     method, endpoint = env.context.get('method'), env.context.get('endpoint')
@@ -18,7 +18,7 @@ try:
         data=json.dumps(env.context.get('payload', {})),
         timeout=20, headers={
             'Content-Type': 'application/json',
-            'user-api-key': env.company.x_channex_api_key
+            'user-api-key': env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key')
         }
     )
     response.raise_for_status()
@@ -517,12 +517,20 @@ for property in companies:
     property_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="property", local_id=property.id).run()
     if not property_mapping.x_remote_id:
         payload = {
-            "property": {
+            "property": {  # If possible add logo, longitude, latitude
                 "title": property.name,
                 "currency": property.currency_id.name,
                 "email": property.email or '',
                 "phone": property.phone or '',
-                "group_id": group_mapping.x_remote_id
+                "group_id": group_mapping.x_remote_id,
+                "property_type": "hotel",  # Should be adapted based on the industry we use
+                "zip_code": property.zip or '',
+                "country": property.country_id.name or '',
+                "state": property.state_id.name or '',
+                "city": property.city or '',
+                "address": property.street or '',
+                "timezone": property.tz or '',
+                "website": property.website or '',
             }
         }
         create_on_channex(
@@ -552,7 +560,7 @@ for property in companies:
                 "room_type": {
                     "property_id": property_remote_id,
                     "title": room.display_name,
-                    "count_of_rooms": 5, #Adapt to the number of rooms available when we define how to do it
+                    "count_of_rooms": len(record.planning_role_id.resource_ids) or 1,
                     "occ_adults": guests_attribute_value.x_adults, "occ_children": guests_attribute_value.x_children, "occ_infants": guests_attribute_value.x_infants,
                     "default_occupancy": guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants
                 }
@@ -586,6 +594,7 @@ for property in companies:
                     "options": [{
                         "occupancy": rp.x_total_inventory,
                         "is_primary": True,
+                        "rate": rp.x_variant_id.lst_price,  # Maybe not the value we want to set, could be changed
                     }],
                 }
             }
@@ -651,7 +660,7 @@ action = {
         <field name="model_id" ref="base_setup.model_res_config_settings" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
-if not env.company.x_channex_api_key:
+if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
     raise UserError("No channex api key found, no sync can be done.")
 to_add_groups = []
 to_add_properties = []

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- Channex API Key Setting -->
+    <record id="x_setting_field_channel_manager_api_key" model="ir.model.fields">
+        <field name="ttype">char</field>
+        <field name="field_description">API Key</field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="name">x_channex_api_key</field>
+        <field name="compute"><![CDATA[
+self['x_channex_api_key'] = self.env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key')
+]]></field>
+    </record>
+    <record id="x_action_set_api_key" model="ir.actions.server">
+        <field name="code"><![CDATA[
+env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.x_channex_api_key))
+]]></field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="state">code</field>
+        <field name="name">Set Channex API Key</field>
+    </record>
+    <record id="automation_on_settings_api_key_write" model="base.automation">
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="name">Set API Key</field>
+        <field name="trigger">on_create_or_write</field>
+        <field name="action_server_ids" eval="[(6, 0, [ref('x_action_set_api_key')])]"/>
+        <field name="on_change_field_ids" eval="[(6, 0, [ref('x_setting_field_channel_manager_api_key')])]"/>
+    </record>
+
+    <!-- Views -->
+    <record id="res_config_settings_extends" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='active_user_setting']" position="after">
+                <setting id="channex_setting">
+                    <button name="%(update_ari)d" icon="oi-arrow-right" type="action" string="Push ARI" class="btn-link"/>
+                </setting>
+            </xpath>
+        </field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="model">res.config.settings</field>
+        <field name="name">res.config.settings form view extension</field>
+        <field name="active" eval="True"/>
+        <field name="type">form</field>
+    </record>
+    <record id="res_config_settings_form_view_inherited_sync" model="ir.ui.view">
+        <field name="name">res.config.settings.form.view.inherited.booking.engine.sync</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="50"/>
+        <field name="active" eval="True"/>
+        <field name="inherit_id" ref="booking_engine.res_config_settings_form_view_inherited" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='booking_engine_channel_manager_setting']//div" position="replace">
+                <div class="content-group" invisible="not x_module_channel_manager">
+                    <div class="row mt16">
+                        <label for="x_channex_api_key" class="col-lg-3" invisible="not x_module_channel_manager"/>
+                        <field name="x_channex_api_key" required="x_module_channel_manager" invisible="not x_module_channel_manager"/>
+                    </div>
+                </div>
+                <div invisible="not x_module_channel_manager" class="oe_inline">
+                        <button
+                            type="action"
+                            name="%(action_button_sync)d"
+                            class="btn-primary"
+                        >
+                            Sync
+                        </button>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

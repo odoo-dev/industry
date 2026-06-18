@@ -12,7 +12,7 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env.company.x_channex_api_key = "MyTestAPIKey"
+        cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', "MyTestAPIKey")
 
     def test_receive_new_booking(self):
         payload_receive_booking = {
@@ -131,6 +131,7 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
             'partner_id': self.env['res.partner'].create({'name': 'Test Partner 1'}).id,
         })
         with (
+            self.assertLogs(level="WARNING"),  # Is preventing any warning to be logged, we should replace this to ignore only the Unsafe Error
             MockHTTPClient(url="https://staging.channex.io/api/v1/booking_revisions/074cd7f9-df51-4fc6-a8f4-7658573a235d/ack", return_json=booking_ack_answer, return_status=200),
             MockHTTPClient(url="https://staging.channex.io/api/v1/bookings/e868f16e-b474-4b95-af12-5b114133e670", return_json=get_booking_answer, return_status=200),
         ):

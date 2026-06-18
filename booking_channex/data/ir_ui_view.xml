@@ -108,19 +108,6 @@
             </xpath>
         </field>
     </record>
-    <!-- res company views -->
-    <record id="res_company_extends" model="ir.ui.view">
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='phone']" position="before">
-                <field name="x_channex_api_key" password="True"/>
-            </xpath>
-        </field>
-        <field name="inherit_id" ref="base.view_company_form"/>
-        <field name="model">res.company</field>
-        <field name="name">Res company form view extension</field>
-        <field name="active" eval="True"/>
-        <field name="type">form</field>
-    </record>
     <!-- ir cron views -->
     <record id="ir_cron_extends" model="ir.ui.view">
         <field name="arch" type="xml">
@@ -139,47 +126,7 @@
         <field name="active" eval="True"/>
         <field name="type">form</field>
     </record>
-    <!-- res config settings views -->
-     <record id="res_config_settings_extends" model="ir.ui.view">
-        <field name="arch" type="xml">
-            <xpath expr="//setting[@id='active_user_setting']" position="after">
-                <setting id="channex_setting">
-                    <button name="%(update_ari)d" icon="oi-arrow-right" type="action" string="Push ARI" class="btn-link"/>
-                </setting>
-            </xpath>
-        </field>
-        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
-        <field name="model">res.config.settings</field>
-        <field name="name">res.config.settings form view extension</field>
-        <field name="active" eval="True"/>
-        <field name="type">form</field>
-    </record>
-    <record id="res_config_settings_form_view_inherited_sync" model="ir.ui.view">
-        <field name="name">res.config.settings.form.view.inherited.booking.engine.sync</field>
-        <field name="model">res.config.settings</field>
-        <field name="priority" eval="50"/>
-        <field name="active" eval="True"/>
-        <field name="inherit_id" ref="booking_engine.res_config_settings_form_view_inherited" />
-        <field name="arch" type="xml">
-            <xpath expr="//setting[@id='booking_engine_channel_manager_setting']//div" position="replace">
-                <div class="content-group" invisible="not x_module_channel_manager">
-                    <div class="row mt16">
-                        <label for="x_channex_api_key" class="col-lg-3" invisible="not x_module_channel_manager"/>
-                        <field name="x_channex_api_key" required="x_module_channel_manager" invisible="not x_module_channel_manager"/>
-                    </div>
-                </div>
-                <div invisible="not x_module_channel_manager" class="oe_inline">
-                        <button
-                            type="action"
-                            name="%(action_button_sync)d"
-                            class="btn-primary"
-                        >
-                            Sync
-                        </button>
-                    </div>
-            </xpath>
-        </field>
-    </record>
+    <!-- product template views-->
     <record id="product_form_view" model="ir.ui.view">
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_standard_price']//field[@name='company_id']" position="attributes">
@@ -196,6 +143,17 @@
     </record>
     <record id="booking_channex_offers_form" model="ir.ui.view">
         <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-info" role="alert" style="height: 40px; margin-bottom:0px;" invisible="x_has_guests_attribute">
+                    Guests attribute shall be present with one or more values to capture the capability on Channex.
+                </div>
+                <div class="alert alert-info" role="alert" style="height: 40px; margin-bottom:0px;" invisible="x_has_rates_attribute">
+                    Rate Plan attribute shall be present with one or more values to capture the rate plans on Channex.
+                </div>
+            </xpath>
+            <xpath expr="//group[@name='group_general_info']/group[1]" position="inside">
+                <field name="company_id" required="x_is_a_room_offer" groups="base.group_multi_company"/>
+            </xpath>
             <xpath expr="//group[@name='house_keeping']" position="before">
             <group string="Channel Manager" name="group_channel_manager_info">
                 <field name="x_ota_buffer"/>

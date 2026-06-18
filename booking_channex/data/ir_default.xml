@@ -4,4 +4,8 @@
         <field name="field_id" ref="x_published_on_channex_field_product_pricelist"/>
         <field name="json_value">true</field>
     </record>
+    <function name="write" model="product.pricelist">
+        <value model="product.pricelist" eval="obj().search([]).ids" />
+        <value eval="{'x_published_on_channex': True}"/>
+    </function>
 </odoo>

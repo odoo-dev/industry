@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="channex_group_1" model="x_channex_group">
+        <field name="x_name">MyCompanyGroup</field>
+    </record>
+</odoo>

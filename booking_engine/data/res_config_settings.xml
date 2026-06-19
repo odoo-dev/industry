@@ -186,6 +186,7 @@ self['x_module_channel_manager'] = module and module.state in ['installed', 'to 
         <field name="name">x_module_channel_manager</field>
         <field name="groups" eval="[(4, ref('base.group_no_one'))]"/>
     </record>
+    <!-- TODO rework this method to work with appstore fetch, currently this is looking to the db ir.module but if the module is uninstalled it will not be found to be installed -->
     <record id="x_action_activate_channel_manager" model="ir.actions.server">
         <field name="code"><![CDATA[
 module = env['ir.module.module'].search([('name', '=', 'booking_channex')], limit=1)

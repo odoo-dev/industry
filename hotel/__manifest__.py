@@ -9,6 +9,7 @@
         'booking_engine',
         'pos_restaurant',
         'web_studio',
+        'website_sale_renting',
     ],
     'data': [
         'data/pos_category.xml',
@@ -39,10 +40,21 @@
         'demo/sale_order_line.xml',
         'demo/sale_order_post.xml',
         'demo/planning_slot_post.xml',
+
+        'demo/website/website.xml',
+        'demo/website/server_actions.xml',
+        'demo/website/assets.xml',
+        'demo/website/images.xml',
+        'demo/website/menu.xml',
+        'demo/website/pages/contactus.xml',
+        'demo/website/pages/home.xml',
+        'demo/website/views/website_templates.xml',
+        'demo/website/views/website_sale_templates.xml',
     ],
     'license': 'OEEL-1',
     'cloc_exclude': [
         'data/knowledge_article.xml',
+        'demo/website/views/website_templates.xml',
     ],
     'images': [
         'images/main.png',
@@ -50,3 +62,6 @@
     'url': "https://www.odoo.com/trial?industry&selected_app=hotel",
     'website': "https://www.odoo.com/industries/hotel",
 }
+
+
+

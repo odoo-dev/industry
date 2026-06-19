@@ -5,8 +5,8 @@
     <record id="menu_rooms" model="website.menu" forcecreate="0">
         <field name="name">Rooms</field>
         <field name="url">/shop</field>
-        <field name="parent_id" model="website.menu" search="[('url', '=', '#'), ('website_id', '=', ref('website_hotel.website_industry'))]"/>
-        <field name="website_id" ref="website_hotel.website_industry"/>
+        <field name="parent_id" model="website.menu" search="[('url', '=', '#'), ('website_id', '=', ref('hotel.website_industry'))]"/>
+        <field name="website_id" ref="hotel.website_industry"/>
         <field name="sequence" eval="20"/>
         <field name="is_visible" eval="True"/>
     </record>

@@ -113,6 +113,49 @@ for record in self:
         <field name="model_id" ref="product.model_product_product"/>
         <field name="name">x_rate_plans_ids</field>
     </record>
+    <!-- x_channex_group fields -->
+    <record id="x_name_field_x_channex_group" model="ir.model.fields">
+        <field name="ttype">char</field>
+        <field name="field_description">Name</field>
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="name">x_name</field>
+    </record>
+    <record id="x_channex_group_id_field_res_company" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="relation">x_channex_group</field>
+        <field name="field_description">Channex Group</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="name">x_channex_group_id</field>
+    </record>
+    <record id="x_company_ids_field_x_channex_group" model="ir.model.fields">
+        <field name="ttype">one2many</field>
+        <field name="relation">res.company</field>
+        <field name="relation_field">x_channex_group_id</field>
+        <field name="field_description">Companies</field>
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="name">x_company_ids</field>
+        <field name="readonly" eval="True"/>
+    </record>
+    <record id="x_is_in_channex_group_field_res_company" model="ir.model.fields">
+        <field name="ttype">boolean</field>
+        <field name="field_description">Is In Channex Group</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="name">x_is_in_channex_group</field>
+        <field name="store" eval="False"/>
+        <field name="compute"><![CDATA[
+for record in self:
+    record['x_is_in_channex_group'] = record.x_channex_group_id  # Set here to be applied only after saving the changes on a view
+]]></field>
+    </record>
+    <!-- Remove from Channex Wizard Fields -->
+    <record id="x_company_id_field_x_remove_company_channex_wizard" model="ir.model.fields">
+        <field name="ttype">many2one</field>
+        <field name="relation">res.company</field>
+        <field name="field_description">Company</field>
+        <field name="model_id" ref="x_remove_company_channex_wizard_model"/>
+        <field name="name">x_company_id</field>
+        <field name="readonly" eval="True"/>
+    </record>
     <!-- ir cron fields -->
     <!-- TODO remove before release -->
     <record id="x_debug_last_answer_field_ir_cron" model="ir.model.fields">

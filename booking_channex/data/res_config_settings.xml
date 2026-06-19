@@ -18,6 +18,7 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
         <field name="state">code</field>
         <field name="name">Set Channex API Key</field>
     </record>
+    <!-- TODO fix Error when uninstalling Channex, this records is scheduled to run afterwards and fails as it is uninstalled -->
     <record id="automation_on_settings_api_key_write" model="base.automation">
         <field name="model_id" ref="base_setup.model_res_config_settings"/>
         <field name="name">Set API Key</field>
@@ -61,7 +62,14 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
                             name="%(action_button_sync)d"
                             class="btn-primary"
                         >
-                            Sync
+                            Sync Non-ARIs
+                        </button>
+                        <button
+                            type="action"
+                            name="%(action_button_sync_aris)d"
+                            class="btn-primary"
+                        >
+                            Sync ARIs
                         </button>
                     </div>
             </xpath>

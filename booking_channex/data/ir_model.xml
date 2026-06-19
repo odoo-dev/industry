@@ -12,4 +12,12 @@
         <field name="model">x_rate_plan</field>
         <field name="name">Room Type</field>
     </record>
+    <record id="x_channex_group_model" model="ir.model">
+        <field name="model">x_channex_group</field>
+        <field name="name">Channex Group</field>
+    </record>
+    <record id="x_remove_company_channex_wizard_model" model="ir.model">
+        <field name="model">x_remove_company_channex_wizard</field>
+        <field name="name">Remove Company From Channex</field>
+    </record>
 </odoo>

@@ -190,7 +190,7 @@ mapped_product = env["x_channex_mapping"].search([
 room_endpoint = 'room_types'
 room_type = {
     "title": record.name,
-    "count_of_rooms": len(record.planning_role_id.resource_ids) or 1,
+    "count_of_rooms": len(record.planning_role_id.resource_ids) if record.planning_role_id.resource_ids else 1,
     "occ_adults": 1, "occ_children": 0, "occ_infants": 0,
     "default_occupancy": 1
 }
@@ -273,7 +273,7 @@ property_id = record.company_id.id or env.company.id
 property_mapping = env["x_channex_mapping"].search([("x_model_type", "=", "property"),("x_local_id", "=", property_id),], limit=1)
 
 if property_mapping.x_remote_id:
-    room_domain = [("x_is_a_room_offer", "!=", False),("x_resource_ids", "!=", False),('company_id', 'in', (False, property_id)),]
+    room_domain = [("x_is_a_room_offer", "!=", False),('company_id', 'in', (False, property_id)),]
 
     if record.applied_on == "1_product":
         if record.product_id:
@@ -306,7 +306,7 @@ if property_mapping.x_remote_id:
                     start_date + datetime.timedelta(days=i)
                     for i in range((end_date - start_date).days + 1)
                 ]
-                payload_values = env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_model='x_rate_plan', property_remote_id=property_mapping.x_remote_id, date_list=date_list).run()
+                payload_values = env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_id=rate_plans.ids[0], active_model='x_rate_plan', property_remote_id=property_mapping.x_remote_id, date_list=date_list).run()
 
                 if payload_values:
                     cron_id = env.ref('booking_channex.ir_cron_data_channex_sender').id
@@ -348,12 +348,33 @@ if property_mapping:
     </record>
 
     <!-- Make the following create/update server actions usable by the daily sync AND the live update (on_create/write/unlink) -->
-    <record id="create_property_on_channex" model="ir.actions.server">
-        <field name="name">Create Property On Channex</field>
+    <record id="create_group_on_channex" model="ir.actions.server">
+        <field name="name">Channex: Create Group on Channex</field>
         <field name="code"><![CDATA[
-#TODO
+pass  # TODO in non ari update
+]]></field>
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="state">code</field>
+    </record>
+    <record id="create_property_on_channex" model="ir.actions.server">
+        <field name="name">Channex: Create Company Property on Channex</field>
+        <field name="code"><![CDATA[
+pass  # TODO in non ari update
 ]]></field>
         <field name="model_id" ref="base.model_res_company"/>
+        <field name="state">code</field>
+    </record>
+    <record id="action_remove_property_from_channex" model="ir.actions.server">
+        <field name="name">Channex: Remove Company Property from Channex</field>
+        <field name="code"><![CDATA[
+for record in records:
+    mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'property'), ('x_local_id', '=', record.x_company_id.id)], limit=1)
+    if mapping.x_remote_id:
+        env.ref('booking_channex.requests_to_channex').with_context(method="DELETE", endpoint="properties/%s?force=true" % mapping.x_remote_id).run()
+        mapping.unlink()
+    record.x_company_id['x_channex_group_id'] = False
+]]></field>
+        <field name="model_id" ref="x_remove_company_channex_wizard_model"/>
         <field name="state">code</field>
     </record>
     <record id="create_room_on_channex" model="ir.actions.server">
@@ -445,7 +466,7 @@ def construct_availability_payload(property_id, room_type_id, records, ota_buffe
                 'room_type_id': room_type_id,
                 'date_from': current_start.strftime('%Y-%m-%d'),
                 'date_to': current_end.strftime('%Y-%m-%d'),
-                'availability': min(0, current_qty - ota_buffer),
+                'availability': max(0, current_qty - ota_buffer),
             })
 
             current_start = current_end = rec.x_date
@@ -458,7 +479,7 @@ def construct_availability_payload(property_id, room_type_id, records, ota_buffe
         'room_type_id': room_type_id,
         'date_from': current_start.strftime('%Y-%m-%d'),
         'date_to': current_end.strftime('%Y-%m-%d'),
-        'availability': min(0, current_qty - ota_buffer),
+        'availability': max(0, current_qty - ota_buffer),
     })
 
     return room_payload
@@ -569,171 +590,204 @@ def create_on_channex(endpoint, payload, mapping, error_msg):
     except Exception as e:
         raise UserError(f"{error_msg}: {str(e)}")
 
-# webhook
-#ERROR if localhost is used as an url, we cannot test it if we are in local
-try:
-    resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
-    resp.raise_for_status()
-    data = resp.json()
-except Exception as e:
-    raise UserError(f"Error fetching webhooks: {str(e)}")
-
-channex_webhooks = data.get('data', [])
-odoo_webhook = env.ref('booking_channex.webhook_get_booking_create_change_or_delete')
-existing_webhook = False
-for w in channex_webhooks:
-    if w.get('attributes', {}).get('callback_url') == odoo_webhook.url:
-        existing_webhook = w
-        break
-webhook_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="webhook", local_id=odoo_webhook.id).run()
-
-if existing_webhook:
-    webhook_mapping.write({
-        'x_remote_id': existing_webhook.get('attributes', {}).get('id')
-    })
+if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'message': 'No Channex sync possible without API key.',
+            'type': 'warning',
+            'sticky': False,
+        }
+    }
 else:
-    payload = {
-        "webhook": {
-            "callback_url": odoo_webhook.url,
-            "event_mask": "booking_new;booking_modification;booking_cancellation",
-            "request_params": {},
-            "headers": {},
-            "is_active": True,
-            "is_global": True,
-            "send_data": True
-        }
-    }
-    create_on_channex(
-        'webhooks',
-        payload,
-        webhook_mapping,
-        "Error creating webhook"
-    )
+    # webhook
+    #ERROR if localhost is used as an url, we cannot test it if we are in local
+    try:
+        resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as e:
+        raise UserError(f"Error fetching webhooks: {str(e)}")
 
-# GROUP (Parent Company -> Channex Group)
-company = env.company
-group_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="group", local_id=company.id).run()
-if not group_mapping.x_remote_id:
-    payload = {
-        "group": {
-            "title": company.name
-        }
-    }
-    create_on_channex(
-        "groups",
-        payload,
-        group_mapping,
-        "Error creating group"
-    )
+    channex_webhooks = data.get('data', [])
+    odoo_webhook = env.ref('booking_channex.webhook_get_booking_create_change_or_delete')
+    existing_webhook = False
+    for w in channex_webhooks:
+        if w.get('attributes', {}).get('callback_url') == odoo_webhook.url:
+            existing_webhook = w
+            break
+    webhook_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="webhook", local_id=odoo_webhook.id).run()
 
-# PROPERTIES (Child Companies -> Properties)
-companies = company.child_ids or company
-for property in companies:
-    property_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="property", local_id=property.id).run()
-    if not property_mapping.x_remote_id:
+    if existing_webhook:
+        webhook_mapping.write({
+            'x_remote_id': existing_webhook.get('attributes', {}).get('id')
+        })
+    else:
         payload = {
-            "property": {  # If possible add logo, longitude, latitude
-                "title": property.name,
-                "currency": property.currency_id.name,
-                "email": property.email or '',
-                "phone": property.phone or '',
-                "group_id": group_mapping.x_remote_id,
-                "property_type": "hotel",  # Should be adapted based on the industry we use
-                "zip_code": property.zip or '',
-                "country": property.country_id.name or '',
-                "state": property.state_id.name or '',
-                "city": property.city or '',
-                "address": property.street or '',
-                "timezone": property.tz or '',
-                "website": property.website or '',
+            "webhook": {
+                "callback_url": odoo_webhook.url,
+                "event_mask": "booking_new;booking_modification;booking_cancellation",
+                "request_params": {},
+                "headers": {},
+                "is_active": True,
+                "is_global": True,
+                "send_data": True
             }
         }
         create_on_channex(
-            "properties",
+            'webhooks',
             payload,
-            property_mapping,
-            "Error creating property"
+            webhook_mapping,
+            "Error creating webhook"
         )
 
-property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'property')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
-
-# ROOM TYPES (Product Variants → Room Types)
-for property in companies:
-    #make this a readgroup before the loop to avoid searching too much
-    property_remote_id = property_mappings_dict.get(property.id)
-    if not property_remote_id:    continue
-    property_rooms = env['product.product'].search([('x_is_a_room_offer', '=', True), ('x_resource_ids', '!=', False)])
-    if company.child_ids:
-        property_rooms = property_rooms.filtered(lambda r: r.company_id == property)
-    for room in property_rooms:
-        guests_attribute_value = room.product_template_variant_value_ids.filtered(lambda a: a.product_attribute_value_id.attribute_id.x_accommodation_characteristic in ['guest']).mapped('product_attribute_value_id')
-        if len(guests_attribute_value) != 1:
-            continue
-        room_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="room_type", local_id=room.id).run()
-        if not room_mapping.x_remote_id:
+    # GROUP (x_channex_group -> Channex Group)
+    is_db_multi_company = (env['res.company'].search_count([]) > 1)
+    groups = env['x_channex_group'].search([])
+    if not groups or not any(groups.mapped('x_company_ids')):
+        groups += (env['x_channex_group'].create({'x_name': env.company.name, 'x_company_ids': [env.company.id]}))
+    for group in groups:
+        group_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="group", local_id=group.id).run()
+        if not group_mapping.x_remote_id:
             payload = {
-                "room_type": {
-                    "property_id": property_remote_id,
-                    "title": room.display_name,
-                    "count_of_rooms": len(record.planning_role_id.resource_ids) or 1,
-                    "occ_adults": guests_attribute_value.x_adults, "occ_children": guests_attribute_value.x_children, "occ_infants": guests_attribute_value.x_infants,
-                    "default_occupancy": guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants
+                "group": {
+                    "title": group.x_name
                 }
             }
             create_on_channex(
-                "room_types",
+                "groups",
                 payload,
-                room_mapping,
-                "Error creating room type"
+                group_mapping,
+                "Error creating group"
             )
-
-room_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'room_type')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
-
-# RATE PLANS (X Rate Plan → Channex Rate Plan)
-for property in companies:
-    #Remove this when the readgroup of the previous for loop is done to use it here too
-    property_remote_id = property_mappings_dict.get(property.id)
-    if not property_remote_id:    continue
-    rate_plans = env['x_rate_plan'].search([('x_variant_id', '!=', False), ('x_pricelist_id', '!=', False)])
-    for rp in rate_plans:
-        room_remote_id = room_mappings_dict.get(rp.x_variant_id.id)
-        if not room_remote_id:    continue
-        rate_plan_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="rate_plan", local_id=rp.id).run()
-        if not rate_plan_mapping.x_remote_id:
-            payload = {
-                "rate_plan": {
-                    "title": rp.x_name,
-                    "property_id": property_remote_id,
-                    "room_type_id": room_remote_id,
-                    "currency": rp.x_pricelist_id.currency_id.name,
-                    "options": [{
-                        "occupancy": rp.x_total_inventory,
-                        "is_primary": True,
-                        "rate": rp.x_variant_id.lst_price,  # Maybe not the value we want to set, could be changed
-                    }],
+        # PROPERTIES (Companies -> Properties)
+        for property in group.x_company_ids:
+            property_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="property", local_id=property.id).run()
+            if not property_mapping.x_remote_id:
+                payload = {
+                    "property": {  # If possible add logo, longitude, latitude
+                        "title": property.name,
+                        "currency": property.currency_id.name,
+                        "email": property.email or '',
+                        "phone": property.phone or '',
+                        "group_id": group_mapping.x_remote_id,
+                        "property_type": "hotel",  # Should be adapted based on the industry we use
+                        "zip_code": property.zip or '',
+                        "country": property.country_id.code or '',
+                        "state": property.state_id.name or '',
+                        "city": property.city or '',
+                        "address": property.street or '',
+                        "timezone": property.tz or '',
+                        "website": property.website or '',
+                    }
                 }
-            }
-            create_on_channex(
-                "rate_plans",
-                payload,
-                rate_plan_mapping,
-                "Error creating rate plan"
-            )
+                create_on_channex(
+                    "properties",
+                    payload,
+                    property_mapping,
+                    "Error creating property"
+                )
 
+    property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'property')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
+
+    # ROOM TYPES (Product Variants → Room Types)
+    for property_id in property_mappings_dict.keys():
+        property_remote_id = property_mappings_dict.get(property_id)
+        if not property_remote_id:    continue
+        property_rooms = env['product.product'].search([('x_is_a_room_offer', '=', True)])
+        if is_db_multi_company:
+            property_rooms = property_rooms.filtered(lambda r: r.company_id.id == property_id.id)
+        for room in property_rooms:
+            guests_attribute_value = room.product_template_attribute_value_ids.filtered(lambda a: a.product_attribute_value_id.attribute_id.x_accommodation_characteristic in ['guest']).mapped('product_attribute_value_id')
+            if len(guests_attribute_value) != 1:
+                continue
+            room_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="room_type", local_id=room.id).run()
+            if not room_mapping.x_remote_id:
+                payload = {
+                    "room_type": {
+                        "property_id": property_remote_id,
+                        "title": room.display_name,
+                        "count_of_rooms": len(room.planning_role_id.resource_ids) if room.planning_role_id.resource_ids else 1,
+                        "occ_adults": guests_attribute_value.x_adults, "occ_children": guests_attribute_value.x_children, "occ_infants": guests_attribute_value.x_infants,
+                        "default_occupancy": guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants
+                    }
+                }
+                create_on_channex(
+                    "room_types",
+                    payload,
+                    room_mapping,
+                    "Error creating room type"
+                )
+
+    room_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'room_type')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
+
+    # RATE PLANS (X Rate Plan → Channex Rate Plan)
+    for property_id in property_mappings_dict.keys():
+        property_remote_id = property_mappings_dict.get(property_id)
+        if not property_remote_id:    continue
+        rate_plans = env['x_rate_plan'].search([('x_variant_id', '!=', False), ('x_pricelist_id', '!=', False)])
+        for rp in rate_plans:
+            room_remote_id = room_mappings_dict.get(rp.x_variant_id.id)
+            if not room_remote_id:    continue
+            rate_plan_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="rate_plan", local_id=rp.id).run()
+            if not rate_plan_mapping.x_remote_id:
+                payload = {
+                    "rate_plan": {
+                        "title": rp.x_name,
+                        "property_id": property_remote_id,
+                        "room_type_id": room_remote_id,
+                        "currency": rp.x_pricelist_id.currency_id.name,
+                        "options": [{
+                            "occupancy": rp.x_total_inventory,
+                            "is_primary": True,
+                            "rate": int(rp.x_variant_id.lst_price*100),  # Maybe not the value we want to set, could be changed
+                        }],
+                    }
+                }
+                create_on_channex(
+                    "rate_plans",
+                    payload,
+                    rate_plan_mapping,
+                    "Error creating rate plan"
+                )
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'message': 'Data sync non-ARIs with Channex completed successfully.',
+            'type': 'success',
+            'sticky': False,
+        }
+    }
+    ]]></field>
+    </record>
+
+    <!-- To fuse later on with action_button_sync, separated to have an easier testing -->
+        <record id="action_button_sync_aris" model="ir.actions.server">
+        <field name="name">Channex: Sync Data ARIs - to remove after dev</field>
+        <field name="model_id" ref="base_setup.model_res_config_settings" />
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
 # availability (X Availability → Channex Availability)
 
 payload_values = []
-rooms = env['product.product'].search([('x_is_a_room_offer', '=', True), ('x_resource_ids', '!=', False)])
-for property in companies:
-    property_remote_id = property_mappings_dict.get(property.id)
+rooms = env['product.product'].search([('x_is_a_room_offer', '=', True)])
+
+#remove these 2 lines when fuse
+property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'property')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
+is_db_multi_company = (env['res.company'].search_count([]) > 1)
+
+for property_id in property_mappings_dict.keys():
+    property_remote_id = property_mappings_dict.get(property_id)
     if not property_remote_id:
         continue
     property_rooms = (
-        rooms.filtered(lambda r: r.company_id == property.id)
-        if company.child_ids else rooms
+        rooms.filtered(lambda r: r.company_id == property_id)
+        if is_db_multi_company else rooms
     )
     if property_rooms:
-        payload_values.extend(env.ref('booking_channex.prepare_availability_payload').with_context(active_ids=property_rooms.ids, active_model="product.product", property_remote_id=property_remote_id).run())
+        payload_values.extend(env.ref('booking_channex.prepare_availability_payload').with_context(active_ids=property_rooms.ids, active_id=property_rooms.ids[0], active_model="product.product", property_remote_id=property_remote_id).run())
 
 env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="availability", payload={'values': payload_values}).run()
 
@@ -742,7 +796,6 @@ env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpo
 payload_values = []
 rooms = env['product.product'].search([
     ('x_is_a_room_offer', '=', True),
-    ('x_resource_ids', '!=', False)
 ])
 today = datetime.datetime.today().date()
 date_list = [
@@ -750,19 +803,19 @@ date_list = [
     for i in range(501)
 ]
 
-for property in companies:
-    property_remote_id = property_mappings_dict.get(property.id)
+for property_id in property_mappings_dict.keys():
+    property_remote_id = property_mappings_dict.get(property_id)
     if not property_remote_id:
         continue
     property_rooms = (
-        rooms.filtered(lambda r: r.company_id == property.id)
-        if company.child_ids else rooms
+        rooms.filtered(lambda r: r.company_id == property_id)
+        if is_db_multi_company else rooms
     )
     rate_plans = env['x_rate_plan'].search([
         ('x_variant_id', 'in', property_rooms.ids)
     ])
     if rate_plans:
-        payload_values.extend(env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_model="x_rate_plan", property_remote_id=property_remote_id, date_list=date_list).run())
+        payload_values.extend(env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_id=rate_plans.ids[0], active_model="x_rate_plan", property_remote_id=property_remote_id, date_list=date_list).run())
 
 env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="restrictions", payload={'values': payload_values}).run()
 
@@ -770,7 +823,7 @@ action = {
     'type': 'ir.actions.client',
     'tag': 'display_notification',
     'params': {
-        'message': 'Data sync with Channex completed successfully.',
+        'message': 'Data sync ARIs with Channex completed successfully.',
         'type': 'success',
         'sticky': False,
     }
@@ -809,12 +862,12 @@ for rate_map in env['x_channex_mapping'].search([('x_model_type', '=', 'rate_pla
     odoo_rates_mapping[rate_record] = rate_map.x_remote_id
 
 for el in channex_rate_plans_by_id.values():
-    if not (el.get("id") and (rate_record := channex_rates_mapping.get(el.get("id")))):
+    if not (el.get("id") and channex_rates_mapping.get(el.get("id"))):
         to_remove_rate_plans.append(el.get("id"))
 
 for rate_plan in env['x_rate_plan'].search([('x_variant_id', '!=', False), ('x_pricelist_id', '!=', False)]):
     if rate_remote_id := odoo_rates_mapping.get(rate_plan):
-        if not (rate_remote_id and (el := channex_rate_plans_by_id.get(rate_remote_id))):
+        if not channex_rate_plans_by_id.get(rate_remote_id):
             to_add_rate_plans.append(rate_plan.id)
 
 for rate_plan in odoo_rates_mapping:
@@ -842,17 +895,18 @@ for room_map in env['x_channex_mapping'].search([('x_model_type', '=', 'room_typ
     odoo_rooms_mapping[room_record] = room_map.x_remote_id
 
 for el in channex_rooms_by_id.values():
-    if not (el.get("id") and (room_record := channex_rooms_mapping.get(el.get("id")))):
+    if not (el.get("id") and channex_rooms_mapping.get(el.get("id"))):
         to_remove_rooms.append(el.get("id"))
 
-for room in env['product.product'].search([('x_is_a_room_offer', '=', True), ('x_resource_ids', '!=', False)]):
+for room in env['product.product'].search([('x_is_a_room_offer', '=', True)]):
     if room_remote_id := odoo_rooms_mapping.get(room):
-        if not (room_remote_id and (el := channex_rooms_by_id.get(room_remote_id))):
+        if not channex_rooms_by_id.get(room_remote_id):
             to_add_rooms.append(room.id)
 
 for room in odoo_rooms_mapping:
     if channex_dict := channex_rooms_by_id.get(odoo_rooms_mapping[room]).get("attributes"):
-        if room.display_name != channex_dict.get("title") or len(room.x_resource_ids) != channex_dict.get("count_of_rooms"):
+        rooms_count = len(room.x_resource_ids) if room.x_resource_ids else 1
+        if room.display_name != channex_dict.get("title") or rooms_count != channex_dict.get("count_of_rooms"):
             rooms_to_update.append(room.id)
 
 env.ref('booking_channex.update_room_on_channex').with_context(active_ids=rooms_to_update, active_model="product.product", rooms_odoo_to_channex=rooms_matching).run()
@@ -875,10 +929,10 @@ for property_map in env['x_channex_mapping'].search([('x_model_type', '=', 'prop
     odoo_properties_mapping[property_record] = property_map.x_remote_id
 
 for el in channex_properties_by_id.values():
-    if not (el.get("id") and (property_record := channex_properties_mapping.get(el.get("id")))):
+    if not (el.get("id") and (channex_properties_mapping.get(el.get("id")))):
         to_remove_properties.append(el.get("id"))
 
-for property in env.company.child_ids or env.company:
+for property in env['res.company'].search([('x_channex_group_id', '!=', False)]):
     if property_remote_id := odoo_properties_mapping.get(property):
         if not (property_remote_id and (el := channex_properties_by_id.get(property_remote_id))):
             to_add_properties.append(property.id)
@@ -893,26 +947,33 @@ all_channex_groups = env.ref('booking_channex.requests_to_channex').with_context
     method="GET", endpoint="groups"
 ).run().json().get('data', {})
 
-group_mapping = env['x_channex_mapping'].search([
-    ('x_model_type', '=', 'group'),
-    ('x_local_id', '=', env.company.id)
-], limit=1)
+channex_groups_by_id = {group.get("id"): group for group in all_channex_groups}
+channex_groups_mapping = {}
+odoo_groups_mapping = {}
+for group_map in env['x_channex_mapping'].search([('x_model_type', '=', 'group')]):
+    group_record = env.browse(group_map.x_local_id)
+    channex_groups_mapping[group_map.x_remote_id] = group_record
+    odoo_groups_mapping[group_record] = group_map.x_remote_id
 
-if not all_channex_groups:
-    to_add_groups.append(env.company.id)
-if len(all_channex_groups) > 1:
-    for el in all_channex_groups:
-        if el.get("id") and el.get("id") != group_mapping.x_remote_id:
-            to_remove_groups.append(el.get("id"))
+for el in channex_groups_by_id.values():
+    if not (el.get("id") and (channex_groups_mapping.get(el.get("id")))):
+        to_remove_groups.append(el.get("id"))
+
+for group in env['x_channex_group'].search([]):
+    if group_remote_id := odoo_groups_mapping.get(group):
+        if not (group_remote_id and (el := channex_groups_by_id.get(group_remote_id))):
+            to_add_groups.append(group.id)
+
+for group_channex_id in to_remove_groups:
+    env.ref('booking_channex.requests_to_channex').with_context(method="DELETE", endpoint="groups/%s" % group_channex_id).run()
 
 self.env['ir.cron']._commit_progress(remaining=1)
 
 #At the end so the order of creation is respected
+env.ref('booking_channex.create_group_on_channex').with_context(active_ids=to_add_groups, active_model="x_channex_group").run()
 env.ref('booking_channex.create_property_on_channex').with_context(active_ids=to_add_properties, active_model="res.company").run()
 env.ref('booking_channex.create_room_on_channex').with_context(active_ids=to_add_rooms, active_model="product.product").run()
 env.ref('booking_channex.create_rate_plan_on_channex').with_context(active_ids=to_add_rate_plans, active_model="x_rate_plan").run()
-
-#Check the bookings too ?
 
 self.env['ir.cron']._commit_progress(remaining=0)
 
@@ -986,6 +1047,14 @@ records.env.ref('booking_channex.server_action_create_remove_rate_plans').with_c
         <field name="model_id" ref="product.model_product_pricelist"/>
         <field name="state">code</field>
     </record>
+    <record id="server_action_create_rate_plans_from_pricelist_2" model="ir.actions.server">
+        <field name="name">Rate Plan: Create Rate Plan on pricelist created</field>
+        <field name="code"><![CDATA[
+records.env.ref('booking_channex.server_action_create_remove_rate_plans').with_context(pricelists=records).run()
+]]></field>
+        <field name="model_id" ref="product.model_product_pricelist"/>
+        <field name="state">code</field>
+    </record>
 
     <record id="server_action_delete_rate_plans_from_product" model="ir.actions.server">
         <field name="name">Rate Plan: Delete Rate Plan on room deleted</field>
@@ -1003,7 +1072,23 @@ if records: records.env['x_rate_plan'].search([('x_pricelist_id', 'in', records.
         <field name="model_id" ref="product.model_product_pricelist"/>
         <field name="state">code</field>
     </record>
+    <record id="server_action_delete_rate_plans_from_pricelist_2" model="ir.actions.server">
+        <field name="name">Rate Plan: Delete Rate Plan on pricelist deleted</field>
+        <field name="code"><![CDATA[
+if records: records.env['x_rate_plan'].search([('x_pricelist_id', 'in', records.ids)]).unlink()
+]]></field>
+        <field name="model_id" ref="product.model_product_pricelist"/>
+        <field name="state">code</field>
+    </record>
     <record id="server_action_delete_rate_plans_on_product_template_delete" model="ir.actions.server">
+        <field name="name">Rate Plan: Delete Rate Plan on product template deleted</field>
+        <field name="code"><![CDATA[
+if records: records.env['x_rate_plan'].search([('x_variant_id', 'in', records.product_variant_ids.ids)]).unlink()
+]]></field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="state">code</field>
+    </record>
+    <record id="server_action_delete_rate_plans_on_product_template_delete_2" model="ir.actions.server">
         <field name="name">Rate Plan: Delete Rate Plan on product template deleted</field>
         <field name="code"><![CDATA[
 if records: records.env['x_rate_plan'].search([('x_variant_id', 'in', records.product_variant_ids.ids)]).unlink()

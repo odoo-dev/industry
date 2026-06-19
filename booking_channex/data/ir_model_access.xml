@@ -37,4 +37,23 @@
         <field name="perm_unlink" eval="True"/>
         <field name="perm_write" eval="True"/>
     </record>
+    <!-- Can I copy the accesses rules from company instead of defining manually ? -->
+    <record id="x_channex_group_system_access" model="ir.model.access">
+        <field name="group_id" ref="base.group_system"/>
+        <field name="model_id" ref="x_channex_group_model"/>
+        <field name="name">x_channex_group_system_access</field>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_write" eval="True"/>
+    </record>
+    <record id="x_remove_company_channex_wizard_system_access" model="ir.model.access">
+        <field name="group_id" ref="base.group_system"/>
+        <field name="model_id" ref="x_remove_company_channex_wizard_model"/>
+        <field name="name">x_remove_company_channex_wizard_system_access</field>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_write" eval="True"/>
+    </record>
 </odoo>

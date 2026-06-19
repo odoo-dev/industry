@@ -15,4 +15,15 @@
         <field name="res_model">x_channex_ari_update_lines</field>
         <field name="view_mode">list,form</field>
     </record>
+    <record id="action_window_show_channex_groups" model="ir.actions.act_window">
+        <field name="name">Channex Groups</field>
+        <field name="res_model">x_channex_group</field>
+        <field name="view_mode">list</field>
+    </record>
+    <record id="open_remove_company_from_group_action" model="ir.actions.act_window">
+        <field name="name">Remove From Group</field>
+        <field name="res_model">x_remove_company_channex_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 </odoo>

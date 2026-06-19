@@ -18,6 +18,10 @@
         'data/ir_ui_view.xml',
         'data/ir_ui_menu.xml',
     ],
+    'demo': [
+        'demo/x_channex_group.xml',
+        'demo/res_company.xml',
+    ],
     'license': 'OEEL-1',
     'cloc_exclude': [
     ],

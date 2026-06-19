@@ -83,8 +83,99 @@
         </field>
     </record>
 
+    <!-- Channex Groups views -->
+    <record id="x_channex_group_form_view" model="ir.ui.view">
+        <field name="model">x_channex_group</field>
+        <field name="name">x_channex_group.form</field>
+        <field name="active" eval="True"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="x_name"/>
+                    </h1>
+                    <group>
+                        <field name="x_company_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="x_channex_group_list_view" model="ir.ui.view">
+        <field name="model">x_channex_group</field>
+        <field name="name">x_channex_group.list</field>
+        <field name="active" eval="True"/>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="x_name"/>
+                <field name="x_company_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+    <record id="x_channex_group_remove_from_group_form_view" model="ir.ui.view">
+        <field name="model">x_remove_company_channex_wizard</field>
+        <field name="name">x.remove.company.channex.wizard.remove.from.group</field>
+        <field name="active" eval="True"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div>
+                        You are about to remove this company as property from its Channex group.
+                    </div>
+                    <div>
+                        As a result, all data from the corresponding property will be lost on Channex.
+                    </div>
+                    <div>
+                        <br/>
+                        This action is irreversible.
+                    </div>
+                    <footer>
+                        <button class="btn-primary" type="action" string="Proceed"
+                            name="%(action_remove_property_from_channex)d"/>
+                        <button class="btn-secondary" special="cancel" string="Cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- res company views -->
+    <record id="res_company_channex_form_view" model="ir.ui.view">
+        <field name="name">res.company.channex.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="type">form</field>
+        <field name="mode">extension</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_info']/group[1]/group[1]" position="inside">
+                <label for="x_channex_group_id" string="Channex Group"/>
+                <div class="d-flex">
+                    <field class="oe_inline flex-grow-1" widget="selection" name="x_channex_group_id" readonly="x_is_in_channex_group"/>
+                    <button class="oe_inline btn btn-link pt-0" type="action" string="Remove From Group"
+                        name="%(open_remove_company_from_group_action)d" invisible="not x_is_in_channex_group" context="{'default_x_company_id': id}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="res_company_channex_list_view" model="ir.ui.view">
+        <field name="name">res.company.channex.list</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_tree"/>
+        <field name="type">list</field>
+        <field name="mode">extension</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='child_ids']" position="after">
+                <field name="x_channex_group_id" readonly="True"/>
+            </xpath>
+        </field>
+    </record>
     <!-- ARI Updates send lines views -->
-     <record id="x_channex_ari_update_lines_list_view" model="ir.ui.view">
+    <record id="x_channex_ari_update_lines_list_view" model="ir.ui.view">
         <field name="arch" type="xml">
             <list>
                 <field name="x_payload" />

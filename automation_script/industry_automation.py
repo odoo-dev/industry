@@ -645,6 +645,7 @@ class CleanModule:
                                     if k == 'data':
                                         f.write("        'data/mail_message.xml',\n")
                                         f.write("        'data/knowledge_article_favorite.xml',\n")
+                                        f.write("        'data/knowledge_tour.xml',\n")
                                     f.write("    ],\n")
                                 else:
                                     f.write(f"    '{k}': '{v}',\n")
@@ -719,6 +720,21 @@ class CleanModule:
             os.makedirs(destination_module_path + directory, exist_ok=True)
             Path(destination_module_path + file).write_text(content.format(ind_name=self.ind_name, Ind_name=Ind_name), encoding='UTF-8')
         
+
+        knowledge_tour_path = Path(destination_module_path + '/data/knowledge_tour.xml')
+        knowledge_tour_path.parent.mkdir(parents=True, exist_ok=True)
+
+        knowledge_tour_content = f"""<?xml version='1.0' encoding='UTF-8'?>
+        <odoo noupdate="1">
+            <record id="knowledge_tour" model="web_tour.tour">
+                <field name="name">{self.ind_name}_knowledge_tour</field>
+                <field name="sequence">2</field>
+                <field name="rainbow_man_message">Welcome! Happy exploring.</field>
+            </record>
+        </odoo>
+        """
+
+        knowledge_tour_path.write_text(knowledge_tour_content, encoding="utf-8")
 
         # make changes only for saas~18.3 version
         # if self.db_version == 'saas~18.3':

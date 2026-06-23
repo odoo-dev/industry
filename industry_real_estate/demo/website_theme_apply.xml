@@ -21,6 +21,19 @@
         <value model="ir.ui.view" eval="{'arch': obj().env.ref('industry_real_estate.homepage').arch}"/>
     </function>
 
+    <function model="ir.ui.view" name="write">
+        <value model="ir.ui.view" eval="obj().env.ref('industry_real_estate.contactus').id"/>
+        <value model="ir.ui.view" eval="{'arch': obj().env.ref('industry_real_estate.contactus').arch.replace(
+        '*property_options*', ''.join(
+            '&lt;option value=&quot;%s&quot;&gt;%s&lt;/option&gt;' % (
+                p.id,
+                p.name.replace('&amp;', '&amp;amp;').replace('&lt;', '&amp;lt;').replace('&gt;', '&amp;gt;')
+            )
+            for p in obj().env['product.template'].sudo().search([('public_categ_ids.x_is_property', '=', True)])
+        )
+        )}"/>
+    </function>
+
     <data noupdate="1">
         <function model="website" name="write">
             <value model="website" eval="[ref('website.default_website')]"/>

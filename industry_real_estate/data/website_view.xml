@@ -91,9 +91,7 @@
                                                                     <t t-set="property_list" t-value="request.env['product.template'].sudo().search([('public_categ_ids.x_is_property', '=', True)])"/>
                                                                     <select class="form-select s_website_form_input" name="x_property_id" id="property_text">
                                                                         <option value="" selected="selected">Select a property...</option>
-                                                                        <t t-foreach="property_list" t-as="prop">
-                                                                            <option t-att-value="prop.id"><t t-out="prop.name"/></option>
-                                                                        </t>
+                                                                        *property_options*
                                                                     </select>
                                                                 </div>
                                                             </div>

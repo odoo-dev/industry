@@ -20,6 +20,7 @@
         'features/work_items/access_bom_from_so.xml',
         'features/work_items/check_so_bom_price_updates.xml',
         'features/work_items/open_stock_from_so.xml',
+        'features/work_items/link_picking_loc_on_po_confirm.xml',
         'data/views_standard.xml',
     ],
     'demo': [

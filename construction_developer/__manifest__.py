@@ -11,6 +11,7 @@
     'data': [
         'data/res_config_settings.xml',
         'data/stock_location.xml',
+
         'features/work_items/create_worksite_loc_on_so_confirm.xml',
         'features/work_items/route_configs.xml',
         'features/work_items/link_mrp_loc_bom_on_so_confirm.xml',
@@ -25,6 +26,13 @@
         'features/work_items/delivery_progress/report.xml',
         'features/work_items/delivery_progress/templates.xml',
 
+
+        'features/work_items/cost_nature/cost_nature.xml',
+        'data/product_category.xml',
+
+        'features/work_items/cost_nature/report.xml',
+
+        'security/ir_access.xml',
         'data/views_standard.xml',
     ],
     'demo': [
@@ -32,6 +40,11 @@
         'demo/res_company.xml',
         'demo/res_partner.xml',
     ],
+    'assets': {
+    'web.assets_backend': [
+            'construction_developer/static/src/js/cost_nature_report.js',
+        ],
+    },
     'cloc_exclude': [
         'features/work_items/delivery_progress_report/templates.xml',
     ],

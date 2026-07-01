@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!--
+        This feature adds the cost nature analysis report, a SQL view that aggregates
+        BOM component lines recursively and SOLs into a view that displays the cost/price/margin
+    -->
+    <record model="ir.model" id="model_x_cost_nature_analysis_report">
+        <field name="name">Cost Nature Analysis Report</field>
+        <field name="model">x_cost_nature_analysis_report</field>
+    </record>
+
+
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_category_id">
+        <field name="name">x_category_id</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Category</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">product.category</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_cost_nature">
+        <field name="name">x_cost_nature</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Cost Nature</field>
+        <field name="ttype">selection</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+
+    <record model="ir.model.fields.selection" id="selection_field_x_cost_nature_analysis_report_x_cost_nature_labour">
+        <field name="name">Labour</field>
+        <field name="field_id" ref="field_x_cost_nature_analysis_report_x_cost_nature"/>
+        <field name="value">labour</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="selection_field_x_cost_nature_analysis_report_x_cost_nature_material">
+        <field name="name">Material</field>
+        <field name="field_id" ref="field_x_cost_nature_analysis_report_x_cost_nature"/>
+        <field name="value">material</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="selection_field_x_cost_nature_analysis_report_x_cost_nature_equipment">
+        <field name="name">Equipment</field>
+        <field name="field_id" ref="field_x_cost_nature_analysis_report_x_cost_nature"/>
+        <field name="value">equipment</field>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_total_cost">
+        <field name="name">x_total_cost</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Total Cost</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_total_price">
+        <field name="name">x_total_price</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Total Price</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_product_id">
+        <field name="name">x_product_id</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Product</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">product.product</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_so_id">
+        <field name="name">x_so_id</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Sale Order</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">sale.order</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_bom_id">
+        <field name="name">x_bom_id</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Bill of Materials</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">mrp.bom</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_margin">
+        <field name="name">x_margin</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Margin</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_margin_percent">
+        <field name="name">x_margin_percent</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Margin (%)</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_quantity">
+        <field name="name">x_quantity</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Quantity</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_margin_share">
+        <field name="name">x_margin_share</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Margin Share</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_cost_nature_analysis_report_x_cost_share">
+        <field name="name">x_cost_share</field>
+        <field name="model_id" ref="model_x_cost_nature_analysis_report"/>
+        <field name="field_description">Cost Share</field>
+        <field name="ttype">float</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_sale_order_line_x_cost_nature">
+        <field name="name">x_cost_nature</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="field_description">Cost Nature</field>
+        <field name="ttype">selection</field>
+        <field name="related">product_id.product_tmpl_id.categ_id.x_cost_nature</field>
+        <field name="store" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_mrp_bom_line_x_cost_nature">
+        <field name="name">x_cost_nature</field>
+        <field name="model_id" ref="mrp.model_mrp_bom_line"/>
+        <field name="field_description">Cost Nature</field>
+        <field name="ttype">selection</field>
+        <field name="related">product_tmpl_id.categ_id.x_cost_nature</field>
+        <field name="store" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_mrp_bom_line_x_category_id">
+        <field name="name">x_category_id</field>
+        <field name="model_id" ref="mrp.model_mrp_bom_line"/>
+        <field name="field_description">Category</field>
+        <field name="ttype">many2one</field>
+        <field name="related">product_tmpl_id.categ_id</field>
+        <field name="relation">product.category</field>
+        <field name="store" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_sale_order_line_x_category_id">
+        <field name="name">x_category_id</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="field_description">Category</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">product.category</field>
+        <field name="related">product_id.product_tmpl_id.categ_id</field>
+        <field name="store" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_mrp_bom_line_x_unit_price">
+        <field name="name">x_unit_price</field>
+        <field name="model_id" ref="mrp.model_mrp_bom_line"/>
+        <field name="field_description">Unit Price</field>
+        <field name="ttype">float</field>
+        <field name="related">product_tmpl_id.list_price</field>
+        <field name="store" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_mrp_bom_line_x_unit_cost">
+        <field name="name">x_unit_cost</field>
+        <field name="model_id" ref="mrp.model_mrp_bom_line"/>
+        <field name="field_description">Unit Cost</field>
+        <field name="ttype">float</field>
+        <field name="related">product_tmpl_id.standard_price</field>
+        <field name="store" eval="True"/>
+    </record>
+
+
+
+    <record model="ir.actions.server" id="action_compute_cost_nature_analysis_report">
+        <field name="name">Construction Developer: Compute Cost Nature Analysis</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="state">code</field>
+        <field name="code">
+# Since a simple server action executed only once in e.g. ir_model_post.xml to 
+# drop the db after model creation (and not check its type every time this server action runs)
+# does not work on the runbot for some reason, do the following instead
+# Ask Postgres what the type of 'x_cost_nature_analysis_report' currently is
+env.cr.execute('''
+    SELECT relkind 
+    FROM pg_class 
+    WHERE relname = 'x_cost_nature_analysis_report'
+''')
+result = env.cr.fetchone()  # fetch the result of the query that was just executed
+
+# Drop the physical TABLE Odoo auto-created (no _auto = False in XML model) when creating the model
+# We need this code to create this model as a VIEW and not a TABLE (auto-created)
+# 'r': ordinary TABLE, i.e. not a VIEW ('v')
+if result and result[0] == 'r': env.cr.execute('DROP TABLE x_cost_nature_analysis_report CASCADE')
+
+# action called from a project: fetch the records from the project
+# action called from a sale order: passed in the context as active_ids 
+so_ids = (env.context.get('active_ids') if not (project_id := env.context.get('project_id')) else env['sale.order'].search([('project_id', '=', project_id)]).ids) or [0]
+
+action = { 'name': "Cost Nature Analysis", 'view_mode': 'list', 'res_model': 'x_cost_nature_analysis_report', 'type': 'ir.actions.act_window',
+           'context': {'view_id': 'view_x_margin_report_analysis_list', 'search_default_group_by_cost_nature': True, 'search_default_group_by_category': True, 'search_default_group_by_product': True }}
+
+# skip the query if there are no sale orders
+if so_ids != [0]:
+    # Format the Python list into a valid SQL tuple string
+    # e.g., [1, 2] becomes "(1, 2)" and [1] becomes "(1)"
+    so_ids_sql = tuple(so_ids) if len(so_ids) > 1 else f"({so_ids[0]})"
+
+    # Actual logic
+    env.cr.execute(f'''
+        CREATE OR REPLACE VIEW x_cost_nature_analysis_report AS (
+            WITH RECURSIVE 
+            
+            -- Map of products-boms
+            pb AS ( 
+                SELECT DISTINCT ON (pp.id) pp.id AS pid, b.id AS bid
+                FROM product_product pp
+                JOIN mrp_bom b ON b.product_tmpl_id = pp.product_tmpl_id AND (b.product_id IS NULL OR b.product_id = pp.id)
+                WHERE b.active = true ORDER BY pp.id, b.sequence
+            ),
+            
+            -- Recurse to find all recursive BOM components
+            tree AS (
+                -- ANCHOR
+                SELECT sol.order_id, sol.x_bom_id, sol.product_uom_qty AS sqty,
+                    COALESCE(l.product_qty, 1.0) AS qty,
+                    COALESCE(l.product_id, sol.product_id) AS pid,
+                    COALESCE(l.x_unit_price, sol.price_unit) AS prc,
+                    COALESCE(l.x_unit_cost, sol.purchase_price) AS cst,
+                    COALESCE(l.x_cost_nature, sol.x_cost_nature) AS nat,
+                    COALESCE(l.x_category_id, sol.x_category_id) AS cat,
+                    pb.bid AS c_bom
+                FROM sale_order_line sol
+                LEFT JOIN mrp_bom_line l ON sol.x_bom_id = l.bom_id
+                LEFT JOIN pb ON pb.pid = COALESCE(l.product_id, sol.product_id)
+                WHERE sol.display_type IS NULL AND sol.product_id IS NOT NULL AND sol.order_id IN {so_ids_sql}
+
+                UNION ALL
+                -- RECURSE
+                SELECT t.order_id, t.x_bom_id, t.sqty,
+                    t.qty * l.product_qty, l.product_id, l.x_unit_price, l.x_unit_cost,
+                    l.x_cost_nature, l.x_category_id, pb.bid
+                FROM tree t
+                JOIN mrp_bom_line l ON l.bom_id = t.c_bom
+                LEFT JOIN pb ON pb.pid = l.product_id
+                WHERE t.c_bom IS NOT NULL
+            ),
+            
+            -- Calculate the tree leaves only (we only want the components (leaves), not the BOM themselves)
+            leaves AS (
+                SELECT order_id AS x_so_id, x_bom_id, qty * sqty AS x_quantity,
+                    pid AS x_product_id, nat AS x_cost_nature, cat AS x_category_id,
+                    prc * qty * sqty AS x_total_price, cst * qty * sqty AS x_total_cost,
+                    (prc - cst) * qty * sqty AS x_margin, (prc - cst) / NULLIF(prc, 0) AS x_margin_percent
+                FROM tree WHERE c_bom IS NULL
+            )
+            
+            -- Final math
+            SELECT ROW_NUMBER() OVER () AS id, *,
+                x_margin / NULLIF(SUM(x_margin) OVER (), 0) AS x_margin_share,
+                x_total_cost / NULLIF(SUM(x_total_cost) OVER (), 0) AS x_cost_share
+            FROM leaves
+        )''')
+
+    # add active_ids to the context of the action
+    action['context']['active_ids'] = so_ids
+</field>
+    </record>
+
+
+
+     <record model="ir.ui.view" id="view_x_cost_nature_analysis_report_search">
+        <field name="name">x_cost_nature_analysis_report.view.search</field>
+        <field name="model">x_cost_nature_analysis_report</field>
+        <field name="type">search</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_product_id" string="Product" filter_domain="[('x_product_id.name', 'ilike', self)]"/>
+                <field name="x_cost_nature" string="Cost Nature" filter_domain="[('x_cost_nature', 'ilike', self)]"/>
+                <field name="x_category_id" string="Category" filter_domain="[('x_category_id.name', 'ilike', self)]"/>
+                <field name="x_bom_id" string="Work Item" filter_domain="[('x_bom_id.x_name', 'ilike', self)]"/>
+                <field name="x_so_id" string="Sale Order" filter_domain="[('x_so_id.name', 'ilike', self)]"/>
+                <separator/>
+                <filter string="Material" name="material" domain="[('x_cost_nature', '=', 'material')]"/>
+                <filter string="Equipment" name="equipment" domain="[('x_cost_nature', '=', 'equipment')]"/>
+                <filter string="Labour" name="labour" domain="[('x_cost_nature', '=', 'labour')]"/>
+                <separator/>
+                <filter string="Positive Margin" name="positive_margin" domain="[('x_margin', '>', 0)]"/>
+                <filter string="Negative Margin" name="negative_margin" domain="[('x_margin', '&lt;', 0)]"/>
+                <separator/>
+                <group>
+                    <filter string="Cost Nature" name="group_by_cost_nature" context="{'group_by': 'x_cost_nature'}"/>
+                    <filter string="Category" name="group_by_category" context="{'group_by': 'x_category_id'}"/>
+                    <filter string="Sale Order" name="group_by_sale_order" context="{'group_by': 'x_so_id'}"/>
+                    <filter string="Product" name="group_by_product" context="{'group_by': 'x_product_id'}"/>
+                    <filter string="Work Item" name="group_by_bom" context="{'group_by': 'x_bom_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_x_margin_report_analysis_list">
+        <field name="name">x_cost_nature_analysis_report.view.list</field>
+        <field name="model">x_cost_nature_analysis_report</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <list string="Cost Nature Analysis" default_order="x_margin DESC, x_total_cost DESC">
+                <field name="x_cost_nature" optional="hide"/>
+                <field name="x_category_id" widget="many2one" optional="hide"/>
+                <field name="x_so_id" widget="many2one" optional="hide"/>
+                <field name="x_product_id" widget="many2one" optional="show"/>
+                <field name="x_bom_id" widget="many2one" optional="show"/>
+                <field name="x_quantity" optional="hide"/>
+                <field name="x_total_price" sum="Sum of Prices" optional="show"/>
+                <field name="x_total_cost" sum="Sum of Costs" optional="show"/>
+                <field name="x_cost_share" widget="percentage" sum="Sum of Cost Shares" optional="show"/>
+                <field name="x_margin" sum="Sum of Margins" optional="show"/>
+                <field name="x_margin_percent" widget="percentage" avg="Average Margin" optional="show"/>
+                <field name="x_margin_share" widget="percentage" sum="Sum of Margin Shares" optional="show"/>
+            </list>
+        </field>
+    </record>
+</odoo>

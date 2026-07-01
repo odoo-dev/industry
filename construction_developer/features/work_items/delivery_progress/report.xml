@@ -38,7 +38,7 @@
         <field name="store" eval="False"/>
         <field name="depends">price_subtotal,x_production_ids.x_increment_percent</field>
         <field name="compute"><![CDATA[
-for sol in self: sol['x_invoice_increment'] = sol.price_subtotal * sum(sol.x_production_ids.filtered(lambda m: m.state == 'done').mapped('x_increment_percent'))
+for sol in self: sol['x_invoice_increment'] = sol.price_subtotal * sum(prod.x_increment_percent for prod in sol.x_production_ids if prod.state == 'done')
 ]]></field>
     </record>
 

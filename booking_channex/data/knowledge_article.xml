@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <template id="welcome_article_body">
+        <h1><span class="display-4-fs"><strong>Booking Channex</strong></span></h1>
+        <p><br/></p>
+        <div data-embedded="tableOfContent"></div>
+        <p><br/></p>
+        <h1><strong>Use cases</strong></h1>
+        <hr/>
+        <h2><strong>How to change webhook securisation token?</strong></h2>
+        <ul>
+            <li>Go to settings in debug mode.</li>
+            <li>Access system parameters.</li>
+            <li>Edit x_channex_token with new value.</li>
+            <li>Edit the Channex webhook header with the new token value.</li>
+        </ul>
+        <div data-oe-role="status" class="o_editor_banner user-select-none lh-1 d-flex align-items-center alert alert-warning pb-0 pt-3 o-contenteditable-false">
+            <i data-oe-aria-label="Banner Warning" class="o_editor_banner_icon mb-3 fst-normal">⚠️</i>
+            <div class="w-100 px-3 o_editor_banner_content o-contenteditable-true">
+                <p>During the time tokens are not aligned between Odoo and Channex, no booking can be acknowledged.<br/>
+                   In such situation, Channex will send the booking again to a maximum of 30 minutes.<br/>
+                   Make sure to align token on both side prior the end of this period to avoid missing any booking.</p>
+            </div>
+        </div>
+        <h1><br/></h1>
+    </template>
+
+    <record id="welcome_article" model="knowledge.article">
+        <field name="name">Booking Channex</field>
+        <field name="icon">🏨</field>
+        <field name="internal_permission">write</field>
+        <field name="is_article_visible_by_everyone" eval="True"/>
+        <field name="is_locked" eval="True"/>
+        <field name="body"><![CDATA[]]></field>
+    </record>
+</odoo>

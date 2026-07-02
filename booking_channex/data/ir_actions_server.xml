@@ -56,6 +56,13 @@ action = mapping
         <field name="model_id" ref="sale.model_sale_order" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
+odoo_secret_token = env['ir.config_parameter'].get_str('booking_channex.x_channex_token')
+channex_secret_token = payload.get('headers', {}).get('x-channex-token')
+
+if not channex_secret_token or channex_secret_token != odoo_secret_token:
+    raise UserError("Unauthorized access.")   # temperary for testing,
+#TODO: Log as FRVA did for daily sync a denied booking webhook query due to erroneous secret token
+
 #Récupérer la demande de booking
 event = payload.get('event')
 payload_infos = payload.get('payload', {})
@@ -734,12 +741,17 @@ else:
             'x_remote_id': existing_webhook.get('attributes', {}).get('id')
         })
     else:
+        if not env['ir.config_parameter'].get_str('booking_channex.x_channex_token'):
+            token = env['ir.attachment']._generate_access_token()
+            env['ir.config_parameter'].set_str('booking_channex.x_channex_token', token)
         payload = {
             "webhook": {
                 "callback_url": odoo_webhook.url,
                 "event_mask": "booking_new;booking_modification;booking_cancellation",
                 "request_params": {},
-                "headers": {},
+                "headers": {
+                    'x-channex-token': env['ir.config_parameter'].get_str('booking_channex.x_channex_token')
+                },
                 "is_active": True,
                 "is_global": True,
                 "send_data": True

@@ -13,11 +13,15 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', "MyTestAPIKey")
+        cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_token', "MyTestWebhookSecret")
 
     def test_receive_new_booking(self):
         payload_receive_booking = {
             'timestamp': '2026-03-03T09:36:35.024296Z',
             'event': 'booking_new',
+            'headers': {
+                'x-channex-token': 'WrongToken',
+            },
             'user_id': None,
             'payload': {
                 'currency': 'EUR',
@@ -140,7 +144,20 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
                 data=json.dumps(payload_receive_booking),
                 headers={'Content-Type': 'application/json'}
             )
-            self.assertTrue(self.env['sale.order.line'].search_count([('product_id', '=', room.id)]), 'The sale order has not been created when webhook received the payload.')
+            self.assertFalse(self.env['sale.order.line'].search_count([('product_id', '=', room.id)], limit=1), 'The sale order has been created when webhook received the payload with wrong token.')
+
+        payload_receive_booking['headers']['x-channex-token'] = 'MyTestWebhookSecret'
+        with (
+            self.assertLogs(level="WARNING"),  # Is preventing any warning to be logged, we should replace this to ignore only the Unsafe Error
+            MockHTTPClient(url="https://staging.channex.io/api/v1/booking_revisions/074cd7f9-df51-4fc6-a8f4-7658573a235d/ack", return_json=booking_ack_answer, return_status=200),
+            MockHTTPClient(url="https://staging.channex.io/api/v1/bookings/e868f16e-b474-4b95-af12-5b114133e670", return_json=get_booking_answer, return_status=200),
+        ):
+            self.url_open(
+                self.env.ref("booking_channex.webhook_get_booking_create_change_or_delete").url,
+                data=json.dumps(payload_receive_booking),
+                headers={'Content-Type': 'application/json'}
+            )
+            self.assertTrue(self.env['sale.order.line'].search_count([('product_id', '=', room.id)]), 'The sale order has not been created when webhook received the payload with correct token.')
 
     def test_product_create_on_channex(self):
         create_room_type_answer = {"data": {"type": "room_type", "id": "994d1375-dbbd-4072-8724-b2ab32ce781b", "attributes": {

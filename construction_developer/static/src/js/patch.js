@@ -1,5 +1,14 @@
 import { patch } from "@web/core/utils/patch";
+import { GanttRenderer } from "@web_gantt/gantt_renderer";
 import { ListRenderer } from "@web/views/list/list_renderer";
+
+
+// In the construction_developer.action_show_wbs Gantt chart for moves, display the product name in the pill
+patch(GanttRenderer.prototype, { getDisplayName(pill) {
+    if (this.env.config.actionXmlId == "construction_developer.action_show_wbs") {
+        return pill.record.product_id.display_name}
+    return super.getDisplayName(pill)}});
+
 
 // In the Cost Nature Analysis list view, 
 // Computes the margin % from the summed costs & prices instead of summing margin percentages

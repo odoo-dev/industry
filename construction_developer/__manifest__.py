@@ -6,6 +6,7 @@
         'base_industry_data',
         'construction',
         'mrp',
+        'web_gantt',
         'web_studio',
     ],
     'data': [
@@ -25,6 +26,7 @@
         'features/work_items/delivery_progress/delivery_progress.xml',
         'features/work_items/delivery_progress/report.xml',
         'features/work_items/delivery_progress/templates.xml',
+        'features/work_items/work_breakdown_structure.xml',
 
 
         'features/work_items/cost_nature/cost_nature.xml',
@@ -41,8 +43,8 @@
         'demo/res_partner.xml',
     ],
     'assets': {
-    'web.assets_backend': [
-            'construction_developer/static/src/js/cost_nature_report.js',
+        'web.assets_backend_lazy': [
+            'construction_developer/static/src/js/patch.js',  # web_gantt/gantt_renderer is lazy so this needs to be lazy too
         ],
     },
     'cloc_exclude': [

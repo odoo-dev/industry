@@ -177,12 +177,24 @@
                     </div>
                 </button>
                 <button
+                    name="%(server_action_show_wbs)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-tasks"
+                    groups="project.group_project_user"
+                    invisible="state not in ['sale', 'cancel']"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">WBS</span>
+                    </div>
+                </button>
+                <button
                     name="%(action_show_delivery_progress)d"
                     type="action"
                     class="oe_stat_button"
                     icon="fa-tasks"
                     groups="project.group_project_user"
-                    invisible="not state in ['sale', 'cancel']"
+                    invisible="state not in ['sale', 'cancel']"
                 >
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_text">Progress</span>
@@ -221,7 +233,28 @@
         </field>
     </record>
 
-    
+
+    <record model="ir.ui.view" id="view_move_tree_inherit">
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field name="model">stock.move</field>
+        <field name="name">stock.move.view.list.inherit.construction_developer</field>
+        <field name="type">list</field>
+        <field name="mode">extension</field>
+        <field name="priority">160</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//list" position="attributes">
+                    <attribute name="multi_edit">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='reference']" position="after">
+                    <field name="sale_line_id" optional="show"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+
     <record model="ir.ui.view" id="view_picking_type_form_inherit">
         <field name="name">stock.picking.type.view.form.inherit.construction_developer</field>
         <field name="model">stock.picking.type</field>

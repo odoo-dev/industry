@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data noupdate="1">
+        <record model="report.paperformat" id="paperformat_progress_report">
+            <field name="name">Progress Report</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">25</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_spacing">35</field>
+            <field name="dpi">115</field>
+        </record>
+    </data>
+
+
+
+    <record model="ir.actions.report" id="action_report_project_progress">
+        <field name="name">Progress Report</field>
+        <field name="model">project.project</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">construction_developer.report_project_progress</field>
+        <field name="report_file">construction_developer.report_project_progress</field>
+        <field name="paperformat_id" ref="paperformat_progress_report"/>
+        <field name="binding_model_id" ref="project.model_project_project"/>
+        <field name="print_report_name">'Progress Report'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+
+
+    <record model="ir.model.fields" id="field_sale_order_line_invoice_increment">
+        <field name="name">x_invoice_increment</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="field_description">Invoice Increment</field>
+        <field name="ttype">float</field>
+        <field name="store" eval="False"/>
+        <field name="depends">price_subtotal,x_production_ids.x_increment_percent</field>
+        <field name="compute"><![CDATA[
+for sol in self: sol['x_invoice_increment'] = sol.price_subtotal * sum(sol.x_production_ids.filtered(lambda m: m.state == 'done').mapped('x_increment_percent'))
+]]></field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_progress_approver">
+        <field name="name">x_progress_approver</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="field_description">Progress Approver</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_xxxxxxxxxxxxxxxxxxxxxxxxx_placeholder_for_the_reference_field_coming_in_another_feature_later">
+        <field name="name">x_reference</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="field_description">Reference</field>
+        <field name="ttype">char</field>
+    </record>
+
+
+
+    <record model="ir.actions.server" id="action_print_progress_report">
+        <field name="name">Construction Developer: Print Progress Report</field>
+        <field name="model_id" ref="mrp.model_mrp_production"/>
+        <field name="state">code</field>
+        <field name="code">
+project = records.sale_line_id.order_id[:1].project_id
+action = env.ref('construction_developer.action_report_project_progress').report_action(project, config=False)
+</field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="view_mrp_production_progress_report">
+        <field name="name">mrp.production.progress.view.list.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="view_mrp_production_progress_list"/>
+        <field name="mode">extension</field>
+        <field name="type">list</field>
+        <field name="priority">160</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//list" position="inside">
+                    <header>
+                        <button class="btn btn-primary" name="%(action_print_progress_report)d" type="action" string="Progress Report"/>
+                    </header>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

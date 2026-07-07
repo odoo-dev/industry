@@ -21,6 +21,10 @@
         'features/work_items/check_so_bom_price_updates.xml',
         'features/work_items/open_stock_from_so.xml',
         'features/work_items/link_picking_loc_on_po_confirm.xml',
+        'features/work_items/delivery_progress/delivery_progress.xml',
+        'features/work_items/delivery_progress/report.xml',
+        'features/work_items/delivery_progress/templates.xml',
+
         'data/views_standard.xml',
     ],
     'demo': [
@@ -29,6 +33,7 @@
         'demo/res_partner.xml',
     ],
     'cloc_exclude': [
+        'features/work_items/delivery_progress_report/templates.xml',
     ],
     'images': ['images/main.png'],
     'license': 'OEEL-1',

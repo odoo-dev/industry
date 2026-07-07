@@ -82,6 +82,23 @@
     </record>
 
 
+    <record model="ir.ui.view" id="edit_project_inherit">
+        <field name="name">project.project.view.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="mode">extension</field>
+        <field name="type">form</field>
+        <field name="priority">1600</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="x_progress_approver" widget="many2one_avatar_user"/>
+            </xpath>
+        </field>
+    </record>
+
+
     <record model="ir.ui.view" id="purchase_order_form_inherit">
         <field name="name">purchase.order.view.form.inherit.construction_developer</field>
         <field name="model">purchase.order</field>
@@ -118,6 +135,20 @@
                         type="action"
                         invisible="not x_any_sol_bom"
                         />
+            </xpath>
+            <xpath expr="//form/sheet/div[@name='button_box']" position="inside">
+                <button
+                    name="%(action_show_delivery_progress)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-tasks"
+                    groups="project.group_project_user"
+                    invisible="not state in ['sale', 'cancel']"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Progress</span>
+                    </div>
+                </button>
             </xpath>
             <xpath expr="//notebook//page[@name='order_lines']//list//field[@name='product_template_id']" position="after">
                 <field name="x_bom_id"

@@ -18,7 +18,6 @@
         'features/work_items/link_mrp_loc_bom_on_so_confirm.xml',
         'features/work_items/product_bom_template_and_routes.xml',
         'features/work_items/bom_margin.xml',
-        'features/work_items/update_sol_price_from_bom.xml',
         'features/work_items/access_bom_from_so.xml',
         'features/work_items/check_so_bom_price_updates.xml',
         'features/work_items/open_stock_from_so.xml',

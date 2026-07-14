@@ -26,21 +26,6 @@
         <field name="readonly" eval="True"/>
     </record>
 
-    <record model="ir.model.fields" id="field_mrp_bom_x_margin_percent">
-        <field name="name">x_margin_percent</field>
-        <field name="model_id" ref="mrp.model_mrp_bom"/>
-        <field name="field_description">Unit Margin</field>
-        <field name="ttype">float</field>
-    </record>
-
-    <record model="ir.model.fields" id="field_mrp_bom_x_unit_price">
-        <field name="model_id" ref="mrp.model_mrp_bom"/>
-        <field name="name">x_unit_price</field>
-        <field name="field_description">Unit Sale Price</field>
-        <field name="ttype">monetary</field>
-        <field name="currency_field">x_currency_id</field>
-    </record>
-
 
 
     <record model="ir.actions.server" id="action_compute_bom_cost_from_components">
@@ -52,56 +37,52 @@ for bom in records:
     product = bom.product_id or bom.product_tmpl_id.product_variant_id
 
     bom['x_unit_cost'] = product._compute_bom_price(bom) if product else 0.0
-env.ref('construction_developer.action_update_bom_price').with_context(records=records).run()
 </field>
     </record>
 
 
-    <!-- recompute margin only when changing the price -->
-    <record model="ir.actions.server" id="action_update_bom_margin">
-        <field name="name">Construction Developer: Update BOM Margin</field>
-        <field name="model_id" ref="mrp.model_mrp_bom" />
+    <!-- 
+        Update the price and the cost when a bom is selected.
+        Must update all 3 at the same time or the annoying margin gets recomputed in between each change
+    -->
+    <record model="ir.actions.server" id="action_update_sol_cost_price_margin_on_x_bom_id_write">
+        <field name="name">Construction Developer: Update SOL Cost from BOM</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
         <field name="state">code</field>
         <field name="code">
-for bom in record or records or []:
-    cost = bom.x_unit_cost or 0.0
-    new_margin = ((bom.x_unit_price or 0.0) - cost) / cost if cost else 0.0
-
-    # only write if the margin actually changed to avoid loops
-    if float_compare((bom.x_margin_percent or 0.0), new_margin, precision_digits=2) != 0:
-        bom['x_margin_percent'] = new_margin
+for sol in records: record.write({'margin_percent': sol.margin_percent, 'purchase_price': sol.x_bom_id.x_unit_cost, 'price_unit': sol.x_bom_id.x_unit_cost / div if (div := (1 - sol.margin_percent)) else 0})
 </field>
     </record>
 
-    <record model="base.automation" id="automation_mrp_bom_on_write_x_unit_price">
-        <field name="name">Construction Developer: Update margin on change</field>
-        <field name="model_id" ref="mrp.model_mrp_bom" />
-        <field name="action_server_ids" eval="[(6, 0, [ref('action_update_bom_margin')])]"/>
-        <field name="trigger">on_change</field>
-        <field name="on_change_field_ids" eval="[(6, 0, [ref('field_mrp_bom_x_unit_price')])]"/>
+    <record model="base.automation" id="automation_sol_price_and_cost_on_x_bom_id_write">
+        <field name="name">Construction Developer: Update SOL price and cost from BOM on set</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain">[('x_bom_id', '!=', False)]</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('field_sale_order_line_x_bom_id')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_update_sol_cost_price_margin_on_x_bom_id_write')])]"/>
     </record>
 
 
-    <!-- recompute price when changing the margin or the cost -->
-    <record model="ir.actions.server" id="action_update_bom_price">
-        <field name="name">Construction Developer: Update BOM Price</field>
-        <field name="model_id" ref="mrp.model_mrp_bom" />
+    <!-- 
+        Update the price and the cost on the SOL when a bom is saved.
+        Must update all 3 at the same time or the annoying margin gets recomputed in between each change
+    -->
+    <record model="ir.actions.server" id="action_update_sol_cost_price_margin_from_bom">
+        <field name="name">Construction Developer: Update SOL Cost from BOM</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
         <field name="state">code</field>
         <field name="code">
-for bom in record or records or []:
-    new_price = (bom.x_unit_cost or 0.0) * (1.0 + (bom.x_margin_percent or 0.0))
-
-    # only write if the price actually changed to avoid loops
-    if float_compare((bom.x_unit_price or 0.0), new_price, precision_digits=2) != 0:
-        bom['x_unit_price'] = new_price
+for record in records: (sol := record.x_original_sol_id).write({'margin_percent': sol.margin_percent, 'purchase_price': record.x_unit_cost, 'price_unit': record.x_unit_cost / div if (div := (1 - sol.margin_percent)) else 0})
 </field>
     </record>
 
-    <record model="base.automation" id="automation_mrp_bom_on_write_x_margin_cost">
-        <field name="name">Construction Developer: Update price on change</field>
-        <field name="model_id" ref="mrp.model_mrp_bom" />
-        <field name="trigger">on_change</field>
-        <field name="action_server_ids" eval="[(6, 0, [ref('action_update_bom_price')])]"/>
-        <field name="on_change_field_ids" eval="[(6, 0, [ref('field_mrp_bom_x_margin_percent'), ref('field_mrp_bom_x_unit_cost')])]"/>
+    <record model="base.automation" id="automation_sol_price_and_cost_on_bom_write">
+        <field name="name">Construction Developer: Update SOL price and cost from BOM on write</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain">[('x_original_sol_id', '!=', False)]</field>
+        <field name="trigger_field_ids" eval="[(6,0,[ref('field_mrp_bom_x_unit_cost')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_update_sol_cost_price_margin_from_bom')])]"/>
     </record>
 </odoo>

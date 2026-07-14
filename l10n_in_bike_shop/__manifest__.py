@@ -9,7 +9,8 @@
         for Indian localization (GST, taxes, accounts).
     """,
     "data": [
-        'data/product_template.xml',
+        'data/pos_confirm.xml',
+        'data/res_company.xml',
     ],
     'auto_install': ['l10n_in', 'bike_shop'],
 }

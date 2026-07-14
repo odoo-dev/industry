@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="bike_shop.pos_session_1" model="pos.session">
+        <field name="state">closed</field>
+    </record>
+    <function model="account.move" name="button_draft">
+        <function model="account.move" name="search">
+            <value eval="[('pos_order_ids', 'in', [ref('bike_shop.pos_order_2')])]"/>
+        </function>
+    </function>
+    <function model="account.move" name="button_draft">
+        <function model="account.move" name="search">
+            <value eval="[('pos_order_ids', 'in', [ref('bike_shop.pos_order_5')])]"/>
+        </function>
+    </function>
+    <function model="account.move" name="unlink">
+        <function model="account.move" name="search">
+            <value eval="[('pos_order_ids', 'in', [ref('bike_shop.pos_order_2')])]"/>
+        </function>
+    </function>
+    <function model="account.move" name="unlink">
+        <function model="account.move" name="search">
+            <value eval="[('pos_order_ids', 'in', [ref('bike_shop.pos_order_5')])]"/>
+        </function>
+    </function>
+    <record id="point_of_sale.pos_config_retail" model="pos.config" forcecreate="0">
+        <field name="journal_id" eval="False"/>
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.1_sale_export_tax_template" model="account.tax">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.1_purchase_import_tax_template" model="account.tax">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.1_sale_tax_template" model="account.tax">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.1_purchase_tax_template" model="account.tax">
+        <field name="active" eval="False"/>
+    </record>
+</odoo>

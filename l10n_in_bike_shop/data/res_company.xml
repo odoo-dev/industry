@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="base.main_company" model="res.company" forcecreate="0">
+        <field name="name">MyBikeShop</field>
+        <field name="country_id" eval="ref('base.in')"/>
+        <field name="account_fiscal_country_id" eval="ref('base.in')"/>
+    </record>
+    <function model="res.company" name="_onchange_country_id">
+        <value eval="[ref('base.main_company')]"/>
+    </function>
+    <!-- <function model="account.chart.template" name="try_loading">
+        <value eval="[]"/>
+        <value>in</value>
+        <value eval="ref('base.main_company')"/>
+        <value name="install_demo" eval="True"/>
+    </function> -->
+</odoo>

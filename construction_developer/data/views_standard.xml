@@ -34,18 +34,14 @@
                 />
             </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
+                <field name="x_ws_location_id" invisible="True"/>
                 <button
-                    name="%(action_sale_order_worksite_replenishment)d"
+                    name="%(action_ws_product_location_open)d"
                     type="action"
                     class="oe_stat_button"
-                    icon="fa-shopping-cart">
-                    <span class="o_stat_text">Replenishment</span>
-                </button>
-                 <button
-                    name="%(action_server_sale_order_stock_location)d"
-                    type="action"
-                    class="oe_stat_button"
-                    icon="fa-cubes">
+                    icon="fa-cubes"
+                    context="{'location': x_ws_location_id, 'search_default_real_stock_available': 1, 'search_default_real_stock_negative': 1, 'create': False}"
+                    invisible="not x_ws_location_id">
                     <span class="o_stat_text">Stock</span>
                 </button>
             </xpath>

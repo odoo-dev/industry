@@ -24,4 +24,10 @@
         action="action_window_show_channex_groups"
         groups="base.group_system"
     />
+    <menuitem id="logging_menu_item" 
+        name="Channex Logs" 
+        parent="booking_engine.booking_engine_rooms_menu" 
+        action="action_window_show_logging"
+        groups="base.group_no_one"
+    />
 </odoo>

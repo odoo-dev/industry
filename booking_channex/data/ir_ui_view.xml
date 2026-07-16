@@ -61,7 +61,7 @@
                         <field name="x_variant_id" domain="[('x_is_a_room_offer', '=', True)]"/>
                         <field name="x_rate_plan_value_id"/>
                         <field name="x_pricelist_id" />
-                        <field name="x_total_inventory" />
+                        <field name="x_total_occupancy" />
                     </group>
                 </sheet>
             </form>
@@ -78,7 +78,7 @@
                 <field name="x_variant_id" domain="[('x_is_a_room_offer', '=', True)]"/>
                 <field name="x_rate_plan_value_id"/>
                 <field name="x_pricelist_id" />
-                <field name="x_total_inventory" />
+                <field name="x_total_occupancy" />
             </list>
         </field>
     </record>
@@ -211,6 +211,40 @@
         <field name="name">ir.cron form view extension</field>
         <field name="active" eval="True"/>
         <field name="type">form</field>
+    </record>
+    <!-- ir logging views -->
+    <record id="ir_logging_tree_view_extends" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='create_uid']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='dbname']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='type']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='level']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='func']" position="after">
+                <field name="message" optional="show"/>
+            </xpath>
+        </field>
+        <field name="inherit_id" ref="base.ir_logging_tree_view"/>
+        <field name="mode">primary</field>        <field name="model">ir.logging</field>
+        <field name="name">ir.logging.tree.view.extension</field>
+        <field name="active" eval="True"/>
+        <field name="type">list</field>
+    </record>
+    <record id="action_window_show_logging" model="ir.actions.act_window">
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'list', 'view_id': ref('booking_channex.ir_logging_tree_view_extends')})]"/>
     </record>
     <!-- product template views-->
     <record id="product_form_view" model="ir.ui.view">

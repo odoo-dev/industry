@@ -353,6 +353,9 @@ for mapping in mappings:
     <record id="create_property_on_channex" model="ir.actions.server">
         <field name="name">Channex: Sync, Create Property On Channex</field>
         <field name="code"><![CDATA[
+# Validate that each Channex group is assigned to a single company before creating properties.
+if records.filtered(lambda p: len(p.x_channex_group_id.x_company_ids) > 1):
+    raise UserError("Only one company can be assigned to Channex group.")
 if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
     for property in records:
         property_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="property", local_id=property.id).run()

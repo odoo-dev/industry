@@ -90,7 +90,7 @@
         <field name="active" eval="True"/>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false" delete="false">
                 <sheet>
                     <h1>
                         <field name="x_name"/>
@@ -108,7 +108,7 @@
         <field name="active" eval="True"/>
         <field name="type">list</field>
         <field name="arch" type="xml">
-            <list editable="bottom">
+            <list editable="bottom" create="false" delete="false">
                 <field name="x_name"/>
                 <field name="x_company_ids" widget="many2many_tags"/>
             </list>
@@ -235,6 +235,9 @@
                 </div>
                 <div class="alert alert-info" role="alert" style="height: 40px; margin-bottom:0px;" invisible="x_has_rates_attribute">
                     Rate Plan attribute shall be present with one or more values to capture the rate plans on Channex.
+                </div>
+                <div class="alert alert-info" role="alert" style="height: 40px; margin-bottom:0px;" invisible="x_resource_ids">
+                    Resources shall be assigned to capture the room count on Channex.
                 </div>
             </xpath>
             <xpath expr="//group[@name='group_general_info']/group[1]" position="inside">

@@ -32,13 +32,16 @@
             <xpath expr="//field[@name='code']/.." position="inside">
                 <field name="x_currency_id" invisible="True"/>
 
-                <label for="x_unit_cost"/>
-                <div name="x_unit_cost">
-                    <field name="x_unit_cost" widget="monetary" options="{'currency_field': 'x_currency_id'}"/>
+                <field name="x_unit_cost" widget="monetary" options="{'currency_field': 'x_currency_id'}"/>
+                <label for="x_bom_cost" invisible="x_unit_cost == x_bom_cost"/>
+                <div name="x_bom_cost" invisible="x_unit_cost == x_bom_cost">
+                    <field name="x_bom_cost" widget="monetary" options="{'currency_field': 'x_currency_id'}"/>
                     <button
                         name="%(action_compute_bom_cost_from_components)d"
-                        type="action"
-                        string="Compute Cost from Components"
+                        type="action" 
+                        icon="fa-arrow-up" 
+                        title="Apply BOM Cost" 
+                        string="Apply"
                         class="btn btn-link px-0"
                     />
                 </div>
@@ -149,7 +152,7 @@
         <field name="active" eval="True"/>
         <field name="arch" type="xml">
             <xpath expr="//form//header" position="inside">
-                <button string="Check Price Changes"
+                <button string="Check Cost Changes"
                         name="%(action_sale_order_line_bom_list_view)d"
                         type="action"
                         invisible="not x_any_sol_bom"

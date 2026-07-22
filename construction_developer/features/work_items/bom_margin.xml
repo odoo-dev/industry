@@ -24,22 +24,65 @@
         <field name="ttype">monetary</field>
         <field name="currency_field">x_currency_id</field>
         <field name="readonly" eval="True"/>
+        <field name="store" eval="False"/>
+        <field name="compute"><![CDATA[
+for bom in self:
+    bom['x_bom_cost'] = product._compute_bom_price(bom) if (product := bom.product_id or bom.product_tmpl_id.product_variant_id) else 0.0
+]]></field>
+    </record>
+
+    <record model="ir.model.fields" id="field_mrp_bom_x_bom_cost">
+        <field name="name">x_bom_cost</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="field_description">BOM Cost</field>
+        <field name="ttype">monetary</field>
+        <field name="currency_field">x_currency_id</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="compute"><![CDATA[
+for bom in self:
+    bom['x_bom_cost'] = product._compute_bom_price(bom) if (product := bom.product_id or bom.product_tmpl_id.product_variant_id) else 0.0
+]]></field>
     </record>
 
 
-
+    <!-- 
+        Update the cost when a bom is modified.
+    -->
     <record model="ir.actions.server" id="action_compute_bom_cost_from_components">
-        <field name="name">Construction Developer: Compute BOM Cost from Components</field>
-        <field name="model_id" ref="mrp.model_mrp_bom" />
+        <field name="name">Construction Developer: Compute BOM Cost</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
         <field name="state">code</field>
         <field name="code">
-for bom in records:
-    product = bom.product_id or bom.product_tmpl_id.product_variant_id
-
-    bom['x_unit_cost'] = product._compute_bom_price(bom) if product else 0.0
+for bom in (records or env.context.get('boms', [])):
+    bom['x_unit_cost'] = product._compute_bom_price(bom) if (product := bom.product_id or bom.product_tmpl_id.product_variant_id) else 0.0
 </field>
     </record>
 
+    <record model="ir.actions.server" id="action_compute_line_bom_cost_from_components">
+        <field name="name">Construction Developer: Compute BOM Cost from Lines</field>
+        <field name="model_id" ref="mrp.model_mrp_bom_line"/>
+        <field name="state">code</field>
+        <field name="code">
+action = env.ref('construction_developer.action_compute_bom_cost_from_components').with_context(boms=records.bom_id).run()
+</field>
+    </record>
+
+    <record model="base.automation" id="automation_sol_price_and_cost_on_bom_line_write">
+        <field name="name">Construction Developer: Update BOM cost from BOM Line on write</field>
+        <field name="model_id" ref="mrp.model_mrp_bom_line"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6,0,[ref('mrp.field_mrp_bom_line__product_id'), ref('mrp.field_mrp_bom_line__product_qty'), ref('mrp.field_mrp_bom_line__uom_id')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('construction_developer.action_compute_line_bom_cost_from_components')])]"/>
+    </record>
+
+    <record model="base.automation" id="automation_bom_cost_on_bom_lines_write">
+        <field name="name">Construction Developer: Update BOM cost on write</field>
+        <field name="model_id" ref="mrp.model_mrp_bom"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6,0,[ref('mrp.field_mrp_bom__bom_line_ids')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('construction_developer.action_compute_bom_cost_from_components')])]"/>
+    </record>
 
     <!-- 
         Update the price and the cost when a bom is selected.

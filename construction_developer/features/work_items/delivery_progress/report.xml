@@ -50,13 +50,6 @@ for sol in self: sol['x_invoice_increment'] = sol.price_subtotal * sum(prod.x_in
         <field name="relation">res.partner</field>
     </record>
 
-    <record model="ir.model.fields" id="field_xxxxxxxxxxxxxxxxxxxxxxxxx_placeholder_for_the_reference_field_coming_in_another_feature_later">
-        <field name="name">x_reference</field>
-        <field name="model_id" ref="sale.model_sale_order_line"/>
-        <field name="field_description">Reference</field>
-        <field name="ttype">char</field>
-    </record>
-
 
 
     <record model="ir.actions.server" id="action_print_progress_report">

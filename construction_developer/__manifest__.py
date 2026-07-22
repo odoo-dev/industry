@@ -13,6 +13,7 @@
         'data/res_config_settings.xml',
         'data/stock_location.xml',
 
+        'features/sol_numbering.xml',
         'features/work_items/create_worksite_loc_on_so_confirm.xml',
         'features/work_items/route_configs.xml',
         'features/work_items/link_mrp_loc_bom_on_so_confirm.xml',
@@ -35,6 +36,7 @@
 
         'security/ir_access.xml',
         'data/views_standard.xml',
+        'data/qweb_view.xml',
     ],
     'demo': [
         'demo/stock_location.xml',
@@ -47,7 +49,8 @@
         ],
     },
     'cloc_exclude': [
-        'features/work_items/delivery_progress_report/templates.xml',
+        'data/qweb_view.xml',
+        'features/work_items/delivery_progress/templates.xml',
     ],
     'images': ['images/main.png'],
     'license': 'OEEL-1',

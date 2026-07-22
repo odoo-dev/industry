@@ -46,7 +46,7 @@ for sol in self:
         <field name="code">
 # required parameter
 sol, bom = env.context.get('bom_sol'), env.context.get('bom')
-code = f"{sol.order_id.name} - {sol.order_id.partner_id.name}" + f" - {bom.code}" * bool(bom.code and bom.code != "Template")
+code = f"{sol.x_reference} - {sol.order_id.partner_id.name}" + f" - {bom.code}" * bool(bom.code and bom.code != "Template")
 
 action = bom.copy({'code': code, 'x_original_sol_id': sol.id, 'x_parent_bom_id': bom.id})
 sol['x_bom_id'] = action

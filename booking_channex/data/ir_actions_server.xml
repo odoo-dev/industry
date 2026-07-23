@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- There is a weird unwanted behavior for this server action:
-        If it is called to make a call for PUT/DELETE where the record does not exist on channex, and that we get the 404 response, action that returns it is empty
-        More generally, if we do a failing http request and that we put it in a variable, the action will always be overwritten by false after execution
-        Example, this returns false:
-            res = requests.request(method="PUT", url="my_object_url", data=data_to_send...)
-            action = "some random string"
-        while this returns "some random string":
-            requests.request(method="PUT", url="my_object_url", data=data_to_send...)
-            action = "some random string"
-        This is probably an error between the server action and the requests behavior. Currently, it is not something 
-        bad for this module but we should be cautious when writing other server actions using this one.
-    -->
+    <!-- We had to use response instead of action, as the action value was sometime overwritten by the response from channex (when request code >= 300, action is false as if server action failed) -->
     <record id="requests_to_channex" model="ir.actions.server">
         <field name="name">Send HTTP request to channex</field>
         <field name="code"><![CDATA[
@@ -21,7 +10,7 @@ try:
     method, endpoint = env.context.get('method'), env.context.get('endpoint')
     if not method or method not in ["GET", "POST", "PUT", "DELETE"]: raise UserError("Http request to channex cannot be sent because method is invalid (not GET, POST, PUT or DELETE)")
     if not endpoint: raise UserError("Http request to channex cannot be sent because endpoint is empty")
-    response = requests.request(
+    res = requests.request(
         method=method,
         url=f"{BASE_URL}/{endpoint}",
         data=json.dumps(env.context.get('payload', {})),
@@ -30,12 +19,11 @@ try:
             'user-api-key': env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key')
         }
     )
-    if not(method in ["DELETE", "PUT"] and response.status_code == 404):
-        response.raise_for_status()
-    action = response.json()
+    res.raise_for_status()
+    response = request.make_json_response(res.json(), status=200)
 except Exception as e:
-    if method in ["DELETE", "PUT"] and response.status_code == 404:
-        action = response.json()
+    if res.status_code < 300 or (method in ["DELETE", "PUT"] and res.status_code == 404):
+        response = request.make_json_response(res.json(), status=200)
     else:
         raise UserError(f"Channex API error: {str(e)}\n\nFailed with the payload:\n{str(env.context.get('payload', {}))}")
 ]]></field>
@@ -77,7 +65,7 @@ env.ref('booking_channex.requests_to_channex').with_context(
 if event == 'booking_new':
     full_booking = env.ref('booking_channex.requests_to_channex').with_context(
         method="GET", endpoint="bookings/%s" % payload_infos.get('booking_id', '')
-    ).run().json().get('data', {}).get('attributes', {})
+    ).run().json.get('data', {}).get('attributes', {})
 
     #To remove after development, display the booking received to have it easier to debug
     records.env.ref('booking_channex.webhook_get_booking_create_change_or_delete').message_post(body=str(full_booking))
@@ -327,7 +315,7 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
         group_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="group", local_id=group.id).run()
         if not group_mapping.x_remote_id:
             data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint='groups', payload={"group": {"title": group.x_name or ""}}).run()
-            remote_id = data.json().get('data', {}).get('attributes', {}).get('id')
+            remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
             if not remote_id:
                 raise UserError("Invalid response from Channex for the creation of a group corresponding to group with id %s" % str(property.id))
             mapping.write({'x_remote_id': remote_id})
@@ -357,7 +345,6 @@ for mapping in mappings:
     env.ref('booking_channex.requests_to_channex').with_context(
         method="PUT", endpoint="groups/%s" % mapping.x_remote_id, payload={"group": {"title": env['x_channex_group'].browse(mapping.x_local_id).x_name or ""}}
     ).run()
-mappings.unlink()
 ]]></field>
         <field name="model_id" ref="x_channex_group_model"/>
         <field name="state">code</field>
@@ -388,7 +375,7 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
                     "website": property.website or '',
                 }
             }).run()
-            remote_id = data.json().get('data', {}).get('attributes', {}).get('id')
+            remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
             if not remote_id:
                 raise UserError("Invalid response from Channex for the creation of property corresponding to company with id %s" % str(property.id))
             property_mapping.write({'x_remote_id': remote_id})
@@ -462,7 +449,7 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
             room_can_be_on_channex = (len(guests_attribute_value) == 1 and room.x_is_a_room_offer and room.product_tmpl_id.x_has_rates_attribute and room.active)
             if room_can_be_on_channex and mapped_product: #Update
                 if remote_id := room_mappings_dict.get(room.id):
-                    response = env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="room_types/%s" % remote_id, payload={
+                    res = env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="room_types/%s" % remote_id, payload={
                         "room_type": {
                             "title": room.display_name,
                             "count_of_rooms": room.x_resources_amount or 1,
@@ -470,7 +457,7 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
                             "default_occupancy": (guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants) or 1
                         }
                     }).run()
-                    if not response or response.status_code == 404:
+                    if res.json.get('errors', {}).get('code', "") == "resource_not_found":
                         action = {
                             'type': 'ir.actions.client',
                             'tag': 'display_notification',
@@ -487,7 +474,7 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
                         "default_occupancy": (guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants) or 1
                     }
                 }).run()
-                remote_id = data.json().get('data', {}).get('attributes', {}).get('id')
+                remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
                 if not remote_id: raise UserError("Invalid response from Channex for the creation of room corresponding to product variant with id %s" % str(room.id))
                 room_mapping.write({'x_remote_id': remote_id})
             elif not room_can_be_on_channex and mapped_product: #Delete
@@ -546,9 +533,9 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
                     }
                 }
             ).run()
-            remote_id = data.json().get('data', {}).get('attributes', {}).get('id')
-            if not remote_id: raise UserError("Invalid response from Channex: " + data.json().get('errors', {}).get('title', ''))
-            new_mappings.filtered(lambda m: m.x_local_id == record.id).write({'x_remote_id': remote_id})
+            remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
+            if not remote_id: raise UserError("Invalid response from Channex: " + data.json.get('errors', {}).get('title', ''))
+            new_mappings.filtered(lambda m: m.x_local_id == rp.id).write({'x_remote_id': remote_id})
 ]]></field>
         <field name="model_id" ref="x_rate_plan_model"/>
         <field name="state">code</field>
@@ -700,7 +687,7 @@ action = payload_values
 def create_on_channex(endpoint, payload, mapping, error_msg):
     try:
         data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint=endpoint, payload=payload).run()
-        remote_id = data.json().get('data', {}).get('attributes', {}).get('id')
+        remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
 
         if not remote_id:
             raise UserError(f"{error_msg}: Invalid response from Channex")
@@ -727,12 +714,8 @@ if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
 else:
     # webhook
     #ERROR if localhost is used as an url, we cannot test it if we are in local
-    try:
-        resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
-        resp.raise_for_status()
-        data = resp.json()
-    except Exception as e:
-        raise UserError(f"Error fetching webhooks: {str(e)}")
+    resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
+    data = resp.json
 
     channex_webhooks = data.get('data', [])
     odoo_webhook = env.ref('booking_channex.webhook_get_booking_create_change_or_delete')
@@ -985,7 +968,7 @@ rate_plans_to_update = []
 #RATE PLANS
 all_channex_rate_plans = env.ref('booking_channex.requests_to_channex').with_context(
     method="GET", endpoint="rate_plans"
-).run().json().get('data', {})
+).run().json.get('data', {})
 
 channex_rate_plans_by_id = {rate_plan.get("id"): rate_plan for rate_plan in all_channex_rate_plans}
 channex_rates_mapping = {}
@@ -1018,7 +1001,7 @@ self.env['ir.cron']._commit_progress(remaining=4)
 #ROOMS
 all_channex_rooms = env.ref('booking_channex.requests_to_channex').with_context(
     method="GET", endpoint="room_types"
-).run().json().get('data', {})
+).run().json.get('data', {})
 
 channex_rooms_by_id = {room.get("id"): room for room in all_channex_rooms}
 channex_rooms_mapping = {}
@@ -1052,7 +1035,7 @@ self.env['ir.cron']._commit_progress(remaining=3)
 #PROPERTIES
 all_channex_properties = env.ref('booking_channex.requests_to_channex').with_context(
     method="GET", endpoint="properties"
-).run().json().get('data', {})
+).run().json.get('data', {})
 
 channex_properties_by_id = {property.get("id"): property for property in all_channex_properties}
 channex_properties_mapping = {}
@@ -1079,7 +1062,7 @@ self.env['ir.cron']._commit_progress(remaining=2)
 #GROUPS
 all_channex_groups = env.ref('booking_channex.requests_to_channex').with_context(
     method="GET", endpoint="groups"
-).run().json().get('data', {})
+).run().json.get('data', {})
 
 channex_groups_by_id = {group.get("id"): group for group in all_channex_groups}
 channex_groups_mapping = {}

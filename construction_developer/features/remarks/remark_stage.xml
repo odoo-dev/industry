@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record model="ir.model" id="model_x_remark_stage">
+        <field name="name">Remark Stage</field>
+        <field name="model">x_remark_stage</field>
+    </record>
+
+
+
+    <record model="ir.model.fields" id="field_x_remark_stage_x_name">
+        <field name="name">x_name</field>
+        <field name="model_id" ref="model_x_remark_stage"/>
+        <field name="field_description">Name</field>
+        <field name="ttype">char</field>
+        <field name="required" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_stage_x_sequence">
+        <field name="name">x_sequence</field>
+        <field name="model_id" ref="model_x_remark_stage"/>
+        <field name="field_description">Sequence</field>
+        <field name="ttype">integer</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_stage_x_project_ids">
+        <field name="name">x_project_ids</field>
+        <field name="model_id" ref="model_x_remark_stage"/>
+        <field name="field_description">Projects</field>
+        <field name="ttype">many2many</field>
+        <field name="relation">project.project</field>
+        <field name="relation_field">x_remark_stage_ids</field>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_x_remark_x_stage_id">
+        <field name="name">x_stage_id</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Remark Stage</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">x_remark_stage</field>
+        <field name="group_expand" eval="True"/>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_project_x_remark_stage_ids">
+        <field name="name">x_remark_stage_ids</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="field_description">Remark Stages</field>
+        <field name="ttype">many2many</field>
+        <field name="relation">x_remark_stage</field>
+        <field name="relation_field">x_project_ids</field>
+    </record>
+
+
+
+    <record model="ir.actions.server" id="action_x_remark_write_remark_stage_on_create_or_write">
+        <field name="name">Construction Developer: Write Remark Stages on Create or Write</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="state">code</field>
+        <field name="code">
+for record in records:
+    if not record.x_project_id.x_remark_stage_ids and (stage := env.ref('construction_developer.project_x_remark_stage_1', raise_if_not_found=False)): stage.update({'x_project_ids': [Command.link(record.x_project_id.id)]})
+    record['x_stage_id'] = env['x_remark_stage'].search([('x_project_ids', 'in', record.x_project_id)], order='x_sequence', limit=1)
+</field>
+    </record>
+
+    <record model="base.automation" id="automation_x_remark_write_remark_stage_on_create_or_write">
+        <field name="name">Construction Developer: Write Remark Stages on Write</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain">[('x_stage_id', '=', False)]</field>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_x_remark_write_remark_stage_on_create_or_write')])]"/>
+        <field name="trigger_field_ids" eval="[(6, 0, [])]"/>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="view_x_remark_stage_form">
+        <field name="name">construction.remarks.x_remark_stage.view.form</field>
+        <field name="model">x_remark_stage</field>
+        <field name="type">form</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Remark Stages">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="d-flex w-100">
+                            <field name="x_name" options="{'line_breaks': False}" widget="text" class="o_task_name text-truncate w-md-75 w-100 pe-2" placeholder="Stage Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="x_project_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_x_remark_stage_list">
+        <field name="name">construction.remarks.x_remark_stage.view.list</field>
+        <field name="model">x_remark_stage</field>
+        <field name="type">list</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <list editable="top" default_order="x_sequence">
+                <field name="x_sequence" widget="handle" optional="show"/>
+                <field name="x_name"/>
+                <field name="x_project_ids" widget="many2many_tags" required="True"/>
+            </list>
+        </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="menu_action_x_remark_stage_list_view">
+        <field name="name">Remark Stages</field>
+        <field name="res_model">x_remark_stage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+
+    <record model="ir.ui.menu" id="menu_contruction_remarks_configuration_x_remark_stage">
+        <field name="name">Remark Stages</field>
+        <field name="action" ref="menu_action_x_remark_stage_list_view"/>
+        <field name="parent_id" ref="project.menu_project_config"/>
+        <field name="sequence">99</field>
+    </record>
+</odoo>

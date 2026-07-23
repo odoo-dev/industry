@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record model="ir.model" id="model_x_remark">
+        <field name="name">Remark</field>
+        <field name="model">x_remark</field>
+        <field name="is_mail_thread" eval="True"/>
+        <field name="is_mail_activity" eval="True"/>
+    </record>
+
+
+
+    <record model="ir.model.fields" id="field_x_remark_x_name">
+        <field name="name">x_name</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Name</field>
+        <field name="ttype">char</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_priority">
+        <field name="name">x_priority</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Priority</field>
+        <field name="ttype">selection</field>
+    </record>
+
+     <record model="ir.model.fields.selection" id="field_x_remark_x_priority_selection_0">
+        <field name="name">Low Priority</field>
+        <field name="field_id" ref="field_x_remark_x_priority"/>
+        <field name="value">0</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_priority_selection_1">
+        <field name="name">Medium Priority</field>
+        <field name="field_id" ref="field_x_remark_x_priority"/>
+        <field name="value">1</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_priority_selection_2">
+        <field name="name">High Priority</field>
+        <field name="field_id" ref="field_x_remark_x_priority"/>
+        <field name="value">2</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_priority_selection_3">
+        <field name="name">Urgent</field>
+        <field name="field_id" ref="field_x_remark_x_priority"/>
+        <field name="value">3</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_state">
+        <field name="name">x_state</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">State</field>
+        <field name="ttype">selection</field>
+    </record>
+
+     <record model="ir.model.fields.selection" id="field_x_remark_x_state_selection_in_progress">
+        <field name="name">In Progress</field>
+        <field name="field_id" ref="field_x_remark_x_state"/>
+        <field name="value">01_in_progress</field>
+    </record>
+
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_state_selection_changes_requested">
+        <field name="name">Changes Requested</field>
+        <field name="field_id" ref="field_x_remark_x_state"/>
+        <field name="value">02_changes_requested</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_state_selection_approved">
+        <field name="name">Approved</field>
+        <field name="field_id" ref="field_x_remark_x_state"/>
+        <field name="value">03_approved</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_state_selection_done">
+        <field name="name">Done</field>
+        <field name="field_id" ref="field_x_remark_x_state"/>
+        <field name="value">1_done</field>
+    </record>
+
+    <record model="ir.model.fields.selection" id="field_x_remark_x_state_selection_canceled">
+        <field name="name">Canceled</field>
+        <field name="field_id" ref="field_x_remark_x_state"/>
+        <field name="value">1_canceled</field>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_x_remark_x_project_id">
+        <field name="name">x_project_id</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Project</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">project.project</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_description">
+        <field name="name">x_description</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Description</field>
+        <field name="ttype">html</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_date_deadline">
+        <field name="name">x_date_deadline</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Deadline</field>
+        <field name="ttype">date</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_date">
+        <field name="name">x_date</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Date</field>
+        <field name="ttype">date</field>
+        <field name="compute"><![CDATA[
+for record in self: record['x_date'] = record['x_date'] or datetime.datetime.today().date()
+]]></field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_reference">
+        <field name="name">x_reference</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="ttype">char</field>
+        <field name="field_description">Reference</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_location">
+        <field name="name">x_location</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Location</field>
+        <field name="ttype">char</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_event_id">
+        <field name="name">x_event_id</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Event</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">calendar.event</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_project_update_id">
+        <field name="name">x_update_id</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Project Update</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">project.update</field>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_x_partner_id">
+        <field name="name">x_partner_id</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Owner</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_event_x_project_id">
+        <field name="name">x_project_id</field>
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="field_description">Project</field>
+        <field name="ttype">many2one</field>
+        <field name="relation">project.project</field>
+    </record>
+
+    <record model="ir.model.fields" id="field_event_x_remark_ids">
+        <field name="name">x_remark_ids</field>
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="field_description">Remarks</field>
+        <field name="ttype">one2many</field>
+        <field name="relation">x_remark</field>
+        <field name="relation_field">x_event_id</field>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_project_update_x_remark_ids">
+        <field name="name">x_remark_ids</field>
+        <field name="model_id" ref="project.model_project_update"/>
+        <field name="field_description">Remarks</field>
+        <field name="ttype">one2many</field>
+        <field name="relation">x_remark</field>
+        <field name="relation_field">x_update_id</field>
+    </record>
+
+
+    <data noupdate="1">
+        <record model="ir.default" id="default_x_remark_x_priority">
+            <field name="field_id" ref="field_x_remark_x_priority"/>
+            <field name="json_value">"0"</field>
+        </record>
+    </data>
+
+
+
+    <!-- 
+    server action and not compute because otherwise compute generates the same ID if
+    creating multiple remarks from a one2many list since they are not saved yet so
+    we cannot access the previous reference, resulting in duplicates
+    -->
+    <record model="ir.actions.server" id="action_x_remark_generate_x_reference_on_create">
+        <field name="name">Construction Developer: Generate Remark Reference on Create</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="state">code</field>
+        <field name="code">
+for record in records:
+    # project already has remarks
+    if (project := record.x_project_id) and (last_ref := env['x_remark'].search([('x_project_id', '=', project.id), ('x_reference', '!=', False)], order='x_reference DESC', limit=1)): 
+        pid, rid = last_ref.x_reference.split('-')
+    # project has no remarks but has SO
+    elif so := project.sale_order_id:  
+        pid, rid = so.name[1:], 0
+    # no SO but made from SO
+    elif project and (soid := project.name.split('-')[0].strip()).startswith('S') and soid[1:].isnumeric(): 
+        pid, rid = soid[1:], 0
+    # no SO (fallback case, should ideally not be needed)
+    else:
+        pid, rid = last_rem[0].x_reference.split('-') if (last_rem := env['x_remark'].search([('x_reference', 'like', '00000-')], order='x_reference DESC')) else ("00000", 0)
+    record['x_reference'] = f"{pid}-{int(rid) + 1:05d}"
+</field>
+    </record>
+
+    <record model="base.automation" id="automation_x_remark_generate_x_reference_on_create">
+        <field name="name">Construction Developer: Generate Remark References on Create</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="trigger">on_create</field>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_x_remark_generate_x_reference_on_create')])]"/>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="menu_action_project_x_remark_kanban_view">
+        <field name="name">Remarks</field>
+        <field name="res_model">x_remark</field>
+        <field name="context" eval="{
+            'search_default_open_remarks': 1,
+            'force_open_attachments': 1,
+        }"/>
+        <field name="view_mode">list,form</field>
+        <field name="help"><![CDATA[
+            <p class="o_view_nocontent_smiling_face">
+                No remarks, let's create one!
+            </p>
+        ]]></field>
+    </record>
+
+
+
+    <record model="ir.ui.menu" id="menu_contruction_remarks_reporting_x_remark">
+        <field name="name">Remarks</field>
+        <field name="action" ref="menu_action_project_x_remark_kanban_view"/>
+        <field name="parent_id" ref="project.menu_project_report"/>
+        <field name="sequence">99</field>
+    </record>
+</odoo>

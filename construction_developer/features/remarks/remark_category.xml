@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!--
+        This feature adds
+    -->
+    <record model="ir.model" id="model_x_remark_category">
+        <field name="name">Remark Category</field>
+        <field name="model">x_remark_category</field>
+    </record>
+
+
+
+    <record model="ir.model.fields" id="field_x_remark_x_category">
+        <field name="name">x_remark_category_ids</field>
+        <field name="model_id" ref="model_x_remark"/>
+        <field name="field_description">Category</field>
+        <field name="ttype">many2many</field>
+        <field name="relation">x_remark_category</field>
+    </record>
+
+
+    <record model="ir.model.fields" id="field_x_remark_category_x_name">
+        <field name="name">x_name</field>
+        <field name="model_id" ref="model_x_remark_category"/>
+        <field name="field_description">Name</field>
+        <field name="ttype">char</field>
+        <field name="required" eval="True"/>
+    </record>
+
+    <record model="ir.model.fields" id="field_x_remark_category_x_color">
+        <field name="name">x_color</field>
+        <field name="model_id" ref="model_x_remark_category"/>
+        <field name="field_description">Color</field>
+        <field name="ttype">integer</field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="view_x_remark_category_form">
+        <field name="name">construction_developer.x_remark_category.view.form</field>
+        <field name="model">x_remark_category</field>
+        <field name="type">form</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Remark Categories">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="d-flex w-100">
+                            <field name="x_name" options="{'line_breaks': False}" widget="text" class="o_task_name text-truncate w-md-75 w-100 pe-2" placeholder="Category Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="x_color" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_x_remark_category_list">
+        <field name="name">construction.remarks.x_remark_category.view.list</field>
+        <field name="model">x_remark_category</field>
+        <field name="type">list</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <list editable="top">
+                <field name="x_name"/>
+                <field name="x_color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="menu_action_x_remark_category_list_view">
+        <field name="name">Remark Categories</field>
+        <field name="res_model">x_remark_category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+
+    <record model="ir.ui.menu" id="menu_contruction_remarks_configuration_x_remark_category">
+        <field name="name">Remark Categories</field>
+        <field name="action" ref="menu_action_x_remark_category_list_view"/>
+        <field name="parent_id" ref="project.menu_project_config"/>
+        <field name="sequence">98</field>
+    </record>
+</odoo>

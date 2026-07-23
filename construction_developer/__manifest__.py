@@ -13,6 +13,13 @@
         'data/res_config_settings.xml',
         'data/stock_location.xml',
 
+        'features/remarks/remark.xml',
+        'features/remarks/remark_category.xml',
+        'features/remarks/remark_stage.xml',
+        'features/remarks/remark_views_and_actions.xml',
+        'data/x_remark_category.xml',
+        'data/x_remark_stage.xml',
+
         'features/sol_numbering.xml',
         'features/work_items/create_worksite_loc_on_so_confirm.xml',
         'features/work_items/route_configs.xml',
@@ -44,6 +51,9 @@
         'demo/res_partner.xml',
     ],
     'assets': {
+        'web.assets_backend': [
+            'construction_developer/static/src/js/mail_chatter.xml',
+        ],
         'web.assets_backend_lazy': [
             'construction_developer/static/src/js/patch.js',  # web_gantt/gantt_renderer is lazy so this needs to be lazy too
         ],
@@ -51,6 +61,7 @@
     'cloc_exclude': [
         'data/qweb_view.xml',
         'features/work_items/delivery_progress/templates.xml',
+        'static/src/js/mail_chatter.xml',
     ],
     'images': ['images/main.png'],
     'license': 'OEEL-1',

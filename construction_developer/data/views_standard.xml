@@ -1,5 +1,29 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
+    <record model="ir.ui.view" id="view_calendar_event_form_inherit">
+        <field name="name">calendar.event.view.form.inherit.construction_developer</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="type">form</field>
+        <field name="mode">extension</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_invitations']" position="after">
+                <page name="remarks" string="Remarks">
+                    <group class="mb-0">
+                        <field name="x_project_id" class="mb-0"/>
+                    </group>
+                    <field name="x_remark_ids" readonly="not x_project_id" nolabel="1" context="{
+                        'default_x_project_id': x_project_id,
+                        'default_x_event_id': id,
+                        'list_view_ref': 'construction_developer.view_x_remark_list_one2many',
+                    }"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
     <record model="ir.ui.view" id="mrp_bom_form_view_inherit">
         <field name="name">mrp.bom.view.form.inherit.construction_developer</field>
         <field name="model">mrp.bom</field>
@@ -116,6 +140,27 @@
             </xpath>
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="x_progress_approver" widget="many2one_avatar_user"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="project_update_view_form_inherit">
+        <field name="name">project.update.view.form.inherit.construction_developer</field>
+        <field name="model">project.update</field>
+        <field name="inherit_id" ref="project.project_update_view_form"/>
+        <field name="mode">extension</field>
+        <field name="type">form</field>
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='description']" position="after">
+                <page name="remarks" string="Remarks">
+                    <field name="x_remark_ids" nolabel="1" context="{
+                        'default_x_project_id': project_id,
+                        'default_x_update_id': id,
+                        'list_view_ref': 'construction_developer.view_x_remark_list_one2many',
+                    }"/>
+                </page>
             </xpath>
         </field>
     </record>

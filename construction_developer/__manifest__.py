@@ -13,6 +13,8 @@
         'data/res_config_settings.xml',
         'data/stock_location.xml',
 
+        'features/automate_cost_update.xml',
+
         'features/remarks/remark.xml',
         'features/remarks/remark_category.xml',
         'features/remarks/remark_stage.xml',

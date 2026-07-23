@@ -35,6 +35,7 @@
         'features/work_items/delivery_progress/delivery_progress.xml',
         'features/work_items/delivery_progress/report.xml',
         'features/work_items/delivery_progress/templates.xml',
+        'features/work_items/contract_type.xml',
         'features/work_items/work_breakdown_structure.xml',
 
 

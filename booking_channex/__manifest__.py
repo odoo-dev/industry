@@ -1,7 +1,7 @@
 {
     'name': 'Booking Channex',
     'author': 'Odoo S.A.',
-    'category': 'Hidden/Tools',
+    'category': 'Hospitality',
     'depends': [
         'booking_engine',
     ],

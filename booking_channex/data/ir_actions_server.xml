@@ -85,111 +85,120 @@ env['ir.logging'].create({
         <field name="model_id" ref="sale.model_sale_order" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
+def log_sync_message(func, path, mes): env.ref('booking_channex.util_log_message').with_context(message=mes, path=path, func=func).run()
+
 odoo_secret_token = env['ir.config_parameter'].get_str('booking_channex.x_channex_token')
-channex_secret_token = payload.get('headers', {}).get('x-channex-token')
 
-if not channex_secret_token or channex_secret_token != odoo_secret_token:
-    raise UserError("Unauthorized access.")   # temperary for testing,
-#TODO: Log as FRVA did for daily sync a denied booking webhook query due to erroneous secret token
-
-#Récupérer la demande de booking
-event = payload.get('event')
-payload_infos = payload.get('payload', {})
-env.ref('booking_channex.requests_to_channex').with_context(
-    method="POST", endpoint="booking_revisions/%s/ack" % payload_infos.get('booking_revision_id', '')
-).run()#Whether valid or not, it should be acknowledged.
-if event == 'booking_new':
-    full_booking = env.ref('booking_channex.requests_to_channex').with_context(
-        method="GET", endpoint="bookings/%s" % payload_infos.get('booking_id', '')
-    ).run().json.get('data', {}).get('attributes', {})
-
-    #To remove after development, display the booking received to have it easier to debug
-    records.env.ref('booking_channex.webhook_get_booking_create_change_or_delete').message_post(body=str(full_booking))
-
-    customer = full_booking.get('customer', False)
-    if customer:
-        partner = env['res.partner']._retrieve_partner(name=customer.get('name', ''), phone=customer.get('phone', False), email=customer.get('mail', ''))
-        if not partner:
-            partner = env['res.partner']._retrieve_partner(name=customer.get('name', '') + ' ' + customer.get('surname', ''), phone=customer.get('phone', False), email=customer.get('mail', ''))
-        if not partner:
-            country = env['res.country'].search([('code', '=', customer.get('country', '').lower())]) if customer.get('country', False) else env['res.country']
-            state = env['res.country.state'].search(
-                [('country_id', '=', country.id), ('code', '=', customer.get('state', ''))], limit=1,
-            ) if customer.get('state', '') and country else env['res.country.state']
-            partner = env['res.partner'].create({
-                'name': customer.get('name', '') + ' ' + customer.get('surname', ''), 'email': customer.get('mail', ''), 'phone': customer.get('phone', False),
-                'state_id': state.id, 'country_id': country.id, 'zip': customer.get('zip', False), 'city': customer.get('city', ''), 'street': customer.get('address', ''),
-            })
-    else:
-        partner = env['res.partner'].create({'name': payload_infos.get('customer_name', 'channex partner')})
-    currency_id = env['res.currency'].with_context(active_test=False).search([('name', '=', full_booking.get('currency', False))], limit=1)
-    if not currency_id: raise UserError(_('Could not find currency %s', currency))
-    so = env['sale.order'].create({
-        'partner_id': partner.id, 'is_rental_order': True, 'currency_id': currency_id.id
-    })
-    for room in full_booking.get('rooms', []):
-        room_mapping = env['x_channex_mapping'].search(
-            [("x_model_type", "=", "room_type"), ('x_remote_id', '=', room.get('room_type_id', ''))], limit=1
-        )
-        env['sale.order.line'].create({
-            'product_id': env['product.product'].browse(room_mapping.x_local_id).id,
-            'is_rental': True,
-            'order_id': so.id,
-            'price_unit': room.get('amount', 0),
-            'currency_id': currency_id.id,
-        })
-        #if (guests := room.get('guests', [])):
-        #    env['sale.order.line'].create({
-        #        'display_type': 'line_note',
-        #        'order_id': so.id,
-        #        'name': "Guests: " + "\n".join(guest.get('name', '') + ' ' + guest.get('surname', '') for guest in guests)
-        #            + "\n" + #occupancy and days
-        #    })
-    so['rental_start_date'] = (full_booking.get('arrival_date', '') + ' ' + full_booking.get('arrival_hour', '')).strip()
-    so['rental_return_date'] = full_booking.get('departure_date')
-    # assert float_compare(so['total_amount'], payload_infos.get('amount'), precision_digits=2) == 0
-    env["x_channex_mapping"].create({
-        "x_model_type": "booking",
-        "x_local_id": so.id,
-        "x_remote_id": payload_infos.get('booking_id', ''),
-    })
+if not payload:
+    log_sync_message("/", "odoo webhook", "Error: No payload was sent with the message.")
+elif not request.httprequest.headers.get('X-Channex-Token') or request.httprequest.headers.get('X-Channex-Token') != odoo_secret_token:
+    log_sync_message("/", "odoo webhook", "Error Unauthorized: a booking with incorrect token was received by the webhook managing bookings.")
+else:
+    event = payload.get('event') # Tell if it is a create, delete or update
+    payload_infos = payload.get('payload', {})
     try:
-        so.action_confirm()
-    except Exception as exc:
-        env['mail.activity'].create({
-            'res_model_id': env['ir.model']._get_id('sale.order'),
-            'res_id': so.id,
-            'activity_type_id': env.ref('mail.mail_activity_data_todo').id,
-            'summary': 'Confirm Order',
-            'date_deadline': datetime.datetime.today(),
-        })
-elif booking_id := payload_infos.get('booking_id'):
-    mapped_so = env["x_channex_mapping"].search([
-        ("x_model_type", "=", "booking"),
-        ("x_remote_id", "=", booking_id),
-    ], limit=1)
-    if event == 'booking_modification':
-        pass #Here we should modify the booking, can we do that extensively and automatically ? or should we simply create a task to
-        #take into account new reservation (could create overlapping issues later)
-    elif event == 'booking_cancellation':
-        env['sale.order'].browse(mapped_so.x_local_id).action_cancel()
-
-# Not used keys in booking_new
-
-# id, meta, status, services, agent, amount (use rooms), unique_id, inserted_at, channel_id, has_unacked_revisions,
-# secondary_ota, guarantee, acknowledge_status, raw_message, revision_id, is_crs_revision, ota_name, deposits, notes,
-# ota_commission, ota_reservation_code, payment_collect, payment_type, occupancy
-
-# in rooms: meta, taxes, ota_commission, is_cancelled, ota_unique_id, services, booking_room_id, guests, days
-
-# in customer: meta, language
-
-# TODO
-# use occupancy from rooms(?)
-# checkin/out_date from rooms (?)
-# rate_plan_id from rooms (?)
-# use property_id in the mapping
-# where do we store some useful info like OTA (ota_name, ota_commission, ota_reservation_code), occupancy, notes, deposits, ...?
+        env.ref('booking_channex.requests_to_channex').with_context(
+            method="POST", endpoint="booking_revisions/%s/ack" % payload_infos.get('booking_revision_id', '')
+        ).run() # Whether valid or not, it should be acknowledged.
+    except Exception as e:
+        log_sync_message("/", "odoo webhook", f"Error: Couldn't send the booking acknowledgment ; error is {str(e)}.")
+    booking_mapping = False
+    if booking_id := payload_infos.get('booking_id'):
+        booking_mapping = env["x_channex_mapping"].search([('x_model_type', '=', 'booking'), ('x_remote_id', '=', booking_id), ('x_local_id', '!=', False)], limit=1)
+    try:
+        full_booking = env.ref('booking_channex.requests_to_channex').with_context(
+            method="GET", endpoint="bookings/%s" % payload_infos.get('booking_id', '')
+        ).run().json.get('data', {}).get('attributes', {})
+    except Exception as e:
+        log_sync_message("/", "odoo webhook", f"Error: Couldn't get the full booking informations ; error is {str(e)}.")
+    if not booking_mapping and event == 'booking_new':
+        if full_booking:
+            customer = full_booking.get('customer', False)
+            if customer:
+                partner = env['res.partner']._retrieve_partner(name=customer.get('name', ''), phone=customer.get('phone', False), email=customer.get('mail', '')) or \
+                    env['res.partner']._retrieve_partner(name=customer.get('name', '') + ' ' + customer.get('surname', ''), phone=customer.get('phone', False), email=customer.get('mail', ''))
+                if not partner:
+                    country = env['res.country'].search([('code', '=', customer.get('country', '').lower())]) if customer.get('country', False) else env['res.country']
+                    state = env['res.country.state'].search(
+                        [('country_id', '=', country.id), ('code', '=', customer.get('state', ''))], limit=1,
+                    ) if customer.get('state', '') and country else env['res.country.state']
+                    partner = env['res.partner'].create({
+                        'name': customer.get('name', '') + ' ' + customer.get('surname', ''), 'email': customer.get('mail', ''), 'phone': customer.get('phone', False),
+                        'state_id': state.id, 'country_id': country.id, 'zip': customer.get('zip', False), 'city': customer.get('city', ''), 'street': customer.get('address', ''),
+                    })
+            else:
+                partner = env['res.partner'].create({'name': payload_infos.get('customer_name', 'channex partner')})
+            currency_id = env['res.currency'].with_context(active_test=False).search([('name', '=', full_booking.get('currency', ''))], limit=1)
+            if not currency_id: log_sync_message("/", "odoo webhook", f"Error Not Found: Could not retrieve currency in odoo with name '{full_booking.get('currency', '')}'.")
+            else:
+                so = env['sale.order'].create({
+                    'partner_id': partner.id, 'is_rental_order': True, 'currency_id': currency_id.id
+                })
+                for room in full_booking.get('rooms', []):
+                    room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', room.get('room_type_id'))], limit=1) if room.get('room_type_id') else False
+                    rate_plan_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'rate_plan'), ('x_remote_id', '=', room.get('rate_plan_id'))], limit=1) if room.get('rate_plan_id') else False
+                    attribute_value_id = env['x_rate_plan'].browse(rate_plan_mapping.x_local_id).x_rate_plan_value_id if rate_plan_mapping else False
+                    sol = env['sale.order.line'].create({
+                        'product_id': room_mapping.x_local_id,
+                        'is_rental': True,
+                        'order_id': so.id,
+                        'currency_id': currency_id.id,
+                    })
+                    if attribute_value_id: sol.write({'product_no_variant_attribute_value_ids': [Command.link(env['product.template.attribute.value'].search([('product_attribute_value_id', '=', attribute_value_id.id)], limit=1).id)]})
+                    if not so.pricelist_id and (rate_plan_remote := room.get('rate_plan_id', False)):
+                        rate_plan_odoo_id = env['x_channex_mapping'].search([('x_model_type', '=', 'rate_plan'), ('x_remote_id', '=', rate_plan_remote)], limit=1).x_local_id
+                        so['pricelist_id'] = env['x_rate_plan'].browse(rate_plan_odoo_id).x_pricelist_id.id
+                    #if (guests := room.get('guests', [])):
+                    #    env['sale.order.line'].create({
+                    #        'display_type': 'line_note',
+                    #        'order_id': so.id,
+                    #        'name': "Guests: " + "\n".join(guest.get('name', '') + ' ' + guest.get('surname', '') for guest in guests)
+                    #            + "\n" + #occupancy and days
+                    #    })
+                so.write({'rental_start_date': full_booking.get('arrival_date', ''), 'rental_return_date': full_booking.get('departure_date', '')})
+                env["x_channex_mapping"].create({
+                    "x_model_type": "booking",
+                    "x_local_id": so.id,
+                    "x_remote_id": payload_infos.get('booking_id', ''),
+                })
+                try:
+                    so.action_confirm()
+                except Exception as exc:
+                    log_sync_message("/", "odoo webhook", f"Validation Error: Could not confirm the booking sale order with id {str(so.id)}.")
+                    env['mail.activity'].create({
+                        'res_model_id': env['ir.model']._get_id('sale.order'),
+                        'res_id': so.id,
+                        'activity_type_id': env.ref('mail.mail_activity_data_todo').id,
+                        'summary': 'Confirm Order',
+                        'date_deadline': datetime.datetime.today(),
+                    })
+    else:
+        if not booking_mapping: log_sync_message("/", "odoo webhook", f"Error Not Found: could not find a sale order related to the received {event.replace('_', ' ')}.\nBooking Channex ID is {booking_id}")
+        elif event == 'booking_modification':
+            log_sync_message("/", "odoo webhook", f"Modifying booking {str(full_booking)}.")
+            so = env['sale.order'].browse(booking_mapping.x_local_id)
+            if so.rental_start_date.strftime('%Y-%m-%d') != full_booking.get('arrival_date', '') or so.rental_return_date.strftime('%Y-%m-%d') != full_booking.get('departure_date', ''):
+                so.write({
+                    'rental_start_date': full_booking.get('arrival_date', ''),
+                    'rental_return_date': full_booking.get('departure_date', ''),
+                })
+            channex_rooms_local_ids = []
+            for room in full_booking.get('rooms', []):
+                room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', room.get('room_type_id', ''))], limit=1)
+                channex_rooms_local_ids.append(room_mapping.x_local_id)
+            for sol in so.order_line:
+                if sol.product_id.id in channex_rooms_local_ids and sol.product_uom_qty != 0:
+                    channex_rooms_local_ids.remove(sol.product_id.id)
+                else:
+                    sol['product_uom_qty'] = 0
+            for remaining_id in channex_rooms_local_ids:
+                env['sale.order.line'].create({
+                    'product_id': remaining_id,
+                    'is_rental': True,
+                    'order_id': so.id,
+                })
+        elif event == 'booking_cancellation':
+            env['sale.order'].browse(booking_mapping.x_local_id).action_cancel()
 ]]></field>
     </record>
     <record id="cron_action_send_data_to_channex" model="ir.actions.server">
@@ -335,7 +344,7 @@ if property_mapping:
                     'room_type_id': room_remote_id,
                     'date_from': record.x_date.strftime('%Y-%m-%d'),
                     'date_to': record.x_date.strftime('%Y-%m-%d'),
-                    'availability': min(0, record.x_available - ota_buffer),
+                    'availability': max(0, record.x_available - ota_buffer),
                 },
             })
             sending_cron = env.ref('booking_channex.ir_cron_data_channex_sender')

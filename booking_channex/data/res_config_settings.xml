@@ -37,6 +37,16 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
 self['x_channex_is_synced'] = self.env['ir.config_parameter'].get_str('booking_channex.synced_with_channex')
 ]]></field>
     </record>
+    
+    <data noupdate="1">
+        <record model="res.config.settings" id="res_config_settings_enable">
+            <field name="x_setting_steering" eval="1"/>
+        </record>
+        <function model="res.config.settings" name="execute" eval="[ref('res_config_settings_enable')]"/>
+    </data>
+    <record id="booking_engine.automation_on_x_setting_steering_set" model="base.automation" forcecreate="0">
+        <field name="active" eval="0"/>
+    </record>
 
     <!-- Views -->
     <record id="res_config_settings_form_view_inherited_sync" model="ir.ui.view">
@@ -71,6 +81,14 @@ self['x_channex_is_synced'] = self.env['ir.config_parameter'].get_str('booking_c
                             Sync
                         </button>
                     </div>
+            </xpath>
+            <xpath expr="//setting[@id='booking_engine_steering_setting']" position="inside">
+                <div class="text-warning mb4">
+                    Channel Manager dependency
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='x_setting_steering']" position="attributes">
+                <attribute name="readonly">True</attribute>
             </xpath>
         </field>
     </record>

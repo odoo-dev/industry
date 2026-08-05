@@ -27,6 +27,13 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
         <field name="on_change_field_ids" eval="[(6, 0, [ref('x_setting_field_channel_manager_api_key')])]"/>
     </record>
 
+    <data noupdate="1">
+        <record model="res.config.settings" id="res_config_settings_enable">
+            <field name="x_setting_steering" eval="1"/>
+        </record>
+        <function model="res.config.settings" name="execute" eval="[ref('res_config_settings_enable')]"/>
+    </data>
+
     <!-- Views -->
     <record id="res_config_settings_form_view_inherited_sync" model="ir.ui.view">
         <field name="name">res.config.settings.form.view.inherited.booking.engine.sync</field>
@@ -58,6 +65,14 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
                             Sync ARIs
                         </button>
                     </div>
+            </xpath>
+            <xpath expr="//setting[@id='booking_engine_steering_setting']" position="inside">
+                <div class="text-warning mb4">
+                    Channel Manager dependency
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='x_setting_steering']" position="attributes">
+                <attribute name="readonly">True</attribute>
             </xpath>
         </field>
     </record>

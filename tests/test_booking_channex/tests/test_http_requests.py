@@ -17,28 +17,25 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
 
     def test_receive_new_booking(self):
         payload_receive_booking = {
-            'timestamp': '2026-03-03T09:36:35.024296Z',
-            'event': 'booking_new',
-            'headers': {
-                'x-channex-token': 'WrongToken',
+            "timestamp": "2026-03-03T09:36:35.024296Z",
+            "event": "booking_new",
+            "user_id": None,
+            "payload": {
+                "currency": "EUR",
+                "amount": "88.00",
+                "channel_id": None,
+                "property_id": "38149695-d95b-4c80-a7c3-34ce96efc7ba",
+                "booking_id": "e868f16e-b474-4b95-af12-5b114133e670",
+                "arrival_date": "2026-03-04",
+                "booking_revision_id": "074cd7f9-df51-4fc6-a8f4-7658573a235d",
+                "live_feed_event_id": "f2baf04e-7d63-4b29-80fd-f180f66b1b2c",
+                "count_of_rooms": 1,
+                "booking_unique_id": "BDC-00001",
+                "count_of_nights": 1,
+                "customer_name": "Demo Marc",
+                "ota_code": "00001"
             },
-            'user_id': None,
-            'payload': {
-                'currency': 'EUR',
-                'amount': '88.00',
-                'channel_id': None,
-                'property_id': '38149695-d95b-4c80-a7c3-34ce96efc7ba',
-                'booking_id': 'e868f16e-b474-4b95-af12-5b114133e670',
-                'arrival_date': '2026-03-04',
-                'booking_revision_id': '074cd7f9-df51-4fc6-a8f4-7658573a235d',
-                'live_feed_event_id': 'f2baf04e-7d63-4b29-80fd-f180f66b1b2c',
-                'count_of_rooms': 1,
-                'booking_unique_id': 'BDC-00001',
-                'count_of_nights': 1,
-                'customer_name': 'Demo Marc',
-                'ota_code': '00001'
-            },
-            'property_id': '38149695-d95b-4c80-a7c3-34ce96efc7ba'
+            "property_id": "38149695-d95b-4c80-a7c3-34ce96efc7ba"
         }
         booking_ack_answer = {"meta": {"message": "Success"}}
         get_booking_answer = {
@@ -134,19 +131,13 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
         self.env['sale.order'].create({  # Needed for the webhook to find something to operate on
             'partner_id': self.env['res.partner'].create({'name': 'Test Partner 1'}).id,
         })
-        with (
-            self.assertLogs(level="WARNING"),  # Is preventing any warning to be logged, we should replace this to ignore only the Unsafe Error
-            MockHTTPClient(url="https://staging.channex.io/api/v1/booking_revisions/074cd7f9-df51-4fc6-a8f4-7658573a235d/ack", return_json=booking_ack_answer, return_status=200),
-            MockHTTPClient(url="https://staging.channex.io/api/v1/bookings/e868f16e-b474-4b95-af12-5b114133e670", return_json=get_booking_answer, return_status=200),
-        ):
-            self.url_open(
-                self.env.ref("booking_channex.webhook_get_booking_create_change_or_delete").url,
-                data=json.dumps(payload_receive_booking),
-                headers={'Content-Type': 'application/json'}
-            )
-            self.assertFalse(self.env['sale.order.line'].search_count([('product_id', '=', room.id)], limit=1), 'The sale order has been created when webhook received the payload with wrong token.')
+        self.url_open(
+            self.env.ref("booking_channex.webhook_get_booking_create_change_or_delete").url,
+            data=json.dumps(payload_receive_booking),
+            headers={'Content-Type': 'application/json', 'x-channex-token': 'WrongToken'}
+        )
+        self.assertFalse(self.env['sale.order.line'].search_count([('product_id', '=', room.id)], limit=1), 'The sale order has been created when webhook received the payload with wrong token.')
 
-        payload_receive_booking['headers']['x-channex-token'] = 'MyTestWebhookSecret'
         with (
             self.assertLogs(level="WARNING"),  # Is preventing any warning to be logged, we should replace this to ignore only the Unsafe Error
             MockHTTPClient(url="https://staging.channex.io/api/v1/booking_revisions/074cd7f9-df51-4fc6-a8f4-7658573a235d/ack", return_json=booking_ack_answer, return_status=200),
@@ -155,7 +146,7 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
             self.url_open(
                 self.env.ref("booking_channex.webhook_get_booking_create_change_or_delete").url,
                 data=json.dumps(payload_receive_booking),
-                headers={'Content-Type': 'application/json'}
+                headers={'Content-Type': 'application/json', 'x-channex-token': 'MyTestWebhookSecret'}
             )
             self.assertTrue(self.env['sale.order.line'].search_count([('product_id', '=', room.id)]), 'The sale order has not been created when webhook received the payload with correct token.')
 

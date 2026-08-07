@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_sale_product_attribute_filters_form" model="ir.ui.view">
+        <field name="name">Custom Bike - Product Attribute Filters Form</field>
+        <field name="key">website_sale.product_attribute_filters_form</field>
+        <field name="inherit_id" ref="website_sale.product_attribute_filters_form"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml">
+            <xpath expr="." position="replace">
+                <t name="Product Attribute Filters Form" t-name="website_sale.product_attribute_filters_form">
+                    <form t-attf-class="js_attributes {{('accordion accordion-flush d-flex flex-column ' + ('border-bottom' if attributes else '')) if isMobile else 'position-relative mb-2'}}" method="get" t-att-action="keep(**reset_attribute_value_params, tags=0)">
+                        <t t-foreach="attributes" t-as="a">
+                            <t t-set="_status" t-value="'inactive'"/>
+                            <t t-set="current_attribute_pavs" t-value="pavs_per_attribute[a]"/>
+                            <t t-foreach="current_attribute_pavs" t-as="v" t-if="v.id in attrib_set" t-set="_status" t-value="'active'"/>
+                            <t t-set="_expand_attributes" t-value="_status == 'active' or default_expand_filter_sections"/>
+                            <div t-if="current_attribute_pavs" t-attf-class="accordion-item {{('border-top-0 ' + ('order-1' if _status == 'active' else 'order-2')) if isMobile else 'nav-item mb-1 rounded-0'}}">
+                                <h2 t-if="isMobile" class="accordion-header mb-0" t-attf-id="o_wsale_offcanvas_attribute_{{a.id}}_header">
+                                    <button t-attf-class="o_wsale_offcanvas_title accordion-button px-4 bg-transparent shadow-none {{'' if _expand_attributes else 'collapsed'}}" type="button" data-bs-toggle="collapse" t-attf-data-bs-target="#o_wsale_offcanvas_attribute_{{a.id}}" t-att-aria-expanded="_expand_attributes" t-attf-aria-controls="o_wsale_offcanvas_attribute_{{a.id}}">
+                                        <b t-out="a.name"/>
+                                    </button>
+                                </h2>
+                                <div t-else="" class="mb-3">
+                                    <b class="d-none d-lg-block" t-field="a.name"/>
+                                </div>
+                                <div t-attf-id="{{'o_wsale_offcanvas_attribute_' + str(a.id) if isMobile else 'o_products_attributes_' + str(a.id)}}" t-attf-class="{{'accordion-collapse collapse ' + ('show' if _expand_attributes else '') if isMobile else ''}}">
+                                    <div t-attf-class="{{'accordion-body pt-0' if isMobile else ''}}">
+                                        <div t-if="a.display_type == 'select'" t-attf-class="{{'my-2' if isMobile else 'mb-3'}}">
+                                            <t t-call="website_sale.filter_select_attributes"/>
+                                        </div>
+                                        <div t-elif="a.display_type == 'color'" t-attf-class="d-flex flex-wrap gap-2 {{'pt-2 pb-3' if isMobile else 'mb-3'}}">
+                                            <t t-call="website_sale.filter_color_attributes"/>
+                                        </div>
+                                        <div t-elif="a.display_type == 'image'" t-attf-class="d-flex flex-wrap gap-2 #{'pt-1 pb-3' if isMobile else 'mb-3'}">
+                                            <t t-call="website_sale.filter_image_attributes"/>
+                                        </div>
+                                        <div t-elif="a.display_type in ('radio', 'multi')" t-attf-class="{{'list-group list-group-flush' if isMobile else 'flex-column mb-3'}}">
+                                            <t t-call="website_sale.filter_radio_and_multi_attributes" isMobile="isMobile"/>
+                                        </div>
+                                        <div t-elif="a.display_type == 'pills'" t-attf-class="d-flex flex-wrap gap-2 {{'my-2' if isMobile else 'mb-3'}}" data-bs-toggle="buttons">
+                                            <t t-call="website_sale.filter_pills_attributes"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-if="isMobile">
+                            <t t-if="opt_wsale_filter_tags and (opt_wsale_attributes or opt_wsale_attributes_top)">
+                                <t t-set="_status" t-value="'inactive'"/>
+                                <t t-foreach="all_tags" t-as="v" t-if="v.id in tags" t-set="_status" t-value="'active'"/>
+                                <t t-set="_expand_tags" t-value="_status == 'active' or default_expand_filter_sections"/>
+                                <div t-if="all_tags" class="order-3">
+                                    <h2 class="accordion-header mb-0" t-attf-id="o_wsale_offcanvas_tags_header">
+                                        <button t-attf-class="o_wsale_offcanvas_title accordion-button rounded-0 {{not _expand_tags and 'collapsed'}}" type="button" data-bs-toggle="collapse" t-attf-data-bs-target="#o_wsale_offcanvas_tags" t-att-aria-expanded="_expand_tags" t-attf-aria-controls="o_wsale_offcanvas_tags" class="o_wsale_offcanvas_title accordion-button rounded-0">
+                                            <b>Étiquettes</b>
+                                        </button>
+                                    </h2>
+                                    <div t-attf-id="o_wsale_offcanvas_tags" t-attf-class="accordion-collapse collapse {{_expand_tags and 'show'}}" t-att-aria-expanded="_expand_tags" t-attf-aria-labelledby="o_wsale_offcanvas_tags_header">
+                                        <div class="accordion-body pt-0">
+                                            <div class="list-group list-group-flush">
+                                                <t t-call="website_sale.filter_products_tags_list" all_tags="all_tags"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <t t-if="opt_wsale_filter_tags and opt_wsale_attributes" t-call="website_sale.filter_products_tags" all_tags="all_tags">
+                            </t>
+                        </t>
+                    </form>
+                </t>
+            </xpath>
+        </field>
+    </record>
+    <record id="footer_copyright_company_name" model="ir.ui.view">
+        <field name="name">Custom Bike - footer_copyright_company_name</field>
+        <field name="key">website.footer_copyright_company_name</field>
+        <field name="inherit_id" ref="website.layout"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml"><xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
+                <span class="o_footer_copyright_name me-2 small" t-ignore="true">
+            © <span>offtrack, 2026</span></span>
+            </xpath>
+            <xpath expr="//footer//span[hasclass('o_footer_copyright_name')]/.." position="attributes">
+                <attribute name="class" remove="text-sm-start" add="d-flex flex-column-reverse gap-2 text-md-start" separator=" "/>
+            </xpath>
+        </field>
+    </record>
+    <record id="footer_custom" model="ir.ui.view">
+        <field name="name">Custom Bike - Default</field>
+        <field name="key">website.footer_custom</field>
+        <field name="inherit_id" ref="website.layout"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml"><xpath expr="//div[@id='footer']" position="replace">
+                <div id="footer" class="oe_structure oe_structure_solo border text-break" t-ignore="true" t-if="not no_footer" style="--box-border-left-width: 0px; --box-border-right-width: 0px;">
+                    <section class="s_text_block pt40 pb16" data-snippet="s_text_block" data-name="Container">
+                        <div spellcheck="false" data-gramm="false" class="container">
+                            <div class="row">
+                                <div class="pt24 pb24 o_colored_level col-lg-5">
+                                    <h2 class="h3-fs"><img src="/web/image/bike_shop.img_bike_shop_image_29" alt="" class="img img-fluid o_we_custom_image o_attachment_pending_record_id" style="width: 46% !important;" loading="lazy" role="presentation"/></h2><p><br/>Rue de la Chaîne 33<br/>1000 Brussels</p>
+                                    <div class="s_social_media o_not_editable no_icon_color text-start" data-snippet="s_social_media" data-name="Social Media">
+                                        <h5 class="s_social_media_title d-none">Suivez-nous</h5>
+                                        <a href="https://www.facebook.com/your-page" class="s_social_media_facebook" target="_blank" aria-label="Facebook">
+                                            <i class="fa fa-facebook o_editable_media fa-stack"/>
+                                        </a>
+                                        <a href="https://www.instagram.com/your-page" class="s_social_media_instagram" target="_blank" aria-label="‌​​‌⁣⁠︁‍‍⁢⁢⁡⁠⁡‍⁢‎⁡⁤⁢‏⁡⁠‍‍‍︂‍​‍‍‏⁤⁡︄⁢‎⁢‏⁡‌⁡⁢⁢‍⁡‌⁡︃‍‍⁠︃Instagram">
+                                            <i class="fa o_editable_media fa-instagram"/>
+                                        </a>
+                                        <a href="https://www.linkedin.com/your-page" class="s_social_media_linkedin" target="_blank" aria-label="LinkedIn">
+                                            <i class="fa o_editable_media fa-stack fa-linkedin"/>
+                                        </a>
+                                    </div>
+                                </div><div class="col-lg-2 pt24 pb24 o_colored_level col-12">
+                                    <p style="text-align: start;" class="small"><span class="o_rfs" style="font-size: clamp(8px, 1em - 0.1389vw, 400px); color: rgb(99, 99, 99);"><strong>&amp;nbsp;SHOP</strong></span><br/></p><p style="text-align: start;"><a href="/shop/category/road-2" class="o_translate_inline">Road Bike</a></p><p style="text-align: start;"><a href="/shop/category/vtt-1" class="o_translate_inline">Mountain Bike</a></p><p style="text-align: start;"><a href="/shop/category/electric-4" class="o_translate_inline">Electric Bike</a></p><p style="text-align: start;"><a href="/shop/category/cargo-5" class="o_translate_inline">Cargo Bike</a></p><p style="text-align: start;"><a href="/shop/category/accessories-6" class="o_translate_inline">Accessoires&amp;nbsp;</a></p><p style="text-align: start;"><a href="/shop" class="o_translate_inline">See all products</a></p>
+                                </div><div class="col-lg-2 pt24 pb24 o_colored_level">
+                                    <p style="text-align: start;" class="small"><span class="o_rfs" style="font-size: clamp(8px, 1em - 0.1389vw, 400px); color: rgb(99, 99, 99);"><strong>SERVICES</strong></span></p><p style="text-align: start;"><a href="/maintenance-repairs" class="o_translate_inline">Maintenance &amp;amp; Repairs</a></p><p style="text-align: start;"><a href="/appointment/1" class="o_translate_inline">Free Test Rides</a></p><p style="text-align: start;"><a href="/helpdesk/warranties-after-sales-sav-2" class="o_translate_inline">Warranty &amp;amp; Support</a></p><p style="text-align: start;" class="small"><br/></p>
+                                </div><div class="col-lg-2 pt24 pb24 o_colored_level">
+                                    <p style="text-align: start;" class="small"><span class="o_rfs" style="font-size: clamp(8px, 1em - 0.1389vw, 400px); color: rgb(99, 99, 99);"><strong>ABOUT</strong></span></p><p style="text-align: start;"><a href="/about#We-didn't-open-our-doors-just-to-sell-bikes.-We-opened-them-to-share-a-passion-for-freedom%2C-fresh-air%2C-and-the-simple-joy-of-the-open-road." class="o_translate_inline">Our Story</a></p><p style="text-align: start;"><a href="/about#COME-SAY-HI%2C-YOUR-BIKE-WILL-THANK-YOU." class="o_translate_inline">Visit the shop</a></p><p style="text-align: start;"><a href="/contactus" class="o_translate_inline">Contact</a></p><p style="text-align: start;" class="small"><br/></p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="header_call_to_action" model="ir.ui.view">
+        <field name="name">Custom Bike - Header Call to Action</field>
+        <field name="key">website.header_call_to_action</field>
+        <field name="inherit_id" ref="website.placeholder_header_call_to_action"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml"><xpath expr="." position="inside">
+                <li t-attf-class="#{_item_class}">
+                    <div t-attf-class="oe_structure oe_structure_solo #{_div_class}" class="oe_structure oe_structure_solo">
+                        <section class="oe_unremovable oe_unmovable s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text">
+                            <div class="container" spellcheck="false" data-gramm="false">
+                                <a href="/appointment/1" class="oe_unremovable btn btn-primary"><img src="/web/image/bike_shop.img_bike_shop_image_30" alt="" class="img img-fluid o_we_custom_image o_attachment_pending_record_id" style="padding-bottom: 3px; padding-right: 3px;"/>&amp;nbsp; Book a free&amp;nbsp;ride</a>
+                            </div>
+                        </section>
+                    </div>
+                </li>
+            </xpath>
+        </field>
+    </record>
+</odoo>

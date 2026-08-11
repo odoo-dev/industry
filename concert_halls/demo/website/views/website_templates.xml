@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="header_call_to_action" model="ir.ui.view">
+        <field name="name">Custom - Header Call to Action</field>
+        <field name="key">website.header_call_to_action</field>
+        <field name="inherit_id" ref="website.placeholder_header_call_to_action"/>
+        <field name="mode">extension</field>
+        <field name="type">qweb</field>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml"><xpath expr="." position="inside">
+                <li t-attf-class="#{_item_class}">
+                    <div t-attf-class="oe_structure oe_structure_solo #{_div_class}" class="oe_structure oe_structure_solo">
+                        <section class="oe_unremovable oe_unmovable s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text">
+                            <div class="container">
+                                <a class="oe_unremovable btn btn-primary" href="/event">BUY TICKETS</a>
+                            </div>
+                        </section>
+                    </div>
+                </li>
+            </xpath>
+        </field>
+    </record>
+    <record id="template_footer_mega_columns" model="ir.ui.view">
+        <field name="name">Custom - Mega Columns</field>
+        <field name="key">website.template_footer_mega_columns</field>
+        <field name="inherit_id" ref="website.layout"/>
+        <field name="mode">extension</field>
+        <field name="type">qweb</field>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml"><xpath expr="//div[@id='footer']" position="replace">
+                <div id="footer" class="oe_structure oe_structure_solo text-break" t-ignore="true" t-if="not no_footer">
+                    <section class="s_text_block pt48 pb32" data-snippet="s_text_block" data-name="Container">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="o_colored_level col-lg-4">
+
+                                    <h5><img src="/web/image/concert_halls.img_custom_image_05" alt="" class="img img-fluid o_we_custom_image"/></h5>
+                                </div><div class="col-lg-4 o_colored_level">
+
+                                    <h5>Get in touch</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="mailto:info@sonoraconcerthall.example.com" class="o_translate_inline">info@sonoraconcerthall.example.com</a></li><li>
+                                            +358 9 1234 5678</li><li>Mannerheimintie 12</li><li>
+                                            00100 Helsinki, Finland</li></ul>
+                                </div>
+                                <div class="col-lg-4 o_colored_level">
+
+                                    <h5>Follow us</h5><p>Sign up to receive the best promotions, our events and personal advice.</p>
+                                    <div class="s_social_media text-start o_not_editable no_icon_color" data-snippet="s_social_media" data-name="Social Media">
+                                        <p class="s_social_media_title d-none">Follow us</p>
+                                        <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank">
+                                            <i class="fa fa-twitter fa-stack o_editable_media"/>
+                                        </a>
+                                        <a href="/website/social/linkedin" class="s_social_media_linkedin" target="_blank">
+                                            <i class="fa fa-linkedin fa-stack o_editable_media"/>
+                                        </a>
+                                        <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank">
+                                            <i class="fa fa-instagram fa-stack o_editable_media"/>
+                                        </a>
+                                        <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank">
+                                            <i class="fa fa-facebook fa-stack o_editable_media"/>
+                                        </a>
+                                        <a href="/website/social/youtube" class="s_social_media_youtube" target="_blank">
+                                            <i class="fa fa-youtube-play fa-stack o_editable_media"/>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('o_footer_copyright')]//div[hasclass('col-md')]" position="attributes">
+                <attribute name="class" remove="text-center" separator=" "/>
+            </xpath>
+            <xpath expr="//div[hasclass('o_footer_copyright')]//div[hasclass('col-md')][2]" position="attributes">
+                <attribute name="class" remove="text-center" separator=" "/>
+            </xpath>
+        </field>
+    </record>
+    <record id="website_event_index_oe_structure_we_index_0" model="ir.ui.view">
+        <field name="name">Events (oe_structure_we_index_0)</field>
+        <field name="key">website_event.index_oe_structure_we_index_0</field>
+        <field name="inherit_id" ref="website_event.index"/>
+        <field name="mode">extension</field>
+        <field name="type">qweb</field>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml"><xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_we_index_0']" position="replace"><div id="oe_structure_we_index_0" class="oe_structure oe_empty"><section class="s_kickoff o_cc parallax pb88 o_colored_level o_cc1 pt128" data-scroll-background-ratio="-3" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Connections/06&quot;,&quot;colors&quot;:{&quot;c5&quot;:&quot;o-color-4&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}" data-snippet="s_kickoff" data-name="Kickoff">
+                        <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/concert_halls.img_custom_image_02&quot;);" data-format-mimetype="image/webp" data-resize-width="1920" data-mimetype="image/webp"/>
+                        <div class="o_we_bg_filter " style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.83) 0%, rgba(0, 0, 0, 0.57) 100%);"/>
+                        <div class="o_we_shape o_html_builder_Connections_06" style="background-image: url(&quot;/html_editor/shape/html_builder%2FConnections%2F06.svg?c5=%23000000&quot;);"/>
+                        <div class="container">
+                            <p class="lead"><strong><span class="text-o-color-1">THE NEXT SHOWS.</span></strong></p>
+                            <h1 class="display-1">Let's ENJOY<br/><strong><span class="text-o-color-1">tOGETHER</span></strong> !</h1>
+                        </div>
+                    </section><div class="s_hr o_colored_level pt32 pb40" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto" style="border-top-width: 0px;"/>
+            </div></div></xpath>
+        </field>
+    </record>
+</odoo>

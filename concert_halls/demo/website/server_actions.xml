@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="server_action_presets" model="ir.actions.server" forcecreate="0">
+        <field name="name">Concert Halls - Enable/disable views and set up menus</field>
+        <field name="model_id" ref="website.model_website"/>
+        <field name="state">code</field>
+        <field name="code">
+website = env.ref('concert_halls.website_industry')
+
+to_deactivate = [
+    # Presets
+    'website.footer_custom',
+    'website.header_search_box',
+    'website.header_text_element',
+    'website.template_footer_mega',
+    'website.template_footer_minimalist',
+    'website_event.opt_events_list_columns',
+    # Default static pages, replaced by the custom ones
+    'website.homepage',
+    'website.contactus',
+]
+
+to_activate = [
+    # Presets
+    'website.footer_no_copyright',
+    'website.header_call_to_action',
+    'website.template_footer_mega_columns',
+    'website.template_footer_slideout',
+    # Header. The alignment variant inherits the base template, so the base
+    # has to stay active too - activating only the variant renders no header
+    # at all (and therefore no menu).
+    'website.template_header_default',
+    'website.template_header_default_align_center',
+]
+
+ctx = {'website_id': website.id}
+
+for xml_id in to_deactivate:
+    env.ref(xml_id).with_context(**ctx).write({'active': False})
+for xml_id in to_activate:
+    env.ref(xml_id).with_context(**ctx).write({'active': True})
+
+menus = env['website.menu']
+base_domain = [('website_id', '=', website.id)]
+top_menu = menus.search(base_domain + [('parent_id', '=', False)], limit=1)
+
+# Default menus (renamed / reordered)
+menus.search(base_domain + [('url', '=', '/')], limit=1).write({'name': 'Home', 'sequence': 0})
+# website_event.menu_events already provides an /event menu, copied onto every
+# new website by website._bootstrap_homepage(). Rename it instead of adding a
+# second one.
+menus.search(base_domain + [('url', '=', '/event')], limit=1).write({'name': 'Our shows', 'sequence': 2})
+menus.search(base_domain + [('url', '=', '/contactus')], limit=1).write({'name': 'Contact us', 'sequence': 3})
+
+# Custom menu: Business
+if not menus.search(base_domain + [('url', '=', '/business')]):
+    menus.create({
+        'name': 'Business',
+        'url': '/business',
+        'website_id': website.id,
+        'parent_id': top_menu.id,
+        'sequence': 1,
+    })
+        </field>
+    </record>
+
+    <function name="run" model="ir.actions.server" eval="[ref('server_action_presets', raise_if_not_found=False)]"/>
+    <function name="unlink" model="ir.actions.server" eval="[ref('server_action_presets', raise_if_not_found=False)]"/>
+</odoo>

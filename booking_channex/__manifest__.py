@@ -7,7 +7,7 @@
     ],
     'data': [
         'data/ir_model.xml',
-        'data/ir_model_access.xml',
+        'data/ir_access.xml',
         'data/knowledge_article.xml',
         'data/knowledge_article_favorite.xml',
         'data/ir_actions_act_window.xml',

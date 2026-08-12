@@ -209,7 +209,10 @@ for line in datas_to_send:
 
 for endpoint in ('restrictions', 'availability'):
     if payloads[endpoint]:
-        env.ref('booking_channex.requests_to_channex').with_context(method='POST', endpoint=endpoint, payload={'values': payloads[endpoint]}).run()
+        try:
+            env.ref('booking_channex.requests_to_channex').with_context(method='POST', endpoint=endpoint, payload={'values': payloads[endpoint]}).run()
+        except Exception as e:
+            env.ref('booking_channex.util_log_message').with_context(func='POST', path=endpoint, message=f"Auto Ari sync: Failed to send {endpoint} data; error is :\n{str(e)}").run()
 
 model.env['ir.cron']._commit_progress(processed=1, remaining=0, deactivate=True)
 datas_to_send.unlink()
@@ -350,11 +353,15 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
     for group in records:
         group_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="group", local_id=group.id).run()
         if not group_mapping.x_remote_id:
-            data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint='groups', payload={"group": {"title": group.x_name or ""}}).run()
-            remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
-            if not remote_id:
-                raise UserError("Invalid response from Channex for the creation of a group corresponding to group with id %s" % str(property.id))
-            mapping.write({'x_remote_id': remote_id})
+            try:
+                data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint='groups', payload={"group": {"title": group.x_name or ""}}).run()
+                remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
+                if not remote_id:
+                    raise UserError("Invalid response from Channex for the creation of a group corresponding to group with id %s" % str(property.id))
+                group_mapping.write({'x_remote_id': remote_id})
+            except Exception as e:
+                sync_type = env.context.get('sync_type', 'Live')
+                env.ref('booking_channex.util_log_message').with_context(func='POST', path='groups', message=f"{sync_type} sync: Failed to send group with ID {group.id}; error is :\n{str(e)}").run()
 ]]></field>
         <field name="model_id" ref="x_channex_group_model"/>
         <field name="state">code</field>
@@ -378,9 +385,13 @@ mappings.unlink()
         <field name="code"><![CDATA[
 mappings = records.env['x_channex_mapping'].search([('x_model_type', '=', 'group'), ('x_local_id', 'in', records.ids), ('x_remote_id', '!=', False)])
 for mapping in mappings:
-    env.ref('booking_channex.requests_to_channex').with_context(
-        method="PUT", endpoint="groups/%s" % mapping.x_remote_id, payload={"group": {"title": env['x_channex_group'].browse(mapping.x_local_id).x_name or ""}}
-    ).run()
+    try:
+        env.ref('booking_channex.requests_to_channex').with_context(
+            method="PUT", endpoint="groups/%s" % mapping.x_remote_id, payload={"group": {"title": env['x_channex_group'].browse(mapping.x_local_id).x_name or ""}}
+        ).run()
+    except Exception as e:
+        sync_type = env.context.get('sync_type', 'Live')
+        env.ref('booking_channex.util_log_message').with_context(func='PUT', path='groups', message=f"{sync_type} sync: Failed to update group with ID {mapping.x_local_id}; error is :\n{str(e)}").run()
 ]]></field>
         <field name="model_id" ref="x_channex_group_model"/>
         <field name="state">code</field>
@@ -397,27 +408,31 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
         property_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="property", local_id=property.id).run()
         group_mapping = records.env['x_channex_mapping'].search([('x_model_type', '=', 'group'), ('x_local_id', '=', property.x_channex_group_id.id), ('x_remote_id', '!=', False)], limit=1)
         if not property_mapping.x_remote_id and group_mapping:
-            data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="properties", payload={
-                "property": {
-                    "title": property.name,
-                    "currency": property.currency_id.name,
-                    "email": property.email or '',
-                    "phone": property.phone or '',
-                    "group_id": group_mapping.x_remote_id,
-                    "property_type": "hotel",  # TODO: Should be adapted based on the industry we use
-                    "zip_code": property.zip or '',
-                    "country": property.country_id.code or '',
-                    "state": property.state_id.name or '',
-                    "city": property.city or '',
-                    "address": property.street or '',
-                    "timezone": property.tz or '',
-                    "website": property.website or '',
-                }
-            }).run()
-            remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
-            if not remote_id:
-                raise UserError("Invalid response from Channex for the creation of property corresponding to company with id %s" % str(property.id))
-            property_mapping.write({'x_remote_id': remote_id})
+            try:
+                data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="properties", payload={
+                    "property": {
+                        "title": property.name,
+                        "currency": property.currency_id.name,
+                        "email": property.email or '',
+                        "phone": property.phone or '',
+                        "group_id": group_mapping.x_remote_id,
+                        "property_type": "hotel",  # TODO: Should be adapted based on the industry we use
+                        "zip_code": property.zip or '',
+                        "country": property.country_id.code or '',
+                        "state": property.state_id.name or '',
+                        "city": property.city or '',
+                        "address": property.street or '',
+                        "timezone": property.tz or '',
+                        "website": property.website or '',
+                    }
+                }).run()
+                remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
+                if not remote_id:
+                    raise UserError("Invalid response from Channex for the creation of property corresponding to company with id %s" % str(property.id))
+                property_mapping.write({'x_remote_id': remote_id})
+            except Exception as e:
+                sync_type = env.context.get('sync_type', 'Live')
+                env.ref('booking_channex.util_log_message').with_context(func='POST', path='properties', message=f"{sync_type} sync: Failed to send property with ID {property.id}; error is :\n{str(e)}").run()
 ]]></field>
         <field name="model_id" ref="base.model_res_company"/>
         <field name="state">code</field>
@@ -453,22 +468,26 @@ records.x_company_id.write({'x_channex_group_id': False})
 property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[('x_model_type', '=', 'property'),('x_local_id', 'in', records.ids)], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
 for property in records:
     if remote_id := property_mappings_dict.get(property.id):
-        env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="properties/%s" % remote_id, payload={
-            "property": {
-                "title": property.name,
-                "currency": property.currency_id.name,
-                "email": property.email or '',
-                "phone": property.phone or '',
-                "property_type": "hotel",  # TODO: Should be adapted based on the industry we use
-                "zip_code": property.zip or '',
-                "country": property.country_id.code or '',
-                "state": property.state_id.name or '',
-                "city": property.city or '',
-                "address": property.street or '',
-                "timezone": property.tz or '',
-                "website": property.website or '',
-            }
-        }).run()
+        try:
+            env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="properties/%s" % remote_id, payload={
+                "property": {
+                    "title": property.name,
+                    "currency": property.currency_id.name,
+                    "email": property.email or '',
+                    "phone": property.phone or '',
+                    "property_type": "hotel",  # TODO: Should be adapted based on the industry we use
+                    "zip_code": property.zip or '',
+                    "country": property.country_id.code or '',
+                    "state": property.state_id.name or '',
+                    "city": property.city or '',
+                    "address": property.street or '',
+                    "timezone": property.tz or '',
+                    "website": property.website or '',
+                }
+            }).run()
+        except Exception as e:
+            sync_type = env.context.get('sync_type', 'Live')
+            env.ref('booking_channex.util_log_message').with_context(func='PUT', path='properties', message=f"{sync_type} sync: Failed to update property with ID {property.id}; error is :\n{str(e)}").run()
 ]]></field>
         <field name="model_id" ref="base.model_res_company"/>
         <field name="state">code</field>
@@ -488,34 +507,42 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
             room_can_be_on_channex = (len(guests_attribute_value) == 1 and room.x_is_a_room_offer and room.product_tmpl_id.x_has_rates_attribute and room.active)
             if room_can_be_on_channex and mapped_product: #Update
                 if remote_id := room_mappings_dict.get(room.id):
-                    res = env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="room_types/%s" % remote_id, payload={
+                    try:
+                        res = env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="room_types/%s" % remote_id, payload={
+                            "room_type": {
+                                "title": room.display_name,
+                                "count_of_rooms": room.x_resources_amount or 1,
+                                "occ_adults": guests_attribute_value.x_adults, "occ_children": guests_attribute_value.x_children, "occ_infants": guests_attribute_value.x_infants,
+                                "default_occupancy": (guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants) or 1
+                            }
+                        }).run()
+                        if res.json.get('errors', {}).get('code', "") == "resource_not_found":
+                            action = {
+                                'type': 'ir.actions.client',
+                                'tag': 'display_notification',
+                                'params': {'message': 'The product could not be updated on channex, as it cannot be found.', 'type': 'warning', 'sticky': False}
+                            }
+                    except Exception as e:
+                        sync_type = env.context.get('sync_type', 'Live')
+                        env.ref('booking_channex.util_log_message').with_context(func='PUT', path='room_types', message=f"{sync_type} sync: Failed to update room with ID {room.id}; error is :\n{str(e)}").run()
+            elif room_can_be_on_channex and not mapped_product: #Create
+                room_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="room_type", local_id=room.id).run()
+                try:
+                    data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="room_types", payload={
                         "room_type": {
+                            "property_id": property_mapping.x_remote_id,
                             "title": room.display_name,
                             "count_of_rooms": room.x_resources_amount or 1,
                             "occ_adults": guests_attribute_value.x_adults, "occ_children": guests_attribute_value.x_children, "occ_infants": guests_attribute_value.x_infants,
                             "default_occupancy": (guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants) or 1
                         }
                     }).run()
-                    if res.json.get('errors', {}).get('code', "") == "resource_not_found":
-                        action = {
-                            'type': 'ir.actions.client',
-                            'tag': 'display_notification',
-                            'params': {'message': 'The product could not be updated on channex, as it cannot be found.', 'type': 'warning', 'sticky': False}
-                        }
-            elif room_can_be_on_channex and not mapped_product: #Create
-                room_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="room_type", local_id=room.id).run()
-                data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="room_types", payload={
-                    "room_type": {
-                        "property_id": property_mapping.x_remote_id,
-                        "title": room.display_name,
-                        "count_of_rooms": room.x_resources_amount or 1,
-                        "occ_adults": guests_attribute_value.x_adults, "occ_children": guests_attribute_value.x_children, "occ_infants": guests_attribute_value.x_infants,
-                        "default_occupancy": (guests_attribute_value.x_adults + guests_attribute_value.x_children + guests_attribute_value.x_infants) or 1
-                    }
-                }).run()
-                remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
-                if not remote_id: raise UserError("Invalid response from Channex for the creation of room corresponding to product variant with id %s" % str(room.id))
-                room_mapping.write({'x_remote_id': remote_id})
+                    remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
+                    if not remote_id: raise UserError("Invalid response from Channex for the creation of room corresponding to product variant with id %s" % str(room.id))
+                    room_mapping.write({'x_remote_id': remote_id})
+                except Exception as e:
+                    sync_type = env.context.get('sync_type', 'Live')
+                    env.ref('booking_channex.util_log_message').with_context(func='POST', path='room_types', message=f"{sync_type} sync: Failed to send room with ID {room.id}; error is :\n{str(e)}").run()
             elif not room_can_be_on_channex and mapped_product: #Delete
                 env.ref('booking_channex.delete_room_on_channex').with_context(active_ids=[room.id], active_model="product.product").run()
         ]]></field>
@@ -557,24 +584,28 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex'):
             room_remote_id = room_mappings_dict.get(rp.x_variant_id.id)
             if not room_remote_id: continue
             if rate_plans_mappings_dict.get(rp.id): continue
-            data = env.ref('booking_channex.requests_to_channex').with_context(
-                method="POST", endpoint="rate_plans", payload={
-                    "rate_plan": {
-                        "property_id": property_remote_id,
-                        "title": rp.x_name,
-                        "room_type_id": room_remote_id,
-                        "currency": rp.x_pricelist_id.currency_id.name,
-                        "options": [{
-                            "occupancy": rp.x_total_occupancy or 1,
-                            "is_primary": True,
-                            "rate": int(rp.x_variant_id.lst_price*100),
-                        }]
+            try:
+                data = env.ref('booking_channex.requests_to_channex').with_context(
+                    method="POST", endpoint="rate_plans", payload={
+                        "rate_plan": {
+                            "property_id": property_remote_id,
+                            "title": rp.x_name,
+                            "room_type_id": room_remote_id,
+                            "currency": rp.x_pricelist_id.currency_id.name,
+                            "options": [{
+                                "occupancy": rp.x_total_occupancy or 1,
+                                "is_primary": True,
+                                "rate": int(rp.x_variant_id.lst_price*100),
+                            }]
+                        }
                     }
-                }
-            ).run()
-            remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
-            if not remote_id: raise UserError("Invalid response from Channex: " + data.json.get('errors', {}).get('title', ''))
-            new_mappings.filtered(lambda m: m.x_local_id == rp.id).write({'x_remote_id': remote_id})
+                ).run()
+                remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
+                if not remote_id: raise UserError("Invalid response from Channex: " + data.json.get('errors', {}).get('title', ''))
+                new_mappings.filtered(lambda m: m.x_local_id == rp.id).write({'x_remote_id': remote_id})
+            except Exception as e:
+                sync_type = env.context.get('sync_type', 'Live')
+                env.ref('booking_channex.util_log_message').with_context(func='POST', path='rate_plans', message=f"{sync_type} sync: Failed to send rate plan with ID {rp.id}; error is :\n{str(e)}").run()
 ]]></field>
         <field name="model_id" ref="x_rate_plan_model"/>
         <field name="state">code</field>
@@ -598,11 +629,15 @@ mappings.unlink()
 rate_plan_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[('x_model_type', '=', 'rate_plan'),('x_local_id', 'in', records.ids or [])], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
 for rate_plan in records:
     if remote_id := rate_plan_mappings_dict.get(rate_plan.id):
-        env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="rate_plans/%s" % remote_id, payload={
-            "rate_plan": {
-                "title": rate_plan.x_name,
-            }
-        }).run()
+        try:
+            env.ref('booking_channex.requests_to_channex').with_context(method="PUT", endpoint="rate_plans/%s" % remote_id, payload={
+                "rate_plan": {
+                    "title": rate_plan.x_name,
+                }
+            }).run()
+        except Exception as e:
+            sync_type = env.context.get('sync_type', 'Live')
+            env.ref('booking_channex.util_log_message').with_context(func='PUT', path='rate_plans', message=f"{sync_type} sync: Failed to update rate plan with ID {rate_plan.id}; error is :\n{str(e)}").run()
 ]]></field>
         <field name="model_id" ref="x_rate_plan_model"/>
         <field name="state">code</field>
@@ -727,14 +762,9 @@ def create_on_channex(endpoint, payload, mapping, error_msg):
     try:
         data = env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint=endpoint, payload=payload).run()
         remote_id = data.json.get('data', {}).get('attributes', {}).get('id')
-
-        if not remote_id:
-            raise UserError(f"{error_msg}: Invalid response from Channex")
-
+        if not remote_id: raise UserError(f"{error_msg}: Invalid response from Channex")
         mapping.write({'x_remote_id': remote_id})
-
-    except Exception as e:
-        raise UserError(f"{error_msg}: {str(e)}")
+    except Exception as e: env.ref('booking_channex.util_log_message').with_context(func='POST', path=endpoint, message=f"Manual Sync: Failed to send {mapping.x_model_type} with ID {mapping.x_local_id}; error is :\n{str(e)}").run()
 
 if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
     action = {
@@ -753,8 +783,12 @@ if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
 else:
     # webhook
     #ERROR if localhost is used as an url, we cannot test it if we are in local
-    resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
-    data = resp.json
+    try:
+        resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
+        data = resp.json
+    except Exception as e:
+        env.ref('booking_channex.util_log_message').with_context(func='GET', path='webhooks', message=f"Manual Non-Ari Sync: Failed to get webhooks; error is :\n{str(e)}").run()
+        data = {}
 
     channex_webhooks = data.get('data', [])
     odoo_webhook = env.ref('booking_channex.webhook_get_booking_create_change_or_delete')
@@ -812,6 +846,7 @@ else:
                 group_mapping,
                 "Error creating group"
             )
+        if not group_mapping.x_remote_id:   continue
         # PROPERTIES (Companies -> Properties)
         for property in group.x_company_ids:
             property_mapping = env.ref('booking_channex.get_or_create_mapping').with_context(model_type="property", local_id=property.id).run()
@@ -903,6 +938,7 @@ else:
                     rate_plan_mapping,
                     "Error creating rate plan"
                 )
+
     env['ir.config_parameter'].set_bool('booking_channex.synced_with_channex', True)
     action = {
         'type': 'ir.actions.client',
@@ -926,55 +962,39 @@ else:
         <field name="model_id" ref="base_setup.model_res_config_settings" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
-# availability (X Availability → Channex Availability)
-
-payload_values = []
-rooms = env['product.product'].search([('x_is_a_room_offer', '=', True)])
+# Prepare common data
+payload_availability, payload_rates = [], []
+rooms = env['product.product'].search([('x_is_a_room_offer', '=', True), ('active', '=', True)])
+rooms = rooms.filtered(lambda r: r.product_tmpl_id.x_has_rates_attribute and len(r.product_template_attribute_value_ids.filtered(lambda a: a.product_attribute_value_id.attribute_id.x_accommodation_characteristic in ['guest']).mapped('product_attribute_value_id')) == 1)
 
 #remove these 2 lines when fuse
 property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'property')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
 is_db_multi_company = (env['res.company'].search_count([]) > 1)
 
-for property_id in property_mappings_dict.keys():
-    property_remote_id = property_mappings_dict.get(property_id)
-    if not property_remote_id:
-        continue
-    property_rooms = (
-        rooms.filtered(lambda r: r.company_id == property_id)
-        if is_db_multi_company else rooms
-    )
-    if property_rooms:
-        payload_values.extend(env.ref('booking_channex.prepare_availability_payload').with_context(active_ids=property_rooms.ids, active_id=property_rooms.ids[0], active_model="product.product", property_remote_id=property_remote_id).run())
+date_list = [datetime.datetime.today().date() + datetime.timedelta(days=i) for i in range(501)]
 
-env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="availability", payload={'values': payload_values}).run()
+# Process availability and rates together per property
+for property_id, property_remote_id in property_mappings_dict.items():
+    if not property_remote_id:  continue
+    if property_rooms := (rooms.filtered(lambda r: r.company_id == property_id) if is_db_multi_company else rooms):
+        # availability (X Availability → Channex Availability)
+        payload_availability.extend(env.ref('booking_channex.prepare_availability_payload').with_context(active_ids=property_rooms.ids, active_id=property_rooms.ids[0], active_model="product.product", property_remote_id=property_remote_id).run())
+    
+        # rates (product_pricelist_item → Channex Rate)
+        if rate_plans := env['x_rate_plan'].search([('x_variant_id', 'in', property_rooms.ids), ('x_pricelist_id', '!=', False), ('x_rate_plan_value_id', '!=', False)]):
+            payload_rates.extend(env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_id=rate_plans.ids[0], active_model="x_rate_plan", property_remote_id=property_remote_id, date_list=date_list).run())
 
-# rates (product_pricelist_item → Channex Rate)
+# Send availability
+try:
+    if payload_availability: env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="availability", payload={'values': payload_availability}).run()
+except Exception as e:
+    env.ref('booking_channex.util_log_message').with_context(func='POST', path='availability', message=f"Manual Ari sync: Failed to send availabilities ; error is :\n{str(e)}").run()
 
-payload_values = []
-rooms = env['product.product'].search([
-    ('x_is_a_room_offer', '=', True),
-])
-today = datetime.datetime.today().date()
-date_list = [
-    today + datetime.timedelta(days=i)
-    for i in range(501)
-]
-
-for property_id in property_mappings_dict.keys():
-    property_remote_id = property_mappings_dict.get(property_id)
-    if not property_remote_id:
-        continue
-    property_rooms = (
-        rooms.filtered(lambda r: r.company_id == property_id)
-        if is_db_multi_company else rooms
-    )
-    rate_plans = env['x_rate_plan'].search([
-        ('x_variant_id', 'in', property_rooms.ids)
-    ])
-    if rate_plans:
-        payload_values.extend(env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_id=rate_plans.ids[0], active_model="x_rate_plan", property_remote_id=property_remote_id, date_list=date_list).run())
-
-env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="restrictions", payload={'values': payload_values}).run()
+# Send rates
+try:
+    if payload_rates: env.ref('booking_channex.requests_to_channex').with_context(method="POST", endpoint="restrictions", payload={'values': payload_rates}).run()
+except Exception as e:
+    env.ref('booking_channex.util_log_message').with_context(func='POST', path='restrictions', message=f"Manual Ari sync: Failed to send rates to rate plans; error is :\n{str(e)}").run()
 
 action = {
     'type': 'ir.actions.client',
@@ -991,6 +1011,7 @@ action = {
 }
     ]]></field>
     </record>
+
     <!-- Daily Synchronization: server action that acts as a savenet, compare everything between odoo-channex and solve the differences encountered -->
     <record id="fetch_channex_and_capture_changes_needed" model="ir.actions.server">
         <field name="name">Channex: Daily Synchronization Check</field>
@@ -1003,7 +1024,7 @@ def log_sync_message(func, path, mes): env.ref('booking_channex.util_log_message
 def general_check_records_synced(odoo_model, record_type, channex_endpoint, valid_records, fields_to_compare):
     to_add, to_update = [], []
     try:
-        all_channex_records = env.ref('booking_channex.util_get_all_from_channex').with_context(endpoint=channex_endpoint).run()
+        all_channex_records = env.ref('booking_channex.util_get_all_from_channex').with_context(endpoint=channex_endpoint).run() or []
     except Exception as e:
         log_sync_message('GET', channex_endpoint, f"Daily sync: Failed to get channex data ; error is :\n{str(e)}")
         return [], [], []
@@ -1018,6 +1039,8 @@ def general_check_records_synced(odoo_model, record_type, channex_endpoint, vali
         if record_remote_id := odoo_records_mapping.get(record):
             if not channex_record_by_id.get(record_remote_id):
                 to_add.append(record.id)
+        else:
+            to_add.append(record.id)
 
     for odoo_record in odoo_records_mapping.keys():
         if channex_dict := channex_record_by_id.get(odoo_records_mapping[odoo_record], {}).get('attributes'):
@@ -1051,17 +1074,13 @@ to_add_groups, groups_to_update = general_check_records_synced('x_channex_group'
 env['ir.cron']._commit_progress(remaining=1)
 
 if rate_plans_to_update:
-    try: env.ref('booking_channex.update_rate_plan_on_channex').with_context(active_ids=rate_plans_to_update, active_model="x_rate_plan").run()
-    except Exception as e: log_sync_message('PUT', 'rate_plan', f"Daily sync: Failed to update channex rate plan ; error is :\n{str(e)}")
+    env.ref('booking_channex.update_rate_plan_on_channex').with_context(active_ids=rate_plans_to_update, active_model="x_rate_plan", sync_type='Daily').run()
 if rooms_to_update:
-    try: env.ref('booking_channex.actualize_room_on_channex').with_context(active_ids=rooms_to_update, active_model="product.product").run()
-    except Exception as e: log_sync_message('PUT', 'room_types', f"Daily sync: Failed to update channex rooms ; error is :\n{str(e)}")
+    env.ref('booking_channex.actualize_room_on_channex').with_context(active_ids=rooms_to_update, active_model="product.product", sync_type='Daily').run()
 if properties_to_update:
-    try: env.ref('booking_channex.update_property_on_channex').with_context(active_ids=properties_to_update, active_model="res.company").run()
-    except Exception as e: log_sync_message('PUT', 'properties', f"Daily sync: Failed to update channex properties ; error is :\n{str(e)}")
+    env.ref('booking_channex.update_property_on_channex').with_context(active_ids=properties_to_update, active_model="res.company", sync_type='Daily').run()
 if groups_to_update:
-    try: env.ref('booking_channex.update_groups_on_channex').with_context(active_ids=groups_to_update, active_model="x_channex_group").run()
-    except Exception as e: log_sync_message('PUT', 'groups', f"Daily sync: Failed to update channex groups ; error is :\n{str(e)}")
+    env.ref('booking_channex.update_groups_on_channex').with_context(active_ids=groups_to_update, active_model="x_channex_group", sync_type='Daily').run()
 
 #Erase all mappings that are related to "to_add" records (they are not on channex but may be known to odoo as old deprecated mapping) before, so we can create the new ones
 to_erase_mappings.extend(env['x_channex_mapping'].search(['|', '|', '|',
@@ -1074,17 +1093,13 @@ env['x_channex_mapping'].browse([m.id for m in to_erase_mappings]).unlink()
 
 #Order of creation is important
 if to_add_groups:
-    try: env.ref('booking_channex.create_groups_on_channex').with_context(active_ids=to_add_groups, active_model="x_channex_group").run()
-    except Exception as e: log_sync_message('CREATE', 'groups', f"Daily sync: Failed to create channex groups ; error is :\n{str(e)}")
+    env.ref('booking_channex.create_groups_on_channex').with_context(active_ids=to_add_groups, active_model="x_channex_group", sync_type='Daily').run()
 if to_add_properties:
-    try: env.ref('booking_channex.create_property_on_channex').with_context(active_ids=to_add_properties, active_model="res.company").run()
-    except Exception as e: log_sync_message('CREATE', 'properties', f"Daily sync: Failed to create channex properties ; error is :\n{str(e)}")
+    env.ref('booking_channex.create_property_on_channex').with_context(active_ids=to_add_properties, active_model="res.company", sync_type='Daily').run()
 if to_add_rooms:
-    try: env.ref('booking_channex.actualize_room_on_channex').with_context(active_ids=to_add_rooms, active_model="product.product").run()
-    except Exception as e: log_sync_message('CREATE', 'room_types', f"Daily sync: Failed to create channex room types ; error is :\n{str(e)}")
+    env.ref('booking_channex.actualize_room_on_channex').with_context(active_ids=to_add_rooms, active_model="product.product", sync_type='Daily').run()
 if to_add_rate_plans:
-    try: env.ref('booking_channex.create_rate_plan_on_channex').with_context(active_ids=to_add_rate_plans, active_model="x_rate_plan").run()
-    except Exception as e: log_sync_message('CREATE', 'rate_plans', f"Daily sync: Failed to create channex rate plans ; error is :\n{str(e)}")
+    env.ref('booking_channex.create_rate_plan_on_channex').with_context(active_ids=to_add_rate_plans, active_model="x_rate_plan", sync_type='Daily').run()
 
 #Send all ARIs to be sure everything is right according to odoo
 availabilty_payload, restriction_payload = [], []

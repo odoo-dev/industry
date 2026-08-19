@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Mapping fields -->
+    <!-- x_channex_mapping fields -->
     <record id="x_remote_field_x_channex_mapping" model="ir.model.fields">
         <field name="ttype">char</field>
         <field name="field_description">Channex ID</field>
@@ -148,7 +148,7 @@ for record in self:
     record['x_is_in_channex_group'] = record.x_channex_group_id  # Set here to be applied only after saving the changes on a view
 ]]></field>
     </record>
-    <!-- Remove from Channex Wizard Fields -->
+    <!-- x_remove_company_channex_wizard Fields -->
     <record id="x_company_id_field_x_remove_company_channex_wizard" model="ir.model.fields">
         <field name="ttype">many2one</field>
         <field name="relation">res.company</field>
@@ -156,14 +156,6 @@ for record in self:
         <field name="model_id" ref="x_remove_company_channex_wizard_model"/>
         <field name="name">x_company_id</field>
         <field name="readonly" eval="True"/>
-    </record>
-    <!-- ir cron fields -->
-    <!-- TODO remove before release -->
-    <record id="x_debug_last_answer_field_ir_cron" model="ir.model.fields">
-        <field name="ttype">char</field>
-        <field name="field_description">debug: Last Answer</field>
-        <field name="model_id" ref="base.model_ir_cron"/>
-        <field name="name">x_debug_last_answer</field>
     </record>
 
     <!-- x_channex_ari_update_lines fields -->

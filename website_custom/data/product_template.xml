@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <!-- Website products (all fields from product form/builder) -->
+  <record id="product_template_1" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Standard delivery</field>
+    <field name="list_price" eval="0.0"/>
+    <field name="default_code">Delivery_007</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="delivery.product_category_deliveries"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10000"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 08:04:33</field>
+    <field name="base_unit_count" eval="1.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_2" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="image_1920" type="base64" file="website_custom/static/src/binary/product_template/2-image_1920"/>
+    <field name="name">Cliff house</field>
+    <field name="list_price" eval="2860000.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="description_ecommerce"><![CDATA[<p class="card-text"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1065-7c9a7741/Bed.svg" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="http://localhost:8069/web/image/1069-7c9a7741/Bed.svg">6 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1066-c44cf842/Bathtub.svg" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="http://localhost:8069/web/image/1067-c44cf842/Bathtub.svg">3 bathrooms</p>
+
+<p class="card-text">520 m² villa</p>
+<p class="card-text">Wake up to breathtaking views of the mountains from this stunning contemporary home, set against a dramatic volcanic backdrop and surrounded by rolling fields of lavender in full bloom.</p>]]></field>
+    <field name="is_published" eval="True"/>
+    <field name="website_sequence" eval="10005"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 08:12:48</field>
+    <field name="base_unit_count" eval="520.0"/>
+    <field name="website_ribbon_id" ref="website_sale.new_ribbon"/>
+    <field name="x_street">Roderveldlaan 3</field>
+    <field name="x_zip_code">2600</field>
+    <field name="x_city">Antwerpen</field>
+    <field name="x_field_surface">5200</field>
+    <field name="x_last_notification_update">2026-07-24 12:45:16</field>
+    <field name="x_construction_year">1902</field>
+    <field name="x_living_surface">530</field>
+    <field name="x_orientation">South</field>
+    <field name="x_ribbon_stage_is_accounted" eval="True"/>
+    <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+  </record>
+  <record id="product_template_3" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="image_1920" type="base64" file="website_custom/static/src/binary/product_template/3-image_1920"/>
+    <field name="name">Booking Fees</field>
+    <field name="list_price" eval="50.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product.product_category_services"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10010"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 11:38:41</field>
+    <field name="base_unit_count" eval="1.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_4" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Commission</field>
+    <field name="list_price" eval="1.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product.product_category_services"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10025"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 11:39:00</field>
+    <field name="base_unit_count" eval="1.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_5" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Service Package</field>
+    <field name="list_price" eval="2500.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product.product_category_services"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10030"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 11:39:00</field>
+    <field name="base_unit_count" eval="1.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_33" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Apple In-Ear Headphones</field>
+    <field name="description_sale">Frequency: 5Hz to 21kHz
+Impedance: 23 ohms
+Sensitivity: 109 dB SPL/mW
+Drivers: two-way balanced armature
+Cable length: 1065 mm
+Weight: 10.2 grams</field>
+    <field name="list_price" eval="79.0"/>
+    <field name="default_code">E-COM08</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_34" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Apple Wireless Keyboard</field>
+    <field name="description_sale">The sleek aluminium Apple Wireless Keyboard.</field>
+    <field name="list_price" eval="47.0"/>
+    <field name="default_code">E-COM10</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_35" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Bose Mini Bluetooth Speaker</field>
+    <field name="description_sale">Bose's smallest portable Bluetooth speaker</field>
+    <field name="list_price" eval="247.0"/>
+    <field name="default_code">E-COM05</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_36" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">iMac</field>
+    <field name="description_sale">2.7GHz quad-core Intel Core i5
+ Turbo Boost up to 3.2GHz
+ 8GB (two 4GB) memory
+ 1TB hard drive
+ Intel Iris Pro graphics</field>
+    <field name="list_price" eval="1799.0"/>
+    <field name="default_code">E-COM09</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_37" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">iPod</field>
+    <field name="description_sale">Height: 76.5 mm
+Width: 39.6 mm
+Depth: 5.4 mm
+Weight: 31 grams</field>
+    <field name="list_price" eval="89.0"/>
+    <field name="default_code">E-COM12</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_38" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">iPad Mini</field>
+    <field name="description_sale">Color: White
+Capacity: 16GB
+Connectivity: Wifi
+Beautiful 7.9-inch display
+Over 375,000 apps
+Ultrafast wireless
+iOS7</field>
+    <field name="list_price" eval="320.0"/>
+    <field name="default_code">E-COM07</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_39" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">iPad Retina Display</field>
+    <field name="description_sale">7.9‑inch (diagonal) LED-backlit, 128Gb
+Dual-core A5 with quad-core graphics
+FaceTime HD Camera, 1.2 MP Photos</field>
+    <field name="list_price" eval="750.0"/>
+    <field name="default_code">E-COM01</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_40" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Computer SC234</field>
+    <field name="list_price" eval="450.0"/>
+    <field name="default_code">PCSC234</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_41" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Laptop Customized</field>
+    <field name="list_price" eval="3645.0"/>
+    <field name="default_code">LAP-CUS</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_42" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Self Build Kit</field>
+    <field name="list_price" eval="147.0"/>
+    <field name="default_code">E-COM92</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_43" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Mouse, Wireless</field>
+    <field name="list_price" eval="12.5"/>
+    <field name="default_code">M-Wir</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_44" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">RAM SR5</field>
+    <field name="list_price" eval="85.0"/>
+    <field name="default_code">RAM-SR5</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_45" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Computer Case</field>
+    <field name="list_price" eval="25.0"/>
+    <field name="default_code">C-Case</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_46" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">HDD SH-1</field>
+    <field name="list_price" eval="975.0"/>
+    <field name="default_code">HDD-SH1</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_47" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Motherboard I9P57</field>
+    <field name="list_price" eval="1950.0"/>
+    <field name="default_code">MBi9</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_48" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Processor Core i5 2.70 Ghz</field>
+    <field name="list_price" eval="2100.0"/>
+    <field name="default_code">CPUi5</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_49" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Graphics Card</field>
+    <field name="list_price" eval="885.0"/>
+    <field name="default_code">CARD</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_50" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Laptop Charger</field>
+    <field name="list_price" eval="2250.0"/>
+    <field name="default_code">E-COM93</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_51" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Laptop Keypad</field>
+    <field name="list_price" eval="850.0"/>
+    <field name="default_code">E-COM94</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_52" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Mouse, Wireless</field>
+    <field name="list_price" eval="12.5"/>
+    <field name="default_code">M-Wir</field>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_53" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Alice's Adventures in Wonderland - Lewis Caroll</field>
+    <field name="description_sale">Alice's Adventures in Wonderland (commonly shortened to Alice in Wonderland) is an 1865 novel written by English author Charles Lutwidge Dodgson under the pseudonym Lewis Carroll. It tells of a girl named Alice falling through a rabbit hole into a fantasy world populated by peculiar, anthropomorphic creatures. The tale plays with logic, giving the story lasting popularity with adults as well as with children. It is considered to be one of the best examples of the literary nonsense genre. Its narrative course and structure, characters and imagery have been enormously influential in both popular culture and literature, especially in the fantasy genre.</field>
+    <field name="list_price" eval="4.5"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_54" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Warranty</field>
+    <field name="description_sale">Warranty, issued to the purchaser of an article by its manufacturer, promising to repair or replace it if necessary within a specified period of time.</field>
+    <field name="list_price" eval="20.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_55" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Basic Membership</field>
+    <field name="list_price" eval="40.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_56" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Silver Membership</field>
+    <field name="list_price" eval="80.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_57" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Gold Membership</field>
+    <field name="list_price" eval="180.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10035"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-23 15:24:38</field>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_72" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="image_1920" type="base64" file="website_custom/static/src/binary/product_template/72-image_1920"/>
+    <field name="name">Old roof</field>
+    <field name="list_price" eval="549200.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="description_ecommerce"><![CDATA[<div><p class="card-title"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1065-7c9a7741/Bed.svg" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="http://localhost:8069/web/image/1070-7c9a7741/Bed.svg">3 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1066-c44cf842/Bathtub.svg" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="http://localhost:8069/web/image/1071-c44cf842/Bathtub.svg">1 bathroom</p><p class="card-title"><br></p><p class="card-title">220 m² house<br><br>A rare opportunity for renovators, investors, or anyone looking to restore a home with real character. This two-story cottage-style property features a striking red metal roof, vintage striped window awnings, and a warm, storied facade full of old-world charm.</p></div>
+
+]]></field>
+    <field name="is_published" eval="True"/>
+    <field name="website_sequence" eval="10040"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-24 13:06:59</field>
+    <field name="base_unit_count" eval="220.0"/>
+    <field name="x_street">Rue du Laid Burniat 5</field>
+    <field name="x_zip_code">1348</field>
+    <field name="x_city">Ottignies-Louvain-la-Neuve</field>
+    <field name="x_field_surface">500</field>
+    <field name="x_last_notification_update">2026-07-24 13:30:34</field>
+    <field name="x_construction_year">1980</field>
+    <field name="x_last_renovation">2023</field>
+    <field name="x_living_surface">300</field>
+    <field name="x_orientation">South</field>
+    <field name="x_ribbon_stage_is_accounted" eval="True"/>
+    <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+  </record>
+  <record id="product_template_73" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="image_1920" type="base64" file="website_custom/static/src/binary/product_template/73-image_1920"/>
+    <field name="name">River side</field>
+    <field name="list_price" eval="750950.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="description_ecommerce"><![CDATA[<p class="card-text"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1065-7c9a7741/Bed.svg" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="http://localhost:8069/web/image/1068-7c9a7741/Bed.svg">4 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1066-c44cf842/Bathtub.svg" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="http://localhost:8069/web/image/1071-c44cf842/Bathtub.svg">2 bathrooms</p>
+<p class="card-text">280 m² house</p>
+<p>Classic curb appeal meets modern comfort in this charming three-story home, ideally situated on a well-established, tree-lined street. Its warm red siding, crisp white trim, and welcoming covered front porch create an inviting first impression that carries throughout.</p>
+<p>The home's traditional architecture is full of character, featuring gabled rooflines, tasteful shutters, and large windows that fill the interiors with natural light across all three levels. A classic front porch with tidy railings offers the perfect spot to relax and enjoy the neighborhood.</p>
+<p><img src="/web/image/1156-0dab47da/1235-peb-a.webp" alt="" data-attachment-id="943" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="161" data-original-id="943" data-original-src="/real_estate/static/src/binary/ir_attachment/1235-peb-a.png?unique=81ab6071" data-mimetype-before-conversion="image/png" data-mimetype="image/webp" style="width: 25% !important;"></p>]]></field>
+    <field name="is_published" eval="True"/>
+    <field name="website_sequence" eval="10045"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-24 13:34:10</field>
+    <field name="base_unit_count" eval="280.0"/>
+    <field name="x_field_surface">5200</field>
+    <field name="x_last_notification_update">2026-07-24 13:34:05</field>
+    <field name="x_construction_year">1902</field>
+    <field name="x_living_surface">530</field>
+    <field name="x_orientation">South</field>
+    <field name="x_ribbon_stage_is_accounted" eval="True"/>
+    <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+  </record>
+  <record id="product_template_74" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="image_1920" type="base64" file="website_custom/static/src/binary/product_template/74-image_1920"/>
+    <field name="name">Yellow bricks</field>
+    <field name="list_price" eval="824500.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="description_ecommerce"><![CDATA[<p class="card-text"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1065-7c9a7741/Bed.svg" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="http://localhost:8069/web/image/1070-7c9a7741/Bed.svg">4 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/1066-c44cf842/Bathtub.svg" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="http://localhost:8069/web/image/1072-c44cf842/Bathtub.svg">2 bathrooms</p>
+
+<p class="card-title">346 m² house</p>
+<p class="card-title"><br></p>
+<p class="card-title">Located just outside the city of Namur, Yellow bricks is a unique opportunity to transform a historic Walloon estate into a high-end restaurant and charming guesthouse. Surrounded by nature, cycling trails, and tranquil views, it offers both serenity and strategic access to one of Belgium’s cultural hubs.</p>]]></field>
+    <field name="is_published" eval="True"/>
+    <field name="website_sequence" eval="10050"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-24 13:35:19</field>
+    <field name="base_unit_count" eval="346.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+    <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+  </record>
+  <record id="product_template_75" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="name">Event Registration</field>
+    <field name="list_price" eval="30.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_6"/>
+    <field name="is_published" eval="False"/>
+    <field name="website_sequence" eval="10055"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-27 15:05:13</field>
+    <field name="base_unit_count" eval="1.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+  </record>
+  <record id="product_template_76" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+    <field name="image_1920" type="base64" file="website_custom/static/src/binary/product_template/76-image_1920"/>
+    <field name="name">Louise loft</field>
+    <field name="list_price" eval="2200.0"/>
+    <field name="sequence" eval="1"/>
+    <field name="categ_id" ref="product_category_5"/>
+    <field name="description_ecommerce"><![CDATA[<p><img src="http://localhost:8069/web/image/1070-7c9a7741/Bed.svg" alt="" data-attachment-id="1065" class="img img-fluid o_we_custom_image" style="padding-right: 10px;" data-original-id="1065" data-original-src="/web/image/1065-7c9a7741/Bed.svg" data-mimetype-before-conversion="image/svg+xml" loading="lazy">2 bedrooms    <img src="http://localhost:8069/web/image/1071-c44cf842/Bathtub.svg" alt="" data-attachment-id="1066" class="img img-fluid o_we_custom_image" style="padding-right: 10px;" data-original-id="1066" data-original-src="/web/image/1066-c44cf842/Bathtub.svg" data-mimetype-before-conversion="image/svg+xml" loading="lazy">1 bathroom</p>
+<p class="card-title"><br></p>
+<p class="card-title">140 m² loft<br><br>Step into this stunning industrial-modern loft where soaring ceilings and exposed steel beams meet the warmth of natural wood. Sunlight pours across rich hardwood floors and a wood-plank ceiling, while sleek pendant and track lighting bring a designer touch throughout.</p>]]></field>
+    <field name="is_published" eval="True"/>
+    <field name="website_sequence" eval="10060"/>
+    <field name="website_size_x" eval="1"/>
+    <field name="website_size_y" eval="1"/>
+    <field name="publish_date">2026-07-27 15:34:51</field>
+    <field name="base_unit_count" eval="1.0"/>
+    <field name="x_field_surface">0</field>
+    <field name="x_living_surface">0</field>
+    <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_2')])]"/>
+  </record>
+</odoo>

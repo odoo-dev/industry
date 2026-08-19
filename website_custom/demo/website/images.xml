@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record id="img_custom_image_01" model="ir.attachment">
+    <field name="name">infinite-views-79NjpXDOJU8-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-01.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_02" model="ir.attachment">
+    <field name="name">webaliser-_TPTXZd9mOo-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-02.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_03" model="ir.attachment">
+    <field name="name">bg circle.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-03.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_04" model="ir.attachment">
+    <field name="name">regi-munandar-DmQ51XXKWmY-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-04.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_05" model="ir.attachment">
+    <field name="name">Bed.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-05.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_06" model="ir.attachment">
+    <field name="name">Bathtub.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-06.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_07" model="ir.attachment">
+    <field name="name">roger-starnes-sr-Eyk0U66VpxY-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-07.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_08" model="ir.attachment">
+    <field name="name">zac-gudakov-wwqZ8CM21gg-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-08.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_09" model="ir.attachment">
+    <field name="name">dominique-hicks-QKvDVnDGvPw-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-09.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_10" model="ir.attachment">
+    <field name="name">buy.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-10.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_11" model="ir.attachment">
+    <field name="name">sell.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-11.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_12" model="ir.attachment">
+    <field name="name">rent.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-12.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_13" model="ir.attachment">
+    <field name="name">jurica-koletic-7YVZYZeITc8-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-13.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_14" model="ir.attachment">
+    <field name="name">luis-villasmil-hh3ViD0r0Rc-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-14.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_15" model="ir.attachment">
+    <field name="name">slav-romanov-BrEAp01_m5w-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-15.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_16" model="ir.attachment">
+    <field name="name">stefan-stefancik-QXevDflbl8A-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-16.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_17" model="ir.attachment">
+    <field name="name">samuel-girven-Ppua0I4VjqE-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-17.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_18" model="ir.attachment">
+    <field name="name">aiony-haust-3TLl_97HNJo-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-18.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_19" model="ir.attachment">
+    <field name="name">webaliser-_TPTXZd9mOo-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-19.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_20" model="ir.attachment">
+    <field name="name">regi-munandar-DmQ51XXKWmY-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-20.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_21" model="ir.attachment">
+    <field name="name">roger-starnes-sr-Eyk0U66VpxY-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-21.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_22" model="ir.attachment">
+    <field name="name">zac-gudakov-wwqZ8CM21gg-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-22.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_23" model="ir.attachment">
+    <field name="name">dominique-hicks-QKvDVnDGvPw-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-23.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_24" model="ir.attachment">
+    <field name="name">jurica-koletic-7YVZYZeITc8-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-24.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_25" model="ir.attachment">
+    <field name="name">luis-villasmil-hh3ViD0r0Rc-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-25.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_26" model="ir.attachment">
+    <field name="name">slav-romanov-BrEAp01_m5w-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-26.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_27" model="ir.attachment">
+    <field name="name">stefan-stefancik-QXevDflbl8A-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-27.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_28" model="ir.attachment">
+    <field name="name">samuel-girven-Ppua0I4VjqE-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-28.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_29" model="ir.attachment">
+    <field name="name">aiony-haust-3TLl_97HNJo-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-29.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_30" model="ir.attachment">
+    <field name="name">frames-for-your-heart-mR1CIDduGLc-unsplash.jpg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-30.jpg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_31" model="ir.attachment">
+    <field name="name">frames-for-your-heart-mR1CIDduGLc-unsplash.webp</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-31.webp"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+  <record id="img_custom_image_32" model="ir.attachment">
+    <field name="name">logo.svg</field>
+    <field name="datas" type="base64" file="website_custom/static/src/img/content/website/custom-image-32.svg"/>
+    <field name="website_id" ref="website_industry"/>
+    <field name="public" eval="True"/>
+  </record>
+</odoo>

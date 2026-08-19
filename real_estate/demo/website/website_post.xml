@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Placeholder substitutions: the website export snapshots raw database ids
+        (crm.team ids, /shop/<slug>-<id> links). They are replaced here by the
+        ids the records actually get on install.
+    -->
+
+    <!-- "Get my estimate" form on /contactus -> sales team -->
+    <function model="ir.ui.view" name="write">
+        <value model="ir.ui.view" eval="obj().env.ref('real_estate.view_page_contactus').id"/>
+        <value model="ir.ui.view" eval="{'arch': obj().env.ref('real_estate.view_page_contactus').arch.replace(
+            'value=&quot;*salesteam*&quot;', 'value=&quot;%s&quot;' % str(
+                (team := obj().env.ref('sales_team.team_sales_department', raise_if_not_found=False)
+                         or obj().env['crm.team'].search([], limit=1)) and team.id or 0))}"/>
+    </function>
+
+    <!-- "Interested in this property?" form on the product page -> VIP customers team -->
+    <function model="ir.ui.view" name="write">
+        <value model="ir.ui.view" eval="obj().env.ref('real_estate.website_sale_product_oe_structure_website_sale_product_2').id"/>
+        <value model="ir.ui.view" eval="{'arch': obj().env.ref('real_estate.website_sale_product_oe_structure_website_sale_product_2').arch.replace(
+            '*VIP_customer_tag*', str(obj().env.ref('real_estate.crm_team_4').id))}"/>
+    </function>
+
+    <!-- Featured properties on the homepage -> /shop/<slug>-<product.template id> -->
+    <function model="ir.ui.view" name="write">
+        <value model="ir.ui.view" eval="obj().env.ref('real_estate.view_page_home').id"/>
+        <value model="ir.ui.view" eval="{'arch': obj().env.ref('real_estate.view_page_home').arch
+            .replace('/shop/*cliff-house*', '/shop/cliff-house-%s' % obj().env.ref('real_estate.product_template_2').id)
+            .replace('/shop/*yellow-bricks*', '/shop/yellow-bricks-%s' % obj().env.ref('real_estate.product_template_74').id)
+            .replace('/shop/*river-side*', '/shop/river-side-%s' % obj().env.ref('real_estate.product_template_73').id)
+            .replace('/shop/*old-roof*', '/shop/old-roof-%s' % obj().env.ref('real_estate.product_template_72').id)}"/>
+    </function>
+
+    <data noupdate="1">
+        <!-- Properties are contacted, not added to cart: drop the product card CTA. -->
+        <function model="website" name="write">
+            <value model="website" eval="[ref('real_estate.website_industry')]"/>
+            <value model="website" eval="{'shop_opt_products_design_classes': obj().env.ref('real_estate.website_industry').shop_opt_products_design_classes.replace('o_wsale_products_opt_has_cta', '')}"/>
+        </function>
+    </data>
+</odoo>

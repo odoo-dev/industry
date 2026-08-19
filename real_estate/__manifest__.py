@@ -54,12 +54,28 @@
         'data/mail_message.xml',
         'data/crm_tag.xml',
         'data/website_view.xml',
-        'data/website_page.xml',
-        'data/website_menu.xml',
-        'data/website_theme_apply.xml',
         'data/uninstall_hook.xml',
     ],
     'demo': [
+        # The website record comes first: it is repointed onto the
+        # `website.default_website` xmlid, which later files reference.
+        'demo/website/website.xml',
+        # Before server_actions.xml: these views override generic view *keys*
+        # (website.footer_custom, website.header_call_to_action,
+        # website_sale.header_hide_empty_cart_link). The server action toggles
+        # those same keys with website_id in context, which copies the generic
+        # view on write unless a specific one already exists -> loading it first
+        # would leave two specific views per key and the generic arch winning.
+        'demo/website/views/website_templates.xml',
+        # Before any page: deactivates the generic website.homepage /
+        # website.contactus views by copy-on-write.
+        'demo/website/server_actions.xml',
+        'demo/website/assets.xml',
+        'demo/website/images.xml',
+        'demo/website/pages/home.xml',
+        'demo/website/pages/contactus.xml',
+        'demo/website/pages/match.xml',
+
         'demo/res_company.xml',
         'demo/product_attribute_value.xml',
         'demo/res_partner.xml',
@@ -82,16 +98,20 @@
         'demo/project_task.xml',
         'demo/sale_commission_plan_user.xml',
         'demo/ir_attachment_post.xml',
-        'demo/website_view.xml',
-        'demo/website_page.xml',
-        'demo/website_theme_apply.xml',
-        'demo/website.xml',
+
+        # Substitutes the raw ids the export snapshotted (crm.team, /shop links)
+        # once every record it points at exists.
+        'demo/website/website_post.xml',
     ],
     "cloc_exclude": [
         "data/knowledge_article.xml",
         "data/uninstall_hook.xml",
         "data/website_view.xml",
-        "demo/website_view.xml",
+        "demo/website/pages/home.xml",
+        "demo/website/pages/contactus.xml",
+        "demo/website/pages/match.xml",
+        "demo/website/views/website_templates.xml",
+        "static/src/scss/primary_variables.scss",
     ],
     'application': True,
     'images': ['images/main.png'],

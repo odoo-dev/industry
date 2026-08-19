@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="server_action_presets" model="ir.actions.server" forcecreate="0">
+    <field name="name">Custom Website - Enable/disable views</field>
+    <field name="model_id" ref="website.model_website"/>
+    <field name="state">code</field>
+    <field name="code">
+website = env.ref('website_custom.website_industry')
+
+to_deactivate = [
+    'website_event.opt_event_organizer_block',
+    'website_sale.carousel_product_indicators_left',
+    'website_sale.cta_separator',
+    'website_sale.products_shop_title',
+    'website.header_text_element',
+    'website_sale_comparison.product_add_to_compare',
+    'website.homepage',
+    'website.contactus',
+]
+to_activate = [
+    'website_event.opt_event_description_cover_top',
+    'website_sale.carousel_product_indicators_bottom',
+    'website_sale.filmstrip_categories_pills',
+    'website_sale.header_hide_empty_cart_link',
+    'website.footer_custom',
+    'website.header_call_to_action',
+    'website.template_header_default_align_right',
+    'website_sale_comparison.accordion_specs_item',
+]
+
+ctx = {'website_id': website.id}
+
+for xml_id in to_deactivate:
+    env.ref(xml_id).with_context(**ctx).write({'active': False})
+for xml_id in to_activate:
+    env.ref(xml_id).with_context(**ctx).write({'active': True})
+</field>
+  </record>
+  <function name="run" model="ir.actions.server" eval="[ref('server_action_presets', raise_if_not_found=False)]"/>
+  <function name="unlink" model="ir.actions.server" eval="[ref('server_action_presets', raise_if_not_found=False)]"/>
+</odoo>

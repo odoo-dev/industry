@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <!-- Product variant attributes (auto-generates variants) -->
+  <record id="product_template_attribute_line_2_product_attribute_9" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_2"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+    <field name="sequence" eval="10"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_40')])]"/>
+  </record>
+  <record id="product_template_attribute_line_2_product_attribute_13" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_2"/>
+    <field name="attribute_id" ref="product_attribute_13"/>
+    <field name="sequence" eval="11"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_20')])]"/>
+  </record>
+  <record id="product_template_attribute_line_2_product_attribute_12" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_2"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+    <field name="sequence" eval="12"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_17')])]"/>
+  </record>
+  <record id="product_template_attribute_line_2_product_attribute_10" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_2"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+    <field name="sequence" eval="13"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_3')])]"/>
+  </record>
+  <record id="product_template_attribute_line_2_product_attribute_15" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_2"/>
+    <field name="attribute_id" ref="product_attribute_15"/>
+    <field name="sequence" eval="14"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_26')])]"/>
+  </record>
+  <record id="product_template_attribute_line_2_product_attribute_11" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_2"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+    <field name="sequence" eval="15"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_6')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_9" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+    <field name="sequence" eval="10"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_41')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_11" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+    <field name="sequence" eval="11"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_8')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_13" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_13"/>
+    <field name="sequence" eval="12"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_21')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_14" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_14"/>
+    <field name="sequence" eval="13"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_25')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_15" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_15"/>
+    <field name="sequence" eval="14"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_27')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_10" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+    <field name="sequence" eval="15"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_1')])]"/>
+  </record>
+  <record id="product_template_attribute_line_72_product_attribute_12" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_72"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+    <field name="sequence" eval="16"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_14')])]"/>
+  </record>
+  <record id="product_template_attribute_line_73_product_attribute_9" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_73"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+    <field name="sequence" eval="10"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_42')])]"/>
+  </record>
+  <record id="product_template_attribute_line_73_product_attribute_13" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_73"/>
+    <field name="attribute_id" ref="product_attribute_13"/>
+    <field name="sequence" eval="11"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_20')])]"/>
+  </record>
+  <record id="product_template_attribute_line_73_product_attribute_12" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_73"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+    <field name="sequence" eval="12"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_15')])]"/>
+  </record>
+  <record id="product_template_attribute_line_73_product_attribute_10" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_73"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+    <field name="sequence" eval="13"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_2')])]"/>
+  </record>
+  <record id="product_template_attribute_line_73_product_attribute_15" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_73"/>
+    <field name="attribute_id" ref="product_attribute_15"/>
+    <field name="sequence" eval="14"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_26')])]"/>
+  </record>
+  <record id="product_template_attribute_line_73_product_attribute_11" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_73"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+    <field name="sequence" eval="15"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_7')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_9" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+    <field name="sequence" eval="10"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_43')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_11" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+    <field name="sequence" eval="11"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_8')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_13" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_13"/>
+    <field name="sequence" eval="12"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_21')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_14" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_14"/>
+    <field name="sequence" eval="13"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_25')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_12" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+    <field name="sequence" eval="14"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_15')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_10" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+    <field name="sequence" eval="15"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_2')])]"/>
+  </record>
+  <record id="product_template_attribute_line_74_product_attribute_15" model="product.template.attribute.line">
+    <field name="product_tmpl_id" ref="product_template_74"/>
+    <field name="attribute_id" ref="product_attribute_15"/>
+    <field name="sequence" eval="16"/>
+    <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_26')])]"/>
+  </record>
+</odoo>

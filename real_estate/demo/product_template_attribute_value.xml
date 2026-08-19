@@ -240,4 +240,109 @@
         <field name="product_attribute_value_id" ref="product_attribute_value_18"/>
         <field name="attribute_line_id" ref="product_template_attribute_line_60"/>
     </record>
+    <!-- Properties added by the website builder export -->
+    <record id="product_template_attribute_value_111" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_1"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_103"/>
+    </record>
+    <record id="product_template_attribute_value_112" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_12"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_104"/>
+    </record>
+    <record id="product_template_attribute_value_113" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_40"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_105"/>
+    </record>
+    <record id="product_template_attribute_value_114" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_26"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_106"/>
+    </record>
+    <record id="product_template_attribute_value_115" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_14"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_107"/>
+    </record>
+    <record id="product_template_attribute_value_116" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_11"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_108"/>
+    </record>
+    <record id="product_template_attribute_value_117" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_7"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_109"/>
+    </record>
+    <record id="product_template_attribute_value_118" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_18"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_110"/>
+    </record>
+    <record id="product_template_attribute_value_119" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_19"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_111"/>
+    </record>
+    <record id="product_template_attribute_value_120" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_13"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_112"/>
+    </record>
+    <record id="product_template_attribute_value_121" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_22"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_113"/>
+    </record>
+    <record id="product_template_attribute_value_122" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_30"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_114"/>
+    </record>
+    <record id="product_template_attribute_value_123" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_20"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_115"/>
+    </record>
+    <record id="product_template_attribute_value_124" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_28"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_116"/>
+    </record>
+    <record id="product_template_attribute_value_125" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_12"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_117"/>
+    </record>
+    <record id="product_template_attribute_value_126" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_24"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_118"/>
+    </record>
+    <record id="product_template_attribute_value_127" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_32"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_119"/>
+    </record>
+    <record id="product_template_attribute_value_128" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_14"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_120"/>
+    </record>
+    <record id="product_template_attribute_value_129" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_17"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_121"/>
+    </record>
+    <record id="product_template_attribute_value_130" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_8"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_122"/>
+    </record>
+    <record id="product_template_attribute_value_131" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_18"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_123"/>
+    </record>
+    <record id="product_template_attribute_value_132" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_19"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_124"/>
+    </record>
+    <record id="product_template_attribute_value_133" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_13"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_125"/>
+    </record>
+    <record id="product_template_attribute_value_134" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_24"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_126"/>
+    </record>
+    <record id="product_template_attribute_value_135" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_32"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_127"/>
+    </record>
+    <record id="product_template_attribute_value_136" model="product.template.attribute.value">
+        <field name="product_attribute_value_id" ref="product_attribute_value_14"/>
+        <field name="attribute_line_id" ref="product_template_attribute_line_128"/>
+    </record>
 </odoo>

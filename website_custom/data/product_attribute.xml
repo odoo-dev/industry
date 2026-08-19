@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <!-- Product attributes referenced by exported products -->
+  <record id="product_attribute_9" model="product.attribute">
+    <field name="name">Region</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">radio</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+  <record id="product_attribute_13" model="product.attribute">
+    <field name="name">Condition</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">radio</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+  <record id="product_attribute_12" model="product.attribute">
+    <field name="name">Rooms</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">pills</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+  <record id="product_attribute_10" model="product.attribute">
+    <field name="name">Bathrooms</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">radio</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+  <record id="product_attribute_15" model="product.attribute">
+    <field name="name">Pool</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">radio</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+  <record id="product_attribute_11" model="product.attribute">
+    <field name="name">Type</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">radio</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+  <record id="product_attribute_14" model="product.attribute">
+    <field name="name">Available</field>
+    <field name="sequence" eval="10"/>
+    <field name="display_type">radio</field>
+    <field name="create_variant">always</field>
+    <field name="visibility">visible</field>
+  </record>
+</odoo>

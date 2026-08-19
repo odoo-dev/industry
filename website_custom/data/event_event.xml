@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <!-- Events (surfaced by website_event snippets) -->
+  <record id="event_event_1" model="event.event">
+    <field name="name">First-time Homebuyer Seminar</field>
+    <field name="date_begin">2027-10-18 15:30:00</field>
+    <field name="date_end">2027-10-20 15:30:00</field>
+    <field name="date_tz">Europe/Brussels</field>
+    <field name="description"><![CDATA[<section class="s_text_block o_colored_level">
+            <h2>Your path to homeownership starts here</h2><p>Thinking about buying your first home but not sure where to begin?&nbsp;</p><p>This <strong>free seminar</strong> breaks down the entire process into clear, manageable steps — no jargon, no pressure.</p><p>Join us at Country on <strong>18th October from 5PM</strong>&nbsp;as our team of local experts walks you through everything you need to know:</p><ul><li>how much home you can actually afford</li><li>how to get pre-approved for a mortgage</li><li>what down payment assistance programs you may qualify for</li><li>what to expect from offer to closing day</li></ul><p>You'll also hear from a lender and a home inspector who'll answer the questions most buyers don't think to ask.</p><p>Leave with a personalized checklist and the confidence to take your next step. Light refreshments provided.&nbsp;</p><p>Seating is limited</p>
+        </section>]]></field>
+    <field name="cover_properties">{"background-image":"url(\"/web/image/website_custom.ir_attachment_1432\")","resize_class":"o_half_screen_height o_record_has_cover","text_align_class":"","opacity":"0.4","background_color_class":"o_cc o_cc3","background_color_style":""}</field>
+    <field name="is_published" eval="True"/>
+    <field name="stage_id" ref="event.event_stage_new"/>
+  </record>
+  <record id="event_event_2" model="event.event">
+    <field name="name">Real estate investor networking night</field>
+    <field name="date_begin">2028-03-17 16:30:00</field>
+    <field name="date_end">2028-03-17 16:30:00</field>
+    <field name="date_tz">Europe/Brussels</field>
+    <field name="description"><![CDATA[<section class="s_text_block o_colored_level">
+            <h2>Connect. Learn. Build your portfolio</h2>
+            <p>Whether you own ten doors or you're eyeing your first rental, this is the room you want to be in. Our Investor Networking Night brings together active investors, agents, lenders, and contractors for an evening of real conversation and real deals.</p><p>Held at <strong>Country</strong>&nbsp;on <strong>March 17th from 5PM</strong>, the night features a short panel on [current market trends / financing strategies / off-market deals], followed by open networking.&nbsp;</p><p>Come to swap strategies, find partners, source your next property, or simply learn from people a few steps ahead of you.</p><p>Drinks and appetizers included.&nbsp;</p><p>Bring plenty of business cards.</p>
+        </section>]]></field>
+    <field name="cover_properties">{"background-image":"url(\"/web/image/website_custom.ir_attachment_1433\")","resize_class":"o_half_screen_height o_record_has_cover","text_align_class":"","opacity":"0.4","background_color_class":"o_cc o_cc3","background_color_style":""}</field>
+    <field name="is_published" eval="True"/>
+    <field name="stage_id" ref="event.event_stage_new"/>
+  </record>
+  <record id="event_event_3" model="event.event">
+    <field name="name">Open house</field>
+    <field name="date_begin">2026-12-10 16:30:00</field>
+    <field name="date_end">2026-12-10 16:30:00</field>
+    <field name="date_tz">Europe/Brussels</field>
+    <field name="description"><![CDATA[<section class="s_text_block o_colored_level">
+            <h3>Come see Yellow bricks - Open this December 10th</h3><p>Located just outside the city of Namur, Yellow bricks is a unique opportunity to transform a historic Walloon&nbsp;estate into a high-end restaurant and charming guesthouse. Surrounded by nature, cycling trails, and tranquil views, it offers both serenity and strategic access to one of Belgium’s cultural hubs.</p>
+            <p>Step inside this 4 bedrooms, 2bathrooms&nbsp;in the heart of Namur&nbsp;and picture yourself home.</p><p>Stop by <strong>December 10th from 5:30PM</strong>&nbsp;— no appointment needed.&nbsp;</p><p>Tour at your own pace, ask us anything, and grab a full property info sheet on your way out.&nbsp;</p><p><strong>Priced at&nbsp;824,500$</strong></p><p>Can't make it?&nbsp;Reach out at 06 943 43943 to schedule a private showing.</p>
+        </section>
+<section class="s_image_gallery o_masonry pt24 pb24 o_colored_level o_spc-small" data-vcss="002" data-columns="2" style="overflow: hidden;" data-snippet="s_images_wall" data-name="Images Wall">
+        <div class="container"><div class="row s_nb_column_fixed"><div class="o_masonry_col o_snippet_not_selectable col-lg-6"><img src="/web/image/1443-fb194d85/Staged%20-%20Kitchen%20Interior.webp?access_token=24529aea-7607-4cde-ba00-b7da7e02b94f" alt="" data-attachment-id="1435" class="img img-fluid o_we_custom_image d-block mh-100 mw-100 mx-auto object-fit-cover o_editable_media rounded" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="1435" data-original-src="/web/image/1435-fb194d85/Staged%20-%20Kitchen%20Interior.webp" data-mimetype-before-conversion="image/webp" data-mimetype="image/webp" data-index="0" loading="lazy" style="--box-border-bottom-left-radius: 0px; --box-border-bottom-right-radius: 0px; --box-border-top-right-radius: 0px; --box-border-top-left-radius: 0px;"><img src="/web/image/1444-66cd5c08/Staged%20-%20Living%20Room%20Interior.webp?access_token=c90c8a3e-1c84-4b59-9f62-ee0ed5b42ebb" alt="" data-attachment-id="1439" class="img img-fluid o_we_custom_image d-block mh-100 mw-100 mx-auto object-fit-cover o_editable_media rounded" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="1439" data-original-src="/web/image/1439-66cd5c08/Staged%20-%20Living%20Room%20Interior.webp" data-mimetype-before-conversion="image/webp" data-mimetype="image/webp" data-index="2" loading="lazy" style="--box-border-bottom-left-radius: 0px; --box-border-bottom-right-radius: 0px; --box-border-top-right-radius: 0px; --box-border-top-left-radius: 0px;"></div><div class="o_masonry_col o_snippet_not_selectable col-lg-6"><img src="/web/image/1446-c405ef2e/Staged%20-%20Master%20Bedroom%20Interior.webp?access_token=5846d3a3-ba38-424c-8e6a-511429edfbce" alt="" data-attachment-id="1437" class="img img-fluid o_we_custom_image d-block mh-100 mw-100 mx-auto object-fit-cover o_editable_media rounded" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="1437" data-original-src="/web/image/1437-c405ef2e/Staged%20-%20Master%20Bedroom%20Interior.webp" data-mimetype-before-conversion="image/webp" data-mimetype="image/webp" data-index="1" loading="lazy" style="--box-border-bottom-left-radius: 0px; --box-border-bottom-right-radius: 0px; --box-border-top-right-radius: 0px; --box-border-top-left-radius: 0px;"><img src="/web/image/1445-ff48f0ce/Staged%20-%20Backyard%20View.webp?access_token=f67a8883-466c-4a5c-9f2b-44071e2c4dd9" alt="" data-attachment-id="1441" class="img img-fluid o_we_custom_image d-block mh-100 mw-100 mx-auto object-fit-cover o_editable_media rounded" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="1441" data-original-src="/web/image/1441-ff48f0ce/Staged%20-%20Backyard%20View.webp" data-mimetype-before-conversion="image/webp" data-mimetype="image/webp" data-index="3" loading="lazy" style="--box-border-bottom-left-radius: 0px; --box-border-bottom-right-radius: 0px; --box-border-top-right-radius: 0px; --box-border-top-left-radius: 0px;"></div></div></div>
+    </section>]]></field>
+    <field name="cover_properties">{"background-image":"url(\"/web/image/website_custom.ir_attachment_1434\")","resize_class":"o_half_screen_height o_record_has_cover","text_align_class":"","opacity":"0.4","background_color_class":"o_cc o_cc3","background_color_style":""}</field>
+    <field name="is_published" eval="True"/>
+    <field name="stage_id" ref="event.event_stage_new"/>
+  </record>
+</odoo>

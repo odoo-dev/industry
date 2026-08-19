@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <!-- Product attribute values referenced by exported products -->
+  <record id="product_attribute_value_40" model="product.attribute.value">
+    <field name="name">Antwerp</field>
+    <field name="sequence" eval="0"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+  </record>
+  <record id="product_attribute_value_20" model="product.attribute.value">
+    <field name="name">Excellent</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_13"/>
+  </record>
+  <record id="product_attribute_value_17" model="product.attribute.value">
+    <field name="name">6</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+  </record>
+  <record id="product_attribute_value_3" model="product.attribute.value">
+    <field name="name">3</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+  </record>
+  <record id="product_attribute_value_26" model="product.attribute.value">
+    <field name="name">Yes</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_15"/>
+  </record>
+  <record id="product_attribute_value_6" model="product.attribute.value">
+    <field name="name">Villa</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+  </record>
+  <record id="product_attribute_value_41" model="product.attribute.value">
+    <field name="name">Luxembourg</field>
+    <field name="sequence" eval="0"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+  </record>
+  <record id="product_attribute_value_8" model="product.attribute.value">
+    <field name="name">Exceptional Goods</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+  </record>
+  <record id="product_attribute_value_21" model="product.attribute.value">
+    <field name="name">To refresh</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_13"/>
+  </record>
+  <record id="product_attribute_value_25" model="product.attribute.value">
+    <field name="name">Instantly</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_14"/>
+  </record>
+  <record id="product_attribute_value_27" model="product.attribute.value">
+    <field name="name">No</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_15"/>
+  </record>
+  <record id="product_attribute_value_1" model="product.attribute.value">
+    <field name="name">1</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+  </record>
+  <record id="product_attribute_value_14" model="product.attribute.value">
+    <field name="name">3</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+  </record>
+  <record id="product_attribute_value_42" model="product.attribute.value">
+    <field name="name">Brussels</field>
+    <field name="sequence" eval="0"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+  </record>
+  <record id="product_attribute_value_15" model="product.attribute.value">
+    <field name="name">4</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_12"/>
+  </record>
+  <record id="product_attribute_value_2" model="product.attribute.value">
+    <field name="name">2</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_10"/>
+  </record>
+  <record id="product_attribute_value_7" model="product.attribute.value">
+    <field name="name">House</field>
+    <field name="sequence" eval="10"/>
+    <field name="attribute_id" ref="product_attribute_11"/>
+  </record>
+  <record id="product_attribute_value_43" model="product.attribute.value">
+    <field name="name">Namur</field>
+    <field name="sequence" eval="0"/>
+    <field name="attribute_id" ref="product_attribute_9"/>
+  </record>
+</odoo>

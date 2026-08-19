@@ -131,7 +131,9 @@
         <field name="list_price">2200.0</field>
         <field name="service_type">manual</field>
         <field name="invoice_policy">order</field>
-        <field name="description_ecommerce"><![CDATA[<div data-oe-version="1.2">Stylish industrial loft with modern finishes in the heart of Brussels.	</div>]]></field>
+        <field name="description_ecommerce"><![CDATA[<p><img src="/web/image/real_estate.img_custom_image_05" alt="" data-attachment-id="1065" class="img img-fluid o_we_custom_image" style="padding-right: 10px;" data-original-id="1065" data-original-src="/web/image/real_estate.img_custom_image_05" data-mimetype-before-conversion="image/svg+xml" loading="lazy">2 bedrooms    <img src="/web/image/real_estate.img_custom_image_06" alt="" data-attachment-id="1066" class="img img-fluid o_we_custom_image" style="padding-right: 10px;" data-original-id="1066" data-original-src="/web/image/real_estate.img_custom_image_06" data-mimetype-before-conversion="image/svg+xml" loading="lazy">1 bathroom</p>
+<p class="card-title"><br></p>
+<p class="card-title">140 m² loft<br><br>Step into this stunning industrial-modern loft where soaring ceilings and exposed steel beams meet the warmth of natural wood. Sunlight pours across rich hardwood floors and a wood-plank ceiling, while sleek pendant and track lighting bring a designer touch throughout.</p>]]></field>
         <field name="website_sequence">10045</field>
         <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_2')])]"/>
         <field name="categ_id" ref="product_category_5"/>
@@ -222,5 +224,88 @@
         <field name="x_co_owners_ids" eval="[(6, 0, [ref('base_industry_data.res_partner_21')])]"/>
         <field name="x_notary_id" ref="base_industry_data.res_partner_26"/>
         <field name="x_developer_id" ref="base_industry_data.res_partner_34"/>
+    </record>
+    <!-- Properties added by the website builder export -->
+    <record id="product_template_2" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+        <field name="image_1920" type="base64" file="real_estate/static/src/binary/product_template/2-image_1920"/>
+        <field name="name">Cliff house</field>
+        <field name="list_price">2860000.0</field>
+        <field name="service_type">manual</field>
+        <field name="invoice_policy">order</field>
+        <field name="description_ecommerce"><![CDATA[<p class="card-text"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_05" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="/web/image/real_estate.img_custom_image_05">6 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_06" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="/web/image/real_estate.img_custom_image_06">3 bathrooms</p>
+
+<p class="card-text">520 m² villa</p>
+<p class="card-text">Wake up to breathtaking views of the mountains from this stunning contemporary home, set against a dramatic volcanic backdrop and surrounded by rolling fields of lavender in full bloom.</p>]]></field>
+        <field name="website_ribbon_id" ref="website_sale.new_ribbon"/>
+        <field name="website_sequence">10005</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+        <field name="categ_id" ref="product_category_5"/>
+        <field name="x_street">Roderveldlaan 3</field>
+        <field name="x_zip_code">2600</field>
+        <field name="x_city">Antwerpen</field>
+        <field name="x_construction_year">1902</field>
+        <field name="x_living_surface">530</field>
+        <field name="x_field_surface">5200</field>
+        <field name="x_orientation">South</field>
+        <field name="x_ribbon_stage_is_accounted" eval="True"/>
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_72" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+        <field name="image_1920" type="base64" file="real_estate/static/src/binary/product_template/72-image_1920"/>
+        <field name="name">Old roof</field>
+        <field name="list_price">549200.0</field>
+        <field name="service_type">manual</field>
+        <field name="invoice_policy">order</field>
+        <field name="description_ecommerce"><![CDATA[<div><p class="card-title"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_05" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="/web/image/real_estate.img_custom_image_05">3 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_06" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="/web/image/real_estate.img_custom_image_06">1 bathroom</p><p class="card-title"><br></p><p class="card-title">220 m² house<br><br>A rare opportunity for renovators, investors, or anyone looking to restore a home with real character. This two-story cottage-style property features a striking red metal roof, vintage striped window awnings, and a warm, storied facade full of old-world charm.</p></div>]]></field>
+        <field name="website_sequence">10006</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+        <field name="categ_id" ref="product_category_5"/>
+        <field name="x_street">Rue du Laid Burniat 5</field>
+        <field name="x_zip_code">1348</field>
+        <field name="x_city">Ottignies-Louvain-la-Neuve</field>
+        <field name="x_construction_year">1980</field>
+        <field name="x_last_renovation">2023</field>
+        <field name="x_living_surface">300</field>
+        <field name="x_field_surface">500</field>
+        <field name="x_orientation">South</field>
+        <field name="x_ribbon_stage_is_accounted" eval="True"/>
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_73" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+        <field name="image_1920" type="base64" file="real_estate/static/src/binary/product_template/73-image_1920"/>
+        <field name="name">River side</field>
+        <field name="list_price">750950.0</field>
+        <field name="service_type">manual</field>
+        <field name="invoice_policy">order</field>
+        <field name="description_ecommerce"><![CDATA[<p class="card-text"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_05" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="/web/image/real_estate.img_custom_image_05">4 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_06" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="/web/image/real_estate.img_custom_image_06">2 bathrooms</p>
+<p class="card-text">280 m² house</p>
+<p>Classic curb appeal meets modern comfort in this charming three-story home, ideally situated on a well-established, tree-lined street. Its warm red siding, crisp white trim, and welcoming covered front porch create an inviting first impression that carries throughout.</p>
+<p>The home's traditional architecture is full of character, featuring gabled rooflines, tasteful shutters, and large windows that fill the interiors with natural light across all three levels. A classic front porch with tidy railings offers the perfect spot to relax and enjoy the neighborhood.</p>
+<p><img src="/web/image/real_estate.ir_attachment_1235" alt="" data-attachment-id="943" class="img img-fluid o_we_custom_image" data-original-id="943" data-original-src="/web/image/real_estate.ir_attachment_1235" data-mimetype-before-conversion="image/png" style="width: 25% !important;"></p>]]></field>
+        <field name="website_sequence">10007</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+        <field name="categ_id" ref="product_category_5"/>
+        <field name="x_construction_year">1902</field>
+        <field name="x_living_surface">530</field>
+        <field name="x_field_surface">5200</field>
+        <field name="x_orientation">South</field>
+        <field name="x_ribbon_stage_is_accounted" eval="True"/>
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="product_template_74" model="product.template" context="{'create_product_product': False, 'update_product_template_attribute_values': False}">
+        <field name="image_1920" type="base64" file="real_estate/static/src/binary/product_template/74-image_1920"/>
+        <field name="name">Yellow bricks</field>
+        <field name="list_price">824500.0</field>
+        <field name="service_type">manual</field>
+        <field name="invoice_policy">order</field>
+        <field name="description_ecommerce"><![CDATA[<p class="card-text"><img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_05" data-original-id="1065" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1065" alt="" src="/web/image/real_estate.img_custom_image_05">4 bedrooms    <img loading="lazy" data-mimetype-before-conversion="image/svg+xml" data-original-src="/web/image/real_estate.img_custom_image_06" data-original-id="1066" style="padding-right: 10px;" class="img img-fluid o_we_custom_image" data-attachment-id="1066" alt="" src="/web/image/real_estate.img_custom_image_06">2 bathrooms</p>
+
+<p class="card-title">346 m² house</p>
+<p class="card-title"><br></p>
+<p class="card-title">Located just outside the city of Namur, Yellow bricks is a unique opportunity to transform a historic Walloon estate into a high-end restaurant and charming guesthouse. Surrounded by nature, cycling trails, and tranquil views, it offers both serenity and strategic access to one of Belgium's cultural hubs.</p>]]></field>
+        <field name="website_sequence">10008</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('product_public_category_1')])]"/>
+        <field name="categ_id" ref="product_category_5"/>
+        <field name="is_published" eval="True"/>
     </record>
 </odoo>

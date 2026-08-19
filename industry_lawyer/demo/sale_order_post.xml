@@ -5,6 +5,7 @@
         ref('sale_order_24'),
         ref('sale_order_25'),
         ref('sale_order_27'),
+        ref('sale_order_6'),
     ]]"/>
 
     <record id="timesheet_field_task_1" model="account.analytic.line">

@@ -108,6 +108,7 @@
                 </thead>
                 <tbody>
                     <t t-set="donors" t-value="docs.mapped('x_donor')"/>
+                    <t t-set="sum_of_donor_total" t-value="0"/>
                     <t t-foreach="donors" t-as="donor">
                     <t t-set="donation_lines"
                         t-value="docs.env['account.move.line'].search([
@@ -119,7 +120,7 @@
                         ('move_id.invoice_date','&lt;=',period_end),
                         ])"/>
                     <t t-set="donor_total" t-value="sum(donation_lines.mapped('price_total'))"/>
-
+                    <t t-set="sum_of_donor_total" t-value="sum_of_donor_total + donor_total"/>
                     <tr>
                         <td t-out="donor.name"/>
                         <td t-out="donor.x_citizen_id_number or '-'"/>
@@ -129,6 +130,14 @@
                         </td>
                     </tr>
                     </t>
+                    <tr class="border-0">
+                        <td colspan="2" class="border-0">
+                            TOTAL
+                        </td>
+                        <td class="border-0 text-end">
+                            <span t-out="sum_of_donor_total" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                        </td>
+                    </tr>
                 </tbody>
                 </table>
                 <div class="mt-4">

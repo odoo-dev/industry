@@ -199,19 +199,6 @@
             </xpath>
         </field>
     </record>
-    <!-- ir cron views -->
-    <record id="ir_cron_extends" model="ir.ui.view">
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='group_ids']" position="after">
-                <field name="x_debug_last_answer"/>
-            </xpath>
-        </field>
-        <field name="inherit_id" ref="base.ir_cron_view_form"/>
-        <field name="model">ir.cron</field>
-        <field name="name">ir.cron form view extension</field>
-        <field name="active" eval="True"/>
-        <field name="type">form</field>
-    </record>
     <!-- ir logging views -->
     <record id="ir_logging_tree_view_extends" model="ir.ui.view">
         <field name="arch" type="xml">

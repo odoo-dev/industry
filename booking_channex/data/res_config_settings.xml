@@ -27,6 +27,17 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
         <field name="on_change_field_ids" eval="[(6, 0, [ref('x_setting_field_channel_manager_api_key')])]"/>
     </record>
 
+    <record id="x_setting_field_channel_manager_is_synced" model="ir.model.fields">
+        <field name="ttype">boolean</field>
+        <field name="field_description">Channex is Synced</field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="name">x_channex_is_synced</field>
+        <field name="store" eval="False"/>
+        <field name="compute"><![CDATA[
+self['x_channex_is_synced'] = self.env['ir.config_parameter'].get_str('booking_channex.synced_with_channex')
+]]></field>
+    </record>
+
     <!-- Views -->
     <record id="res_config_settings_form_view_inherited_sync" model="ir.ui.view">
         <field name="name">res.config.settings.form.view.inherited.booking.engine.sync</field>
@@ -47,15 +58,17 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
                             type="action"
                             name="%(action_button_sync)d"
                             class="btn-primary"
+                            invisible="x_channex_is_synced"
                         >
-                            Sync Non-ARIs
+                            Sync
                         </button>
                         <button
                             type="action"
-                            name="%(action_button_sync_aris)d"
+                            name="%(fetch_channex_and_capture_changes_needed)d"
                             class="btn-primary"
+                            invisible="not x_channex_is_synced"
                         >
-                            Sync ARIs
+                            Sync
                         </button>
                     </div>
             </xpath>

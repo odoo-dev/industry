@@ -21,13 +21,6 @@
         "/>
         <value eval="{'invoice_date': DateTime.now()}"/>
     </function>
-    <function model="account.move" name="action_post">
-        <value model="account.move" eval="
-            obj().env.ref('construction.purchase_order_2').invoice_ids.ids +
-            obj().env.ref('construction.purchase_order_3').invoice_ids.ids +
-            obj().env.ref('construction.purchase_order_4').invoice_ids.ids
-        "/>
-    </function>
 
     <!-- Confirm stock.picking for SO and create backorder of not in stock products -->
     <function name="action_split_transfer" model="stock.picking">

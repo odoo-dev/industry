@@ -37,8 +37,12 @@ env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', (record.
 self['x_channex_is_synced'] = self.env['ir.config_parameter'].get_str('booking_channex.synced_with_channex')
 ]]></field>
     </record>
-    
+
     <data noupdate="1">
+        <record id="config_booking_channex_x_channex_url" model="ir.config_parameter">
+            <field name="key">booking_channex.x_channex_url</field>
+            <field name="value">https://prod.channex.io/api/v1</field>
+        </record>
         <record model="res.config.settings" id="res_config_settings_enable">
             <field name="x_setting_steering" eval="1"/>
         </record>
@@ -74,7 +78,7 @@ self['x_channex_is_synced'] = self.env['ir.config_parameter'].get_str('booking_c
                         </button>
                         <button
                             type="action"
-                            name="%(fetch_channex_and_capture_changes_needed)d"
+                            name="%(action_channex_daily_sync)d"
                             class="btn-primary"
                             invisible="not x_channex_is_synced"
                         >

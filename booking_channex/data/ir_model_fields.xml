@@ -196,13 +196,6 @@ for record in self:
         <field name="ttype">integer</field>
         <field name="help">Number of rooms to keep exclusively for your commission-free direct channels.</field>
     </record>
-    <record id="x_stop_sell_field" model="ir.model.fields">
-        <field name="name">x_stop_sell</field>
-        <field name="field_description">Stop-Sell</field>
-        <field name="model_id" ref="product.model_product_template"/>
-        <field name="ttype">boolean</field>
-        <field name="copied" eval="True"/>
-    </record>
     <record id="x_resources_amount_model_product_product" model="ir.model.fields">
         <field name="name">x_resources_amount</field>
         <field name="field_description">Resources Amount</field>

@@ -23,6 +23,7 @@
     ],
     'demo': [
         'demo/res_company.xml',
+        'demo/res_config_settings.xml',
     ],
     'license': 'OEEL-1',
     'cloc_exclude': [

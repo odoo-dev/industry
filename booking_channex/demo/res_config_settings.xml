@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="config_booking_channex_x_channex_url" model="ir.config_parameter" forcecreate="1">
+        <field name="value">https://staging.channex.io/api/v1</field>
+    </record>
+</odoo>

@@ -4,7 +4,7 @@
     <record id="requests_to_channex" model="ir.actions.server">
         <field name="name">Send HTTP request to channex</field>
         <field name="code"><![CDATA[
-BASE_URL = "https://staging.channex.io/api/v1"
+BASE_URL = env['ir.config_parameter'].get_str('booking_channex.x_channex_url', "https://staging.channex.io/api/v1")
 if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'): raise UserError("Cannot communicate with Channex, API key is missing in the settings.")
 method, endpoint, res = env.context.get('method'), env.context.get('endpoint'), False
 if not method or method not in ["GET", "POST", "PUT", "DELETE"]: raise UserError("Http request to channex cannot be sent because method is invalid (not GET, POST, PUT or DELETE)")
@@ -212,9 +212,11 @@ payloads = {
     'availability': [],
 }
 
-datas_to_send = env['x_channex_ari_update_lines'].search([])
+datas_to_send, data_sent_ids = env['x_channex_ari_update_lines'].search([]), []
 for line in datas_to_send:
     payloads.setdefault(line.x_operation, []).append(line.x_payload)
+    data_sent_ids.append(line.id)
+    if len(data_sent_ids) > 10000: break
 
 for endpoint in ('restrictions', 'availability'):
     if payloads[endpoint]:
@@ -223,8 +225,9 @@ for endpoint in ('restrictions', 'availability'):
         except Exception as e:
             env.ref('booking_channex.util_log_message').with_context(func='POST', path=endpoint, message=f"Auto Ari sync: Failed to send {endpoint} data; error is :\n{str(e)}").run()
 
-model.env['ir.cron']._commit_progress(processed=1, remaining=0, deactivate=True)
-datas_to_send.unlink()
+env['x_channex_ari_update_lines'].browse(data_sent_ids).unlink()
+if env['x_channex_ari_update_lines'].search_count([]) == 0:
+    model.env['ir.cron']._commit_progress(processed=1, remaining=0, deactivate=True)
         ]]></field>
     </record>
     <record id="action_modify_room_price" model="ir.actions.server">
@@ -250,7 +253,7 @@ if property_mapping and room_mapping:
         today + datetime.timedelta(days=i)
         for i in range(501)
     ]
-    payload_values = env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans, property_remote_id=property_mapping.x_remote_id, date_list=date_list).run()
+    payload_values = env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans, property_remote_id=property_mapping.x_remote_id, date_list=date_list).run() or []
     # payload_values is list of dict with property_id, rate_plan_id, date_from, date_to, rate
 
     env['x_channex_ari_update_lines'].create([
@@ -656,17 +659,17 @@ for rate_plan in records:
     <record id="prepare_rate_payload" model="ir.actions.server">
         <field name="name">Create Rate On Channex</field>
         <field name="code"><![CDATA[
-def construct_rate_payload(property_remote_id, rate_plan_remote_id, rate_plan, date_list):
+def construct_rate_payload(property_remote_id, rate_plan_remote_id, rate_plan, date_list, rate_plan_additional_price):
     rate_plan_payload = []
 
     room = rate_plan.x_variant_id
     pricelist = rate_plan.x_pricelist_id
 
     current_start = current_end = date_list[0]
-    current_rate = pricelist._compute_price_rule(room, 1.0, date=current_start).get(room.id, (room.lst_price, None))[0]
+    current_rate = pricelist._compute_price_rule(room, 1.0, date=current_start).get(room.id, (room.lst_price, None))[0] + rate_plan_additional_price
     
     for date in date_list[1:]:
-        rate = pricelist._compute_price_rule(room, 1.0, date=date).get(room.id, (room.lst_price, None))[0]
+        rate = pricelist._compute_price_rule(room, 1.0, date=date).get(room.id, (room.lst_price, None))[0] + rate_plan_additional_price
 
         if rate != current_rate:
             rate_plan_payload.append({
@@ -699,7 +702,8 @@ for record in records:
     rate_plan_remote_id = rate_plan_mappings_dict.get(record.id)
     if not rate_plan_remote_id:
         continue
-    payload_values.extend(construct_rate_payload(property_remote_id, rate_plan_remote_id, record, date_list))
+    rate_plan_additional_price = record.x_variant_id.attribute_line_ids.filtered(lambda a: a.attribute_id.x_accommodation_characteristic in ['rate_plan']).product_template_value_ids.filtered(lambda v: v.product_attribute_value_id.id == record.x_rate_plan_value_id.id).price_extra
+    payload_values.extend(construct_rate_payload(property_remote_id, rate_plan_remote_id, record, date_list, rate_plan_additional_price))
 action = payload_values
 ]]></field>
         <field name="model_id" ref="x_rate_plan_model"/>
@@ -834,25 +838,25 @@ else:
     groups = env['x_channex_group'].search([])
     if not groups or not any(groups.mapped('x_company_ids')):
         groups += (env['x_channex_group'].create({'x_name': env.company.name, 'x_company_ids': [env.company.id]}))
-    if groups: env.ref('booking_channex.create_groups_on_channex').with_context(active_ids=groups.ids, active_model='x_channex_group', sync_type="Manual").run()
+    if groups: env.ref('booking_channex.create_groups_on_channex').with_context(active_id=groups.ids[:1], active_ids=groups.ids, active_model='x_channex_group', sync_type="Manual").run()
  
     # PROPERTIES (Companies -> Properties)
     properties = env['res.company'].search([('x_channex_group_id', '!=', False)])
-    if properties: env.ref('booking_channex.create_property_on_channex').with_context(active_ids=properties.ids, active_model='res.company', sync_type="Manual").run()
+    if properties: env.ref('booking_channex.create_property_on_channex').with_context(active_id=properties.ids[:1], active_ids=properties.ids, active_model='res.company', sync_type="Manual").run()
 
     # ROOM TYPES (Product Variants → Room Types)
     rooms = env['product.product'].search([('x_is_a_room_offer', '=', True), ('active', '=', True)])
-    if rooms: env.ref('booking_channex.actualize_room_on_channex').with_context(active_ids=rooms.ids, active_model='product.product', sync_type="Manual").run()
+    if rooms: env.ref('booking_channex.actualize_room_on_channex').with_context(active_id=rooms.ids[:1], active_ids=rooms.ids, active_model='product.product', sync_type="Manual").run()
 
 
     # RATE PLANS (X Rate Plan → Channex Rate Plan)
     rate_plans = env['x_rate_plan'].search([('x_variant_id', '!=', False), ('x_pricelist_id', '!=', False)])
-    if rate_plans: env.ref('booking_channex.create_rate_plan_on_channex').with_context(active_ids=rate_plans.ids, active_model='x_rate_plan', sync_type="Manual").run()
+    if rate_plans: env.ref('booking_channex.create_rate_plan_on_channex').with_context(active_id=rate_plans.ids[:1], active_ids=rate_plans.ids, active_model='x_rate_plan', sync_type="Manual").run()
     room_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'room_type')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
 
 
-    # AVAILABILITY (X Availability → Channex Availability) , RATES (product_pricelist_item → Channex Rate)
-    # env.ref('booking_channex.action_button_sync_aris').with_context(sync_type="Manual").run()      # uncomment this line while merging both server action.
+    # AVAILABILITY (X Availability → Channex Availability) , RATES (Computed → Channex Rate)
+    env.ref('booking_channex.action_button_sync_aris').with_context(sync_type="Manual").run()
 
     env['ir.config_parameter'].set_bool('booking_channex.synced_with_channex', True)
     action = {
@@ -871,7 +875,6 @@ else:
     ]]></field>
     </record>
 
-    <!-- To fuse later on with action_button_sync, separated to have an easier testing -->
     <record id="action_button_sync_aris" model="ir.actions.server">
         <field name="name">Channex: Sync Data ARIs - to remove after dev</field>
         <field name="model_id" ref="base_setup.model_res_config_settings" />
@@ -882,7 +885,6 @@ payload_availability, payload_rates = [], []
 rooms = env['product.product'].search([('x_is_a_room_offer', '=', True), ('active', '=', True)])
 rooms = rooms.filtered(lambda r: r.product_tmpl_id.x_has_rates_attribute and len(r.product_template_attribute_value_ids.filtered(lambda a: a.product_attribute_value_id.attribute_id.x_accommodation_characteristic in ['guest']).mapped('product_attribute_value_id')) == 1)
 
-#remove these 2 lines when fuse
 property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'property')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
 is_db_multi_company = (env['res.company'].search_count([]) > 1)
 
@@ -893,11 +895,11 @@ for property_id, property_remote_id in property_mappings_dict.items():
     if not property_remote_id:  continue
     if property_rooms := (rooms.filtered(lambda r: r.company_id == property_id) if is_db_multi_company else rooms):
         # availability (X Availability → Channex Availability)
-        payload_availability.extend(env.ref('booking_channex.prepare_availability_payload').with_context(active_ids=property_rooms.ids, active_id=property_rooms.ids[0], active_model="product.product", property_remote_id=property_remote_id).run())
+        payload_availability.extend(env.ref('booking_channex.prepare_availability_payload').with_context(active_ids=property_rooms.ids, active_id=property_rooms.ids[0], active_model="product.product", property_remote_id=property_remote_id).run() or [])
     
         # rates (product_pricelist_item → Channex Rate)
         if rate_plans := env['x_rate_plan'].search([('x_variant_id', 'in', property_rooms.ids), ('x_pricelist_id', '!=', False), ('x_rate_plan_value_id', '!=', False)]):
-            payload_rates.extend(env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_id=rate_plans.ids[0], active_model="x_rate_plan", property_remote_id=property_remote_id, date_list=date_list).run())
+            payload_rates.extend(env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans.ids, active_id=rate_plans.ids[0], active_model="x_rate_plan", property_remote_id=property_remote_id, date_list=date_list).run() or [])
 
 # Send availability
 try:
@@ -930,7 +932,7 @@ action = {
     </record>
 
     <!-- Daily Synchronization: server action that acts as a savenet, compare everything between odoo-channex and solve the differences encountered -->
-    <record id="fetch_channex_and_capture_changes_needed" model="ir.actions.server">
+    <record id="action_channex_daily_sync" model="ir.actions.server">
         <field name="name">Channex: Daily Synchronization Check</field>
         <field name="model_id" ref="base_setup.model_res_config_settings" />
         <field name="state">code</field>

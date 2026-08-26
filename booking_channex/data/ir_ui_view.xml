@@ -264,12 +264,8 @@
             <xpath expr="//group[@name='group_general_info']/group[1]" position="inside">
                 <field name="company_id" required="x_is_a_room_offer" groups="base.group_multi_company"/>
             </xpath>
-            <xpath expr="//group[@name='house_keeping']" position="before">
-            <group string="Channel Manager" name="group_channel_manager_info">
+            <xpath expr="//group[@name='channel_manager']" position="inside">
                 <field name="x_ota_buffer"/>
-                <field name="x_offer_type"/>
-                <field name="x_stop_sell" widget="boolean_toggle"/>
-            </group>
             </xpath>
         </field>
         <field name="inherit_id" ref="booking_engine.booking_engine_offers_form"/>

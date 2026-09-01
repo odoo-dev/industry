@@ -18,11 +18,11 @@
         'data/base_automation.xml',
         'data/ir_cron.xml',
         'data/x_channex_group.xml',
+        'data/res_company.xml',
         'data/ir_ui_view.xml',
         'data/ir_ui_menu.xml',
     ],
     'demo': [
-        'demo/res_company.xml',
         'demo/res_config_settings.xml',
     ],
     'license': 'OEEL-1',

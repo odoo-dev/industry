@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- channex mapping views -->
-    <record id="x_channex_mapping_form_view" model="ir.ui.view">
-        <field name="model">x_channex_mapping</field>
-        <field name="name">Mapping Table Form</field>
-        <field name="active" eval="True"/>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="x_model_type" />
-                        <field name="x_local_id" />
-                    </group>
-                    <group>
-                        <field name="x_remote_id" />
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
     <record id="x_channex_mapping_search_view" model="ir.ui.view">
         <field name="name">x.channex.mapping.search</field>
         <field name="model">x_channex_mapping</field>
@@ -37,7 +18,7 @@
         <field name="active" eval="True"/>
         <field name="type">list</field>
         <field name="arch" type="xml">
-            <list>
+            <list editable="bottom">
                 <field name="x_model_type" />
                 <field name="x_local_id" />
                 <field name="x_remote_id" />
@@ -61,7 +42,7 @@
                         <field name="x_variant_id" domain="[('x_is_a_room_offer', '=', True)]"/>
                         <field name="x_rate_plan_value_id"/>
                         <field name="x_pricelist_id" />
-                        <field name="x_total_occupancy" />
+                        <field name="x_adult_occupancy" />
                     </group>
                 </sheet>
             </form>
@@ -78,7 +59,7 @@
                 <field name="x_variant_id" domain="[('x_is_a_room_offer', '=', True)]"/>
                 <field name="x_rate_plan_value_id"/>
                 <field name="x_pricelist_id" />
-                <field name="x_total_occupancy" />
+                <field name="x_adult_occupancy" />
             </list>
         </field>
     </record>
@@ -272,6 +253,24 @@
         <field name="mode">extension</field>
         <field name="model">product.template</field>
         <field name="name">product.template.form.inherit.booking_channex</field>
+        <field name="type">form</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- product.pricelist.item views -->
+    <record id="booking_channex_pricelist_item_form" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="x_attribute_rate_plan_value_id"
+                    invisible="not product_tmpl_id or not product_tmpl_id.x_is_a_room_offer"
+                    domain="[('attribute_id.x_accommodation_characteristic', '=', 'rate_plan')]"
+                    placeholder="All Rate Plans"/>
+            </xpath>
+        </field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="mode">extension</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="name">product.pricelist.item.form.inherit.booking_channex</field>
         <field name="type">form</field>
         <field name="active" eval="True"/>
     </record>

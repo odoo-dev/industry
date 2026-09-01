@@ -346,17 +346,15 @@ self['x_module_channel_manager'] = module and module.state in ['installed', 'to 
         <field name="name">x_module_channel_manager</field>
         <field name="groups" eval="[(4, ref('base.group_no_one'))]"/>
     </record>
-    <!-- TODO rework this method to work with appstore fetch, currently this is looking to the db ir.module but if the module is uninstalled it will not be found to be installed -->
     <record id="x_action_activate_channel_manager" model="ir.actions.server">
         <field name="code"><![CDATA[
 module = env['ir.module.module'].search([('name', '=', 'booking_channex')], limit=1)
-if module:
-    if record.x_module_channel_manager:
-        if module.state not in ('installed', 'to install'):
-            module.button_immediate_install()
-    else:
-        if module.state in ('installed'):
-            module.button_immediate_uninstall()
+if record.x_module_channel_manager and (not module or module.state not in ('installed', 'to install')):
+    module_import = env['ir.module.module'].with_context(module_name='booking_channex').button_immediate_install_app()
+    env['base.import.module'].browse(module_import.get('res_id')).import_module()
+elif not record.x_module_channel_manager and module:
+    module.button_immediate_uninstall()
+action = {'type': 'ir.actions.client', 'tag': 'soft_reload'}
 ]]></field>
         <field name="model_id" ref="base_setup.model_res_config_settings"/>
         <field name="state">code</field>

@@ -20,6 +20,7 @@ try:
         }
     )
     res.raise_for_status()
+    env.ref('booking_channex.util_log_message').with_context(func=method, path=endpoint, message=f"{str(res.json())}").run()
     response = request.make_json_response(res.json(), status=200)
 except Exception as e:
     if res.status_code < 300 or (method in ["DELETE", "PUT"] and res.status_code == 404):
@@ -94,47 +95,41 @@ if not payload:
 elif not request.httprequest.headers.get('X-Channex-Token') or request.httprequest.headers.get('X-Channex-Token') != odoo_secret_token:
     log_sync_message("/", "odoo webhook", "Error Unauthorized: a booking with incorrect token was received by the webhook managing bookings.")
 else:
-    event = payload.get('event') # Tell if it is a create, delete or update
-    payload_infos = payload.get('payload', {})
-    try:
-        env.ref('booking_channex.requests_to_channex').with_context(
-            method="POST", endpoint="booking_revisions/%s/ack" % payload_infos.get('booking_revision_id', '')
-        ).run() # Whether valid or not, it should be acknowledged.
-    except Exception as e:
-        log_sync_message("/", "odoo webhook", f"Error: Couldn't send the booking acknowledgment ; error is {str(e)}.")
-    booking_mapping = False
-    if booking_id := payload_infos.get('booking_id'):
-        booking_mapping = env["x_channex_mapping"].search([('x_model_type', '=', 'booking'), ('x_remote_id', '=', booking_id), ('x_local_id', '!=', False)], limit=1)
-    try:
-        full_booking = env.ref('booking_channex.requests_to_channex').with_context(
-            method="GET", endpoint="bookings/%s" % payload_infos.get('booking_id', '')
-        ).run().json.get('data', {}).get('attributes', {})
-    except Exception as e:
-        log_sync_message("/", "odoo webhook", f"Error: Couldn't get the full booking informations ; error is {str(e)}.")
-    if not booking_mapping and event == 'booking_new':
-        if full_booking:
-            customer = full_booking.get('customer', False)
+    all_bookings = env.ref('booking_channex.util_get_all_from_channex').with_context(endpoint="booking_revisions/feed").run()
+    for booking_rev in all_bookings or []:
+        try:
+            env.ref('booking_channex.requests_to_channex').with_context(
+                method="POST", endpoint="booking_revisions/%s/ack" % (booking_rev.get('id') or '')
+            ).run() # Whether valid or not, it should be acknowledged.
+        except Exception as e:
+            log_sync_message("/", "odoo webhook", f"Error: Couldn't send the booking acknowledgment ; error is {str(e)}.")
+        full_booking = (booking_rev.get('attributes') or {})
+        booking_mapping = False
+        if booking_id := full_booking.get('booking_id'):
+            booking_mapping = env["x_channex_mapping"].search([('x_model_type', '=', 'booking'), ('x_remote_id', '=', booking_id), ('x_local_id', '!=', False)], limit=1)
+        if not booking_mapping and full_booking.get('status') == 'new':
+            customer = full_booking.get('customer')
             if customer:
-                partner = env['res.partner']._retrieve_partner(name=customer.get('name', ''), phone=customer.get('phone', False), email=customer.get('mail', '')) or \
-                    env['res.partner']._retrieve_partner(name=customer.get('name', '') + ' ' + customer.get('surname', ''), phone=customer.get('phone', False), email=customer.get('mail', ''))
+                partner = env['res.partner']._retrieve_partner(name=(customer.get('name') or ''), phone=customer.get('phone', False), email=(customer.get('mail') or '')) or \
+                    env['res.partner']._retrieve_partner(name=(customer.get('name') or '') + ' ' + (customer.get('surname') or ''), phone=customer.get('phone', False), email=(customer.get('mail') or ''))
                 if not partner:
-                    country = env['res.country'].search([('code', '=', customer.get('country', '').lower())]) if customer.get('country', False) else env['res.country']
+                    country = env['res.country'].search([('code', '=', (customer.get('country') or '').lower())]) if customer.get('country', False) else env['res.country']
                     state = env['res.country.state'].search(
-                        [('country_id', '=', country.id), ('code', '=', customer.get('state', ''))], limit=1,
-                    ) if customer.get('state', '') and country else env['res.country.state']
+                        [('country_id', '=', country.id), ('code', '=', (customer.get('state') or ''))], limit=1,
+                    ) if (customer.get('state') or '') and country else env['res.country.state']
                     partner = env['res.partner'].create({
-                        'name': customer.get('name', '') + ' ' + customer.get('surname', ''), 'email': customer.get('mail', ''), 'phone': customer.get('phone', False),
-                        'state_id': state.id, 'country_id': country.id, 'zip': customer.get('zip', False), 'city': customer.get('city', ''), 'street': customer.get('address', ''),
+                        'name': (customer.get('name') or '') + ' ' + (customer.get('surname') or ''), 'email': (customer.get('mail') or ''), 'phone': customer.get('phone', False),
+                        'state_id': state.id, 'country_id': country.id, 'zip': customer.get('zip', False), 'city': (customer.get('city') or ''), 'street': (customer.get('address') or ''),
                     })
             else:
-                partner = env['res.partner'].create({'name': payload_infos.get('customer_name', 'channex partner')})
-            currency_id = env['res.currency'].with_context(active_test=False).search([('name', '=', full_booking.get('currency', ''))], limit=1)
-            if not currency_id: log_sync_message("/", "odoo webhook", f"Error Not Found: Could not retrieve currency in odoo with name '{full_booking.get('currency', '')}'.")
+                partner = env['res.partner'].create({'name': (payload_infos.get('customer_name') or 'channex partner')})
+            currency_id = env['res.currency'].with_context(active_test=False).search([('name', '=', (full_booking.get('currency') or ''))], limit=1)
+            if not currency_id: log_sync_message("/", "odoo webhook", f"Error Not Found: Could not retrieve currency in odoo with name '{(full_booking.get('currency') or '')}'.")
             else:
                 so = env['sale.order'].create({
                     'partner_id': partner.id, 'is_rental_order': True, 'currency_id': currency_id.id
                 })
-                for room in full_booking.get('rooms', []):
+                for room in (full_booking.get('rooms') or []):
                     room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', room.get('room_type_id'))], limit=1) if room.get('room_type_id') else False
                     rate_plan_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'rate_plan'), ('x_remote_id', '=', room.get('rate_plan_id'))], limit=1) if room.get('rate_plan_id') else False
                     attribute_value_id = env['x_rate_plan'].browse(rate_plan_mapping.x_local_id).x_rate_plan_value_id if rate_plan_mapping else False
@@ -148,18 +143,16 @@ else:
                     if not so.pricelist_id and (rate_plan_remote := room.get('rate_plan_id', False)):
                         rate_plan_odoo_id = env['x_channex_mapping'].search([('x_model_type', '=', 'rate_plan'), ('x_remote_id', '=', rate_plan_remote)], limit=1).x_local_id
                         so['pricelist_id'] = env['x_rate_plan'].browse(rate_plan_odoo_id).x_pricelist_id.id
-                    #if (guests := room.get('guests', [])):
-                    #    env['sale.order.line'].create({
-                    #        'display_type': 'line_note',
-                    #        'order_id': so.id,
-                    #        'name': "Guests: " + "\n".join(guest.get('name', '') + ' ' + guest.get('surname', '') for guest in guests)
-                    #            + "\n" + #occupancy and days
-                    #    })
-                so.write({'rental_start_date': full_booking.get('arrival_date', ''), 'rental_return_date': full_booking.get('departure_date', '')})
+                    for guest in (room.get('guests') or []):
+                        env['x_guests_line'].create({
+                            'x_guest_partner_id': env['res.partner'].create({'name': (guest.get('name') or '') + ' ' + (guest.get('surname') or '')}).id,
+                            'x_sale_order_id': so.id,
+                        })
+                so.write({'rental_start_date': (full_booking.get('arrival_date') or ''), 'rental_return_date': (full_booking.get('departure_date') or '')})
                 env["x_channex_mapping"].create({
                     "x_model_type": "booking",
                     "x_local_id": so.id,
-                    "x_remote_id": payload_infos.get('booking_id', ''),
+                    "x_remote_id": (full_booking.get('booking_id') or ''),
                 })
                 try:
                     so.action_confirm()
@@ -172,19 +165,16 @@ else:
                         'summary': 'Confirm Order',
                         'date_deadline': datetime.datetime.today(),
                     })
-    else:
-        if not booking_mapping: log_sync_message("/", "odoo webhook", f"Error Not Found: could not find a sale order related to the received {event.replace('_', ' ')}.\nBooking Channex ID is {booking_id}")
-        elif event == 'booking_modification':
-            log_sync_message("/", "odoo webhook", f"Modifying booking {str(full_booking)}.")
+        elif booking_mapping and full_booking.get('status') == 'modified':
             so = env['sale.order'].browse(booking_mapping.x_local_id)
-            if so.rental_start_date.strftime('%Y-%m-%d') != full_booking.get('arrival_date', '') or so.rental_return_date.strftime('%Y-%m-%d') != full_booking.get('departure_date', ''):
+            if so.rental_start_date.strftime('%Y-%m-%d') != (full_booking.get('arrival_date') or '') or so.rental_return_date.strftime('%Y-%m-%d') != (full_booking.get('departure_date') or ''):
                 so.write({
                     'rental_start_date': full_booking.get('arrival_date', ''),
                     'rental_return_date': full_booking.get('departure_date', ''),
                 })
             channex_rooms_local_ids = []
-            for room in full_booking.get('rooms', []):
-                room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', room.get('room_type_id', ''))], limit=1)
+            for room in (full_booking.get('rooms') or []):
+                room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', (room.get('room_type_id') or ''))], limit=1)
                 channex_rooms_local_ids.append(room_mapping.x_local_id)
             for sol in so.order_line:
                 if sol.product_id.id in channex_rooms_local_ids and sol.product_uom_qty != 0:
@@ -197,8 +187,10 @@ else:
                     'is_rental': True,
                     'order_id': so.id,
                 })
-        elif event == 'booking_cancellation':
+        elif booking_mapping and full_booking.get('status') == 'cancelled':
             env['sale.order'].browse(booking_mapping.x_local_id).action_cancel()
+        else:
+            log_sync_message("/", "odoo webhook", "Error: Could not process the booking with channex ID %s." % full_booking.get('booking_id', 'UNKNOWN'))
 ]]></field>
     </record>
     <record id="cron_action_send_data_to_channex" model="ir.actions.server">
@@ -206,7 +198,6 @@ else:
         <field name="model_id" ref="base.model_ir_cron" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
-sending_cron = env.ref('booking_channex.ir_cron_data_channex_sender')
 payloads = {
     'restrictions': [],
     'availability': [],
@@ -251,7 +242,7 @@ if property_mapping and room_mapping:
     today = datetime.datetime.today().date()
     date_list = [
         today + datetime.timedelta(days=i)
-        for i in range(501)
+        for i in range(500)
     ]
     payload_values = env.ref('booking_channex.prepare_rate_payload').with_context(active_ids=rate_plans, property_remote_id=property_mapping.x_remote_id, date_list=date_list).run() or []
     # payload_values is list of dict with property_id, rate_plan_id, date_from, date_to, rate
@@ -292,6 +283,7 @@ if property_mapping.x_remote_id:
 
     if property_rooms:
         rate_plans = env["x_rate_plan"].search([('x_pricelist_id', '=', record.pricelist_id.id),('x_variant_id', 'in', property_rooms.ids)])
+        if record.x_attribute_rate_plan_value_id: rate_plans = rate_plans.filtered(lambda r: r.x_rate_plan_value_id.id == record.x_attribute_rate_plan_value_id.id)
         if rate_plans:
             today = datetime.datetime.today()
             start_date = (
@@ -356,7 +348,7 @@ if property_mapping:
         ]]></field>
     </record>
 
-    <!-- Make the following create/update server actions usable by the daily sync AND the live update (on_create/write/unlink) -->
+    <!-- Make the following create/update server actions usable by the initial sync, daily sync and live update (on_create/write/unlink) -->
     <!-- Live Sync Groups -->
     <record id="create_groups_on_channex" model="ir.actions.server">
         <field name="name">Channex: Sync, Create Groups on Channex</field>
@@ -605,7 +597,7 @@ if env['ir.config_parameter'].get_bool('booking_channex.synced_with_channex') or
                             "room_type_id": room_remote_id,
                             "currency": rp.x_pricelist_id.currency_id.name,
                             "options": [{
-                                "occupancy": rp.x_total_occupancy or 1,
+                                "occupancy": rp.x_adult_occupancy or 1,
                                 "is_primary": True,
                                 "rate": int(rp.x_variant_id.lst_price*100),
                             }]
@@ -786,9 +778,12 @@ if not env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key'):
         }
     }
 else:
+    try: # First interaction to see if url and api key are corrects
+        env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="groups").run()
+    except Exception as e:
+        raise UserError(f"The first interaction failed.\nThere is most likely an issue with the url '{env['ir.config_parameter'].get_str('booking_channex.x_channex_url')}'\nor the API key '{env['ir.config_parameter'].get_str('booking_channex.x_channex_api_key')[:6]}...'\n")
     # webhook
-    #ERROR if localhost is used as an url, we cannot test it if we are in local
-    try:
+    try: # ERROR if localhost is used as an url, we cannot test it if we are in local
         resp = env.ref('booking_channex.requests_to_channex').with_context(method="GET", endpoint="webhooks").run()
         data = resp.json
     except Exception as e:
@@ -834,10 +829,7 @@ else:
 
 
     # GROUP (x_channex_group -> Channex Group)
-    is_db_multi_company = (env['res.company'].search_count([]) > 1)
     groups = env['x_channex_group'].search([])
-    if not groups or not any(groups.mapped('x_company_ids')):
-        groups += (env['x_channex_group'].create({'x_name': env.company.name, 'x_company_ids': [env.company.id]}))
     if groups: env.ref('booking_channex.create_groups_on_channex').with_context(active_id=groups.ids[:1], active_ids=groups.ids, active_model='x_channex_group', sync_type="Manual").run()
  
     # PROPERTIES (Companies -> Properties)
@@ -863,7 +855,7 @@ else:
         'type': 'ir.actions.client',
         'tag': 'display_notification',
         'params': {
-            'message': 'Data sync non-ARIs with Channex completed successfully.',
+            'message': 'Data synchronization with Channex completed successfully.',
             'type': 'success',
             'sticky': False,
             'next': {
@@ -876,7 +868,7 @@ else:
     </record>
 
     <record id="action_button_sync_aris" model="ir.actions.server">
-        <field name="name">Channex: Sync Data ARIs - to remove after dev</field>
+        <field name="name">Channex: Sync Data ARIs</field>
         <field name="model_id" ref="base_setup.model_res_config_settings" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
@@ -886,9 +878,9 @@ rooms = env['product.product'].search([('x_is_a_room_offer', '=', True), ('activ
 rooms = rooms.filtered(lambda r: r.product_tmpl_id.x_has_rates_attribute and len(r.product_template_attribute_value_ids.filtered(lambda a: a.product_attribute_value_id.attribute_id.x_accommodation_characteristic in ['guest']).mapped('product_attribute_value_id')) == 1)
 
 property_mappings_dict = dict(env['x_channex_mapping']._read_group(domain=[ ('x_model_type', '=', 'property')], groupby=['x_local_id'], aggregates=['x_remote_id:max']))
-is_db_multi_company = (env['res.company'].search_count([]) > 1)
+is_db_multi_company = False # Set to False until we unlock the multi-company feature
 
-date_list = [datetime.datetime.today().date() + datetime.timedelta(days=i) for i in range(501)]
+date_list = [datetime.datetime.today().date() + datetime.timedelta(days=i) for i in range(500)]
 
 # Process availability and rates together per property
 for property_id, property_remote_id in property_mappings_dict.items():
@@ -914,20 +906,6 @@ try:
 except Exception as e:
     sync_type = env.context.get('sync_type', 'Manual')
     env.ref('booking_channex.util_log_message').with_context(func='POST', path='restrictions', message=f"{sync_type} Ari sync: Failed to send rates to rate plans; error is :\n{str(e)}").run()
-
-action = {
-    'type': 'ir.actions.client',
-    'tag': 'display_notification',
-    'params': {
-        'message': 'Data sync ARIs with Channex completed successfully.',
-        'type': 'success',
-        'sticky': False,
-        'next': {
-            'type': 'ir.actions.client',
-            'tag': 'soft_reload',
-        },
-    }
-}
     ]]></field>
     </record>
 

@@ -162,6 +162,7 @@ else:
                         'is_rental': True,
                         'order_id': so.id,
                         'currency_id': currency_id.id,
+                        'price_unit': float(room.get('amount')),
                     })
                     if attribute_value_id: sol.write({'product_no_variant_attribute_value_ids': [Command.link(env['product.template.attribute.value'].search([('product_attribute_value_id', '=', attribute_value_id.id)], limit=1).id)]})
                     if not so.pricelist_id and (rate_plan_remote := room.get('rate_plan_id', False)):
@@ -196,20 +197,21 @@ else:
                 sending_cron = env.ref('booking_channex.ir_cron_change_booking_dates')
                 if not sending_cron.active:
                     sending_cron.write({'nextcall': datetime.datetime.now() + datetime.timedelta(minutes=1), 'active': True})
-            channex_rooms_local_ids = []
+            channex_rooms = []
             for room in (full_booking.get('rooms') or []):
                 room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', (room.get('room_type_id') or ''))], limit=1)
-                channex_rooms_local_ids.append(room_mapping.x_local_id)
+                if room_mapping: channex_rooms.append((room_mapping.x_local_id, float(room.get('amount'))))
             for sol in so.order_line:
-                if sol.product_id.id in channex_rooms_local_ids and sol.product_uom_qty != 0:
-                    channex_rooms_local_ids.remove(sol.product_id.id)
-                else:
-                    sol['product_uom_qty'] = 0
-            for remaining_id in channex_rooms_local_ids:
+                if sol.product_uom_qty == 0: continue
+                room = (sol.product_id.id, sol.price_unit)
+                if room in channex_rooms: channex_rooms.remove(room)
+                else: sol['product_uom_qty'] = 0
+            for product_id, unit_price in channex_rooms:
                 env['sale.order.line'].create({
-                    'product_id': remaining_id,
+                    'product_id': product_id,
                     'is_rental': True,
                     'order_id': so.id,
+                    'price_unit': float(unit_price),
                 })
         elif booking_mapping and full_booking.get('status') == 'cancelled':
             env['sale.order'].browse(booking_mapping.x_local_id).action_cancel()

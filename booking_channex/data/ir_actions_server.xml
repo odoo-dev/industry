@@ -80,6 +80,30 @@ env['ir.logging'].create({
         <field name="model_id" ref="base.model_ir_actions_server"/>
         <field name="state">code</field>
     </record>
+    <record id="cron_change_so_rental_dates" model="ir.actions.server">
+        <field name="name">Channex: Booking, Change Sale Orders Rental Dates</field>
+        <field name="code"><![CDATA[
+sos = env['sale.order'].search(['|', ('x_new_rental_start_date', '!=', False), ('x_new_rental_return_date', '!=', False)])
+for so in sos:
+    changes = {}
+    if so.x_new_rental_start_date: changes = changes | {'rental_start_date': so.x_new_rental_start_date, 'x_new_rental_start_date': False}
+    if so.x_new_rental_return_date: changes = changes | {'rental_return_date': so.x_new_rental_return_date, 'x_new_rental_return_date': False}
+    try:
+        so.write(changes)
+    except Exception as e:
+        env['mail.activity'].create({
+            'res_model_id': env['ir.model']._get_id('sale.order'),
+            'res_id': so.id,
+            'activity_type_id': env.ref('mail.mail_activity_data_todo').id,
+            'summary': f"Adapt Rental Dates: Channex received a change with new dates being from {so.x_new_rental_start_date.strftime('%Y-%m-%d')} to {so.x_new_rental_return_date.strftime('%Y-%m-%d')} that could not be applied automatically.",
+            'date_deadline': datetime.datetime.today(),
+        })
+if env['sale.order'].search_count(['|', ('x_new_rental_start_date', '!=', False), ('x_new_rental_return_date', '!=', False)]) == 0:
+    model.env['ir.cron']._commit_progress(processed=1, remaining=0, deactivate=True)
+]]></field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+    </record>
 
     <record id="webhook_action_manage_booking_create_change_or_delete" model="ir.actions.server">
         <field name="name">Channex: Webhook action - manage booking create/change/delete</field>
@@ -168,10 +192,10 @@ else:
         elif booking_mapping and full_booking.get('status') == 'modified':
             so = env['sale.order'].browse(booking_mapping.x_local_id)
             if so.rental_start_date.strftime('%Y-%m-%d') != (full_booking.get('arrival_date') or '') or so.rental_return_date.strftime('%Y-%m-%d') != (full_booking.get('departure_date') or ''):
-                so.write({
-                    'rental_start_date': full_booking.get('arrival_date', ''),
-                    'rental_return_date': full_booking.get('departure_date', ''),
-                })
+                so.write({'x_new_rental_start_date': full_booking.get('arrival_date', ''), 'x_new_rental_return_date': full_booking.get('departure_date', '')})
+                sending_cron = env.ref('booking_channex.ir_cron_change_booking_dates')
+                if not sending_cron.active:
+                    sending_cron.write({'nextcall': datetime.datetime.now() + datetime.timedelta(minutes=1), 'active': True})
             channex_rooms_local_ids = []
             for room in (full_booking.get('rooms') or []):
                 room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', (room.get('room_type_id') or ''))], limit=1)

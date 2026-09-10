@@ -165,6 +165,7 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
                 data=json.dumps(booking_update_payload),
                 headers={'Content-Type': 'application/json', 'x-channex-token': 'MyTestWebhookSecret'}
             )
+            self.env.ref('booking_channex.ir_cron_change_booking_dates').method_direct_trigger()
             self.assertEqual(response.status_code, 200, 'The modification of the booking encountered a status processing error')
             self.assertTrue(len(booking_sale_order.order_line) == 2, 'The sale order modification failed to create a new line for a second room.')
             self.assertEqual(booking_sale_order.rental_start_date.strftime('%Y-%m-%d'), get_revisions_answer['data'][0]['attributes']['arrival_date'], 'The sale order modification failed to change the start date of the sale order')

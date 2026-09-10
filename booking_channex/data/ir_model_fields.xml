@@ -234,4 +234,17 @@ for record in self: record['x_has_rates_attribute'] = ('rate_plan' in record.att
 for record in self: record['x_has_guests_attribute'] = ('guest' in record.attribute_line_ids.mapped('attribute_id.x_accommodation_characteristic')) if record.attribute_line_ids else False
 ]]></field>
     </record>
+    <!-- sale.order fields-->
+    <record id="x_new_rental_start_date_field_sale_order" model="ir.model.fields">
+        <field name="ttype">date</field>
+        <field name="field_description">New Rental Start Date</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">x_new_rental_start_date</field>
+    </record>
+    <record id="x_new_rental_return_date_field_sale_order" model="ir.model.fields">
+        <field name="ttype">date</field>
+        <field name="field_description">New Rental Return Date</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">x_new_rental_return_date</field>
+    </record>
 </odoo>

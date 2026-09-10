@@ -366,6 +366,7 @@
     <field name="arch" type="xml">
       <xpath expr="//field[@name='show_qty_update_button']" position="before">
         <field name="x_accommodation_product"/>
+        <field name="x_city_tax_applies_to" invisible="x_accommodation_product != 'stay_tax'"/>
       </xpath>
     </field>
     <field name="inherit_id" ref="product.product_template_only_form_view"/>

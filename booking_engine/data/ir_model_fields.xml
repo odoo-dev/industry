@@ -161,6 +161,28 @@
     <field name="field_id" ref="product_model_product_template_x_accommodation_product_field" />
     <field name="value">late_checkout</field>
   </record>
+  <record id="product_model_product_template_x_city_tax_applies_to_field" model="ir.model.fields">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Applies To</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_city_tax_applies_to</field>
+  </record>
+  <record id="product_model_product_template_x_city_tax_applies_to_field_selection_adults_only" model="ir.model.fields.selection">
+    <field name="name">Adults only</field>
+    <field name="field_id" ref="product_model_product_template_x_city_tax_applies_to_field" />
+    <field name="value">adults_only</field>
+  </record>
+  <record id="product_model_product_template_x_city_tax_applies_to_field_selection_adults_and_children" model="ir.model.fields.selection">
+    <field name="name">Adults and Children</field>
+    <field name="field_id" ref="product_model_product_template_x_city_tax_applies_to_field" />
+    <field name="value">adults_and_children</field>
+  </record>
+  <record id="product_model_product_template_x_city_tax_applies_to_field_selection_adults_children_infants" model="ir.model.fields.selection">
+    <field name="name">Adults, Children and Infants</field>
+    <field name="field_id" ref="product_model_product_template_x_city_tax_applies_to_field" />
+    <field name="value">adults_children_infants</field>
+  </record>
   <record id="product_model_product_template_x_resource_ids_field" model="ir.model.fields">
     <field name="ttype">many2many</field>
     <field name="field_description">Resources</field>
@@ -228,23 +250,28 @@ for record in self: record['x_order_involves_room'] = any(line.product_id.x_is_a
     <field name="model_id" ref="product.model_product_attribute_value"/>
     <field name="name">x_children</field>
   </record>
-  <record id="model_sale_order_line_x_total_guests" model="ir.model.fields">
-    <field name="compute"><![CDATA[for record in self:
-    x_total_guests = 0
-    for product_template_attribute_value in record.product_id.product_template_attribute_value_ids:
-        if product_template_attribute_value.attribute_id.x_captures_guests:
-            if product_attribute_value := product_template_attribute_value.attribute_id.value_ids.filtered(lambda v: v.id == product_template_attribute_value.product_attribute_value_id.id):
-                x_total_guests += product_attribute_value.x_adults + product_attribute_value.x_children
-    record['x_total_guests'] = x_total_guests
-    ]]></field>
+  <record id="model_product_attribute_value_x_infants" model="ir.model.fields">
     <field name="ttype">integer</field>
-    <field name="depends">product_id</field>
-    <field name="field_description">Guests</field>
-    <field name="model_id" ref="sale.model_sale_order_line"/>
-    <field name="name">x_total_guests</field>
-    <field name="readonly" eval="True"/>
-    <field name="selectable" eval="False"/>
-    <field name="store" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Infants</field>
+    <field name="model_id" ref="product.model_product_attribute_value"/>
+    <field name="name">x_infants</field>
+  </record>
+  <record id="x_model_guests_line_x_sale_order_id" model="ir.model.fields">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sale Order</field>
+    <field name="model_id" ref="x_model_guests_line"/>
+    <field name="name">x_sale_order_id</field>
+    <field name="relation">sale.order</field>
+  </record>
+  <record id="model_sale_order_x_guest_line_ids" model="ir.model.fields">
+    <field name="ttype">one2many</field>
+    <field name="field_description">Guest Line</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_guest_line_ids</field>
+    <field name="relation">x_guests_line</field>
+    <field name="relation_field">x_sale_order_id</field>
   </record>
   <record id="model_sale_order_line_x_resource_ids" model="ir.model.fields">
     <field name="ttype">many2many</field>
@@ -257,6 +284,32 @@ for record in self: record['x_order_involves_room'] = any(line.product_id.x_is_a
     <field name="name">x_resource_ids</field>
     <field name="readonly" eval="True"/>
     <field name="relation">resource.resource</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="model_sale_order_line_x_total_guests" model="ir.model.fields">
+    <field name="compute"><![CDATA[for record in self:
+    x_total_guests = 0
+    applies_to = record.product_id.x_city_tax_applies_to
+    for product_template_attribute_value in record.product_id.product_template_attribute_value_ids:
+        if product_template_attribute_value.attribute_id.x_captures_guests:
+            if product_attribute_value := product_template_attribute_value.attribute_id.value_ids.filtered(lambda v: v.id == product_template_attribute_value.product_attribute_value_id.id):
+                if applies_to == 'adults_only' or applies_to == 'adults_and_children' or applies_to == 'adults_children_infants':
+                    x_total_guests += product_attribute_value.x_adults
+                if applies_to == 'adults_and_children' or applies_to == 'adults_children_infants':
+                    x_total_guests += product_attribute_value.x_children
+                if applies_to == 'adults_children_infants':
+                    x_total_guests += product_attribute_value.x_infants
+    if x_total_guests == 0:
+        x_total_guests += len(record.order_id.x_guest_line_ids.filtered(lambda r: r.x_room_resource_id in record.x_resource_ids))
+    record['x_total_guests'] = x_total_guests
+    ]]></field>
+    <field name="ttype">integer</field>
+    <field name="depends">product_id,product_id.x_city_tax_applies_to,x_resource_ids,order_id.x_guest_line_ids</field>
+    <field name="field_description">Guests</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_total_guests</field>
+    <field name="readonly" eval="True"/>
+    <field name="selectable" eval="False"/>
     <field name="store" eval="False"/>
   </record>
   <record id="resource_model_resource_resource_category_field" model="ir.model.fields">
@@ -347,7 +400,7 @@ for record in self: record['x_city_tax'] = record.x_nights * record.x_guests
     <field name="name">x_slot_ids</field>
     <field name="depends">x_sale_order_id</field>
     <field name="compute"><![CDATA[
-for record in self: record['x_slot_ids'] = record.x_sale_order_id.order_line.planning_slot_ids.filtered(lambda s: any(product.x_has_city_tax for product in s.role_product_ids)).ids
+for record in self: record['x_slot_ids'] = record.x_sale_order_id.order_line.planning_slot_ids.filtered(lambda s: any(product.x_has_city_tax and product.x_accommodation_product for product in s.role_product_ids)).ids
       ]]></field>
   </record>
   <record id="x_model_city_tax_x_total" model="ir.model.fields">
@@ -377,14 +430,6 @@ for record in self: record['x_total'] = sum(record.x_slot_ids.mapped('x_city_tax
     <field name="model_id" ref="x_model_guests_line"/>
     <field name="name">x_name</field>
     <field name="translate">standard</field>
-  </record>
-  <record id="x_model_guests_line_x_sale_order_id" model="ir.model.fields">
-    <field name="ttype">many2one</field>
-    <field name="copied" eval="True"/>
-    <field name="field_description">Sale Order</field>
-    <field name="model_id" ref="x_model_guests_line"/>
-    <field name="name">x_sale_order_id</field>
-    <field name="relation">sale.order</field>
   </record>
   <record id="x_model_guests_line_x_guest_partner_id" model="ir.model.fields">
     <field name="ttype">many2one</field>
@@ -423,14 +468,6 @@ for record in self: record['x_sol_resource_ids'] = [(6, 0, record.x_sale_order_i
     <field name="readonly" eval="True"/>
     <field name="selectable" eval="False"/>
     <field name="store" eval="False"/>
-  </record>
-  <record id="model_sale_order_x_guest_line_ids" model="ir.model.fields">
-    <field name="ttype">one2many</field>
-    <field name="field_description">Guest Line</field>
-    <field name="model_id" ref="sale.model_sale_order"/>
-    <field name="name">x_guest_line_ids</field>
-    <field name="relation">x_guests_line</field>
-    <field name="relation_field">x_sale_order_id</field>
   </record>
   <record id="sale_model_sale_order_x_guests_field" model="ir.model.fields">
     <field name="ttype">many2many</field>

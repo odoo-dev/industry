@@ -119,6 +119,7 @@
                         placeholder="Same as source location if empty."
                         invisible="not x_show_destination_location"
                     />
+                    <field name="x_replace_on_transfer"/>
                 </group>
                 <footer>
                     <button string="Convert" class="btn-primary" type="action" name="%(action_convert_generate_mo)d"/>

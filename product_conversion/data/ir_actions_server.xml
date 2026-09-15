@@ -71,6 +71,21 @@ for wizard in records:
     )
 
     if move:
+        if wizard.x_replace_on_transfer:
+            new_move = env['stock.move'].create({
+                'product_id': wizard.x_product_convert_into.id,
+                'product_uom_qty': wizard.x_quantity,
+                'uom_id': wizard.x_product_convert_into.uom_id.id,
+                'picking_id': move.picking_id.id,
+            })
+            new_mode_line = env['stock.move.line'].create({
+                'move_id': new_move.id,
+                'product_id': wizard.x_product_convert_into.id,
+                'lot_id': lot.id if lot_name else False,
+                'quantity': wizard.x_quantity,
+            })
+            move.write({'product_uom_qty': move.product_uom_qty - wizard.x_quantity})
+
         move.picking_id.message_post(
             body=(
                 '<b>%s</b> from location <b>%s</b> converted into <b>%s</b> in Manufacturing Order '

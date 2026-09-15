@@ -1,6 +1,6 @@
 {
     'name': 'Product Conversion & Grading Management',
-    'version': '1.2',
+    'version': '1.3',
     'category': 'Supply Chain',
     'depends': [
         'mrp',
@@ -23,6 +23,7 @@
     },
     "cloc_exclude": [
         "static/src/xml/main.xml",
+        "static/src/js/patch.js",
     ],
     'license': 'OEEL-1',
     'images': ['images/main.png'],

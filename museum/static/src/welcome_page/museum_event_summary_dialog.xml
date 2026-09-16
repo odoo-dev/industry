@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <!--
+        Museum kiosk event check-in summary dialog.
+
+        Exact feature parity with the full enterprise stack
+        (event + event_sale) minus IoT-specific features:
+
+          ✅  Success / warning status banners
+          ✅  Sale-status badge  (Free · Sold · To Pay)  from event_sale
+          ✅  Attendee name, Company, Event, Slot, Ticket Type, Remaining Entries
+          ✅  Answers row with coloured pill tags
+          ✅  Undo button (all statuses that support it)
+          ✅  Close / Print / Edit Ticket footer buttons
+          ✅  Next Scan button (when camera scanner is supported + doNextScan passed)
+          ❌  IoT printer selector / auto-print / download  (event_iot — not needed)
+    -->
+    <t t-name="museum.MuseumEventSummaryDialog">
+        <Dialog size="'lg'" title.translate="Home">
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 Status banner
+            ══════════════════════════════════════════════════════════════ -->
+            <div class="row">
+                <div class="col-lg-10 w-100 fs-2">
+
+                    <!-- ── Success ── -->
+                    <div t-if="['confirmed_registration', 'unconfirmed_registration'].includes(this.registrationStatus.value)"
+                         class="alert alert-success d-flex flex-nowrap align-items-center justify-content-center" role="alert">
+                        <i class="oi oi-filled flex-shrink-0 me-2" data-icon="check_circle"/>
+                        <span class="text-nowrap">Successfully registered!</span>
+                        <button type="button" class="btn btn-link flex-shrink-0 ms-3 ms-sm-5"
+                                t-on-click="this.undoRegistration">
+                            Undo
+                        </button>
+                    </div>
+
+                    <!-- ── Warning ── -->
+                    <div t-else="" class="alert alert-warning d-flex flex-nowrap align-items-center justify-content-center" role="alert">
+                        <i class="oi oi-filled flex-shrink-0 me-2" data-icon="error"/>
+
+                        <t t-if="this.registrationStatus.value === 'need_manual_confirmation'">
+                            <span>This ticket is for another event!<br/>Confirm attendance?</span>
+                        </t>
+                        <t t-elif="this.registrationStatus.value === 'not_ongoing_event'">
+                            <span class="text-nowrap">This ticket is not for an ongoing event</span>
+                        </t>
+                        <t t-elif="this.registrationStatus.value === 'canceled_registration'">
+                            <span class="text-nowrap">Cancelled registration</span>
+                        </t>
+                        <t t-elif="this.registrationStatus.value === 'already_registered'">
+                            <t t-if="!this.registration.is_date_closed_today">
+                                <span class="text-nowrap">Ticket was first scanned on <t t-out="this.registration.date_closed_formatted"/></span>
+                            </t>
+                            <t t-else="">
+                                <span style="font-size:24px">
+                                    This Card/Ticket is currently unavailable.<br/>
+                                    The offer may have expired or you may have reached the maximum number of entries allowed.
+                                </span>
+                            </t>
+                        </t>
+
+                        <!-- Undo for all warning statuses except already_registered -->
+                        <button type="button"
+                                t-if="this.registrationStatus.value !== 'already_registered'"
+                                class="btn btn-link flex-shrink-0 ms-3 ms-sm-5"
+                                t-on-click="this.undoRegistration">
+                            Undo
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 Attendee name + sale-status badge  (Free / Sold / To Pay)
+            ══════════════════════════════════════════════════════════════ -->
+            <div class="row fs-1">
+                <div id="registration_header" class="col-lg-12 d-flex align-items-baseline gap-3">
+                    <t t-set="guest_label">Guest #</t>
+                    <t t-if="this.registration.name" t-out="this.registration.name"/>
+                    <t t-else="" t-out="guest_label + this.registration.id"/>
+                    <!-- Sale status pill added by event_sale on the server side -->
+                    <t t-if="this.registration.sale_status_value">
+                        <span class="badge rounded-pill"
+                              t-out="this.registration.sale_status_value"
+                              t-att-class="this.registration.has_to_pay ? 'text-bg-danger' : 'text-bg-success'"/>
+                    </t>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 Attendee detail table
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="registration_information" class="row mt-4">
+                <div class="col-lg-12">
+                    <table class="table table-striped fs-4">
+                        <tr t-if="this.registration.company_name">
+                            <td>Company</td>
+                            <td><t t-out="this.registration.company_name"/></td>
+                        </tr>
+                        <tr>
+                            <td>Event</td>
+                            <td><t t-out="this.registration.event_display_name"/></td>
+                        </tr>
+                        <tr t-if="this.registration.slot_name">
+                            <td>Slot</td>
+                            <td><t t-out="this.registration.slot_name"/></td>
+                        </tr>
+                        <tr t-if="this.registration.ticket_name">
+                            <td>Ticket Type</td>
+                            <td><t t-out="this.registration.ticket_name"/></td>
+                        </tr>
+                        <tr t-if="this.registration.ticket_entry_limit">
+                            <td>Remaining Entries</td>
+                            <td><t t-out="this.registration.remaining_entries"/></td>
+                        </tr>
+                        <!-- Answers: coloured pill tags, one per registration answer -->
+                        <tr t-if="this.registration.registration_answers &amp;&amp; this.registration.registration_answers.length > 0">
+                            <td class="d-flex">Answers</td>
+                            <td>
+                                <div class="d-flex flex-wrap p-0">
+                                    <span t-foreach="this.registration.registration_answers"
+                                          t-as="registration_answer"
+                                          t-key="registration_answer_index"
+                                          t-attf-class="o_tag o_tag_badge_text o_tag_color_#{registration_answer_index % 10} badge rounded-pill text-truncate p-1 me-1 mb-1"
+                                          t-out="registration_answer"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 Footer: Close · Print · Edit Ticket  [· Next Scan]
+            ══════════════════════════════════════════════════════════════ -->
+            <t t-set-slot="footer">
+                <button t-att-disabled="!this.button.enabled"
+                        t-ref="this.continueButtonRef"
+                        class="btn btn-primary"
+                        t-on-click="() => this.onRegistrationClose()">
+                    Close
+                </button>
+                <button id="print_button"
+                        class="btn btn-primary"
+                        t-on-click="() => this.onRegistrationPrintPdf()">
+                    Print
+                </button>
+                <button class="btn btn-secondary"
+                        t-on-click="() => this.onRegistrationView()">
+                    Edit Ticket
+                </button>
+                <!-- Next Scan: only when camera scanner is available and caller
+                     passed a doNextScan callback (e.g. from event_barcode context) -->
+                <button t-if="this.props.doNextScan &amp;&amp; this.isBarcodeScannerSupported"
+                        class="btn btn-secondary"
+                        t-on-click="() => this.onScanNext()">
+                    Next Scan
+                </button>
+            </t>
+
+        </Dialog>
+    </t>
+
+</templates>

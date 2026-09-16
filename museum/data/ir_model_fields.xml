@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- ── res.company: stores the actual value ───────────────────────────── -->
+    <record id="field_res_company_x_museum_frontdesk_event_checkin" model="ir.model.fields">
+        <field name="name">x_museum_frontdesk_event_checkin</field>
+        <field name="field_description">Enable Event Ticket Check-In at Kiosk</field>
+        <field name="ttype">boolean</field>
+        <field name="model_id" ref="base.model_res_company"/>
+    </record>
+
+    <!-- ── res.config.settings: related proxy so the Settings form can read/write it -->
+    <record id="field_res_config_settings_x_museum_frontdesk_event_checkin" model="ir.model.fields">
+        <field name="name">x_museum_frontdesk_event_checkin</field>
+        <field name="field_description">Enable Event Ticket Check-In at Kiosk</field>
+        <field name="ttype">boolean</field>
+        <field name="model_id" ref="base.model_res_config_settings"/>
+        <field name="related">company_id.x_museum_frontdesk_event_checkin</field>
+        <field name="store" eval="False"/>
+    </record>
+</odoo>

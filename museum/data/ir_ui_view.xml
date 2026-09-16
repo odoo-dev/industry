@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- Museum Settings — adds a "Museum" app section in Settings sidebar -->
+    <record id="res_config_settings_form_view_inherited_museum" model="ir.ui.view">
+        <field name="name">res.config.settings.form.view.inherited.museum</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="2"/>
+        <field name="active" eval="True"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Museum" name="museum" logo="/museum/static/description/icon.png">
+                    <block title="Kiosk" name="museum_kiosk_block">
+                        <setting
+                            id="museum_frontdesk_event_checkin"
+                            string="Event Ticket Check-In at Kiosk"
+                            help="When enabled, the Frontdesk Members kiosk can scan both member barcodes and event ticket barcodes. When disabled, only member barcodes are accepted.">
+                            <field name="x_museum_frontdesk_event_checkin"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

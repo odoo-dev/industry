@@ -1,6 +1,6 @@
 {
     'name': 'Museum',
-    'version': '1.3',
+    'version': '1.4',
     'category': 'Services',
     'author': 'Odoo S.A.',
     'depends': [
@@ -13,13 +13,16 @@
         'purchase',
         'sale_planning',
         'sale_subscription',
+        'web_studio',
         'website_event_sale',
     ],
     'data': [
         'data/ir_ui_menu.xml',
+        'data/ir_model_fields.xml',
         'data/res_config_settings.xml',
         'data/ir_default.xml',
         'data/ir_attachment_pre.xml',
+        'data/ir_ui_view.xml',
         'data/product_category.xml',
         'data/pos_category.xml',
         'data/product_pricelist_item.xml',
@@ -76,10 +79,16 @@
         'web.assets_backend': [
             'museum/static/src/js/my_tour.js',
         ],
+        'frontdesk_partnership.assets_frontdesk_partnership': [
+            'museum/static/src/welcome_page/museum_event_summary_dialog.js',
+            'museum/static/src/welcome_page/museum_event_summary_dialog.xml',
+            'museum/static/src/welcome_page/welcome_page_members_museum.js',
+        ],
     },
     'cloc_exclude': [
         'data/knowledge_article.xml',
         'demo/website_view.xml',
+        'static/src/welcome_page/museum_event_summary_dialog.xml',
         'static/src/js/my_tour.js',
     ],
     'application': True,

@@ -15,9 +15,9 @@ msgstr ""
 "Project-Id-Version: Odoo Server saas~17.4+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 17:50+0000\n"
-"PO-Revision-Date: 2026-02-19 15:08+0000\n"
+"PO-Revision-Date: 2026-09-12 18:33+0000\n"
 "Last-Translator: \"Malaz Siddig Elsayed Abuidris (msea)\" <msea@odoo.com>\n"
-"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-s19-1/"
+"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-master/"
 "condominium/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
@@ -494,6 +494,8 @@ msgid ""
 "<strong>Sales:</strong> Send quotations, confirm orders, and invoice shared "
 "expenses to owners."
 msgstr ""
+"<strong>المبيعات:</strong> أرسل عروض الأسعار وأكد الطلبات وأرسل فواتير "
+"النفقات المشتركة إلى المالكين."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -501,6 +503,8 @@ msgid ""
 "<strong>Sign</strong> <strong>App: </strong>Send digital property "
 "reservation contracts."
 msgstr ""
+"<strong>تطبيق</strong> <strong>التوقيع الإلكتروني: </strong>أرسل عقوداً رقمية "
+"لحجز العقارات."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -508,6 +512,8 @@ msgid ""
 "<strong>Use quotation templates</strong> in the Sales app to standardize "
 "quotes and reduce manual errors."
 msgstr ""
+"<strong>استخدم قوالب عروض الأسعار</strong> في تطبيق المبيعات لتوحيد عروض "
+"الأسعار وتقليل الأخطاء اليدوية."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -524,6 +530,8 @@ msgid ""
 "<strong>Website Builder:</strong> Build a professional website with lead "
 "capture forms and member areas."
 msgstr ""
+"<strong>أداة إنشاء المواقع الإلكترونية:</strong> أنشئ موقعًا إلكترونيًا "
+"احترافيًا مع استمارات لجمع البيانات والمناطق التي يسكن فيها الأعضاء."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
@@ -547,6 +555,9 @@ msgid ""
 "                    Defining a distribution key is efficient by populating "
 "defined properties in a click."
 msgstr ""
+"تحتاج إلى مفتاح التوزيع للقيام بعدة إجراءات.<br/>\n"
+"                    يعد تعريف مفتاح التوزيع طريقة فعالة لملء الخصائص المحددة "
+"بضغطة زر."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1225,27 +1236,27 @@ msgstr "الشقة السكنية: تقرير الاجتماع العام"
 #. module: condominium
 #: model:base.automation,name:condominium.automation_update_for_voters_line
 msgid "Condominium: On Attendee and delegating Edit"
-msgstr ""
+msgstr "الوحدة السكنية: عند تحرير الحضور والتفويض"
 
 #. module: condominium
 #: model:base.automation,name:condominium.automation_call_distribute_costs_on_save
 msgid "Condominium: On Distribution input save"
-msgstr ""
+msgstr "الوحدة السكنية: عند حفظ مدخلات التوزيع"
 
 #. module: condominium
 #: model:base.automation,name:condominium.automation_call_distribute_costs_on_update
 msgid "Condominium: On Distribution input update"
-msgstr ""
+msgstr "الوحدة السكنية: عند تحديث مدخلات التوزيع"
 
 #. module: condominium
 #: model:base.automation,name:condominium.automation_populate_voters
 msgid "Condominium: On Vote Edit"
-msgstr ""
+msgstr "الوحدة السكنية: عند تعديل التصويت"
 
 #. module: condominium
 #: model:base.automation,name:condominium.automation_update_property_current_owner
 msgid "Condominium: On owners edit"
-msgstr ""
+msgstr "الوحدة السكنية: عند إجراء المُلّاك أي تغيير"
 
 #. module: condominium
 #: model:base.automation,name:condominium.automation_archive_related_accounts
@@ -1255,22 +1266,22 @@ msgstr ""
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_populate_distribution_key
 msgid "Condominium: Populate Distribution Key"
-msgstr ""
+msgstr "الوحدة السكنية: إنشاء مفتاح التوزيع"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_populate_voters
 msgid "Condominium: Populate Voters"
-msgstr ""
+msgstr "الوحدة السكنية: إنشاء المصوتين"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_send_general_meeting_agenda
 msgid "Condominium: Send General Meeting Agenda"
-msgstr ""
+msgstr "الوحدة السكنية: إرسال أجندة الاجتماعات العامة"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_send_general_meeting_report
 msgid "Condominium: Send General Meeting Report"
-msgstr ""
+msgstr "الوحدة السكنية: إرسال تقرير الاجتماع العام"
 
 #. module: condominium
 #: model:base.automation,name:condominium.automation_set_usage_meter_reading
@@ -1280,22 +1291,22 @@ msgstr ""
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_set_votes_as_all_against
 msgid "Condominium: Set Votes as All Against"
-msgstr ""
+msgstr "الوحدة السكنية: تعيين الأصوات كـ \"الجميع معارضون\""
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_set_votes_as_all_favor
 msgid "Condominium: Set Votes as All In Favor"
-msgstr ""
+msgstr "الوحدة السكنية: تعيين الأصوات كـ \"الجميع مؤيدون\""
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.ir_act_server_split_per_property
 msgid "Condominium: Split SO per Owner"
-msgstr ""
+msgstr "الوحدة السكنية: أمر بيع منفصل لكل مالك"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_update_property_current_owner
 msgid "Condominium: Update Property Current Owner"
-msgstr ""
+msgstr "الوحدة السكنية: تحديث معلومات المالك الحالي للعقار"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_validate_property_owner_dates
@@ -1325,7 +1336,7 @@ msgstr "الشقق السكنية"
 #. module: condominium
 #: model:ir.actions.server,name:condominium.ir_action_create_condominium
 msgid "Condomnium: Create Condominium"
-msgstr ""
+msgstr "الوحدة السكنية: إنشاء وحدة سكنية"
 
 #. module: condominium
 #: model:ir.ui.menu,name:condominium.config_menu
@@ -1342,12 +1353,12 @@ msgstr "تأكيد"
 #. module: condominium
 #: model:ir.actions.server,name:condominium.confirm_analytic_account_item_split_action
 msgid "Confirm Account Analytic Line"
-msgstr ""
+msgstr "تأكيد البند التحليلي للحساب"
 
 #. module: condominium
 #: model:res.company,free_order_label:condominium.res_company_2
 msgid "Confirm Order"
-msgstr ""
+msgstr "تأكيد الطلب"
 
 #. module: condominium
 #: model_terms:web_tour.tour,rainbow_man_message:condominium.acquisition_tour
@@ -1357,7 +1368,7 @@ msgstr "تهانينا! لقد قمت بأول عملية بيع لك."
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Connect your calendar to your Odoo database to never miss any meeting!"
-msgstr ""
+msgstr "اربط تقويمك بقاعدة بيانات أودو حتى لا تفوتك أي من الاجتماعات القادمة!"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.res_partner_form_view_inherit
@@ -1367,7 +1378,7 @@ msgstr "جهات الاتصال"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_39
 msgid "Contract renewal for 2025"
-msgstr ""
+msgstr "تجديد العقد حتى عام 2025"
 
 #. module: condominium
 #: model:product.template,description_sale:condominium.product_product_4_product_template
@@ -1423,7 +1434,7 @@ msgstr "قم بإنشاء وإدارة المباني التي يتألف منه
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Create the buildings that compounds the condominium"
-msgstr ""
+msgstr "إنشاء المباني التي تكوّن الوحدة السكنية. "
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1436,7 +1447,7 @@ msgstr "قم بإنشاء الخصائص التي تكوّن المباني: ش�
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "Create the relevant motions in advance to efficiently drive the meeting."
-msgstr ""
+msgstr "قم بإعداد المقترحات ذات الصلة مسبقًا لتسيير الاجتماع بكفاءة."
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_current_owner_property
@@ -1548,6 +1559,12 @@ msgid ""
 "captured if a meter\n"
 "                    reading is near the owner change date."
 msgstr ""
+"تتطلب مفاتيح التوزيع القائمة على قراءة العدادات إدخال بداية الفترة "
+"ونهايتها.<br/>\n"
+"                    عند توزيع التكاليف، لكل عقار، يتم استخدام أقرب قراءات "
+"للعدادات إلى حدود الفترة لحساب الاستهلاك خلال الفترة، وفي حالة تغيير المالك، "
+"يتم تسجيل الاستهلاك حسب المالك إذا كانت قراءة العداد\n"
+"                    قريبة من تاريخ تغيير المالك."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1556,6 +1573,9 @@ msgid ""
 "to split costs, the recorded meter readings for the corresponding period "
 "will be used."
 msgstr ""
+"تشير مفاتيح التوزيع القائمة على قراءات العدادات إلى العداد فقط. عند "
+"استخدامها لتقسيم التكاليف، سيتم استخدام قراءات العدادات المسجلة للفترة "
+"المقابلة."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1566,6 +1586,10 @@ msgid ""
 "the\n"
 "                properties when relevant."
 msgstr ""
+"يمكن ملء مفاتيح التوزيع المستندة على الحصص بجميع العقارات الموجودة في المجمع "
+"السكني وحساب النسب على أساس مساحة العقارات. لا يزال بإمكانك تعديل النسب حسب "
+"حاجتك وتضمين مجموعة فرعية فقط من\n"
+"                العقارات عند الاقتضاء."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1576,11 +1600,16 @@ msgid ""
 "                    With period inputs, the distribution is computed between "
 "owners over the corresponding period, in proportion to the ownership."
 msgstr ""
+"تستخدم مفاتيح التوزيع القائمة على الحصص النسب مباشرة.<br/>\n"
+"                    عندما لا تقوم بإدخال فترات زمنية، يتم التوزيع بين "
+"المالكين الحاليين.<br/>\n"
+"                    عندما تقوم بإدخال فترات زمنية، يتم حساب التوزيع بين "
+"المالكين خلال الفترة المقابلة، بما يتناسب مع الملكية."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Do You Want to Go Further?"
-msgstr ""
+msgstr "أتود التعمق أكثر؟"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_799_product_template
@@ -1620,7 +1649,7 @@ msgstr "قم تحويل الوحدات السكنية بكل سهولة 🖋️"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_64
 msgid "Election of the president"
-msgstr ""
+msgstr "انتخاب الرئيس"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_707_product_template
@@ -1707,31 +1736,39 @@ msgid ""
 "in... \"Condominiums\" and set the condominium\n"
 "            field."
 msgstr ""
+"في كل عام، يتم تحديد موعد لاجتماع عام للحديث عن البيانات المالية واتخاذ "
+"القرارات الهامة وما إلى ذلك. يمكن جدولة هذه الفعالية بسهولة في تطبيق التقويم "
+"من خلال إنشاء\n"
+"            <font style=\"font-weight: bolder;\" class=\"text-o-color-1\">"
+"اجتماعات</font>. لدعوة كافة ملاك الوحدات السكنية، استخدم خيار \"البحث عن "
+"المزيد\" في \"الحاضرين\" واكتب اسم الوحدة السكنية في \"الوحدات السكنية\" وقم "
+"بإعداد حقل\n"
+"            الوحدات السكنية."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Examples"
-msgstr ""
+msgstr "أمثلة"
 
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_47
 msgid "Exceptional work: Parking door replacement"
-msgstr ""
+msgstr "عمل استثنائي: استبدال باب موقف السيارات"
 
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_46
 msgid "Exceptional work: Roof rework"
-msgstr ""
+msgstr "عمل استثنائي: إعادة ترميم السقف"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "Excused"
-msgstr ""
+msgstr "معذور"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_agenda_document
 msgid "Expected attendees"
-msgstr ""
+msgstr "الحاضرين المتوقعين"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1740,6 +1777,8 @@ msgid ""
 "distribution of the corresponding invoice lines to the corresponding "
 "account, from the invoice form."
 msgstr ""
+"يمكن تخصيص النفقات المتعلقة بمالك واحد عن طريق تعيين التوزيع التحليلي لبنود "
+"الفاتورة المقابلة إلى الحساب المقابل، من استمارة الفاتورة."
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_785_product_template
@@ -1752,6 +1791,9 @@ msgid ""
 "Explore <strong>automations</strong>, <strong>community portals</strong>, "
 "and <strong>custom dashboards</strong> tailored to your needs."
 msgstr ""
+"استكشف خصائص <strong>التشغيل الآلي</strong> <strong>والبوابات المجتمعية</"
+"strong> <strong>ولوحات البيانات المخصصة</strong> المصممة خصيصًا لتلبية "
+"احتياجاتك."
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_674_product_template
@@ -1786,7 +1828,7 @@ msgstr "قسّم التكاليف بشكل منصف ⚖️"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Final word"
-msgstr ""
+msgstr "الكلمة النهائية"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1798,6 +1840,10 @@ msgid ""
 "                associated meter readings for each property to be "
 "representative."
 msgstr ""
+"أخيرًا، بالنسبة للوحدات السكنية التي يتم تنظيمها باستخدام عداد عام لتوزيع "
+"النفقات، ثم باستخدام العدادات الخاصة بكل مالك لتقسيم النفقات، فإن مفتاح "
+"التوزيع القائم على العداد هو المفتاح المناسب ويتطلب إدخال بيانات دورية \n"
+"                وقراءات العدادات المرتبطة بكل عقار ليتم اعتبارها."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1806,6 +1852,8 @@ msgid ""
 "ratio for each property that will be used for splitting the fees per owner "
 "and for distributing the costs:"
 msgstr ""
+"وأخيراً، يمكنك أيضاً تحديد مفاتيح التوزيع لكل عقار. والهدف من ذلك هو تعيين "
+"نسبة لكل عقار سيتم استخدامها لتقسيم الرسوم لكل مالك ولتوزيع التكاليف:"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_677_product_template
@@ -1839,6 +1887,8 @@ msgid ""
 "For each motion, assign the relevant motion criteria, take notes while "
 "discussion goes on and record the owners votes."
 msgstr ""
+"لكل اقتراح، قم بتعيين فئات الاقتراح ذات الصلة، ودوّن الملاحظات أثناء المناقشة "
+"وسجل أصوات المالكين."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1868,11 +1918,15 @@ msgid ""
 "company and the\n"
 "            different condominiums."
 msgstr ""
+"من الإعدادات، قم بإنشاء شركة جديدة في <font style=\"font-weight: bolder;\" "
+"class=\"text-o-color-1\">الشركات</font>. بمجرد الانتهاء من ذلك، ستظهر أعلى "
+"يمين كافة الشاشات بهدف التبديل السريع بين شركتك\n"
+"            والوحدات السكنية المختلفة."
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_749_product_template
 msgid "Front face of building maintenance"
-msgstr ""
+msgstr "صيانة الواجهة الأمامية للمبنى"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_780_product_template
@@ -1912,14 +1966,14 @@ msgstr "الغاز لخدمات الاستقبال والإرشاد"
 #. module: condominium
 #: model:ir.actions.report,name:condominium.calendar_event_general_meeting_agenda
 msgid "General Meeting Agenda"
-msgstr ""
+msgstr "أجندة الاجتماعات العامة"
 
 #. module: condominium
 #: model:ir.actions.report,name:condominium.calendar_event_general_meeting_report
 #: model:mail.template,subject:condominium.mail_template_2
 #: model:mail.template,subject:condominium.mail_template_3
 msgid "General Meeting Report"
-msgstr ""
+msgstr "تقرير الاجتماع العام"
 
 #. module: condominium
 #: model:ir.ui.menu,name:condominium.condominium_general_meeting_menu
@@ -1975,7 +2029,7 @@ msgstr "مكتب المساعدة"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Here are the steps to follow:"
-msgstr ""
+msgstr "فيما يلي الخطوات التي يجب اتباعها:"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_7_product_template
@@ -2008,6 +2062,8 @@ msgid ""
 "If you want to easily discover every features of this package, try "
 "downloading the demo data."
 msgstr ""
+"إذا كنت ترغب في اكتشاف كافة الخصائص التي تتميز بها هذه الباقة بسهولة، حاول "
+"تنزيل البيانات التجريبية."
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.image_buildings
@@ -2018,7 +2074,7 @@ msgstr "صورة"
 #: model:ir.model.fields,field_description:condominium.field_motion_total_in_favor
 #: model:ir.model.fields.selection,name:condominium.x_vote_in_favor
 msgid "In Favor"
-msgstr ""
+msgstr "المؤيدون "
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2039,7 +2095,7 @@ msgstr "في حالة الرسوم المتكررة:"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "In favor:"
-msgstr ""
+msgstr "المؤيدون:"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2048,6 +2104,8 @@ msgid ""
 "to some owners. This is the case for example when some are given review "
 "duties."
 msgstr ""
+"في كثير من الحالات، يتم توفير وصول مباشر إلى حسابات الوحدات السكنية لبعض "
+"المالكين. وهذا هو الحال على سبيل المثال عندما يتم تكليف البعض بمهام المراجعة."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2055,6 +2113,8 @@ msgid ""
 "In the <strong>Sales App</strong>, create a quotation and set the "
 "condominium as customer."
 msgstr ""
+"في <strong>تطبيق المبيعات</strong>، أنشئ عرض أسعار وقم بتعيين الشقة كـ "
+"\"العميل\"."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2103,7 +2163,7 @@ msgstr "التواصل عبر الإنترنت لتبادل المعلومات"
 #. module: condominium
 #: model:ir.actions.act_window,name:condominium.distribution_action_window
 msgid "Invoices"
-msgstr ""
+msgstr "الفواتير"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.x_is_a_property
@@ -2116,6 +2176,8 @@ msgid ""
 "Just be careful, once demo data are uploaded, it cannot be easily deleted. "
 "But you can restart a fresh database at"
 msgstr ""
+"كن حذراً، فبمجرد تحميل البيانات التجريبية، لا يمكن حذفها بسهولة. ولكن يمكنك "
+"إعادة تشغيل قاعدة بيانات جديدة على"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_4_product_template
@@ -2157,7 +2219,7 @@ msgstr "الرسوم القانونية لاسترداد متأخرات المُ
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_agenda_document
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "Logo"
-msgstr ""
+msgstr "الشعار"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_700_product_template
@@ -2167,7 +2229,7 @@ msgstr "عقود الصيانة"
 #. module: condominium
 #: model:x_vote_criteria,x_name:condominium.x_vote_criteria_3
 msgid "Majority of 2/3rd"
-msgstr ""
+msgstr "أغلبية الثلثين"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2215,7 +2277,7 @@ msgstr "استخدام غرف الاجتماعات"
 #: model:ir.actions.act_window,name:condominium.meeting_action_window
 #: model:ir.ui.menu,name:condominium.condominium_meetings_menu
 msgid "Meetings"
-msgstr ""
+msgstr "الاجتماعات"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_distribution_key_base_meter
@@ -2267,7 +2329,7 @@ msgstr "نفقات متنوعة"
 #: model:ir.model.fields,field_description:condominium.description_calendar_motion
 #: model_terms:ir.ui.view,arch_db:condominium.view_calendar_event_form_inherit
 msgid "Motion"
-msgstr ""
+msgstr "مقترح"
 
 #. module: condominium
 #: model:ir.actions.act_window,name:condominium.motion_criteria_action_window
@@ -2275,18 +2337,18 @@ msgstr ""
 #: model:ir.ui.menu,name:condominium.condominium_motion_criteria_menu
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "Motion Criteria"
-msgstr ""
+msgstr "فئة المُقترَح"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "Motion..."
-msgstr ""
+msgstr "اقتراح..."
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_calendar_event_motions
 #: model_terms:ir.ui.view,arch_db:condominium.view_calendar_event_form_inherit
 msgid "Motions"
-msgstr ""
+msgstr "الاقتراحات"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.name_buildings_tags
@@ -2329,12 +2391,12 @@ msgstr "الملاحظات"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Odoo offers additional possibilities to enhance your business:"
-msgstr ""
+msgstr "يتمتع أودو بالمزيد من الخصائص والإمكانيات الإضافية لتعزيز أعمالك:"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Odoo.com/trial"
-msgstr ""
+msgstr "Odoo.com/trial"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_5_product_template
@@ -2348,6 +2410,9 @@ msgid ""
 "owners. On the other hand, the service fees can be invoiced by \"My "
 "Condominium Management\" to the owners."
 msgstr ""
+"من ناحية، يتم إرسال طلبات التمويل من قبل المجمع السكني إلى المالكين. ومن "
+"ناحية أخرى، يمكن لـ \"إدرة وحدتي السكنية\" إصدار فواتير رسوم الخدمة إلى "
+"المالكين."
 
 #. module: condominium
 #: model:sale.order.template.line,name:condominium.sale_order_template_line_7
@@ -2360,6 +2425,8 @@ msgid ""
 "Once done, it is time to create the composition of the condominium by "
 "selecting the right one on the top right of the screen."
 msgstr ""
+"بمجرد الانتهاء، سيحين وقت لإنشاء التهيئة الخاصة بالوحدة السكنية عن طريق اختيار "
+"الشقة المناسبة في الجزء العلوي الأيمن من الشاشة."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2368,6 +2435,8 @@ msgid ""
 "several tasks to properly start the collaboration. This is based on the Kick-"
 "Off Template project:"
 msgstr ""
+"بمجرد تأكيد عرض الأسعار، يتم تلقائياً إنشاء مشاريع تحتوي على عدة مهام لبدء "
+"التعاون بشكل صحيح. ويستند ذلك إلى قالب مشروع البدء بالعمل:"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2388,7 +2457,7 @@ msgstr "الرسوم التي تُدفع مرة واحدة"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.account_analytic_account_search_view_condominium
 msgid "Ongoing"
-msgstr ""
+msgstr "جاري"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_view_company_partner
@@ -2401,6 +2470,8 @@ msgid ""
 "Open the <strong><font class=\"text-o-color-1\">Condominium</font></strong> "
 "App where you can:"
 msgstr ""
+"افتح تطبيق <strong><font class=\"text-o-color-1\">الوحدات السكنية</font></"
+"strong> والذي يمكنك من خلاله:"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2408,6 +2479,8 @@ msgid ""
 "Open the<strong> Condominium App</strong> and reach the Distributions from "
 "the Purchase menu."
 msgstr ""
+"افتح<strong> تطبيق الوحدات السكنية</strong> وانتقل إلى \"التوزيعات\" من "
+"قائمة \"المشتريات\"."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2557,7 +2630,7 @@ msgstr "نفقات المياه الأخرى"
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_motion_outcome
 msgid "Outcome"
-msgstr ""
+msgstr "النتيجة "
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_property_line_owner
@@ -2570,7 +2643,7 @@ msgstr "المالك"
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.property_line_owner_field
 msgid "Owner ids"
-msgstr ""
+msgstr "مُعرِّفات المالكين"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_analytic_owner_line
@@ -2613,33 +2686,35 @@ msgstr "شركات الشريك"
 #. module: condominium
 #: model:res.company,pay_now_label:condominium.res_company_2
 msgid "Pay now"
-msgstr ""
+msgstr "ادفع الآن"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_account_move_period_end
 msgid "Period End"
-msgstr ""
+msgstr "نهاية الفترة"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_account_move_period_start
 msgid "Period Start"
-msgstr ""
+msgstr "بداية الفترة "
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "Plan Task"
-msgstr ""
+msgstr "التخطيط لمهمة"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "Plan your general meeting agenda with motions to vote in the Motions tab."
 msgstr ""
+"قم بالتخطيط لأجندة اجتماعاتك العامة مع المقترحات المطروحة للتصويت في علامة "
+"تبويب \"المقترحات\"."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_distribution_key_form_view
 msgid "Populate"
-msgstr ""
+msgstr "إنشاء "
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_666_product_template
@@ -2723,7 +2798,7 @@ msgstr "خطة العقار"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Provide access to the owners 🔑"
-msgstr ""
+msgstr "منح صلاحيات الوصول إلى المالكين 🔑"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2743,7 +2818,7 @@ msgstr "الكمية"
 #. module: condominium
 #: model:sale.subscription.plan,name:condominium.sale_subscription_plan_3
 msgid "Quarterly"
-msgstr ""
+msgstr "ربع سنوي"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_730_product_template
@@ -2765,7 +2840,7 @@ msgstr "النسب"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Reach us"
-msgstr ""
+msgstr "تواصل معنا "
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2773,6 +2848,8 @@ msgid ""
 "Record invoices from from supplier from <strong>Accounting App</strong>, by "
 "assigning supplier and listing products."
 msgstr ""
+"تمكن من تسجيل الفواتير من المورد من <strong>تطبيق المحاسبة</strong>، عن طريق "
+"تعيين المورد وإدراج المنتجات."
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_764_product_template
@@ -2787,13 +2864,13 @@ msgstr "الرسوم المتكررة"
 #. module: condominium
 #: model:product.template,name:condominium.product_product_15_product_template
 msgid "Recurring Service Fees"
-msgstr ""
+msgstr "رسوم الخدمة المتكررة"
 
 #. module: condominium
 #: model:ir.model.fields.selection,name:condominium.x_outcome_rejected
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "Rejected"
-msgstr ""
+msgstr "تم الرفض"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_672_product_template
@@ -2803,12 +2880,12 @@ msgstr "أعمال الترميم والتجديد"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_67
 msgid "Repair of the main door of wing A"
-msgstr ""
+msgstr "إصلاح الباب الرئيسي للجناح A"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Requesting funds"
-msgstr ""
+msgstr "طلب التمويل"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_14_product_template
@@ -2827,7 +2904,7 @@ msgstr ""
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "Reset Votes"
-msgstr ""
+msgstr "إعادة تعيين الأصوات"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_662_product_template
@@ -2877,7 +2954,7 @@ msgstr ""
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Select the relevant distribution key to account for owner ratios."
-msgstr ""
+msgstr "حدد مفتاح التوزيع ذي الصلة لحساب نسب المالكين."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -2885,21 +2962,23 @@ msgid ""
 "Select the right company from which the fees will be invoiced (see <em>Set "
 "up a condominium 🚀</em> section to see how to switch the company)."
 msgstr ""
+"اختر الشركة المناسبة التي سيتم إصدار الفواتير لها (ألقِ نظرة على قسم <em>"
+"إعداد وحدة سكنية 🚀</em> لمعرفة كيفية تبديل الشركة)."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.view_calendar_event_form_inherit
 msgid "Send Agenda"
-msgstr ""
+msgstr "إرسال الأجندة"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.view_calendar_event_form_inherit
 msgid "Send Report"
-msgstr ""
+msgstr "إرسال التقرير"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Send the meeting agenda upfront to all expected attendees"
-msgstr ""
+msgstr "قم بأرسل أجندة الاجتماعات بشكل مسبق إلى جميع الحاضرين المتوقعين"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_meters_sequence
@@ -2937,27 +3016,27 @@ msgstr "قم بتعيين مفتاح التوزيع المناسب."
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Set up a condominium 🚀"
-msgstr ""
+msgstr "إعداد وحدة سكنية 🚀"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_x_share
 msgid "Share"
-msgstr ""
+msgstr "الأسهم"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.analytic_account_wizard_form
 msgid "Share (%)"
-msgstr ""
+msgstr "الأسهم (%)"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_x_share_total
 msgid "Share Total"
-msgstr ""
+msgstr "إجمالي الأسهم"
 
 #. module: condominium
 #: model:ir.model.fields.selection,name:condominium.x_based_on_shares
 msgid "Shares"
-msgstr ""
+msgstr "الأسهم"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_798_product_template
@@ -2984,18 +3063,18 @@ msgstr "عدد أوامر البيع المصدرية"
 #: model:ir.actions.server,name:condominium.split_analytic_item_action
 #: model_terms:ir.ui.view,arch_db:condominium.view_account_analytic_line_form_inherit
 msgid "Split"
-msgstr ""
+msgstr "تقسيم"
 
 #. module: condominium
 #: model:ir.model,name:condominium.model_x_split_analytic_items_wizard
 #: model:ir.model.fields,field_description:condominium.field_x_split_analytic_items_id
 msgid "Split Analytic Items"
-msgstr ""
+msgstr "تقسيم العناصر التحليلية"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_line_ids
 msgid "Split Lines"
-msgstr ""
+msgstr "تقسيم البنود"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.sale_order_form_custom
@@ -3131,7 +3210,7 @@ msgstr "الضرائب والرسوم"
 #. module: condominium
 #: model:product.template,name:condominium.product_product_687_product_template
 msgid "Telephone - Internet - Concierge cell phone"
-msgstr ""
+msgstr "هاتف - إنترنت - هاتف خلوي للاستعلامات - هاتف خلوي للاستعلامات"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.property_line_field_tenant
@@ -3152,7 +3231,7 @@ msgstr ""
 #: model_terms:res.company,sign_terms:condominium.res_company_2
 #: model_terms:res.company,sign_terms_html:condominium.res_company_2
 msgid "Terms &amp; Conditions"
-msgstr ""
+msgstr "الشروط والأحكام"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_750_product_template
@@ -3175,13 +3254,15 @@ msgid ""
 "The chart of account and relationships with products and product categories "
 "is not setup in this module."
 msgstr ""
+"لم يتم إعداد شجرة الحسابات والعلاقات مع المنتجات وفئات المنتجات في هذا "
+"التطبيق."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "The cost distribution inputs are available on each invoice in the "
 "distribution tab."
-msgstr ""
+msgstr "تتوفر مدخلات توزيع التكاليف في كل فاتورة في علامة تبويب \"التوزيع\"."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3194,27 +3275,30 @@ msgid ""
 "The following tour shows you how to create a new customer, from the sale "
 "order creation to the new company in your database"
 msgstr ""
+"توضح لك الجولة التالية كيفية إنشاء عميل جديد، بدءًا من إنشاء أمر البيع وحتى "
+"إنشاء الشركة الجديدة في قاعدة بياناتك"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "The meter readings history, leveraged to split bills based on consumption."
 msgstr ""
+"سِجِل قراءات العدادات، والذي يتم استخدامه لتقسيم الفواتير على أساس الاستهلاك."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "The motion is"
-msgstr ""
+msgstr "الاقتراح هو"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "The motion is not submitted to vote."
-msgstr ""
+msgstr "لم يُطرح الاقتراح للتصويت."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "The owner history."
-msgstr ""
+msgstr "سِجِل المالكين."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3240,7 +3324,7 @@ msgstr "الخدمات التي تقدمها شركة إدارة الوحدات 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "The tenant history if relevant."
-msgstr ""
+msgstr "سِجِل المستأجرين إذا كان ذلك ذا صلة."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3263,7 +3347,7 @@ msgstr ""
 msgid ""
 "Then, on a regular basis or at invoice confirmation, distribute the costs of "
 "each expenses:"
-msgstr ""
+msgstr "ثم قم بتوزيع تكاليف كل نفقة بشكل منتظم أو عند تأكيد الفاتورة:"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3271,6 +3355,8 @@ msgid ""
 "These features can be added to your current subscription. Feel free to "
 "explore and expand your Odoo experience!"
 msgstr ""
+"يمكن إضافة هذه الخصائص إلى اشتراكك الحالي. لا تتردد في استكشاف وتوسيع تجربتك "
+"في أودو!"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3299,7 +3385,7 @@ msgstr "لا يشمل ذلك الرسوم من الموظفين أو المحا�
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Tips for Success"
-msgstr ""
+msgstr "نصائح ستقودك للنجاح "
 
 #. module: condominium
 #: model:project.task.type,name:condominium.project_task_type_17
@@ -3309,7 +3395,7 @@ msgstr "المهام المراد تنفيذها"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "To account for this additional cost in your pricing."
-msgstr ""
+msgstr "لأخذ هذه التكلفة الإضافية بعين الاعتبار عند تحديد الأسعار."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3318,6 +3404,9 @@ msgid ""
 "insurance fees, the distribution based on shares over a period is relevant "
 "to expense each owner in proportion of their ownership and share."
 msgstr ""
+"لتوزيع التكاليف المتعلقة بالخدمات السنوية، مثل رسوم تأمين الوحدات السكنية، "
+"يكون التوزيع على أساس الأسهم خلال فترة معينة مناسبًا لتوزيع النفقات على كل مالك "
+"بما يتناسب مع ملكيته وأسهمه."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3325,6 +3414,8 @@ msgid ""
 "To distribute costs which only impact current owners, a distribution key "
 "based on shares without period inputs is required."
 msgstr ""
+"لتوزيع التكاليف التي تؤثر فقط على المالكين الحاليين، يلزم وجود مفتاح توزيع "
+"على أساس الأسهم دون إدخال فترات زمنية."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3332,6 +3423,8 @@ msgid ""
 "To maintain the number of users to the minimum needed, creating and deleting "
 "them when relevant."
 msgstr ""
+"لإبقاء عدد المستخدمين بقدر الحد الأدنى المطلوب لعدد المستخدمين، وإنشاء وحذف "
+"الحسابات عند الاقتضاء."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3340,12 +3433,14 @@ msgid ""
 "rights to the level which suite your needs so that they can access in read "
 "only most likely."
 msgstr ""
+"لإعداد هذا الوصول، عليك إنشاء مستخدمين لهؤلاء المالكين وتقييد الحقوق إلى "
+"المستوى الذي يناسب احتياجاتك بحيث يمكنهم الوصول للقراءة فقط على الأرجح."
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.x_total_field
 #: model_terms:ir.ui.view,arch_db:condominium.view_invoice_tree_inherit
 msgid "Total"
-msgstr ""
+msgstr "الإجمالي"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_673_product_template
@@ -3398,12 +3493,12 @@ msgstr "قم بكتابة ملاحظاتك هنا..."
 #. module: condominium
 #: model:x_vote_criteria,x_name:condominium.x_vote_criteria_2
 msgid "Unanimity"
-msgstr ""
+msgstr "الإجماع"
 
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_update_voter_line_for_motion
 msgid "Update Voter Lines Of Motion"
-msgstr ""
+msgstr "تحديث بنود المصوتين للاقتراح"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_meter_reading_usage
@@ -3413,7 +3508,7 @@ msgstr "الاستخدام"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.account_move_custom_form_view
 msgid "Used to distribute costs by meter; closest meter reading date used"
-msgstr ""
+msgstr "يستخدم لتوزيع التكاليف حسب العداد؛ يتم استخدام أقرب تاريخ لقراءة العداد"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.res_partner_form_view_inherit
@@ -3443,7 +3538,7 @@ msgstr "أعمال متنوعة"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.view_invoice_tree_inherit
 msgid "Vendor"
-msgstr ""
+msgstr "المورّد"
 
 #. module: condominium
 #: model:ir.actions.act_window,name:condominium.vendors_act_window
@@ -3471,7 +3566,7 @@ msgstr "المراقبة بالفيديو"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.view_calendar_event_form_inherit
 msgid "View Report"
-msgstr ""
+msgstr "عرض التقرير"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_680_product_template
@@ -3482,23 +3577,23 @@ msgstr "تأمين المتطوعين"
 #: model:ir.model,name:condominium.model_x_motion_vote
 #: model:ir.model.fields,field_description:condominium.field_motion_vote_vote
 msgid "Vote"
-msgstr ""
+msgstr "تصويت"
 
 #. module: condominium
 #: model:ir.model,name:condominium.model_x_vote_criteria
 #: model_terms:ir.ui.view,arch_db:condominium.x_vote_criteria_form_view
 msgid "Vote Criteria"
-msgstr ""
+msgstr "معايير التصويت"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "Votes (need"
-msgstr ""
+msgstr "الأصوات (بحاجة إلى"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_calendar_event_voting_key_id
 msgid "Voting key"
-msgstr ""
+msgstr "مفتاح التصويت"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_739_product_template
@@ -3509,7 +3604,7 @@ msgstr "ضوابط تنظيف النفايات ومعالجتها"
 #: model:product.template,name:condominium.product_product_772_product_template
 #: model:x_distribution_key,x_name:condominium.x_distribution_key_8
 msgid "Water"
-msgstr ""
+msgstr "المياه"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_719_product_template
@@ -3553,6 +3648,9 @@ msgid ""
 "based on your localization to generate the appropriate balance sheet and "
 "other needed accounting documents through Odoo."
 msgstr ""
+"نوصي المحاسبين الذين يعملون لصالحك بإعداد شجرة الحسابات المناسبة بناءً على "
+"الأقلمة الخاصة ببلدك لإنشاء الميزانية العمومية المناسبة وغيرها من المستندات "
+"المحاسبية اللازمة من خلال أودو."
 
 #. module: condominium
 #: model_terms:web_tour.tour,rainbow_man_message:condominium.knowledge_tour
@@ -3566,6 +3664,9 @@ msgid ""
 "prospect contact into a condominium with a click from the contact form, in "
 "the <strong>Contact App</strong>."
 msgstr ""
+"عندما يتم تأكيد عرض الأسعار لوحدة سكنية جديدة، يمكنك تحويل جهة الاتصال "
+"المحتملة إلى عقد لوحدة سكنية بضغطة زر واحدة من استمارة التواصل، في <strong>"
+"تطبيق جهات الاتصال</strong>."
 
 #. module: condominium
 #: model:x_buildings,x_name:condominium.x_buildings_1
@@ -3588,7 +3689,7 @@ msgstr "الجناح C"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.view_account_invoice_filter_inherit
 msgid "Without distribution"
-msgstr ""
+msgstr "بدون توزيع"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_679_product_template
@@ -3611,7 +3712,7 @@ msgstr ""
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_24
 msgid "Working fund call"
-msgstr ""
+msgstr "دعوة لتقديم تمويل تشغيلي"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3626,6 +3727,8 @@ msgid ""
 "You can find all past meeting for a condominium from the Condominium App, by "
 "the Owners menu."
 msgstr ""
+"يمكنك العثور على كافة الاجتماعات السابقة الخاصة بالوحدة السكنية في تطبيق "
+"الوحدات السكنية، من قائمة \"المالكين\"."
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -3683,7 +3786,7 @@ msgstr "المُلّاك"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "were present and represented"
-msgstr ""
+msgstr "كانوا حاضرين وممثلين"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body

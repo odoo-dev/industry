@@ -3,144 +3,144 @@
 # * agriculture_shop
 #
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
-# "Kira Petersen François (peti)" <peti@odoo.com>, 2025.
+# "Kira Petersen François (peti)" <peti@odoo.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 17:36+0000\n"
-"PO-Revision-Date: 2025-11-13 13:44+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Danish <https://translate.odoo.com/projects/odoo-19/"
+"PO-Revision-Date: 2026-09-12 18:34+0000\n"
+"Last-Translator: \"Kira Petersen François (peti)\" <peti@odoo.com>\n"
+"Language-Team: Danish <https://translate.odoo.com/projects/odoo-master/"
 "agriculture_shop/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_28
 msgid " B2B Quote"
-msgstr ""
+msgstr " B2B-tilbud"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_46
 msgid " Contract"
-msgstr ""
+msgstr " Kontrakt"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_29
 msgid " Fertilizer"
-msgstr ""
+msgstr " Gødning"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_52
 msgid " General Inquiry"
-msgstr ""
+msgstr " Generel forespørgsel"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_50
 msgid " High Value"
-msgstr ""
+msgstr " Høj værdi"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_32
 msgid " Large Deal"
-msgstr ""
+msgstr " Vigtig handel"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_44
 msgid " New Product"
-msgstr ""
+msgstr " Nyt produkt"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_34
 msgid " Online Sales"
-msgstr ""
+msgstr " Onlinesalg"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_41
 msgid " Price Check"
-msgstr ""
+msgstr " Priskontrol"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_40
 msgid " Project"
-msgstr ""
+msgstr " Projekt"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_31
 msgid " Quote Request"
-msgstr ""
+msgstr " Anmodning om tilbud"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_42
 msgid " Seeds"
-msgstr ""
+msgstr " Frø"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_48
 msgid " Small Order"
-msgstr ""
+msgstr " Lille ordre"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_36
 msgid " Testing"
-msgstr ""
+msgstr " Tester"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_38
 msgid " Urgent"
-msgstr ""
+msgstr " Haster"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_9
 msgid "0.2 Kg"
-msgstr ""
+msgstr "0,2 kg"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_5
 msgid "0.33 L"
-msgstr ""
+msgstr "0,33 l"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_8
 msgid "0.5 Kg"
-msgstr ""
+msgstr "0,5 kg"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_4
 msgid "0.5 L"
-msgstr ""
+msgstr "0,5 l"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_7
 msgid "1 Kg"
-msgstr ""
+msgstr "1 kg"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_3
 msgid "1 L"
-msgstr ""
+msgstr "1 l"
 
 #. module: agriculture_shop
 #: model:loyalty.reward,description:agriculture_shop.loyalty_reward_2
 #: model:product.template,name:agriculture_shop.product_product_26_product_template
 msgid "10% on specific products"
-msgstr ""
+msgstr "10 % på bestemte produkter"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "24x7 toll-free support"
-msgstr "24x7 gratis support"
+msgstr "24/7 gratis support"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_6
 msgid "5 L"
-msgstr ""
+msgstr "5 l"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -164,6 +164,9 @@ msgid ""
 "store transactions efficiently, handling sales of seeds, tools, and supplies "
 "with ease."
 msgstr ""
+"<b><font class=\"text-o-color-1\">POS-app:</font></b> Effektiv "
+"administration af transaktioner i butikken samt nem håndtering af salg af "
+"frø, værktøj og forsyninger."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -172,6 +175,9 @@ msgid ""
 "procurement of farming products from suppliers, managing costs and lead "
 "times."
 msgstr ""
+"<b><font class=\"text-o-color-1\">Indkøbsapp:</font></b> Effektivisér indkøb "
+"af landbrugsprodukter fra leverandører, og styr omkostninger og "
+"leveringstider."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -179,6 +185,8 @@ msgid ""
 "<b><font class=\"text-o-color-1\">Sales App:</font></b> Handle B2B orders "
 "and contracts for large farming clients, ensuring accurate pricing."
 msgstr ""
+"<b><font class=\"text-o-color-1\">Salgsapp:</font></b> Håndtér B2B-ordrer og "
+"kontrakter for store landbrugskunder, og sikr nøjagtige priser."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -187,6 +195,9 @@ msgid ""
 "o-color-3\"> Build a professional online presence to showcase your catalog "
 "and attract new customers.</font>"
 msgstr ""
+"<b><font class=\"text-o-color-1\">Hjemmesideapp:</font></b><font "
+"class=\"text-o-color-3\"> Opbyg en professionel online tilstedeværelse for "
+"at præsentere dit katalog og tiltrække nye kunder.</font>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -194,6 +205,9 @@ msgid ""
 "<b><font class=\"text-o-color-1\">eCommerce App:</font></b> Expand your "
 "reach by selling products online, offering convenience to modern farmers."
 msgstr ""
+"<b><font class=\"text-o-color-1\">e-Handelsapp:</font></b> Udvid din "
+"rækkevidde ved at sælge produkter online og tilbyde moderne landmænd større "
+"bekvemmelighed."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -226,6 +240,9 @@ msgid ""
 "                    Us\"</b> page instantly generates a new <b>CRM "
 "opportunity</b>."
 msgstr ""
+"<b>Registrér anmodninger:</b> Enhver indsendelse via <b>\"Kontakt\n"
+"                    os\"</b> genererer øjeblikkeligt en ny <b>CRM-"
+"salgsmulighed</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -247,6 +264,10 @@ msgid ""
 "                    website so the customer sees their agreed-upon prices "
 "upon login."
 msgstr ""
+"<b>Definér B2B-priser:</b> Opret og tildel en <b>dedikeret\n"
+"                    prisliste</b> til hver B2B-kontakt. Sørg for, at denne "
+"prisliste er aktiv på din\n"
+"                    hjemmeside, så kunden ser de aftalte priser ved login."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -293,7 +314,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<b>Key Product Settings:</b>"
-msgstr ""
+msgstr "<b>Vigtige produktindstillinger:</b>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -311,6 +332,11 @@ msgid ""
 "and increase lifetime\n"
 "                            value."
 msgstr ""
+"<b>Loyalitetsprogrammer:</b> Implementér <b>loyalitetskort</b> som en "
+"central\n"
+"                            strategi for at <b>aktivere kundefastholdelse</"
+"b> og øge livstidsværdien\n"
+"                            ."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -341,6 +367,12 @@ msgid ""
 "card processors, PayPal,\n"
 "                    etc.)."
 msgstr ""
+"<b>Betalingsudbydere &amp; Metoder:</b> Gå til <b>Hjemmeside\n"
+"                   &gt; Konfiguration &gt; Betalingsudbydere</b> og "
+"installér <b>alle</b> de betalingsformer\n"
+"                    og udbydere, du planlægger at tilbyde (f.eks. "
+"kreditkortudbydere, PayPal,\n"
+"                    osv.)."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -366,6 +398,10 @@ msgid ""
 "                            and enabling <b>client-specific pricing "
 "contracts</b>."
 msgstr ""
+"<b>Prislisteopdeling:</b> Opret flere prisstrukturer for det\n"
+"                            samme produkt, så du kan understøtte forskellige "
+"forretningsmodeller (f.eks. B2B og B2C)\n"
+"                            og tilbyde <b>kundespecifikke prisaftaler</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -389,6 +425,11 @@ msgid ""
 "give targeted, <b>manual\n"
 "                            reductions</b> at the point of sale."
 msgstr ""
+"<b>Fleksibilitet i forbindelse med kampagner:</b> Brug <b>rabatter og "
+"kampagner</b> til\n"
+"                            hurtigt at justere priserne i forbindelse med "
+"salgsarrangementer eller til at give målrettede, <b>manuelle\n"
+"                            prisnedsættelser</b> på POS-stedet."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -406,6 +447,11 @@ msgid ""
 "                    specific product, a supplier inquiry, or general "
 "information."
 msgstr ""
+"<b>Kvalificér leads:</b> Tag kontakt til kunden via\n"
+"                    CRM-salgsmuligheden for fuldt ud at forstå deres "
+"anmodning – uanset om det drejer sig om et behov for et\n"
+"                    specifikt produkt, en forespørgsel om en leverandør "
+"eller generel oplysning."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -415,11 +461,16 @@ msgid ""
 "the opportunity</b>. The\n"
 "                    client can then <b>confirm and sign it online</b>."
 msgstr ""
+"<b>Tilbud og bekræftelse:</b> Hvis en specifik forespørgsel\n"
+"                    kræver en prisangivelse, kan du generere et <b>tilbud "
+"direkte ud fra salgsmuligheden</b>.\n"
+"                    Kunden kan derefter <b>bekræfte og underskrive digitalt</"
+"b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<b>Use the</b>"
-msgstr ""
+msgstr "<b>Brug</b>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -437,6 +488,9 @@ msgid ""
 "                                                <span>info@yourcompany.example.com</"
 "span>"
 msgstr ""
+"<i class=\"fa fa-1x fa-fw fa-envelope me-2\"/>\n"
+"                                                <span>"
+"info@dinvirksomhed.eksempel.com</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -445,6 +499,9 @@ msgid ""
 "                                                <span "
 "class=\"o_force_ltr\">3575 Fake Buena Vista Avenue</span>"
 msgstr ""
+"<i class=\"fa fa-map-marker fa-fw me-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">"
+"3575 Fake Buena Vista Avenue</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -453,6 +510,9 @@ msgid ""
 "                                                <span "
 "class=\"o_force_ltr\">+1 (650) 555-0111</span>"
 msgstr ""
+"<i class=\"fa fa-phone fa-fw me-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">"
+"+1 (650) 555-0111</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -500,12 +560,12 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "<i>Instant setup, satisfied or reimbursed.</i>"
-msgstr "<i>Øjeblikkeligt setup, tilfreds eller refunderet.</i>"
+msgstr "<i>Øjeblikkeligt setup, med tilfredshedsgaranti.</i>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "<small>/ month</small>"
-msgstr "<small>/ måned</small>"
+msgstr "<small>/måned</small>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -523,6 +583,10 @@ msgid ""
 "            </span>\n"
 "            <br/>"
 msgstr ""
+"<span class=\"h1-fs\">\n"
+"                <strong>Aktiviteter</strong>\n"
+"            </span>\n"
+"           <br/>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -531,6 +595,9 @@ msgid ""
 "                <strong>Basics</strong>\n"
 "            </span>"
 msgstr ""
+"<span class=\"h1-fs\">\n"
+"                <strong>Det grundlæggende</strong>\n"
+"            </span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -540,17 +607,17 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span class=\"h2-fs\">Manage your website 🌐</span>"
-msgstr ""
+msgstr "<span class=\"h2-fs\">Administrér din hjemmeside 🌐</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span class=\"h2-fs\">Selling Online 💻️</span>"
-msgstr ""
+msgstr "<span class=\"h2-fs\">Sælg online 💻️</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span class=\"h2-fs\">Selling in the Store 🛍️</span>"
-msgstr ""
+msgstr "<span class=\"h2-fs\">Salg i butikken 🛍️</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -579,6 +646,13 @@ msgid ""
 "                                                    <span "
 "class=\"s_comparisons_decimal\">.00</span>"
 msgstr ""
+"<span class=\"s_comparisons_currency\"></span>\n"
+"                                                    <span "
+"class=\"s_comparisons_price\">\n"
+"                                                        <b>125</b>\n"
+"                                                    </span>\n"
+"                                                    <span "
+"class=\"s_comparisons_decimal\">,00 kr.</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -591,6 +665,13 @@ msgid ""
 "                                                    <span "
 "class=\"s_comparisons_decimal\">.00</span>"
 msgstr ""
+"<span class=\"s_comparisons_currency\"></span>\n"
+"                                                    <span "
+"class=\"s_comparisons_price\">\n"
+"                                                        <b>35</b>\n"
+"                                                    </span>\n"
+"                                                    <span "
+"class=\"s_comparisons_decimal\">,00 kr.</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -603,6 +684,13 @@ msgid ""
 "                                                    <span "
 "class=\"s_comparisons_decimal\">.00</span>"
 msgstr ""
+"<span class=\"s_comparisons_currency\"></span>\n"
+"                                                    <span "
+"class=\"s_comparisons_price\">\n"
+"                                                        <b>65</b>\n"
+"                                                    </span>\n"
+"                                                    <span "
+"class=\"s_comparisons_decimal\">,00 kr.</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -616,6 +704,9 @@ msgid ""
 "                                                                    <span "
 "class=\"s_website_form_mark\"> *</span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Emne</span>\n"
+"                                                                    <span "
+"class=\"s_website_form_mark\"> *</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -624,6 +715,9 @@ msgid ""
 "                                                                    <span "
 "class=\"s_website_form_mark\"> *</span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Din virksomhed</span>\n"
+"                                                                    <span "
+"class=\"s_website_form_mark\"> *</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -632,6 +726,9 @@ msgid ""
 "                                                                    <span "
 "class=\"s_website_form_mark\"> *</span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Din e-mail</span>\n"
+"                                                                    <span "
+"class=\"s_website_form_mark\"> *</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -640,6 +737,9 @@ msgid ""
 "                                                                    <span "
 "class=\"s_website_form_mark\"> *</span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Dit navn</span>\n"
+"                                                                    <span "
+"class=\"s_website_form_mark\"> *</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -648,21 +748,24 @@ msgid ""
 "                                                                    <span "
 "class=\"s_website_form_mark\"> *</span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Dit spørgsmål</span>\n"
+"                                                                    <span "
+"class=\"s_website_form_mark\"> *</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 CRM</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 CRM</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 Delivery Methods</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 Leveringsmetoder</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 Hardware</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 Hardware</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -672,7 +775,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 Sales</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 Salg</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -692,11 +795,14 @@ msgid ""
 "                <u>Process</u>\n"
 "            </strong>"
 msgstr ""
+"<strong>\n"
+"                <u>Process</u>\n"
+"            </strong>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<u>1. Configure Products and Their Display</u>"
-msgstr ""
+msgstr "<u>1. Konfigurér produkter og deres visning</u>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -711,27 +817,27 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<u>2. Review General E-commerce Policies</u>"
-msgstr ""
+msgstr "<u>2. Gennemgå de generelle retningslinjer for e-handel</u>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<u>3. Set Up Payment and Delivery</u>"
-msgstr ""
+msgstr "<u>3. Indstil betaling og levering</u>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Accept multiple payment options: cash, card, and mobile payments."
-msgstr ""
+msgstr "Acceptér flere betalingsformer: kontanter, kort og mobilbetalinger."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "Account &amp; Sales management"
-msgstr "Konto- & salgsstyring"
+msgstr "Konto- og salgsstyring"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Accurately <b>update the inventoried quantity</b>."
-msgstr ""
+msgstr "<b>Opdatér den opgjorte mængde helt nøjagtigt</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -746,7 +852,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.homepage
 msgid "Agriculture Made Simple"
-msgstr ""
+msgstr "Langbrug – enkelt og effektivt"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.homepage
@@ -756,11 +862,15 @@ msgid ""
 "climate challenges, playing a key role in food security, rural development, "
 "and global trade."
 msgstr ""
+"Landbruget producerer vigtige fødevarer og varer ved hjælp af teknologi og "
+"bæredygtige metoder, som øger produktiviteten og tackler klimatiske "
+"udfordringer. Det spiller en central rolle for fødevaresikkerhed, "
+"udviklingen af landdistrikter og den globale handel."
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_11
 msgid "AlwaysFirst"
-msgstr ""
+msgstr "AltidFørst"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -771,6 +881,10 @@ msgid ""
 "cleaned and fermented. Fermentation helps remove the gel-like coating around "
 "the seeds, which can inhibit germination."
 msgstr ""
+"Tomater høstes, når de er modne og på deres højeste, hvor de sundeste og "
+"mest kraftfulde frugter udvælges. Frugterne forarbejdes omhyggeligt for at "
+"udvinde frøene, som derefter rengøres og fermenteres. Fermenteringen fjerner "
+"det geléagtige lag omkring frøene, der kan hæmme spiring."
 
 #. module: agriculture_shop
 #: model:product.pricelist,name:agriculture_shop.product_pricelist_2
@@ -781,17 +895,17 @@ msgstr "B2B"
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid ""
 "B2B Customer Configuration and Sales Workflow<span class=\"h2-fs\">🤝</span>"
-msgstr ""
+msgstr "B2B-kundekonfiguration og salgsworkflow<span class=\"h2-fs\">🤝</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "Basic sales &amp; marketing for up to 2 users"
-msgstr "Basis salg og marketing for op til 2 brugere"
+msgstr "Det grundlæggende til salg og marketing for op til 2 brugere"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_22_product_template
 msgid "Battery Spray Pump"
-msgstr ""
+msgstr "Batteridrevet tryksprøjte"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -806,7 +920,7 @@ msgstr "Mærke"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_27
 msgid "Bulk Order"
-msgstr ""
+msgstr "Engrosbestilling"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -814,11 +928,13 @@ msgid ""
 "By uploading this module's demo data, your database has been\n"
 "            filled with a few contacts."
 msgstr ""
+"Når du uploader dette moduls demodata, tilføjes\n"
+"            kontakterne automatisk din database."
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_6_product_template
 msgid "Cauliflower Seeds"
-msgstr ""
+msgstr "Blomkålsfrø"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_6_product_template
@@ -828,6 +944,10 @@ msgid ""
 "to yield a range of cauliflower varieties, offering a rewarding journey from "
 "planting to harvesting in home gardens and farms alike."
 msgstr ""
+"Blomkålsfrø danner grundlaget for dyrkning af næringsrige og alsidige "
+"blomkålsplanter. Disse små, potente frø kan give mange forskellige sorter og "
+"sikrer både hobbygartnere og landbrugere en tilfredsstillende oplevelse fra "
+"såning til høst."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -846,11 +966,13 @@ msgid ""
 "Contact us about anything related to our company or services.<br/>We'll do "
 "our best to get back to you as soon as possible."
 msgstr ""
+"Kontakt os ved spørgsmål om vores virksomhed eller ydelser.<br/>Vi bestræber "
+"os på at svare dig hurtigst muligt."
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_9_product_template
 msgid "Cucumber Seeds"
-msgstr ""
+msgstr "Agurkefrø"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_9_product_template
@@ -860,6 +982,9 @@ msgid ""
 "bountiful harvest, allowing both gardeners and farmers to enjoy the "
 "satisfaction of growing this hydrating and versatile vegetable."
 msgstr ""
+"Agurkefrø er udgangspunktet for at dyrke friske og sprøde agurker. Disse små "
+"frø giver frodige planter og en rig høst, så både gartnere og landmænd kan "
+"nyde at dyrke denne hydrerende og alsidige grøntsag."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -891,12 +1016,12 @@ msgstr "Rabatkode"
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.homepage
 msgid "Discover More"
-msgstr ""
+msgstr "Få mere at vide"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Do You Want to Go Further?"
-msgstr ""
+msgstr "Vil du tage det et skridt videre?"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -906,11 +1031,15 @@ msgid ""
 "between flowers. This ensures genetic diversity and vitality in the "
 "resulting seeds."
 msgstr ""
+"Under blomstringsfasen bruger erfarne avlere ofte naturlige "
+"bestøvningsmetoder, f.eks. ved at tiltrække bier og andre bestøvere, som "
+"overfører pollen mellem blomsterne. Dette sikrer den genetiske mangfoldighed "
+"og vitalitet i de dannede frø."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "Email support"
-msgstr "E-mail support"
+msgstr "E-mailsupport"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -921,16 +1050,20 @@ msgid ""
 "                    of Sale &gt; Three dot menu &gt; IoT Box &gt; Electronic "
 "Scale)."
 msgstr ""
+"Aktivér <strong>vægtbaseret prisfastsættelse</strong> for bland-selv-slik\n"
+"                    ved at indstille måleenheden til <strong>gram eller "
+"kilogram</strong> (POS &gt; Trepunktsmenu &gt; IoT-boks &gt; Elektronisk "
+"vægt)."
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_37
 msgid "Equipment Parts"
-msgstr ""
+msgstr "Udstyrsdele"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_45
 msgid "Equipment Service"
-msgstr ""
+msgstr "Service af udstyr"
 
 #. module: agriculture_shop
 #: model:product.public.category,name:agriculture_shop.product_public_category_1
@@ -946,12 +1079,12 @@ msgstr "Ekspert"
 #: model:pos.category,name:agriculture_shop.pos_category_2
 #: model:product.category,name:agriculture_shop.product_category_2
 msgid "Farm Equipments"
-msgstr ""
+msgstr "Landbrugsudstyr"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_10_product_template
 msgid "Fast Root - Fertilizer"
-msgstr ""
+msgstr "Fast Root – gødning"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_10_product_template
@@ -961,11 +1094,16 @@ msgid ""
 "stimulants, this fertilizer accelerates the establishment of strong and "
 "healthy root systems, enhancing overall plant growth and vitality."
 msgstr ""
+"Fast-Root-gødning er en effektiv og specialiseret formel, der fremmer hurtig "
+"rodudvikling hos planter. Denne gødning er fyldt med essentielle "
+"næringsstoffer og vækststimulerende midler, der fremskynder etableringen af "
+"stærke og sunde rodsystemer og dermed forbedrer plantens samlede vækst og "
+"vitalitet."
 
 #. module: agriculture_shop
 #: model:product.public.category,name:agriculture_shop.product_public_category_4
 msgid "Fertilizer"
-msgstr ""
+msgstr "Gødning"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -975,6 +1113,10 @@ msgid ""
 "process adheres to the principles of organic farming, promoting ecological "
 "balance, biodiversity, and sustainability."
 msgstr ""
+"Fast-Root-gødning er en effektiv, specialiseret formel, der fremmer hurtig "
+"rodudvikling. Den indeholder essentielle næringsstoffer og vækststimulerende "
+"midler, som sikrer stærke, sunde rodsystemer og forbedrer plantens vækst og "
+"vitalitet."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -986,7 +1128,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Generate printed or digital receipts for customers."
-msgstr ""
+msgstr "Generér trykte eller digitale kvitteringer til kunderne."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1002,7 +1144,7 @@ msgstr "Få adgang til alle moduler og funktioner"
 #. odoo-javascript
 #: code:addons/agriculture_shop/static/src/js/my_tour.js:0
 msgid "Get on track and explore our recommendations for your Odoo usage here!"
-msgstr ""
+msgstr "Så er vi i gang! Se vores anbefalinger til brugen af Odoo her!"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_25_product_template
@@ -1012,7 +1154,7 @@ msgstr "Gavekort"
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_20_product_template
 msgid "Hand Sickle"
-msgstr ""
+msgstr "Håndsegl"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1042,7 +1184,7 @@ msgstr "Lager"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_39
 msgid "Irrigation"
-msgstr ""
+msgstr "Vanding"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1061,7 +1203,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_51
 msgid "Lead Gen"
-msgstr ""
+msgstr "Leadgenerering"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1071,22 +1213,22 @@ msgstr "Begrænset tilpasning"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_49
 msgid "Long-Term Contract"
-msgstr ""
+msgstr "Langtidskontrakt"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_18_product_template
 msgid "Maize - Planter"
-msgstr ""
+msgstr "Majs – Plantemaskine"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_19_product_template
 msgid "Mild Steel Shaver Machine "
-msgstr ""
+msgstr "Skrællemaskine af konstruktionsstål "
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_11_product_template
 msgid "Multi Fruit - Fertilizer"
-msgstr ""
+msgstr "Multi Fruit – Gødning"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_11_product_template
@@ -1100,6 +1242,14 @@ msgid ""
 "solution for multiple fruit varieties, Multi Fruit Fertilizer contributes to "
 "increased productivity and overall crop success in orchards and gardens."
 msgstr ""
+"Multi Fruit-gødning er et specialiseret landbrugsprodukt udviklet til at "
+"fremme vækst og udbytte af forskellige frugtsorter. Med en nøje afbalanceret "
+"blanding af essentielle næringsstoffer, mineraler og organiske forbindelser "
+"dækker den de specifikke behov hos forskellige frugtkulturer. Den innovative "
+"sammensætning understøtter sund rodudvikling, kraftig plantevækst og "
+"forbedret frugtkvalitet. Multi Fruit-gødning leverer en komplet løsning til "
+"flere frugtsorter og bidrager dermed til højere produktivitet og øget "
+"høstudbytte i frugtplantager og haver."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -1116,12 +1266,12 @@ msgstr ""
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_30
 msgid "New Equipment"
-msgstr ""
+msgstr "Nyt udstyr"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_33
 msgid "New Supplier"
-msgstr ""
+msgstr "Ny leverandør"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_2
@@ -1165,6 +1315,10 @@ msgid ""
 "data, and test everything\n"
 "            around!"
 msgstr ""
+"Dette er naturligvis kun en oversigt over de funktioner,\n"
+"            der er inkluderet i denne pakke. Du er velkommen til at tilføje "
+"nye apps, slette eller tilpasse eksempeldata og\n"
+"            prøve dig lidt frem!"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.soil_guard_vermi_compost_powder
@@ -1177,6 +1331,13 @@ msgid ""
 "aligns with principles of organic farming and contributes to promoting "
 "healthier and more resilient agricultural practices.<br/>"
 msgstr ""
+"Efter tørring males ormekomposteringen til et fint pulver, hvor de "
+"værdifulde næringsstoffer, mikroorganismer og organiske forbindelser fra den "
+"oprindelige kompost bevares. Ormekomposteringspulveret fungerer som en "
+"effektiv og bæredygtig gødning, der forbedrer jordstruktur, næringsindhold "
+"og plantehelbred. Den miljøvenlige produktionsproces følger principperne for "
+"økologisk landbrug og understøtter sundere og mere modstandsdygtige "
+"landbrugsmetoder.<br/>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1191,16 +1352,18 @@ msgid ""
 "Once your core operations are running smoothly, consider expanding your "
 "toolset:"
 msgstr ""
+"Når dine kerneaktiviteter kører problemfrit, kan du overveje at udvide dit "
+"værktøjsudvalg:"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_8_product_template
 msgid "Onion Seeds"
-msgstr ""
+msgstr "Løgfrø"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_23_product_template
 msgid "Onion Seeds Bulk"
-msgstr ""
+msgstr "Løgfrø i løs vægt"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_8_product_template
@@ -1213,6 +1376,11 @@ msgid ""
 "sweet to sharp. Planted and nurtured, onion seeds yield the foundation for "
 "countless savory recipes and garden delights."
 msgstr ""
+"Løgfrø er små, kraftfulde kimplanter fra en alsidig og vigtig grøntsag. "
+"Hvert frø har potentiale til at udvikle løg med forskellig smag, fra sød til "
+"skarp, og bidrager dermed til en bred vifte af kulinariske anvendelser. Ved "
+"korrekt plantning og pleje danner løgfrø grundlaget for sunde planter og "
+"velsmagende høst."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1222,7 +1390,7 @@ msgstr "Bestil nu"
 #. module: agriculture_shop
 #: model:product.attribute,name:agriculture_shop.product_attribute_11
 msgid "Organic"
-msgstr ""
+msgstr "Økologisk"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -1233,19 +1401,23 @@ msgid ""
 "genetically modified organisms. These parent plants are nurtured in healthy "
 "soil, allowing them to develop robust traits and flavors.<br/>"
 msgstr ""
+"Økologiske tomatfrø produceres omhyggeligt gennem en naturlig og miljøvenlig "
+"proces. Udvalgte moderplanter dyrkes i sund jord uden syntetiske pesticider, "
+"kunstgødning eller genetisk modificerede organismer, hvilket sikrer robuste "
+"planter med god smag.<br/>"
 
 #. module: agriculture_shop
 #: model:pos.category,name:agriculture_shop.pos_category_3
 #: model:product.category,name:agriculture_shop.product_category_3
 #: model:product.public.category,name:agriculture_shop.product_public_category_5
 msgid "Pesticide"
-msgstr ""
+msgstr "Pesticider"
 
 #. module: agriculture_shop
 #: model:pos.category,name:agriculture_shop.pos_category_4
 #: model:product.category,name:agriculture_shop.product_category_4
 msgid "Plant Nutrition"
-msgstr ""
+msgstr "Plantenæring"
 
 #. module: agriculture_shop
 #: model:loyalty.program,portal_point_name:agriculture_shop.loyalty_program_2
@@ -1266,22 +1438,22 @@ msgstr "Produktoplysninger"
 #. module: agriculture_shop
 #: model:ir.model.fields,field_description:agriculture_shop.new_image_product_binary
 msgid "Product Making Story - QR Code"
-msgstr ""
+msgstr "Produktets fremstillingshistorie – QR-kode"
 
 #. module: agriculture_shop
 #: model:website.menu,name:agriculture_shop.website_menu_17
 msgid "Product Stories"
-msgstr ""
+msgstr "Produktberetninger"
 
 #. module: agriculture_shop
 #: model:ir.model.fields,field_description:agriculture_shop.new_related_field_product_story
 msgid "Product Story"
-msgstr ""
+msgstr "Produktberetning"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_43
 msgid "Product Trial"
-msgstr ""
+msgstr "Produkttest"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1292,12 +1464,12 @@ msgstr "Professionel"
 #: model:website.page,name:agriculture_shop.website_page_8
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
 msgid "Red Revolution - Tomato Seeds"
-msgstr ""
+msgstr "Rød revolution – tomatfrø"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_7_product_template
 msgid "Royal Bullet Mirchi Seeds"
-msgstr ""
+msgstr "Chilisfrø Royal Bullet Mirchi"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_7_product_template
@@ -1309,11 +1481,15 @@ msgid ""
 "opportunity to nurture and harvest chili peppers that can elevate dishes "
 "with their distinctive taste and fiery zest."
 msgstr ""
+"Royal Bullet Mirchi-frø giver mulighed for at dyrke stærke og smagfulde "
+"chilipebre. Planterne producerer lyserøde peberfrugter med intens styrke, "
+"der tilføjer et kraftfuldt kick til kulinariske retter og giver "
+"karakteristisk smag og varme."
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_17_product_template
 msgid "Safaya - Pesticide"
-msgstr ""
+msgstr "Safaya – Pesticid"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_17_product_template
@@ -1325,6 +1501,11 @@ msgid ""
 "pesticide contributes to higher yields and quality harvests, promoting "
 "sustainable agricultural practices."
 msgstr ""
+"Safaya-pesticid er en effektiv løsning til beskyttelse af afgrøder mod "
+"skadedyr og til at sikre sund vækst. Dets avancerede formel bekæmper "
+"effektivt en bred vifte af skadedyr, samtidig med at miljøpåvirkningen "
+"minimeres. Ved at beskytte planterne bidrager Safaya til højere udbytte og "
+"kvalitetsafgrøder og understøtter bæredygtige landbrugsmetoder."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1338,12 +1519,12 @@ msgstr ""
 #: model:product.category,name:agriculture_shop.product_category_1
 #: model:product.public.category,name:agriculture_shop.product_public_category_2
 msgid "Seeds"
-msgstr ""
+msgstr "Frø"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_35
 msgid "Service Request"
-msgstr ""
+msgstr "Serviceanmodning"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1355,28 +1536,28 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_21_product_template
 msgid "Shredding Machine"
-msgstr ""
+msgstr "Makuleringsmaskine"
 
 #. module: agriculture_shop
 #: model:product.attribute,name:agriculture_shop.product_attribute_10
 msgid "Size / Liter"
-msgstr ""
+msgstr "Størrelse/Liter"
 
 #. module: agriculture_shop
 #: model:product.attribute,name:agriculture_shop.product_attribute_9
 msgid "Size / Weight"
-msgstr ""
+msgstr "Størrelse/Vægt"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_13_product_template
 msgid "Soil Activator"
-msgstr ""
+msgstr "Jordaktivator"
 
 #. module: agriculture_shop
 #: model:website.page,name:agriculture_shop.website_page_10
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.soil_guard_vermi_compost_powder
 msgid "Soil Guard - Vermi Compost Powder"
-msgstr ""
+msgstr "Soil Guard – Ormekomposteringspulver"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1386,6 +1567,10 @@ msgid ""
 "distinct categories to\n"
 "            provide maximum flexibility across your business:"
 msgstr ""
+"Start med at oprette dine produkter under fanen <b>Produkter,</b>\n"
+"            og udfyld alle nødvendige oplysninger. Systemet bruger tre "
+"forskellige kategorier for at\n"
+"            give maksimal fleksibilitet på tværs af din virksomhed:"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1395,7 +1580,7 @@ msgstr "Start nu"
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
 msgid "Submit"
-msgstr "Indsend"
+msgstr "Send"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1412,6 +1597,10 @@ msgid ""
 "Perfect for various tasks like plant care and cleaning, its rechargeable "
 "battery and adjustable nozzle ensure hassle-free operation."
 msgstr ""
+"Den batteridrevne tryksprøjte er et bærbart og effektivt haveværktøj, der "
+"eliminerer manuel pumpning og gør påføring af væsker enkel og bekvem. Den "
+"egner sig til plantepleje, rengøring og andre opgaver, og det genopladelige "
+"batteri samt den justerbare dyse sikrer nem betjening."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1428,6 +1617,11 @@ msgid ""
 "shaves mild steel surfaces, achieving smooth finishes for various industrial "
 "and crafting applications."
 msgstr ""
+"Skrællemaskinen i konstruktionsstål er et kraftfuldt værktøj til "
+"præcisionsbearbejdning af metal. Med robust konstruktion og fleksible "
+"funktioner fjerner den effektivt overflader af konstruktionsstål og "
+"efterlader glatte overflader til industrielle og håndværksmæssige "
+"anvendelser."
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_21_product_template
@@ -1437,6 +1631,10 @@ msgid ""
 "or other materials, this machine offers quick and effective shredding, "
 "enhancing waste management and data security processes."
 msgstr ""
+"Makuleringsmaskinen er et robust apparat designet til effektiv findeling af "
+"materialer i mindre, håndterbare stykker. Den kan bearbejde papir, plast og "
+"andre materialer hurtigt og effektivt, hvilket forbedrer affaldshåndtering "
+"og datasikkerhed."
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_13_product_template
@@ -1446,6 +1644,10 @@ msgid ""
 "the soil ecosystem, promoting better nutrient absorption and stronger, more "
 "vibrant plants."
 msgstr ""
+"Jordaktivatoren er en naturlig løsning, der styrker jordens sundhed og "
+"fremmer plantevækst. Den indeholder nyttige mikroorganismer og "
+"næringsstoffer, som revitaliserer jordens økosystem og forbedrer "
+"næringsstofoptagelsen samt udviklingen af stærke og livskraftige planter."
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_20_product_template
@@ -1456,6 +1658,11 @@ msgid ""
 "gardening and agricultural tasks, ensuring clean and effortless cuts with "
 "every use."
 msgstr ""
+"Håndseglen er et kompakt og alsidigt skæreværktøj med buet klinge, der er "
+"udviklet til effektiv og præcis beskæring af planter, græs og afgrøder. Det "
+"ergonomiske håndtag og den skarpe klinge gør håndscyklen til et praktisk "
+"redskab til havearbejde og landbrug, der sikrer rene og ubesværede snit ved "
+"hver anvendelse."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -1464,11 +1671,14 @@ msgid ""
 "with growers and gardeners who are committed to cultivating delicious, "
 "nutritious, and environmentally friendly tomato plants.<br/>"
 msgstr ""
+"Resultatet er en samling højkvalitets økologiske tomatfrø, klar til landmænd "
+"og gartnere, der ønsker at dyrke sunde, næringsrige og miljøvenlige "
+"tomatplanter.<br/>"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_10
 msgid "TheBestBrand"
-msgstr ""
+msgstr "DetBedsteBrand"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1481,7 +1691,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_14_product_template
 msgid "Thiram - Pesticide"
-msgstr ""
+msgstr "Thiram – Pesticid"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_14_product_template
@@ -1490,6 +1700,9 @@ msgid ""
 "against fungi and pests. Applied to plants, it forms a barrier, defending "
 "crops and promoting robust and thriving vegetation."
 msgstr ""
+"Thiram er et effektivt pesticid med bred beskyttelse mod både svampe og "
+"skadedyr. Ved påføring danner det en beskyttende barriere på planten, som "
+"understøtter sund og kraftig vækst."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1515,6 +1728,12 @@ msgid ""
 "offering organized categories\n"
 "            like <b>seeds, pesticides, nutrition, and equipment</b>."
 msgstr ""
+"Denne løsning er udviklet til at håndtere alle aspekter af\n"
+"            landbrugsdetailhandlen og understøtter både <b>B2B- og B2C-salg</"
+"b> af landbrugsprodukter. Den\n"
+"            dækker <b>POS og hjemmeside</b>, og tilbyder overskuelige "
+"kategorier\n"
+"            som <b>frø, pesticider, gødning og udstyr</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1524,6 +1743,10 @@ msgid ""
 "configure the settings to suit\n"
 "            your Agricultural Store."
 msgstr ""
+"For hurtigt at få et overblik over de processer, som denne\n"
+"            Odoo-pakke tilbyder, kan du gennemføre følgende arbejdsgange og "
+"konfigurere indstillingerne, så de passer til\n"
+"            din landbrugsforretning."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1542,7 +1765,7 @@ msgstr ""
 #: model:product.template,name:agriculture_shop.product_product_5_product_template
 #: model:website.menu,name:agriculture_shop.website_menu_19
 msgid "Tomato Seeds"
-msgstr ""
+msgstr "Tomatfrø"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_5_product_template
@@ -1553,11 +1776,15 @@ msgid ""
 "shapes, these seeds offer the joy of cultivating fresh and flavorful "
 "tomatoes."
 msgstr ""
+"Tomatfrø danner grundlaget for sunde og produktive køkkenhaver. De kan "
+"udvikle sig til et bredt udvalg af lækre og næringsrige tomatplanter – fra "
+"klassiske røde sorter til varianter med unikke farver og former – og giver "
+"mulighed for at dyrke friske, smagfulde tomater."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "Unlimited CRM power and support"
-msgstr "Ubegrænset CRM kraft og support"
+msgstr "Ubegrænset CRM-ydelse og support"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1575,16 +1802,17 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Use these settings to tailor the experience for your B2B clients:"
 msgstr ""
+"Brug disse indstillinger til at tilpasse oplevelsen for dine B2B-kunder:"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_12_product_template
 msgid "Vermi Compost - Powder"
-msgstr ""
+msgstr "Ormekomposteringspulver"
 
 #. module: agriculture_shop
 #: model:website.menu,name:agriculture_shop.website_menu_18
 msgid "Vermi Compost Powder"
-msgstr ""
+msgstr "Ormekomposteringspulver"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_12_product_template
@@ -1595,6 +1823,10 @@ msgid ""
 "soil fertility and promoting healthy plant growth when applied to gardens "
 "and crops."
 msgstr ""
+"Ormekomposteringspulver er en næringsrig, organisk gødning fremstillet "
+"gennem naturlig kompostering med regnorme. Det fine pulver indeholder "
+"nyttige mikroorganismer og essentielle næringsstoffer, som forbedrer jordens "
+"frugtbarhed og understøtter sund plantevækst i både haver og afgrøder."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.soil_guard_vermi_compost_powder
@@ -1607,16 +1839,22 @@ msgid ""
 "castings. These castings are collected, separated from the bedding, and then "
 "dried to an appropriate moisture level."
 msgstr ""
+"Ormekomposteringspulver er en næringsrig, organisk gødning fremstillet ved "
+"ormekompostering. I et kontrolleret miljø nedbryder kompostorme organisk "
+"affald som køkkenrester og planterester. Under denne proces omdannes "
+"materialet gennem ormenes fordøjelse og mikrobiel aktivitet til næringsrig "
+"ormekompost, som derefter opsamles, adskilles fra strøelsen og tørres til "
+"passende fugtighed."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Want to do more?"
-msgstr ""
+msgstr "Vil du gøre mere?"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_15_product_template
 msgid "Warrior - Pesticide"
-msgstr ""
+msgstr "Warrior – Pesticid"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_15_product_template
@@ -1626,11 +1864,14 @@ msgid ""
 "crops by combating harmful insects, ensuring healthier and more productive "
 "plants."
 msgstr ""
+"Warrior er et effektivt pesticid kendt for sin målrettede bekæmpelse af en "
+"række skadedyr. Den kraftfulde formel beskytter afgrøder ved at reducere "
+"skadelige insektangreb og fremme sundere og mere produktive planter."
 
 #. module: agriculture_shop
 #: model_terms:web_tour.tour,rainbow_man_message:agriculture_shop.knowledge_tour
 msgid "Welcome! Happy exploring."
-msgstr ""
+msgstr "Velkommen! God fornøjelse med at gå på opdagelse."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1670,6 +1911,8 @@ msgid ""
 "You can access every installed App in your Odoo database on\n"
 "            your main dashboard."
 msgstr ""
+"Du kan tilgå alle installerede apps i din Odoo-database direkte fra "
+"hoveddashboardet."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1698,7 +1941,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "You have flexibility regarding when to generate invoices:"
-msgstr ""
+msgstr "Du har fleksibilitet med hensyn til, hvornår du genererer fakturaer:"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1707,11 +1950,14 @@ msgid ""
 "            Settings</b>, <b>Website-Wide Settings</b>, and <b>Payment &amp; "
 "Delivery Methods</b>."
 msgstr ""
+"Din e-handelsopsætning omfatter tre hovedområder: <b>Produktindstillinger\n"
+"           </b>, <b>Indstillinger for hele hjemmesiden</b>, og <b>Betaling "
+"og Leveringsmetoder</b>."
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_16_product_template
 msgid "Ziram - Pesticide"
-msgstr ""
+msgstr "Ziram – Pesticid"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_16_product_template
@@ -1721,6 +1967,9 @@ msgid ""
 "disease and infestation, contributing to improved crop yield and overall "
 "plant health."
 msgstr ""
+"Ziram er et velafprøvet pesticid med bred virkning mod svampe og skadedyr. "
+"Det danner en beskyttende barriere, der hæmmer sygdomme og angreb og dermed "
+"forbedrer både høstudbytte og plantesundhed."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body

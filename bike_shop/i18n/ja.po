@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server saas~18.2+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 17:40+0000\n"
-"PO-Revision-Date: 2026-04-23 11:52+0000\n"
+"PO-Revision-Date: 2026-09-15 12:30+0000\n"
 "Last-Translator: \"Junko Augias (juau)\" <juau@odoo.com>\n"
-"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-s19-2/"
+"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-master/"
 "bike_shop/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: bike_shop
 #: model_terms:ir.ui.view,arch_db:bike_shop.welcome_article_body
@@ -1317,8 +1317,8 @@ msgid ""
 "app, so users can reserve a slot to try a bike directly from the product "
 "page."
 msgstr ""
-"アポイントメントアプリと連携して<strong> </strong>試乗の予約を可能にし、ユー"
-"ザはプロダクトページから直接、試乗の枠を予約することができます。"
+"アポイントアプリと連携して<strong> </strong>試乗の予約を可能にし、ユーザは"
+"プロダクトページから直接、試乗の枠を予約することができます。"
 
 #. module: bike_shop
 #: model_terms:ir.ui.view,arch_db:bike_shop.welcome_article_body
@@ -2122,9 +2122,9 @@ msgid ""
 "\"><strong>Website App</strong></font> manages your online presence and "
 "allow customers to book appointments or test rides."
 msgstr ""
-"Odoo<strong> </strong><font style=\"color: rgb(113, 75, 103);\"><strong>ウェ"
-"ブサイトアプリ</strong></font> を活用すれば、オンラインプレゼンスを管理し、顧"
-"客はアポイントメントや試乗の予約を行うことができます。"
+"Odoo<strong> </strong><font style=\"color: rgb(113, 75, 103);\"><strong>"
+"ウェブサイトアプリ</strong></font> を活用すれば、オンラインプレゼンスを管理し"
+"、顧客はアポイントや試乗の予約を行うことができます。"
 
 #. module: bike_shop
 #: model_terms:ir.ui.view,arch_db:bike_shop.welcome_article_body

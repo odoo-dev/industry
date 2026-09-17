@@ -8,14 +8,15 @@
 # Malaz Abuidris <msea@odoo.com>, 2024
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~17.4+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-08 18:21+0000\n"
-"PO-Revision-Date: 2025-11-17 11:08+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-19/"
+"PO-Revision-Date: 2026-09-12 18:32+0000\n"
+"Last-Translator: \"Malaz Siddig Elsayed Abuidris (msea)\" <msea@odoo.com>\n"
+"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-master/"
 "headhunter/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: headhunter
 #: model_terms:hr.job,job_details:headhunter.hr_job_10
@@ -1043,7 +1044,7 @@ msgstr ""
 #: model_terms:hr.job,website_rating:headhunter.hr_job_6
 #: model_terms:hr.job,website_rating:headhunter.hr_job_7
 msgid "<strong class=\"s_rating_title\">Autonomy</strong>"
-msgstr ""
+msgstr "<strong class=\"s_rating_title\">الاستقلالية</strong>"
 
 #. module: headhunter
 #: model_terms:hr.job,website_rating:headhunter.hr_job_10
@@ -1328,7 +1329,7 @@ msgstr "الخدمات الإدارية وخدمات الدعم"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_24
 msgid "Agile"
-msgstr ""
+msgstr "مرن"
 
 #. module: headhunter
 #: model:crm.stage,name:headhunter.crm_stage_7
@@ -1343,13 +1344,13 @@ msgstr "التحليل"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_25
 msgid "Analytics"
-msgstr ""
+msgstr "التحليلات"
 
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_applicant_id_field
 #: model_terms:ir.ui.view,arch_db:headhunter.portal_cv_sent_applicants
 msgid "Applicant"
-msgstr ""
+msgstr "المتقدم للوظيفة"
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_1
@@ -1392,6 +1393,17 @@ msgid ""
 "done\"\n"
 "spirit. To be successful, you will have solid solving problem skills."
 msgstr ""
+"كموظف في شركتنا، سوف <b>تتعاون مع كل من الأقسام\n"
+"لإنشاء المنتجات الثورية وجعلها متاحة للاستخدام.</b> انضم إلينا للعمل في شركة "
+"في نمو مستمر\n"
+"والتي تمنحك الكثير من الفوائد والفرص للمضي قدماً والتعلم \n"
+"بجانب القادة المتميزين. نحن نبحث عن موظف ذو خبرة\n"
+"ومميز في عمله.\n"
+"<br/><br/>\n"
+"هذا المنصب <b>مبدع وحازم</b> في آن واحد. عليك التفكير خارج\n"
+"الصندوق بطبيعتك. نتوقع من المُرشح أن يكون سبّاقاً وأن تكون لديه روح مفعمة "
+"بالعزم والحيوية\n"
+"حتى يكون ناجحاً، من المهم أن يكون لديه مهارة حل المشاكل."
 
 #. module: headhunter
 #: model_terms:ir.ui.view,arch_db:headhunter.welcome_article_body
@@ -1411,14 +1423,14 @@ msgstr "الاستقلالية"
 #: model:ir.model.fields,field_description:headhunter.x_availability_field
 #: model_terms:ir.ui.view,arch_db:headhunter.portal_cv_sent_applicants
 msgid "Availability"
-msgstr ""
+msgstr "التوافر"
 
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_available_cv_sent_field
 #: model:ir.model.fields,field_description:headhunter.x_available_field
 #: model_terms:ir.ui.view,arch_db:headhunter.portal_cv_sent_applicants
 msgid "Available"
-msgstr ""
+msgstr "متاح"
 
 #. module: headhunter
 #: model_terms:hr.job,website_description:headhunter.hr_job_4
@@ -1429,7 +1441,7 @@ msgstr "شهادة البكالريوس أو ما يفوقها"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_8
 msgid "Biotech"
-msgstr ""
+msgstr "التكنولوجيا الحيوية"
 
 #. module: headhunter
 #: model_terms:ir.ui.view,arch_db:headhunter.welcome_article_body
@@ -1447,7 +1459,7 @@ msgstr "إدارة علاقات العملاء: التوقيع على الاتف
 #: model:ir.model.fields,field_description:headhunter.x_cv_field
 #: model_terms:ir.ui.view,arch_db:headhunter.portal_cv_sent_applicants
 msgid "CV"
-msgstr ""
+msgstr "السيرة الذاتية"
 
 #. module: headhunter
 #: model_terms:ir.ui.view,arch_db:headhunter.applicants_customization_tree_view
@@ -1596,7 +1608,7 @@ msgstr "اصنع محتوى سيساعد مستخدمينا بشكل يومي"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_12
 msgid "Creative"
-msgstr ""
+msgstr "مبدع"
 
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_customer_field
@@ -1660,17 +1672,17 @@ msgstr ""
 #. module: headhunter
 #: model:ir.model.fields.selection,name:headhunter.x_status_bar_done_value
 msgid "Done"
-msgstr ""
+msgstr "تم"
 
 #. module: headhunter
 #: model:ir.model.fields.selection,name:headhunter.x_status_bar_draft_value
 msgid "Draft"
-msgstr ""
+msgstr "مسودة"
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_16
 msgid "EMEA"
-msgstr ""
+msgstr "أوروبا والشرق الأوسط وأفريقيا"
 
 #. module: headhunter
 #: model_terms:hr.job,website_description:headhunter.hr_job_4
@@ -1727,7 +1739,7 @@ msgstr "كل واشرب"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_18
 msgid "Energy"
-msgstr ""
+msgstr "الطاقة"
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_9
@@ -1765,7 +1777,7 @@ msgstr "مهارات استثنائية في التعامل والتواصل<br>
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_6
 msgid "Executive"
-msgstr ""
+msgstr "تنفيذي"
 
 #. module: headhunter
 #: model_terms:hr.job,website_description:headhunter.hr_job_4
@@ -1783,7 +1795,7 @@ msgstr "خبرة في كتابة المحتوى عبر الإنترنت"
 #. module: headhunter
 #: model:ir.model.fields.selection,name:headhunter.x_recruitment_type_external_value
 msgid "External"
-msgstr ""
+msgstr "خارجي "
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_5
@@ -1832,7 +1844,7 @@ msgstr ""
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_22
 msgid "Gaming"
-msgstr ""
+msgstr "الألعاب"
 
 #. module: headhunter
 #: model_terms:ir.ui.view,arch_db:headhunter.welcome_article_body
@@ -1881,7 +1893,7 @@ msgstr "فريق رائع من الأفراد اللامعين، في بيئة �
 #: model:crm.tag,name:headhunter.crm_tag_26
 #: model:hr.talent.pool,name:headhunter.hr_talent_pool_4
 msgid "HR"
-msgstr ""
+msgstr "الموارد البشرية"
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_7
@@ -1909,7 +1921,7 @@ msgstr ""
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_14
 msgid "Hospitality"
-msgstr ""
+msgstr "الضيافة "
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_2
@@ -1979,7 +1991,7 @@ msgstr ""
 #. module: headhunter
 #: model:ir.model.fields.selection,name:headhunter.x_recruitment_type_internal_value
 msgid "Internal"
-msgstr ""
+msgstr "داخلي "
 
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_job_position_field
@@ -1991,7 +2003,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:headhunter.x_invoices_job_position_field
 #: model_terms:ir.ui.view,arch_db:headhunter.view_hr_job_form_inherit_view
 msgid "Invoices"
-msgstr ""
+msgstr "الفواتير"
 
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_is_cv_sent_field
@@ -2051,12 +2063,12 @@ msgstr "ترأس دورة المبيعات بأكملها"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_20
 msgid "Legal"
-msgstr ""
+msgstr "قانوني "
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_10
 msgid "London"
-msgstr ""
+msgstr "لندن"
 
 #. module: headhunter
 #: model:product.template,name:headhunter.product_product_7_product_template
@@ -2066,7 +2078,7 @@ msgstr "التوغل في سوق العمل"
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_11
 msgid "Marketing"
-msgstr ""
+msgstr "التسويق "
 
 #. module: headhunter
 #: model_terms:hr.job,website_description:headhunter.hr_job_10
@@ -2160,7 +2172,7 @@ msgstr ""
 #. module: headhunter
 #: model:ir.model.fields.selection,name:headhunter.x_status_bar_open_value
 msgid "Open"
-msgstr ""
+msgstr "مفتوح"
 
 #. module: headhunter
 #: model:hr.job,name:headhunter.hr_job_10
@@ -2183,7 +2195,7 @@ msgstr "عدد الفرص"
 #: model_terms:ir.ui.view,arch_db:headhunter.view_hr_job_form_inherit_view
 #: model_terms:ir.ui.view,arch_db:headhunter.view_hr_job_kanban_inherit_view
 msgid "Opportunity"
-msgstr ""
+msgstr "الفرصة"
 
 #. module: headhunter
 #: model_terms:hr.job,website_description:headhunter.hr_job_4
@@ -2311,7 +2323,7 @@ msgstr ""
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_23
 msgid "Product"
-msgstr ""
+msgstr "المنتج"
 
 #. module: headhunter
 #: model:hr.job,name:headhunter.hr_job_7
@@ -2326,7 +2338,7 @@ msgstr "سجل حافل بالنجاحات"
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_published_field
 msgid "Published"
-msgstr ""
+msgstr "تم النشر "
 
 #. module: headhunter
 #: model:ir.model.fields,field_description:headhunter.x_is_published_field
@@ -2385,12 +2397,12 @@ msgstr ""
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_3
 msgid "Remote"
-msgstr ""
+msgstr "عن بعد"
 
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_19
 msgid "Renewables"
-msgstr ""
+msgstr "المتجددة"
 
 #. module: headhunter
 #: model_terms:hr.job,website_description:headhunter.hr_job_10
@@ -2459,7 +2471,7 @@ msgstr ""
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_13
 msgid "Security"
-msgstr ""
+msgstr "الأمن"
 
 #. module: headhunter
 #: model:ir.actions.server,name:headhunter.ir_actions_server_for_email_pop_up
@@ -2677,7 +2689,7 @@ msgstr ""
 #. module: headhunter
 #: model:crm.tag,name:headhunter.crm_tag_4
 msgid "Urgent"
-msgstr ""
+msgstr "عاجل"
 
 #. module: headhunter
 #: model_terms:ir.ui.view,arch_db:headhunter.welcome_article_body

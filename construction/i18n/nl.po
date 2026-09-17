@@ -13,16 +13,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server saas~17.4+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 17:50+0000\n"
-"PO-Revision-Date: 2026-05-05 12:15+0000\n"
+"PO-Revision-Date: 2026-09-12 18:31+0000\n"
 "Last-Translator: Bren Driesen <brdri@odoo.com>\n"
-"Language-Team: Dutch <https://translate.odoo.com/projects/odoo-s19-3/"
+"Language-Team: Dutch <https://translate.odoo.com/projects/odoo-master/"
 "construction/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: construction
 #: model:sale.order.template.line,name:construction.sale_order_template_line_33
@@ -698,9 +698,8 @@ msgid ""
 "A streamlined industry package for companies focused on <strong>simple jobs, "
 "rapid quoting, and efficient execution</strong>."
 msgstr ""
-"Een gestroomlijnd bedrijfstakpakket voor bedrijven die zich richten op "
-"<strong>eenvoudige opdrachten, snelle offertes en efficiënte uitvoering</"
-"strong>."
+"Een gestroomlijnd sectorpakket voor bedrijven die zich richten op <strong>"
+"eenvoudige opdrachten, snelle offertes en efficiënte uitvoering</strong>."
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.welcome_article_body
@@ -1039,8 +1038,8 @@ msgstr ""
 "De bouw verloopt niet altijd volgens plan en offertes kunnen op schattingen "
 "zijn gebaseerd. De vraag is: wie draagt het risico als het meer tijd kost of "
 "meer materiaal verbruikt vanwege foutieve schattingen?<br/>\n"
-"            Om je daarbij te helpen, biedt de bedrijfstak voor de bouwsector "
-"een contracttype waarmee je dit vooraf in je offerte kunt verduidelijken."
+"            Om je daarbij te helpen, biedt de sector voor de bouwsector een "
+"contracttype waarmee je dit vooraf in je offerte kunt verduidelijken."
 
 #. module: construction
 #: model:product.template,name:construction.product_template_16
@@ -1186,7 +1185,7 @@ msgstr ""
 #. module: construction
 #: model:project.task.type,name:construction.planning_project_stage_3
 msgid "Done"
-msgstr "Gereed"
+msgstr "Voltooid"
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.welcome_article_body
@@ -2977,7 +2976,7 @@ msgstr ""
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.welcome_article_body
 msgid "The construction industries come in two parts:"
-msgstr "De bedrijfstak voor de bouwsector komt in twee delen:"
+msgstr "De sector voor de bouwsector komt in twee delen:"
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.welcome_article_body
@@ -3106,7 +3105,7 @@ msgid ""
 "To automatically set a remark to \"Done\" or \"Cancelled\" state when they "
 "reach a given stage, create an automation from the Kanban view:"
 msgstr ""
-"Om een opmerking automatisch in de status 'Gereed' of 'Geannuleerd' te "
+"Om een opmerking automatisch in de status 'Voltooid' of 'Geannuleerd' te "
 "zetten wanneer deze een bepaalde fase bereikt, maak je u een automatisering "
 "aan vanuit de kanban-weergave:"
 
@@ -3268,7 +3267,7 @@ msgstr "Werkitems_Zwembadterras.xlsx"
 #. module: construction
 #: model:planning.role,name:construction.planning_role_4
 msgid "Worker"
-msgstr "Werknemer"
+msgstr "Arbeider"
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.welcome_article_body
@@ -3293,7 +3292,7 @@ msgid ""
 "                    Upgrade your package and check the related box"
 msgstr ""
 "Heb je geen demodata geïmporteerd? Dat kan nog steeds. Ga naar Apps &gt; "
-"Bedrijfstakken&gt; Upgrade je pakket en vink het betreffende vakje aan"
+"Sectoren&gt; Upgrade je pakket en vink het betreffende vakje aan"
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.welcome_article_body

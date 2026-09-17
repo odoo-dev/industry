@@ -13,16 +13,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server saas~17.4+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 17:36+0000\n"
-"PO-Revision-Date: 2026-04-04 12:46+0000\n"
+"PO-Revision-Date: 2026-09-12 18:30+0000\n"
 "Last-Translator: Saara Hakanen <sahak@odoo.com>\n"
-"Language-Team: Finnish <https://translate.odoo.com/projects/odoo-s19-2/"
+"Language-Team: Finnish <https://translate.odoo.com/projects/odoo-master/"
 "agriculture_shop/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_28
@@ -167,6 +167,9 @@ msgid ""
 "store transactions efficiently, handling sales of seeds, tools, and supplies "
 "with ease."
 msgstr ""
+"<b><font class=\"text-o-color-1\">Kassajärjestelmä-sovellus:</font></b> "
+"Hallitse myymälän tapahtumia tehokkaasti ja hoida siementen, työkalujen sekä "
+"tarvikkeiden myynti helposti."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -175,6 +178,9 @@ msgid ""
 "procurement of farming products from suppliers, managing costs and lead "
 "times."
 msgstr ""
+"<b><font class=\"text-o-color-1\">Ostot-sovellus:</font></b> Suoraviivaista "
+"maataloustuotteiden hankinta toimittajilta hallitsemalla kustannuksia ja "
+"toimitusaikoja."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -182,6 +188,9 @@ msgid ""
 "<b><font class=\"text-o-color-1\">Sales App:</font></b> Handle B2B orders "
 "and contracts for large farming clients, ensuring accurate pricing."
 msgstr ""
+"<b><font class=\"text-o-color-1\">Myynti-sovellus:</font></b> Käsittele B2B-"
+"tilauksia ja sopimuksia suurille maatalousasiakkaille sekä varmista tarkka "
+"hinnoittelu."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -190,6 +199,9 @@ msgid ""
 "o-color-3\"> Build a professional online presence to showcase your catalog "
 "and attract new customers.</font>"
 msgstr ""
+"<b><font class=\"text-o-color-1\">Verkkosivu-sovellus:</font></b><font "
+"class=\"text-o-color-3\"> Luo ammattimainen verkkosivusto katalogisi "
+"esittelemiseksi sekä uusien asiakkaiden houkuttelemiseksi.</font>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -197,6 +209,9 @@ msgid ""
 "<b><font class=\"text-o-color-1\">eCommerce App:</font></b> Expand your "
 "reach by selling products online, offering convenience to modern farmers."
 msgstr ""
+"<b><font class=\"text-o-color-1\">Verkkokauppa-sovellus:</font></b> Laajenna "
+"toimintaasi tuotteiden verkkomyynnillä ja tarjoa kätevä käyttökokemus "
+"nykyaikaisille maanviljelijöille."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -229,6 +244,9 @@ msgid ""
 "                    Us\"</b> page instantly generates a new <b>CRM "
 "opportunity</b>."
 msgstr ""
+"<b>Tallenna pyynnöt:</b> Kaikki <b>\"Ota yhteyttä\"</b>-sivun\n"
+"                    kautta lähetetyt pyynnöt luovat välittömästi uuden <b>"
+"CRM-myyntimahdollisuuden</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -250,6 +268,12 @@ msgid ""
 "                    website so the customer sees their agreed-upon prices "
 "upon login."
 msgstr ""
+"<b>Määritä B2B-hinnoittelu:</b> Luo ja määritä jokaiselle B2B-"
+"yhteyshenkilölle <b>oma\n"
+"                    hinnasto</b>. Varmista, että tämä hinnasto on "
+"aktiivinen\n"
+"                    verkkosivuillasi, jotta asiakas näkee sovitut hinnat "
+"sisään kirjautuessaan."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -296,7 +320,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<b>Key Product Settings:</b>"
-msgstr ""
+msgstr "<b>Tärkeimmät tuoteasetukset:</b>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -314,6 +338,10 @@ msgid ""
 "and increase lifetime\n"
 "                            value."
 msgstr ""
+"<b>Kanta-asiakasohjelmat:</b> Ota käyttöön <b>kanta-asiakaskortit</b>\n"
+"                            ydinstrategiana <b>asiakaspysyvyyden "
+"aktivoimiseksi</b> ja elinkaaren arvon\n"
+"                            lisäämiseksi."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -344,6 +372,12 @@ msgid ""
 "card processors, PayPal,\n"
 "                    etc.)."
 msgstr ""
+"<b>Maksupalveluntarjoajat &amp; menetelmät:</b> Mene <b>Verkkosivu\n"
+"                   &gt; Asetukset &gt; Maksupalveluntarjoajat</b> ja asenna "
+"<b>kaikki</b> maksutavat\n"
+"                    sekä palveluntarjoajat, joita aiot tarjota (esim. "
+"luottokortin käsittelijät, PayPal,\n"
+"                    jne.)."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -369,6 +403,12 @@ msgid ""
 "                            and enabling <b>client-specific pricing "
 "contracts</b>."
 msgstr ""
+"<b>Hinnaston segmentointi:</b> Määritä samalle tuotteelle useita "
+"hinnoittelurakenteita\n"
+"                            tukeaksesi erilaisia liiketoimintamalleja (esim. "
+"B2B vs. B2C)\n"
+"                            ja mahdollistaaksesi <b>asiakaskohtaiset "
+"hinnoittelusopimukset</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -392,6 +432,10 @@ msgid ""
 "give targeted, <b>manual\n"
 "                            reductions</b> at the point of sale."
 msgstr ""
+"<b>Mainostamisen ketteryys:</b> Käytä <b>alennuksia ja tarjouksia</b>\n"
+"                            sopeuttaaksesi hinnoittelun nopeasti "
+"myyntitapahtumia varten tai tarjotaksesi kohdennettuja, <b>manuaalisia\n"
+"                            alennuksia</b> kassajärjestelmässä."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -409,6 +453,10 @@ msgid ""
 "                    specific product, a supplier inquiry, or general "
 "information."
 msgstr ""
+"<b>Liidien luokittelu:</b> Ole yhteydessä asiakkaaseen\n"
+"                    CRM-myyntimahdollisuuden kautta pyynnön ymmärtämiseksi – "
+"olipa kyseessä\n"
+"                    tietty tuote, toimittajan kysely tai yleinen tiedustelu."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -418,11 +466,16 @@ msgid ""
 "the opportunity</b>. The\n"
 "                    client can then <b>confirm and sign it online</b>."
 msgstr ""
+"<b>Tarjous ja vahvistus:</b> Jos tietty kysyntä\n"
+"                    vaatii hinnoittelua, luo <b>tarjous suoraan "
+"myyntimahdollisuudesta</b>.\n"
+"                    Asiakas voi sitten <b>vahvistaa ja allekirjoittaa sen "
+"verkossa</b>."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<b>Use the</b>"
-msgstr ""
+msgstr "<b>Käytä</b>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -535,6 +588,10 @@ msgid ""
 "            </span>\n"
 "            <br/>"
 msgstr ""
+"<span class=\"h1-fs\">\n"
+"                <strong>Toimenpiteet</strong>\n"
+"            </span>\n"
+"            <br/>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -543,6 +600,9 @@ msgid ""
 "                <strong>Basics</strong>\n"
 "            </span>"
 msgstr ""
+"<span class=\"h1-fs\">\n"
+"                <strong>Perustiedot</strong>\n"
+"            </span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -552,17 +612,17 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span class=\"h2-fs\">Manage your website 🌐</span>"
-msgstr ""
+msgstr "<span class=\"h2-fs\">Hallitse verkkosivujasi 🌐</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span class=\"h2-fs\">Selling Online 💻️</span>"
-msgstr ""
+msgstr "<span class=\"h2-fs\">Verkossa myyminen 💻️</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span class=\"h2-fs\">Selling in the Store 🛍️</span>"
-msgstr ""
+msgstr "<span class=\"h2-fs\">Liikkeessä myyminen 🛍️</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -698,17 +758,17 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 CRM</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 CRM</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 Delivery Methods</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 Toimitustavat</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 Hardware</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 Laitteisto</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -718,7 +778,7 @@ msgstr "<span style=\"font-weight: normal;\">🎓 Uudelleentilaussäännöt</spa
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<span style=\"font-weight: normal;\">🎓 Sales</span>"
-msgstr ""
+msgstr "<span style=\"font-weight: normal;\">🎓 Myynti</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -738,11 +798,14 @@ msgid ""
 "                <u>Process</u>\n"
 "            </strong>"
 msgstr ""
+"<strong>\n"
+"                <u>Prosessi</u>\n"
+"            </strong>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<u>1. Configure Products and Their Display</u>"
-msgstr ""
+msgstr "<u>1. Määritä tuotteet ja niiden näyttö</u>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -757,17 +820,17 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<u>2. Review General E-commerce Policies</u>"
-msgstr ""
+msgstr "<u>2. Tarkista yleiset verkkokauppakäytännöt</u>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "<u>3. Set Up Payment and Delivery</u>"
-msgstr ""
+msgstr "<u>3. Määritä maksu ja toimitus</u>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Accept multiple payment options: cash, card, and mobile payments."
-msgstr ""
+msgstr "Hyväksy useita maksutapoja: käteinen, kortti ja mobiilimaksut."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -777,7 +840,7 @@ msgstr "Tilien &amp; Myynnin hallinta"
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Accurately <b>update the inventoried quantity</b>."
-msgstr ""
+msgstr "<b>Päivitä varastoitu määrä</b> tarkasti."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -810,7 +873,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_11
 msgid "AlwaysFirst"
-msgstr ""
+msgstr "AinaEnsin"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -836,7 +899,7 @@ msgstr "B2B"
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid ""
 "B2B Customer Configuration and Sales Workflow<span class=\"h2-fs\">🤝</span>"
-msgstr ""
+msgstr "B2B-asiakkaan asetukset ja myynnin kulku<span class=\"h2-fs\">🤝</span>"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -861,7 +924,7 @@ msgstr "Merkki"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_27
 msgid "Bulk Order"
-msgstr ""
+msgstr "Tukkutilaus"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -869,11 +932,13 @@ msgid ""
 "By uploading this module's demo data, your database has been\n"
 "            filled with a few contacts."
 msgstr ""
+"Tietokantaasi täydennetään muutamalla yhteystiedolla\n"
+"            ladatessasi tämän moduulin demotiedot."
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_6_product_template
 msgid "Cauliflower Seeds"
-msgstr ""
+msgstr "Kukkakaalin siemenet"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_6_product_template
@@ -891,9 +956,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
 msgid "Complete CRM for any size team"
-msgstr ""
-"Täydellinen CRM-järjestelmä, eli Asiakkuudenhallintaa, kaikenkokoisille "
-"tiimeille"
+msgstr "Kaikenkattava CRM kaikenkokoisille tiimeille"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.contactus
@@ -913,7 +976,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_9_product_template
 msgid "Cucumber Seeds"
-msgstr ""
+msgstr "Kurkun siemenet"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_9_product_template
@@ -993,16 +1056,21 @@ msgid ""
 "                    of Sale &gt; Three dot menu &gt; IoT Box &gt; Electronic "
 "Scale)."
 msgstr ""
+"Salli <strong>painoon perustuva hinnoittelu</strong> irtotuotteille\n"
+"                    asettamalla mittayksiköksi <strong>grammat tai "
+"kilogrammat</strong>\n"
+"                    (Kassajärjestelmä &gt; kolmipistevalikko &gt; IoT-boksi "
+"&gt; elektroninen vaaka)."
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_37
 msgid "Equipment Parts"
-msgstr ""
+msgstr "Laitteiden osat"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_45
 msgid "Equipment Service"
-msgstr ""
+msgstr "Laitehuolto"
 
 #. module: agriculture_shop
 #: model:product.public.category,name:agriculture_shop.product_public_category_1
@@ -1042,7 +1110,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.public.category,name:agriculture_shop.product_public_category_4
 msgid "Fertilizer"
-msgstr ""
+msgstr "Lannoite"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.red_revolution_tomato_seeds
@@ -1068,7 +1136,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Generate printed or digital receipts for customers."
-msgstr ""
+msgstr "Luo asiakkaille tulostettuja tai digitaalisia kuitteja."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1084,7 +1152,7 @@ msgstr "Hanki pääsy kaikkiin moduuleihin ja ominaisuuksiin"
 #. odoo-javascript
 #: code:addons/agriculture_shop/static/src/js/my_tour.js:0
 msgid "Get on track and explore our recommendations for your Odoo usage here!"
-msgstr ""
+msgstr "Aloita ja tutustu Odoo-käyttöäsi koskeviin suosituksiimme täällä!"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_25_product_template
@@ -1124,7 +1192,7 @@ msgstr "Varasto"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_39
 msgid "Irrigation"
-msgstr ""
+msgstr "Kastelu"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1143,7 +1211,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_51
 msgid "Lead Gen"
-msgstr ""
+msgstr "Liidien luominen"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1153,7 +1221,7 @@ msgstr "Rajoitettu räätälöinti"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_49
 msgid "Long-Term Contract"
-msgstr ""
+msgstr "Pitkäaikainen sopimus"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_18_product_template
@@ -1168,7 +1236,7 @@ msgstr "Pehmeäteräksinen kuorintakone "
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_11_product_template
 msgid "Multi Fruit - Fertilizer"
-msgstr ""
+msgstr "Multi Fruit - Lannoite"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_11_product_template
@@ -1207,12 +1275,12 @@ msgstr ""
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_30
 msgid "New Equipment"
-msgstr ""
+msgstr "Uusi laite"
 
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_33
 msgid "New Supplier"
-msgstr ""
+msgstr "Uusi toimittaja"
 
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_2
@@ -1293,16 +1361,17 @@ msgid ""
 "Once your core operations are running smoothly, consider expanding your "
 "toolset:"
 msgstr ""
+"Kun ydintoimintasi hoituu sujuvasti, harkitse työkalupakkisi laajentamista:"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_8_product_template
 msgid "Onion Seeds"
-msgstr ""
+msgstr "Sipulin siemenet"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_23_product_template
 msgid "Onion Seeds Bulk"
-msgstr ""
+msgstr "Sipulin siemenet erissä"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_8_product_template
@@ -1396,7 +1465,7 @@ msgstr "Tuotetarina"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_43
 msgid "Product Trial"
-msgstr ""
+msgstr "Tuotteen kokeilu"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1412,7 +1481,7 @@ msgstr "Red Revolution - Tomaatin siemenet"
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_7_product_template
 msgid "Royal Bullet Mirchi Seeds"
-msgstr ""
+msgstr "Royal Bullet Mirchi -siemenet"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_7_product_template
@@ -1434,7 +1503,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_17_product_template
 msgid "Safaya - Pesticide"
-msgstr ""
+msgstr "Safaya - Torjunta-aine"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_17_product_template
@@ -1470,7 +1539,7 @@ msgstr "Siemenet"
 #. module: agriculture_shop
 #: model:crm.tag,name:agriculture_shop.crm_tag_35
 msgid "Service Request"
-msgstr ""
+msgstr "Palvelupyyntö"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1487,17 +1556,17 @@ msgstr "Silppurikone"
 #. module: agriculture_shop
 #: model:product.attribute,name:agriculture_shop.product_attribute_10
 msgid "Size / Liter"
-msgstr ""
+msgstr "Koko / litra"
 
 #. module: agriculture_shop
 #: model:product.attribute,name:agriculture_shop.product_attribute_9
 msgid "Size / Weight"
-msgstr ""
+msgstr "Koko / paino"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_13_product_template
 msgid "Soil Activator"
-msgstr ""
+msgstr "Maaperän aktivoija"
 
 #. module: agriculture_shop
 #: model:website.page,name:agriculture_shop.website_page_10
@@ -1513,6 +1582,10 @@ msgid ""
 "distinct categories to\n"
 "            provide maximum flexibility across your business:"
 msgstr ""
+"Aloita luomalla tuotteesi <b>Tuotteet</b>-välilehdellä\n"
+"            ja täyttämällä kaikki tarvittavat tiedot. Järjestelmä käyttää "
+"kolmea erillistä kategoriaa\n"
+"            tarjotakseen liiketoiminnallesi maksimaalisen joustavuuden:"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.pricing
@@ -1621,7 +1694,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.attribute.value,name:agriculture_shop.product_attribute_value_10
 msgid "TheBestBrand"
-msgstr ""
+msgstr "ParasBrändi"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1634,7 +1707,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_14_product_template
 msgid "Thiram - Pesticide"
-msgstr ""
+msgstr "Thiram - Torjunta-aine"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_14_product_template
@@ -1671,6 +1744,13 @@ msgid ""
 "offering organized categories\n"
 "            like <b>seeds, pesticides, nutrition, and equipment</b>."
 msgstr ""
+"Tämä ratkaisu on suunniteltu hallinnoimaan kaikkia\n"
+"            maatalouskaupan osa-alueita sekä tukemaan maanviljelytuotteiden "
+"<b>B2B- ja B2C-myyntiä</b>.\n"
+"            Se kattaa <b>Kassajärjestelmän ja verkkosivujen</b> toiminnot "
+"sekä tarjoaa organisoituja kategorioita,\n"
+"            kuten <b>siemenet, torjunta-aineet, ravintoaineet ja laitteet</b>"
+"."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1680,6 +1760,10 @@ msgid ""
 "configure the settings to suit\n"
 "            your Agricultural Store."
 msgstr ""
+"Saadaksesi nopeasti käsityksen tämän Odoo-paketin\n"
+"            tarjoamista prosesseista, voit suorittaa seuraavat toiminnot ja "
+"määrittää asetuksesi\n"
+"            maatalouskauppasi tarpeiden mukaiseksi."
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1735,12 +1819,12 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Use these settings to tailor the experience for your B2B clients:"
-msgstr ""
+msgstr "Käytä näitä asetuksia räätälöidäksesi kokemuksen B2B-asiakkaillesi:"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_12_product_template
 msgid "Vermi Compost - Powder"
-msgstr ""
+msgstr "Vermikomposti - jauhe"
 
 #. module: agriculture_shop
 #: model:website.menu,name:agriculture_shop.website_menu_18
@@ -1784,12 +1868,12 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "Want to do more?"
-msgstr ""
+msgstr "Haluatko tehdä enemmän?"
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_15_product_template
 msgid "Warrior - Pesticide"
-msgstr ""
+msgstr "Warrior - Torjunta-aine"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_15_product_template
@@ -1877,7 +1961,7 @@ msgstr ""
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
 msgid "You have flexibility regarding when to generate invoices:"
-msgstr ""
+msgstr "Voit valita joustavasti, milloin laskut luodaan:"
 
 #. module: agriculture_shop
 #: model_terms:ir.ui.view,arch_db:agriculture_shop.welcome_article_body
@@ -1886,11 +1970,15 @@ msgid ""
 "            Settings</b>, <b>Website-Wide Settings</b>, and <b>Payment &amp; "
 "Delivery Methods</b>."
 msgstr ""
+"Verkkokaupan käyttöönotto sisältää kolme pääaluetta: <b>Tuote-asetukset</b>"
+",\n"
+"            <b>Koko verkkosivuston laajuiset asetukset</b> sekä <b>Maksu- "
+"&amp; Toimitusmenetelmät</b>."
 
 #. module: agriculture_shop
 #: model:product.template,name:agriculture_shop.product_product_16_product_template
 msgid "Ziram - Pesticide"
-msgstr ""
+msgstr "Ziram - Torjunta-aine"
 
 #. module: agriculture_shop
 #: model:product.template,description_sale:agriculture_shop.product_product_16_product_template

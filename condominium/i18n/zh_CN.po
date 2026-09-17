@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server saas~17.4+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-03 17:50+0000\n"
-"PO-Revision-Date: 2026-05-06 13:14+0000\n"
+"PO-Revision-Date: 2026-09-12 18:33+0000\n"
 "Last-Translator: \"Chloe Wang (chwa)\" <chwa@odoo.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://translate.odoo.com/"
-"projects/odoo-s19-3/condominium/zh_Hans/>\n"
+"projects/odoo-master/condominium/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
@@ -40,7 +40,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_agenda_document
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid ", representing"
-msgstr ""
+msgstr "，代表"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -103,7 +103,7 @@ msgstr ""
 msgid ""
 "<b>Employees App</b>: Assign property managers to specific buildings and "
 "manage your internal team's workload."
-msgstr ""
+msgstr "<b>员工应用程序</b>：为不同楼宇指派负责的物业经理，轻松管理内部团队的工作量。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -121,7 +121,7 @@ msgstr ""
 msgid ""
 "<b>Project App</b>: Manage maintenance tasks, renovation projects, and "
 "follow-ups on resident requests."
-msgstr ""
+msgstr "<b>项目应用</b> ：管理维护保养任务、翻新项目，并跟进居民请求。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -130,13 +130,15 @@ msgid ""
 "and manage\n"
 "                <b>fund raising</b> campaigns for major works."
 msgstr ""
+"<b>销售应用程序</b> ：向业主委员会收取管理费，管理大型工程的\n"
+"               <b> 融资、筹款</b> 等。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "<b>Subscription App</b>: Automate the collection of recurring common charges "
 "and monthly fees from owners."
-msgstr ""
+msgstr "<b>订阅应用程序</b> ：自动向业主收取定期的公共费用和月费。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -145,6 +147,8 @@ msgid ""
 "specific buildings to analyze\n"
 "                profitability or justify management fees."
 msgstr ""
+"<b>工时管理应用程序</b>：追踪员工在不同楼宇上花费的工时，以分析盈利能力，\n"
+"                也可证明管理费用得其所。"
 
 #. module: condominium
 #: model:mail.template,body_html:condominium.mail_template_2
@@ -239,6 +243,32 @@ msgid ""
 "        </div>\n"
 "            "
 msgstr ""
+"<div style=\"background:#F0F0F0; color:#515166; padding:10px 0; font-"
+"family:Arial, Helvetica, sans-serif; font-size:14px;\">\n"
+"            <table style=\"width:600px; margin:0 auto; background:white; "
+"border:1px solid #e1e1e1; color:#515166; font-size:14px; font-family:Arial, "
+"Helvetica, sans-serif; border-collapse:collapse;\">\n"
+"                <tbody>\n"
+"                    <tr>\n"
+"                        <td style=\"padding:15px 20px 10px 20px;\">\n"
+"                            <p style=\"margin:0 0 16px 0;\">您好：</p>\n"
+"                            <p style=\"margin:0 0 16px 0;\">\n"
+"                                附件为会议报告：\n"
+"                                <t t-out=\"object.name or ''\">全体大会</t>\n"
+"                            </p>\n"
+"                            <p style=\"margin:0 0 16px 0;\">此致</p>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr data-o-mail-quote-container=\"1\">\n"
+"                        <td style=\"padding:15px 20px 10px 20px;\" t-"
+"out=\"object.user_id.signature or ''\" data-o-mail-quote=\"1\">\n"
+"                            --<br data-o-mail-quote=\"1\"/>Mitchell Admin\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tbody>\n"
+"            </table>\n"
+"        </div>\n"
+"            "
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -246,6 +276,8 @@ msgid ""
 "<font style=\"background-color: rgba(156, 156, 148, 0.6);\"> Note: this tour "
 "will create undeletable data inside your database.</font>"
 msgstr ""
+"<font style=\"background-color: rgba(156, 156, 148, 0.6);\"> 注意：本操作将在"
+"您的数据库中创建不可删除的数据。</font>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -253,6 +285,8 @@ msgid ""
 "<i class=\"o_editor_banner_icon mb-3 fst-normal\" data-oe-aria-"
 "label=\"Banner Info\">💡</i>"
 msgstr ""
+"<i class=\"o_editor_banner_icon mb-3 fst-normal\" data-oe-aria-label=\"横幅信"
+"息\">💡</i>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -260,6 +294,8 @@ msgid ""
 "<i class=\"o_editor_banner_icon mb-3 fst-normal\" data-oe-aria-"
 "label=\"Banner Success\">✅</i>"
 msgstr ""
+"<i class=\"o_editor_banner_icon mb-3 fst-normal\" data-oe-aria-label=\"横幅成"
+"功\">✅</i>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -277,6 +313,8 @@ msgid ""
 "<i data-oe-aria-label=\"Banner Info\" class=\"o_editor_banner_icon mb-3 fst-"
 "normal\">💡</i>"
 msgstr ""
+"<i data-oe-aria-label=\"横幅信息\" class=\"o_editor_banner_icon mb-3 fst-"
+"normal\">💡</i>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -284,6 +322,8 @@ msgid ""
 "<i data-oe-aria-label=\"Banner Info\" class=\"o_editor_banner_icon mb-3 fst-"
 "normal\">🚀</i>"
 msgstr ""
+"<i data-oe-aria-label=\"横幅信息\" class=\"o_editor_banner_icon mb-3 fst-"
+"normal\">🚀</i>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -291,6 +331,8 @@ msgid ""
 "<i data-oe-aria-label=\"Banner Success\" class=\"o_editor_banner_icon mb-3 "
 "fst-normal\">✅</i>"
 msgstr ""
+"<i data-oe-aria-label=\"横幅成功\" class=\"o_editor_banner_icon mb-3 fst-"
+"normal\">✅</i>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.default_form_view_building
@@ -304,6 +346,9 @@ msgid ""
 "\t\t\t\t\t\t\t\tGENERAL MEETING AGENDA\n"
 "\t\t\t\t\t\t\t</strong>"
 msgstr ""
+"<strong>\n"
+"\t\t\t\t\t\t\t\t全体会议议程\n"
+"\t\t\t\t\t\t\t</strong>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
@@ -312,6 +357,9 @@ msgid ""
 "\t\t\t\t\t\t\t\tGENERAL MEETING REPORT\n"
 "\t\t\t\t\t\t\t</strong>"
 msgstr ""
+"<strong>\n"
+"\t\t\t\t\t\t\t\t全体会议报告\n"
+"\t\t\t\t\t\t\t</strong>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -333,14 +381,14 @@ msgstr ""
 msgid ""
 "<strong>Automate recurring tasks</strong>, like meter reading imports or "
 "expense allocation."
-msgstr ""
+msgstr "<strong>自动执行周期性任务</strong>，例如导入抄表数据或进行费用分摊。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "<strong>CRM:</strong> Track and manage incoming leads and communications "
 "with potential new condominiums."
-msgstr ""
+msgstr "<strong>客户关系管理：</strong>追踪并管理潜在公寓楼盘线索，维护相关沟通记录。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -348,6 +396,8 @@ msgid ""
 "<strong>Calendar:</strong> Schedule and organize association meetings, "
 "collecting votes during general assemblies and share the report."
 msgstr ""
+"<strong>日历：</strong> 安排和组织协会会议，在会员大会期间收集投票并分享报告"
+"。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -355,6 +405,8 @@ msgid ""
 "<strong>Condominium:</strong> Define buildings, properties, owner and tenant "
 "histories, meter readings and distribution keys."
 msgstr ""
+"<strong>公寓楼盘：</strong>维护楼宇、房产、业主及租户历史记录、抄表读数与分摊"
+"系数。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -362,6 +414,8 @@ msgid ""
 "<strong>Contacts:</strong> Manage contacts turning prospects into "
 "condominiums, as well as owners, tenants and suppliers."
 msgstr ""
+"<strong>联系人：</strong>管理联系人，将潜在合作对象转化为楼盘档案，同时维护业"
+"主、租户及供应商信息。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -376,7 +430,7 @@ msgstr ""
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "<strong>Documents App: </strong>Request and share documents."
-msgstr ""
+msgstr "<strong>文件管理应用：</strong>发起文档索取，实现文档共享。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -384,6 +438,8 @@ msgid ""
 "<strong>In such situation, feel free to experiment with this database and "
 "then to create a new one for your own usage.</strong>"
 msgstr ""
+"<strong>遇到该场景时，您可先在此数据库中进行测试，再新建正式数据库投入实际业"
+"务使用。</strong>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -400,32 +456,34 @@ msgid ""
 "<strong>Leverage tags and filters</strong> in Contacts and CRM to segment "
 "your audience (owners, tenants, suppliers, condominiums...)."
 msgstr ""
+"<strong>利用标签与筛选器</strong>，在联系人与客户关系管理模块中对对象做分类（"
+"业主、租户、供应商、公寓楼盘等）。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "<strong>Motions</strong>"
-msgstr ""
+msgstr "<strong>会议提案</strong>"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "<strong>Sales:</strong> Send quotations, confirm orders, and invoice shared "
 "expenses to owners."
-msgstr ""
+msgstr "<strong>销售：</strong>发送报价单、确认订单，向业主开具公共分摊费用账单。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "<strong>Sign</strong> <strong>App: </strong>Send digital property "
 "reservation contracts."
-msgstr ""
+msgstr "<strong>电子签名</strong><strong>应用：</strong>发送房产预约电子合同。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "<strong>Use quotation templates</strong> in the Sales app to standardize "
 "quotes and reduce manual errors."
-msgstr ""
+msgstr "<strong>使用销售模块的报价模板</strong>统一报价格式，减少人工录入错误。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -433,13 +491,15 @@ msgid ""
 "<strong>VoIP Integration:</strong> Organize online meetings directly from "
 "Odoo with integrated call capabilities."
 msgstr ""
+"<strong>网络电话整合：</strong>依托内置通话能力，直接在 Odoo 内部发起线上会议"
+"。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "<strong>Website Builder:</strong> Build a professional website with lead "
 "capture forms and member areas."
-msgstr ""
+msgstr "<strong>网站搭建器：</strong>搭建专业网站，配置线索收集表单与会员专区。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
@@ -463,6 +523,8 @@ msgid ""
 "                    Defining a distribution key is efficient by populating "
 "defined properties in a click."
 msgstr ""
+"多项业务操作需要用到分摊系数。<br/>点击即可读取已定义房产信息，快速完成分摊系"
+"数配置。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -474,23 +536,23 @@ msgstr "用于标识财产的名称，例如邮箱或识别代码。"
 #. module: condominium
 #: model:x_vote_criteria,x_name:condominium.x_vote_criteria_1
 msgid "Absolute Majority"
-msgstr ""
+msgstr "绝对多数"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_motion_total_abstention
 #: model:ir.model.fields.selection,name:condominium.x_vote_abstention
 msgid "Abstention"
-msgstr ""
+msgstr "弃权"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "Abstention:"
-msgstr ""
+msgstr "弃权："
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_new_decimal_vote_criteria
 msgid "Acceptation threshold"
-msgstr ""
+msgstr "通过阈值"
 
 #. module: condominium
 #: model:x_distribution_key,x_name:condominium.x_distribution_key_7
@@ -501,17 +563,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:condominium.field_property_line_account
 #: model:ir.model.fields,field_description:condominium.field_x_analytic_account_id
 msgid "Account"
-msgstr ""
+msgstr "账户"
 
 #. module: condominium
 #: model:ir.model,name:condominium.model_x_account_analytic_split_line
 msgid "Account Analytic Line Split"
-msgstr ""
+msgstr "会计分析行拆分"
 
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_36
 msgid "Accounting 2024 approval"
-msgstr ""
+msgstr "2024 年度账务审批"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -524,17 +586,17 @@ msgstr "账户开设/交接<br/>"
 #: model:ir.model.fields,field_description:condominium.field_property_account_ids
 #: model:ir.ui.menu,name:condominium.owners_properties_menu
 msgid "Accounts"
-msgstr ""
+msgstr "账户"
 
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_65
 msgid "Accounts approbation for 2024"
-msgstr ""
+msgstr "2024 年度账务核准"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Acquire a new company"
-msgstr ""
+msgstr "收购新公司"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -589,19 +651,19 @@ msgstr "空调和空气处理"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "All Against"
-msgstr ""
+msgstr "全部反对"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_motion_form_view
 msgid "All In Favor"
-msgstr ""
+msgstr "全部赞成"
 
 #. module: condominium
 #: model:product.template,description_sale:condominium.product_product_7_product_template
 msgid ""
 "All other extra services will be invoiced at the hourly rate, See Terms & "
 "Conditions for further information about the hourly rate"
-msgstr ""
+msgstr "其余所有额外服务将按小时费率计费，小时费率详情请参阅服务条款。"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_698_product_template
@@ -621,7 +683,7 @@ msgstr "有形资产摊销"
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_x_total
 msgid "Amount"
-msgstr ""
+msgstr "金额"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_x_analytic_line_id
@@ -631,7 +693,7 @@ msgstr ""
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.analytic_account_wizard_form
 msgid "Analytic item split"
-msgstr ""
+msgstr "分析项目拆分"
 
 #. module: condominium
 #: model:x_properties_types,x_name:condominium.x_properties_types_1
@@ -691,12 +753,12 @@ msgstr "每项物业每月约 $80，有关服务费承保范围的更多信息�
 msgid ""
 "Approximately $80 per property per month, See Terms & Conditions for further "
 "information about the coverage of the Service Fees"
-msgstr ""
+msgstr "每项物业每月约 $80，有关服务费承保范围的更多信息，请参阅条款和细则"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Apps Overview"
-msgstr ""
+msgstr "应用概览"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_784_product_template
@@ -742,20 +804,24 @@ msgid ""
 "            conditions as well. Of course, the price of each service and the "
 "content of the Quotation Templates can be adapted accordingly."
 msgstr ""
+"当公寓楼盘向您索要报价时，可在<strong>销售应用</strong>中创建报价单，直接使"
+"用 “启动报价” 报价模板，快速向对方提供服务与费用总览。模板将自动填入启动费用"
+"以及全部附加服务价格，例如周期性公摊费用、小时费率等。请勿忘记附上服务条款。"
+"当然，各项服务的价格以及报价模板内容均可按需调整。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "Assign the appropriate distribution key and if relevant the distribution "
 "period.."
-msgstr ""
+msgstr "分配合适的分摊系数，如适用，请同时设置分摊周期。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "At the end of the meeting, you can preview the meeting report and send it to "
 "the owners."
-msgstr ""
+msgstr "owners.会议结束后，您可以预览会议报告并将其发送给各位业主。"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.meter_image
@@ -770,28 +836,28 @@ msgstr ""
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_motion_vote_attendee_id
 msgid "Attendee"
-msgstr ""
+msgstr "参与者"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_motion_attendee_vote_ids
 msgid "Attendee Votes"
-msgstr ""
+msgstr "参与者投票"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_calendar_attendee_is_attending
 #: model_terms:ir.ui.view,arch_db:condominium.report_calendar_event_general_meeting_document
 msgid "Attending"
-msgstr ""
+msgstr "到场参会"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_calendar_event_attending_owners
 msgid "Attending and Delegating Owners"
-msgstr ""
+msgstr "到场及委托代理的业主"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_calendar_event_attending_ratio
 msgid "Attending and Delegating Ratio"
-msgstr ""
+msgstr "到场及委托代理占比"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -832,19 +898,19 @@ msgstr "地下室维护"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Basics"
-msgstr ""
+msgstr "基础知识"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "Be aware that additional users lead to additional Odoo subscription costs. "
 "We therefore recommend you :"
-msgstr ""
+msgstr "请注意，新增用户会产生额外的 Odoo 订阅费用。因此我们建议您："
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_710_product_template
 msgid "Bell and intercom maintenance"
-msgstr "铃和对讲机维护"
+msgstr "门铃和对讲机维护"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_811_product_template
@@ -859,7 +925,7 @@ msgstr "预订正确的号码🧮"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_66
 msgid "Budget approbation for 2025"
-msgstr ""
+msgstr "2025 年预算审批"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_property_building
@@ -897,7 +963,7 @@ msgstr "业务流程"
 msgid ""
 "By the end of the period, easily generate the legal reporting such as "
 "Balance Sheet and Profit &amp; Loss for each"
-msgstr ""
+msgstr "会计期末可一键生成各主体法定报表，包含资产负债表与损益表。"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_781_product_template
@@ -907,12 +973,12 @@ msgstr "电缆分配"
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.calendar_event_line_event
 msgid "Calendar Event"
-msgstr ""
+msgstr "日历活动"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.calendar_event_line_vote
 msgid "Calendar Event Line Vote"
-msgstr ""
+msgstr "日历事件行 投票"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -922,7 +988,7 @@ msgstr "征集工作资金和储备金"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.analytic_account_wizard_form
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_664_product_template
@@ -937,7 +1003,7 @@ msgstr "木工维护合同"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_50
 msgid "Chairman of the session"
-msgstr ""
+msgstr "会议主席"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -992,12 +1058,12 @@ msgstr "点击“销售订单”按钮以访问所有生成的报价单。"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.account_analytic_account_search_view_condominium
 msgid "Closed"
-msgstr ""
+msgstr "已关闭"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.co_owners_property_line_field
 msgid "Co-Owners"
-msgstr ""
+msgstr "共同所有者"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.color_buildings_tags
@@ -1038,7 +1104,7 @@ msgstr ""
 #. module: condominium
 #: model:ir.actions.server,name:condominium.action_compute_distribution_key_ratios
 msgid "Compute Distribution Key Ratios"
-msgstr ""
+msgstr "计算分布关键比率"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.x_distribution_key_form_view
@@ -1048,12 +1114,12 @@ msgstr "计算比例"
 #. module: condominium
 #: model:product.template,name:condominium.product_product_693_product_template
 msgid "Concierge charges"
-msgstr "门房费用"
+msgstr "礼宾部费用"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_694_product_template
 msgid "Concierge maintenance"
-msgstr "门房服务维护"
+msgstr "礼宾式维护保养"
 
 #. module: condominium
 #: model:ir.actions.act_window,name:condominium.condo_act_window
@@ -1070,7 +1136,7 @@ msgstr "公寓"
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_partner_condominium_x_property_count
 msgid "Condominium count"
-msgstr ""
+msgstr "公寓数量"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1234,7 +1300,7 @@ msgstr ""
 #. module: condominium
 #: model:res.company,free_order_label:condominium.res_company_2
 msgid "Confirm Order"
-msgstr ""
+msgstr "确认订单"
 
 #. module: condominium
 #: model_terms:web_tour.tour,rainbow_man_message:condominium.acquisition_tour
@@ -1244,7 +1310,7 @@ msgstr "恭喜！您完成了首次销售。"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Connect your calendar to your Odoo database to never miss any meeting!"
-msgstr ""
+msgstr "将您的日历与 Odoo 数据库关联，确保不会错过任何会议！"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.res_partner_form_view_inherit
@@ -1254,7 +1320,7 @@ msgstr "联系人"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_39
 msgid "Contract renewal for 2025"
-msgstr ""
+msgstr "2025 年合同续签"
 
 #. module: condominium
 #: model:product.template,description_sale:condominium.product_product_4_product_template
@@ -1289,7 +1355,7 @@ msgstr "合同的建立<br/>"
 #. module: condominium
 #: model:ir.ui.menu,name:condominium.condominium_costs_menu
 msgid "Costs"
-msgstr ""
+msgstr "成本"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.country
@@ -1310,7 +1376,7 @@ msgstr "创建和管理构成这个公寓的建筑物<br>"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Create the buildings that compounds the condominium"
-msgstr ""
+msgstr "创建构成这个公寓的建筑物"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1323,7 +1389,7 @@ msgstr "创建构成建筑物的物业：公寓、单间、住宅、顶层公寓
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid ""
 "Create the relevant motions in advance to efficiently drive the meeting."
-msgstr ""
+msgstr "请提前制定相关动议，以高效推进会议。"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_current_owner_property
@@ -1369,7 +1435,7 @@ msgstr "定义一个定期计划，每月或每年。"
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.field_calendar_attendee_is_delegating
 msgid "Delegating"
-msgstr ""
+msgstr "授权"
 
 #. module: condominium
 #: model:ir.model.fields,field_description:condominium.description_building
@@ -1385,12 +1451,12 @@ msgstr "描述"
 #. module: condominium
 #: model:x_motion,x_name:condominium.x_motion_48
 msgid "Designation of the meeting president"
-msgstr ""
+msgstr "会议主席的指定"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Discover how to setup and use the application by starting the"
-msgstr ""
+msgstr "立即开始导览，了解如何设置和使用应用程序："
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.account_move_custom_form_view
@@ -1400,7 +1466,7 @@ msgstr "分配成本"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Distributing costs"
-msgstr ""
+msgstr "分摊费用"
 
 #. module: condominium
 #: model:ir.ui.menu,name:condominium.condominium_invoices_menu
@@ -1467,7 +1533,7 @@ msgstr ""
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Do You Want to Go Further?"
-msgstr ""
+msgstr "想进一步吗？"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_799_product_template
@@ -1685,6 +1751,9 @@ msgid ""
 "                associated meter readings for each property to be "
 "representative."
 msgstr ""
+"最后，对于采用以下组织方式的公寓：先通过公寓总水表计量费用，再通过各业主的水"
+"表分摊费用，基于水表的分配公式至关重要，且需要定期输入数据以及\n"
+"                各物业的相关水表读数，以确保分配结果具有代表性。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
@@ -1693,6 +1762,8 @@ msgid ""
 "ratio for each property that will be used for splitting the fees per owner "
 "and for distributing the costs:"
 msgstr ""
+"最后，您还可以为每个物业定义分配关键。目标是为每个物业分配一个比例，这个比例"
+"将用于按业主分摊费用和分配成本。"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_677_product_template
@@ -1754,6 +1825,10 @@ msgid ""
 "company and the\n"
 "            different condominiums."
 msgstr ""
+"在设置中，通过<font style=\"font-weight: bolder;\" class=\"text-o-color-1\">"
+"公司</font> 创建一家新公司。完成后，该公司将显示在所有界面的右上角，以便您快"
+"速在公司与\n"
+"            不同的公寓楼之间切换。"
 
 #. module: condominium
 #: model:product.template,name:condominium.product_product_749_product_template
@@ -3174,7 +3249,7 @@ msgstr "这不包括引领员、律师、专家等的费用。"
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body
 msgid "Tips for Success"
-msgstr ""
+msgstr "成功秘诀"
 
 #. module: condominium
 #: model:project.task.type,name:condominium.project_task_type_17
@@ -3206,7 +3281,7 @@ msgstr ""
 msgid ""
 "To maintain the number of users to the minimum needed, creating and deleting "
 "them when relevant."
-msgstr ""
+msgstr "为将用户数量控制在最低必要水平，请在需要时创建和删除用户。"
 
 #. module: condominium
 #: model_terms:ir.ui.view,arch_db:condominium.welcome_article_body

@@ -238,7 +238,11 @@ for line in datas_to_send:
 for endpoint in ('restrictions', 'availability'):
     if payloads[endpoint]:
         try:
-            env.ref('booking_channex.requests_to_channex').with_context(method='POST', endpoint=endpoint, payload={'values': payloads[endpoint]}).run()
+            values = []
+            for pl in payloads[endpoint]:
+                if pl not in values:
+                    values.append(pl)
+            env.ref('booking_channex.requests_to_channex').with_context(method='POST', endpoint=endpoint, payload={'values': values}).run()
         except Exception as e:
             env.ref('booking_channex.util_log_message').with_context(func='POST', path=endpoint, message=f"Auto Ari sync: Failed to send {endpoint} data; error is :\n{str(e)}").run()
 
@@ -764,7 +768,7 @@ for record in records:
     if not room_type_remote_id:
         continue
     availability_records = env['x_availability'].search(
-        [('x_stay_offer_id', '=', record.product_tmpl_id.id)],
+        [('x_stay_offer_id', '=', record.product_tmpl_id.id), ('x_date', '>=', datetime.datetime.today().date())],
         order='x_date'
     )
     payload_values.extend(construct_availability_payload(property_remote_id, room_type_remote_id, availability_records, record.product_tmpl_id.x_ota_buffer))

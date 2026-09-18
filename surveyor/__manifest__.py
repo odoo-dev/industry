@@ -1,6 +1,6 @@
 {
     'name': 'Surveying & Mapping',
-    'version': '1.1',
+    'version': '1.2',
     'category': 'Services',
     'depends': [
         'base_automation',
@@ -9,12 +9,15 @@
         'hr_timesheet',
         'knowledge',
         'planning',
+        'planning_field_service_worksheet',
+        'project_todo',
         'sale_project',
-        'web_studio',
         'website',
     ],
     'data': [
         'data/res_config_settings.xml',
+        'data/ir_ui_menu.xml',
+        'data/worksheet_template.xml',
         'data/ir_attachment_pre.xml',
         'data/base_automation.xml',
         'data/ir_actions_server.xml',

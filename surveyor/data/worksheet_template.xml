@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="worksheet_template_1" model="worksheet.template">
+        <field name="name">On site Measurement</field>
+        <field name="res_model">planning.slot</field>
+        <field name="worksheet_properties_definition" eval="[{
+        'name': 'df762d7a33b67d92', 'type': 'char', 'string': 'Notes', 'default': ''}, {
+        'name': 'dfd26f0a68fd1699', 'type': 'char', 'string': 'Wheather condition', 'default': ''}, {
+        'name': 'd54bb4e8c113d775', 'type': 'char', 'string': 'Measurement tool', 'default': ''
+        }]"/>
+    </record>
+</odoo>

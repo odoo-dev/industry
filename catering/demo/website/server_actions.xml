@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="server_action_presets" model="ir.actions.server" forcecreate="0">
+        <field name="name">Website Industry - Enable/disable views</field>
+        <field name="model_id" ref="website.model_website"/>
+        <field name="state">code</field>
+        <field name="code">
+website = env.ref('catering.website_industry')
+
+to_deactivate = [
+    # Presets
+    'website.template_header_default',
+    'website.header_search_box',
+    'website.header_text_element',
+    'website.option_header_brand_name',
+    # Default static pages
+    'website.homepage',
+    'website.contactus',
+]
+
+to_activate = [
+    # Presets
+    'website.footer_no_copyright',
+    'website.header_call_to_action',
+    # Keeps the menu items visible: without it auto_hide_menu.js measures the
+    # hamburger offcanvas while it is display:none, folds every item into the
+    # "extra items" (oi-plus) dropdown and leaves .top_menu at opacity 0.
+    'website.no_autohide_menu',
+    'website.template_footer_descriptive',
+    'website.template_header_hamburger',
+]
+
+ctx = {'website_id': website.id}
+
+for xml_id in to_deactivate:
+    env.ref(xml_id).with_context(**ctx).write({'active': False})
+for xml_id in to_activate:
+    env.ref(xml_id).with_context(**ctx).write({'active': True})
+
+menus = env['website.menu']
+base_domain = [('website_id', '=', website.id)]
+top_menu = menus.search(base_domain + [('parent_id', '=', False)], limit=1)
+
+# Rename / reorder the default Home menu
+menus.search(base_domain + [('url', '=', '/')]).write({'name': 'HOME', 'sequence': 0})
+# Add the "Our Menu" page to the top menu
+if not menus.search(base_domain + [('url', '=', '/menu')]):
+    menus.create({
+        'name': 'OUR MENU',
+        'url': '/menu',
+        'website_id': website.id,
+        'parent_id': top_menu.id if top_menu else False,
+        'sequence': 1,
+    })
+        </field>
+    </record>
+
+    <function name="run" model="ir.actions.server" eval="[ref('server_action_presets', raise_if_not_found=False)]"/>
+    <function name="unlink" model="ir.actions.server" eval="[ref('server_action_presets', raise_if_not_found=False)]"/>
+</odoo>

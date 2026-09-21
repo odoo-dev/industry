@@ -5,38 +5,38 @@
             <strong><span class="display-4-fs">Catering</span></strong><br/>
         </h1>
         <p>
-            Welcome to the <strong><font class="text-o-color-1">Odoo Catering package.</font></strong>
+            Welcome to the <strong><span class="text-o-color-1">Odoo Catering package.</span></strong>
         </p>
         <p style="text-align: justify;">
             This module helps you manage every step of the process, from initial customer relationships to event planning and execution. With it, you can effortlessly prepare and validate events, purchase the necessary raw materials, and
             efficiently track your entire operation.
         </p>
         <p style="text-align: justify;">Boost your team's efficiency and improve customer satisfaction across all your catering services with this powerful tool.</p>
-        <div data-embedded="tableOfContent"></div>
+        <div data-embedded="tableOfContent"/>
         <p style="text-align: justify;"><span class="h6-fs">​</span><br/></p>
         <h2>
             <span class="h1-fs"><strong>Basics</strong></span>
         </h2>
-        <hr />
+        <hr/>
         <p style="text-align: justify;">You can access every installed App in your Odoo database on your main dashboard.</p>
         <ul>
             <li>
                 <p style="text-align: justify;">
-                    <font class="text-o-color-1"><b>The CRM &amp; Sales Apps:</b></font> Manage all your client contacts and quotations.
+                    <span class="text-o-color-1"><b>The CRM &amp; Sales Apps:</b></span> Manage all your client contacts and quotations.
                 </p>
             </li>
             <li style="text-align: justify;">
-                <b><font class="text-o-color-1">The Project &amp; Planning Apps:</font></b> Manage event-related tasks and track their progress through customizable stages.
+                <b><span class="text-o-color-1">The Project &amp; Planning Apps:</span></b> Manage event-related tasks and track their progress through customizable stages.
             </li>
             <li style="text-align: justify;">
-                <b><font class="text-o-color-1">The Purchase App:</font></b> Accurately track all purchased and rented products.
+                <b><span class="text-o-color-1">The Purchase App:</span></b> Accurately track all purchased and rented products.
             </li>
             <li style="text-align: justify;">
-                <b><font class="text-o-color-1">The Invoicing App:</font></b> Keep a clear record of all your invoices.
+                <b><span class="text-o-color-1">The Invoicing App:</span></b> Keep a clear record of all your invoices.
             </li>
             <li>
                 <p style="text-align: justify;">
-                    <font class="text-o-color-1"><b>The Website App:</b></font> Use this app as a virtual showroom and a powerful tool for generating new leads.
+                    <span class="text-o-color-1"><b>The Website App:</b></span> Use this app as a virtual showroom and a powerful tool for generating new leads.
                 </p>
             </li>
         </ul>
@@ -52,21 +52,21 @@
         <h2>
             <span class="h1-fs"><strong>Activities</strong></span><br/>
         </h2>
-        <hr />
+        <hr/>
         <p style="text-align: justify;">By uploading this module's demo data, your database has been filled with a few contacts.</p>
         <p style="text-align: justify;">To get a rapid understanding of the processes this Odoo package offers, you can execute the following flows and configure the settings to suit your catering business.</p>
         <p style="text-align: justify;">Of course, this is just an overview of the features included in this package. Feel free to add new apps, delete/modify demo data, and test everything around!</p>
         <div data-oe-role="status" class="o_editor_banner user-select-none o-contenteditable-false lh-1 d-flex align-items-center alert alert-warning pb-0 pt-3">
             <i data-oe-aria-label="Banner Warning" class="o_editor_banner_icon mb-3 fst-normal">⚠️</i>
             <div class="o_editor_banner_content o-contenteditable-true w-100 px-3">
-                <p>You didn't import demo data? You can still do it. Go to Apps > Industries > Upgrade your Catering package and select the relevant checkbox</p>
+                <p>You didn't import demo data? You can still do it. Go to Apps &gt; Industries &gt; Upgrade your Catering package and select the relevant checkbox</p>
             </div>
         </div>
         <ul>
             <h3><br/></h3>
         </ul>
         <h3><span class="h2-fs">Manage Quotation and Sales Order 🤝</span></h3>
-        <hr />
+        <hr/>
         <p style="text-align: justify;">
             Customers can submit a quote request directly from your website. You can then use the <b>CRM app</b> to communicate with them via the chatter feature to clarify their needs and validate pre-sales steps like a menu tasting.
         </p>
@@ -85,37 +85,37 @@
             <strong><u>Quotation process: (Follow the Sarah Davis Opportunity from the Demo Data)</u></strong>
         </p>
         <ol>
-        <li style="text-align: justify;">Manually create an opportunity only if it hasn't been automatically generated by Odoo.</li>
-        <li style="text-align: justify;">
-            Use the chatter feature to communicate with the client and understand their specific needs.
-            <ol>
+            <li style="text-align: justify;">Manually create an opportunity only if it hasn't been automatically generated by Odoo.</li>
             <li style="text-align: justify;">
-                To speed up the sending process, use an <b>email template</b> in the chatter when sharing your <b>Catalog</b>.
+                Use the chatter feature to communicate with the client and understand their specific needs.
+                <ol>
+                    <li style="text-align: justify;">
+                        To speed up the sending process, use an <b>email template</b> in the chatter when sharing your <b>Catalog</b>.
+                    </li>
+                </ol>
             </li>
-            </ol>
-        </li>
-        <li style="text-align: justify;">
-            Schedule a food tasting by creating a meeting directly from the task.
-            <ol>
             <li style="text-align: justify;">
-                Starting with version 19.1, you can use predefined meeting templates to automatically fill in details like location and email reminders.
+                Schedule a food tasting by creating a meeting directly from the task.
+                <ol>
+                    <li style="text-align: justify;">
+                        Starting with version 19.1, you can use predefined meeting templates to automatically fill in details like location and email reminders.
+                    </li>
+                </ol>
             </li>
-            </ol>
-        </li>
-        <li style="text-align: justify;">
-            Once the client's needs are clear, generate a quote using a quotation template for efficiency.
-            <ol>
             <li style="text-align: justify;">
-                Use the section settings to hide detailed prices or the composition of your items.
+                Once the client's needs are clear, generate a quote using a quotation template for efficiency.
+                <ol>
+                    <li style="text-align: justify;">
+                        Use the section settings to hide detailed prices or the composition of your items.
+                    </li>
+                </ol>
             </li>
-            </ol>
-        </li>
-        <li style="text-align: justify;">
-            The Section feature allows you to mark products as optional. This lets the customer choose, directly from the live quotation signature, whether to add those products to the final sales order.
-        </li>
-        <li style="text-align: justify;">
-            Wait for client approval. They can sign the quotation online.
-        </li>
+            <li style="text-align: justify;">
+                The Section feature allows you to mark products as optional. This lets the customer choose, directly from the live quotation signature, whether to add those products to the final sales order.
+            </li>
+            <li style="text-align: justify;">
+                Wait for client approval. They can sign the quotation online.
+            </li>
         </ol>
         <p style="text-align: justify;">
             <span class="h2-fs">
@@ -128,13 +128,13 @@
             <div class="o_editor_banner_content o-contenteditable-true w-100 px-3">
                 <p>To prevent Odoo from automatically creating a delivery, <b>set all products on the quotation as service products.</b></p>
                 <p>
-                    Want to create a stunning quotation? Explore the <strong><a href="https://www.odoo.com/documentation/latest/applications/services/project.html" class="btn btn-secondary">Quote Builder</a></strong> feature. <b></b>
+                    Want to create a stunning quotation? Explore the <strong><a href="https://www.odoo.com/documentation/latest/applications/services/project.html" class="btn btn-secondary">Quote Builder</a></strong> feature. <b/>
                 </p>
             </div>
         </div>
         <h3 style="text-align: justify;"><br/></h3>
         <h3 style="text-align: justify;"><span class="h2-fs">Project Management 🥗</span></h3>
-        <hr />
+        <hr/>
         <p style="text-align: justify;">For better project management, <b>use predefined templates</b> to ensure all necessary tasks are already created.</p>
         <div class="o_editor_banner user-select-none o-contenteditable-false lh-1 d-flex align-items-center alert alert-info pb-0 pt-3" data-oe-role="status">
             <i class="o_editor_banner_icon mb-3 fst-normal" data-oe-aria-label="Banner Info">💡</i>
@@ -175,7 +175,7 @@
         <div class="o_editor_banner user-select-none o-contenteditable-false lh-1 d-flex align-items-center alert alert-warning pb-0 pt-3" data-oe-role="status">
             <i class="o_editor_banner_icon mb-3 fst-normal" data-oe-aria-label="Banner Warning">⚠️</i>
             <div class="o_editor_banner_content o-contenteditable-true w-100 px-3">
-                <p>You didn't import demo data? You can still do it. Go to Apps > Industries > Upgrade your Catering package and select the relevant checkbox</p>
+                <p>You didn't import demo data? You can still do it. Go to Apps &gt; Industries &gt; Upgrade your Catering package and select the relevant checkbox</p>
             </div>
         </div>
         <p style="text-align: justify;">
@@ -191,8 +191,8 @@
         <p style="text-align: justify;">The dashboard also provides an immediate view of your <b>project's profitability</b>.</p>
         <p><a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/services/project.html">🎓 Project</a></p>
         <h3><br/></h3>
-        <h3><span class="h2-fs">Manage Purchases and Deliveries 🚚</span><b></b><br/></h3>
-        <hr />
+        <h3><span class="h2-fs">Manage Purchases and Deliveries 🚚</span><b/><br/></h3>
+        <hr/>
         <p style="text-align: justify;">
             For large catering events, different types of logistics are required to get all the products and materials where they need to go. By registering these movements in Odoo, you can ensure every item is accounted for. Here's how to manage
             each type of purchase and delivery.
@@ -256,8 +256,8 @@
         </div>
         <p><a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory.html" class="btn btn-secondary">🎓 Inventory</a></p>
         <h3><br/></h3>
-        <h3><span class="h2-fs">Staff Planning &amp; Scheduling 🗓️</span><b></b><br/></h3>
-        <hr />
+        <h3><span class="h2-fs">Staff Planning &amp; Scheduling 🗓️</span><b/><br/></h3>
+        <hr/>
         <p style="text-align: justify;">The planning application facilitates <b>increased efficiency</b> in project planning by enabling the <b>prior configuration of all necessary settings</b>.</p>
         <div class="o_editor_banner user-select-none o-contenteditable-false lh-1 d-flex align-items-center alert alert-info pb-0 pt-3" data-oe-role="status">
             <i class="o_editor_banner_icon mb-3 fst-normal" data-oe-aria-label="Banner Info">💡</i>
@@ -319,8 +319,8 @@
         </div>
         <p style="text-align: justify;"><a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/services/planning.html">🎓 Planning</a></p>
         <p style="text-align: justify;"><br/></p>
-        <h3><span class="h2-fs">Invoicing Clients 💵</span><b></b><br/></h3>
-        <hr />
+        <h3><span class="h2-fs">Invoicing Clients 💵</span><b/><br/></h3>
+        <hr/>
         <p style="text-align: justify;">You can easily invoice clients directly from a <b>Sales Order</b>. Each order allows you to set specific <b>payment terms and conditions</b> tailored to that client or project.</p>
         <p style="text-align: justify;">
             When you're ready, you have the flexibility to create an invoice for either a full or a partial payment, such as a down payment. All invoices generated are tracked and can be managed through the <b>Invoices app</b>.
@@ -328,12 +328,12 @@
         <p style="text-align: justify;"><a href="https://www.odoo.com/documentation/latest/applications/finance/accounting/customer_invoices.html" class="btn btn-secondary">🎓 Invoicing</a></p>
         <p><br/></p>
         <h3 style="text-align: justify;"><span class="h2-fs">Manage your website 🌐</span></h3>
-        <hr />
+        <hr/>
         <p>You can easily tailor your website to provide the information you want for potential leads. When a client contacts you through the contact page, their submission will automatically create a new opportunity in your CRM pipeline.</p>
         <p><a class="btn btn-secondary" href="https://www.odoo.com/documentation/latest/applications/websites/website.html">🎓 Website</a></p>
         <p><br/></p>
         <h1 style="text-align: justify;">Do you want to go further?</h1>
-        <hr />
+        <hr/>
         <p style="text-align: justify;"><strong>Accounting made easy 🧮</strong></p>
         <p style="text-align: justify;">Use the <strong>Accounting</strong> app to easily handle:</p>
         <ul>
@@ -347,7 +347,7 @@
             <span class="h6-fs"><b>Survey ⁉️</b></span>
         </p>
         <p style="text-align: justify;">
-            <span class="h6-fs"><b></b>Use the Survey App to send survey to your customer after the events.</span><br/>
+            <span class="h6-fs"><b/>Use the Survey App to send survey to your customer after the events.</span><br/>
         </p>
         <p style="text-align: justify;">
             <span class="h6-fs">
@@ -374,7 +374,7 @@
             <span class="h6-fs"><b>Follow your meal Production 🍳</b></span><br/>
         </p>
         <p style="text-align: justify;">
-            <span class="h6-fs"><b></b>Use the Manufacturing App to create recipes and follow the stock of your raw material</span><br/>
+            <span class="h6-fs"><b/>Use the Manufacturing App to create recipes and follow the stock of your raw material</span><br/>
         </p>
         <p style="text-align: justify;">
             <span class="h6-fs">
@@ -383,7 +383,7 @@
         </p>
         <p style="text-align: justify;">
             <span class="h6-fs">
-                <span class="h6-fs"><b></b></span>
+                <span class="h6-fs"><b/></span>
             </span>
             <br/>
         </p>
@@ -405,4 +405,4 @@
         <field name="is_locked" eval="True"/>
         <field name="body"><![CDATA[]]></field>
     </record>
-  </odoo>
+</odoo>

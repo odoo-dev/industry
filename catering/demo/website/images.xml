@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="img_custom_la_table_image_01" model="ir.attachment">
+        <field name="name">south_48dp_E53517_FILL0_wght100_GRAD0_opsz48.svg</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-01.svg"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="mimetype">image/svg+xml</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_02" model="ir.attachment">
+        <field name="name">Gemini_Generated_Image_7xcs0s7xcs0s7xcs.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-02.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_03" model="ir.attachment">
+        <field name="name">unsplash_Aw3mQaZksV4_local producers.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-03.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_04" model="ir.attachment">
+        <field name="name">unsplash_J5i9E-oAGgM_celebration.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-04.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_05" model="ir.attachment">
+        <field name="name">unsplash_kAKv36cdngc_cocktail.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-05.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_06" model="ir.attachment">
+        <field name="name">AI Generated Centered Hand with Red Wine.svg</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-06.svg"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="mimetype">image/svg+xml</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_07" model="ir.attachment">
+        <field name="name">AI Generated Rustic Brownie with Chantilly and Cherry.svg</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-07.svg"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="mimetype">image/svg+xml</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_08" model="ir.attachment">
+        <field name="name">AI Generated Ultra-Minimalist Michelin Vegetable Dish.svg</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-08.svg"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="mimetype">image/svg+xml</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_09" model="ir.attachment">
+        <field name="name">AI Generated Simplified Avant-Garde Michelin Meat Dish.svg</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-09.svg"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="mimetype">image/svg+xml</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_10" model="ir.attachment">
+        <field name="name">Venue - Terroir dining hall.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-10.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_11" model="ir.attachment">
+        <field name="name">Venue - Artisanal hall.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-11.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_12" model="ir.attachment">
+        <field name="name">AI Generated Simplified Avant-Garde Michelin Meat Dish.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-12.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_13" model="ir.attachment">
+        <field name="name">AI Generated Minimalist Oscietra Caviar Plating.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-13.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_14" model="ir.attachment">
+        <field name="name">AI Generated Comté Gougère Fine Dining Presentation.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-14.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_15" model="ir.attachment">
+        <field name="name">AI Generated Lobster Croquette with Saffron Aioli.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-15.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_16" model="ir.attachment">
+        <field name="name">AI Generated Bluefin Tuna Crudo Plating.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-16.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_17" model="ir.attachment">
+        <field name="name">AI Generated Minimalist Architectural Turbot Plating.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-17.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_18" model="ir.attachment">
+        <field name="name">07.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-18.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_19" model="ir.attachment">
+        <field name="name">09.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-19.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_20" model="ir.attachment">
+        <field name="name">08.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-20.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="img_custom_la_table_image_21" model="ir.attachment">
+        <field name="name">unsplash_-eKZLpj7U0E_contact chef.webp</field>
+        <field name="raw" type="bytes" file="catering/static/src/img/content/website/catering-image-21.webp"/>
+        <field name="website_id" ref="website_industry"/>
+        <field name="public" eval="True"/>
+    </record>
+</odoo>

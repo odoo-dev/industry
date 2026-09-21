@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_page_menu" model="ir.ui.view">
+        <field name="name">menu</field>
+        <field name="key">catering.page_menu</field>
+        <field name="type">qweb</field>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml">
+            <t t-name="catering.page_menu">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty"><section class="s_images_constellation o_cc pb48 o_full_screen_height pt0 o_colored_level s_custom_snippet o_cc1" data-snippet="s_images_constellation" style="min-height: 965.5px !important;" data-name="Custom Images Constellation">
+                            <div class="container-fluid">
+                                <div class="row o_grid_mode" data-row-count="17">
+
+
+
+
+
+
+                                    <div class="o_grid_item o_colored_level g-col-lg-6 g-height-3 col-lg-6" style="z-index: 9; --grid-item-padding-x: 16px; --grid-item-padding-y: 16px; grid-area: 7 / 4 / 10 / 10;">
+                                        <div class="text-center">
+                                            <h1 class="display-1"><span class="o_rfs" style="font-size: clamp(8px, 1em + 1.1696vw, 400px);"><span class="o_animated_text o_animate o_anim_fade_in o_visible o_anim_from_bottom o_rfs" style="--wanim-intensity: 10; font-size: clamp(8px, 1em + 2.0833vw, 400px);">OUR MENU</span><span class="o_animated_text o_animate o_anim_fade_in o_visible o_anim_from_bottom o_rfs" style="animation-delay: 0.75s; --wanim-intensity: 10; font-size: clamp(8px, 1em + 2.0833vw, 400px);" data-oe-zws-empty-inline="">​</span></span></h1></div>
+                                    </div><div class="o_grid_item g-col-lg-12 o_colored_level g-height-2 col-lg-12 o_animate o_animate_on_scroll o_anim_fade_in o_animate_out o_anim_from_bottom" style="z-index: 11; --grid-item-padding-x: 16px; --grid-item-padding-y: 16px; grid-area: 16 / 1 / 18 / 13;" data-scroll-zone-start="0" data-scroll-zone-end="100">
+                                        <p style="text-align: center;" class="lead"><span style="font-size: 14px;" class="text-o-color-1"><a href="/menu#menu" class="o_translate_inline">DISCOVER MORE<br/><img src="/web/image/catering.img_custom_la_table_image_01" alt="" class="img img-fluid o_we_custom_image o_attachment_pending_record_id" style="animation-play-state: paused; visibility: visible;" data-mimetype="undefined" loading="lazy"/></a></span></p>
+                                </div></div>
+                            </div>
+                        </section><section class="s_parallax parallax o_colored_level s_parallax_is_fixed pt48 pb48 s_custom_snippet o_full_screen_height" data-scroll-background-ratio="3" data-snippet="s_parallax" style="position: relative;" data-name="Custom Parallax">
+                            <span class="s_parallax_bg_wrap">
+                                <span class="s_parallax_bg oe_img_bg o_bg_img_center o_bg_img_origin_border_box" style="background-image: url(&quot;/web/image/catering.img_custom_la_table_image_12&quot;); background-position: 50% 75%; top: -289.8px; bottom: -289.8px;" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp"/>
+                            </span>
+                            <div class="o_we_bg_filter" style="background-color: transparent; background-image: linear-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 99%);"/>
+                            <div class="oe_structure oe_empty"/>
+                        </section><section class="s_animated_cover o_cc o_colored_level s_custom_snippet pt40 o_cc4" data-snippet="s_animated_cover" data-scroll-background-ratio="0" data-name="Custom Custom Custom Custom Animated Cover (2)" id="menu" data-anchor="true">
+                            <div class="oe_structure oe_empty">
+
+                                <section class="s_announcement_scroll w-100 pt0 s_announcement_scroll_direction_left o_colored_level pb0 s_announcement_scroll_ready" style="--marquee-item-font-size: 40; --marquee-animation-speed: 1s;" role="marquee" data-snippet="s_announcement_scroll" data-name="Announcement Scroll">
+                                    <div class="s_announcement_scroll_marquee_container d-flex s_announcement_scroll_heading_family" style="transform: translateX(-50%);">
+                                        <div class="o_not_editable s_announcement_scroll_marquee_item lh-1">*</div>
+                                    </div>
+                                </section><section class="s_announcement_scroll w-100 s_announcement_scroll_direction_right o_colored_level pt0 pb8 s_announcement_scroll_ready" style="--marquee-item-font-size: 40; --marquee-animation-speed: 1s;" role="marquee" data-snippet="s_announcement_scroll" data-name="Announcement Scroll">
+                                    <div class="s_announcement_scroll_marquee_container d-flex" style="transform: translateX(-50%);">
+                                        <div class="o_not_editable s_announcement_scroll_marquee_item lh-1">OUR MENU</div>
+                                    </div>
+                                </section><section class="s_announcement_scroll w-100 pb16 s_announcement_scroll_direction_left o_colored_level pt4 s_announcement_scroll_ready" style="--marquee-item-font-size: 40; --marquee-animation-speed: 1s;" role="marquee" data-snippet="s_announcement_scroll" data-name="Announcement Scroll">
+                                    <div class="s_announcement_scroll_marquee_container d-flex s_announcement_scroll_heading_family" style="transform: translateX(-50%);">
+                                        <div class="o_not_editable s_announcement_scroll_marquee_item lh-1">*</div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section><section class="s_projects_list pb48 o_colored_level o_cc o_cc4 pt0" data-snippet="s_projects_list" data-name="Projects List">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 pt32 pb24 o_colored_level border" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px;" data-name="Project">
+                                        <div class="row s_col_no_bgcolor">
+                                            <div class="col-lg-6 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom col-12 pb40" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 1;">
+                                                <h2><span class="display-1-fs">CANAPÉS</span></h2>
+                                            </div>
+                                            <div class="col-lg-4 col-6 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Oscietra caviar, crème fraîche, blini</em></span></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">A refined classic with a silky finish.</span><br/><span class="o_small-fs"><strong>€18</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_13" alt="AI Generated Minimalist Oscietra Caviar Plating" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div><div class="col-lg-12 pt32 pb24 border o_colored_level o_animate o_animate_on_scroll o_anim_from_right o_anim_slide_in" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px; --wanim-intensity: 1;" data-name="Project" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                        <div class="row s_col_no_bgcolor">
+
+                                            <div class="col-6 col-lg-10 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Comté gougère</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Light, warm, and deeply savory.</span><br/><span class="o_small-fs"><strong>€9</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_14" alt="AI Generated Comté Gougère Fine Dining Presentation" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div><div class="col-lg-12 pt32 pb24 border o_colored_level o_animate o_animate_on_scroll o_anim_from_right o_anim_slide_in" style="--box-border-left-width: 0px; --box-border-bottom-width: 1px; --box-border-right-width: 0px; --box-border-top-width: 0px; border-color: rgba(255, 255, 255, 0.48) !important; --wanim-intensity: 5;" data-name="Project" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                        <div class="row s_col_no_bgcolor">
+
+                                            <div class="col-6 col-lg-10 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Lobster croquette, saffron aioli</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Crisp, delicate, and elegant.</span><br/><span class="o_small-fs"><strong>€14</strong></span></p><h3 style="text-align: end;"><br/></h3>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_15" alt="AI Generated Lobster Croquette with Saffron Aioli" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </section><section class="s_projects_list pb48 o_cc o_cc4 pt0 o_colored_level" data-snippet="s_projects_list" data-name="Projects List">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 pt32 pb24 border o_colored_level" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px;" data-name="Project">
+                                        <div class="row s_col_no_bgcolor">
+                                            <div class="col-lg-6 col-12 pb48 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 1;">
+                                                <h2><span class="display-1-fs">STARTERS</span></h2>
+                                            </div>
+                                            <div class="col-6 col-lg-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Bluefin tuna crudo, citrus, fennel</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Clean, bright, and beautifully balanced.</span><br/><span class="o_small-fs"><strong>€24</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_16" alt="AI Generated Bluefin Tuna Crudo Plating" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div><div class="col-lg-12 pt32 pb24 o_colored_level border o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_right" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px; --wanim-intensity: 5;" data-name="Project" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                        <div class="row s_col_no_bgcolor">
+
+                                            <div class="col-6 col-lg-10 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Hand-dived scallop, green apple, shellfish emulsion</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Sweet, precise, and luxurious.</span><br/><span class="o_small-fs"><strong>€28</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_12" alt="" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </section><section class="s_projects_list pb48 o_cc o_cc4 pt0 o_colored_level" data-snippet="s_projects_list" data-name="Projects List">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 pt32 pb24 border o_colored_level" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px;" data-name="Project">
+                                        <div class="row s_col_no_bgcolor">
+                                            <div class="col-lg-6 col-12 pb40 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 1;">
+                                                <h2><span class="display-1-fs">MAIN<br/>COURSES</span></h2>
+                                            </div>
+                                            <div class="col-6 col-lg-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Caramelized turbot, Champagne butter, leeks</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Silky fish with a rich, refined sauce.</span><br/><span class="o_small-fs"><strong>€42</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_17" alt="AI Generated Minimalist Architectural Turbot Plating" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div><div class="col-lg-12 pt32 pb24 o_colored_level border o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_right" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px; --wanim-intensity: 5;" data-name="Project" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                        <div class="row s_col_no_bgcolor">
+
+                                            <div class="col-6 col-lg-10 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Beef tenderloin, bone marrow jus, potato mille-feuille</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Deeply flavorful, tender, and indulgent.</span><br/><span class="o_small-fs"><strong>€48</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_18" alt="" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="690" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </section><section class="s_projects_list pb48 o_cc o_cc4 pt0 o_colored_level" data-snippet="s_projects_list" data-name="Projects List">
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-12 pt32 pb24 border o_colored_level" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px;" data-name="Project">
+                                        <div class="row s_col_no_bgcolor">
+                                            <div class="col-lg-6 col-12 pb48 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 1;">
+                                                <h2><span class="display-1-fs">DESSERTS</span></h2>
+                                            </div>
+                                            <div class="col-6 col-lg-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Valrhona chocolate, tonka, salted caramel</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Dark, smooth, and elegantly balanced.</span><br/><span class="o_small-fs"><strong>€16</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_19" alt="" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div><div class="col-lg-12 pt32 pb24 o_colored_level border o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_right" style="border-color: rgba(255, 255, 255, 0.48) !important; --box-border-left-width: 0px; --box-border-bottom-width: 0px; --box-border-right-width: 0px; --box-border-top-width: 0px; --wanim-intensity: 5;" data-name="Project" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                        <div class="row s_col_no_bgcolor">
+
+                                            <div class="col-6 col-lg-10 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%" style="--wanim-intensity: 25;">
+                                                <h3 style="text-align: end;"><span class="h5-fs"><em>Lemon tart, yuzu, meringue</em></span><br/></h3><p style="text-align: end;" class="lead"><span class="o_small-fs">Bright, delicate, and refreshing.</span><br/><span class="o_small-fs"><strong>€14</strong></span></p>
+                                            </div><div class="col-6 col-lg-2 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom" data-scroll-zone-start="0" data-scroll-zone-end="50%">
+                                                <img src="/web/image/catering.img_custom_la_table_image_20" alt="" class="img img-fluid o_we_custom_image o_image_popup o_attachment_pending_record_id" data-format-mimetype="image/webp" data-resize-width="1024" data-mimetype="image/webp" loading="lazy"/><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </section>
+
+
+
+
+
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+    <data noupdate="1">
+        <record id="page_menu" model="website.page" forcecreate="0">
+            <field name="view_id" ref="view_page_menu"/>
+            <field name="url">/menu</field>
+            <field name="website_id" ref="website_industry"/>
+            <field name="is_published" eval="True"/>
+            <field name="website_indexed" eval="True"/>
+            <field name="header_overlay" eval="True"/>
+        </record>
+    </data>
+</odoo>

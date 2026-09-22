@@ -14,6 +14,7 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
         super().setUpClass()
         cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', "MyTestAPIKey")
         cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_token', "MyTestWebhookSecret")
+        cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_url', "https://staging.channex.io/api/v1")
 
     def test_receive_booking_webhook(self):
         payload_receive_booking = {

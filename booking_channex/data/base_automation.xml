@@ -33,6 +33,14 @@
         <field name="filter_domain">[("pricelist_id.x_published_on_channex", "!=", False)]</field>
         <field name="trigger_field_ids" eval="[(5, 0, 0)]"/>
     </record>
+    <record id="automation_on_write_pricelist_item_update_alert" model="base.automation">
+        <field name="model_id" ref="product.model_product_pricelist_item"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_update_urgent_pricelist_rule')])]"/>
+        <field name="trigger">on_write</field>
+        <field name="filter_domain">[("pricelist_id.x_published_on_channex", "!=", False), ("x_show_update_alert", "=", False)]</field>
+        <field name="name">item change urgent</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('product.field_product_pricelist_item__categ_id'), ref('product.field_product_pricelist_item__date_end'), ref('product.field_product_pricelist_item__date_start'), ref('product.field_product_pricelist_item__product_id'), ref('product.field_product_pricelist_item__product_tmpl_id')])]"/>
+    </record>
 
     <!-- Live Synchronization from odoo to channex -->
     <!-- Group To Channex -->
@@ -194,5 +202,33 @@
         <field name="trigger">on_unlink</field>
         <field name="filter_domain">[("x_is_a_room_offer", "!=", False)]</field>
         <field name="name">Rate Plan: On room offer Product Template deleted</field>
+    </record>
+
+    <!-- Channex-Odoo mapping -->
+    <record id="x_channex_mapping_compute_url_automation" model="base.automation">
+        <field name="model_id" ref="x_channex_mapping_model"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('x_channex_mapping_compute_url_action')])]"/>
+        <field name="trigger">on_create</field>
+        <field name="name">Channex: Compute Odoo Record Url of Channex Mapping</field>
+    </record>
+
+    <!-- Sale Order -->
+    <record id="automation_on_so_rental_date_change" model="base.automation">
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_so_rental_date_change')])]"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_pre_domain">[("x_ota_name", "!=", False), ("state", "=", "sale"), ("x_ota_force_update", "=", False)]</field>
+        <field name="filter_domain">[("x_ota_name", "!=", False), ("state", "in", ["sale", "cancel"]), ("x_ota_force_update", "=", False)]</field>
+        <field name="name">Sale Order: Prevent SO Rental Date Changes</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('sale.field_sale_order__order_line'), ref('sale_renting.field_sale_order__rental_return_date'), ref('sale_renting.field_sale_order__rental_start_date'), ref('sale.field_sale_order__state')])]"/>
+    </record>
+    <record id="automation_on_sol_change" model="base.automation">
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('action_sol_change')])]"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_pre_domain">[("order_id.x_ota_name", "!=", False), ("order_id.state", "=", "sale"), ("order_id.x_ota_force_update", "=", False), ('product_id.x_is_a_room_offer', '=', True)]</field>
+        <field name="filter_domain">[("order_id.x_ota_name", "!=", False), ("order_id.state", "in", ["sale", "cancel"]), ("order_id.x_ota_force_update", "=", False), ('product_id.x_is_a_room_offer', '=', True)]</field>
+        <field name="name">Sale Order Line: Prevent Changes</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [ref('sale.field_sale_order_line__product_id'), ref('sale.field_sale_order_line__product_uom_qty')])]"/>
     </record>
 </odoo>

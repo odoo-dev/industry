@@ -92,9 +92,8 @@ for so in sos:
         so.write(changes)
     except Exception as e:
         env['mail.activity'].create({
-            'res_model_id': env['ir.model']._get_id('sale.order'),
             'res_id': so.id,
-            'activity_type_id': env.ref('mail.mail_activity_data_todo').id,
+            'activity_type_id': env.ref('mail_activity_type_1').id,
             'summary': f"Adapt Rental Dates: Channex received a change with new dates being from {so.x_new_rental_start_date.strftime('%Y-%m-%d')} to {so.x_new_rental_return_date.strftime('%Y-%m-%d')} that could not be applied automatically.",
             'date_deadline': datetime.datetime.today(),
         })
@@ -151,8 +150,20 @@ else:
             if not currency_id: log_sync_message("/", "odoo webhook", f"Error Not Found: Could not retrieve currency in odoo with name '{(full_booking.get('currency') or '')}'.")
             else:
                 so = env['sale.order'].create({
-                    'partner_id': partner.id, 'is_rental_order': True, 'currency_id': currency_id.id
+                    'partner_id': partner.id, 'is_rental_order': True, 'currency_id': currency_id.id, 'x_channel': full_booking.get('ota_name', 'Channex OTA'),
                 })
+                so.message_post(
+                    body=("""
+                        <strong>Booking Details</strong><br/>
+                        <ul>
+                            <li><strong>OTA Reservation ID:</strong> %s</li>
+                            <li><strong>Arrival Time:</strong> %s</li>
+                            <li><strong>Notes:</strong> %s</li>
+                        </ul>
+                        % (full_booking.get('ota_reservation_code') or '', full_booking.get('arrival_hour') or '', full_booking.get('notes') or '')
+                    """),
+                    body_is_html=True,
+                )
                 for room in (full_booking.get('rooms') or []):
                     room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', room.get('room_type_id'))], limit=1) if room.get('room_type_id') else False
                     rate_plan_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'rate_plan'), ('x_remote_id', '=', room.get('rate_plan_id'))], limit=1) if room.get('rate_plan_id') else False
@@ -184,9 +195,8 @@ else:
                 except Exception as exc:
                     log_sync_message("/", "odoo webhook", f"Validation Error: Could not confirm the booking sale order with id {str(so.id)}.")
                     env['mail.activity'].create({
-                        'res_model_id': env['ir.model']._get_id('sale.order'),
                         'res_id': so.id,
-                        'activity_type_id': env.ref('mail.mail_activity_data_todo').id,
+                        'activity_type_id': env.ref('mail_activity_type_1').id,
                         'summary': 'Confirm Order',
                         'date_deadline': datetime.datetime.today(),
                     })
@@ -1117,5 +1127,27 @@ if records: records.env['x_rate_plan'].search([('x_variant_id', 'in', records.pr
 ]]></field>
         <field name="model_id" ref="product.model_product_template"/>
         <field name="state">code</field>
+    </record>
+
+    <record id="x_channex_mapping_compute_url_action" model="ir.actions.server">
+        <field name="name">Channex: Compute Odoo Record Url of Channex Mapping</field>
+        <field name="model_id" ref="x_channex_mapping_model"/>
+        <field name="state">object_write</field>
+        <field name="crud_model_id" ref="x_channex_mapping_model"/>
+        <field name="update_path">x_odoo_record</field>
+        <field name="update_field_id" ref="x_odoo_record_field_x_channex_mapping"/>
+        <field name="evaluation_type">equation</field>
+        <field name="value"><![CDATA[
+env['ir.config_parameter'].sudo().get_str('web.base.url').rstrip('/') \
++ "/odoo" \
++ ("/automations/" if record.x_model_type == 'webhook' else "") \
++ ("/m-x_channex_group/" if record.x_model_type == 'group' else "") \
++ ("/companies/" if record.x_model_type == 'property' else "") \
++ ("/action-%s/" % env.ref('booking_engine.booking_engine_rooms_offers_action').id if record.x_model_type == 'room_type' else "") \
++ ("/action-%s/" % env.ref('booking_channex.action_window_show_rate_plans').id if record.x_model_type == 'rate_plan' else "") \
++ ("/action-%s/" % env.ref('booking_engine.booking_engine_rooms_order_action').id if record.x_model_type == 'booking' else "") \
++ str(record.x_local_id or '') \
++ "?debug=1"
+    ]]></field>
     </record>
 </odoo>

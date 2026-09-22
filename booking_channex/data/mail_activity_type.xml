@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="mail_activity_type_1" model="mail.activity.type">
+        <field name="name">Booking Conflict</field>
+        <field name="default_user_id" ref="base.user_admin"/>
+        <field name="default_role_id" ref="res_role_1"/>
+        <field name="summary">Solve booking conflict</field>
+        <field name="icon">fa-exclamation-triangle</field>
+        <field name="decoration_type">danger</field>
+        <field name="delay_from">current_date</field>
+        <field name="res_model">sale.order</field>
+        <field name="kpi_provider_visibility">all</field>
+        <field name="default_note">Cross check booking details on channel</field>
+    </record>
+</odoo>

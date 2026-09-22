@@ -22,6 +22,7 @@
                 <field name="x_model_type" />
                 <field name="x_local_id" />
                 <field name="x_remote_id" />
+                <field name="x_odoo_record" widget="url"/>
             </list>
         </field>
     </record>
@@ -262,7 +263,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="after">
                 <field name="x_attribute_rate_plan_value_id"
-                    invisible="not product_tmpl_id or not product_tmpl_id.x_is_a_room_offer"
+                    invisible="not (product_tmpl_id and x_is_a_room_offer)"
                     domain="[('attribute_id.x_accommodation_characteristic', '=', 'rate_plan')]"
                     placeholder="All Rate Plans"/>
             </xpath>
@@ -272,6 +273,53 @@
         <field name="model">product.pricelist.item</field>
         <field name="name">product.pricelist.item.form.inherit.booking_channex</field>
         <field name="type">form</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- rental order views-->
+    <record id="booking_channex_rental_order_form" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="x_channel" invisible="not x_channel"/>
+                <widget name="web_ribbon" title="Conflict" bg_color="text-bg-danger" invisible="not x_has_conflict"/>
+            </xpath>
+        </field>
+        <field name="inherit_id" ref="booking_engine.rental_order_view"/>
+        <field name="mode">extension</field>
+        <field name="model">sale.order</field>
+        <field name="name">sale.order.form.inherit.booking_channex</field>
+        <field name="type">form</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="booking_channex_rental_order_search" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_today']" position="before">
+                <filter name="rental_has_conflict" string="Conflicting" domain="[('x_has_conflict', '=', True)]"/>
+            </xpath>
+            <xpath expr="//filter[@name='customer']" position="after">
+                <filter name="channel" string="Channel" context="{'group_by': 'x_channel'}"/>
+            </xpath>
+        </field>
+        <field name="inherit_id" ref="sale_renting.rental_order_view_search"/>
+        <field name="mode">extension</field>
+        <field name="model">sale.order</field>
+        <field name="name">sale.order.search.inherit.booking_channex</field>
+        <field name="type">search</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="booking_channex_rental_orders_kanban" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <xpath expr="//t[@t-name='card']/div[1]" position="after">
+                <field name="x_has_conflict"/>
+                <widget name="web_ribbon" title="Conflict" bg_color="text-bg-danger" invisible="not x_has_conflict"/>
+            </xpath>
+        </field>
+        <field name="inherit_id" ref="sale_renting.rental_order_view_kanban"/>
+        <field name="mode">extension</field>
+        <field name="model">sale.order</field>
+        <field name="name">rental.order.kanban.inherit.booking_channex</field>
+        <field name="priority">160</field>
+        <field name="type">kanban</field>
         <field name="active" eval="True"/>
     </record>
 </odoo>

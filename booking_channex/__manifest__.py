@@ -21,6 +21,8 @@
         'data/res_company.xml',
         'data/ir_ui_view.xml',
         'data/ir_ui_menu.xml',
+        'data/res_role.xml',
+        'data/mail_activity_type.xml',
     ],
     'demo': [
         'demo/res_config_settings.xml',

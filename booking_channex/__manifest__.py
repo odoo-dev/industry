@@ -11,6 +11,8 @@
         'data/knowledge_article.xml',
         'data/knowledge_article_favorite.xml',
         'data/ir_actions_act_window.xml',
+        'data/res_role.xml',
+        'data/mail_activity_type.xml',
         'data/ir_model_fields.xml',
         'data/ir_actions_server.xml',
         'data/res_config_settings.xml',

@@ -1,22 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo auto_sequence="1">
+    <menuitem id="channex_menu_item" 
+        name="Channex" 
+        parent="booking_engine.booking_engine_rooms_menu" 
+        groups="base.group_no_one"
+    />
     <menuitem id="mapping_menu_item" 
         name="Mappings" 
-        parent="booking_engine.booking_engine_rooms_menu" 
+        parent="channex_menu_item" 
         action="action_window_show_mapping_table"
-        groups="base.group_no_one"
     />
     <menuitem id="rate_plan_menu_item"
         name="Rate Plans"
-        parent="booking_engine.booking_engine_rooms_menu"
+        parent="channex_menu_item"
         action="action_window_show_rate_plans"
-        groups="base.group_no_one"
     />
     <menuitem id="cron_data_menu_item"
         name="ARI Updates"
-        parent="booking_engine.booking_engine_rooms_menu"
+        parent="channex_menu_item"
         action="action_window_show_cron_data"
-        groups="base.group_no_one"
     />
     <menuitem id="channex_groups_menu_item"
         name="Channex Groups"
@@ -26,8 +28,7 @@
     />
     <menuitem id="logging_menu_item" 
         name="Channex Logs" 
-        parent="booking_engine.booking_engine_rooms_menu" 
+        parent="channex_menu_item" 
         action="action_window_show_logging"
-        groups="base.group_no_one"
     />
 </odoo>

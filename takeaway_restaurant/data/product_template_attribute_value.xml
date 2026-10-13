@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<odoo noupdate="1">
-    <function name="write" model="product.template.attribute.value">
-        <value model="product.template.attribute.value" eval="obj().search([
-            ('product_attribute_value_id', 'not in', [ref('product_attribute_value_14'), ref('product_attribute_value_15'), ref('product_attribute_value_15')]),
-        ]).ids"/>
-        <value eval="{'price_extra': 1.0}"/>
-    </function>
-</odoo>

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<odoo>
-  <function model="ir.ui.view" name="write">
-    <value eval="[ref('website_sale.product_quantity')]"/>
-    <value eval="{'active': False}" />
-  </function>
-</odoo>

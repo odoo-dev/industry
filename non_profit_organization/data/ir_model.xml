@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<odoo>
-    <record id="x_donation_receipt_model" model="ir.model">
-        <field name="name">Donation Receipt</field>
-        <field name="model">x_donation_receipt</field>
-        <field name="is_mail_thread" eval="True"/>
-        <field name="is_mail_activity" eval="True"/>
-    </record>
-</odoo>

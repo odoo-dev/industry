@@ -18,7 +18,7 @@
         <field name="active" eval="True"/>
         <field name="type">list</field>
         <field name="arch" type="xml">
-            <list editable="bottom">
+            <list create="false" edit="false" delete="false">
                 <field name="x_model_type" />
                 <field name="x_local_id" />
                 <field name="x_remote_id" />
@@ -160,6 +160,9 @@
     <record id="x_channex_ari_update_lines_list_view" model="ir.ui.view">
         <field name="arch" type="xml">
             <list create="False">
+                <header>
+                    <button type="action" name="%(cron_action_send_data_to_channex)d" string="Send" display="always" class="btn-primary"/>
+                </header>
                 <field name="x_payload" />
                 <field name="x_operation" />
             </list>

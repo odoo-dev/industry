@@ -66,7 +66,7 @@
                                             <h2>OUR <span class="text-o-color-1">NEXT</span> SHOWS<br/><br/></h2>
                                         </div>
                                         <div>
-                                            <a title="See All" href="/event">See all<span class="fa fa-long-arrow-right ms-2"/></a>
+                                            <a title="See All" href="/event">See all<span class="oi ms-2" data-icon="arrow_right"/></a>
                                         </div>
                                     </section>
                                     <section class="s_dynamic_snippet_content oe_unremovable oe_unmovable o_not_editable col s_col_no_resize o_colored_level">

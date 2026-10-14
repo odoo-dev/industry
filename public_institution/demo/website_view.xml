@@ -586,10 +586,10 @@
                         <i class="oi o_editable_media rounded shadow-sm" data-icon="oi_instagram"/>
                       </a>
                       <a href="https://www.youtube.com/your-page" class="s_social_media_youtube" target="_blank" aria-label="YouTube">
-                        <i class="fa fa-youtube-play o_editable_media rounded shadow-sm"/>
+                        <i class="oi o_editable_media rounded shadow-sm" data-icon="oi_youtube"/>
                       </a>
                       <a href="https://www.tiktok.com/your-page" class="s_social_media_tiktok" target="_blank" aria-label="TikTok">
-                        <i class="fa fa-tiktok o_editable_media rounded shadow-sm"/>
+                        <i class="oi o_editable_media rounded shadow-sm" data-icon="oi_tiktok"/>
                       </a>
                       <a href="https://www.twitter.com/your-page" class="s_social_media_twitter" aria-label="Twitter">
                         <i class="oi o_editable_media rounded shadow-sm" data-icon="oi_twitter"/>

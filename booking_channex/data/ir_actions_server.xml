@@ -92,10 +92,11 @@ for so in sos:
         so.write({'x_ota_force_update': True})
         so.write(changes | {'x_ota_force_update': False})
     except Exception as e:
+        so.write({'x_ota_force_update': False})
         env['mail.activity'].create({
             'res_model_id': env['ir.model']._get_id('sale.order'),
             'res_id': so.id,
-            'activity_type_id': env.ref('mail_activity_type_1').id,
+            'activity_type_id': env.ref('booking_channex.mail_activity_type_1').id,
             'summary': f"Adapt Rental Dates: Channex received a change with new dates being from {so.x_new_rental_start_date.strftime('%Y-%m-%d')} to {so.x_new_rental_return_date.strftime('%Y-%m-%d')} that could not be applied automatically.",
             'date_deadline': datetime.datetime.today(),
         })
@@ -111,6 +112,7 @@ if env['sale.order'].search_count(['|', ('x_new_rental_start_date', '!=', False)
         <field name="model_id" ref="sale.model_sale_order" />
         <field name="state">code</field>
         <field name="code"><![CDATA[
+env = env(user=env.ref('base.user_root'))
 def log_sync_message(func, path, mes): env.ref('booking_channex.util_log_message').with_context(message=mes, path=path, func=func).run()
 
 odoo_secret_token = env['ir.config_parameter'].get_str('booking_channex.x_channex_token')
@@ -161,9 +163,9 @@ else:
                             <li><strong>OTA Reservation ID:</strong> %s</li>
                             <li><strong>Arrival Time:</strong> %s</li>
                             <li><strong>Notes:</strong> %s</li>
-                        </ul>
+                        </ul>"""
                         % (full_booking.get('ota_reservation_code') or '', full_booking.get('arrival_hour') or '', full_booking.get('notes') or '')
-                    """),
+                    ),
                     body_is_html=True,
                 )
                 for room in (full_booking.get('rooms') or []):
@@ -192,57 +194,73 @@ else:
                     "x_local_id": so.id,
                     "x_remote_id": (full_booking.get('booking_id') or ''),
                 })
+                env.cr.commit()
                 try:
                     so.action_confirm()
-                    so.write({'x_ota_force_update': False})
                 except Exception as exc:
+                    env.cr.rollback()
                     log_sync_message("/", "odoo webhook", f"Validation Error: Could not confirm the booking sale order with id {str(so.id)}.")
                     env['mail.activity'].create({
                         'res_model_id': env['ir.model']._get_id('sale.order'),
                         'res_id': so.id,
-                        'activity_type_id': env.ref('mail_activity_type_1').id,
+                        'activity_type_id': env.ref('booking_channex.mail_activity_type_1').id,
                         'summary': 'Confirm Order',
                         'date_deadline': datetime.datetime.today(),
                     })
+                so.write({'x_ota_force_update': False})
         elif booking_mapping and full_booking.get('status') == 'modified':
-            so = env['sale.order'].browse(booking_mapping.x_local_id)
-            so.write({'x_ota_force_update': True})
-            if so.rental_start_date.strftime('%Y-%m-%d') != (full_booking.get('arrival_date') or '') or so.rental_return_date.strftime('%Y-%m-%d') != (full_booking.get('departure_date') or ''):
-                so.write({'x_new_rental_start_date': full_booking.get('arrival_date', ''), 'x_new_rental_return_date': full_booking.get('departure_date', '')})
-                sending_cron = env.ref('booking_channex.ir_cron_change_booking_dates')
-                if not sending_cron.active:
-                    sending_cron.write({'nextcall': datetime.datetime.now() + datetime.timedelta(minutes=1), 'active': True})
-            try:
-                channex_rooms = []
-                for room in (full_booking.get('rooms') or []):
-                    room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', (room.get('room_type_id') or ''))], limit=1)
-                    if room_mapping: channex_rooms.append((room_mapping.x_local_id, float(room.get('amount'))))
-                for sol in so.order_line:
-                    if sol.product_uom_qty == 0: continue
-                    room = (sol.product_id.id, sol.price_unit)
-                    if room in channex_rooms: channex_rooms.remove(room)
-                    else: sol['product_uom_qty'] = 0
-                for product_id, unit_price in channex_rooms:
-                    env['sale.order.line'].create({
-                        'product_id': product_id,
-                        'is_rental': True,
-                        'order_id': so.id,
-                        'price_unit': float(unit_price),
+            if so := env['sale.order'].browse(booking_mapping.x_local_id):
+                so.write({'x_ota_force_update': True})
+                if so.rental_start_date.strftime('%Y-%m-%d') != (full_booking.get('arrival_date') or '') or so.rental_return_date.strftime('%Y-%m-%d') != (full_booking.get('departure_date') or ''):
+                    so.write({'x_new_rental_start_date': full_booking.get('arrival_date', ''), 'x_new_rental_return_date': full_booking.get('departure_date', '')})
+                    sending_cron = env.ref('booking_channex.ir_cron_change_booking_dates')
+                    if not sending_cron.active:
+                        sending_cron.write({'nextcall': datetime.datetime.now() + datetime.timedelta(minutes=1), 'active': True})
+                try:
+                    channex_rooms = []
+                    for room in (full_booking.get('rooms') or []):
+                        room_mapping = env['x_channex_mapping'].search([('x_model_type', '=', 'room_type'), ('x_remote_id', '=', (room.get('room_type_id') or ''))], limit=1)
+                        if room_mapping: channex_rooms.append((room_mapping.x_local_id, float(room.get('amount'))))
+                    for sol in so.order_line:
+                        if sol.product_uom_qty == 0: continue
+                        room = (sol.product_id.id, sol.price_unit)
+                        if room in channex_rooms: channex_rooms.remove(room)
+                        else: sol['product_uom_qty'] = 0
+                    for product_id, unit_price in channex_rooms:
+                        env['sale.order.line'].create({
+                            'product_id': product_id,
+                            'is_rental': True,
+                            'order_id': so.id,
+                            'price_unit': float(unit_price),
+                        })
+                except Exception as e:
+                    env['mail.activity'].create({
+                        'res_model_id': env['ir.model']._get_id('sale.order'),
+                        'res_id': so.id,
+                        'activity_type_id': env.ref('booking_channex.mail_activity_type_1').id,
+                        'summary': f"Adapt Booking Rooms: Channex sent a change with new rooms that could not be applied automatically.",
+                        'date_deadline': datetime.datetime.today(),
                     })
                 so.write({'x_ota_force_update': False})
-            except Exception as e:
-                env['mail.activity'].create({
-                    'res_model_id': env['ir.model']._get_id('sale.order'),
-                    'res_id': so.id,
-                    'activity_type_id': env.ref('mail_activity_type_1').id,
-                    'summary': f"Adapt Booking Rooms: Channex sent a change with new rooms that could not be applied automatically.",
-                    'date_deadline': datetime.datetime.today(),
-                })
+            else:
+                log_sync_message("/", "odoo webhook", f"Error: Could not find the booking sale order with id {str(booking_mapping.x_local_id)} to apply the modification.")
         elif booking_mapping and full_booking.get('status') == 'cancelled':
-            so = env['sale.order'].browse(booking_mapping.x_local_id)
-            so.write({'x_ota_force_update': True})
-            so.action_cancel()
-            so.write({'x_ota_force_update': False})
+            if so := env['sale.order'].browse(booking_mapping.x_local_id):
+                try:
+                    so.write({'x_ota_force_update': True})
+                    so.action_cancel()
+                except Exception as e:
+                    log_sync_message("/", "odoo webhook", f"Error: Could not cancel the booking sale order with id {str(so.id)}.")
+                    env['mail.activity'].create({
+                        'res_model_id': env['ir.model']._get_id('sale.order'),
+                        'res_id': so.id,
+                        'activity_type_id': env.ref('booking_channex.mail_activity_type_1').id,
+                        'summary': f"Cancel Order: Channex sent a cancellation that could not be applied automatically.",
+                        'date_deadline': datetime.datetime.today(),
+                    })
+                so.write({'x_ota_force_update': False})
+            else:
+                log_sync_message("/", "odoo webhook", f"Error: Could not find the booking sale order with id {str(booking_mapping.x_local_id)} to apply the cancellation.")
         else:
             log_sync_message("/", "odoo webhook", "Error: Could not process the booking with channex ID %s." % full_booking.get('booking_id', 'UNKNOWN'))
 ]]></field>

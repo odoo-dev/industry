@@ -39,7 +39,7 @@
         'data/knowledge_article_favorite.xml',
         'data/mail_message.xml',
         'data/delivery_carrier.xml',
-        'data/pos_config.xml',
+        # 'data/pos_config.xml',
         'data/res_config_settings.xml',
         'data/knowledge_tour.xml',
     ],

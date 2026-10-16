@@ -252,7 +252,7 @@ for record in self:    record['x_packaging_amount'] = record.x_packaging_units *
         record['x_excise_free_unit_price'] = record.price_unit - record.product_id.x_excise_amount]]></field>
         <field name="readonly" eval="True"/>
         <field name="store" eval="False"/>
-        <field name="currency_field">currency_id</field>
+        <field name="currency_field">x_currency_id</field>
     </record>
     <record id="sale_order_line_total_excises_field" model="ir.model.fields">
         <field name="name">x_total_excises</field>
@@ -263,7 +263,7 @@ for record in self:    record['x_packaging_amount'] = record.x_packaging_units *
         <field name="compute"><![CDATA[for record in self:
         record['x_total_excises'] = record.product_uom_id._compute_quantity(record.product_uom_qty, record.product_id.uom_id) * (record.product_id.x_excise_amount + record.product_id.x_packaging_units * record.product_id.x_excise_packaging_tax) if not record.order_id.fiscal_position_id.x_is_fiscal_deposit else False]]></field>
         <field name="readonly" eval="True"/>
-        <field name="currency_field">currency_id</field>
+        <field name="currency_field">x_currency_id</field>
     </record>
 
     <record id="sale_order_has_excise_line_field" model="ir.model.fields">
@@ -286,7 +286,7 @@ for record in self:
         <field name="compute"><![CDATA[for record in self:
         record['x_excise_free_unit_price_account_move'] = record.price_unit - record.product_id.x_excise_amount]]></field>
         <field name="readonly" eval="True"/>
-        <field name="currency_field">company_currency_id</field>
+        <field name="currency_field">x_company_currency_id</field>
     </record>
     <record id="account_move_line_total_excise_field" model="ir.model.fields">
         <field name="name">x_total_excises_account_move</field>
@@ -297,7 +297,7 @@ for record in self:
         <field name="compute"><![CDATA[for record in self:
         record['x_total_excises_account_move'] = record.product_uom_id._compute_quantity(record.quantity, record.product_id.uom_id) * (record.product_id.x_excise_amount + record.product_id.x_packaging_units * record.product_id.x_excise_packaging_tax) if not record.sale_line_ids.order_id.fiscal_position_id.x_is_fiscal_deposit else False]]></field>
         <field name="readonly" eval="True"/>
-        <field name="currency_field">company_currency_id</field>
+        <field name="currency_field">x_company_currency_id</field>
     </record>
 
     <record id="account_move_has_excise_line_field" model="ir.model.fields">

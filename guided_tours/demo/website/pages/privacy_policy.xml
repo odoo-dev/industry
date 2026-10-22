@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_page_privacy_policy" model="ir.ui.view">
+        <field name="name">Privacy Policy</field>
+        <field name="key">guided_tours.page_privacy_policy</field>
+        <field name="type">qweb</field>
+        <field name="website_id" ref="website_industry"/>
+        <field name="arch" type="xml">
+            <t name="Privacy Policy" t-name="guided_tours.page_privacy_policy">
+                <t t-call="website.layout">
+                    <div id="wrap" class="">
+                        <div class="oe_structure">
+                            <section class="s_title bg-black-50 o_colored_level pt56 oe_img_bg o_bg_img_center o_bg_img_origin_border_box pb48" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="0" data-name="Title" style="background-image: url(&quot;/web/image/guided_tours.img_guided_tours_image_01&quot;); background-size: cover;" data-format-mimetype="image/webp" data-resize-width="1920" data-mimetype="image/webp">
+                                <div class="o_we_bg_filter bg-black-50"/>
+                                <div class="o_container_small">
+                                    <h1>Privacy Policy</h1>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="oe_structure">
+                            <section class="s_text_block o_colored_level pt64 pb72" data-snippet="s_text_block" data-name="Text">
+                                <div class="s_allow_columns o_container_small">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus fringilla vestibulum. Phasellus laoreet nec turpis ac pharetra. Aliquam non molestie ante. Vivamus ligula metus, blandit vel ultricies non, placerat eu erat. Nullam consectetur semper risus posuere rhoncus. Ut tempus ipsum lacus, sit amet venenatis leo viverra ut. Sed facilisis erat ut suscipit pretium. Cras viverra mollis neque. Morbi pretium nec ante sed pretium.</p>
+                                    <p>In quis tortor sapien. Sed scelerisque neque vel tempus fermentum. In sit amet vestibulum dolor. Praesent non tellus eleifend leo pretium consequat. Morbi elementum orci vel dui tempus sollicitudin. Etiam rutrum convallis felis, at mollis lorem auctor at. Aliquam in ligula venenatis nibh vestibulum iaculis ut ut justo. Pellentesque blandit, justo nec laoreet euismod, ipsum massa rutrum ipsum, sed iaculis purus arcu nec mi. Nunc id lacinia ante, sit amet sodales nunc. Proin pretium urna pharetra turpis tincidunt tempus. Praesent placerat malesuada massa aliquam semper. Aliquam erat volutpat. Donec id libero semper, interdum leo nec, maximus quam. Suspendisse tincidunt commodo suscipit.</p>
+                                    <p>Mauris in lorem varius, maximus quam vitae, scelerisque erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam aliquam, felis eu faucibus dignissim, urna nibh eleifend nulla, at hendrerit ante diam nec tortor. Aenean in erat molestie, sollicitudin augue quis, elementum ipsum. Donec rhoncus congue dolor, eu pretium quam fermentum in. In nec nibh neque. Sed euismod nisi vel feugiat hendrerit. Quisque et vestibulum enim. Maecenas lacinia enim a vehicula facilisis. Etiam placerat urna in velit dignissim, vitae venenatis diam eleifend. Donec nisi nisi, bibendum sit amet libero ac, fringilla blandit nibh. In vulputate dolor vel feugiat pellentesque.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+    <data noupdate="1">
+        <record id="page_privacy_policy" model="website.page" forcecreate="0">
+            <field name="view_id" ref="view_page_privacy_policy"/>
+            <field name="url">/privacy-policy</field>
+            <field name="website_id" ref="website_industry"/>
+            <field name="is_published" eval="False"/>
+            <field name="website_indexed" eval="True"/>
+        </record>
+    </data>
+</odoo>

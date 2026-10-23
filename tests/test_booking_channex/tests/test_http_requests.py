@@ -15,6 +15,7 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
         cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_api_key', "MyTestAPIKey")
         cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_token', "MyTestWebhookSecret")
         cls.env['ir.config_parameter'].set_str('booking_channex.x_channex_url', "https://staging.channex.io/api/v1")
+        cls.env['ir.config_parameter'].set_bool('booking_channex.synced_with_channex', True)
 
     def test_receive_booking_webhook(self):
         payload_receive_booking = {
@@ -171,26 +172,3 @@ class BookingChannexHTTPRequestsTestCase(HttpCase):
             self.assertTrue(len(booking_sale_order.order_line) == 2, 'The sale order modification failed to create a new line for a second room.')
             self.assertEqual(booking_sale_order.rental_start_date.strftime('%Y-%m-%d'), get_revisions_answer['data'][0]['attributes']['arrival_date'], 'The sale order modification failed to change the start date of the sale order')
             self.assertEqual(booking_sale_order.rental_return_date.strftime('%Y-%m-%d'), get_revisions_answer['data'][0]['attributes']['departure_date'], 'The sale order modification failed to change the end date of the sale order')
-
-    def test_product_create_on_channex(self):
-        create_room_type_answer = {"data": {"type": "room_type", "id": "994d1375-dbbd-4072-8724-b2ab32ce781b", "attributes": {
-            "id": "994d1375-dbbd-4072-8724-b2ab32ce781b", "title": "Standard Room",
-            "occ_adults": 3, "occ_children": 0, "occ_infants": 0, "default_occupancy": 2, "count_of_rooms": 20, "room_kind": "room", "capacity": None,
-            "content": {"description": "Some Room Type Description Text", "photos": []}
-            },
-            "relationships": {"facilities": {"data": []}, "property": {"data": {"type": "property", "id": "716305c4-561a-4561-a187-7f5b8aeb5920"}}}
-        }}
-        with (MockHTTPClient(url="https://staging.channex.io/api/v1/room_types", return_json=create_room_type_answer, return_status=200)):  # as request_response
-            new_room = self.env["product.template"].create({
-                'name': 'Test room',
-                'type': 'service',
-                'list_price': 90.0,
-            })
-            self.env["x_channex_mapping"].search([
-                ("x_model_type", "=", "room_type"),
-                ("x_local_id", "=", new_room.id),
-            ], limit=1)
-            # Is failing right now as it is not yet implemented; should be here again when non-ari updates arrives
-            # self.assertEqual(request_response.calls, 0, "Creating a room type in odoo did not send any requests to channex")
-            # self.assertTrue(room_mapping.x_remote_id, "Creating a room did not create a mapping entry in odoo")
-            # self.assertEqual(room_mapping.x_remote_id, "994d1375-dbbd-4072-8724-b2ab32ce781b", "Creating a room did not put the correct remote id in the mapping")

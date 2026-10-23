@@ -48,7 +48,7 @@ menus.search(base_domain + [('url', 'in', ['/', '/event', '/shop', '/appointment
 top_menu = menus.search(base_domain + [('parent_id', '=', False)], limit=1)
 menu_items = [
     {'name': 'Membership', 'url': '/membership', 'sequence': 1},
-    {'name': 'About', 'url': '/about', 'sequence': 2},
+    {'name': 'About', 'url': '/about-us', 'sequence': 2},
     {'name': 'Events', 'url': '/latest-events', 'sequence': 3},
     {'name': 'Contact', 'url': '/contactus', 'sequence': 4},
 ]

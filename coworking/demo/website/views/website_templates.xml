@@ -41,7 +41,7 @@
                                         <a href="/membership" class="o_translate_inline">Membership</a>
                                     </p>
                                     <p>
-                                        <a href="/about" class="o_translate_inline">About</a>
+                                        <a href="/about-us" class="o_translate_inline">About</a>
                                     </p>
                                     <p>
                                         <a href="/latest-events" class="o_translate_inline">Events</a>
@@ -91,6 +91,7 @@
                         <section class="oe_unremovable oe_unmovable s_text_block o_colored_level" data-snippet="s_text_block" data-name="Text">
                             <div class="container">
                                 <a href="*tour_appointment*" class="oe_unremovable btn btn-primary btn_cta">Book a free tour</a>
+                                <a href="/web/login" class="btn btn-outline-primary ms-2" groups="base.group_public">SIGN</a>
                             </div>
                         </section>
                     </div>

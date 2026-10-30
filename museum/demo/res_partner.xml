@@ -91,4 +91,12 @@
     <field name="email">noor@MyMuseum.example.com</field>
     <field name="company_id" ref="base.main_company"/>
   </record>
+  <record id="res_partner_11" model="res.partner">
+    <field name="image_1920" type="bytes" file="museum/static/src/binary/res_partner/10-image_1920"/>
+    <field name="name">Test Test</field>
+    <field name="employee" eval="True"/>
+    <field name="function">Head of Curation</field>
+    <field name="email">test@MyMuseum.example.com</field>
+    <field name="company_id" ref="base.main_company"/>
+  </record>
 </odoo>

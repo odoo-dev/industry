@@ -65,10 +65,27 @@ class Test_Industry(Command):
 
         parser.add_option_group(group)
         config.parse_config(['--no-http'] + args, setup_logging=True)
-        if config.get('all'):
-            industry_modules = sorted([p.name for p in (ROOT_PATH).iterdir() if p.is_dir() and (p / '__manifest__.py').exists()])
+        
+        available_industry_modules = {
+            p.name
+            for p in ROOT_PATH.iterdir()
+            if p.is_dir() and (p / '__manifest__.py').exists()
+        }
+        _logger.info(set(config['industries'].split(',')))
+        
+        if config.get('industries'):
+            modified_modules = set(config['industries'].split(','))
+            industry_modules = sorted(available_industry_modules & modified_modules)
         else:
-            industry_modules = (config['industries'] or '').split(',')
+            industry_modules = sorted(available_industry_modules)
+        _logger.info(f"Modified: {industry_modules}")
+        breakpoint()
+        # if config.get('all'):
+        #     industry_modules = sorted([p.name for p in (ROOT_PATH).iterdir() if p.is_dir() and (p / '__manifest__.py').exists()])
+        # else:
+        #     industry_modules = (config['industries'] or '').split(',')
+        
+        
         if not industry_modules:
             raise ValueError("You must provide industry modules to install using --industries=industry_module or use --all")
         config['init'] = []

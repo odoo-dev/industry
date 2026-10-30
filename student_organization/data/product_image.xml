@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="product_image_1" model="product.image">
+        <field name="name">Student Unio T-Shirt - Light blue - Back</field>
+        <field name="product_variant_id" ref="product_product_70"/>
+        <field name="sequence" eval="1"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/1-image_1920.jpg"/>
+    </record>
+    <record id="product_image_2" model="product.image">
+        <field name="name">Student Unio T-Shirt - Light blue - Front - Worn</field>
+        <field name="product_variant_id" ref="product_product_70"/>
+        <field name="sequence" eval="2"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/2-image_1920.jpg"/>
+    </record>
+    <record id="product_image_3" model="product.image">
+        <field name="name">Student Unio T-Shirt - Light blue - Back - Worn</field>
+        <field name="product_variant_id" ref="product_product_70"/>
+        <field name="sequence" eval="3"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/3-image_1920.jpg"/>
+    </record>
+    <record id="product_image_4" model="product.image">
+        <field name="name">Student Unio T-Shirt - Yellow - Back</field>
+        <field name="product_variant_id" ref="product_product_71"/>
+        <field name="sequence" eval="4"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/4-image_1920.jpg"/>
+    </record>
+    <record id="product_image_5" model="product.image">
+        <field name="name">Student Unio T-Shirt - Yellow - Front - Worn</field>
+        <field name="product_variant_id" ref="product_product_71"/>
+        <field name="sequence" eval="5"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/5-image_1920.jpg"/>
+    </record>
+    <record id="product_image_6" model="product.image">
+        <field name="name">Student Unio T-Shirt - Yellow - Back - Worn</field>
+        <field name="product_variant_id" ref="product_product_71"/>
+        <field name="sequence" eval="6"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/6-image_1920.jpg"/>
+    </record>
+    <record id="product_image_7" model="product.image">
+        <field name="name">Student Unio T-Shirt - Dark blue - Back</field>
+        <field name="product_variant_id" ref="product_product_72"/>
+        <field name="sequence" eval="7"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/7-image_1920.jpg"/>
+    </record>
+    <record id="product_image_8" model="product.image">
+        <field name="name">Student Unio T-Shirt - Dark blue - Front - Worn</field>
+        <field name="product_variant_id" ref="product_product_72"/>
+        <field name="sequence" eval="8"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/8-image_1920.jpg"/>
+    </record>
+    <record id="product_image_9" model="product.image">
+        <field name="name">Student Unio T-Shirt - Dark blue - Back - Worn</field>
+        <field name="product_variant_id" ref="product_product_72"/>
+        <field name="sequence" eval="9"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/9-image_1920.jpg"/>
+    </record>
+    <record id="product_image_10" model="product.image">
+        <field name="name">Student Unio T-Shirt - White - Back</field>
+        <field name="product_variant_id" ref="product_product_73"/>
+        <field name="sequence" eval="10"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/10-image_1920.jpg"/>
+    </record>
+    <record id="product_image_11" model="product.image">
+        <field name="name">Student Unio T-Shirt - White - Front - Worn</field>
+        <field name="product_variant_id" ref="product_product_73"/>
+        <field name="sequence" eval="11"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/11-image_1920.jpg"/>
+    </record>
+    <record id="product_image_12" model="product.image">
+        <field name="name">Student Unio T-Shirt - White - Back - Worn</field>
+        <field name="product_variant_id" ref="product_product_73"/>
+        <field name="sequence" eval="12"/>
+        <field name="image_1920" type="bytes" file="student_organization/static/src/binary/product_image/12-image_1920.jpg"/>
+    </record>
+</odoo>

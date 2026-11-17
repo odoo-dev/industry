@@ -81,7 +81,7 @@ if [[ $DEMO == True ]]; then
   INSTALL=true
 fi
 
-COMMUNITY_PATH="odoo/"
+COMMUNITY_PATH="community/"
 INDUSTRY_PATH="industry/"
 PYTHON_BIN="python3"
 ODOO_BIN="$COMMUNITY_PATH/odoo-bin"

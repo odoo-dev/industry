@@ -230,6 +230,7 @@ class TestEnv(IndustryCase):
 
                 self._check_xml_style(decoded_content, tree, module, file_name)
                 self._check_odoo_contact_data(decoded_content, file_name)
+                self._check_hardcoded_xmlids(decoded_content, module, file_name)
                 self._check_trigger_field_ids_is_set(tree, file_name)
                 self._check_knowledge_article_is_locked(tree, file_name)
                 checked_records_with_user = self._check_user_is_set(tree, checked_records_with_user)
@@ -1020,5 +1021,22 @@ class TestEnv(IndustryCase):
                 "Remove unnecessary attributes added by studio or other tools.",
                 next(attr for attr in bad_attr if element.get(attr) is not None),
                 element.tag,
+                file_name,
+            )
+
+    def _check_hardcoded_xmlids(self, content, module, file_name):
+        """Warn about hardcoded xmlids in XML files
+
+        This is a common issue that can lead to problems when overriding assets
+        or when the module is used in different contexts.
+        It is better to use relative references
+        or avoid hardcoding xmlids that belong to other modules.
+        """
+        for xmlid in re.findall(rf"""{module}\.([\w.]+)""", content):
+            _logger.warning(
+                "Hardcoded xmlid %s.%s defined in %s/%s.",
+                module,
+                xmlid,
+                module,
                 file_name,
             )

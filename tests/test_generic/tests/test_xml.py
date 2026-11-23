@@ -1031,8 +1031,28 @@ class TestEnv(IndustryCase):
         or when the module is used in different contexts.
         It is better to use relative references
         or avoid hardcoding xmlids that belong to other modules.
+
+        Only the syntaxes that actually reference an xmlid are checked:
+        - calls resolving an xmlid: ``ref('module.x')``, ``env.ref(...)``,
+          ``viewref(...)``, ``_for_xml_id(...)``, ``has_group(...)``, ...
+        - XML attributes holding an xmlid: ``ref``, ``t-call``, ``groups``
+        - URLs resolving an xmlid: ``/web/image/module.x``, ``/web/content/module.x``
+        - convert placeholders: ``%(module.x)d``
         """
-        for xmlid in re.findall(rf"""{module}\.([\w.]+)""", content):
+        mod = re.escape(module)
+        quote = r"""(?:'|"|&quot;)"""
+        patterns = (
+            # Python expressions (eval attributes, server action code, ...)
+            rf"""(?<!\w)(?:ref|viewref|_for_xml_id|_xmlid_to_res_id|_xmlid_to_res_model_res_id|has_group|render)\(\s*{quote}{mod}\.(\w+){quote}""",
+            # XML attributes
+            rf"""(?<![\w-])(?:ref|t-call)=["']{mod}\.(\w+)["']""",
+            rf"""(?<![\w-])groups=["'](?:[^"']*?,)?\s*!?{mod}\.(\w+)""",
+            # URLs
+            rf"""/web/(?:image|content)/{mod}\.(\w+)""",
+            # convert.py placeholders
+            rf"""%\({mod}\.(\w+)\)[ds]""",
+        )
+        for xmlid in (x for pattern in patterns for x in re.findall(pattern, content)):
             _logger.warning(
                 "Hardcoded xmlid %s.%s defined in %s/%s.",
                 module,

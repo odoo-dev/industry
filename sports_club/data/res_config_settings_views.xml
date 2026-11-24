@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sports.club</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="calendar.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block name="calendar" position="inside">
+                <setting id="sports_club_playtomic_setting" string="Playtomic" help="Import the court bookings made on Playtomic as appointments.">
+                    <field name="x_module_sports_club_playtomic"/>
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>

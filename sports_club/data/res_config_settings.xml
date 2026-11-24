@@ -1,11 +1,54 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odoo noupdate="1">
-    <record model="res.config.settings" id="res_config_settings_enable_sport_club">
-        <field name="group_analytic_accounting" eval="1"/>
-        <field name="group_product_pricelist" eval="1" />
-        <field name="planning_generation_interval" eval="1"/>
+<odoo>
+    <data noupdate="1">
+        <record model="res.config.settings" id="res_config_settings_enable_sport_club">
+            <field name="group_analytic_accounting" eval="1"/>
+            <field name="group_product_pricelist" eval="1" />
+            <field name="planning_generation_interval" eval="1"/>
+        </record>
+        <function model="res.config.settings" name="execute">
+            <value eval="[ref('res_config_settings_enable_sport_club')]"/>
+        </function>
+    </data>
+
+    <!-- Playtomic: setting that installs / uninstalls sports_club_playtomic -->
+    <!-- The value always mirrors the real module state, so the checkbox stays
+         correct even when the module is (un)installed from the Apps menu. -->
+    <record id="x_setting_field_module_sports_club_playtomic" model="ir.model.fields">
+        <field name="ttype">boolean</field>
+        <field name="field_description">Playtomic</field>
+        <field name="name">x_module_sports_club_playtomic</field>
+        <field name="store" eval="True"/>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="compute"><![CDATA[
+module = self.env['ir.module.module']._get('sports_club_playtomic')
+for record in self:
+    record['x_module_sports_club_playtomic'] = module.state == 'installed'
+]]></field>
     </record>
-    <function model="res.config.settings" name="execute">
-        <value eval="[ref('res_config_settings_enable_sport_club')]"/>
-    </function>
+
+    <record id="action_module_sports_club_playtomic" model="ir.actions.server">
+        <field name="name">Install/Uninstall Playtomic From Settings</field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+if not (env.context.get('install_module') == 'sports_club_playtomic' and env.context.get('install_mode')):
+    installed = module.state == 'installed'
+    if record.x_module_sports_club_playtomic and not installed:
+        # First, import the Product Conversion industry module because it is not available in ir_module_module.
+        import_action = env['ir.module.module'].with_context(module_name='sports_club_playtomic').button_immediate_install_app()
+        env['base.import.module'].browse(import_action['res_id']).import_module()
+    elif not record.x_module_sports_club_playtomic and installed:
+        module = env['ir.module.module']._get('sports_club_playtomic')
+        if module: module.button_immediate_uninstall()
+]]></field>
+    </record>
+
+    <record id="base_automation_on_module_sports_club_playtomic_setting" model="base.automation">
+        <field name="name">Install/Uninstall Playtomic From Settings</field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="action_server_ids" eval="[Command.set([ref('action_module_sports_club_playtomic')])]"/>
+        <field name="trigger_field_ids" eval="[Command.set([ref('x_setting_field_module_sports_club_playtomic')])]"/>
+        <field name="trigger">on_create_or_write</field>
+    </record>
 </odoo>

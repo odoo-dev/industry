@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ============================================================== -->
+    <!-- C. Server action 1: central API request                         -->
+    <!-- Only action allowed to call `requests`. Input/output through    -->
+    <!-- the mutable dict in context['playtomic_request']:               -->
+    <!--   in:  method, endpoint, payload, params, use_token             -->
+    <!--   out: ok, status_code, data, error (+ internal flag: retried)  -->
+    <!-- Never raises: errors are returned in req['error'] and logged.   -->
+    <!-- ============================================================== -->
+    <record id="action_playtomic_api_request" model="ir.actions.server">
+        <field name="name">Playtomic: API Request</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+BASE_URL = 'https://thirdparty.playtomic.io'
+TIMEOUT = 30
+
+
+def get_token():
+    return env.company.x_playtomic_token or ''
+
+
+def regenerate_token():
+    env.ref('sports_club_playtomic.action_playtomic_generate_token').run()
+    return get_token()
+
+
+def get_header(token=None):
+    headers = {'Content-Type': 'application/json'}
+    if token:
+        headers['Authorization'] = 'Bearer %s' % token
+    return headers
+
+
+def send(method, url, token):
+    if method == 'POST':
+        return requests.post(url, json=req.get('payload') or {}, headers=get_header(token), timeout=TIMEOUT)
+    # GET: query parameters only, never a JSON body
+    return requests.get(url, params=req.get('params') or {}, headers=get_header(token), timeout=TIMEOUT)
+
+
+req = env.context.get('playtomic_request')
+if not isinstance(req, dict):
+    _logger.error("Playtomic: API Request called without a 'playtomic_request' dict in context.")
+    log("Playtomic: API Request called without a 'playtomic_request' dict in context.", level='error')
+else:
+    req.update({'ok': False, 'status_code': None, 'data': None, 'error': None})
+    method = (req.get('method') or 'GET').upper()
+    endpoint = req.get('endpoint') or ''
+    url = BASE_URL + endpoint
+    use_token = bool(req.get('use_token'))
+
+    _logger.info('Playtomic: %s %s (use_token=%s, params=%s)', method, endpoint, use_token,
+                 req.get('params') if method == 'GET' else None)
+    try:
+        token = ''
+        if use_token:
+            # Token empty check (token generation uses use_token=False -> no recursion)
+            token = get_token()
+            if not token:
+                _logger.info('Playtomic: no stored token, generating a new one.')
+                token = regenerate_token()
+            if not token:
+                req['error'] = ("No Playtomic token available. Check the playtomic.client_id and "
+                                "playtomic.secret system parameters and the 'Playtomic: Generate Token' logs.")
+
+        if not req['error']:
+            res = send(method, url, token)
+            _logger.info('Playtomic: %s %s -> HTTP %s', method, endpoint, res.status_code)
+
+            # 401 / 403: regenerate the token and retry ONCE
+            if use_token and res.status_code in (401, 403) and not req.get('retried'):
+                req['retried'] = True
+                _logger.warning('Playtomic: %s %s returned HTTP %s, regenerating the token and retrying once.',
+                                method, endpoint, res.status_code)
+                log('Playtomic: %s %s returned HTTP %s, regenerating the token and retrying once.'
+                    % (method, endpoint, res.status_code), level='warning')
+                token = regenerate_token()
+                if token:
+                    res = send(method, url, token)
+                    _logger.info('Playtomic: retry %s %s -> HTTP %s', method, endpoint, res.status_code)
+
+            req['status_code'] = res.status_code
+            if use_token and res.status_code in (401, 403):
+                req['error'] = ('Playtomic refused the token (HTTP %s) even after regenerating it once: %s'
+                                % (res.status_code, (res.text or '')[:500]))
+            elif 200 <= res.status_code < 300:
+                if res.content:
+                    try:
+                        req['data'] = res.json()
+                    except Exception as e:
+                        req['error'] = 'Invalid JSON in the Playtomic response: %s' % repr(e)
+                req['ok'] = not req['error']
+            else:
+                req['error'] = 'HTTP %s: %s' % (res.status_code, (res.text or '')[:500])
+    except Exception as e:
+        req['ok'] = False
+        req['error'] = 'Request error: %s' % repr(e)
+
+    if req['error']:
+        # Never log the payload: it contains the secret
+        _logger.error('Playtomic: %s %s failed: %s', method, endpoint, req['error'])
+        log('Playtomic: %s %s failed: %s' % (method, endpoint, req['error']), level='error')
+    else:
+        _logger.info('Playtomic: %s %s succeeded.', method, endpoint)
+]]></field>
+    </record>
+
+    <!-- ============================================================== -->
+    <!-- D. Server action 2: generate / refresh the token                -->
+    <!-- Keeps the previous token when anything fails.                   -->
+    <!-- ============================================================== -->
+    <record id="action_playtomic_generate_token" model="ir.actions.server">
+        <field name="name">Playtomic: Generate Token</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+ICP = env['ir.config_parameter'].sudo()
+client_id = (ICP.get_str('playtomic.client_id') or '').strip()
+secret = (ICP.get_str('playtomic.secret') or '').strip()
+
+if not client_id or not secret:
+    _logger.error('Playtomic: playtomic.client_id or playtomic.secret is empty, token not generated.')
+    log('Playtomic: playtomic.client_id or playtomic.secret is empty, token not generated.', level='error')
+else:
+    _logger.info('Playtomic: generating a new token for company %s.', env.company.name)
+    req = {
+        'method': 'POST',
+        'endpoint': '/api/v1/oauth/token',
+        'payload': {'client_id': client_id, 'secret': secret},
+        'use_token': False,  # never triggers the token check / 401 retry -> no loop
+    }
+    env.ref('sports_club_playtomic.action_playtomic_api_request').with_context(playtomic_request=req).run()
+
+    data = req.get('data') if isinstance(req.get('data'), dict) else {}
+    token = data.get('token') if req.get('ok') else None
+    if token:
+        env.company.write({'x_playtomic_token': token})
+        _logger.info('Playtomic: token refreshed (type %s, expires in %s s).',
+                     data.get('token_type'), data.get('expires_in'))
+        log('Playtomic: token refreshed (type %s, expires in %s s).'
+            % (data.get('token_type'), data.get('expires_in')), level='info')
+    else:
+        _logger.error('Playtomic: token generation failed, previous token kept. %s',
+                      req.get('error') or "No 'token' in the response.")
+        log('Playtomic: token generation failed, previous token kept. %s'
+            % (req.get('error') or "No 'token' in the response."), level='error')
+]]></field>
+    </record>
+
+    <!-- ============================================================== -->
+    <!-- E. Server action 3: import bookings of the next 7 days          -->
+    <!-- ============================================================== -->
+    <record id="action_playtomic_sync_bookings" model="ir.actions.server">
+        <field name="name">Playtomic: Sync Bookings</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+API = env.ref('sports_club_playtomic.action_playtomic_api_request')
+DATE_FMT = '%Y-%m-%dT%H:%M:%S'
+UTC = datetime.timezone.utc
+
+Partner = env['res.partner'].with_context(active_test=False)
+# active_test=False: an archived (cancelled) event still counts as "already imported"
+Event = env['calendar.event'].with_context(active_test=False)
+# no_mail_to_attendees: Playtomic already notifies players
+# appointment_allow_overbooking: no court is set, so capacity goes on an unassigned booking line
+EventCreate = env['calendar.event'].with_context(
+    no_mail_to_attendees=True, appointment_allow_overbooking=True)
+
+stats = {'created': 0, 'skipped': 0, 'archived': 0, 'failed': 0}
+
+
+def to_utc_naive(value, tz):
+    """Playtomic datetime -> naive UTC for Odoo. Naive values are read in the type's timezone."""
+    dt = dateutil.parser.isoparse(value)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=tz)
+    return dt.astimezone(UTC).replace(tzinfo=None)
+
+
+def find_or_create_partner(participant):
+    pid = str(participant.get('participant_id') or '').strip()
+    if not pid:
+        raise ValueError('participant without participant_id')
+    # active_test=False: reuse an archived contact instead of creating a duplicate
+    partner = Partner.search([('x_playtomic_participant_id', '=', pid)], limit=1)
+    if partner:
+        return partner
+    email = (participant.get('email') or '').strip()
+    if email:
+        # email_normalized: exact, case-insensitive match (no =ilike wildcards on '_' / '%')
+        matches = Partner.search([
+            ('email_normalized', '=', email.lower()),
+            ('x_playtomic_participant_id', '=', False),
+        ], limit=2)
+        if len(matches) == 1:
+            matches.write({'x_playtomic_participant_id': pid})
+            _logger.info('Playtomic: linked participant %s to existing contact %s (id %s) by email.',
+                         pid, matches.name, matches.id)
+            return matches
+    partner = Partner.create({
+        'name': participant.get('name') or email or 'Playtomic player %s' % pid,
+        'email': email or False,
+        'x_playtomic_participant_id': pid,
+    })
+    _logger.info('Playtomic: created contact %s (id %s) for participant %s.', partner.name, partner.id, pid)
+    return partner
+
+
+def process_booking(booking, appt_type, tz):
+    booking_id = str(booking.get('booking_id') or '').strip()
+    if not booking_id:
+        raise ValueError('booking without booking_id')
+
+    # STEP 1: cancellation and duplicate check
+    existing = Event.search([('x_playtomic_booking_id', '=', booking_id)], limit=1)
+    if booking.get('is_canceled'):
+        if existing.active:
+            # appointment_status 'cancelled' archives the event
+            existing.with_context(no_mail_to_attendees=True).action_set_appointment_cancelled()
+            _logger.info('Playtomic: booking %s cancelled, event %s archived.', booking_id, existing.id)
+            return 'archived'
+        _logger.info('Playtomic: booking %s cancelled, nothing to archive.', booking_id)
+        return 'skipped'
+    if existing:
+        _logger.info('Playtomic: booking %s already imported (event %s), skipped.', booking_id, existing.id)
+        return 'skipped'
+
+    # STEP 2: participants -> partners, owner -> booker
+    info = booking.get('participant_info') or {}
+    participants = info.get('participants') or []
+    if not participants:
+        raise ValueError('booking %s has no participants' % booking_id)
+    owner_pid = str(info.get('owner_id') or '').strip()
+    partners = Partner.browse()
+    owner = Partner.browse()
+    for participant in participants:
+        partner = find_or_create_partner(participant)
+        partners |= partner
+        if owner_pid and str(participant.get('participant_id') or '').strip() == owner_pid:
+            owner = partner
+    if not owner:
+        owner = partners[:1]
+
+    # STEP 3: the appointment type is the one of the tenant being synced (appt_type)
+    # STEP 4: create the event
+    event = EventCreate.create({
+        'name': '%s - %s' % (owner.name or owner.email or 'Playtomic', appt_type.name),
+        'appointment_type_id': appt_type.id,
+        'appointment_booker_id': owner.id,
+        'start': to_utc_naive(booking['booking_start_date'], tz),
+        'stop': to_utc_naive(booking['booking_end_date'], tz),
+        'partner_ids': [Command.set(partners.ids)],
+        'total_capacity_reserved': len(participants),
+        'x_playtomic_booking_id': booking_id,
+        'x_playtomic_sport_id': str(booking.get('sport_id') or '') or False,
+    })
+    _logger.info('Playtomic: booking %s imported as event %s (%s -> %s, %s participants).',
+                 booking_id, event.id, event.start, event.stop, len(participants))
+    return 'created'
+
+
+appointment_types = env['appointment.type'].search([('x_playtomic_tenant_id', '!=', False)])
+if not appointment_types:
+    _logger.info('Playtomic: no appointment type has a Playtomic Tenant ID, nothing to sync.')
+    log('Playtomic: no appointment type has a Playtomic Tenant ID, nothing to sync.', level='info')
+else:
+    _logger.info('Playtomic: sync started for %s appointment type(s).', len(appointment_types))
+
+for appt_type in appointment_types:
+    tenant_id = appt_type.x_playtomic_tenant_id.strip()
+    tz = timezone(appt_type.appointment_tz or env.user.tz or 'UTC')
+
+    # Fixed range: today 00:00:00 -> today + 7 days 23:59:59, in the type's timezone
+    today = datetime.datetime.now(tz).date()
+    start_booking_date = datetime.datetime.combine(today, datetime.time(0, 0, 0)).strftime(DATE_FMT)
+    end_booking_date = datetime.datetime.combine(
+        today + datetime.timedelta(days=7), datetime.time(23, 59, 59)).strftime(DATE_FMT)
+
+    req = {
+        'method': 'GET',
+        'endpoint': '/api/v1/bookings',
+        'params': {
+            'tenant_id': tenant_id,
+            'start_booking_date': start_booking_date,
+            'end_booking_date': end_booking_date,
+        },
+        'use_token': True,  # token empty / 401 / 403 handled by the central action
+    }
+    _logger.info('Playtomic: tenant %s (%s): fetching bookings %s -> %s.',
+                 tenant_id, appt_type.name, start_booking_date, end_booking_date)
+    API.with_context(playtomic_request=req).run()
+    if not req.get('ok'):
+        _logger.error('Playtomic: tenant %s failed, skipping this tenant: %s', tenant_id, req.get('error'))
+        log('Playtomic: tenant %s failed, skipping this tenant: %s'
+            % (tenant_id, req.get('error')), level='error')
+        continue
+
+    data = req.get('data')
+    if isinstance(data, list):
+        bookings = data
+    elif isinstance(data, dict):
+        bookings = data.get('content') or []  # wrapped response, just in case
+    else:
+        bookings = []
+    _logger.info('Playtomic: tenant %s: %s booking(s) received.', tenant_id, len(bookings))
+
+    for booking in bookings:
+        # One failing booking must not stop the run: own savepoint, rolled back on error
+        savepoint = env.cr.savepoint()
+        try:
+            if not isinstance(booking, dict):
+                raise ValueError('unexpected booking format: %s' % repr(booking)[:200])
+            result = process_booking(booking, appt_type, tz)
+            savepoint.close(rollback=False)
+            stats[result] += 1
+        except Exception as e:
+            savepoint.close(rollback=True)
+            stats['failed'] += 1
+            _logger.error('Playtomic: tenant %s booking %s failed: %s',
+                          tenant_id, booking.get('booking_id') if isinstance(booking, dict) else '?', repr(e))
+            log('Playtomic: tenant %s booking %s failed: %s'
+                % (tenant_id, booking.get('booking_id') if isinstance(booking, dict) else '?', repr(e)),
+                level='error')
+
+_logger.info('Playtomic: sync done. created=%s skipped=%s archived=%s failed=%s',
+             stats['created'], stats['skipped'], stats['archived'], stats['failed'])
+log('Playtomic: sync done. created=%(created)s skipped=%(skipped)s archived=%(archived)s failed=%(failed)s'
+    % stats, level='info')
+]]></field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Hourly token refresh. ir.cron _inherits ir.actions.server: only link the
+         action, so name/model_id stay defined on the server action itself. -->
+    <record id="cron_playtomic_generate_token" model="ir.cron">
+        <field name="ir_actions_server_id" ref="action_playtomic_generate_token"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Booking sync every 30 minutes -->
+    <record id="cron_playtomic_sync_bookings" model="ir.cron">
+        <field name="ir_actions_server_id" ref="action_playtomic_sync_bookings"/>
+        <field name="interval_number">30</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

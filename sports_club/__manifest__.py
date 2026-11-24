@@ -1,9 +1,10 @@
 {
     'name': 'Sports Facilities',
-    'version': '1.7',
+    'version': '1.8',
     'category': 'Health and Fitness',
     'depends': [
         'appointment_crm',
+        'base_automation',
         'frontdesk_partnership',
         'knowledge',
         'loyalty',
@@ -19,6 +20,7 @@
         'data/ir_module_module_dependency.xml',
         'data/product_pricelist.xml',
         'data/res_config_settings.xml',
+        'data/res_config_settings_views.xml',
         'data/pos_category.xml',
         'data/restaurant_floor.xml',
         'data/restaurant_table.xml',

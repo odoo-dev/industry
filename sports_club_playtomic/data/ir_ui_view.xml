@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Appointment type form: Playtomic Tenant ID, below the location / videocall fields -->
+    <record id="appointment_type_view_form" model="ir.ui.view">
+        <field name="name">appointment.type.form.inherit.sports.club.playtomic</field>
+        <field name="model">appointment.type</field>
+        <field name="inherit_id" ref="appointment.appointment_type_view_form"/>
+        <field name="arch" type="xml">
+            <field name="event_videocall_source" position="after">
+                <field name="x_playtomic_tenant_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>

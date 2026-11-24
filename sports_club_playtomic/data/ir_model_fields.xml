@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Company: current Playtomic bearer token (admins only) -->
+    <record id="field_res_company_x_playtomic_token" model="ir.model.fields">
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="name">x_playtomic_token</field>
+        <field name="field_description">Playtomic Token</field>
+        <field name="ttype">char</field>
+        <field name="copied" eval="False"/>
+        <field name="groups" eval="[Command.set([ref('base.group_system')])]"/>
+    </record>
+
+    <!-- Partner: Playtomic participant id, used to match players -->
+    <record id="field_res_partner_x_playtomic_participant_id" model="ir.model.fields">
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_playtomic_participant_id</field>
+        <field name="field_description">Playtomic Participant ID</field>
+        <field name="ttype">char</field>
+        <field name="index">btree_not_null</field>
+        <field name="copied" eval="False"/>
+    </record>
+
+    <!-- Appointment type: Playtomic tenant (club) id; types with a value are synced -->
+    <record id="field_appointment_type_x_playtomic_tenant_id" model="ir.model.fields">
+        <field name="model_id" ref="appointment.model_appointment_type"/>
+        <field name="name">x_playtomic_tenant_id</field>
+        <field name="field_description">Playtomic Tenant ID</field>
+        <field name="ttype">char</field>
+        <field name="copied" eval="False"/>
+    </record>
+
+    <!-- Calendar event: Playtomic booking id, used for the duplicate check -->
+    <record id="field_calendar_event_x_playtomic_booking_id" model="ir.model.fields">
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="name">x_playtomic_booking_id</field>
+        <field name="field_description">Playtomic Booking ID</field>
+        <field name="ttype">char</field>
+        <field name="index">btree_not_null</field>
+        <field name="copied" eval="False"/>
+    </record>
+
+    <!-- Calendar event: Playtomic sport id of the booking -->
+    <record id="field_calendar_event_x_playtomic_sport_id" model="ir.model.fields">
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="name">x_playtomic_sport_id</field>
+        <field name="field_description">Playtomic Sport ID</field>
+        <field name="ttype">char</field>
+        <field name="copied" eval="False"/>
+    </record>
+</odoo>

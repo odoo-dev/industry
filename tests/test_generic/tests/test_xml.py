@@ -9,6 +9,7 @@ import pathlib
 import polib
 import re
 import sys
+import textwrap
 from collections import defaultdict
 from lxml import etree
 
@@ -175,6 +176,42 @@ def get_original_name_from_pot(module_name, model_name, xmlid, is_industry):
         None,
     )
 
+def _find_xmlid_references(code):
+    """Yield (lineno, snippet) for every xmlid resolution in a Python snippet.
+
+    Catches ``env.ref(...)``, ``env['ir.actions.actions']._for_xml_id(...)``,
+    the ``_xmlid_*`` helpers, and any direct access to ``ir.model.data``.
+    ``lineno`` is 1-based, relative to the start of ``code``.
+    """
+    XMLID_RESOLVING_METHODS = {
+        'ref',
+        '_for_xml_id',
+        '_xmlid_lookup',
+        '_xmlid_to_res_id',
+        '_xmlid_to_res_model_res_id',
+    }
+
+    code = textwrap.dedent(code)
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        # not parsable: fall back to a textual search
+        pattern = re.compile(r"\.(?:%s)\(|ir\.model\.data" % '|'.join(XMLID_RESOLVING_METHODS))
+        for lineno, line in enumerate(code.splitlines(), 1):
+            if pattern.search(line):
+                yield lineno, line.strip()
+        return
+    for node in ast.walk(tree):
+        if (
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and node.func.attr in XMLID_RESOLVING_METHODS
+        ) or (
+            isinstance(node, ast.Constant)
+            and node.value == 'ir.model.data'
+        ):
+            yield node.lineno, ast.get_source_segment(code, node)
+
 
 class TestEnv(IndustryCase):
 
@@ -230,7 +267,7 @@ class TestEnv(IndustryCase):
 
                 self._check_xml_style(decoded_content, tree, module, file_name)
                 self._check_odoo_contact_data(decoded_content, file_name)
-                self._check_hardcoded_xmlids(decoded_content, module, file_name)
+                self._assert_no_xmlid_references(tree, file_name)
                 self._check_trigger_field_ids_is_set(tree, file_name)
                 self._check_knowledge_article_is_locked(tree, file_name)
                 checked_records_with_user = self._check_user_is_set(tree, checked_records_with_user)
@@ -1024,39 +1061,40 @@ class TestEnv(IndustryCase):
                 file_name,
             )
 
-    def _check_hardcoded_xmlids(self, content, module, file_name):
-        """Warn about hardcoded xmlids in XML files
+    def _assert_no_xmlid_references(self, root, file_name):
+        """Fail when runtime Python code resolves records through their xmlid.
 
-        This is a common issue that can lead to problems when overriding assets
-        or when the module is used in different contexts.
-        It is better to use relative references
-        or avoid hardcoding xmlids that belong to other modules.
+        Server actions (and crons) and computed fields are executed long after
+        the module was imported. If the user deletes a record referenced by
+        ``env.ref('module.xmlid')`` (or one of its variants), the code crashes.
+        Records must be found another way (search on a stable field, a
+        relational field on the record, ...).
 
-        Only the syntaxes that actually reference an xmlid are checked:
-        - calls resolving an xmlid: ``ref('module.x')``, ``env.ref(...)``,
-          ``viewref(...)``, ``_for_xml_id(...)``, ``has_group(...)``, ...
-        - XML attributes holding an xmlid: ``ref``, ``t-call``, ``groups``
-        - URLs resolving an xmlid: ``/web/image/module.x``, ``/web/content/module.x``
-        - convert placeholders: ``%(module.x)d``
+        ``eval`` attributes of ``<field>`` are not checked: they are evaluated
+        once, at import time, when the referenced records are guaranteed to
+        exist.
         """
-        mod = re.escape(module)
-        quote = r"""(?:'|"|&quot;)"""
-        patterns = (
-            # Python expressions (eval attributes, server action code, ...)
-            rf"""(?<!\w)(?:ref|viewref|_for_xml_id|_xmlid_to_res_id|_xmlid_to_res_model_res_id|has_group|render)\(\s*{quote}{mod}\.(\w+){quote}""",
-            # XML attributes
-            rf"""(?<![\w-])(?:ref|t-call)=["']{mod}\.(\w+)["']""",
-            rf"""(?<![\w-])groups=["'](?:[^"']*?,)?\s*!?{mod}\.(\w+)""",
-            # URLs
-            rf"""/web/(?:image|content)/{mod}\.(\w+)""",
-            # convert.py placeholders
-            rf"""%\({mod}\.(\w+)\)[ds]""",
+        exclude_files = [
+            "res_config_settings.xml",
+        ]
+        if any(exclude_file in file_name for exclude_file in exclude_files):
+            return
+        code_fields = root.xpath(
+            "//record[@model='ir.actions.server' or @model='ir.cron']/field[@name='code']"
+            " | //record[@model='ir.model.fields']/field[@name='compute']",
         )
-        for xmlid in (x for pattern in patterns for x in re.findall(pattern, content)):
-            _logger.warning(
-                "Hardcoded xmlid %s.%s defined in %s/%s.",
-                module,
-                xmlid,
-                module,
-                file_name,
-            )
+        violations = []
+        for field in code_fields:
+            code = field.text or ''
+            record = field.getparent()
+            for lineno, reference in sorted(_find_xmlid_references(code)):
+                violations.append(
+                    f"{file_name}:{field.sourceline + lineno - 1} "
+                    f"{record.get('model')} '{record.get('id')}' ({field.get('name')}): {reference}",
+                )
+        if violations:
+            with self.subTest(file_name=file_name):
+                self.fail(
+                    "xmlid references found in server action/computed field code; they crash once the "
+                    "referenced record is deleted. Find the records another way:\n" + "\n".join(violations),
+                )

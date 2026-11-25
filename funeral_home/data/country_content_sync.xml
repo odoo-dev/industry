@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!--
+        Runs on install and on every update of the package: applies the country
+        content to all existing companies. On update, this is what ships content
+        corrections (new reference data, removed entries) to existing databases.
+    -->
+    <function name="run" model="ir.actions.server" eval="[ref('action_apply_country_content')]"/>
+</odoo>

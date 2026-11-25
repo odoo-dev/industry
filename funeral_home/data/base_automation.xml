@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!--
+        Covers every install order that happens after the package import:
+        a company created later (in any country), or a company whose country
+        or address changes.
+    -->
+    <record id="automation_company_country_content" model="base.automation">
+        <field name="name">Funeral Home: Country Content on Company Change</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6, 0, [
+            ref('base.field_res_company__country_id'),
+            ref('base.field_res_company__state_id'),
+            ref('base.field_res_company__zip'),
+            ref('x_funeral_region_override_field_res_company'),
+        ])]"/>
+    </record>
+    <record id="action_company_country_content" model="ir.actions.server">
+        <field name="name">Funeral Home: Country Content on Company Change</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="base_automation_id" ref="automation_company_country_content"/>
+        <field name="usage">base_automation</field>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+if records:
+    env.ref('funeral_home.action_apply_country_content').with_context(
+        active_model='res.company',
+        active_ids=records.ids,
+    ).run()
+]]></field>
+    </record>
+</odoo>

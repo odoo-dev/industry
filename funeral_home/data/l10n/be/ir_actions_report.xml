@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- Shown in the Print menu only on orders of a Belgian company. -->
+    <record id="action_report_cremation_request_be" model="ir.actions.report">
+        <field name="name">Cremation Request</field>
+        <field name="model">sale.order</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">funeral_home.report_cremation_request_be</field>
+        <field name="print_report_name">'Cremation Request - %s' % (object.x_deceased_name or object.name)</field>
+        <field name="domain">[('company_id.country_code', '=', 'BE')]</field>
+    </record>
+</odoo>

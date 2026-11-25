@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="sale_order_funeral_peeters" model="sale.order" context="{'mail_auto_subscribe_no_notify': True}">
+        <field name="partner_id" ref="res_partner_family_peeters"/>
+        <field name="x_deceased_name">Jozef Peeters</field>
+        <field name="x_deceased_birth_date" eval="(DateTime.today() - relativedelta(years=84)).strftime('%Y-%m-%d')"/>
+        <field name="x_deceased_death_date" eval="(DateTime.today() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="x_deceased_death_place">Gent</field>
+        <field name="user_id" ref="base.user_admin"/>
+    </record>
+    <record id="sale_order_line_funeral_peeters_cremation" model="sale.order.line">
+        <field name="order_id" ref="sale_order_funeral_peeters"/>
+        <field name="product_id" model="product.template" eval="obj(ref('product_template_cremation')).product_variant_id.id"/>
+    </record>
+    <record id="sale_order_line_funeral_peeters_ceremony" model="sale.order.line">
+        <field name="order_id" ref="sale_order_funeral_peeters"/>
+        <field name="product_id" model="product.template" eval="obj(ref('product_template_ceremony')).product_variant_id.id"/>
+    </record>
+</odoo>

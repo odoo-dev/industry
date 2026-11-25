@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <template id="welcome_article_body">
+        <h1 data-oe-version="2.0">
+            <strong>
+                <span class="display-4-fs">Funeral Home</span>
+            </strong>
+        </h1>
+        <p style="text-align: justify;">
+            <span class="h6-fs">Welcome to the <strong>
+                    <font style="color: rgb(113, 75, 103);">Odoo Funeral Home</font>
+                </strong>
+                !</span>
+            <br/>
+        </p>
+    </template>
+    <record id="welcome_article" model="knowledge.article">
+        <field name="name">Funeral Home</field>
+        <field name="body"><![CDATA[]]></field>
+        <field name="icon">🪦</field>
+        <field name="internal_permission">write</field>
+        <field name="is_article_visible_by_everyone" eval="True"/>
+        <field name="is_locked" eval="True"/>
+    </record>
+</odoo>

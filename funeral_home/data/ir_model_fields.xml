@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="x_deceased_name_field_sale_order" model="ir.model.fields">
+        <field name="name">x_deceased_name</field>
+        <field name="field_description">Deceased</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="ttype">char</field>
+    </record>
+    <record id="x_deceased_birth_date_field_sale_order" model="ir.model.fields">
+        <field name="name">x_deceased_birth_date</field>
+        <field name="field_description">Date of Birth</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="ttype">date</field>
+    </record>
+    <record id="x_deceased_death_date_field_sale_order" model="ir.model.fields">
+        <field name="name">x_deceased_death_date</field>
+        <field name="field_description">Date of Death</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="ttype">date</field>
+    </record>
+    <record id="x_deceased_death_place_field_sale_order" model="ir.model.fields">
+        <field name="name">x_deceased_death_place</field>
+        <field name="field_description">Place of Death</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="x_is_crematorium_field_res_partner" model="ir.model.fields">
+        <field name="name">x_is_crematorium</field>
+        <field name="field_description">Crematorium</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="ttype">boolean</field>
+    </record>
+    <!--
+        x_funeral_content_ref: stable key of a shipped record.
+        x_funeral_sync_archived: archived by the sync, so restorable by it.
+        x_funeral_content_synced: last shipped values, to keep user edits.
+    -->
+
+    <record id="x_funeral_content_ref_field_res_partner" model="ir.model.fields">
+        <field name="name">x_funeral_content_ref</field>
+        <field name="field_description">Funeral Content Reference</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="ttype">char</field>
+        <field name="index" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="readonly" eval="True"/>
+    </record>
+    <record id="x_funeral_sync_archived_field_res_partner" model="ir.model.fields">
+        <field name="name">x_funeral_sync_archived</field>
+        <field name="field_description">Archived by Funeral Content Sync</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="ttype">boolean</field>
+        <field name="copied" eval="False"/>
+        <field name="readonly" eval="True"/>
+    </record>
+    <record id="x_funeral_content_synced_field_res_partner" model="ir.model.fields">
+        <field name="name">x_funeral_content_synced</field>
+        <field name="field_description">Funeral Content Last Synced Values</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="ttype">text</field>
+        <field name="copied" eval="False"/>
+        <field name="readonly" eval="True"/>
+    </record>
+
+    <record id="x_crematorium_id_field_sale_order" model="ir.model.fields">
+        <field name="name">x_crematorium_id</field>
+        <field name="field_description">Crematorium</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+        <field name="domain">[('x_is_crematorium', '=', True)]</field>
+    </record>
+
+    <!--
+        Region layer, below the country.
+        x_funeral_region_override: optional manual setting on the company.
+        x_funeral_region: the region used by the content, computed from
+        1. the manual setting, 2. the company province, 3. the company zip.
+        Base data codes the provinces V* (Flanders) and W* (Wallonia), and
+        Brussels-Capital as BRU.
+    -->
+    <record id="x_funeral_region_override_field_res_company" model="ir.model.fields">
+        <field name="name">x_funeral_region_override</field>
+        <field name="field_description">Region (manual)</field>
+        <field name="help">Leave empty to derive the region from the company address.</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="ttype">selection</field>
+    </record>
+    <record id="x_funeral_region_override_selection_flanders" model="ir.model.fields.selection">
+        <field name="name">Flanders</field>
+        <field name="value">flanders</field>
+        <field name="sequence">10</field>
+        <field name="field_id" ref="x_funeral_region_override_field_res_company"/>
+    </record>
+    <record id="x_funeral_region_override_selection_wallonia" model="ir.model.fields.selection">
+        <field name="name">Wallonia</field>
+        <field name="value">wallonia</field>
+        <field name="sequence">20</field>
+        <field name="field_id" ref="x_funeral_region_override_field_res_company"/>
+    </record>
+    <record id="x_funeral_region_override_selection_brussels" model="ir.model.fields.selection">
+        <field name="name">Brussels-Capital</field>
+        <field name="value">brussels</field>
+        <field name="sequence">30</field>
+        <field name="field_id" ref="x_funeral_region_override_field_res_company"/>
+    </record>
+
+    <record id="x_funeral_region_field_res_company" model="ir.model.fields">
+        <field name="name">x_funeral_region</field>
+        <field name="field_description">Region</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="ttype">selection</field>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="False"/>
+        <field name="depends">x_funeral_region_override, country_id, state_id, zip</field>
+        <field name="compute"><![CDATA[
+for company in self:
+    region = company.x_funeral_region_override or False
+    if not region and company.country_code == 'BE':
+        province = company.state_id.code or ''
+        digits = ''.join(char for char in (company.zip or '') if char.isdigit())
+        if province.startswith('V'):
+            region = 'flanders'
+        elif province.startswith('W'):
+            region = 'wallonia'
+        elif province == 'BRU':
+            region = 'brussels'
+        elif len(digits) == 4:
+            postcode = int(digits)
+            if 1000 <= postcode < 1300:
+                region = 'brussels'
+            elif 1300 <= postcode < 1500 or 4000 <= postcode < 8000:
+                region = 'wallonia'
+            elif 1500 <= postcode < 4000 or 8000 <= postcode < 10000:
+                region = 'flanders'
+    company['x_funeral_region'] = region
+]]></field>
+    </record>
+    <record id="x_funeral_region_selection_flanders" model="ir.model.fields.selection">
+        <field name="name">Flanders</field>
+        <field name="value">flanders</field>
+        <field name="sequence">10</field>
+        <field name="field_id" ref="x_funeral_region_field_res_company"/>
+    </record>
+    <record id="x_funeral_region_selection_wallonia" model="ir.model.fields.selection">
+        <field name="name">Wallonia</field>
+        <field name="value">wallonia</field>
+        <field name="sequence">20</field>
+        <field name="field_id" ref="x_funeral_region_field_res_company"/>
+    </record>
+    <record id="x_funeral_region_selection_brussels" model="ir.model.fields.selection">
+        <field name="name">Brussels-Capital</field>
+        <field name="value">brussels</field>
+        <field name="sequence">30</field>
+        <field name="field_id" ref="x_funeral_region_field_res_company"/>
+    </record>
+</odoo>

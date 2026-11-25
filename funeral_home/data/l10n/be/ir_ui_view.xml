@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!-- Belgian content, shown only to Belgian companies. Texts in the region's language, not translated. -->
+    <!-- Cremation request: picks the regional version. -->
+    <record id="report_cremation_request_be" model="ir.ui.view">
+        <field name="name">Cremation Request (BE)</field>
+        <field name="type">qweb</field>
+        <field name="key">funeral_home.report_cremation_request_be</field>
+        <field name="arch" type="xml">
+            <t t-name="funeral_home.report_cremation_request_be">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-set="o" t-value="doc"/>
+                        <t t-set="fh_region" t-value="doc.company_id.x_funeral_region"/>
+                        <t t-if="doc.company_id.country_code != 'BE'">
+                            <t t-call="funeral_home.report_cremation_request_be_unavailable"/>
+                        </t>
+                        <t t-elif="fh_region == 'flanders'">
+                            <t t-call="funeral_home.report_cremation_request_be_flanders"/>
+                        </t>
+                        <t t-elif="fh_region == 'wallonia'">
+                            <t t-call="funeral_home.report_cremation_request_be_wallonia"/>
+                        </t>
+                        <t t-else="">
+                            <t t-call="funeral_home.report_cremation_request_be_unavailable"/>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <record id="report_cremation_request_be_unavailable" model="ir.ui.view">
+        <field name="name">Cremation Request (BE): No Regional Version</field>
+        <field name="type">qweb</field>
+        <field name="key">funeral_home.report_cremation_request_be_unavailable</field>
+        <field name="arch" type="xml">
+            <t t-name="funeral_home.report_cremation_request_be_unavailable">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Cremation Request</h2>
+                        <p>
+                            No official form is available for the region of
+                            <span t-field="doc.company_id"/>.
+                            Set the company province or zip code, or choose the region on the company form.
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- Flanders: Dutch form. -->
+    <record id="report_cremation_request_be_flanders" model="ir.ui.view">
+        <field name="name">Cremation Request (BE): Flanders</field>
+        <field name="type">qweb</field>
+        <field name="key">funeral_home.report_cremation_request_be_flanders</field>
+        <field name="arch" type="xml">
+            <t t-name="funeral_home.report_cremation_request_be_flanders">
+                <t t-call="web.external_layout">
+                    <div class="page" t-translation="off">
+                        <h2>Verzoek tot crematie</h2>
+                        <p class="text-muted small">Vlaams Gewest – formulierversie POC-2026.1 – voorlopige tekst, te vervangen door het officiële formulier.</p>
+                        <p>
+                            Ondergetekende, <span t-field="doc.partner_id.name"/>,
+                            verzoekt de crematie van het stoffelijk overschot van:
+                        </p>
+                        <table class="table table-sm table-borderless">
+                            <tr><td class="w-50">Naam van de overledene</td><td><span t-field="doc.x_deceased_name"/></td></tr>
+                            <tr><td>Geboortedatum</td><td><span t-field="doc.x_deceased_birth_date"/></td></tr>
+                            <tr><td>Datum van overlijden</td><td><span t-field="doc.x_deceased_death_date"/></td></tr>
+                            <tr><td>Plaats van overlijden</td><td><span t-field="doc.x_deceased_death_place"/></td></tr>
+                            <tr><td>Crematorium</td><td><span t-field="doc.x_crematorium_id"/></td></tr>
+                        </table>
+                        <p><strong>Bestemming van de as</strong></p>
+                        <p>☐ begraving ☐ uitstrooiing ☐ bijzetting in een columbarium ☐ bewaring buiten de begraafplaats</p>
+                        <p class="mt-5">Opgemaakt te ……………………, op ……………………</p>
+                        <p>Handtekening van de aanvrager:</p>
+                        <p class="mt-4">Uitvaartondernemer: <span t-field="doc.company_id.name"/></p>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- Wallonia: French form. -->
+    <record id="report_cremation_request_be_wallonia" model="ir.ui.view">
+        <field name="name">Cremation Request (BE): Wallonia</field>
+        <field name="type">qweb</field>
+        <field name="key">funeral_home.report_cremation_request_be_wallonia</field>
+        <field name="arch" type="xml">
+            <t t-name="funeral_home.report_cremation_request_be_wallonia">
+                <t t-call="web.external_layout">
+                    <div class="page" t-translation="off">
+                        <h2>Demande d’incinération</h2>
+                        <p class="text-muted small">Région wallonne – version du formulaire POC-2026.1 – texte provisoire, à remplacer par le formulaire officiel.</p>
+                        <p>
+                            Le ou la soussigné(e), <span t-field="doc.partner_id.name"/>,
+                            demande l’incinération de la dépouille mortelle de :
+                        </p>
+                        <table class="table table-sm table-borderless">
+                            <tr><td class="w-50">Nom du ou de la défunt(e)</td><td><span t-field="doc.x_deceased_name"/></td></tr>
+                            <tr><td>Date de naissance</td><td><span t-field="doc.x_deceased_birth_date"/></td></tr>
+                            <tr><td>Date du décès</td><td><span t-field="doc.x_deceased_death_date"/></td></tr>
+                            <tr><td>Lieu du décès</td><td><span t-field="doc.x_deceased_death_place"/></td></tr>
+                            <tr><td>Crématorium</td><td><span t-field="doc.x_crematorium_id"/></td></tr>
+                        </table>
+                        <p><strong>Destination des cendres</strong></p>
+                        <p>☐ inhumation ☐ dispersion ☐ placement en columbarium ☐ conservation hors cimetière</p>
+                        <p class="mt-5">Fait à ……………………, le ……………………</p>
+                        <p>Signature du ou de la demandeur(se) :</p>
+                        <p class="mt-4">Entreprise de pompes funèbres : <span t-field="doc.company_id.name"/></p>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!--
+        Legal wording on the order form, with the 14-day withdrawal form.
+        Language: Flanders in Dutch, Wallonia in French; Brussels, or a Belgian
+        company with no region yet, follows the customer language.
+    -->
+    <record id="report_saleorder_document_be_legal" model="ir.ui.view">
+        <field name="name">report_saleorder_document.funeral.be.legal</field>
+        <field name="inherit_id" ref="sale.report_saleorder_document"/>
+        <field name="type">qweb</field>
+        <field name="mode">extension</field>
+        <field name="priority">160</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('page')]" position="inside">
+                <t t-if="doc.company_id.country_code == 'BE'">
+                    <t t-set="fh_region" t-value="doc.company_id.x_funeral_region"/>
+                    <t t-set="fh_dutch" t-value="fh_region == 'flanders' or (fh_region != 'wallonia' and (doc.partner_id.lang or '').startswith('nl'))"/>
+                    <div t-if="fh_dutch" name="x_funeral_legal_be_nl" t-translation="off">
+                        <div class="mt-4 small">
+                            <p><strong>Herroepingsrecht.</strong>
+                                Wanneer deze overeenkomst op afstand of buiten de verkoopruimte wordt gesloten,
+                                beschikt u over een termijn van 14 dagen om de overeenkomst zonder opgave van redenen te herroepen.
+                                U kunt daarvoor het onderstaande modelformulier gebruiken.
+                                Vraagt u uitdrukkelijk dat de dienstverlening tijdens die termijn begint,
+                                dan vervalt het herroepingsrecht zodra de dienst volledig is verricht.</p>
+                        </div>
+                        <div style="page-break-before: always;">
+                            <h4>Modelformulier voor herroeping</h4>
+                            <p class="small">(dit formulier alleen invullen en terugzenden als u de overeenkomst wilt herroepen)</p>
+                            <p>Aan: <span t-field="doc.company_id.partner_id" t-options="{'widget': 'contact', 'fields': ['name', 'address', 'email'], 'no_marker': True}"/></p>
+                            <p>Ik/Wij (*) deel/delen (*) u hierbij mede dat ik/wij (*) onze overeenkomst betreffende de levering van de volgende dienst (*) herroep/herroepen (*):
+                                <span t-field="doc.name"/></p>
+                            <p>Besteld op (*)/ontvangen op (*): ……………………</p>
+                            <p>Naam/Namen consument(en): ……………………</p>
+                            <p>Adres consument(en): ……………………</p>
+                            <p>Handtekening van consument(en) (alleen wanneer dit formulier op papier wordt ingediend): ……………………</p>
+                            <p>Datum: ……………………</p>
+                            <p class="small">(*) Doorhalen wat niet van toepassing is.</p>
+                        </div>
+                    </div>
+                    <div t-else="" name="x_funeral_legal_be_fr" t-translation="off">
+                        <div class="mt-4 small">
+                            <p><strong>Droit de rétractation.</strong>
+                                Lorsque le présent contrat est conclu à distance ou hors établissement,
+                                vous disposez d’un délai de 14 jours pour vous rétracter sans donner de motif.
+                                Vous pouvez utiliser le modèle de formulaire ci-dessous.
+                                Si vous demandez expressément que la prestation commence pendant ce délai,
+                                le droit de rétractation ne s’applique plus une fois le service pleinement exécuté.</p>
+                        </div>
+                        <div style="page-break-before: always;">
+                            <h4>Formulaire de rétractation</h4>
+                            <p class="small">(veuillez compléter et renvoyer le présent formulaire uniquement si vous souhaitez vous rétracter du contrat)</p>
+                            <p>À l’attention de : <span t-field="doc.company_id.partner_id" t-options="{'widget': 'contact', 'fields': ['name', 'address', 'email'], 'no_marker': True}"/></p>
+                            <p>Je/Nous (*) vous notifie/notifions (*) par la présente ma/notre (*) rétractation du contrat portant sur la prestation de services (*) ci-dessous :
+                                <span t-field="doc.name"/></p>
+                            <p>Commandé le (*)/reçu le (*) : ……………………</p>
+                            <p>Nom du (des) consommateur(s) : ……………………</p>
+                            <p>Adresse du (des) consommateur(s) : ……………………</p>
+                            <p>Signature du (des) consommateur(s) (uniquement en cas de notification du présent formulaire sur papier) : ……………………</p>
+                            <p>Date : ……………………</p>
+                            <p class="small">(*) Rayez la mention inutile.</p>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </field>
+    </record>
+</odoo>

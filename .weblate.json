@@ -267,6 +267,11 @@
                 "new_base": "food_trucks/i18n/food_trucks.pot"
             },
             {
+                "name": "funeral_home",
+                "filemask": "funeral_home/i18n/*.po",
+                "new_base": "funeral_home/i18n/funeral_home.pot"
+            },
+            {
                 "name": "furniture_store",
                 "filemask": "furniture_store/i18n/*.po",
                 "new_base": "furniture_store/i18n/furniture_store.pot"

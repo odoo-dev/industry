@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <!--
+        Belgian crematoria, one copy per Belgian company. Re-run on each update.
+        Archived when the company leaves Belgium, restored when it returns.
+    -->
+    <record id="action_apply_country_content_be" model="ir.actions.server">
+        <field name="name">Funeral Home: Apply Country Content (Belgium)</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="parent_id" ref="action_apply_country_content"/>
+        <field name="sequence">10</field>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+KEY_PREFIX = 'FH-BE-'
+# Keep each `key` stable: it is how a database finds the record again.
+CREMATORIA = [
+    {'key': 'FH-BE-CREM-001', 'name': 'Crematorium Westlede', 'city': 'Lochristi'},
+    {'key': 'FH-BE-CREM-002', 'name': 'Crematorium Heimolen', 'city': 'Sint-Niklaas'},
+    {'key': 'FH-BE-CREM-003', 'name': 'Crématorium d’Uccle', 'city': 'Uccle'},
+    {'key': 'FH-BE-CREM-004', 'name': 'Crématorium de Robermont', 'city': 'Liège'},
+    {'key': 'FH-BE-CREM-005', 'name': 'Crématorium de Gilly', 'city': 'Charleroi'},
+]
+# Fields owned by the shipped content.
+SYNCED_FIELDS = ['name', 'city']
+
+shipped_keys = [row['key'] for row in CREMATORIA]
+belgium = env.ref('base.be')
+Partner = env['res.partner'].sudo().with_context(active_test=False)
+companies = records if records else env['res.company'].sudo().search([])
+for company in companies:
+    existing = Partner.search([
+        ('company_id', '=', company.id),
+        ('x_funeral_content_ref', '=like', KEY_PREFIX + '%'),
+    ])
+    if company.country_code != 'BE':
+        existing.filtered('active').write({'active': False, 'x_funeral_sync_archived': True})
+        continue
+
+    by_key = {partner.x_funeral_content_ref: partner for partner in existing}
+    to_create = []
+    for row in CREMATORIA:
+        shipped = {field: row[field] or '' for field in SYNCED_FIELDS}
+        snapshot = '\n'.join('%s=%s' % (field, shipped[field]) for field in SYNCED_FIELDS)
+        partner = by_key.get(row['key'])
+        if not partner:
+            to_create.append(dict(
+                shipped,
+                x_funeral_content_ref=row['key'],
+                x_funeral_content_synced=snapshot,
+                company_id=company.id,
+                country_id=belgium.id,
+                x_is_crematorium=True,
+            ))
+            continue
+
+        # Values shipped at the last sync: a field still holding its last shipped
+        # value was not edited by the user and takes the new shipped value.
+        last = dict(
+            line.split('=', 1)
+            for line in (partner.x_funeral_content_synced or '').splitlines()
+            if '=' in line
+        )
+        vals = {}
+        for field in SYNCED_FIELDS:
+            current = partner[field] or ''
+            if current != shipped[field] and current == last.get(field, current):
+                vals[field] = shipped[field]
+        if partner.x_funeral_content_synced != snapshot:
+            vals['x_funeral_content_synced'] = snapshot
+        if partner.x_funeral_sync_archived:
+            # Archived by the sync (company left Belgium, or entry withdrawn and shipped again).
+            vals['active'] = True
+            vals['x_funeral_sync_archived'] = False
+        if vals:
+            partner.write(vals)
+    if to_create:
+        Partner.create(to_create)
+
+    # Entries no longer shipped.
+    existing.filtered(
+        lambda partner: partner.active and partner.x_funeral_content_ref not in shipped_keys
+    ).write({'active': False, 'x_funeral_sync_archived': True})
+]]></field>
+    </record>
+</odoo>

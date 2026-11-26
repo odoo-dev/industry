@@ -14,6 +14,7 @@
         'sale_planning',
         'sale_timesheet_enterprise',
         'sign',
+        'survey',
         'web_studio',
     ],
     'data': [
@@ -32,7 +33,6 @@
         'data/ir_ui_view.xml',
         'data/ir_actions_act_window.xml',
         'data/ir_ui_menu.xml',
-        'data/x_aml_risk_type.xml',
         'data/mail_activity_type.xml',
         'data/crm_stage.xml',
         'data/knowledge_article.xml',
@@ -52,6 +52,12 @@
         'data/sale_order_template_line.xml',
     ],
     'demo': [
+        'demo/survey_survey.xml',
+        'demo/survey_question.xml',
+        'demo/survey_question_answer.xml',
+        'demo/survey_question_conditional.xml',
+        'demo/survey_user_input.xml',
+        'demo/survey_user_input_line.xml',
         'demo/res_company.xml',
         'demo/x_mandate.xml',
         'demo/res_partner.xml',

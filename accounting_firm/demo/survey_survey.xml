@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="survey_survey_aml_assessment" model="survey.survey">
+        <field name="title">[INTERNAL] AML Risk &amp; Periodic Vigilance Assessment</field>
+        <field name="survey_type">assessment</field>
+        <field name="description"><![CDATA[<p>This survey is strictly internal.<br/>Collected data must never be shared with the client.</p>]]></field>
+        <field name="description_done"><![CDATA[<p>Thank you for this assessment.</p><p>Adjust the client AML risk level if needed.</p>]]></field>
+        <field name="access_mode">token</field>
+        <field name="users_login_required" eval="True"/>
+        <field name="users_can_go_back" eval="True"/>
+        <field name="questions_layout">page_per_section</field>
+        <field name="progression_mode">percent</field>
+        <field name="scoring_type">scoring_with_answers</field>
+        <field name="scoring_success_min">0</field>
+        <field name="user_id" ref="base.user_admin"/>
+    </record>
+    <record id="survey_survey_client_onboarding" model="survey.survey">
+        <field name="title">Client Onboarding – Practical &amp; Transfer Details</field>
+        <field name="survey_type">survey</field>
+        <field name="access_mode">token</field>
+        <field name="scoring_type">no_scoring</field>
+        <field name="user_id" ref="base.user_admin"/>
+    </record>
+    <record id="survey_survey_business_profile" model="survey.survey">
+        <field name="title">Your Business Profile &amp; Accounting Needs</field>
+        <field name="survey_type">survey</field>
+        <field name="access_mode">token</field>
+        <field name="scoring_type">no_scoring</field>
+        <field name="user_id" ref="base.user_admin"/>
+    </record>
+</odoo>

@@ -1,55 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <!-- AML Risk type fields -->
-    <record id="x_name_field_x_aml_risk_type" model="ir.model.fields">
-        <field name="name">x_name</field>
-        <field name="field_description">Risk</field>
-        <field name="model_id" ref="x_aml_risk_type_model"/>
-        <field name="ttype">char</field>
-    </record>
-    
-    <!-- AML Risk fields -->
-    <record id="x_risk_type_field_x_aml_risk" model="ir.model.fields">
-        <field name="name">x_risk_type</field>
-        <field name="field_description">Risk</field>
-        <field name="model_id" ref="x_aml_risk_model"/>
-        <field name="ttype">many2one</field>
-        <field name="relation">x_aml_risk_type</field>
-    </record>
-    <record id="x_level_field_x_aml_risk" model="ir.model.fields">
-        <field name="name">x_level</field>
-        <field name="field_description">Level</field>
-        <field name="model_id" ref="x_aml_risk_model"/>
-        <field name="ttype">selection</field>
-    </record>
-    <record id="x_level_risk_field_selection_low" model="ir.model.fields.selection">
-        <field name="name">Low</field>
-        <field name="field_id" ref="x_level_field_x_aml_risk" />
-        <field name="value">low</field>
-    </record>
-    <record id="x_level_risk_field_selection_standard" model="ir.model.fields.selection">
-        <field name="name">Standard</field>
-        <field name="field_id" ref="x_level_field_x_aml_risk" />
-        <field name="value">standard</field>
-    </record>
-    <record id="x_level_risk_field_selection_high" model="ir.model.fields.selection">
-        <field name="name">High</field>
-        <field name="field_id" ref="x_level_field_x_aml_risk" />
-        <field name="value">high</field>
-    </record>
-    <record id="x_explanation_field_x_aml_risk" model="ir.model.fields">
-        <field name="name">x_explanation</field>
-        <field name="field_description">Explanation</field>
-        <field name="model_id" ref="x_aml_risk_model"/>
-        <field name="ttype">text</field>
-    </record>
-    <record id="x_risk_partner_id_field_x_aml_risk" model="ir.model.fields">
-        <field name="name">x_risk_partner_id</field>
-        <field name="field_description">Partner</field>
-        <field name="model_id" ref="x_aml_risk_model"/>
-        <field name="ttype">many2one</field>
-        <field name="relation">res.partner</field>
-    </record>
     <record id="x_relation_nature_field_res_partner" model="ir.model.fields">
         <field name="name">x_relation_nature</field>
         <field name="field_description">Relation Nature</field>
@@ -75,13 +25,26 @@
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="ttype">date</field>
     </record>
-    <record id="x_risk_ids_field_res_partner" model="ir.model.fields">
-        <field name="name">x_risk_ids</field>
-        <field name="field_description">Risks</field>
+    <record id="x_aml_risk_level_field_res_partner" model="ir.model.fields">
+        <field name="name">x_aml_risk_level</field>
+        <field name="field_description">AML Risk Level</field>
         <field name="model_id" ref="base.model_res_partner"/>
-        <field name="ttype">one2many</field>
-        <field name="relation">x_aml_risk</field>
-        <field name="relation_field">x_risk_partner_id</field>
+        <field name="ttype">selection</field>
+    </record>
+    <record id="x_aml_risk_level_field_selection_low" model="ir.model.fields.selection">
+        <field name="name">Low</field>
+        <field name="field_id" ref="x_aml_risk_level_field_res_partner"/>
+        <field name="value">low</field>
+    </record>
+    <record id="x_aml_risk_level_field_selection_standard" model="ir.model.fields.selection">
+        <field name="name">Standard</field>
+        <field name="field_id" ref="x_aml_risk_level_field_res_partner"/>
+        <field name="value">standard</field>
+    </record>
+    <record id="x_aml_risk_level_field_selection_high" model="ir.model.fields.selection">
+        <field name="name">High</field>
+        <field name="field_id" ref="x_aml_risk_level_field_res_partner"/>
+        <field name="value">high</field>
     </record>
 
 
@@ -398,6 +361,42 @@ for record in self:
         <field name="model_id" ref="analytic.model_account_analytic_line"/>
         <field name="ttype">selection</field>
         <field name="related">task_id.state</field>
+        <field name="store" eval="False"/>
+    </record>
+
+    <!-- AML Assessment fields -->
+    <record id="x_aml_assessee_field_survey_user_input" model="ir.model.fields">
+        <field name="name">x_aml_assessee</field>
+        <field name="field_description">AML Assessee</field>
+        <field name="model_id" ref="survey.model_survey_user_input"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+        <field name="readonly" eval="True"/>
+    </record>
+    <record id="x_aml_assessment_ids_field_res_partner" model="ir.model.fields">
+        <field name="name">x_aml_assessment_ids</field>
+        <field name="field_description">AML Assessments</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="ttype">one2many</field>
+        <field name="relation">survey.user_input</field>
+        <field name="relation_field">x_aml_assessee</field>
+    </record>
+    <record id="x_aml_survey_field_res_company" model="ir.model.fields">
+        <field name="name">x_aml_survey</field>
+        <field name="field_description">AML Assessment Survey</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">survey.survey</field>
+        <field name="on_delete">set null</field>
+    </record>
+    <record id="x_aml_survey_field_res_config_settings" model="ir.model.fields">
+        <field name="name">x_aml_survey</field>
+        <field name="field_description">Survey</field>
+        <field name="model_id" ref="base_setup.model_res_config_settings"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">survey.survey</field>
+        <field name="related">company_id.x_aml_survey</field>
+        <field name="readonly" eval="False"/>
         <field name="store" eval="False"/>
     </record>
 </odoo>

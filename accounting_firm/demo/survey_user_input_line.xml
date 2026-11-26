@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="survey_user_input_line_aml_1_1" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_2"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_1"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_2" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_3"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_3"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_3" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_4"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_6"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_4" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_5"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_8"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_5" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_6"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_11"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_6" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_8"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_13"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_7" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_8"/>
+        <field name="answer_type">char_box</field>
+        <field name="value_char_box">ert</field>
+    </record>
+    <record id="survey_user_input_line_aml_1_8" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_9"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_16"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_9" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_10"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_18"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_10" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_11"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_21"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_11" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_12"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_23"/>
+    </record>
+    <record id="survey_user_input_line_aml_1_12" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_14"/>
+        <field name="answer_type">text_box</field>
+        <field name="value_text_box">zert(§yèu!i</field>
+    </record>
+    <record id="survey_user_input_line_aml_1_13" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_1"/>
+        <field name="question_id" ref="survey_question_aml_15"/>
+        <field name="answer_type">suggestion</field>
+        <field name="suggested_answer_id" ref="survey_question_answer_aml_27"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_1" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_2"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_2" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_3"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_3" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_4"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_4" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_5"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_5" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_6"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_6" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_8"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_7" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_9"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_8" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_10"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_9" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_11"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_10" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_12"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_11" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_14"/>
+        <field name="skipped" eval="True"/>
+    </record>
+    <record id="survey_user_input_line_aml_4_12" model="survey.user_input.line">
+        <field name="user_input_id" ref="survey_user_input_aml_4"/>
+        <field name="question_id" ref="survey_question_aml_15"/>
+        <field name="skipped" eval="True"/>
+    </record>
+</odoo>

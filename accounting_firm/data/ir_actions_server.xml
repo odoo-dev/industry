@@ -12,6 +12,27 @@ action = {
 }
         ]]></field>
     </record>
+    <record id="action_server_new_aml_assessment" model="ir.actions.server">
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="state">code</field>
+        <field name="name">New AML Assessment</field>
+        <field name="code"><![CDATA[
+aml_survey = env.company.x_aml_survey
+if not aml_survey:
+    raise UserError("No AML Assessment survey defined from the settings.")
+user_input = env['survey.user_input'].create({
+    'survey_id': aml_survey.id,
+    'partner_id': env.user.partner_id.id,
+    'email': env.user.email,
+    'x_aml_assessee': record.id,
+})
+action = {
+    'type': 'ir.actions.act_url',
+    'url': '/survey/start/%s?answer_token=%s' % (aml_survey.access_token, user_input.access_token),
+    'target': 'new',
+}
+]]></field>
+    </record>
     <record id="action_server_request_identity_document" model="ir.actions.server">
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="state">code</field>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="survey_user_input_aml_1" model="survey.user_input">
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="email" model="res.partner" eval="obj().env.ref('base.partner_admin').email"/>
+        <field name="x_aml_assessee" ref="base_industry_data.res_partner_32"/>
+        <field name="test_entry" eval="True"/>
+        <field name="state">done</field>
+        <field name="start_datetime" eval="DateTime.today() - relativedelta(days=2)"/>
+        <field name="end_datetime" eval="DateTime.today() - relativedelta(days=2)"/>
+    </record>
+    <record id="survey_user_input_aml_2" model="survey.user_input">
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="email" model="res.partner" eval="obj().env.ref('base.partner_admin').email"/>
+        <field name="x_aml_assessee" ref="base_industry_data.res_partner_32"/>
+        <field name="test_entry" eval="True"/>
+        <field name="state">in_progress</field>
+        <field name="start_datetime" eval="DateTime.today() - relativedelta(days=2)"/>
+    </record>
+    <record id="survey_user_input_aml_3" model="survey.user_input">
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="email" model="res.partner" eval="obj().env.ref('base.partner_admin').email"/>
+        <field name="x_aml_assessee" ref="base_industry_data.res_partner_32"/>
+        <field name="test_entry" eval="True"/>
+        <field name="state">in_progress</field>
+        <field name="start_datetime" eval="DateTime.today() - relativedelta(days=2)"/>
+    </record>
+    <record id="survey_user_input_aml_4" model="survey.user_input">
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="email" model="res.partner" eval="obj().env.ref('base.partner_admin').email"/>
+        <field name="x_aml_assessee" ref="base_industry_data.res_partner_32"/>
+        <field name="test_entry" eval="True"/>
+        <field name="state">in_progress</field>
+        <field name="start_datetime" eval="DateTime.today() - relativedelta(days=2)"/>
+    </record>
+    <record id="survey_user_input_profile_1" model="survey.user_input">
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="partner_id" ref="base.partner_admin"/>
+        <field name="email" model="res.partner" eval="obj().env.ref('base.partner_admin').email"/>
+        <field name="state">new</field>
+    </record>
+</odoo>

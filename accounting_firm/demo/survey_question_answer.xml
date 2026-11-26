@@ -1,0 +1,477 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1" auto_sequence="1">
+    <record id="survey_question_answer_profile_1" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_2"/>
+        <field name="value">Starting a new business (not yet registered)</field>
+    </record>
+    <record id="survey_question_answer_profile_2" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_2"/>
+        <field name="value">Already active – switching from another accountant</field>
+    </record>
+    <record id="survey_question_answer_profile_3" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_2"/>
+        <field name="value">Already active – currently managing accounting myself</field>
+    </record>
+    <record id="survey_question_answer_aml_1" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_2"/>
+        <field name="value">Scheduled Periodic Review (12 / 24 / 36-month cycle)</field>
+    </record>
+    <record id="survey_question_answer_aml_2" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_2"/>
+        <field name="value">Event-Driven Review (UBO/director change, expired ID, or unusual transaction)</field>
+    </record>
+    <record id="survey_question_answer_aml_4" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_3"/>
+        <field name="value">Planned change, properly documented and updated in UBO register</field>
+        <field name="answer_score">2</field>
+    </record>
+    <record id="survey_question_answer_aml_5" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_3"/>
+        <field name="value">Sudden, frequent, or unexplained changes in directors, UBOs (&gt;25%), or structure</field>
+        <field name="answer_score">10</field>
+    </record>
+    <record id="survey_question_answer_aml_3" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_3"/>
+        <field name="value">No changes since last review</field>
+    </record>
+    <record id="survey_question_answer_profile_4" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_4"/>
+        <field name="value">Other / Not yet decided</field>
+    </record>
+    <record id="survey_question_answer_profile_5" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_4"/>
+        <field name="value">Sole Trader / Freelancer</field>
+    </record>
+    <record id="survey_question_answer_profile_6" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_4"/>
+        <field name="value">ASBL / VZW (Non-profit)</field>
+    </record>
+    <record id="survey_question_answer_profile_7" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_4"/>
+        <field name="value">SA / NV (Public Limited Company)</field>
+    </record>
+    <record id="survey_question_answer_profile_8" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_4"/>
+        <field name="value">SRL / BV (Limited Liability Company)</field>
+    </record>
+    <record id="survey_question_answer_aml_6" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_4"/>
+        <field name="value">No director, UBO, or close associate became a PEP</field>
+    </record>
+    <record id="survey_question_answer_aml_7" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_4"/>
+        <field name="value">Yes, a director, UBO, or close family/business associate now holds a PEP function</field>
+        <field name="answer_score">15</field>
+    </record>
+    <record id="survey_question_answer_onboarding_1" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_5"/>
+        <field name="value">Yes – file transfer from a previous accountant</field>
+    </record>
+    <record id="survey_question_answer_onboarding_2" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_5"/>
+        <field name="value">No – brand new business / first accountant</field>
+    </record>
+    <record id="survey_question_answer_onboarding_3" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_5"/>
+        <field name="value">No – previously managed internally without an accountant</field>
+    </record>
+    <record id="survey_question_answer_aml_8" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_5"/>
+        <field name="value">No significant change in activity or countries of operation</field>
+    </record>
+    <record id="survey_question_answer_aml_9" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_5"/>
+        <field name="value">Expansion into a high-risk sector (Horeca, construction, real estate, crypto, second-hand vehicles) or FATF high-risk countries</field>
+        <field name="answer_score">12</field>
+    </record>
+    <record id="survey_question_answer_profile_9" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_6"/>
+        <field name="value">December (standard 31/12)</field>
+    </record>
+    <record id="survey_question_answer_profile_10" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_6"/>
+        <field name="value">September</field>
+    </record>
+    <record id="survey_question_answer_profile_11" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_6"/>
+        <field name="value">June</field>
+    </record>
+    <record id="survey_question_answer_profile_12" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_6"/>
+        <field name="value">March</field>
+    </record>
+    <record id="survey_question_answer_aml_10" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_6"/>
+        <field name="value">All director/UBO IDs on file are valid and up to date</field>
+    </record>
+    <record id="survey_question_answer_aml_11" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_6"/>
+        <field name="value">ID expired recently, renewal requested</field>
+        <field name="answer_score">5</field>
+    </record>
+    <record id="survey_question_answer_aml_12" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_6"/>
+        <field name="value">Client avoids or refuses to provide renewed ID / UBO confirmation</field>
+        <field name="answer_score">20</field>
+    </record>
+    <record id="survey_question_answer_profile_13" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_7"/>
+        <field name="value">Quarterly VAT returns (standard for most SMEs)</field>
+    </record>
+    <record id="survey_question_answer_profile_14" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_7"/>
+        <field name="value">VAT Exempt – Small business scheme (&lt; €25,000 turnover)</field>
+    </record>
+    <record id="survey_question_answer_profile_15" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_7"/>
+        <field name="value">VAT Exempt – Medical, paramedical, or exempt profession (Art. 44)</field>
+    </record>
+    <record id="survey_question_answer_profile_16" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_7"/>
+        <field name="value">I don't know yet</field>
+    </record>
+    <record id="survey_question_answer_profile_17" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_7"/>
+        <field name="value">Monthly VAT returns</field>
+    </record>
+    <record id="survey_question_answer_aml_14" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_8"/>
+        <field name="value">Unexplained invoices, fictitious-looking services, or flows unrelated to the core business</field>
+        <field name="answer_score">10</field>
+    </record>
+    <record id="survey_question_answer_aml_13" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_8"/>
+        <field name="value">Sales/purchase invoices and bank flows align with the company's declared activity</field>
+    </record>
+    <record id="survey_question_answer_profile_18" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_9"/>
+        <field name="value">16 – 30</field>
+    </record>
+    <record id="survey_question_answer_profile_19" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_9"/>
+        <field name="value">0 – 15</field>
+    </record>
+    <record id="survey_question_answer_profile_20" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_9"/>
+        <field name="value">31 – 60</field>
+    </record>
+    <record id="survey_question_answer_profile_21" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_9"/>
+        <field name="value">61 – 120</field>
+    </record>
+    <record id="survey_question_answer_profile_22" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_9"/>
+        <field name="value">More than 120</field>
+    </record>
+    <record id="survey_question_answer_onboarding_4" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_9"/>
+        <field name="value">Pending final invoice</field>
+    </record>
+    <record id="survey_question_answer_onboarding_5" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_9"/>
+        <field name="value">Currently under dispute</field>
+    </record>
+    <record id="survey_question_answer_onboarding_6" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_9"/>
+        <field name="value">Yes, fully paid</field>
+    </record>
+    <record id="survey_question_answer_aml_16" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_9"/>
+        <field name="value">Moderate debit balance with a clear repayment schedule</field>
+        <field name="answer_score">2</field>
+    </record>
+    <record id="survey_question_answer_aml_17" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_9"/>
+        <field name="value">Large unexplained cash withdrawals or rapidly growing debit current account</field>
+        <field name="answer_score">8</field>
+    </record>
+    <record id="survey_question_answer_aml_15" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_9"/>
+        <field name="value">Balanced, credit, or normal documented remuneration pattern</field>
+    </record>
+    <record id="survey_question_answer_profile_23" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_10"/>
+        <field name="value">0 – 15</field>
+    </record>
+    <record id="survey_question_answer_profile_24" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_10"/>
+        <field name="value">61 – 120</field>
+    </record>
+    <record id="survey_question_answer_profile_25" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_10"/>
+        <field name="value">More than 120</field>
+    </record>
+    <record id="survey_question_answer_profile_26" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_10"/>
+        <field name="value">16 – 30</field>
+    </record>
+    <record id="survey_question_answer_profile_27" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_10"/>
+        <field name="value">31 – 60</field>
+    </record>
+    <record id="survey_question_answer_aml_20" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_10"/>
+        <field name="value">Unexplained spike in cash deposits, repeated breaches &gt; €3,000, or split invoices ("smurfing")</field>
+        <field name="answer_score">15</field>
+    </record>
+    <record id="survey_question_answer_aml_19" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_10"/>
+        <field name="value">Isolated cash payment &gt; €3,000 detected and formally notified to client in writing</field>
+        <field name="answer_score">4</field>
+    </record>
+    <record id="survey_question_answer_aml_18" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_10"/>
+        <field name="value">Consistent with expected profile; no payments &gt; €3,000 observed</field>
+    </record>
+    <record id="survey_question_answer_profile_28" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_11"/>
+        <field name="value">Odoo Invoicing</field>
+    </record>
+    <record id="survey_question_answer_profile_29" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_11"/>
+        <field name="value">Word / Excel / PDF templates</field>
+    </record>
+    <record id="survey_question_answer_profile_30" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_11"/>
+        <field name="value">Cash register / POS system (B2C retail / Horeca)</field>
+    </record>
+    <record id="survey_question_answer_profile_31" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_11"/>
+        <field name="value">External invoicing software (e.g., Teamleader, Billit, Shopify)</field>
+    </record>
+    <record id="survey_question_answer_aml_21" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_11"/>
+        <field name="value">None observed (or shareholder loan/capital increase with verified bank origin)</field>
+    </record>
+    <record id="survey_question_answer_aml_22" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_11"/>
+        <field name="value">Unexplained incoming transfers from unrelated third parties, foreign accounts, or undocumented loans</field>
+        <field name="answer_score">12</field>
+    </record>
+    <record id="survey_question_answer_profile_32" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_12"/>
+        <field name="value">2 – 3 accounts</field>
+    </record>
+    <record id="survey_question_answer_profile_33" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_12"/>
+        <field name="value">4 or more accounts</field>
+    </record>
+    <record id="survey_question_answer_profile_34" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_12"/>
+        <field name="value">1 account</field>
+    </record>
+    <record id="survey_question_answer_aml_25" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_12"/>
+        <field name="value">Persistent evasion or refusal to explain specific transactions or missing invoices</field>
+        <field name="answer_score">10</field>
+    </record>
+    <record id="survey_question_answer_aml_23" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_12"/>
+        <field name="value">Responsive and transparent when asked for contracts or transaction details</field>
+    </record>
+    <record id="survey_question_answer_aml_24" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_12"/>
+        <field name="value">Occasional administrative delays, resolved after standard reminders</field>
+        <field name="answer_score">1</field>
+    </record>
+    <record id="survey_question_answer_profile_35" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_13"/>
+        <field name="value">Yes, occasionally</field>
+    </record>
+    <record id="survey_question_answer_profile_36" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_13"/>
+        <field name="value">Yes, daily cash register</field>
+    </record>
+    <record id="survey_question_answer_profile_37" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_13"/>
+        <field name="value">No (100% electronic/bank)</field>
+    </record>
+    <record id="survey_question_answer_onboarding_7" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_13"/>
+        <field name="value">Yes, use the primary IBAN listed in Q5</field>
+    </record>
+    <record id="survey_question_answer_onboarding_8" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_13"/>
+        <field name="value">No, I will provide a different IBAN</field>
+    </record>
+    <record id="survey_question_answer_profile_38" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_14"/>
+        <field name="value">Yes, within the European Union</field>
+    </record>
+    <record id="survey_question_answer_profile_39" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_14"/>
+        <field name="value">Yes, outside the European Union</field>
+    </record>
+    <record id="survey_question_answer_profile_40" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_14"/>
+        <field name="value">No, locally only</field>
+    </record>
+    <record id="survey_question_answer_aml_28" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_15"/>
+        <field name="value">Suspicious facts identified, escalate immediately to AML Compliance Officer (MLRO) for potential CTIF-CFI analysis (do not alert the client)</field>
+    </record>
+    <record id="survey_question_answer_aml_26" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_15"/>
+        <field name="value">Maintain current risk classification</field>
+    </record>
+    <record id="survey_question_answer_aml_27" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_aml_15"/>
+        <field name="value">Reclassify as High Risk, review with Partner</field>
+    </record>
+    <record id="survey_question_answer_profile_41" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_16"/>
+        <field name="value">6 – 20 employees</field>
+    </record>
+    <record id="survey_question_answer_profile_42" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_16"/>
+        <field name="value">More than 20 employees</field>
+    </record>
+    <record id="survey_question_answer_profile_43" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_16"/>
+        <field name="value">0 (Director / Freelancer only)</field>
+    </record>
+    <record id="survey_question_answer_profile_44" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_16"/>
+        <field name="value">1 – 5 employees</field>
+    </record>
+    <record id="survey_question_answer_onboarding_9" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_16"/>
+        <field name="value">Acerta</field>
+    </record>
+    <record id="survey_question_answer_onboarding_10" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_16"/>
+        <field name="value">Xerius</field>
+    </record>
+    <record id="survey_question_answer_onboarding_11" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_16"/>
+        <field name="value">Liantis</field>
+    </record>
+    <record id="survey_question_answer_onboarding_12" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_16"/>
+        <field name="value">Other / Not yet affiliated</field>
+    </record>
+    <record id="survey_question_answer_onboarding_13" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_16"/>
+        <field name="value">Partena Professional</field>
+    </record>
+    <record id="survey_question_answer_profile_45" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_17"/>
+        <field name="value">Not yet selected</field>
+    </record>
+    <record id="survey_question_answer_profile_46" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_17"/>
+        <field name="value">Liantis</field>
+    </record>
+    <record id="survey_question_answer_profile_47" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_17"/>
+        <field name="value">Securex</field>
+    </record>
+    <record id="survey_question_answer_profile_48" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_17"/>
+        <field name="value">Partena</field>
+    </record>
+    <record id="survey_question_answer_onboarding_14" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_17"/>
+        <field name="value">Yes</field>
+    </record>
+    <record id="survey_question_answer_onboarding_15" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_17"/>
+        <field name="value">No</field>
+    </record>
+    <record id="survey_question_answer_profile_49" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_20"/>
+        <field name="value">Tax &amp; Advisory Only: I only need assistance with year-end closing and tax returns.</field>
+    </record>
+    <record id="survey_question_answer_profile_50" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_20"/>
+        <field name="value">Supervision / Co-sourcing: My team or I handle daily bookkeeping in our software; your firm reviews quarterly and prepares year-end closing &amp; taxes.</field>
+    </record>
+    <record id="survey_question_answer_profile_51" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_20"/>
+        <field name="value">Full Outsourcing: I upload my invoices/receipts; your firm handles all bookkeeping, VAT, and year-end filings.</field>
+    </record>
+    <record id="survey_question_answer_profile_52" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_21"/>
+        <field name="value">None / Starting fresh</field>
+    </record>
+    <record id="survey_question_answer_profile_53" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_21"/>
+        <field name="value">WinBooks</field>
+    </record>
+    <record id="survey_question_answer_profile_54" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_21"/>
+        <field name="value">Exact Online</field>
+    </record>
+    <record id="survey_question_answer_profile_55" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_21"/>
+        <field name="value">Odoo Accounting</field>
+    </record>
+    <record id="survey_question_answer_profile_56" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_22"/>
+        <field name="value">Director remuneration &amp; tax optimization study</field>
+    </record>
+    <record id="survey_question_answer_profile_57" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_22"/>
+        <field name="value">Historical catch-up bookkeeping (previous quarters/years)</field>
+    </record>
+    <record id="survey_question_answer_profile_58" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_22"/>
+        <field name="value">Financial plan (for company incorporation or bank loan)</field>
+    </record>
+    <record id="survey_question_answer_profile_59" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_profile_22"/>
+        <field name="value">Personal Income Tax return (IPP) for me (and my partner)</field>
+    </record>
+    <record id="survey_question_answer_onboarding_16" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_22"/>
+        <field name="value">Billit</field>
+    </record>
+    <record id="survey_question_answer_onboarding_17" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_22"/>
+        <field name="value">None yet – I want to use your portal</field>
+    </record>
+    <record id="survey_question_answer_onboarding_18" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_22"/>
+        <field name="value">Odoo</field>
+    </record>
+    <record id="survey_question_answer_onboarding_19" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_22"/>
+        <field name="value">Accountable</field>
+    </record>
+    <record id="survey_question_answer_onboarding_20" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_24"/>
+        <field name="value">Yes, via another platform (Billit, Isabel, etc.)</field>
+    </record>
+    <record id="survey_question_answer_onboarding_21" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_24"/>
+        <field name="value">Yes, via Odoo</field>
+    </record>
+    <record id="survey_question_answer_onboarding_22" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_24"/>
+        <field name="value">No, please help us activate Peppol reception/emission</field>
+    </record>
+    <record id="survey_question_answer_onboarding_23" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_29"/>
+        <field name="value">No – foreign director without Belgian eID/itsme®</field>
+    </record>
+    <record id="survey_question_answer_onboarding_24" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_29"/>
+        <field name="value">Yes, ready to sign via itsme® or eID</field>
+    </record>
+    <record id="survey_question_answer_onboarding_25" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_30"/>
+        <field name="value">English</field>
+    </record>
+    <record id="survey_question_answer_onboarding_26" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_30"/>
+        <field name="value">French</field>
+    </record>
+    <record id="survey_question_answer_onboarding_27" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_30"/>
+        <field name="value">German</field>
+    </record>
+    <record id="survey_question_answer_onboarding_28" model="survey.question.answer">
+        <field name="question_id" ref="survey_question_onboarding_30"/>
+        <field name="value">Dutch</field>
+    </record>
+</odoo>

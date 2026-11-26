@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1" auto_sequence="1">
+    <!-- aml -->
+    <record id="survey_question_aml_1" model="survey.question">
+        <field name="title">Governance, PEP &amp; Activity Deltas (Since Last Review)</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_aml_2" model="survey.question">
+        <field name="title">Review Trigger</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+    </record>
+    <record id="survey_question_aml_3" model="survey.question">
+        <field name="title">Unreported Changes in Ownership, Directors, or Legal Structure</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_4" model="survey.question">
+        <field name="title">New Politically Exposed Person (PEP) Status</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_5" model="survey.question">
+        <field name="title">Pivot in Business Activity or Geographic Exposure</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_6" model="survey.question">
+        <field name="title">ID Validity &amp; KYC Document Status</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_7" model="survey.question">
+        <field name="title">Ledger &amp; Behavioral Red Flags (Observed in Odoo Accounting)</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_aml_8" model="survey.question">
+        <field name="title">Consistency Between Booked Invoices and Statutory Activity</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_9" model="survey.question">
+        <field name="title">Director's Current Account</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_10" model="survey.question">
+        <field name="title">Cash Anomalies &amp; €3,000 Cash Payment Limit</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_11" model="survey.question">
+        <field name="title">Unusual Loans, Capital Injections, or Third-Party Transfers</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_12" model="survey.question">
+        <field name="title">Client Cooperation &amp; Justification Transparency</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_aml_13" model="survey.question">
+        <field name="title">Reviewer Conclusion &amp; Escalation</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_aml_14" model="survey.question">
+        <field name="title">Reviewer Notes &amp; Justification</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">text_box</field>
+        <field name="constr_mandatory" eval="True"/>
+    </record>
+    <record id="survey_question_aml_15" model="survey.question">
+        <field name="title">Compliance Action</field>
+        <field name="survey_id" ref="survey_survey_aml_assessment"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <!-- onboarding -->
+    <record id="survey_question_onboarding_1" model="survey.question">
+        <field name="title">Legal Identification &amp; Predecessor Handover</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_onboarding_2" model="survey.question">
+        <field name="title">Full official legal name of your company or business</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_3" model="survey.question">
+        <field name="title">Enterprise Number (BCE / KBO) and VAT Number</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_4" model="survey.question">
+        <field name="title">Official registered office address (street, postal code, city)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_5" model="survey.question">
+        <field name="title">Are we taking over your file from a previous accountant?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_6" model="survey.question">
+        <field name="title">Name of your previous accounting firm</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_7" model="survey.question">
+        <field name="title">Contact person and email address at your previous firm</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_8" model="survey.question">
+        <field name="title">What was the last closed financial year (or last submitted VAT period)?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_9" model="survey.question">
+        <field name="title">Are all fees with your previous accountant settled?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_10" model="survey.question">
+        <field name="title">Banking Setup (CODA Bank Feeds &amp; SEPA Direct Debit)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_onboarding_11" model="survey.question">
+        <field name="title">Primary professional bank name and IBAN (for daily CODA bank feeds)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_12" model="survey.question">
+        <field name="title">Additional professional bank accounts / IBANs to connect (if any)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">text_box</field>
+    </record>
+    <record id="survey_question_onboarding_13" model="survey.question">
+        <field name="title">Should we use your primary IBAN above for the SEPA Direct Debit of our monthly/quarterly fees?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_14" model="survey.question">
+        <field name="title">IBAN to use for SEPA Direct Debit</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_15" model="survey.question">
+        <field name="title">Social Security, Payroll &amp; Insurance Providers</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_onboarding_16" model="survey.question">
+        <field name="title">Which Social Insurance Fund manages your self-employed / director social contributions?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_17" model="survey.question">
+        <field name="title">Do you employ salaried staff?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_18" model="survey.question">
+        <field name="title">Name of your Social Secretariat and your payroll file manager's email</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_19" model="survey.question">
+        <field name="title">Employer ONSS / RSZ registration number (if known)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_20" model="survey.question">
+        <field name="title">Name and email of your business insurance broker / company (for annual balance sheet &amp; tax deductibility certificates)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_21" model="survey.question">
+        <field name="title">Digital Tools, E-Invoicing (Peppol) &amp; Day-to-Day Contacts</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_onboarding_22" model="survey.question">
+        <field name="title">Which software do you use for invoicing or day-to-day management?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_23" model="survey.question">
+        <field name="title">Your Odoo database URL (e.g., mycompany.odoo.com) and confirmation that you invited our firm as administrator/accountant</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_24" model="survey.question">
+        <field name="title">Is your business already registered on the Belgian Peppol network for electronic invoicing?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_25" model="survey.question">
+        <field name="title">Who is our main day-to-day contact for missing invoices and bookkeeping questions?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_26" model="survey.question">
+        <field name="title">Who should receive our firm's fee invoices and payment reminders (if different from day-to-day main contact)?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_onboarding_27" model="survey.question">
+        <field name="title">Governance, UBO &amp; Government Mandate Readiness</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_onboarding_28" model="survey.question">
+        <field name="title">List all legal directors/managers and any individual holding &gt;25% of shares or voting rights (Full Name &amp; Email)</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">text_box</field>
+    </record>
+    <record id="survey_question_onboarding_29" model="survey.question">
+        <field name="title">Does the legal representative have an active Belgian eID (with PIN) or itsme® app to approve CSAM / MyMinfin tax mandates this week?</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_onboarding_30" model="survey.question">
+        <field name="title">Preferred language for official tax correspondence and annual accounts</field>
+        <field name="survey_id" ref="survey_survey_client_onboarding"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <!-- profile -->
+    <record id="survey_question_profile_1" model="survey.question">
+        <field name="title">Entity Profile &amp; Tax Regime</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_profile_2" model="survey.question">
+        <field name="title">What is your current business situation?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_3" model="survey.question">
+        <field name="title">Name and email of your current accountant (for mandatory ethical clearance)</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_profile_4" model="survey.question">
+        <field name="title">What is your legal structure?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_5" model="survey.question">
+        <field name="title">What are your business name and enterprise number?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">char_box</field>
+    </record>
+    <record id="survey_question_profile_6" model="survey.question">
+        <field name="title">What is your financial year-end closing month?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_profile_7" model="survey.question">
+        <field name="title">What is your current or expected VAT regime?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_8" model="survey.question">
+        <field name="title">Transaction Volume &amp; Operational Complexity</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_profile_9" model="survey.question">
+        <field name="title">Estimated number of purchase invoices and expense receipts per month</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_10" model="survey.question">
+        <field name="title">Estimated number of sales invoices issued per month</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_11" model="survey.question">
+        <field name="title">How do you currently generate your sales invoices?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_12" model="survey.question">
+        <field name="title">How many professional bank accounts and business credit cards do you use?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_13" model="survey.question">
+        <field name="title">Does your business handle physical cash payments?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_14" model="survey.question">
+        <field name="title">Do you buy or sell goods/services abroad?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_15" model="survey.question">
+        <field name="title">Team, Payroll &amp; Directors</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_profile_16" model="survey.question">
+        <field name="title">How many salaried employees do you currently employ?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_profile_17" model="survey.question">
+        <field name="title">Which Social Secretariat manages your payroll?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+        <field name="constr_mandatory" eval="True"/>
+        <field name="comments_allowed" eval="True"/>
+        <field name="comment_count_as_answer" eval="True"/>
+    </record>
+    <record id="survey_question_profile_18" model="survey.question">
+        <field name="title">How many directors / managing partners are active in the company?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">numerical_box</field>
+    </record>
+    <record id="survey_question_profile_19" model="survey.question">
+        <field name="title">Collaboration Model &amp; Scope of Services</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="is_page" eval="True"/>
+    </record>
+    <record id="survey_question_profile_20" model="survey.question">
+        <field name="title">How would you like to split the accounting work with our firm?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+    </record>
+    <record id="survey_question_profile_21" model="survey.question">
+        <field name="title">Which accounting software are you currently using (or planning to use)?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">simple_choice</field>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_profile_22" model="survey.question">
+        <field name="title">Which additional services would you like included in our proposal?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">multiple_choice</field>
+        <field name="comments_allowed" eval="True"/>
+    </record>
+    <record id="survey_question_profile_23" model="survey.question">
+        <field name="title">When would you like our collaboration to start?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">date</field>
+    </record>
+    <record id="survey_question_profile_24" model="survey.question">
+        <field name="title">Anything else we should know about your activity or specific deadlines?</field>
+        <field name="survey_id" ref="survey_survey_business_profile"/>
+        <field name="question_type">text_box</field>
+    </record>
+</odoo>

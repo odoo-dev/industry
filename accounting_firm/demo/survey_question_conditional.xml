@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo noupdate="1">
+    <record id="survey_question_onboarding_6" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_1'))]"/>
+    </record>
+    <record id="survey_question_onboarding_7" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_1'))]"/>
+    </record>
+    <record id="survey_question_onboarding_8" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_1'))]"/>
+    </record>
+    <record id="survey_question_onboarding_9" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_1'))]"/>
+    </record>
+    <record id="survey_question_onboarding_14" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_8'))]"/>
+    </record>
+    <record id="survey_question_onboarding_18" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_14'))]"/>
+    </record>
+    <record id="survey_question_onboarding_19" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_14'))]"/>
+    </record>
+    <record id="survey_question_onboarding_23" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_onboarding_18'))]"/>
+    </record>
+    <record id="survey_question_profile_3" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_profile_2'))]"/>
+    </record>
+    <record id="survey_question_profile_5" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_profile_2')), Command.link(ref('survey_question_answer_profile_3'))]"/>
+    </record>
+    <record id="survey_question_profile_6" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_profile_8')), Command.link(ref('survey_question_answer_profile_7')), Command.link(ref('survey_question_answer_profile_6')), Command.link(ref('survey_question_answer_profile_4'))]"/>
+    </record>
+    <record id="survey_question_profile_17" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_profile_8')), Command.link(ref('survey_question_answer_profile_7')), Command.link(ref('survey_question_answer_profile_6')), Command.link(ref('survey_question_answer_profile_4'))]"/>
+    </record>
+    <record id="survey_question_profile_18" model="survey.question">
+        <field name="triggering_answer_ids" eval="[Command.link(ref('survey_question_answer_profile_8')), Command.link(ref('survey_question_answer_profile_7')), Command.link(ref('survey_question_answer_profile_6')), Command.link(ref('survey_question_answer_profile_4'))]"/>
+    </record>
+</odoo>
